@@ -1,0 +1,7 @@
+// Negative test: calling undefined method on object
+वर्ग छात्र {
+    मान नाम = "राम";
+}
+
+मान स = नवीन छात्र();
+स.अज्ञात_विधि();

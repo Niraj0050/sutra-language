@@ -1,0 +1,6 @@
+// Negative test: wrong argument count
+कार्य योग(संख्या क, संख्या ख) {
+    परत् क + ख;
+}
+
+योग(10);

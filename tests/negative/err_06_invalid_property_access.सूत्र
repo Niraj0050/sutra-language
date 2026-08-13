@@ -1,0 +1,3 @@
+// Negative test: invalid property access on non-object
+मान संख्या_मान = 42;
+लिखतु(संख्या_मान.नाम);

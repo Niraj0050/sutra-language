@@ -1,0 +1,9 @@
+CompileFlags:
+  Add:
+    - "-I"
+    - "D:/my project/सूत्र/संकलक/include"
+    - "-I"
+    - "संकलक/include"
+    - "-std=c++17"
+    - "-xc++"
+    - "--target=x86_64-w64-windows-gnu"

@@ -1,0 +1,8 @@
+// Negative test: duplicate function declaration
+कार्य गणन() {
+    परत् 1;
+}
+
+कार्य गणन() {
+    परत् 2;
+}

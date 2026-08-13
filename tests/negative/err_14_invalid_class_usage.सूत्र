@@ -1,0 +1,2 @@
+// Negative test: instantiating undefined class
+मान स = नवीन अज्ञात_वर्ग();

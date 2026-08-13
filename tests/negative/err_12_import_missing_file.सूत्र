@@ -1,0 +1,2 @@
+// Negative test: import missing file
+आयात "अविद्यमान_सञ्चिका.सूत्र";

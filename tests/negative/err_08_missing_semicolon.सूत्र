@@ -1,0 +1,2 @@
+// Negative test: missing semicolon
+मान x = 10

@@ -1,0 +1,30 @@
+FEATURE | SUPPORTED | TESTED | TEST LOCATION
+Standard Output (लिखतु) | YES | YES | Section 1
+Display Output (दर्शयतु) | YES | YES | Section 1
+Line Output (पंक्तिं) | YES | YES | Section 1
+Variable Declaration (मान) | YES | YES | Section 2
+Typed Variable Alias (संख्या/दशमलव/पाठ/बूल/सूची) | YES | YES | Section 2, 7
+Variable Reassignment | YES | YES | Section 2
+Integer Literals (ASCII & Devanagari) | YES | YES | Section 2, 3, 9, 10
+Float Literals (ASCII & Devanagari) | YES | YES | Section 2
+String Literals & Escapes | YES | YES | Section 1, 2, 3
+Boolean Literals (सत्य / असत्य) | YES | YES | Section 2, 4, 5
+Null Literal (शून्यम्) | YES | YES | Section 2
+Array Literals & Subscript ([...] / arr[i]) | YES | YES | Section 7
+Array Index Assignment (arr[i] = val) | YES | YES | Section 7
+Arithmetic Operators (+, -, *, /, %) | YES | YES | Section 3, 10
+Unary Minus (-num) | YES | YES | Section 3
+String Concatenation (+) | YES | YES | Section 2, 3
+Comparison Operators (==, !=, >, <, >=, <=) | YES | YES | Section 4, 10
+Logical Operators (&&, ||, !, तथा, अथवा, न) | YES | YES | Section 4
+If-Else Conditionals (यदि, अगर, अन्यथा) | YES | YES | Section 5, 11
+While Loops (यावत्, जबतक) | YES | YES | Section 6
+For Loop (पुनरावृत्तिः) | YES | YES | Section 10
+Break Statement (विरामः) | YES | YES | Section 11
+Function Declaration & Call (कार्य, परत्) | YES | YES | Section 8
+Function Parameters & Return Values | YES | YES | Section 8
+Single-line & Multi-line Comments (//, /* */) | YES | YES | Section 9
+Console Input (पठतु) | YES | NO (Interactive) | Builtin function
+REPL Terminal Mode | YES | YES | Interactive
+Classes / OOP (वर्ग, नवीन, स्व) | NO | NO | Not in Parser
+Try / Catch Error Handling | NO | NO | Not implemented

@@ -1,0 +1,2 @@
+// Negative test: invalid assignment target
+10 = 20;

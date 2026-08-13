@@ -1,0 +1,7 @@
+// Circular import test for Sutra
+
+आयात "circular_a.सूत्र";
+
+लिखतु("=== Circular Import Test ===");
+लिखतु("परिणाम:");
+लिखतु(फ_a() + फ_b());

@@ -1,0 +1,5 @@
+// Sutra Console Input Example
+
+लिखतु("तव नाम किम्? (Enter your name):");
+मान नाम = पठतु();
+लिखतु("सुस्वागतम्, " + नाम + "!");

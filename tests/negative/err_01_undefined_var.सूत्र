@@ -1,0 +1,2 @@
+// Negative test: undefined variable
+लिखतु(अज्ञात_चर);

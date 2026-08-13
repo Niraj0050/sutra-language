@@ -1,0 +1,3 @@
+// Negative test: missing closing brace
+यदि (सत्य) {
+    लिखतु("परीक्षण");

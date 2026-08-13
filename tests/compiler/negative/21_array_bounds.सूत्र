@@ -1,0 +1,5 @@
+कार्य मुख्य() {
+    सूची अंक = [1, 2];
+    // This should trigger index out of bounds runtime check
+    लिखतु(अंक[2]);
+}

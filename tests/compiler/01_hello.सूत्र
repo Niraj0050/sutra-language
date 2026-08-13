@@ -1,0 +1,4 @@
+// Native Compiler Test 01: Hello / Print
+कार्य मुख्य() {
+    लिखतु(100);
+}
