@@ -1,6 +1,16 @@
 #include "sutra/environment.hpp"
+#include "sutra/स्मृतिसंग्राहक.hpp"
 
 namespace sutra {
+
+Environment::Environment(std::shared_ptr<Environment> parent)
+    : m_parent(std::move(parent)) {
+    GarbageCollector::get_instance().register_environment(this);
+}
+
+Environment::~Environment() {
+    GarbageCollector::get_instance().unregister_environment(this);
+}
 
 void Environment::define(const std::string& name, SutraValue value) {
     m_values[name] = std::move(value);

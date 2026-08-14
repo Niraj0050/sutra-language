@@ -16,8 +16,11 @@ static const std::unordered_map<std::string, TokenType> SUTRA_KEYWORDS = {
     {"जबतक", TokenType::K_JABTAK},
     {"पठतु", TokenType::K_PATHATU},
     {"विरामः", TokenType::K_VIRAMAH},
+    {"तोड़ो", TokenType::K_VIRAMAH},
     {"जारीरह", TokenType::K_JARIRAH},
     {"अग्रिमः", TokenType::K_JARIRAH},
+    {"जारीरखो", TokenType::K_JARIRAH},
+    {"जारी_रखो", TokenType::K_JARIRAH},
     {"प्रयत्न", TokenType::K_PRAYATNA},
     {"प्रयासः", TokenType::K_PRAYATNA},
     {"पकड़ो", TokenType::K_PAKADO},
@@ -93,6 +96,7 @@ std::string token_type_to_string(TokenType type) {
         case TokenType::INT_LITERAL: return "INT_LITERAL";
         case TokenType::FLOAT_LITERAL: return "FLOAT_LITERAL";
         case TokenType::STRING_LITERAL: return "STRING_LITERAL";
+        case TokenType::CHAR_LITERAL: return "CHAR_LITERAL";
 
         case TokenType::PLUS: return "PLUS (+)";
         case TokenType::MINUS: return "MINUS (-)";
@@ -119,6 +123,7 @@ std::string token_type_to_string(TokenType type) {
         case TokenType::COMMA: return "COMMA ,";
         case TokenType::SEMICOLON: return "SEMICOLON ;";
         case TokenType::DOT: return "DOT .";
+        case TokenType::COLON: return "COLON :";
         case TokenType::END_OF_FILE: return "END_OF_FILE";
         default: return "UNKNOWN_TOKEN";
     }

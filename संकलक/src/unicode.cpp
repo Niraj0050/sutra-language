@@ -53,6 +53,31 @@ std::string encode_utf8(uint32_t cp) {
     return out;
 }
 
+size_t utf8_codepoint_count(const std::string& str) {
+    size_t count = 0;
+    size_t i = 0;
+
+    while (i < str.size()) {
+        unsigned char c = static_cast<unsigned char>(str[i]);
+
+        if (c < 0x80) {
+            ++i;
+        } else if ((c & 0xE0) == 0xC0) {
+            i += 2;
+        } else if ((c & 0xF0) == 0xE0) {
+            i += 3;
+        } else if ((c & 0xF8) == 0xF0) {
+            i += 4;
+        } else {
+            ++i;
+        }
+
+        ++count;
+    }
+
+    return count;
+}
+
 bool is_devanagari_letter(uint32_t cp) {
     // Independent vowels U+0904..U+0914, Consonants U+0915..U+0939, Additional letters U+0958..U+0961, U+0972..U+097F
     return (cp >= 0x0904 && cp <= 0x0939) ||

@@ -130,6 +130,27 @@ void IRModule::dump(std::ostream& os) const {
                 case IROpcode::STRING_LENGTH:
                     os << "%" << inst.dest << " = str_length " << inst.arg1.to_string() << "\n";
                     break;
+                case IROpcode::STRING_UPPER:
+                    os << "%" << inst.dest << " = str_upper " << inst.arg1.to_string() << "\n";
+                    break;
+                case IROpcode::STRING_LOWER:
+                    os << "%" << inst.dest << " = str_lower " << inst.arg1.to_string() << "\n";
+                    break;
+                case IROpcode::STRING_LT:
+                    os << "%" << inst.dest << " = str_lt " << inst.arg1.to_string() << ", " << inst.arg2.to_string() << "\n";
+                    break;
+                case IROpcode::STRING_GT:
+                    os << "%" << inst.dest << " = str_gt " << inst.arg1.to_string() << ", " << inst.arg2.to_string() << "\n";
+                    break;
+                case IROpcode::STRING_LE:
+                    os << "%" << inst.dest << " = str_le " << inst.arg1.to_string() << ", " << inst.arg2.to_string() << "\n";
+                    break;
+                case IROpcode::STRING_GE:
+                    os << "%" << inst.dest << " = str_ge " << inst.arg1.to_string() << ", " << inst.arg2.to_string() << "\n";
+                    break;
+                case IROpcode::STRING_GET:
+                    os << "%" << inst.dest << " = str_get " << inst.arg1.to_string() << ", " << inst.arg2.to_string() << "\n";
+                    break;
                 case IROpcode::ARRAY_CREATE:
                     os << "%" << inst.dest << " = arr_create " << inst.arg1.int_val << "\n";
                     break;

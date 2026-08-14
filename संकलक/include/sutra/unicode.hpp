@@ -13,6 +13,10 @@ uint32_t decode_utf8(const std::string& str, size_t& index);
 // Encode codepoint to UTF-8 string
 std::string encode_utf8(uint32_t codepoint);
 
+// Count Unicode codepoints in a UTF-8 string. This matches the Sutra language
+// expectation that पाठ length reflects characters, not raw byte length.
+size_t utf8_codepoint_count(const std::string& str);
+
 // Character classification for Sanskrit / Devanagari and ASCII
 bool is_devanagari_letter(uint32_t cp);
 bool is_devanagari_combining(uint32_t cp); // Matras, Visarga, Anusvara, Virama, etc.

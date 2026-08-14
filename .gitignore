@@ -1,9 +1,13 @@
 build/
+build*/
 *.exe
 *.o
+*.obj
+*.pdb
 *.s
 .cache/
 .vscode/
 compile_commands.json
 out.txt
 err.txt
+*.log

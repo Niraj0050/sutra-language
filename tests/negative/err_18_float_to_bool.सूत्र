@@ -1,0 +1,4 @@
+कार्य मुख्य() {
+    // Expected type mismatch error
+    मान सही: तर्क = 99.5;
+}

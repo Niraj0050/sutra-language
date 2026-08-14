@@ -1,0 +1,26 @@
+कार्य योगः(पूर्णांक अ, बड़ा_पूर्णांक ब) {
+    परत् अ + ब;
+}
+
+कार्य मुख्य() {
+    // 1. Multiple variables of different sizes & types
+    मान क: तर्क = सत्य;
+    मान ख: पूर्णांक = 100;
+    मान ग: बड़ा_पूर्णांक = 2000000000;
+    मान घ: दशमलव = 10.5;
+    मान च: अक्षर = 'म';
+    मान छ: पाठ = "नमस्ते";
+
+    // 2. Function parameters layout
+    लिखतु(योगः(ख, ग));
+
+    // 3. Nested scopes & variable lifetime
+    {
+        मान क: पूर्णांक = 5;
+        लिखतु(क); // Prints 5
+    }
+    लिखतु(क); // Prints outer variable (सत्य)
+
+    // 4. String reference/storage
+    लिखतु(छ);
+}

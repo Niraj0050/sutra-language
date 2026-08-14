@@ -1,8 +1,10 @@
 #include "sutra/parser.hpp"
 #include "sutra/lexer.hpp"
+#include "sutra/runtime/filesystem.hpp"
 #include <fstream>
 #include <sstream>
 #include <filesystem>
+#include <iostream>
 
 namespace fs = std::filesystem;
 
@@ -112,13 +114,13 @@ std::unique_ptr<ProgramASTNode> Parser::parse_program() {
             if (!m_current_file_path.empty()) {
                 fs::path parent_dir = fs::path(m_current_file_path).parent_path();
                 fs::path candidate = parent_dir / target_path;
-                if (fs::exists(candidate)) {
+                if (runtime::fs_exists(candidate.string())) {
                     resolved_path = candidate;
                 }
             }
 
-            if (!fs::exists(resolved_path)) {
-                if (fs::exists(target_path)) {
+            if (!runtime::fs_exists(resolved_path.string())) {
+                if (runtime::fs_exists(target_path.string())) {
                     resolved_path = target_path;
                 } else {
                     throw ParserError("आयात-सञ्चिका न प्राप्ता (Import file not found): '" + raw_path + "'", l, c);
@@ -129,14 +131,12 @@ std::unique_ptr<ProgramASTNode> Parser::parse_program() {
             if (m_imported_files->find(abs_import_path) == m_imported_files->end()) {
                 m_imported_files->insert(abs_import_path);
 
-                std::ifstream file(resolved_path);
-                if (!file.is_open()) {
+                std::string code;
+                try {
+                    code = runtime::fs_read(resolved_path.string());
+                } catch (...) {
                     throw ParserError("आयात-सञ्चिका उद्घाटयितुम् न शक्यते: '" + resolved_path.string() + "'", l, c);
                 }
-
-                std::stringstream buffer;
-                buffer << file.rdbuf();
-                std::string code = buffer.str();
 
                 Lexer lexer(code);
                 auto tokens = lexer.tokenize();
@@ -212,10 +212,28 @@ std::unique_ptr<FunctionDeclASTNode> Parser::parse_function_decl() {
     std::vector<FunctionParam> params;
     if (!check(TokenType::RPAREN)) {
         do {
-            Token type_tok = advance();
-            std::string t_name = type_tok.lexeme;
-            Token param_name_tok = consume(TokenType::IDENTIFIER, "तर्कस्य नाम अपेक्षितम्");
-            params.push_back({t_name, param_name_tok.lexeme});
+            Token first_tok = peek();
+            if (check(TokenType::IDENTIFIER) || 
+                first_tok.type == TokenType::K_SANKHYA ||
+                first_tok.type == TokenType::K_DASHAMLAV ||
+                first_tok.type == TokenType::K_PATH ||
+                first_tok.type == TokenType::K_BOOL ||
+                first_tok.type == TokenType::K_MAAN ||
+                first_tok.type == TokenType::K_SUCHI) {
+                
+                if (peek_next().type == TokenType::IDENTIFIER) {
+                    // Typed parameter (e.g. संख्या क or छात्र क)
+                    Token type_tok = advance();
+                    Token name_tok = consume(TokenType::IDENTIFIER, "तर्कस्य नाम अपेक्षितम्");
+                    params.push_back({type_tok.lexeme, name_tok.lexeme});
+                } else {
+                    // Untyped parameter (e.g. क)
+                    Token name_tok = consume(TokenType::IDENTIFIER, "तर्कस्य नाम अपेक्षितम्");
+                    params.push_back({"मान", name_tok.lexeme});
+                }
+            } else {
+                throw ParserError("तर्कस्य नाम अपेक्षितम् (प्राप्तम्: '" + first_tok.lexeme + "')", first_tok.line, first_tok.column);
+            }
         } while (match(TokenType::COMMA));
     }
 
@@ -315,10 +333,18 @@ std::unique_ptr<StmtASTNode> Parser::parse_statement() {
         }
 
         if (auto arr_idx = dynamic_cast<ArrayIndexExprASTNode*>(expr.get())) {
-            if (auto id_expr = dynamic_cast<IdentifierExprASTNode*>(arr_idx->array_expr.get())) {
+            std::vector<std::unique_ptr<ExprASTNode>> index_chain;
+            std::unique_ptr<ExprASTNode> current = std::move(expr);
+
+            while (auto nested = dynamic_cast<ArrayIndexExprASTNode*>(current.get())) {
+                index_chain.insert(index_chain.begin(), std::move(nested->index_expr));
+                current = std::move(nested->array_expr);
+            }
+
+            if (auto id_expr = dynamic_cast<IdentifierExprASTNode*>(current.get())) {
                 return std::make_unique<ArrayIndexAssignStmtASTNode>(
                     id_expr->name,
-                    std::move(arr_idx->index_expr),
+                    std::move(index_chain),
                     std::move(val),
                     line, col
                 );
@@ -339,6 +365,22 @@ std::unique_ptr<VarDeclStmtASTNode> Parser::parse_var_decl() {
 
     Token var_name_tok = consume(TokenType::IDENTIFIER, "चरस्य नाम अपेक्षितम्");
 
+    std::string type_name = type_tok.lexeme;
+
+    if (type_tok.type == TokenType::K_MAAN && match(TokenType::COLON)) {
+        const Token& type_name_tok = peek();
+        if (type_name_tok.type == TokenType::IDENTIFIER ||
+            type_name_tok.type == TokenType::K_SANKHYA ||
+            type_name_tok.type == TokenType::K_DASHAMLAV ||
+            type_name_tok.type == TokenType::K_PATH ||
+            type_name_tok.type == TokenType::K_BOOL) {
+            Token explicit_type = advance();
+            type_name = explicit_type.lexeme;
+        } else {
+            throw ParserError("प्रकारस्य नाम अपेक्षितम् (Type name expected)", peek().line, peek().column);
+        }
+    }
+
     std::unique_ptr<ExprASTNode> initializer = nullptr;
     if (match(TokenType::ASSIGN)) {
         initializer = parse_expression();
@@ -347,7 +389,7 @@ std::unique_ptr<VarDeclStmtASTNode> Parser::parse_var_decl() {
     consume(TokenType::SEMICOLON, "चरनिर्वचनान्ते ';' अपेक्षितम्");
 
     return std::make_unique<VarDeclStmtASTNode>(
-        type_tok.lexeme,
+        type_name,
         var_name_tok.lexeme,
         std::move(initializer),
         line,
@@ -378,9 +420,12 @@ std::unique_ptr<ArrayIndexAssignStmtASTNode> Parser::parse_array_index_assign_st
     auto val_expr = parse_expression();
     consume(TokenType::SEMICOLON, "वाक्यान्ते ';' अपेक्षितम्");
 
+    std::vector<std::unique_ptr<ExprASTNode>> indexes;
+    indexes.push_back(std::move(idx_expr));
+
     return std::make_unique<ArrayIndexAssignStmtASTNode>(
         arr_tok.lexeme,
-        std::move(idx_expr),
+        std::move(indexes),
         std::move(val_expr),
         arr_tok.line,
         arr_tok.column
@@ -421,7 +466,17 @@ std::unique_ptr<IfStmtASTNode> Parser::parse_if_statement() {
     std::unique_ptr<BlockStmtASTNode> else_branch = nullptr;
 
     if (match(TokenType::K_ANYATHA)) {
-        else_branch = parse_block_statement();
+        // Support 'अन्यथा यदि' / 'अन्यथा अगर' (else-if chaining)
+        if (check(TokenType::K_YADI) || check(TokenType::K_AGAR)) {
+            size_t else_line = previous().line;
+            size_t else_col = previous().column;
+            auto nested_if = parse_if_statement();
+            std::vector<std::unique_ptr<StmtASTNode>> stmts;
+            stmts.push_back(std::move(nested_if));
+            else_branch = std::make_unique<BlockStmtASTNode>(std::move(stmts), else_line, else_col);
+        } else {
+            else_branch = parse_block_statement();
+        }
     }
 
     return std::make_unique<IfStmtASTNode>(
@@ -761,6 +816,10 @@ std::unique_ptr<ExprASTNode> Parser::parse_primary() {
 
     if (match(TokenType::STRING_LITERAL)) {
         return std::make_unique<LiteralExprASTNode>(LiteralType::STRING, tok.lexeme, tok.line, tok.column);
+    }
+
+    if (match(TokenType::CHAR_LITERAL)) {
+        return std::make_unique<LiteralExprASTNode>(LiteralType::CHAR, tok.lexeme, tok.line, tok.column);
     }
 
     if (match(TokenType::K_SATYA)) {

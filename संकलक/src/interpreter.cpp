@@ -1,4 +1,7 @@
 #include "sutra/interpreter.hpp"
+#include "sutra/runtime/runtime.hpp"
+#include "sutra/स्मृतिसंग्राहक.hpp"
+#include "sutra/unicode.hpp"
 #include <cmath>
 #include <algorithm>
 #include <cctype>
@@ -10,6 +13,7 @@ Interpreter::Interpreter() {
 }
 
 void Interpreter::execute_program(const ProgramASTNode& program, std::ostream& out) {
+    runtime::Runtime::get_instance().set_output_stream(&out);
     m_functions.clear();
     m_classes.clear();
 
@@ -36,6 +40,7 @@ void Interpreter::execute_program(const ProgramASTNode& program, std::ostream& o
 }
 
 void Interpreter::execute_repl_program(const ProgramASTNode& program, std::ostream& out) {
+    runtime::Runtime::get_instance().set_output_stream(&out);
     for (const auto& cls : program.classes) {
         m_classes[cls->name] = cls.get();
     }
@@ -50,9 +55,11 @@ void Interpreter::execute_repl_program(const ProgramASTNode& program, std::ostre
 }
 
 SutraValue Interpreter::execute_stmt(const StmtASTNode& stmt, std::shared_ptr<Environment> env, std::ostream& out) {
+    runtime::Runtime::get_instance().set_output_stream(&out);
+    GarbageCollector::get_instance().check_and_collect();
     if (auto print_stmt = dynamic_cast<const PrintStmtASTNode*>(&stmt)) {
         SutraValue val = evaluate_expr(*print_stmt->expression, env);
-        out << val.to_string() << "\n";
+        runtime::Runtime::get_instance().write_line(val.to_string());
         return SutraValue::make_null();
     }
 
@@ -72,19 +79,45 @@ SutraValue Interpreter::execute_stmt(const StmtASTNode& stmt, std::shared_ptr<En
     }
 
     if (auto arr_assign_stmt = dynamic_cast<const ArrayIndexAssignStmtASTNode*>(&stmt)) {
-        SutraValue arr_val = env->get(arr_assign_stmt->array_name, arr_assign_stmt->line, arr_assign_stmt->column);
-        if (arr_val.type != ValueType::LIST) {
-            throw RuntimeError("'" + arr_assign_stmt->array_name + "' सूची न अस्ति।", arr_assign_stmt->line, arr_assign_stmt->column);
+        if (arr_assign_stmt->index_exprs.empty()) {
+            throw RuntimeError("सूचकांक-श्रेणिः रिक्ता (Empty index path)", arr_assign_stmt->line, arr_assign_stmt->column);
         }
-        SutraValue idx_val = evaluate_expr(*arr_assign_stmt->index_expr, env);
-        size_t idx = static_cast<size_t>(idx_val.int_val);
-        if (idx >= arr_val.list_val.size()) {
-            throw RuntimeError("सूच्याः सीमा अतिक्रान्ता (Array index out of bounds)", arr_assign_stmt->line, arr_assign_stmt->column);
+
+        SutraValue current = env->get(arr_assign_stmt->array_name, arr_assign_stmt->line, arr_assign_stmt->column);
+        std::vector<SutraValue> parents;
+        std::vector<size_t> parent_indices;
+
+        for (size_t i = 0; i < arr_assign_stmt->index_exprs.size(); ++i) {
+            SutraValue idx_val = evaluate_expr(*arr_assign_stmt->index_exprs[i], env);
+            if (idx_val.int_val < 0) {
+                throw RuntimeError("अमान्य सूचकांक मान (Index cannot be negative)", arr_assign_stmt->line, arr_assign_stmt->column);
+            }
+            size_t idx = static_cast<size_t>(idx_val.int_val);
+
+            if (current.type != ValueType::LIST) {
+                throw RuntimeError("'" + arr_assign_stmt->array_name + "' सूची न अस्ति।", arr_assign_stmt->line, arr_assign_stmt->column);
+            }
+            if (idx >= current.list_val.size()) {
+                throw RuntimeError("सूच्याः सीमा अतिक्रान्ता (Array index out of bounds)", arr_assign_stmt->line, arr_assign_stmt->column);
+            }
+
+            if (i + 1 == arr_assign_stmt->index_exprs.size()) {
+                SutraValue val = evaluate_expr(*arr_assign_stmt->value_expr, env);
+                current.list_val[idx] = val;
+                for (int p = static_cast<int>(parents.size()) - 1; p >= 0; --p) {
+                    parents[p].list_val[parent_indices[p]] = current;
+                    current = parents[p];
+                }
+                env->assign(arr_assign_stmt->array_name, current, arr_assign_stmt->line, arr_assign_stmt->column);
+                return SutraValue::make_null();
+            }
+
+            parents.push_back(current);
+            parent_indices.push_back(idx);
+            current = current.list_val[idx];
         }
-        SutraValue val = evaluate_expr(*arr_assign_stmt->value_expr, env);
-        arr_val.list_val[idx] = val;
-        env->assign(arr_assign_stmt->array_name, arr_val, arr_assign_stmt->line, arr_assign_stmt->column);
-        return SutraValue::make_null();
+
+        throw RuntimeError("सूचकांक-श्रेणी त्रुटिः (Invalid index assignment)", arr_assign_stmt->line, arr_assign_stmt->column);
     }
 
     if (auto if_stmt = dynamic_cast<const IfStmtASTNode*>(&stmt)) {
@@ -223,12 +256,14 @@ SutraValue Interpreter::evaluate_expr(const ExprASTNode& expr, std::shared_ptr<E
                 return SutraValue::make_bool(lit_expr->value == "सत्य");
             case LiteralType::NULL_VAL:
                 return SutraValue::make_null();
+            case LiteralType::CHAR:
+                return SutraValue::make_char(lit_expr->value);
         }
     }
 
     if (dynamic_cast<const InputExprASTNode*>(&expr)) {
-        std::string input_str;
-        if (std::cin >> input_str) {
+        std::string input_str = runtime::Runtime::get_instance().read();
+        if (!input_str.empty()) {
             try {
                 size_t pos = 0;
                 int64_t i_val = std::stoll(input_str, &pos);
@@ -254,15 +289,43 @@ SutraValue Interpreter::evaluate_expr(const ExprASTNode& expr, std::shared_ptr<E
 
     if (auto arr_idx = dynamic_cast<const ArrayIndexExprASTNode*>(&expr)) {
         SutraValue arr_val = evaluate_expr(*arr_idx->array_expr, env);
-        if (arr_val.type != ValueType::LIST) {
-            throw RuntimeError("सूची न अस्ति।", arr_idx->line, arr_idx->column);
+        if (arr_val.type != ValueType::LIST && arr_val.type != ValueType::STRING) {
+            throw RuntimeError("सूची वा पाठ न अस्ति। (Not a list or string)", arr_idx->line, arr_idx->column);
         }
         SutraValue idx_val = evaluate_expr(*arr_idx->index_expr, env);
-        size_t idx = static_cast<size_t>(idx_val.int_val);
-        if (idx >= arr_val.list_val.size()) {
-            throw RuntimeError("सूच्याः सीमा अतिक्रान्ता (Array index out of bounds)", arr_idx->line, arr_idx->column);
+        if (idx_val.int_val < 0) {
+            throw RuntimeError("अमान्य सूचकांक मान (Index cannot be negative)", arr_idx->line, arr_idx->column);
         }
-        return arr_val.list_val[idx];
+        size_t idx = static_cast<size_t>(idx_val.int_val);
+        
+        if (arr_val.type == ValueType::LIST) {
+            if (idx >= arr_val.list_val.size()) {
+                throw RuntimeError("सूच्याः सीमा अतिक्रान्ता (Array index out of bounds)", arr_idx->line, arr_idx->column);
+            }
+            return arr_val.list_val[idx];
+        } else {
+            // String indexing
+            size_t len = 0;
+            size_t byte_idx = 0;
+            while (byte_idx < arr_val.string_val.size()) {
+                decode_utf8(arr_val.string_val, byte_idx);
+                len++;
+            }
+            if (idx >= len) {
+                throw RuntimeError("पाठस्य सीमा अतिक्रान्ता (String index out of bounds)", arr_idx->line, arr_idx->column);
+            }
+            byte_idx = 0;
+            size_t char_count = 0;
+            while (byte_idx < arr_val.string_val.size()) {
+                size_t prev_byte = byte_idx;
+                decode_utf8(arr_val.string_val, byte_idx);
+                if (char_count == idx) {
+                    return SutraValue::make_string(arr_val.string_val.substr(prev_byte, byte_idx - prev_byte));
+                }
+                char_count++;
+            }
+            return SutraValue::make_null();
+        }
     }
 
     if (auto new_expr = dynamic_cast<const NewExprASTNode*>(&expr)) {
@@ -384,11 +447,20 @@ SutraValue Interpreter::evaluate_expr(const ExprASTNode& expr, std::shared_ptr<E
 
         // Builtin output functions as expression
         if (call_expr->callee == "लिखतु" || call_expr->callee == "दर्शयतु" || call_expr->callee == "पंक्तिं") {
+            std::string out_str = "";
             for (size_t i = 0; i < args.size(); ++i) {
-                if (i > 0) std::cout << " ";
-                std::cout << args[i].to_string();
+                if (i > 0) out_str += " ";
+                out_str += args[i].to_string();
             }
-            std::cout << "\n";
+            runtime::Runtime::get_instance().write_line(out_str);
+            return SutraValue::make_null();
+        }
+        if (call_expr->callee == "संग्रह_करो") {
+            GarbageCollector::get_instance().collect();
+            return SutraValue::make_null();
+        }
+        if (call_expr->callee == "स्मृति_स्थिति") {
+            GarbageCollector::get_instance().print_stats();
             return SutraValue::make_null();
         }
 
@@ -424,7 +496,7 @@ SutraValue Interpreter::evaluate_expr(const ExprASTNode& expr, std::shared_ptr<E
         }
         if (call_expr->callee == "लंबाई") {
             if (args[0].type == ValueType::STRING) {
-                return SutraValue::make_int(static_cast<int64_t>(args[0].string_val.length()));
+                return SutraValue::make_int(static_cast<int64_t>(utf8_codepoint_count(args[0].string_val)));
             }
             if (args[0].type == ValueType::LIST) {
                 return SutraValue::make_int(static_cast<int64_t>(args[0].list_val.size()));
@@ -460,7 +532,7 @@ SutraValue Interpreter::evaluate_expr(const ExprASTNode& expr, std::shared_ptr<E
             return args[0];
         }
 
-        return call_function(call_expr->callee, args, call_expr->line, call_expr->column, std::cout);
+        return call_function(call_expr->callee, args, call_expr->line, call_expr->column, *runtime::Runtime::get_instance().get_output_stream());
     }
 
     if (auto bin_expr = dynamic_cast<const BinaryExprASTNode*>(&expr)) {
@@ -510,6 +582,26 @@ SutraValue Interpreter::evaluate_expr(const ExprASTNode& expr, std::shared_ptr<E
                 if (left.type == ValueType::NULL_VAL) return SutraValue::make_bool(false);
             }
             return SutraValue::make_bool(true);
+        }
+
+        if (left.type == ValueType::STRING && right.type == ValueType::STRING) {
+            auto compare_utf8 = [](const std::string& a, const std::string& b) -> int {
+                size_t i = 0, j = 0;
+                while (i < a.size() && j < b.size()) {
+                    size_t ai = i, bj = j;
+                    uint32_t ca = decode_utf8(a, ai);
+                    uint32_t cb = decode_utf8(b, bj);
+                    if (ca != cb) return (ca < cb) ? -1 : 1;
+                    i = ai; j = bj;
+                }
+                if (i == a.size() && j == b.size()) return 0;
+                return (i == a.size()) ? -1 : 1;
+            };
+
+            if (bin_expr->op == TokenType::LESS) return SutraValue::make_bool(compare_utf8(left.string_val, right.string_val) < 0);
+            if (bin_expr->op == TokenType::GREATER) return SutraValue::make_bool(compare_utf8(left.string_val, right.string_val) > 0);
+            if (bin_expr->op == TokenType::LESS_EQUAL) return SutraValue::make_bool(compare_utf8(left.string_val, right.string_val) <= 0);
+            if (bin_expr->op == TokenType::GREATER_EQUAL) return SutraValue::make_bool(compare_utf8(left.string_val, right.string_val) >= 0);
         }
 
         // Numeric arithmetic & comparison

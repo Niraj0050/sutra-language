@@ -1,0 +1,16 @@
+// Regression test: Nested loops with break and continue
+कार्य मुख्य() {
+    // Outer loop from 1 to 3
+    पुनरावृत्तिः (मान i = 1; i <= 3; i = i + 1) {
+        // Inner loop from 1 to 5
+        पुनरावृत्तिः (मान j = 1; j <= 5; j = j + 1) {
+            अगर (j == 2) {
+                जारीरह; // skips j = 2
+            }
+            अगर (j == 4) {
+                विरामः; // breaks inner loop when j = 4
+            }
+            लिखतु(i * 10 + j);
+        }
+    }
+}

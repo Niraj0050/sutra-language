@@ -32,39 +32,48 @@ static std::string escape_for_gas(const std::string& s) {
 }
 
 std::string NativeCodeGenX86_64::generate_assembly(const IRModule& module) {
-    std::ostringstream ss;
+    std::ostringstream main_ss;
 
-    ss << "  .ident \"Sutra Native Compiler 1.0\"\n";
+    main_ss << "  .ident \"Sutra Native Compiler 1.0\"\n";
     // Declare external C functions
-    ss << "  .def printf; .scl 2; .type 32; .endef\n";
-    ss << "  .def main; .scl 2; .type 32; .endef\n";
-    ss << "  .def sutra_str_alloc; .scl 2; .type 32; .endef\n";
-    ss << "  .def sutra_str_concat; .scl 2; .type 32; .endef\n";
-    ss << "  .def sutra_str_equal; .scl 2; .type 32; .endef\n";
-    ss << "  .def sutra_str_length; .scl 2; .type 32; .endef\n";
-    ss << "  .def sutra_str_print; .scl 2; .type 32; .endef\n";
-    ss << "  .def sutra_arr_create; .scl 2; .type 32; .endef\n";
-    ss << "  .def sutra_arr_get; .scl 2; .type 32; .endef\n";
-    ss << "  .def sutra_arr_set; .scl 2; .type 32; .endef\n";
-    ss << "  .def sutra_arr_length; .scl 2; .type 32; .endef\n";
-    ss << "  .def sutra_print_null; .scl 2; .type 32; .endef\n";
-    ss << "  .def sutra_print_bool; .scl 2; .type 32; .endef\n\n";
+    main_ss << "  .def printf; .scl 2; .type 32; .endef\n";
+    main_ss << "  .def main; .scl 2; .type 32; .endef\n";
+    main_ss << "  .def sutra_str_alloc; .scl 2; .type 32; .endef\n";
+    main_ss << "  .def sutra_str_concat; .scl 2; .type 32; .endef\n";
+    main_ss << "  .def sutra_str_equal; .scl 2; .type 32; .endef\n";
+    main_ss << "  .def sutra_str_length; .scl 2; .type 32; .endef\n";
+    main_ss << "  .def sutra_str_upper; .scl 2; .type 32; .endef\n";
+    main_ss << "  .def sutra_str_lower; .scl 2; .type 32; .endef\n";
+    main_ss << "  .def sutra_str_print; .scl 2; .type 32; .endef\n";
+    main_ss << "  .def sutra_math_sqrt; .scl 2; .type 32; .endef\n";
+    main_ss << "  .def sutra_math_pow; .scl 2; .type 32; .endef\n";
+    main_ss << "  .def sutra_math_abs; .scl 2; .type 32; .endef\n";
+    main_ss << "  .def sutra_math_min; .scl 2; .type 32; .endef\n";
+    main_ss << "  .def sutra_math_max; .scl 2; .type 32; .endef\n";
+    main_ss << "  .def sutra_math_round; .scl 2; .type 32; .endef\n";
+    main_ss << "  .def sutra_list_append; .scl 2; .type 32; .endef\n";
+    main_ss << "  .def sutra_arr_create; .scl 2; .type 32; .endef\n";
+    main_ss << "  .def sutra_arr_get; .scl 2; .type 32; .endef\n";
+    main_ss << "  .def sutra_arr_set; .scl 2; .type 32; .endef\n";
+    main_ss << "  .def sutra_arr_length; .scl 2; .type 32; .endef\n";
+    main_ss << "  .def sutra_print_null; .scl 2; .type 32; .endef\n";
+    main_ss << "  .def sutra_print_bool; .scl 2; .type 32; .endef\n\n";
 
     // Read-only data section: format strings and string literals
-    ss << "  .section .rdata,\"dr\"\n";
-    ss << ".LC_fmt_int:\n";
-    ss << "  .ascii \"%lld\\12\\0\"\n";
+    main_ss << "  .section .rdata,\"dr\"\n";
+    main_ss << ".LC_fmt_int:\n";
+    main_ss << "  .ascii \"%lld\\12\\0\"\n";
 
     for (const auto& kv : module.string_literals) {
         std::string escaped = escape_for_gas(kv.second);
-        ss << ".LC_" << kv.first << ":\n";
-        ss << "  .ascii \"" << escaped << "\\0\"\n";
+        main_ss << ".LC_" << kv.first << ":\n";
+        main_ss << "  .ascii \"" << escaped << "\\0\"\n";
         // Also store byte length as a separate label
-        ss << ".LC_" << kv.first << "_len:\n";
-        ss << "  .quad " << kv.second.size() << "\n";
+        main_ss << ".LC_" << kv.first << "_len:\n";
+        main_ss << "  .quad " << kv.second.size() << "\n";
     }
 
-    ss << "\n  .text\n";
+    main_ss << "\n  .text\n";
 
     for (const auto& func : module.functions) {
         m_stack_offsets.clear();
@@ -73,20 +82,14 @@ std::string NativeCodeGenX86_64::generate_assembly(const IRModule& module) {
         std::string fname = func->name;
         if (fname == "मुख्य") fname = "main";
 
-        ss << "  .globl " << fname << "\n";
-        ss << "  .def " << fname << "; .scl 2; .type 32; .endef\n";
-        ss << fname << ":\n";
-
-        // Prologue — allocate larger frame for string/array operations
-        ss << "  pushq %rbp\n";
-        ss << "  movq %rsp, %rbp\n";
-        ss << "  subq $256, %rsp\n"; // Larger frame for Milestone 3
+        std::ostringstream ss;
 
         // Copy register parameters into stack positions (Windows x86-64 ABI: RCX, RDX, R8, R9)
         const char* reg_params[] = {"%rcx", "%rdx", "%r8", "%r9"};
+        std::ostringstream param_ss;
         for (size_t i = 0; i < func->params.size() && i < 4; ++i) {
             int off = get_or_alloc_stack(func->params[i]);
-            ss << "  movq " << reg_params[i] << ", " << off << "(%rbp)\n";
+            param_ss << "  movq " << reg_params[i] << ", " << off << "(%rbp)\n";
         }
 
         // Generate instructions
@@ -315,6 +318,49 @@ std::string NativeCodeGenX86_64::generate_assembly(const IRModule& module) {
                     ss << "  movq %rax, " << dest_off << "(%rbp)\n";
                     break;
                 }
+                case IROpcode::STRING_UPPER: {
+                    int val_off = get_or_alloc_stack(inst.arg1.str_val);
+                    int dest_off = get_or_alloc_stack(inst.dest);
+                    ss << "  movq " << val_off << "(%rbp), %rcx\n";
+                    ss << "  call sutra_str_upper\n";
+                    ss << "  movq %rax, " << dest_off << "(%rbp)\n";
+                    break;
+                }
+                case IROpcode::STRING_LOWER: {
+                    int val_off = get_or_alloc_stack(inst.arg1.str_val);
+                    int dest_off = get_or_alloc_stack(inst.dest);
+                    ss << "  movq " << val_off << "(%rbp), %rcx\n";
+                    ss << "  call sutra_str_lower\n";
+                    ss << "  movq %rax, " << dest_off << "(%rbp)\n";
+                    break;
+                }
+                case IROpcode::STRING_LT:
+                case IROpcode::STRING_GT:
+                case IROpcode::STRING_LE:
+                case IROpcode::STRING_GE: {
+                    int left_off = get_or_alloc_stack(inst.arg1.str_val);
+                    int right_off = get_or_alloc_stack(inst.arg2.str_val);
+                    int dest_off = get_or_alloc_stack(inst.dest);
+                    ss << "  movq " << left_off << "(%rbp), %rcx\n";
+                    ss << "  movq " << right_off << "(%rbp), %rdx\n";
+                    if (inst.opcode == IROpcode::STRING_LT) ss << "  call sutra_str_less\n";
+                    else if (inst.opcode == IROpcode::STRING_GT) ss << "  call sutra_str_greater\n";
+                    else if (inst.opcode == IROpcode::STRING_LE) ss << "  call sutra_str_less_equal\n";
+                    else ss << "  call sutra_str_greater_equal\n";
+                    ss << "  movq %rax, " << dest_off << "(%rbp)\n";
+                    break;
+                }
+                case IROpcode::STRING_GET: {
+                    // sutra_str_get(s, idx) -> char string pointer
+                    int val_off = get_or_alloc_stack(inst.arg1.str_val);
+                    int idx_off = get_or_alloc_stack(inst.arg2.str_val);
+                    int dest_off = get_or_alloc_stack(inst.dest);
+                    ss << "  movq " << val_off << "(%rbp), %rcx\n";
+                    ss << "  movq " << idx_off << "(%rbp), %rdx\n";
+                    ss << "  call sutra_str_get\n";
+                    ss << "  movq %rax, " << dest_off << "(%rbp)\n";
+                    break;
+                }
                 case IROpcode::ARRAY_CREATE: {
                     // sutra_arr_create(n) -> array pointer
                     int dest_off = get_or_alloc_stack(inst.dest);
@@ -400,9 +446,25 @@ std::string NativeCodeGenX86_64::generate_assembly(const IRModule& module) {
         ss << "  movq %rbp, %rsp\n";
         ss << "  popq %rbp\n";
         ss << "  ret\n\n";
+
+        // Calculate actual frame size dynamically
+        int frame_size = -m_current_stack_offset;
+        frame_size = (frame_size + 15) & ~15; // 16-byte alignment
+        if (frame_size < 32) frame_size = 32; // Shadow space
+
+        // Output function header, prologue, parameter copy, and body to main_ss
+        main_ss << "  .globl " << fname << "\n";
+        main_ss << "  .def " << fname << "; .scl 2; .type 32; .endef\n";
+        main_ss << fname << ":\n";
+        main_ss << "  pushq %rbp\n";
+        main_ss << "  movq %rsp, %rbp\n";
+        main_ss << "  subq $" << frame_size << ", %rsp\n";
+
+        main_ss << param_ss.str();
+        main_ss << ss.str();
     }
 
-    return ss.str();
+    return main_ss.str();
 }
 
 bool NativeCodeGenX86_64::compile_to_binary(const IRModule& module, const std::string& output_exe_path) {

@@ -25,6 +25,7 @@ private:
 
     // Type tracking: register/variable name -> type
     std::unordered_map<std::string, IRValueType> m_type_map;
+    std::unordered_map<std::string, IRValueType> m_func_return_types;
 
     std::string new_temp() {
         return "t" + std::to_string(m_temp_counter++);

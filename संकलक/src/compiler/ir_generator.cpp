@@ -5,9 +5,175 @@
 namespace sutra {
 namespace compiler {
 
+static IRValueType infer_expr_type_static(ExprASTNode* expr, FunctionDeclASTNode* func, const std::vector<std::unique_ptr<FunctionDeclASTNode>>& all_funcs, const std::unordered_map<std::string, IRValueType>& current_func_types) {
+    if (!expr) return IRValueType::INT;
+    
+    if (auto lit = dynamic_cast<LiteralExprASTNode*>(expr)) {
+        if (lit->lit_type == LiteralType::STRING) return IRValueType::STRING;
+        if (lit->lit_type == LiteralType::BOOL) return IRValueType::BOOL;
+        if (lit->lit_type == LiteralType::NULL_VAL) return IRValueType::NULL_VAL;
+        return IRValueType::INT;
+    }
+    
+    if (auto id = dynamic_cast<IdentifierExprASTNode*>(expr)) {
+        if (func) {
+            for (const auto& p : func->params) {
+                if (p.name == id->name) {
+                    if (p.type_name == "पाठ") return IRValueType::STRING;
+                    if (p.type_name == "बूल" || p.type_name == "तर्क") return IRValueType::BOOL;
+                    if (p.type_name == "सूची") return IRValueType::ARRAY;
+                    return IRValueType::INT;
+                }
+            }
+            
+            struct VarDeclScanner {
+                std::string target;
+                FunctionDeclASTNode* f;
+                const std::vector<std::unique_ptr<FunctionDeclASTNode>>& all_f;
+                const std::unordered_map<std::string, IRValueType>& ft;
+                IRValueType found = IRValueType::UNKNOWN;
+                
+                void scan(StmtASTNode* s) {
+                    if (!s || found != IRValueType::UNKNOWN) return;
+                    if (auto decl = dynamic_cast<VarDeclStmtASTNode*>(s)) {
+                        if (decl->var_name == target) {
+                            if (decl->type_name == "पाठ") found = IRValueType::STRING;
+                            else if (decl->type_name == "बूल" || decl->type_name == "तर्क") found = IRValueType::BOOL;
+                            else if (decl->type_name == "सूची") found = IRValueType::ARRAY;
+                            else if (decl->type_name == "मान" && decl->initializer) {
+                                found = infer_expr_type_static(decl->initializer.get(), f, all_f, ft);
+                            } else {
+                                found = IRValueType::INT;
+                            }
+                            return;
+                        }
+                    }
+                    if (auto block = dynamic_cast<BlockStmtASTNode*>(s)) {
+                        for (const auto& child : block->statements) scan(child.get());
+                    } else if (auto if_stmt = dynamic_cast<IfStmtASTNode*>(s)) {
+                        if (if_stmt->then_branch) scan(if_stmt->then_branch.get());
+                        if (if_stmt->else_branch) scan(if_stmt->else_branch.get());
+                    } else if (auto while_stmt = dynamic_cast<WhileStmtASTNode*>(s)) {
+                        if (while_stmt->body) scan(while_stmt->body.get());
+                    } else if (auto for_stmt = dynamic_cast<ForStmtASTNode*>(s)) {
+                        if (for_stmt->init) scan(for_stmt->init.get());
+                        if (for_stmt->body) scan(for_stmt->body.get());
+                    } else if (auto try_catch = dynamic_cast<TryCatchStmtASTNode*>(s)) {
+                        if (try_catch->try_block) scan(try_catch->try_block.get());
+                        if (try_catch->catch_block) scan(try_catch->catch_block.get());
+                    }
+                }
+            };
+            VarDeclScanner scanner{id->name, func, all_funcs, current_func_types, IRValueType::UNKNOWN};
+            if (func->body) {
+                scanner.scan(func->body.get());
+            }
+            if (scanner.found != IRValueType::UNKNOWN) {
+                return scanner.found;
+            }
+        }
+        return IRValueType::INT;
+    }
+    
+    if (auto bin = dynamic_cast<BinaryExprASTNode*>(expr)) {
+        if (bin->op == TokenType::PLUS) {
+            if (infer_expr_type_static(bin->left.get(), func, all_funcs, current_func_types) == IRValueType::STRING ||
+                infer_expr_type_static(bin->right.get(), func, all_funcs, current_func_types) == IRValueType::STRING) {
+                return IRValueType::STRING;
+            }
+        }
+        bool is_bool_op = (bin->op == TokenType::EQUAL || bin->op == TokenType::NOT_EQUAL ||
+                           bin->op == TokenType::LESS || bin->op == TokenType::GREATER ||
+                           bin->op == TokenType::LESS_EQUAL || bin->op == TokenType::GREATER_EQUAL ||
+                           bin->op == TokenType::LOGICAL_AND || bin->op == TokenType::K_TATHA ||
+                           bin->op == TokenType::LOGICAL_OR || bin->op == TokenType::K_ATHAVA);
+        if (is_bool_op) return IRValueType::BOOL;
+        return IRValueType::INT;
+    }
+    
+    if (auto call = dynamic_cast<CallExprASTNode*>(expr)) {
+        if (call->callee == "लिखतु" || call->callee == "दर्शयतु") return IRValueType::INT;
+        if (call->callee == "लंबाई") return IRValueType::INT;
+        if (call->callee == "उच्च" || call->callee == "निम्न") return IRValueType::STRING;
+        auto it = current_func_types.find(call->callee);
+        if (it != current_func_types.end()) {
+            return it->second;
+        }
+    }
+    
+    return IRValueType::INT;
+}
+
+static void find_return_types_static(StmtASTNode* stmt, std::vector<IRValueType>& types, FunctionDeclASTNode* func, const std::vector<std::unique_ptr<FunctionDeclASTNode>>& all_funcs, const std::unordered_map<std::string, IRValueType>& current_func_types) {
+    if (!stmt) return;
+    if (auto block = dynamic_cast<BlockStmtASTNode*>(stmt)) {
+        for (const auto& child : block->statements) {
+            find_return_types_static(child.get(), types, func, all_funcs, current_func_types);
+        }
+    } else if (auto if_stmt = dynamic_cast<IfStmtASTNode*>(stmt)) {
+        if (if_stmt->then_branch) {
+            find_return_types_static(if_stmt->then_branch.get(), types, func, all_funcs, current_func_types);
+        }
+        if (if_stmt->else_branch) {
+            find_return_types_static(if_stmt->else_branch.get(), types, func, all_funcs, current_func_types);
+        }
+    } else if (auto while_stmt = dynamic_cast<WhileStmtASTNode*>(stmt)) {
+        if (while_stmt->body) {
+            find_return_types_static(while_stmt->body.get(), types, func, all_funcs, current_func_types);
+        }
+    } else if (auto for_stmt = dynamic_cast<ForStmtASTNode*>(stmt)) {
+        if (for_stmt->body) {
+            find_return_types_static(for_stmt->body.get(), types, func, all_funcs, current_func_types);
+        }
+    } else if (auto try_catch = dynamic_cast<TryCatchStmtASTNode*>(stmt)) {
+        if (try_catch->try_block) {
+            find_return_types_static(try_catch->try_block.get(), types, func, all_funcs, current_func_types);
+        }
+        if (try_catch->catch_block) {
+            find_return_types_static(try_catch->catch_block.get(), types, func, all_funcs, current_func_types);
+        }
+    } else if (auto ret = dynamic_cast<ReturnStmtASTNode*>(stmt)) {
+        if (ret->value) {
+            types.push_back(infer_expr_type_static(ret->value.get(), func, all_funcs, current_func_types));
+        } else {
+            types.push_back(IRValueType::INT);
+        }
+    }
+}
+
 std::unique_ptr<IRModule> IRGenerator::generate(ProgramASTNode& program, const std::string& module_name) {
     m_module = std::make_unique<IRModule>(module_name);
     m_type_map.clear();
+    m_func_return_types.clear();
+
+    // Initialize function return types
+    for (const auto& func : program.functions) {
+        m_func_return_types[func->name] = IRValueType::INT;
+    }
+
+    // Run passes to resolve function return types
+    for (int pass = 0; pass < 3; ++pass) {
+        for (const auto& func : program.functions) {
+            std::vector<IRValueType> ret_types;
+            if (func->body) {
+                find_return_types_static(func->body.get(), ret_types, func.get(), program.functions, m_func_return_types);
+            }
+            IRValueType inferred = IRValueType::INT;
+            for (auto t : ret_types) {
+                if (t == IRValueType::STRING) {
+                    inferred = IRValueType::STRING;
+                    break;
+                }
+                if (t == IRValueType::BOOL) {
+                    inferred = IRValueType::BOOL;
+                }
+                if (t == IRValueType::ARRAY) {
+                    inferred = IRValueType::ARRAY;
+                }
+            }
+            m_func_return_types[func->name] = inferred;
+        }
+    }
 
     // 1. Process Functions
     for (const auto& func : program.functions) {
@@ -71,6 +237,8 @@ void IRGenerator::visit_function_decl(FunctionDeclASTNode* func) {
             m_type_map[p.name] = IRValueType::STRING;
         } else if (p.type_name == "सूची") {
             m_type_map[p.name] = IRValueType::ARRAY;
+        } else if (p.type_name == "बूल" || p.type_name == "तर्क") {
+            m_type_map[p.name] = IRValueType::INT;
         } else {
             m_type_map[p.name] = IRValueType::INT;
         }
@@ -109,8 +277,8 @@ void IRGenerator::visit_stmt(StmtASTNode* stmt) {
             m_type_map[var_decl->var_name] = IRValueType::STRING;
         } else if (var_decl->type_name == "सूची") {
             m_type_map[var_decl->var_name] = IRValueType::ARRAY;
-        } else if (var_decl->type_name == "बूल") {
-            m_type_map[var_decl->var_name] = IRValueType::INT;
+        } else if (var_decl->type_name == "बूल" || var_decl->type_name == "तर्क") {
+            m_type_map[var_decl->var_name] = IRValueType::BOOL;
         } else {
             m_type_map[var_decl->var_name] = IRValueType::INT;
         }
@@ -140,7 +308,11 @@ void IRGenerator::visit_stmt(StmtASTNode* stmt) {
         m_current_func->instructions.push_back(store);
 
     } else if (auto arr_assign = dynamic_cast<ArrayIndexAssignStmtASTNode*>(stmt)) {
-        // Array element assignment: अंक[i] = val;
+        // Array element assignment: अंक[i] = val; and nested updates like अंक[i][j] = val;
+        if (arr_assign->index_exprs.empty()) {
+            return;
+        }
+
         std::string temp_arr = new_temp();
         IRInstruction load_arr(IROpcode::LOAD);
         load_arr.dest = temp_arr;
@@ -148,14 +320,27 @@ void IRGenerator::visit_stmt(StmtASTNode* stmt) {
         m_current_func->instructions.push_back(load_arr);
         m_type_map[temp_arr] = IRValueType::ARRAY;
 
-        IRValue idx_val = visit_expr(arr_assign->index_expr.get());
-        IRValue val = visit_expr(arr_assign->value_expr.get());
+        for (size_t i = 0; i < arr_assign->index_exprs.size(); ++i) {
+            IRValue idx_val = visit_expr(arr_assign->index_exprs[i].get());
+            if (i + 1 == arr_assign->index_exprs.size()) {
+                IRValue val = visit_expr(arr_assign->value_expr.get());
+                IRInstruction set_inst(IROpcode::ARRAY_SET);
+                set_inst.arg1 = IRValue::make_reg(temp_arr);
+                set_inst.arg2 = idx_val;
+                set_inst.call_args.push_back(val);
+                m_current_func->instructions.push_back(set_inst);
+                break;
+            }
 
-        IRInstruction set_inst(IROpcode::ARRAY_SET);
-        set_inst.arg1 = IRValue::make_reg(temp_arr);
-        set_inst.arg2 = idx_val;
-        set_inst.call_args.push_back(val);
-        m_current_func->instructions.push_back(set_inst);
+            std::string next_temp = new_temp();
+            IRInstruction get_inst(IROpcode::ARRAY_GET);
+            get_inst.dest = next_temp;
+            get_inst.arg1 = IRValue::make_reg(temp_arr);
+            get_inst.arg2 = idx_val;
+            m_current_func->instructions.push_back(get_inst);
+            m_type_map[next_temp] = IRValueType::ARRAY;
+            temp_arr = next_temp;
+        }
 
     } else if (auto print_stmt = dynamic_cast<PrintStmtASTNode*>(stmt)) {
         IRValue val = visit_expr(print_stmt->expression.get());
@@ -416,13 +601,27 @@ IRValue IRGenerator::visit_expr(ExprASTNode* expr) {
         IRValue arr_val = visit_expr(arr_idx->array_expr.get());
         IRValue idx_val = visit_expr(arr_idx->index_expr.get());
 
+        IRValueType arr_type = IRValueType::INT;
+        if (arr_val.kind == IRValue::Kind::REGISTER) {
+            arr_type = get_type(arr_val.str_val);
+        }
+
         std::string temp = new_temp();
-        IRInstruction get_inst(IROpcode::ARRAY_GET);
-        get_inst.dest = temp;
-        get_inst.arg1 = arr_val;
-        get_inst.arg2 = idx_val;
-        m_current_func->instructions.push_back(get_inst);
-        m_type_map[temp] = IRValueType::INT; // array elements are int64
+        if (arr_type == IRValueType::STRING) {
+            IRInstruction get_inst(IROpcode::STRING_GET);
+            get_inst.dest = temp;
+            get_inst.arg1 = arr_val;
+            get_inst.arg2 = idx_val;
+            m_current_func->instructions.push_back(get_inst);
+            m_type_map[temp] = IRValueType::STRING;
+        } else {
+            IRInstruction get_inst(IROpcode::ARRAY_GET);
+            get_inst.dest = temp;
+            get_inst.arg1 = arr_val;
+            get_inst.arg2 = idx_val;
+            m_current_func->instructions.push_back(get_inst);
+            m_type_map[temp] = IRValueType::INT;
+        }
         return IRValue::make_reg(temp);
 
     } else if (auto un_expr = dynamic_cast<UnaryExprASTNode*>(expr)) {
@@ -486,6 +685,24 @@ IRValue IRGenerator::visit_expr(ExprASTNode* expr) {
             (left_type == IRValueType::STRING || right_type == IRValueType::STRING)) {
             std::string temp = new_temp();
             IRInstruction inst(IROpcode::STRING_NOT_EQUAL);
+            inst.dest = temp;
+            inst.arg1 = left;
+            inst.arg2 = right;
+            m_current_func->instructions.push_back(inst);
+            m_type_map[temp] = IRValueType::BOOL;
+            return IRValue::make_reg(temp);
+        }
+
+        // String relational comparisons: lexicographical UTF-8 codepoint ordering
+        if ((bin_expr->op == TokenType::LESS || bin_expr->op == TokenType::GREATER ||
+             bin_expr->op == TokenType::LESS_EQUAL || bin_expr->op == TokenType::GREATER_EQUAL) &&
+            (left_type == IRValueType::STRING || right_type == IRValueType::STRING)) {
+            std::string temp = new_temp();
+            IROpcode rel_op = IROpcode::STRING_LT;
+            if (bin_expr->op == TokenType::GREATER) rel_op = IROpcode::STRING_GT;
+            else if (bin_expr->op == TokenType::LESS_EQUAL) rel_op = IROpcode::STRING_LE;
+            else if (bin_expr->op == TokenType::GREATER_EQUAL) rel_op = IROpcode::STRING_GE;
+            IRInstruction inst(rel_op);
             inst.dest = temp;
             inst.arg1 = left;
             inst.arg2 = right;
@@ -583,6 +800,95 @@ IRValue IRGenerator::visit_expr(ExprASTNode* expr) {
             return IRValue::make_int(0);
         }
 
+        // Handle उच्च / निम्न (string case conversion)
+        if (fname == "उच्च" || fname == "निम्न") {
+            if (!call_expr->arguments.empty()) {
+                IRValue val = visit_expr(call_expr->arguments[0].get());
+                IRValueType val_type = IRValueType::INT;
+                if (val.kind == IRValue::Kind::REGISTER) val_type = get_type(val.str_val);
+
+                std::string temp = new_temp();
+                if (val_type == IRValueType::STRING) {
+                    IRInstruction inst(fname == "उच्च" ? IROpcode::STRING_UPPER : IROpcode::STRING_LOWER);
+                    inst.dest = temp;
+                    inst.arg1 = val;
+                    m_current_func->instructions.push_back(inst);
+                } else {
+                    IRInstruction inst(IROpcode::CONST_STR);
+                    inst.dest = temp;
+                    inst.arg1 = IRValue::make_str("");
+                    m_current_func->instructions.push_back(inst);
+                }
+                m_type_map[temp] = IRValueType::STRING;
+                return IRValue::make_reg(temp);
+            }
+            return IRValue::make_str("");
+        }
+
+        // Handle official stdlib functions already supported by the interpreter.
+        if (fname == "वर्गमूल" || fname == "घात" || fname == "निरपेक्ष" || fname == "न्यूनतम" ||
+            fname == "अधिकतम" || fname == "गोल") {
+            std::vector<IRValue> args;
+            for (const auto& arg : call_expr->arguments) {
+                args.push_back(visit_expr(arg.get()));
+            }
+
+            std::string temp = new_temp();
+            IRInstruction call(IROpcode::CALL);
+            call.dest = temp;
+            call.label = fname == "वर्गमूल" ? "sutra_math_sqrt" :
+                         fname == "घात" ? "sutra_math_pow" :
+                         fname == "निरपेक्ष" ? "sutra_math_abs" :
+                         fname == "न्यूनतम" ? "sutra_math_min" :
+                         fname == "अधिकतम" ? "sutra_math_max" : "sutra_math_round";
+            call.call_args = args;
+            m_current_func->instructions.push_back(call);
+            m_type_map[temp] = IRValueType::INT;
+            return IRValue::make_reg(temp);
+        }
+
+        if (fname == "प्रकार") {
+            if (!call_expr->arguments.empty()) {
+                IRValue val = visit_expr(call_expr->arguments[0].get());
+                IRValueType val_type = IRValueType::INT;
+                if (val.kind == IRValue::Kind::REGISTER) val_type = get_type(val.str_val);
+
+                std::string temp = new_temp();
+                std::string type_name = "संख्या";
+                if (val_type == IRValueType::STRING) type_name = "पाठ";
+                else if (val_type == IRValueType::ARRAY) type_name = "सूची";
+                else if (val_type == IRValueType::BOOL) type_name = "बूल";
+                else if (val_type == IRValueType::NULL_VAL) type_name = "शून्यम्";
+
+                IRInstruction inst(IROpcode::CONST_STR);
+                inst.dest = temp;
+                inst.arg1 = IRValue::make_str(type_name);
+                m_current_func->instructions.push_back(inst);
+                m_type_map[temp] = IRValueType::STRING;
+                return IRValue::make_reg(temp);
+            }
+            return IRValue::make_str("शून्यम्");
+        }
+
+        if (fname == "जोड़ें") {
+            if (!call_expr->arguments.empty()) {
+                std::vector<IRValue> args;
+                for (const auto& arg : call_expr->arguments) {
+                    args.push_back(visit_expr(arg.get()));
+                }
+
+                std::string temp = new_temp();
+                IRInstruction call(IROpcode::CALL);
+                call.dest = temp;
+                call.label = "sutra_list_append";
+                call.call_args = args;
+                m_current_func->instructions.push_back(call);
+                m_type_map[temp] = IRValueType::ARRAY;
+                return IRValue::make_reg(temp);
+            }
+            return IRValue::make_int(0);
+        }
+
         // Generic function call
         std::vector<IRValue> args;
         for (const auto& arg : call_expr->arguments) {
@@ -595,7 +901,13 @@ IRValue IRGenerator::visit_expr(ExprASTNode* expr) {
         call.label = fname;
         call.call_args = args;
         m_current_func->instructions.push_back(call);
-        m_type_map[temp] = IRValueType::INT; // assume int return for generic calls
+        
+        IRValueType ret_type = IRValueType::INT;
+        auto it = m_func_return_types.find(fname);
+        if (it != m_func_return_types.end()) {
+            ret_type = it->second;
+        }
+        m_type_map[temp] = ret_type;
         return IRValue::make_reg(temp);
     }
 

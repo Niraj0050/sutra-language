@@ -28,7 +28,7 @@ public:
 };
 
 // Literal Expression Node
-enum class LiteralType { INT, FLOAT, STRING, BOOL, NULL_VAL };
+enum class LiteralType { INT, FLOAT, STRING, BOOL, NULL_VAL, CHAR };
 
 class LiteralExprASTNode : public ExprASTNode {
 public:
@@ -126,15 +126,20 @@ public:
         : StmtASTNode(l, c), var_name(std::move(v_name)), value(std::move(val)) {}
 };
 
-// Array Subscript Index Assignment Statement Node (अंक[1] = 50;)
+// Array Subscript Index Assignment Statement Node (अंक[1] = 50; / अंक[1][0] = 99;)
 class ArrayIndexAssignStmtASTNode : public StmtASTNode {
 public:
     std::string array_name;
-    std::unique_ptr<ExprASTNode> index_expr;
+    std::vector<std::unique_ptr<ExprASTNode>> index_exprs;
     std::unique_ptr<ExprASTNode> value_expr;
 
     ArrayIndexAssignStmtASTNode(std::string arr_name, std::unique_ptr<ExprASTNode> idx, std::unique_ptr<ExprASTNode> val, size_t l, size_t c)
-        : StmtASTNode(l, c), array_name(std::move(arr_name)), index_expr(std::move(idx)), value_expr(std::move(val)) {}
+        : StmtASTNode(l, c), array_name(std::move(arr_name)), value_expr(std::move(val)) {
+        index_exprs.push_back(std::move(idx));
+    }
+
+    ArrayIndexAssignStmtASTNode(std::string arr_name, std::vector<std::unique_ptr<ExprASTNode>> idxs, std::unique_ptr<ExprASTNode> val, size_t l, size_t c)
+        : StmtASTNode(l, c), array_name(std::move(arr_name)), index_exprs(std::move(idxs)), value_expr(std::move(val)) {}
 };
 
 // Expression Statement Node

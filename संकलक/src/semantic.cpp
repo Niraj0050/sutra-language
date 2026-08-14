@@ -1,4 +1,5 @@
 #include "sutra/semantic.hpp"
+#include "sutra/memory.hpp"
 
 namespace sutra {
 
@@ -21,17 +22,29 @@ bool SemanticAnalyzer::is_declared(const std::string& name) const {
     return false;
 }
 
-void SemanticAnalyzer::declare_variable(const std::string& name, size_t line, size_t col) {
+DataType SemanticAnalyzer::get_variable_type(const std::string& name) const {
+    for (auto it = m_scopes.rbegin(); it != m_scopes.rend(); ++it) {
+        auto found = it->find(name);
+        if (found != it->end()) {
+            return found->second;
+        }
+    }
+    return DataType::UNKNOWN;
+}
+
+void SemanticAnalyzer::declare_variable(const std::string& name, DataType type, size_t line, size_t col) {
     if (m_scopes.empty()) {
         push_scope();
     }
     if (m_scopes.back().find(name) != m_scopes.back().end()) {
         throw SemanticError("'" + name + "' नामकः चरः अस्मिन् कार्यक्षेत्रे पूर्वमेव परिभाषितः अस्ति।", line, col);
     }
-    m_scopes.back().insert(name);
+    m_scopes.back()[name] = type;
 }
 
 void SemanticAnalyzer::analyze(const ProgramASTNode& program) {
+    MemoryModelRegistry::get_instance().reset();
+
     m_functions.clear();
     m_scopes.clear();
 
@@ -48,6 +61,8 @@ void SemanticAnalyzer::analyze(const ProgramASTNode& program) {
     m_functions["दर्शयतु"] = FunctionSymbol{"दर्शयतु", 1, 0, 0};
     m_functions["पंक्तिं"] = FunctionSymbol{"पंक्तिं", 1, 0, 0};
     m_functions["पठतु"] = FunctionSymbol{"पठतु", 0, 0, 0};
+    m_functions["संग्रह_करो"] = FunctionSymbol{"संग्रह_करो", 0, 0, 0};
+    m_functions["स्मृति_स्थिति"] = FunctionSymbol{"स्मृति_स्थिति", 0, 0, 0};
 
     // Standard Library - Math
     m_functions["वर्गमूल"] = FunctionSymbol{"वर्गमूल", 1, 0, 0};
@@ -65,6 +80,7 @@ void SemanticAnalyzer::analyze(const ProgramASTNode& program) {
     m_functions["जोड़ें"] = FunctionSymbol{"जोड़ें", 2, 0, 0};
 
     // Analyze global statements
+    MemoryModelRegistry::get_instance().push_frame("global");
     push_scope();
     for (const auto& stmt : program.global_statements) {
         analyze_statement(*stmt);
@@ -75,6 +91,7 @@ void SemanticAnalyzer::analyze(const ProgramASTNode& program) {
         analyze_function(*func);
     }
     pop_scope();
+    MemoryModelRegistry::get_instance().pop_frame();
 }
 
 void SemanticAnalyzer::init_repl() {
@@ -122,10 +139,17 @@ void SemanticAnalyzer::analyze_repl(const ProgramASTNode& program) {
 }
 
 void SemanticAnalyzer::analyze_function(const FunctionDeclASTNode& func) {
+    MemoryModelRegistry::get_instance().push_frame(func.name);
+
     push_scope();
 
     for (const auto& param : func.params) {
-        declare_variable(param.name, func.line, func.column);
+        DataType type = parse_type_name(param.type_name);
+        declare_variable(param.name, type, func.line, func.column);
+
+        if (auto* frame = MemoryModelRegistry::get_instance().get_current_frame()) {
+            frame->add_variable(param.name, type, m_scopes.size());
+        }
     }
 
     if (func.body) {
@@ -135,24 +159,60 @@ void SemanticAnalyzer::analyze_function(const FunctionDeclASTNode& func) {
     }
 
     pop_scope();
+    MemoryModelRegistry::get_instance().pop_frame();
 }
 
 void SemanticAnalyzer::analyze_statement(const StmtASTNode& stmt) {
     if (auto var_decl = dynamic_cast<const VarDeclStmtASTNode*>(&stmt)) {
+        DataType declared_type = parse_type_name(var_decl->type_name);
+        DataType init_type = DataType::RIKT;
         if (var_decl->initializer) {
             analyze_expression(*var_decl->initializer);
+            init_type = determine_type(*var_decl->initializer);
         }
-        declare_variable(var_decl->var_name, var_decl->line, var_decl->column);
+
+        if (declared_type == DataType::UNKNOWN) {
+            if (var_decl->initializer) {
+                declared_type = init_type;
+            } else {
+                declared_type = DataType::RIKT;
+            }
+        } else {
+            if (var_decl->initializer) {
+                if (!is_assignable(declared_type, init_type)) {
+                    throw SemanticError("त्रुटि: '" + var_decl->var_name + "' के लिए अपेक्षित प्रकार '" +
+                                        data_type_to_string(declared_type) + "' है, लेकिन '" +
+                                        data_type_to_string(init_type) + "' प्राप्त हुआ।",
+                                        var_decl->line, var_decl->column);
+                }
+            }
+        }
+        declare_variable(var_decl->var_name, declared_type, var_decl->line, var_decl->column);
+
+        if (auto* frame = MemoryModelRegistry::get_instance().get_current_frame()) {
+            frame->add_variable(var_decl->var_name, declared_type, m_scopes.size());
+        }
     } else if (auto assign_stmt = dynamic_cast<const AssignStmtASTNode*>(&stmt)) {
         if (!is_declared(assign_stmt->var_name)) {
             throw SemanticError("'" + assign_stmt->var_name + "' नामकः चरः अपरिभाषितः अस्ति।", assign_stmt->line, assign_stmt->column);
         }
         analyze_expression(*assign_stmt->value);
+
+        DataType target_type = get_variable_type(assign_stmt->var_name);
+        DataType val_type = determine_type(*assign_stmt->value);
+        if (!is_assignable(target_type, val_type)) {
+            throw SemanticError("त्रुटि: '" + assign_stmt->var_name + "' के लिए अपेक्षित प्रकार '" +
+                                data_type_to_string(target_type) + "' है, लेकिन '" +
+                                data_type_to_string(val_type) + "' प्राप्त हुआ।",
+                                assign_stmt->line, assign_stmt->column);
+        }
     } else if (auto arr_assign_stmt = dynamic_cast<const ArrayIndexAssignStmtASTNode*>(&stmt)) {
         if (!is_declared(arr_assign_stmt->array_name)) {
             throw SemanticError("'" + arr_assign_stmt->array_name + "' नामकः चरः अपरिभाषितः अस्ति।", arr_assign_stmt->line, arr_assign_stmt->column);
         }
-        analyze_expression(*arr_assign_stmt->index_expr);
+        for (const auto& idx_expr : arr_assign_stmt->index_exprs) {
+            analyze_expression(*idx_expr);
+        }
         analyze_expression(*arr_assign_stmt->value_expr);
     } else if (auto print_stmt = dynamic_cast<const PrintStmtASTNode*>(&stmt)) {
         analyze_expression(*print_stmt->expression);
@@ -214,7 +274,7 @@ void SemanticAnalyzer::analyze_statement(const StmtASTNode& stmt) {
         pop_scope();
 
         push_scope();
-        declare_variable(try_catch->catch_var_name, try_catch->line, try_catch->column);
+        declare_variable(try_catch->catch_var_name, DataType::UNKNOWN, try_catch->line, try_catch->column);
         for (const auto& s : try_catch->catch_block->statements) {
             analyze_statement(*s);
         }
@@ -281,6 +341,119 @@ void SemanticAnalyzer::analyze_expression(const ExprASTNode& expr) {
             analyze_expression(*arg);
         }
     }
+}
+
+DataType SemanticAnalyzer::determine_type(const ExprASTNode& expr) {
+    if (auto lit_expr = dynamic_cast<const LiteralExprASTNode*>(&expr)) {
+        switch (lit_expr->lit_type) {
+            case LiteralType::INT: {
+                try {
+                    long long val = std::stoll(lit_expr->value);
+                    if (val >= -2147483648LL && val <= 2147483647LL) {
+                        return DataType::POORNAK;
+                    }
+                    return DataType::BADA_POORNAK;
+                } catch (const std::out_of_range&) {
+                    throw SemanticError("त्रुटि: पूर्णांक संख्यायाः मानं अधिकं वर्तते (Numeric overflow)", lit_expr->line, lit_expr->column);
+                }
+            }
+            case LiteralType::FLOAT:
+                return DataType::DASHAMLAV;
+            case LiteralType::STRING:
+                return DataType::PAATH;
+            case LiteralType::BOOL:
+                return DataType::TARK;
+            case LiteralType::NULL_VAL:
+                return DataType::RIKT;
+            case LiteralType::CHAR:
+                return DataType::AKSHAR;
+        }
+    }
+
+    if (auto id_expr = dynamic_cast<const IdentifierExprASTNode*>(&expr)) {
+        if (id_expr->name == "स्व") return DataType::UNKNOWN;
+        return get_variable_type(id_expr->name);
+    }
+
+    if (auto bin_expr = dynamic_cast<const BinaryExprASTNode*>(&expr)) {
+        DataType left = determine_type(*bin_expr->left);
+        DataType right = determine_type(*bin_expr->right);
+
+        // String concatenation
+        if (bin_expr->op == TokenType::PLUS && (left == DataType::PAATH || right == DataType::PAATH)) {
+            return DataType::PAATH;
+        }
+
+        // Logic operators
+        if (bin_expr->op == TokenType::LOGICAL_AND || bin_expr->op == TokenType::LOGICAL_OR ||
+            bin_expr->op == TokenType::K_TATHA || bin_expr->op == TokenType::K_ATHAVA) {
+            if (left != DataType::UNKNOWN && left != DataType::TARK) {
+                throw SemanticError("त्रुटि: तर्कसंक्रिया केवलं तार्किकमूल्येषु एव सम्भवति। (Logical operations only allowed for booleans)", bin_expr->line, bin_expr->column);
+            }
+            if (right != DataType::UNKNOWN && right != DataType::TARK) {
+                throw SemanticError("त्रुटि: तर्कसंक्रिया केवलं तार्किकमूल्येषु एव सम्भवति। (Logical operations only allowed for booleans)", bin_expr->line, bin_expr->column);
+            }
+            return DataType::TARK;
+        }
+
+        // Comparison operators
+        if (bin_expr->op == TokenType::EQUAL || bin_expr->op == TokenType::NOT_EQUAL ||
+            bin_expr->op == TokenType::GREATER || bin_expr->op == TokenType::LESS ||
+            bin_expr->op == TokenType::GREATER_EQUAL || bin_expr->op == TokenType::LESS_EQUAL) {
+            return DataType::TARK;
+        }
+
+        // Modulo operator (integers only)
+        if (bin_expr->op == TokenType::MOD) {
+            if (left == DataType::DASHAMLAV || right == DataType::DASHAMLAV) {
+                throw SemanticError("त्रुटि: भागशेषसंक्रिया केवलं पूर्णांकयोः एव सम्भवति। (Modulo only allowed for integers)", bin_expr->line, bin_expr->column);
+            }
+            if (left == DataType::BADA_POORNAK || right == DataType::BADA_POORNAK) {
+                return DataType::BADA_POORNAK;
+            }
+            return DataType::POORNAK;
+        }
+
+        // Standard arithmetic
+        if (bin_expr->op == TokenType::PLUS || bin_expr->op == TokenType::MINUS ||
+            bin_expr->op == TokenType::STAR || bin_expr->op == TokenType::SLASH) {
+            
+            const TypeInfo& left_info = get_type_info(left);
+            const TypeInfo& right_info = get_type_info(right);
+            
+            if (left != DataType::UNKNOWN && right != DataType::UNKNOWN) {
+                if (!left_info.is_numeric() || !right_info.is_numeric()) {
+                    throw SemanticError("त्रुटि: अङ्कगणितीयसंक्रिया केवलं सङ्ख्यासु एव सम्भवति। (Arithmetic operations only allowed for numbers)", bin_expr->line, bin_expr->column);
+                }
+            }
+        }
+
+        if (left == DataType::DASHAMLAV || right == DataType::DASHAMLAV) {
+            return DataType::DASHAMLAV;
+        }
+        if (left == DataType::BADA_POORNAK || right == DataType::BADA_POORNAK) {
+            return DataType::BADA_POORNAK;
+        }
+        return DataType::POORNAK;
+    }
+
+    if (auto un_expr = dynamic_cast<const UnaryExprASTNode*>(&expr)) {
+        DataType operand_type = determine_type(*un_expr->operand);
+        if (un_expr->op == TokenType::LOGICAL_NOT || un_expr->op == TokenType::K_NA) {
+            if (operand_type != DataType::UNKNOWN && operand_type != DataType::TARK) {
+                throw SemanticError("त्रुटि: तर्कसंक्रिया केवलं तार्किकमूल्येषु एव सम्भवति। (Logical NOT only allowed for booleans)", un_expr->line, un_expr->column);
+            }
+            return DataType::TARK;
+        }
+        if (un_expr->op == TokenType::MINUS) {
+            if (operand_type != DataType::UNKNOWN && !get_type_info(operand_type).is_numeric()) {
+                throw SemanticError("त्रुटि: ऋणात्मकसंक्रिया केवलं सङ्ख्यासु एव सम्भवति। (Unary minus only allowed for numbers)", un_expr->line, un_expr->column);
+            }
+            return operand_type;
+        }
+    }
+
+    return DataType::UNKNOWN;
 }
 
 } // namespace sutra

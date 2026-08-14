@@ -591,6 +591,67 @@ std::vector<Token> Lexer::tokenize() {
 
                     break;
 
+                case ':':
+                    tokens.emplace_back(
+                        TokenType::COLON,
+                        ":",
+                        start_line,
+                        start_col
+                    );
+                    break;
+
+                case '\'': {
+                    if (m_index >= m_source.size()) {
+                        throw LexerError(
+                            "अक्षरस्य समाप्तिः न दृष्टा "
+                            "(Unterminated character literal)",
+                            start_line,
+                            start_col
+                        );
+                    }
+
+                    uint32_t char_cp = advance_cp();
+                    std::string char_val;
+
+                    if (char_cp == '\\') {
+                        if (m_index >= m_source.size()) {
+                            throw LexerError(
+                                "अक्षरस्य समाप्तिः न दृष्टा "
+                                "(Unterminated character literal)",
+                                start_line,
+                                start_col
+                            );
+                        }
+                        uint32_t next_cp = advance_cp();
+                        if (next_cp == 'n') char_val = "\n";
+                        else if (next_cp == 't') char_val = "\t";
+                        else if (next_cp == 'r') char_val = "\r";
+                        else if (next_cp == '\'') char_val = "'";
+                        else if (next_cp == '\\') char_val = "\\";
+                        else char_val = encode_utf8(next_cp);
+                    } else {
+                        char_val = encode_utf8(char_cp);
+                    }
+
+                    if (peek_cp() != '\'') {
+                        throw LexerError(
+                            "अक्षरस्य समाप्तिः न दृष्टा "
+                            "(Unterminated character literal)",
+                            start_line,
+                            start_col
+                        );
+                    }
+                    advance_cp();
+
+                    tokens.emplace_back(
+                        TokenType::CHAR_LITERAL,
+                        char_val,
+                        start_line,
+                        start_col
+                    );
+                    break;
+                }
+
                 default:
 
                     throw LexerError(

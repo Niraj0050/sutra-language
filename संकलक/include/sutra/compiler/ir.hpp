@@ -44,6 +44,13 @@ enum class IROpcode {
     STRING_EQUAL,       // %dest = str_equal(%arg1, %arg2)
     STRING_NOT_EQUAL,   // %dest = str_not_equal(%arg1, %arg2)
     STRING_LENGTH,      // %dest = str_length(%arg1)
+    STRING_UPPER,       // %dest = str_upper(%arg1)
+    STRING_LOWER,       // %dest = str_lower(%arg1)
+    STRING_LT,          // %dest = str_lt(%arg1, %arg2)
+    STRING_GT,          // %dest = str_gt(%arg1, %arg2)
+    STRING_LE,          // %dest = str_le(%arg1, %arg2)
+    STRING_GE,          // %dest = str_ge(%arg1, %arg2)
+    STRING_GET,         // %dest = str_get(%arg1, %arg2)
     // Milestone 3: Array operations
     ARRAY_CREATE,       // %dest = arr_create(n) + init from call_args
     ARRAY_GET,          // %dest = arr_get(%arg1, %arg2)

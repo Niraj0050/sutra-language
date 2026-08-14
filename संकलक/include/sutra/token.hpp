@@ -49,6 +49,7 @@ enum class TokenType {
     INT_LITERAL,
     FLOAT_LITERAL,
     STRING_LITERAL,
+    CHAR_LITERAL,
 
     // Operators
     PLUS,           // +
@@ -77,6 +78,7 @@ enum class TokenType {
     COMMA,          // ,
     SEMICOLON,      // ;
     DOT,            // .
+    COLON,          // :
 
     // Special
     END_OF_FILE,

@@ -1,0 +1,4 @@
+कार्य मुख्य() {
+    // 10000000000 overflows 32-bit POORNAK, so it is typed as BADA_POORNAK and fails to assign to POORNAK
+    मान उम्र: पूर्णांक = 10000000000;
+}

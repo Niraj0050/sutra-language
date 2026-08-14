@@ -3,8 +3,8 @@
 
 #include "sutra/ast.hpp"
 #include "sutra/error.hpp"
+#include "sutra/types.hpp"
 #include <unordered_map>
-#include <unordered_set>
 #include <string>
 #include <vector>
 
@@ -25,14 +25,16 @@ public:
 
 private:
     std::unordered_map<std::string, FunctionSymbol> m_functions;
-    std::vector<std::unordered_set<std::string>> m_scopes;
+    std::vector<std::unordered_map<std::string, DataType>> m_scopes;
     size_t m_loop_depth{0};
 
     void push_scope();
     void pop_scope();
     bool is_declared(const std::string& name) const;
-    void declare_variable(const std::string& name, size_t line, size_t col);
+    DataType get_variable_type(const std::string& name) const;
+    void declare_variable(const std::string& name, DataType type, size_t line, size_t col);
 
+    DataType determine_type(const ExprASTNode& expr);
     void analyze_function(const FunctionDeclASTNode& func);
     void analyze_statement(const StmtASTNode& stmt);
     void analyze_expression(const ExprASTNode& expr);
