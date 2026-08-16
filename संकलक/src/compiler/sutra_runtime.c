@@ -88,11 +88,18 @@ int gc_roots_count = 0;
 void sutra_gc_push_root(void* addr) {
     if (gc_roots_count < GC_MAX_ROOTS) {
         gc_roots[gc_roots_count++] = (void**)addr;
+    } else {
+        fprintf(stderr, "त्रुटिः — GC root stack overflow\n");
+        exit(1);
     }
 }
 
 void sutra_gc_pop_root(void* addr) {
     if (gc_roots_count > 0) {
+        if (gc_roots[gc_roots_count - 1] != (void**)addr) {
+            fprintf(stderr, "त्रुटिः — GC root mismatch on pop: expected %p, got %p\n", (void*)gc_roots[gc_roots_count - 1], addr);
+            exit(1);
+        }
         gc_roots_count--;
     }
 }
@@ -100,7 +107,8 @@ void sutra_gc_pop_root(void* addr) {
 typedef enum {
     GC_TYPE_STRING,
     GC_TYPE_ARRAY,
-    GC_TYPE_OBJECT
+    GC_TYPE_OBJECT,
+    GC_TYPE_DICTIONARY
 } GCType;
 
 typedef struct {
@@ -124,13 +132,28 @@ int64_t gc_collected_objects_count = 0;
 
 void gc_register_alloc(void* ptr, size_t size, GCType type) {
     if (!ptr) return;
+    // Detect duplicate allocation registration – this indicates a logic error (double allocation of same address)
+    for (size_t i = 0; i < gc_allocs_count; i++) {
+        if (gc_allocs[i].ptr == ptr) {
+            fprintf(stderr, "त्रुटिः — डुप्लिकेट आवंटन पंजीकरण (duplicate allocation registration) for %p\n", ptr);
+            exit(1);
+        }
+    }
     if (!gc_allocs) {
         gc_allocs_capacity = INITIAL_GC_DB_CAPACITY;
         gc_allocs = (GCAllocation*)malloc(gc_allocs_capacity * sizeof(GCAllocation));
+        if (!gc_allocs) {
+            sutra_throw_str("त्रुटिः — स्मृति आवंटन विफल (gc registry init)");
+        }
     }
     if (gc_allocs_count >= gc_allocs_capacity) {
-        gc_allocs_capacity *= 2;
-        gc_allocs = (GCAllocation*)realloc(gc_allocs, gc_allocs_capacity * sizeof(GCAllocation));
+        size_t new_capacity = gc_allocs_capacity * 2;
+        GCAllocation* new_allocs = (GCAllocation*)realloc(gc_allocs, new_capacity * sizeof(GCAllocation));
+        if (!new_allocs) {
+            sutra_throw_str("त्रुटिः — स्मृति आवंटन विफल (gc registry grow)");
+        }
+        gc_allocs = new_allocs;
+        gc_allocs_capacity = new_capacity;
     }
     gc_allocs[gc_allocs_count].ptr = ptr;
     gc_allocs[gc_allocs_count].size = size;
@@ -166,6 +189,7 @@ void gc_update_alloc(void* old_ptr, void* new_ptr, size_t new_size) {
 
 void gc_mark_allocation(void* ptr) {
     if (!ptr) return;
+    if ((uintptr_t)ptr < 65536) return; // Ignore null and small integers
 
     // Find in registry
     size_t idx = -1;
@@ -193,6 +217,17 @@ void gc_mark_allocation(void* ptr) {
         for (int64_t i = 0; i < count; i++) {
             gc_mark_allocation((void*)fields[i]);
         }
+    } else if (gc_allocs[idx].type == GC_TYPE_DICTIONARY) {
+        int64_t count = *((int64_t*)ptr);
+        char* entries = (char*)(*((void**)((char*)ptr + 16)));
+        if (entries) {
+            for (int64_t i = 0; i < count; i++) {
+                void* key = *((void**)(entries + i * 16));
+                int64_t val = *((int64_t*)(entries + i * 16 + 8));
+                gc_mark_allocation(key);
+                gc_mark_allocation((void*)val);
+            }
+        }
     }
 }
 
@@ -211,12 +246,10 @@ void sutra_gc_collect() {
             gc_mark_allocation(root_ptr);
         }
     }
-
     // Mark active exception if exists
     if (sutra_active_exception) {
         gc_mark_allocation(sutra_active_exception);
     }
-
     // 3. Sweep unmarked allocations
     gc_live_allocs_count = 0;
     size_t i = 0;
@@ -224,6 +257,15 @@ void sutra_gc_collect() {
         if (!gc_allocs[i].marked) {
             void* p = gc_allocs[i].ptr;
             size_t sz = gc_allocs[i].size;
+
+            // Clean up dictionary helper array
+            if (gc_allocs[i].type == GC_TYPE_DICTIONARY) {
+                void* entries = *((void**)((char*)p + 16));
+                if (entries) {
+                    free(entries);
+                }
+            }
+
             free(p);
             gc_bytes_reclaimed += sz;
             gc_collected_objects_count++;
@@ -1141,6 +1183,7 @@ void* sutra_dict_create(void) {
     *((int64_t*)dict) = 0;
     *((int64_t*)(dict + 8)) = initial_cap;
     *((void**)(dict + 16)) = entries;
+    gc_register_alloc(dict, 24, GC_TYPE_DICTIONARY);
     return dict;
 }
 
