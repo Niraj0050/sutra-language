@@ -45,7 +45,7 @@ void* sutra_exception_get_active() {
 
 void sutra_throw(void* ex) {
     sutra_active_exception = ex;
-    
+
     if (sutra_try_depth == 0) {
         if (ex) {
             /* ex is a Sutra string: [capacity: 8 bytes][length: 8 bytes][data: N bytes] */
@@ -78,14 +78,171 @@ void sutra_throw_div_by_zero() {
 
 
 /* ============================================================
- * GARBAGE COLLECTOR RUNTIME (Mock for Native)
+ * GARBAGE COLLECTOR RUNTIME
  * ============================================================ */
-void sutra_gc_status() {
-    printf("चक्र: 0\nसक्रिय: 0\nसंग्रहित: 0\n");
+
+#define GC_MAX_ROOTS 100000
+void** gc_roots[GC_MAX_ROOTS];
+int gc_roots_count = 0;
+
+void sutra_gc_push_root(void* addr) {
+    if (gc_roots_count < GC_MAX_ROOTS) {
+        gc_roots[gc_roots_count++] = (void**)addr;
+    }
+}
+
+void sutra_gc_pop_root(void* addr) {
+    if (gc_roots_count > 0) {
+        gc_roots_count--;
+    }
+}
+
+typedef enum {
+    GC_TYPE_STRING,
+    GC_TYPE_ARRAY,
+    GC_TYPE_OBJECT
+} GCType;
+
+typedef struct {
+    void* ptr;
+    size_t size;
+    GCType type;
+    int marked;
+} GCAllocation;
+
+#define INITIAL_GC_DB_CAPACITY 1024
+GCAllocation* gc_allocs = NULL;
+size_t gc_allocs_count = 0;
+size_t gc_allocs_capacity = 0;
+
+// Stats
+int64_t gc_collection_count = 0;
+int64_t gc_live_allocs_count = 0;
+int64_t gc_bytes_allocated = 0;
+int64_t gc_bytes_reclaimed = 0;
+int64_t gc_collected_objects_count = 0;
+
+void gc_register_alloc(void* ptr, size_t size, GCType type) {
+    if (!ptr) return;
+    if (!gc_allocs) {
+        gc_allocs_capacity = INITIAL_GC_DB_CAPACITY;
+        gc_allocs = (GCAllocation*)malloc(gc_allocs_capacity * sizeof(GCAllocation));
+    }
+    if (gc_allocs_count >= gc_allocs_capacity) {
+        gc_allocs_capacity *= 2;
+        gc_allocs = (GCAllocation*)realloc(gc_allocs, gc_allocs_capacity * sizeof(GCAllocation));
+    }
+    gc_allocs[gc_allocs_count].ptr = ptr;
+    gc_allocs[gc_allocs_count].size = size;
+    gc_allocs[gc_allocs_count].type = type;
+    gc_allocs[gc_allocs_count].marked = 0;
+    gc_allocs_count++;
+
+    gc_bytes_allocated += size;
+}
+
+void gc_unregister_alloc(void* ptr) {
+    if (!ptr) return;
+    for (size_t i = 0; i < gc_allocs_count; i++) {
+        if (gc_allocs[i].ptr == ptr) {
+            gc_allocs[i] = gc_allocs[gc_allocs_count - 1];
+            gc_allocs_count--;
+            break;
+        }
+    }
+}
+
+void gc_update_alloc(void* old_ptr, void* new_ptr, size_t new_size) {
+    if (!old_ptr || !new_ptr) return;
+    for (size_t i = 0; i < gc_allocs_count; i++) {
+        if (gc_allocs[i].ptr == old_ptr) {
+            gc_allocs[i].ptr = new_ptr;
+            gc_bytes_allocated += (new_size - gc_allocs[i].size);
+            gc_allocs[i].size = new_size;
+            break;
+        }
+    }
+}
+
+void gc_mark_allocation(void* ptr) {
+    if (!ptr) return;
+
+    // Find in registry
+    size_t idx = -1;
+    for (size_t i = 0; i < gc_allocs_count; i++) {
+        if (gc_allocs[i].ptr == ptr) {
+            idx = i;
+            break;
+        }
+    }
+    if (idx == -1) return; // Not a tracked GC pointer
+    if (gc_allocs[idx].marked) return; // Already marked
+
+    gc_allocs[idx].marked = 1;
+
+    // Recursively mark children
+    if (gc_allocs[idx].type == GC_TYPE_ARRAY) {
+        int64_t count = *((int64_t*)((char*)ptr + 8));
+        int64_t* elements = (int64_t*)((char*)ptr + 16);
+        for (int64_t i = 0; i < count; i++) {
+            gc_mark_allocation((void*)elements[i]);
+        }
+    } else if (gc_allocs[idx].type == GC_TYPE_OBJECT) {
+        int64_t count = *((int64_t*)((char*)ptr + 8));
+        int64_t* fields = (int64_t*)((char*)ptr + 16);
+        for (int64_t i = 0; i < count; i++) {
+            gc_mark_allocation((void*)fields[i]);
+        }
+    }
 }
 
 void sutra_gc_collect() {
-    // Native compiler currently does not implement GC.
+    gc_collection_count++;
+
+    // 1. Reset marks
+    for (size_t i = 0; i < gc_allocs_count; i++) {
+        gc_allocs[i].marked = 0;
+    }
+
+    // 2. Mark from registered roots
+    for (int i = 0; i < gc_roots_count; i++) {
+        if (gc_roots[i]) {
+            void* root_ptr = *(gc_roots[i]);
+            gc_mark_allocation(root_ptr);
+        }
+    }
+
+    // Mark active exception if exists
+    if (sutra_active_exception) {
+        gc_mark_allocation(sutra_active_exception);
+    }
+
+    // 3. Sweep unmarked allocations
+    gc_live_allocs_count = 0;
+    size_t i = 0;
+    while (i < gc_allocs_count) {
+        if (!gc_allocs[i].marked) {
+            void* p = gc_allocs[i].ptr;
+            size_t sz = gc_allocs[i].size;
+            free(p);
+            gc_bytes_reclaimed += sz;
+            gc_collected_objects_count++;
+
+            // Swap delete
+            gc_allocs[i] = gc_allocs[gc_allocs_count - 1];
+            gc_allocs_count--;
+        } else {
+            gc_live_allocs_count++;
+            i++;
+        }
+    }
+}
+
+void sutra_gc_status() {
+    printf("चक्र: %lld\nसक्रिय: %lld\nसंग्रहित: %lld\n",
+           (long long)gc_collection_count,
+           (long long)gc_live_allocs_count,
+           (long long)gc_collected_objects_count);
 }
 
 /* Forward declarations for runtime helpers used by string helpers before their definitions. */
@@ -112,6 +269,7 @@ void* sutra_str_alloc(const char* data, int64_t len) {
         memcpy(block + 16, data, len);
     }
     block[16 + len] = '\0';
+    gc_register_alloc(block, 16 + cap + 1, GC_TYPE_STRING);
     return block;
 }
 
@@ -159,6 +317,7 @@ void* sutra_str_concat(void* a, void* b) {
         if (!new_block) {
             sutra_throw_str("त्रुटिः — स्मृति आवंटन विफल (string concat)");
         }
+        gc_update_alloc(a, new_block, 16 + new_cap + 1);
         a = new_block;
         *((int64_t*)a) = new_cap;
         *((int64_t*)((char*)a + 8)) = total;
@@ -546,10 +705,11 @@ void* sutra_list_append(void* arr, int64_t val) {
         if (!new_block) {
             sutra_throw_str("त्रुटिः — स्मृति आवंटन विफल (list append)");
         }
+        gc_update_alloc(arr, new_block, 16 + new_cap * 8);
         arr = new_block;
         *((int64_t*)arr) = new_cap;
         *((int64_t*)((char*)arr + 8)) = count + 1;
-        
+
         int64_t* elements = (int64_t*)((char*)arr + 16);
         elements[count] = val;
         return arr;
@@ -565,18 +725,19 @@ void* sutra_list_pop(void* arr) {
     if (count <= 0) {
         sutra_throw_str("त्रुटिः — शून्य सूची से तत्व नहीं निकाला जा सकता।");
     }
-    
+
     int64_t* elements = (int64_t*)((char*)arr + 16);
     elements[count - 1] = 0;
     count--;
     *((int64_t*)((char*)arr + 8)) = count;
-    
+
     // Check shrink
     if (count <= capacity / 4 && capacity > 4) {
         int64_t new_cap = capacity / 2;
         if (new_cap < 4) new_cap = 4;
         void* new_block = realloc(arr, 16 + new_cap * 8);
         if (new_block) {
+            gc_update_alloc(arr, new_block, 16 + new_cap * 8);
             arr = new_block;
             *((int64_t*)arr) = new_cap;
         }
@@ -593,7 +754,7 @@ void* sutra_list_insert(void* arr, int64_t idx, int64_t val) {
     if (idx < 0 || idx > count) {
         sutra_throw_str("त्रुटिः — डालें: सूचकांक सीमा से बाहर");
     }
-    
+
     if (count < capacity) {
         int64_t* elements = (int64_t*)((char*)arr + 16);
         for (int64_t i = count; i > idx; --i) {
@@ -608,10 +769,11 @@ void* sutra_list_insert(void* arr, int64_t idx, int64_t val) {
         if (!new_block) {
             sutra_throw_str("त्रुटिः — स्मृति आवंटन विफल (list insert)");
         }
+        gc_update_alloc(arr, new_block, 16 + new_cap * 8);
         arr = new_block;
         *((int64_t*)arr) = new_cap;
         *((int64_t*)((char*)arr + 8)) = count + 1;
-        
+
         int64_t* elements = (int64_t*)((char*)arr + 16);
         for (int64_t i = count; i > idx; --i) {
             elements[i] = elements[i - 1];
@@ -630,7 +792,7 @@ void* sutra_list_remove(void* arr, int64_t idx) {
     if (idx < 0 || idx >= count) {
         sutra_throw_str("त्रुटिः — हटाएं: सूचकांक सीमा से बाहर");
     }
-    
+
     int64_t* elements = (int64_t*)((char*)arr + 16);
     for (int64_t i = idx; i < count - 1; ++i) {
         elements[i] = elements[i + 1];
@@ -638,13 +800,14 @@ void* sutra_list_remove(void* arr, int64_t idx) {
     elements[count - 1] = 0;
     count--;
     *((int64_t*)((char*)arr + 8)) = count;
-    
+
     // Check shrink
     if (count <= capacity / 4 && capacity > 4) {
         int64_t new_cap = capacity / 2;
         if (new_cap < 4) new_cap = 4;
         void* new_block = realloc(arr, 16 + new_cap * 8);
         if (new_block) {
+            gc_update_alloc(arr, new_block, 16 + new_cap * 8);
             arr = new_block;
             *((int64_t*)arr) = new_cap;
         }
@@ -887,6 +1050,7 @@ void* sutra_arr_create(int64_t n) {
     *((int64_t*)(block + 8)) = n; // count
     /* Zero-initialize elements */
     memset(block + 16, 0, n * 8);
+    gc_register_alloc(block, 16 + n * 8, GC_TYPE_ARRAY);
     return block;
 }
 
@@ -934,6 +1098,7 @@ void* sutra_obj_alloc(int64_t field_count) {
     *((int64_t*)block) = field_count; // capacity
     *((int64_t*)(block + 8)) = field_count; // count
     memset(block + 16, 0, field_count * 8);
+    gc_register_alloc(block, 16 + field_count * 8, GC_TYPE_OBJECT);
     return block;
 }
 
@@ -999,7 +1164,7 @@ void sutra_dict_set(void* dict, void* key, int64_t val) {
     int64_t count = *((int64_t*)dict);
     int64_t capacity = *((int64_t*)((char*)dict + 8));
     char* entries = (char*)(*((void**)((char*)dict + 16)));
-    
+
     for (int64_t i = 0; i < count; i++) {
         void* k = *((void**)(entries + i * 16));
         if (sutra_str_equal(k, key)) {
@@ -1007,7 +1172,7 @@ void sutra_dict_set(void* dict, void* key, int64_t val) {
             return;
         }
     }
-    
+
     if (count >= capacity) {
         int64_t new_cap = capacity * 2;
         char* new_entries = (char*)malloc(new_cap * 16);
@@ -1020,7 +1185,7 @@ void sutra_dict_set(void* dict, void* key, int64_t val) {
         *((int64_t*)((char*)dict + 8)) = new_cap;
         *((void**)((char*)dict + 16)) = entries;
     }
-    
+
     *((void**)(entries + count * 16)) = key;
     *((int64_t*)(entries + count * 16 + 8)) = val;
     *((int64_t*)dict) = count + 1;
@@ -1053,7 +1218,7 @@ void* sutra_dict_remove(void* dict, void* key) {
     if (!dict) return dict;
     int64_t count = *((int64_t*)dict);
     char* entries = (char*)(*((void**)((char*)dict + 16)));
-    
+
     for (int64_t i = 0; i < count; i++) {
         void* k = *((void**)(entries + i * 16));
         if (sutra_str_equal(k, key)) {
@@ -1066,7 +1231,7 @@ void* sutra_dict_remove(void* dict, void* key) {
             break;
         }
     }
-    
+
     return dict;
 }
 
@@ -1093,7 +1258,7 @@ void* sutra_file_read(void* path_ptr) {
     fseek(f, 0, SEEK_END);
     long size = ftell(f);
     fseek(f, 0, SEEK_SET);
-    
+
     char* buf = (char*)malloc(size);
     if (!buf && size > 0) {
         fclose(f);
@@ -1101,7 +1266,7 @@ void* sutra_file_read(void* path_ptr) {
     }
     size_t read_bytes = fread(buf, 1, size, f);
     fclose(f);
-    
+
     void* str = sutra_str_alloc(buf, read_bytes);
     free(buf);
     return str;
@@ -1112,13 +1277,13 @@ int64_t sutra_file_write(void* path_ptr, void* content_ptr) {
     const char* path = (const char*)path_ptr + 16;
     const char* content = (const char*)content_ptr + 16;
     int64_t len = *((int64_t*)((char*)content_ptr + 8));
-    
+
     FILE* f = fopen(path, "wb");
     if (!f) return 0;
-    
+
     size_t written = fwrite(content, 1, len, f);
     fclose(f);
-    
+
     return written == (size_t)len ? 1 : 0;
 }
 

@@ -17,6 +17,11 @@ enum class MemoryRegion {
     NONE
 };
 
+enum class MemoryOwnership {
+    GC_MANAGED,
+    MANUAL
+};
+
 std::string memory_region_to_string(MemoryRegion region);
 
 struct VariableLayout {
@@ -53,7 +58,10 @@ struct HeapObject {
     DataType type;
     size_t size;
     bool is_active;
+    bool is_released{false};
     std::string metadata;
+    MemoryOwnership ownership{MemoryOwnership::GC_MANAGED};
+    std::string category;
     bool marked{false};
 };
 
@@ -61,7 +69,7 @@ class HeapManager {
 public:
     HeapManager();
     
-    uint64_t allocate(DataType type, size_t size, std::string metadata = "");
+    uint64_t allocate(DataType type, size_t size, std::string metadata = "", MemoryOwnership ownership = MemoryOwnership::GC_MANAGED, std::string category = "");
     void release(uint64_t address);
     
     const HeapObject* get_object(uint64_t address) const;
@@ -72,9 +80,15 @@ public:
     void reset_marks();
     size_t sweep();
 
+    void validate_address(uint64_t address) const;
+    void set_max_heap_size(size_t limit) { m_max_heap_size = limit; }
+    size_t get_max_heap_size() const { return m_max_heap_size; }
+    size_t get_total_allocated_bytes() const;
+
 private:
     std::vector<HeapObject> m_allocations;
     uint64_t m_next_address{0x1000};
+    size_t m_max_heap_size{512 * 1024 * 1024}; // default 512 MB
 };
 
 class MemoryModelRegistry {

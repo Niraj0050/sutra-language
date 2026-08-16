@@ -48,6 +48,12 @@ public:
         : SutraError("अनुष्ठान-त्रुटिः — " + msg, l, c) {}
 };
 
+class MemoryError : public SutraError {
+public:
+    MemoryError(const std::string& msg, size_t l = 0, size_t c = 0)
+        : SutraError("स्मृति-त्रुटिः — " + msg, l, c) {}
+};
+
 } // namespace sutra
 
 #endif // SUTRA_ERROR_HPP

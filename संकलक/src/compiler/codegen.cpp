@@ -69,7 +69,11 @@ std::string NativeCodeGenX86_64::generate_assembly(const IRModule& module) {
     main_ss << "  .def sutra_exception_get_jmp_buf; .scl 2; .type 32; .endef\n";
     main_ss << "  .def sutra_exception_pop; .scl 2; .type 32; .endef\n";
     main_ss << "  .def sutra_throw; .scl 2; .type 32; .endef\n";
-    main_ss << "  .def sutra_get_exception_value; .scl 2; .type 32; .endef\n\n";
+    main_ss << "  .def sutra_get_exception_value; .scl 2; .type 32; .endef\n";
+    main_ss << "  .def sutra_gc_push_root; .scl 2; .type 32; .endef\n";
+    main_ss << "  .def sutra_gc_pop_root; .scl 2; .type 32; .endef\n";
+    main_ss << "  .def sutra_gc_collect; .scl 2; .type 32; .endef\n";
+    main_ss << "  .def sutra_gc_status; .scl 2; .type 32; .endef\n\n";
 
     // Read-only data section: format strings and string literals
     main_ss << "  .section .rdata,\"dr\"\n";
@@ -494,10 +498,8 @@ std::string NativeCodeGenX86_64::generate_assembly(const IRModule& module) {
                     } else {
                         ss << "  movq $0, %rax\n";
                     }
-                    // Epilogue
-                    ss << "  movq %rbp, %rsp\n";
-                    ss << "  popq %rbp\n";
-                    ss << "  ret\n";
+                    // Jump to single function epilogue
+                    ss << "  jmp .L_epilogue_" << fname << "\n";
                     break;
                 }
                 case IROpcode::TRY_BEGIN: {
@@ -538,15 +540,25 @@ std::string NativeCodeGenX86_64::generate_assembly(const IRModule& module) {
             }
         }
 
-        // Function Epilogue fallback
+        // Function Epilogue fallback & label
+        ss << ".L_epilogue_" << fname << ":\n";
+        ss << "  subq $48, %rsp\n";
+        ss << "  movq %rax, 32(%rsp)\n";
+        int num_slots_ep = m_stack_offsets.size();
+        for (int i = num_slots_ep; i >= 1; i--) {
+            ss << "  leaq -" << (i * 8) << "(%rbp), %rcx\n";
+            ss << "  call sutra_gc_pop_root\n";
+        }
+        ss << "  movq 32(%rsp), %rax\n";
+        ss << "  addq $48, %rsp\n";
         ss << "  movq %rbp, %rsp\n";
         ss << "  popq %rbp\n";
         ss << "  ret\n\n";
 
         // Calculate actual frame size dynamically
-        int frame_size = -m_current_stack_offset;
+        int vars_size = -m_current_stack_offset;
+        int frame_size = vars_size + 32;
         frame_size = (frame_size + 15) & ~15; // 16-byte alignment
-        if (frame_size < 32) frame_size = 32; // Shadow space
 
         // Output function header, prologue, parameter copy, and body to main_ss
         main_ss << "  .globl " << fname << "\n";
@@ -557,6 +569,14 @@ std::string NativeCodeGenX86_64::generate_assembly(const IRModule& module) {
         main_ss << "  subq $" << frame_size << ", %rsp\n";
 
         main_ss << param_ss.str();
+
+        // Root registration
+        int num_slots = m_stack_offsets.size();
+        for (int i = 1; i <= num_slots; i++) {
+            main_ss << "  leaq -" << (i * 8) << "(%rbp), %rcx\n";
+            main_ss << "  call sutra_gc_push_root\n";
+        }
+
         main_ss << ss.str();
     }
 

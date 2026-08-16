@@ -1,4 +1,5 @@
 #include "sutra/memory.hpp"
+#include "sutra/error.hpp"
 #include <algorithm>
 
 namespace sutra {
@@ -29,7 +30,7 @@ void StackFrame::add_variable(const std::string& name, DataType type, size_t sco
     MemoryRegion region = MemoryRegion::STACK; // Store slot is on STACK
 
     size_t aligned_offset = align_offset(m_frame_size, alignment);
-    
+
     VariableLayout layout{
         name,
         type,
@@ -59,19 +60,38 @@ HeapManager::HeapManager() {
     clear();
 }
 
-uint64_t HeapManager::allocate(DataType type, size_t size, std::string metadata) {
+uint64_t HeapManager::allocate(DataType type, size_t size, std::string metadata, MemoryOwnership ownership, std::string category) {
+    const size_t MAX_ALLOCATION_SIZE = 100 * 1024 * 1024; // 100 MB
+    if (size > MAX_ALLOCATION_SIZE) {
+        throw MemoryError("आकार-अतिप्रवाहः (Size overflow or too large allocation: " + std::to_string(size) + " bytes)");
+    }
+
+    size_t current_total = get_total_allocated_bytes();
+    if (current_total + size > m_max_heap_size) {
+        throw MemoryError("स्मृति-आवंटन-विफलता (Simulated memory allocation failure)");
+    }
+
     uint64_t addr = m_next_address;
-    m_allocations.push_back(HeapObject{addr, type, size, true, std::move(metadata)});
+    m_allocations.push_back(HeapObject{addr, type, size, true, false, std::move(metadata), ownership, std::move(category), false});
     m_next_address += align_offset(size, 8);
     return addr;
 }
 
 void HeapManager::release(uint64_t address) {
+    bool found = false;
     for (auto& obj : m_allocations) {
         if (obj.address == address) {
+            found = true;
+            if (obj.is_released) {
+                throw MemoryError("द्विरुक्ति-विमोचनम् (Double release of address: " + std::to_string(address) + ")");
+            }
             obj.is_active = false;
+            obj.is_released = true;
             break;
         }
+    }
+    if (!found) {
+        throw MemoryError("अवैध-सङ्केत-विमोचनम् (Release of invalid or untracked address: " + std::to_string(address) + ")");
     }
 }
 
@@ -109,10 +129,38 @@ size_t HeapManager::sweep() {
     for (auto& obj : m_allocations) {
         if (obj.is_active && !obj.marked) {
             obj.is_active = false;
+            obj.is_released = true;
             collected++;
         }
     }
     return collected;
+}
+
+void HeapManager::validate_address(uint64_t address) const {
+    if (address == 0) return;
+    bool found = false;
+    for (const auto& obj : m_allocations) {
+        if (obj.address == address) {
+            found = true;
+            if (obj.is_released) {
+                throw MemoryError("जीर्ण-स्मृति-अभिगमनम् (Access to stale/released allocation at address: " + std::to_string(address) + ")");
+            }
+            return;
+        }
+    }
+    if (!found) {
+        throw MemoryError("अवैध-स्मृति-अभिगमनम् (Access to invalid/untracked address: " + std::to_string(address) + ")");
+    }
+}
+
+size_t HeapManager::get_total_allocated_bytes() const {
+    size_t total = 0;
+    for (const auto& obj : m_allocations) {
+        if (obj.is_active) {
+            total += obj.size;
+        }
+    }
+    return total;
 }
 
 void MemoryModelRegistry::push_frame(std::string function_name) {

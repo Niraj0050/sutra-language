@@ -9,6 +9,7 @@ namespace sutra {
 // Helper to recursively collect all reachable heap references from a SutraValue
 static void collect_references(const SutraValue& val, std::vector<uint64_t>& refs, std::unordered_set<uint64_t>& visited) {
     if (val.heap_address != 0) {
+        MemoryModelRegistry::get_instance().get_heap_manager().validate_address(val.heap_address);
         if (visited.find(val.heap_address) != visited.end()) {
             return;
         }
@@ -16,7 +17,7 @@ static void collect_references(const SutraValue& val, std::vector<uint64_t>& ref
         refs.push_back(val.heap_address);
     }
     if (val.type == ValueType::LIST) {
-        for (const auto& elem : val.list_val) {
+        for (const auto& elem : val.get_list()) {
             collect_references(elem, refs, visited);
         }
     }
