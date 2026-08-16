@@ -48,9 +48,9 @@ void sutra_throw(void* ex) {
     
     if (sutra_try_depth == 0) {
         if (ex) {
-            /* ex is a Sutra string: [int64_t byte_length][char data...]['\0'] */
-            int64_t len = *((int64_t*)ex);
-            const char* msg = (const char*)ex + 8;
+            /* ex is a Sutra string: [capacity: 8 bytes][length: 8 bytes][data: N bytes] */
+            int64_t len = *((int64_t*)((char*)ex + 8));
+            const char* msg = (const char*)ex + 16;
             fprintf(stderr, "त्रुटिः: %.*s\n", (int)len, msg);
         } else {
             fprintf(stderr, "त्रुटिः — अनियंत्रित अपवाद (Uncaught exception)\n");
@@ -139,7 +139,6 @@ void* sutra_str_concat(void* a, void* b) {
     int64_t len_a = *((int64_t*)((char*)a + 8));
     int64_t len_b = *((int64_t*)((char*)b + 8));
     int64_t total = len_a + len_b;
-
     int64_t cap_a = *((int64_t*)a);
 
     if (total <= cap_a) {

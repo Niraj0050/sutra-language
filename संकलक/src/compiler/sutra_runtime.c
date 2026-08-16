@@ -37,13 +37,20 @@ void sutra_exception_pop() {
     if (sutra_try_depth > 0) sutra_try_depth--;
 }
 
+void sutra_str_print(void* s);
+
+void* sutra_exception_get_active() {
+    return sutra_active_exception;
+}
+
 void sutra_throw(void* ex) {
     sutra_active_exception = ex;
+    
     if (sutra_try_depth == 0) {
         if (ex) {
-            /* ex is a Sutra string: [int64_t byte_length][char data...]['\0'] */
-            int64_t len = *((int64_t*)ex);
-            const char* msg = (const char*)ex + 8;
+            /* ex is a Sutra string: [capacity: 8 bytes][length: 8 bytes][data: N bytes] */
+            int64_t len = *((int64_t*)((char*)ex + 8));
+            const char* msg = (const char*)ex + 16;
             fprintf(stderr, "त्रुटिः: %.*s\n", (int)len, msg);
         } else {
             fprintf(stderr, "त्रुटिः — अनियंत्रित अपवाद (Uncaught exception)\n");
@@ -93,16 +100,18 @@ void sutra_arr_set(void* arr, int64_t idx, int64_t val);
 
 /* Allocate a new string from raw UTF-8 data and byte length */
 void* sutra_str_alloc(const char* data, int64_t len) {
-    /* Allocate: 8 bytes for length + len bytes for data + 1 for null terminator */
-    char* block = (char*)malloc(8 + len + 1);
+    int64_t cap = len == 0 ? 4 : len;
+    /* Allocate: 16 bytes for capacity/length + cap bytes for data + 1 for null terminator */
+    char* block = (char*)malloc(16 + cap + 1);
     if (!block) {
         sutra_throw_str("त्रुटिः — स्मृति आवंटन विफल (string alloc)");
     }
-    *((int64_t*)block) = len;
+    *((int64_t*)block) = cap;
+    *((int64_t*)(block + 8)) = len;
     if (len > 0 && data) {
-        memcpy(block + 8, data, len);
+        memcpy(block + 16, data, len);
     }
-    block[8 + len] = '\0';
+    block[16 + len] = '\0';
     return block;
 }
 
@@ -127,19 +136,38 @@ void* sutra_str_concat(void* a, void* b) {
     if (!a) return b;
     if (!b) return a;
 
-    int64_t len_a = *((int64_t*)a);
-    int64_t len_b = *((int64_t*)b);
+    int64_t len_a = *((int64_t*)((char*)a + 8));
+    int64_t len_b = *((int64_t*)((char*)b + 8));
     int64_t total = len_a + len_b;
+    int64_t cap_a = *((int64_t*)a);
 
-    char* block = (char*)malloc(8 + total + 1);
-    if (!block) {
-        sutra_throw_str("त्रुटिः — स्मृति आवंटन विफल (string concat)");
+    if (total <= cap_a) {
+        // Reuse a's allocation!
+        if (len_b > 0) {
+            memcpy((char*)a + 16 + len_a, (char*)b + 16, len_b);
+        }
+        *((int64_t*)((char*)a + 8)) = total;
+        ((char*)a)[16 + total] = '\0';
+        return a;
+    } else {
+        // Grow allocation.
+        int64_t new_cap = cap_a == 0 ? 4 : cap_a * 2;
+        if (new_cap < total) {
+            new_cap = total;
+        }
+        void* new_block = realloc(a, 16 + new_cap + 1);
+        if (!new_block) {
+            sutra_throw_str("त्रुटिः — स्मृति आवंटन विफल (string concat)");
+        }
+        a = new_block;
+        *((int64_t*)a) = new_cap;
+        *((int64_t*)((char*)a + 8)) = total;
+        if (len_b > 0) {
+            memcpy((char*)a + 16 + len_a, (char*)b + 16, len_b);
+        }
+        ((char*)a)[16 + total] = '\0';
+        return a;
     }
-    *((int64_t*)block) = total;
-    if (len_a > 0) memcpy(block + 8, (char*)a + 8, len_a);
-    if (len_b > 0) memcpy(block + 8 + len_a, (char*)b + 8, len_b);
-    block[8 + total] = '\0';
-    return block;
 }
 
 /* Compare two strings for equality. Returns 1 if equal, 0 otherwise. */
@@ -147,10 +175,10 @@ int64_t sutra_str_equal(void* a, void* b) {
     if (a == b) return 1;
     if (!a || !b) return 0;
 
-    int64_t len_a = *((int64_t*)a);
-    int64_t len_b = *((int64_t*)b);
+    int64_t len_a = *((int64_t*)((char*)a + 8));
+    int64_t len_b = *((int64_t*)((char*)b + 8));
     if (len_a != len_b) return 0;
-    return memcmp((char*)a + 8, (char*)b + 8, len_a) == 0 ? 1 : 0;
+    return memcmp((char*)a + 16, (char*)b + 16, len_a) == 0 ? 1 : 0;
 }
 
 static int64_t sutra_utf8_codepoint_count_bytes(const unsigned char* data, int64_t len) {
@@ -257,8 +285,8 @@ static void* sutra_utf8_substr_raw(const unsigned char* data, int64_t len, int64
 
 void* sutra_substr(void* text, int64_t start, int64_t end) {
     if (!text) return sutra_str_alloc("", 0);
-    int64_t len = *((int64_t*)text);
-    const unsigned char* data = (const unsigned char*)text + 8;
+    int64_t len = *((int64_t*)((char*)text + 8));
+    const unsigned char* data = (const unsigned char*)text + 16;
     return sutra_utf8_substr_raw(data, len, start, end);
 }
 
@@ -266,10 +294,10 @@ int64_t sutra_find(void* text, void* needle) {
     if (!text || !needle) {
         sutra_throw_str("त्रुटिः — खोजें में शून्य पाठ मान्य नहीं है");
     }
-    int64_t hay_len = *((int64_t*)text);
-    int64_t needle_len = *((int64_t*)needle);
-    const unsigned char* hay = (const unsigned char*)text + 8;
-    const unsigned char* need = (const unsigned char*)needle + 8;
+    int64_t hay_len = *((int64_t*)((char*)text + 8));
+    int64_t needle_len = *((int64_t*)((char*)needle + 8));
+    const unsigned char* hay = (const unsigned char*)text + 16;
+    const unsigned char* need = (const unsigned char*)needle + 16;
     if (needle_len == 0) {
         sutra_throw_str("त्रुटिः — खोजें: रिक्त खोज पाठ मान्य न अस्ति।");
     }
@@ -285,12 +313,12 @@ void* sutra_replace(void* text, void* needle, void* replacement) {
     if (!text || !needle || !replacement) {
         sutra_throw_str("त्रुटिः — बदलें में शून्य पाठ मान्य नहीं है");
     }
-    int64_t hay_len = *((int64_t*)text);
-    int64_t needle_len = *((int64_t*)needle);
-    const unsigned char* hay = (const unsigned char*)text + 8;
-    const unsigned char* need = (const unsigned char*)needle + 8;
-    const unsigned char* repl = (const unsigned char*)replacement + 8;
-    int64_t repl_len = *((int64_t*)replacement);
+    int64_t hay_len = *((int64_t*)((char*)text + 8));
+    int64_t needle_len = *((int64_t*)((char*)needle + 8));
+    const unsigned char* hay = (const unsigned char*)text + 16;
+    const unsigned char* need = (const unsigned char*)needle + 16;
+    const unsigned char* repl = (const unsigned char*)replacement + 16;
+    int64_t repl_len = *((int64_t*)((char*)replacement + 8));
 
     if (needle_len == 0) {
         sutra_throw_str("त्रुटिः — बदलें: रिक्त खोज पाठ मान्य न अस्ति।");
@@ -301,13 +329,11 @@ void* sutra_replace(void* text, void* needle, void* replacement) {
             int64_t prefix_len = pos;
             int64_t suffix_len = hay_len - (pos + needle_len);
             int64_t out_len = prefix_len + repl_len + suffix_len;
-            char* out = (char*)malloc(8 + out_len + 1);
-            if (!out) { sutra_throw_str("त्रुटिः — स्मृति आवंटन विफल (replace)"); }
-            *((int64_t*)out) = out_len;
-            if (prefix_len > 0) memcpy(out + 8, hay, (size_t)prefix_len);
-            if (repl_len > 0) memcpy(out + 8 + prefix_len, repl, (size_t)repl_len);
-            if (suffix_len > 0) memcpy(out + 8 + prefix_len + repl_len, hay + pos + needle_len, (size_t)suffix_len);
-            out[8 + out_len] = '\0';
+            void* out = sutra_str_alloc(NULL, out_len);
+            char* out_data = (char*)out + 16;
+            if (prefix_len > 0) memcpy(out_data, hay, (size_t)prefix_len);
+            if (repl_len > 0) memcpy(out_data + prefix_len, repl, (size_t)repl_len);
+            if (suffix_len > 0) memcpy(out_data + prefix_len + repl_len, hay + pos + needle_len, (size_t)suffix_len);
             return out;
         }
     }
@@ -318,10 +344,10 @@ void* sutra_split(void* text, void* delim) {
     if (!text || !delim) {
         sutra_throw_str("त्रुटिः — विभाजित के तर्क शून्य नहीं हो सकते");
     }
-    int64_t hay_len = *((int64_t*)text);
-    int64_t delim_len = *((int64_t*)delim);
-    const unsigned char* hay = (const unsigned char*)text + 8;
-    const unsigned char* d = (const unsigned char*)delim + 8;
+    int64_t hay_len = *((int64_t*)((char*)text + 8));
+    int64_t delim_len = *((int64_t*)((char*)delim + 8));
+    const unsigned char* hay = (const unsigned char*)text + 16;
+    const unsigned char* d = (const unsigned char*)delim + 16;
     if (delim_len == 0) {
         sutra_throw_str("त्रुटिः — विभाजित: रिक्त विभाजक मान्य न अस्ति।");
     }
@@ -360,8 +386,8 @@ void* sutra_split(void* text, void* delim) {
 void* sutra_join(void* list, void* sep) {
     if (!list) return sutra_str_alloc("", 0);
     int64_t count = *((int64_t*)((char*)list + 8));
-    const unsigned char* delim = sep ? ((const unsigned char*)sep + 8) : (const unsigned char*)"";
-    int64_t delim_len = sep ? *((int64_t*)sep) : 0;
+    const unsigned char* delim = sep ? ((const unsigned char*)sep + 16) : (const unsigned char*)"";
+    int64_t delim_len = sep ? *((int64_t*)((char*)sep + 8)) : 0;
 
     int64_t total = 0;
     for (int64_t i = 0; i < count; ++i) {
@@ -369,30 +395,28 @@ void* sutra_join(void* list, void* sep) {
         if ((uint64_t)elem_ptr < 65536) {
             sutra_throw_str("त्रुटिः — संयोजित में सूची के सभी तत्व पाठ होने चाहिए।");
         }
-        int64_t elem_len = *((int64_t*)(void*)elem_ptr);
+        int64_t elem_len = *((int64_t*)((char*)(void*)elem_ptr + 8));
         total += elem_len;
         if (i + 1 < count) total += delim_len;
     }
 
-    char* out = (char*)malloc(8 + total + 1);
-    if (!out) { sutra_throw_str("त्रुटिः — स्मृति आवंटन विफल (join)"); }
-    *((int64_t*)out) = total;
+    void* out = sutra_str_alloc(NULL, total);
+    char* out_data = (char*)out + 16;
     int64_t pos = 0;
     for (int64_t i = 0; i < count; ++i) {
         int64_t elem_ptr = *((int64_t*)((char*)list + 16 + i * 8));
-        int64_t elem_len = *((int64_t*)(void*)elem_ptr);
-        const unsigned char* elem_data = (const unsigned char*)(void*)elem_ptr + 8;
-        if (elem_len > 0) memcpy(out + 8 + pos, elem_data, (size_t)elem_len), pos += elem_len;
-        if (i + 1 < count && delim_len > 0) memcpy(out + 8 + pos, delim, (size_t)delim_len), pos += delim_len;
+        int64_t elem_len = *((int64_t*)((char*)(void*)elem_ptr + 8));
+        const unsigned char* elem_data = (const unsigned char*)(void*)elem_ptr + 16;
+        if (elem_len > 0) memcpy(out_data + pos, elem_data, (size_t)elem_len), pos += elem_len;
+        if (i + 1 < count && delim_len > 0) memcpy(out_data + pos, delim, (size_t)delim_len), pos += delim_len;
     }
-    out[8 + total] = '\0';
     return out;
 }
 
 void* sutra_trim(void* text) {
     if (!text) return sutra_str_alloc("", 0);
-    int64_t len = *((int64_t*)text);
-    const unsigned char* data = (const unsigned char*)text + 8;
+    int64_t len = *((int64_t*)((char*)text + 8));
+    const unsigned char* data = (const unsigned char*)text + 16;
 
     typedef struct { int64_t start; int64_t end; uint32_t cp; } Span;
     int64_t cp_count = 0;
@@ -448,10 +472,10 @@ void* sutra_trim(void* text) {
 
 int64_t sutra_starts_with(void* text, void* prefix) {
     if (!text || !prefix) return 1;
-    int64_t text_len = *((int64_t*)text);
-    int64_t prefix_len = *((int64_t*)prefix);
-    const unsigned char* text_data = (const unsigned char*)text + 8;
-    const unsigned char* prefix_data = (const unsigned char*)prefix + 8;
+    int64_t text_len = *((int64_t*)((char*)text + 8));
+    int64_t prefix_len = *((int64_t*)((char*)prefix + 8));
+    const unsigned char* text_data = (const unsigned char*)text + 16;
+    const unsigned char* prefix_data = (const unsigned char*)prefix + 16;
     if (prefix_len == 0) return 1;
     if (text_len < prefix_len) return 0;
     return memcmp(text_data, prefix_data, (size_t)prefix_len) == 0 ? 1 : 0;
@@ -459,10 +483,10 @@ int64_t sutra_starts_with(void* text, void* prefix) {
 
 int64_t sutra_ends_with(void* text, void* suffix) {
     if (!text || !suffix) return 1;
-    int64_t text_len = *((int64_t*)text);
-    int64_t suffix_len = *((int64_t*)suffix);
-    const unsigned char* text_data = (const unsigned char*)text + 8;
-    const unsigned char* suffix_data = (const unsigned char*)suffix + 8;
+    int64_t text_len = *((int64_t*)((char*)text + 8));
+    int64_t suffix_len = *((int64_t*)((char*)suffix + 8));
+    const unsigned char* text_data = (const unsigned char*)text + 16;
+    const unsigned char* suffix_data = (const unsigned char*)suffix + 16;
     if (suffix_len == 0) return 1;
     if (text_len < suffix_len) return 0;
     return memcmp(text_data + text_len - suffix_len, suffix_data, (size_t)suffix_len) == 0 ? 1 : 0;
@@ -657,25 +681,21 @@ int64_t sutra_list_find(void* arr, int64_t val) {
 static void* sutra_str_map_case(void* s, int upper) {
     if (!s) return sutra_str_alloc("", 0);
 
-    int64_t len = *((int64_t*)s);
-    const unsigned char* data = (const unsigned char*)s + 8;
-    char* out = (char*)malloc(8 + len + 1);
-    if (!out) {
-        sutra_throw_str("त्रुटिः — स्मृति आवंटन विफल (string case transform)");
-    }
-    *((int64_t*)out) = len;
+    int64_t len = *((int64_t*)((char*)s + 8));
+    const unsigned char* data = (const unsigned char*)s + 16;
+    void* out = sutra_str_alloc(NULL, len);
+    char* out_data = (char*)out + 16;
 
     for (int64_t i = 0; i < len; ++i) {
         unsigned char c = data[i];
         if (c >= 'a' && c <= 'z') {
-            out[8 + i] = upper ? (char)(c - 'a' + 'A') : (char)c;
+            out_data[i] = upper ? (char)(c - 'a' + 'A') : (char)c;
         } else if (c >= 'A' && c <= 'Z') {
-            out[8 + i] = upper ? (char)c : (char)(c - 'A' + 'a');
+            out_data[i] = upper ? (char)c : (char)(c - 'A' + 'a');
         } else {
-            out[8 + i] = (char)c;
+            out_data[i] = (char)c;
         }
     }
-    out[8 + len] = '\0';
     return out;
 }
 
@@ -693,10 +713,10 @@ static int64_t sutra_utf8_cmp_codepoints(void* a, void* b) {
         return a ? 1 : -1;
     }
 
-    const unsigned char* data_a = (const unsigned char*)a + 8;
-    const unsigned char* data_b = (const unsigned char*)b + 8;
-    int64_t len_a = *((int64_t*)a);
-    int64_t len_b = *((int64_t*)b);
+    const unsigned char* data_a = (const unsigned char*)a + 16;
+    const unsigned char* data_b = (const unsigned char*)b + 16;
+    int64_t len_a = *((int64_t*)((char*)a + 8));
+    int64_t len_b = *((int64_t*)((char*)b + 8));
     int64_t i = 0;
     int64_t j = 0;
 
@@ -775,8 +795,8 @@ int64_t sutra_str_greater_equal(void* a, void* b) {
 int64_t sutra_str_length(void* s) {
     if (!s) return 0;
 
-    const unsigned char* data = (const unsigned char*)s + 8;
-    int64_t len = *((int64_t*)s);
+    const unsigned char* data = (const unsigned char*)s + 16;
+    int64_t len = *((int64_t*)((char*)s + 8));
     int64_t count = 0;
 
     for (int64_t i = 0; i < len; ) {
@@ -807,8 +827,8 @@ void* sutra_str_get(void* s, int64_t idx) {
         sutra_throw_str("त्रुटिः — अमान्य सूचकांक मान (Index cannot be negative)");
     }
 
-    const unsigned char* data = (const unsigned char*)s + 8;
-    int64_t len = *((int64_t*)s);
+    const unsigned char* data = (const unsigned char*)s + 16;
+    int64_t len = *((int64_t*)((char*)s + 8));
     int64_t count = 0;
     int64_t start = 0;
     int64_t end = 0;
@@ -845,8 +865,8 @@ void sutra_str_print(void* s) {
         printf("शून्यम्\n");
         return;
     }
-    int64_t len = *((int64_t*)s);
-    char* data = (char*)s + 8;
+    int64_t len = *((int64_t*)((char*)s + 8));
+    char* data = (char*)s + 16;
     fwrite(data, 1, len, stdout);
     printf("\n");
 }
@@ -1056,7 +1076,7 @@ void* sutra_dict_remove(void* dict, void* key) {
 
 int64_t sutra_file_exists(void* path_ptr) {
     if (!path_ptr) return 0;
-    const char* path = (const char*)path_ptr + 8;
+    const char* path = (const char*)path_ptr + 16;
     FILE* f = fopen(path, "r");
     if (f) {
         fclose(f);
@@ -1067,7 +1087,7 @@ int64_t sutra_file_exists(void* path_ptr) {
 
 void* sutra_file_read(void* path_ptr) {
     if (!path_ptr) return sutra_str_alloc("", 0);
-    const char* path = (const char*)path_ptr + 8;
+    const char* path = (const char*)path_ptr + 16;
     FILE* f = fopen(path, "rb");
     if (!f) return sutra_str_alloc("", 0);
     fseek(f, 0, SEEK_END);
@@ -1089,9 +1109,9 @@ void* sutra_file_read(void* path_ptr) {
 
 int64_t sutra_file_write(void* path_ptr, void* content_ptr) {
     if (!path_ptr || !content_ptr) return 0;
-    const char* path = (const char*)path_ptr + 8;
-    const char* content = (const char*)content_ptr + 8;
-    int64_t len = *((int64_t*)content_ptr);
+    const char* path = (const char*)path_ptr + 16;
+    const char* content = (const char*)content_ptr + 16;
+    int64_t len = *((int64_t*)((char*)content_ptr + 8));
     
     FILE* f = fopen(path, "wb");
     if (!f) return 0;
