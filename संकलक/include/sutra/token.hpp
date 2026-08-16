@@ -37,6 +37,7 @@ enum class TokenType {
     K_PATH,          // पाठ
     K_BOOL,          // बूल
     K_SUCHI,         // सूची
+    K_SHABDAKOSH,    // शब्दकोश
     K_VARGA,         // वर्ग
     K_NAVIN,         // नवीन
     K_SVA,           // स्व

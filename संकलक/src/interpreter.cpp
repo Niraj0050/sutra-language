@@ -85,36 +85,70 @@ SutraValue Interpreter::execute_stmt(const StmtASTNode& stmt, std::shared_ptr<En
 
         SutraValue current = env->get(arr_assign_stmt->array_name, arr_assign_stmt->line, arr_assign_stmt->column);
         std::vector<SutraValue> parents;
-        std::vector<size_t> parent_indices;
+        std::vector<SutraValue> parent_indices;
 
         for (size_t i = 0; i < arr_assign_stmt->index_exprs.size(); ++i) {
             SutraValue idx_val = evaluate_expr(*arr_assign_stmt->index_exprs[i], env);
-            if (idx_val.int_val < 0) {
-                throw RuntimeError("अमान्य सूचकांक मान (Index cannot be negative)", arr_assign_stmt->line, arr_assign_stmt->column);
-            }
-            size_t idx = static_cast<size_t>(idx_val.int_val);
-
-            if (current.type != ValueType::LIST) {
-                throw RuntimeError("'" + arr_assign_stmt->array_name + "' सूची न अस्ति।", arr_assign_stmt->line, arr_assign_stmt->column);
-            }
-            if (idx >= current.list_val.size()) {
-                throw RuntimeError("सूच्याः सीमा अतिक्रान्ता (Array index out of bounds)", arr_assign_stmt->line, arr_assign_stmt->column);
-            }
-
-            if (i + 1 == arr_assign_stmt->index_exprs.size()) {
-                SutraValue val = evaluate_expr(*arr_assign_stmt->value_expr, env);
-                current.list_val[idx] = val;
-                for (int p = static_cast<int>(parents.size()) - 1; p >= 0; --p) {
-                    parents[p].list_val[parent_indices[p]] = current;
-                    current = parents[p];
+            
+            if (current.type == ValueType::DICTIONARY) {
+                if (idx_val.type != ValueType::STRING) {
+                    throw RuntimeError("शब्दकोश की कुंजी पाठ होनी चाहिए (Dictionary key must be string)", arr_assign_stmt->line, arr_assign_stmt->column);
                 }
-                env->assign(arr_assign_stmt->array_name, current, arr_assign_stmt->line, arr_assign_stmt->column);
-                return SutraValue::make_null();
-            }
+                if (!current.dict_val) {
+                    current.dict_val = std::make_shared<std::unordered_map<std::string, SutraValue>>();
+                }
+                
+                if (i + 1 == arr_assign_stmt->index_exprs.size()) {
+                    SutraValue val = evaluate_expr(*arr_assign_stmt->value_expr, env);
+                    (*current.dict_val)[idx_val.string_val] = val;
+                    for (int p = static_cast<int>(parents.size()) - 1; p >= 0; --p) {
+                        if (parents[p].type == ValueType::LIST) {
+                            parents[p].get_list()[static_cast<size_t>(parent_indices[p].int_val)] = current;
+                        } else if (parents[p].type == ValueType::DICTIONARY) {
+                            (*parents[p].dict_val)[parent_indices[p].string_val] = current;
+                        }
+                        current = parents[p];
+                    }
+                    env->assign(arr_assign_stmt->array_name, current, arr_assign_stmt->line, arr_assign_stmt->column);
+                    return SutraValue::make_null();
+                }
 
-            parents.push_back(current);
-            parent_indices.push_back(idx);
-            current = current.list_val[idx];
+                parents.push_back(current);
+                parent_indices.push_back(idx_val);
+                current = (*current.dict_val)[idx_val.string_val];
+            } else if (current.type == ValueType::LIST) {
+                if (idx_val.type != ValueType::INT) {
+                    throw RuntimeError("सूची की कुंजी पूर्णांक होनी चाहिए (List index must be int)", arr_assign_stmt->line, arr_assign_stmt->column);
+                }
+                if (idx_val.int_val < 0) {
+                    throw RuntimeError("अमान्य सूचकांक मान (Index cannot be negative)", arr_assign_stmt->line, arr_assign_stmt->column);
+                }
+                size_t idx = static_cast<size_t>(idx_val.int_val);
+                if (idx >= current.get_list().size()) {
+                    throw RuntimeError("सूच्याः सीमा अतिक्रान्ता (Array index out of bounds)", arr_assign_stmt->line, arr_assign_stmt->column);
+                }
+
+                if (i + 1 == arr_assign_stmt->index_exprs.size()) {
+                    SutraValue val = evaluate_expr(*arr_assign_stmt->value_expr, env);
+                    current.get_list()[idx] = val;
+                    for (int p = static_cast<int>(parents.size()) - 1; p >= 0; --p) {
+                        if (parents[p].type == ValueType::LIST) {
+                            parents[p].get_list()[static_cast<size_t>(parent_indices[p].int_val)] = current;
+                        } else if (parents[p].type == ValueType::DICTIONARY) {
+                            (*parents[p].dict_val)[parent_indices[p].string_val] = current;
+                        }
+                        current = parents[p];
+                    }
+                    env->assign(arr_assign_stmt->array_name, current, arr_assign_stmt->line, arr_assign_stmt->column);
+                    return SutraValue::make_null();
+                }
+
+                parents.push_back(current);
+                parent_indices.push_back(idx_val);
+                current = current.get_list()[idx];
+            } else {
+                throw RuntimeError("'" + arr_assign_stmt->array_name + "' सूची या शब्दकोश नहीं है।", arr_assign_stmt->line, arr_assign_stmt->column);
+            }
         }
 
         throw RuntimeError("सूचकांक-श्रेणी त्रुटिः (Invalid index assignment)", arr_assign_stmt->line, arr_assign_stmt->column);
@@ -191,6 +225,7 @@ SutraValue Interpreter::execute_stmt(const StmtASTNode& stmt, std::shared_ptr<En
         try {
             return execute_stmt(*try_catch->try_block, env, out);
         } catch (const SutraRuntimeException& ex) {
+            GarbageCollector::get_instance().pop_exception();
             auto catch_env = std::make_shared<Environment>(env);
             catch_env->define(try_catch->catch_var_name, ex.error_val);
             return execute_stmt(*try_catch->catch_block, catch_env, out);
@@ -203,6 +238,7 @@ SutraValue Interpreter::execute_stmt(const StmtASTNode& stmt, std::shared_ptr<En
 
     if (auto throw_stmt = dynamic_cast<const ThrowStmtASTNode*>(&stmt)) {
         SutraValue val = evaluate_expr(*throw_stmt->expression, env);
+        GarbageCollector::get_instance().push_exception(val);
         throw SutraRuntimeException(val, throw_stmt->line, throw_stmt->column);
     }
 
@@ -279,6 +315,14 @@ SutraValue Interpreter::evaluate_expr(const ExprASTNode& expr, std::shared_ptr<E
         return SutraValue::make_null();
     }
 
+    if (auto dict_lit = dynamic_cast<const DictionaryLiteralExprASTNode*>(&expr)) {
+        auto dict_map = std::make_shared<std::unordered_map<std::string, SutraValue>>();
+        for (const auto& elem : dict_lit->elements) {
+            (*dict_map)[elem.first] = evaluate_expr(*elem.second, env);
+        }
+        return SutraValue::make_dict(dict_map);
+    }
+
     if (auto arr_lit = dynamic_cast<const ArrayLiteralExprASTNode*>(&expr)) {
         std::vector<SutraValue> elems;
         for (const auto& elem : arr_lit->elements) {
@@ -289,8 +333,22 @@ SutraValue Interpreter::evaluate_expr(const ExprASTNode& expr, std::shared_ptr<E
 
     if (auto arr_idx = dynamic_cast<const ArrayIndexExprASTNode*>(&expr)) {
         SutraValue arr_val = evaluate_expr(*arr_idx->array_expr, env);
+        
+        if (arr_val.type == ValueType::DICTIONARY) {
+            SutraValue idx_val = evaluate_expr(*arr_idx->index_expr, env);
+            if (idx_val.type != ValueType::STRING) {
+                throw RuntimeError("शब्दकोश की कुंजी पाठ होनी चाहिए (Dictionary key must be string)", arr_idx->line, arr_idx->column);
+            }
+            if (!arr_val.dict_val) return SutraValue::make_null();
+            auto it = arr_val.dict_val->find(idx_val.string_val);
+            if (it != arr_val.dict_val->end()) {
+                return it->second;
+            }
+            return SutraValue::make_null();
+        }
+        
         if (arr_val.type != ValueType::LIST && arr_val.type != ValueType::STRING) {
-            throw RuntimeError("सूची वा पाठ न अस्ति। (Not a list or string)", arr_idx->line, arr_idx->column);
+            throw RuntimeError("सूची, शब्दकोश वा पाठ न अस्ति। (Not a list, dict or string)", arr_idx->line, arr_idx->column);
         }
         SutraValue idx_val = evaluate_expr(*arr_idx->index_expr, env);
         if (idx_val.int_val < 0) {
@@ -299,10 +357,10 @@ SutraValue Interpreter::evaluate_expr(const ExprASTNode& expr, std::shared_ptr<E
         size_t idx = static_cast<size_t>(idx_val.int_val);
         
         if (arr_val.type == ValueType::LIST) {
-            if (idx >= arr_val.list_val.size()) {
+            if (idx >= arr_val.get_list().size()) {
                 throw RuntimeError("सूच्याः सीमा अतिक्रान्ता (Array index out of bounds)", arr_idx->line, arr_idx->column);
             }
-            return arr_val.list_val[idx];
+            return arr_val.get_list()[idx];
         } else {
             // String indexing
             size_t len = 0;
@@ -465,6 +523,30 @@ SutraValue Interpreter::evaluate_expr(const ExprASTNode& expr, std::shared_ptr<E
         }
 
         // Standard Library Builtins
+        // File I/O
+        if (call_expr->callee == "सञ्चिका_पठतु") {
+            if (args.size() != 1 || args[0].type != ValueType::STRING) {
+                throw RuntimeError("'सञ्चिका_पठतु' के लिए एक पाठ (string) पथ अपेक्षित है।", call_expr->line, call_expr->column);
+            }
+            if (!runtime::Runtime::get_instance().platform().file_exists(args[0].string_val)) {
+                throw RuntimeError("सञ्चिका न प्राप्ता (File not found): " + args[0].string_val, call_expr->line, call_expr->column);
+            }
+            return SutraValue::make_string(runtime::Runtime::get_instance().platform().file_read(args[0].string_val));
+        }
+        if (call_expr->callee == "सञ्चिका_लिखतु") {
+            if (args.size() != 2 || args[0].type != ValueType::STRING || args[1].type != ValueType::STRING) {
+                throw RuntimeError("'सञ्चिका_लिखतु' के लिए दो पाठ (string) अपेक्षित हैं।", call_expr->line, call_expr->column);
+            }
+            runtime::Runtime::get_instance().platform().file_write(args[0].string_val, args[1].string_val);
+            return SutraValue::make_bool(true);
+        }
+        if (call_expr->callee == "सञ्चिका_अस्ति") {
+            if (args.size() != 1 || args[0].type != ValueType::STRING) {
+                throw RuntimeError("'सञ्चिका_अस्ति' के लिए एक पाठ (string) पथ अपेक्षित है।", call_expr->line, call_expr->column);
+            }
+            return SutraValue::make_bool(runtime::Runtime::get_instance().platform().file_exists(args[0].string_val));
+        }
+
         if (call_expr->callee == "वर्गमूल") {
             double v = (args[0].type == ValueType::FLOAT) ? args[0].float_val : static_cast<double>(args[0].int_val);
             return SutraValue::make_float(std::sqrt(v));
@@ -499,7 +581,11 @@ SutraValue Interpreter::evaluate_expr(const ExprASTNode& expr, std::shared_ptr<E
                 return SutraValue::make_int(static_cast<int64_t>(utf8_codepoint_count(args[0].string_val)));
             }
             if (args[0].type == ValueType::LIST) {
-                return SutraValue::make_int(static_cast<int64_t>(args[0].list_val.size()));
+                return SutraValue::make_int(static_cast<int64_t>(args[0].get_list().size()));
+            }
+            if (args[0].type == ValueType::DICTIONARY) {
+                if (args[0].dict_val) return SutraValue::make_int(static_cast<int64_t>(args[0].dict_val->size()));
+                return SutraValue::make_int(0);
             }
             return SutraValue::make_int(0);
         }
@@ -524,12 +610,327 @@ SutraValue Interpreter::evaluate_expr(const ExprASTNode& expr, std::shared_ptr<E
             }
         }
         if (call_expr->callee == "जोड़ें") {
-            if (args[0].type == ValueType::LIST) {
-                SutraValue new_list = args[0];
-                new_list.list_val.push_back(args[1]);
-                return new_list;
+            if (args[0].type != ValueType::LIST) {
+                throw RuntimeError("'जोड़ें' कार्य के लिए सूची अपेक्षित है।", call_expr->line, call_expr->column);
             }
-            return args[0];
+            SutraValue new_list = args[0];
+            new_list.get_list().push_back(args[1]);
+            return new_list;
+        }
+        if (call_expr->callee == "निकालें") {
+            if (args[0].type != ValueType::LIST) {
+                throw RuntimeError("'निकालें' कार्य के लिए सूची अपेक्षित है।", call_expr->line, call_expr->column);
+            }
+            if (args[0].get_list().empty()) {
+                throw RuntimeError("शून्य सूची से तत्व नहीं निकाला जा सकता।", call_expr->line, call_expr->column);
+            }
+            SutraValue new_list = args[0];
+            new_list.get_list().pop_back();
+            return new_list;
+        }
+        if (call_expr->callee == "डालें") {
+            if (args[0].type != ValueType::LIST) {
+                throw RuntimeError("'डालें' कार्य के लिए सूची अपेक्षित है।", call_expr->line, call_expr->column);
+            }
+            if (args[1].type != ValueType::INT) {
+                throw RuntimeError("'डालें' कार्य के लिए सूचकांक पूर्णांक होना चाहिए।", call_expr->line, call_expr->column);
+            }
+            int64_t idx = args[1].int_val;
+            if (idx < 0 || idx > (int64_t)args[0].get_list().size()) {
+                throw RuntimeError("डालें: सूचकांक सीमा से बाहर अस्ति।", call_expr->line, call_expr->column);
+            }
+            SutraValue new_list = args[0];
+            new_list.get_list().insert(new_list.get_list().begin() + idx, args[2]);
+            return new_list;
+        }
+        if (call_expr->callee == "हटाएं") {
+            if (args[0].type == ValueType::DICTIONARY) {
+                if (args[1].type != ValueType::STRING) {
+                    throw RuntimeError("'हटाएं' कार्य के लिए शब्दकोश कुंजी पाठ होनी चाहिए।", call_expr->line, call_expr->column);
+                }
+                SutraValue new_dict = args[0];
+                if (new_dict.dict_val) {
+                    new_dict.dict_val->erase(args[1].string_val);
+                }
+                return new_dict;
+            }
+            if (args[0].type != ValueType::LIST) {
+                throw RuntimeError("'हटाएं' कार्य के लिए सूची या शब्दकोश अपेक्षित है।", call_expr->line, call_expr->column);
+            }
+            if (args[1].type != ValueType::INT) {
+                throw RuntimeError("'हटाएं' कार्य के लिए सूचकांक पूर्णांक होना चाहिए।", call_expr->line, call_expr->column);
+            }
+            int64_t idx = args[1].int_val;
+            if (idx < 0 || idx >= (int64_t)args[0].get_list().size()) {
+                throw RuntimeError("हटाएं: सूचकांक सीमा से बाहर अस्ति।", call_expr->line, call_expr->column);
+            }
+            SutraValue new_list = args[0];
+            new_list.get_list().erase(new_list.get_list().begin() + idx);
+            return new_list;
+        }
+        if (call_expr->callee == "मिलाएं") {
+            if (args[0].type != ValueType::LIST || args[1].type != ValueType::LIST) {
+                throw RuntimeError("'मिलाएं' कार्य के लिए दोनों तर्क सूची होने चाहिए।", call_expr->line, call_expr->column);
+            }
+            SutraValue new_list = args[0];
+            new_list.get_list().insert(new_list.get_list().end(), args[1].get_list().begin(), args[1].get_list().end());
+            return new_list;
+        }
+
+        if (call_expr->callee == "कुंजी_है") {
+            if (args.size() != 2) throw RuntimeError("'कुंजी_है' कार्यस्य तर्क-सङ्ख्या अमान्या अस्ति।", call_expr->line, call_expr->column);
+            if (args[0].type != ValueType::DICTIONARY) throw RuntimeError("'कुंजी_है' कार्य के लिए शब्दकोश अपेक्षित है।", call_expr->line, call_expr->column);
+            if (args[1].type != ValueType::STRING) throw RuntimeError("'कुंजी_है' कार्य के लिए कुंजी पाठ होनी चाहिए।", call_expr->line, call_expr->column);
+            
+            if (!args[0].dict_val) return SutraValue::make_bool(false);
+            return SutraValue::make_bool(args[0].dict_val->find(args[1].string_val) != args[0].dict_val->end());
+        }
+
+        if (call_expr->callee == "कुंजियाँ") {
+            if (args.size() != 1) throw RuntimeError("'कुंजियाँ' कार्यस्य तर्क-सङ्ख्या अमान्या अस्ति।", call_expr->line, call_expr->column);
+            if (args[0].type != ValueType::DICTIONARY) throw RuntimeError("'कुंजियाँ' कार्य के लिए शब्दकोश अपेक्षित है।", call_expr->line, call_expr->column);
+            
+            std::vector<SutraValue> keys;
+            if (args[0].dict_val) {
+                for (const auto& pair : *args[0].dict_val) {
+                    keys.push_back(SutraValue::make_string(pair.first));
+                }
+            }
+            return SutraValue::make_list(keys);
+        }
+
+        // Sutra 1.1 approved string API
+        if (call_expr->callee == "उपखंड") {
+            if (args.size() != 3) {
+                throw RuntimeError("'उपखंड' कार्यस्य तर्क-सङ्ख्या अमान्या अस्ति।", call_expr->line, call_expr->column);
+            }
+            if (args[0].type != ValueType::STRING || args[1].type != ValueType::INT || args[2].type != ValueType::INT) {
+                throw RuntimeError("'उपखंड' के तर्क भिन्न प्रकार के हैं।", call_expr->line, call_expr->column);
+            }
+            const std::string& s = args[0].string_val;
+            int64_t start = args[1].int_val;
+            int64_t end = args[2].int_val;
+            if (start < 0 || end < 0) {
+                throw RuntimeError("अमान्य सूचकांक मान (Index cannot be negative)", call_expr->line, call_expr->column);
+            }
+            size_t codepoint_count = utf8_codepoint_count(s);
+            if (start > static_cast<int64_t>(codepoint_count) || end > static_cast<int64_t>(codepoint_count)) {
+                throw RuntimeError("पाठस्य सीमा अतिक्रान्ता (String index out of bounds)", call_expr->line, call_expr->column);
+            }
+            if (start > end) {
+                throw RuntimeError("आरंभः अन्त्यतः अधिकः अस्ति (start > end)", call_expr->line, call_expr->column);
+            }
+            if (start == end) {
+                return SutraValue::make_string("");
+            }
+
+            size_t byte_start = 0;
+            size_t byte_end = 0;
+            size_t cp = 0;
+            size_t idx = 0;
+            while (idx < s.size()) {
+                size_t prev = idx;
+                decode_utf8(s, idx);
+                if (cp == static_cast<size_t>(start)) {
+                    byte_start = prev;
+                }
+                if (cp == static_cast<size_t>(end)) {
+                    byte_end = prev;
+                    break;
+                }
+                cp++;
+            }
+            if (byte_end == 0 && end == static_cast<int64_t>(codepoint_count)) {
+                byte_end = s.size();
+            }
+            return SutraValue::make_string(s.substr(byte_start, byte_end - byte_start));
+        }
+
+        if (call_expr->callee == "खोजें") {
+            if (args.size() != 2) {
+                throw RuntimeError("'खोजें' कार्यस्य तर्क-सङ्ख्या अमान्या अस्ति।", call_expr->line, call_expr->column);
+            }
+            if (args[0].type == ValueType::LIST) {
+                const auto& list = args[0].get_list();
+                SutraValue target = args[1];
+                int64_t found_idx = -1;
+                for (size_t idx = 0; idx < list.size(); ++idx) {
+                    bool match = false;
+                    if (list[idx].type == target.type) {
+                        if (list[idx].type == ValueType::INT && list[idx].int_val == target.int_val) match = true;
+                        else if (list[idx].type == ValueType::FLOAT && list[idx].float_val == target.float_val) match = true;
+                        else if (list[idx].type == ValueType::STRING && list[idx].string_val == target.string_val) match = true;
+                        else if (list[idx].type == ValueType::BOOL && list[idx].bool_val == target.bool_val) match = true;
+                        else if (list[idx].type == ValueType::NULL_VAL) match = true;
+                    }
+                    if (match) {
+                        found_idx = (int64_t)idx;
+                        break;
+                    }
+                }
+                return SutraValue::make_int(found_idx);
+            }
+            if (args[0].type != ValueType::STRING || args[1].type != ValueType::STRING) {
+                throw RuntimeError("'खोजें' के तर्क भिन्न प्रकार के हैं।", call_expr->line, call_expr->column);
+            }
+            if (args[1].string_val.empty()) {
+                throw RuntimeError("खोजें: रिक्त खोज पाठ मान्य न अस्ति।", call_expr->line, call_expr->column);
+            }
+            const std::string& haystack = args[0].string_val;
+            const std::string& needle = args[1].string_val;
+            size_t pos = haystack.find(needle);
+            if (pos == std::string::npos) {
+                return SutraValue::make_int(-1);
+            }
+            size_t count = 0;
+            size_t i = 0;
+            while (i < pos) {
+                size_t prev = i;
+                decode_utf8(haystack, i);
+                count++;
+                if (i <= prev) {
+                    break;
+                }
+            }
+            return SutraValue::make_int(static_cast<int64_t>(count));
+        }
+
+        if (call_expr->callee == "बदलें") {
+            if (args.size() != 3) {
+                throw RuntimeError("'बदलें' कार्यस्य तर्क-सङ्ख्या अमान्या अस्ति।", call_expr->line, call_expr->column);
+            }
+            if (args[0].type != ValueType::STRING || args[1].type != ValueType::STRING || args[2].type != ValueType::STRING) {
+                throw RuntimeError("'बदलें' के तर्क भिन्न प्रकार के हैं।", call_expr->line, call_expr->column);
+            }
+            if (args[1].string_val.empty()) {
+                throw RuntimeError("बदलें: रिक्त खोज पाठ मान्य न अस्ति।", call_expr->line, call_expr->column);
+            }
+            const std::string& haystack = args[0].string_val;
+            const std::string& needle = args[1].string_val;
+            const std::string& replacement = args[2].string_val;
+            size_t pos = haystack.find(needle);
+            if (pos == std::string::npos) {
+                return SutraValue::make_string(haystack);
+            }
+            return SutraValue::make_string(haystack.substr(0, pos) + replacement + haystack.substr(pos + needle.size()));
+        }
+
+        if (call_expr->callee == "विभाजित") {
+            if (args.size() != 2) {
+                throw RuntimeError("'विभाजित' कार्यस्य तर्क-सङ्ख्या अमान्या अस्ति।", call_expr->line, call_expr->column);
+            }
+            if (args[0].type != ValueType::STRING || args[1].type != ValueType::STRING) {
+                throw RuntimeError("'विभाजित' के तर्क भिन्न प्रकार के हैं।", call_expr->line, call_expr->column);
+            }
+            if (args[1].string_val.empty()) {
+                throw RuntimeError("विभाजित: रिक्त विभाजक मान्य न अस्ति।", call_expr->line, call_expr->column);
+            }
+            std::vector<SutraValue> parts;
+            std::string haystack = args[0].string_val;
+            std::string delim = args[1].string_val;
+            size_t start = 0;
+            while (true) {
+                size_t pos = haystack.find(delim, start);
+                if (pos == std::string::npos) {
+                    parts.push_back(SutraValue::make_string(haystack.substr(start)));
+                    break;
+                }
+                parts.push_back(SutraValue::make_string(haystack.substr(start, pos - start)));
+                start = pos + delim.size();
+                if (start == haystack.size()) {
+                    parts.push_back(SutraValue::make_string(""));
+                    break;
+                }
+            }
+            return SutraValue::make_list(parts);
+        }
+
+        if (call_expr->callee == "संयोजित") {
+            if (args.size() != 2) {
+                throw RuntimeError("'संयोजित' कार्यस्य तर्क-सङ्ख्या अमान्या अस्ति।", call_expr->line, call_expr->column);
+            }
+            if (args[0].type != ValueType::LIST || args[1].type != ValueType::STRING) {
+                throw RuntimeError("'संयोजित' के तर्क भिन्न प्रकार के हैं।", call_expr->line, call_expr->column);
+            }
+            std::string sep = args[1].string_val;
+            std::string out;
+            const auto& join_list = args[0].get_list();
+            for (size_t i = 0; i < join_list.size(); ++i) {
+                if (join_list[i].type != ValueType::STRING) {
+                    throw RuntimeError("'संयोजित' में सूची के सभी तत्व पाठ होने चाहिए।", call_expr->line, call_expr->column);
+                }
+                if (i > 0) out += sep;
+                out += join_list[i].string_val;
+            }
+            return SutraValue::make_string(out);
+        }
+
+        if (call_expr->callee == "छाँटें") {
+            if (args.size() != 1) {
+                throw RuntimeError("'छाँटें' कार्यस्य तर्क-सङ्ख्या अमान्या अस्ति।", call_expr->line, call_expr->column);
+            }
+            if (args[0].type != ValueType::STRING) {
+                throw RuntimeError("'छाँटें' के तर्क का प्रकार पाठ नहीं है।", call_expr->line, call_expr->column);
+            }
+
+            const std::string& s = args[0].string_val;
+            auto is_ws = [](uint32_t cp) {
+                return cp == ' ' || cp == '\t' || cp == '\n' || cp == '\r' || cp == 0x00A0 || cp == 0x1680 ||
+                       (cp >= 0x2000 && cp <= 0x200A) || cp == 0x2028 || cp == 0x2029 || cp == 0x202F ||
+                       cp == 0x205F || cp == 0x3000;
+            };
+
+            std::vector<uint32_t> codepoints;
+            size_t idx = 0;
+            while (idx < s.size()) {
+                size_t next = idx;
+                codepoints.push_back(decode_utf8(s, next));
+                idx = next;
+            }
+
+            size_t start = 0;
+            while (start < codepoints.size() && is_ws(codepoints[start])) {
+                ++start;
+            }
+
+            size_t end = codepoints.size();
+            while (end > start && is_ws(codepoints[end - 1])) {
+                --end;
+            }
+
+            std::string trimmed;
+            for (size_t i = start; i < end; ++i) {
+                trimmed += encode_utf8(codepoints[i]);
+            }
+            return SutraValue::make_string(trimmed);
+        }
+
+        if (call_expr->callee == "आरंभिक") {
+            if (args.size() != 2) {
+                throw RuntimeError("'आरंभिक' कार्यस्य तर्क-सङ्ख्या अमान्या अस्ति।", call_expr->line, call_expr->column);
+            }
+            if (args[0].type != ValueType::STRING || args[1].type != ValueType::STRING) {
+                throw RuntimeError("'आरंभिक' के तर्क भिन्न प्रकार के हैं।", call_expr->line, call_expr->column);
+            }
+            if (args[1].string_val.empty()) {
+                return SutraValue::make_bool(true);
+            }
+            return SutraValue::make_bool(args[0].string_val.rfind(args[1].string_val, 0) == 0);
+        }
+
+        if (call_expr->callee == "अंतिम") {
+            if (args.size() != 2) {
+                throw RuntimeError("'अंतिम' कार्यस्य तर्क-सङ्ख्या अमान्या अस्ति।", call_expr->line, call_expr->column);
+            }
+            if (args[0].type != ValueType::STRING || args[1].type != ValueType::STRING) {
+                throw RuntimeError("'अंतिम' के तर्क भिन्न प्रकार के हैं।", call_expr->line, call_expr->column);
+            }
+            if (args[1].string_val.empty()) {
+                return SutraValue::make_bool(true);
+            }
+            const std::string& text = args[0].string_val;
+            const std::string& suffix = args[1].string_val;
+            return SutraValue::make_bool(text.size() >= suffix.size() && text.compare(text.size() - suffix.size(), suffix.size(), suffix) == 0);
         }
 
         return call_function(call_expr->callee, args, call_expr->line, call_expr->column, *runtime::Runtime::get_instance().get_output_stream());
@@ -659,7 +1060,12 @@ SutraValue Interpreter::call_function(const std::string& name, const std::vector
 
     auto func_env = std::make_shared<Environment>(m_global_env);
     for (size_t i = 0; i < args.size(); ++i) {
-        func_env->define(func->params[i].name, args[i]);
+        if (func->params[i].type_name == "सूची" && args[i].type == ValueType::LIST) {
+            // Shared/reference semantics for typed list parameters
+            func_env->define(func->params[i].name, args[i].shallow_copy());
+        } else {
+            func_env->define(func->params[i].name, args[i]);
+        }
     }
 
     SutraValue result = execute_stmt(*func->body, func_env, out);

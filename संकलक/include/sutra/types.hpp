@@ -12,6 +12,7 @@ enum class DataType {
     TARK,           // तर्क (bool, 1 byte)
     AKSHAR,         // अक्षर (Unicode character, 4 bytes)
     PAATH,          // पाठ (string, 8 bytes)
+    SHABDAKOSH,     // शब्दकोश (dictionary, 8 bytes)
     RIKT,           // रिक्त (void / null, 0 bytes)
     UNKNOWN         // dynamic / untyped
 };

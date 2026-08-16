@@ -25,6 +25,11 @@ static void collect_references(const SutraValue& val, std::vector<uint64_t>& ref
             collect_references(pair.second, refs, visited);
         }
     }
+    if (val.type == ValueType::DICTIONARY && val.dict_val) {
+        for (const auto& pair : *val.dict_val) {
+            collect_references(pair.second, refs, visited);
+        }
+    }
     if (val.type == ValueType::RETURN_SIGNAL && val.return_payload) {
         collect_references(*val.return_payload, refs, visited);
     }
@@ -56,6 +61,11 @@ void GarbageCollector::collect() {
                 collect_references(pair.second, roots, visited);
             }
         }
+    }
+
+    // Active Exceptions (in-flight during C++ unwinding)
+    for (const auto& exc : m_active_exceptions) {
+        collect_references(exc, roots, visited);
     }
 
     // 2. Mark Reachable Objects

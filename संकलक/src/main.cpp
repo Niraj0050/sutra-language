@@ -1,4 +1,4 @@
-#include "sutra/lexer.hpp"
+﻿#include "sutra/lexer.hpp"
 #include "sutra/parser.hpp"
 #include "sutra/semantic.hpp"
 #include "sutra/interpreter.hpp"
@@ -142,6 +142,13 @@ int run_sutra(const std::vector<std::string>& args) {
         // शाब्दिक विश्लेषण
         sutra::Lexer lexer(source);
         std::vector<sutra::Token> tokens = lexer.tokenize();
+
+        // // DEBUG: token dump
+        // for (const auto& token : tokens) {
+        //     std::cout << "[" << token.line << ":" << token.column << "] "
+        //               << sutra::token_type_to_string(token.type)
+        //               << " => '" << token.lexeme << "'\n";
+        // }
 
         // वाक्यविन्यास विश्लेषण
         sutra::Parser parser(tokens, file_path);

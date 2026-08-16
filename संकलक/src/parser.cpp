@@ -871,6 +871,21 @@ std::unique_ptr<ExprASTNode> Parser::parse_primary() {
         return std::make_unique<ArrayLiteralExprASTNode>(std::move(elements), tok.line, tok.column);
     }
 
+    // Dictionary Literal { "key": expr, "key2": expr2 }
+    if (match(TokenType::LBRACE)) {
+        std::vector<std::pair<std::string, std::unique_ptr<ExprASTNode>>> elements;
+        if (!check(TokenType::RBRACE)) {
+            do {
+                Token key_tok = consume(TokenType::STRING_LITERAL, "शब्दकोश-कुंजी (string key) अपेक्षितम्");
+                consume(TokenType::COLON, "':' अपेक्षितम्");
+                auto val_expr = parse_expression();
+                elements.push_back({key_tok.lexeme, std::move(val_expr)});
+            } while (match(TokenType::COMMA));
+        }
+        consume(TokenType::RBRACE, "'}' अपेक्षितम्");
+        return std::make_unique<DictionaryLiteralExprASTNode>(std::move(elements), tok.line, tok.column);
+    }
+
     if (check(TokenType::IDENTIFIER) || check(TokenType::K_MUKHYA)) {
         Token id_tok = advance();
 

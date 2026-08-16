@@ -11,6 +11,7 @@ const TypeInfo& get_type_info(DataType type) {
         {DataType::TARK, "तर्क", 1, 1},
         {DataType::AKSHAR, "अक्षर", 4, 4},
         {DataType::PAATH, "पाठ", 8, 8},
+        {DataType::SHABDAKOSH, "शब्दकोश", 8, 8},
         {DataType::RIKT, "रिक्त", 0, 1},
         {DataType::UNKNOWN, "अज्ञात", 0, 1}
     };
@@ -25,10 +26,12 @@ DataType parse_type_name(const std::string& name) {
         {"तर्क", DataType::TARK},
         {"अक्षर", DataType::AKSHAR},
         {"पाठ", DataType::PAATH},
+        {"शब्दकोश", DataType::SHABDAKOSH},
         {"रिक्त", DataType::RIKT},
         {"संख्या", DataType::POORNAK}, // Compatibility mapping
         {"बूल", DataType::TARK},      // Compatibility mapping
-        {"मान", DataType::UNKNOWN}
+        {"मान", DataType::UNKNOWN},
+        {"सूची", DataType::UNKNOWN}
     };
     auto it = type_map.find(name);
     if (it != type_map.end()) {

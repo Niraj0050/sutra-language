@@ -1,0 +1,5 @@
+कार्य मुख्य() {
+    सूची ल = [1, 2];
+    // Index out of bounds access (will panic and exit with non-zero exit code)
+    लिखतु(ल[5]);
+}

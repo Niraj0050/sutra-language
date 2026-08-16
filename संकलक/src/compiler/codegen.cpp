@@ -4,6 +4,7 @@
 #include <fstream>
 #include <cstdlib>
 #include <algorithm>
+#include <filesystem>
 
 namespace sutra {
 namespace compiler {
@@ -32,6 +33,11 @@ static std::string escape_for_gas(const std::string& s) {
 }
 
 std::string NativeCodeGenX86_64::generate_assembly(const IRModule& module) {
+    // Simple label generator for unique jump targets within this function
+    int label_counter = 0;
+    auto new_label = [&label_counter]() -> std::string {
+        return ".L_sutra_div_zero_" + std::to_string(label_counter++);
+    };
     std::ostringstream main_ss;
 
     main_ss << "  .ident \"Sutra Native Compiler 1.0\"\n";
@@ -51,13 +57,19 @@ std::string NativeCodeGenX86_64::generate_assembly(const IRModule& module) {
     main_ss << "  .def sutra_math_min; .scl 2; .type 32; .endef\n";
     main_ss << "  .def sutra_math_max; .scl 2; .type 32; .endef\n";
     main_ss << "  .def sutra_math_round; .scl 2; .type 32; .endef\n";
+    main_ss << "  .def sutra_throw_div_by_zero; .scl 2; .type 32; .endef\n";
     main_ss << "  .def sutra_list_append; .scl 2; .type 32; .endef\n";
     main_ss << "  .def sutra_arr_create; .scl 2; .type 32; .endef\n";
     main_ss << "  .def sutra_arr_get; .scl 2; .type 32; .endef\n";
     main_ss << "  .def sutra_arr_set; .scl 2; .type 32; .endef\n";
     main_ss << "  .def sutra_arr_length; .scl 2; .type 32; .endef\n";
     main_ss << "  .def sutra_print_null; .scl 2; .type 32; .endef\n";
-    main_ss << "  .def sutra_print_bool; .scl 2; .type 32; .endef\n\n";
+    main_ss << "  .def sutra_print_bool; .scl 2; .type 32; .endef\n";
+    main_ss << "  .def _setjmp; .scl 2; .type 32; .endef\n";
+    main_ss << "  .def sutra_exception_get_jmp_buf; .scl 2; .type 32; .endef\n";
+    main_ss << "  .def sutra_exception_pop; .scl 2; .type 32; .endef\n";
+    main_ss << "  .def sutra_throw; .scl 2; .type 32; .endef\n";
+    main_ss << "  .def sutra_get_exception_value; .scl 2; .type 32; .endef\n\n";
 
     // Read-only data section: format strings and string literals
     main_ss << "  .section .rdata,\"dr\"\n";
@@ -97,7 +109,12 @@ std::string NativeCodeGenX86_64::generate_assembly(const IRModule& module) {
             switch (inst.opcode) {
                 case IROpcode::CONST_INT: {
                     int off = get_or_alloc_stack(inst.dest);
+                if (inst.arg1.int_val > INT_MAX || inst.arg1.int_val < INT_MIN) {
+                    ss << "  movabsq $" << inst.arg1.int_val << ", %rax\n";
+                    ss << "  movq %rax, " << off << "(%rbp)\n";
+                } else {
                     ss << "  movq $" << inst.arg1.int_val << ", " << off << "(%rbp)\n";
+                }
                     break;
                 }
                 case IROpcode::CONST_NULL: {
@@ -133,7 +150,12 @@ std::string NativeCodeGenX86_64::generate_assembly(const IRModule& module) {
                 case IROpcode::STORE: {
                     int dest_off = get_or_alloc_stack(inst.dest);
                     if (inst.arg1.kind == IRValue::Kind::INT_LITERAL) {
-                        ss << "  movq $" << inst.arg1.int_val << ", " << dest_off << "(%rbp)\n";
+                        if (inst.arg1.int_val > INT_MAX || inst.arg1.int_val < INT_MIN) {
+                ss << "  movabsq $" << inst.arg1.int_val << ", %rax\n";
+                ss << "  movq %rax, " << dest_off << "(%rbp)\n";
+            } else {
+                ss << "  movq $" << inst.arg1.int_val << ", " << dest_off << "(%rbp)\n";
+            }
                     } else {
                         int src_off = get_or_alloc_stack(inst.arg1.str_val);
                         ss << "  movq " << src_off << "(%rbp), %rax\n";
@@ -154,20 +176,30 @@ std::string NativeCodeGenX86_64::generate_assembly(const IRModule& module) {
 
                     if (inst.opcode == IROpcode::ADD) {
                         ss << "  addq " << right_off << "(%rbp), %rax\n";
+                        ss << "  movq %rax, " << dest_off << "(%rbp)\n";
                     } else if (inst.opcode == IROpcode::SUB) {
                         ss << "  subq " << right_off << "(%rbp), %rax\n";
+                        ss << "  movq %rax, " << dest_off << "(%rbp)\n";
                     } else if (inst.opcode == IROpcode::MUL) {
                         ss << "  imulq " << right_off << "(%rbp), %rax\n";
-                    } else if (inst.opcode == IROpcode::DIV) {
+                        ss << "  movq %rax, " << dest_off << "(%rbp)\n";
+                    } else {
+                        // zero division check
+                        std::string div_zero_label = new_label();
+                        std::string end_label = new_label();
+                        ss << "  cmpq $0, " << right_off << "(%rbp)\n";
+                        ss << "  je " << div_zero_label << "\n";
                         ss << "  cqto\n";
                         ss << "  idivq " << right_off << "(%rbp)\n";
-                    } else if (inst.opcode == IROpcode::MOD) {
-                        ss << "  cqto\n";
-                        ss << "  idivq " << right_off << "(%rbp)\n";
-                        ss << "  movq %rdx, %rax\n";
+                        if (inst.opcode == IROpcode::MOD) {
+                            ss << "  movq %rdx, %rax\n";
+                        }
+                        ss << "  movq %rax, " << dest_off << "(%rbp)\n";
+                        ss << "  jmp " << end_label << "\n";
+                        ss << div_zero_label << ":\n";
+                        ss << "  call sutra_throw_div_by_zero\n";
+                        ss << end_label << ":\n";
                     }
-
-                    ss << "  movq %rax, " << dest_off << "(%rbp)\n";
                     break;
                 }
                 case IROpcode::CMP_EQ:
@@ -245,7 +277,11 @@ std::string NativeCodeGenX86_64::generate_assembly(const IRModule& module) {
                 }
                 case IROpcode::PRINT_INT: {
                     if (inst.arg1.kind == IRValue::Kind::INT_LITERAL) {
-                        ss << "  movq $" << inst.arg1.int_val << ", %rdx\n";
+                        if (inst.arg1.int_val > INT_MAX || inst.arg1.int_val < INT_MIN) {
+                ss << "  movabs $" << inst.arg1.int_val << ", %rdx\n";
+            } else {
+                ss << "  movq $" << inst.arg1.int_val << ", %rdx\n";
+            }
                     } else {
                         int val_off = get_or_alloc_stack(inst.arg1.str_val);
                         ss << "  movq " << val_off << "(%rbp), %rdx\n";
@@ -267,12 +303,30 @@ std::string NativeCodeGenX86_64::generate_assembly(const IRModule& module) {
                 }
                 case IROpcode::PRINT_BOOL: {
                     if (inst.arg1.kind == IRValue::Kind::INT_LITERAL) {
+                        if (inst.arg1.int_val > INT_MAX || inst.arg1.int_val < INT_MIN) {
+                        ss << "  movabsq $" << inst.arg1.int_val << ", %rcx\n";
+                    } else {
                         ss << "  movq $" << inst.arg1.int_val << ", %rcx\n";
+                    }
                     } else {
                         int val_off = get_or_alloc_stack(inst.arg1.str_val);
                         ss << "  movq " << val_off << "(%rbp), %rcx\n";
                     }
                     ss << "  call sutra_print_bool\n";
+                    break;
+                }
+                case IROpcode::PRINT_FLOAT: {
+                    if (inst.arg1.kind == IRValue::Kind::INT_LITERAL) {
+                        if (inst.arg1.int_val > INT_MAX || inst.arg1.int_val < INT_MIN) {
+                            ss << "  movabsq $" << inst.arg1.int_val << ", %rcx\n";
+                        } else {
+                            ss << "  movq $" << inst.arg1.int_val << ", %rcx\n";
+                        }
+                    } else {
+                        int val_off = get_or_alloc_stack(inst.arg1.str_val);
+                        ss << "  movq " << val_off << "(%rbp), %rcx\n";
+                    }
+                    ss << "  call sutra_print_float\n";
                     break;
                 }
                 case IROpcode::STRING_CONCAT: {
@@ -364,7 +418,11 @@ std::string NativeCodeGenX86_64::generate_assembly(const IRModule& module) {
                 case IROpcode::ARRAY_CREATE: {
                     // sutra_arr_create(n) -> array pointer
                     int dest_off = get_or_alloc_stack(inst.dest);
-                    ss << "  movq $" << inst.arg1.int_val << ", %rcx\n";
+                    if (inst.arg1.int_val > INT_MAX || inst.arg1.int_val < INT_MIN) {
+                        ss << "  movabsq $" << inst.arg1.int_val << ", %rcx\n";
+                    } else {
+                        ss << "  movq $" << inst.arg1.int_val << ", %rcx\n";
+                    }
                     ss << "  call sutra_arr_create\n";
                     ss << "  movq %rax, " << dest_off << "(%rbp)\n";
                     break;
@@ -410,7 +468,11 @@ std::string NativeCodeGenX86_64::generate_assembly(const IRModule& module) {
                     const char* arg_regs[] = {"%rcx", "%rdx", "%r8", "%r9"};
                     for (size_t i = 0; i < inst.call_args.size() && i < 4; ++i) {
                         if (inst.call_args[i].kind == IRValue::Kind::INT_LITERAL) {
-                            ss << "  movq $" << inst.call_args[i].int_val << ", " << arg_regs[i] << "\n";
+                            if (inst.call_args[i].int_val > INT_MAX || inst.call_args[i].int_val < INT_MIN) {
+                        ss << "  movabsq $" << inst.call_args[i].int_val << ", " << arg_regs[i] << "\n";
+                    } else {
+                        ss << "  movq $" << inst.call_args[i].int_val << ", " << arg_regs[i] << "\n";
+                    }
                         } else {
                             int off = get_or_alloc_stack(inst.call_args[i].str_val);
                             ss << "  movq " << off << "(%rbp), " << arg_regs[i] << "\n";
@@ -436,6 +498,40 @@ std::string NativeCodeGenX86_64::generate_assembly(const IRModule& module) {
                     ss << "  movq %rbp, %rsp\n";
                     ss << "  popq %rbp\n";
                     ss << "  ret\n";
+                    break;
+                }
+                case IROpcode::TRY_BEGIN: {
+                    std::string catch_label = inst.arg1.str_val;
+                    ss << "  call sutra_exception_get_jmp_buf\n";
+                    ss << "  movq %rax, %rcx\n";
+                    ss << "  movq $0, %rdx\n";
+                    ss << "  call _setjmp\n";
+                    ss << "  testq %rax, %rax\n";
+                    ss << "  jnz " << catch_label << "\n";
+                    break;
+                }
+                case IROpcode::TRY_END: {
+                    ss << "  call sutra_exception_pop\n";
+                    break;
+                }
+                case IROpcode::CATCH_BEGIN: {
+                    int off = get_or_alloc_stack(inst.arg1.str_val);
+                    ss << "  call sutra_get_exception_value\n";
+                    ss << "  movq %rax, " << off << "(%rbp)\n";
+                    break;
+                }
+                case IROpcode::THROW: {
+                    if (inst.arg1.kind == IRValue::Kind::INT_LITERAL) {
+                        if (inst.arg1.int_val > INT_MAX || inst.arg1.int_val < INT_MIN) {
+                            ss << "  movabsq $" << inst.arg1.int_val << ", %rcx\n";
+                        } else {
+                            ss << "  movq $" << inst.arg1.int_val << ", %rcx\n";
+                        }
+                    } else {
+                        int val_off = get_or_alloc_stack(inst.arg1.str_val);
+                        ss << "  movq " << val_off << "(%rbp), %rcx\n";
+                    }
+                    ss << "  call sutra_throw\n";
                     break;
                 }
                 default: break;
@@ -468,22 +564,18 @@ std::string NativeCodeGenX86_64::generate_assembly(const IRModule& module) {
 }
 
 bool NativeCodeGenX86_64::compile_to_binary(const IRModule& module, const std::string& output_exe_path) {
-    std::string s_file = output_exe_path + ".s";
+    // 1. Generate assembly code
     std::string asm_code = generate_assembly(module);
 
-    std::ofstream out(s_file);
+    // 2. We write to an ASCII-only temp assembly file in the current directory
+    std::string temp_s = "sutra_temp.s";
+    std::ofstream out(temp_s);
     if (!out.is_open()) return false;
     out << asm_code;
     out.close();
 
-    // Determine runtime .c file path (relative to the sutra.exe location)
-    // The runtime source is at: संकलक/src/compiler/sutra_runtime.c
-    // We compile it alongside the assembly
-    std::string runtime_c = "";
-    std::string runtime_o = output_exe_path + "_rt.o";
-
-    // Try to find sutra_runtime.c relative to the executable
-    // Check several possible locations
+    // 3. Find the original source runtime path (might contain Unicode)
+    std::string src_runtime_c = "";
     const char* runtime_paths[] = {
         "sutra_runtime.c",
         "संकलक\\src\\compiler\\sutra_runtime.c",
@@ -491,41 +583,88 @@ bool NativeCodeGenX86_64::compile_to_binary(const IRModule& module, const std::s
     };
 
     for (const auto& rpath : runtime_paths) {
-        std::ifstream test(rpath);
-        if (test.good()) {
-            runtime_c = rpath;
-            test.close();
-            break;
-        }
+        try {
+#if defined(_WIN32)
+            std::filesystem::path p = std::filesystem::u8path(rpath);
+#else
+            std::filesystem::path p(rpath);
+#endif
+            if (std::filesystem::exists(p)) {
+                src_runtime_c = rpath;
+                break;
+            }
+        } catch (...) {}
     }
 
-    if (runtime_c.empty()) {
-        // Last resort: inline the runtime path
-        runtime_c = "संकलक\\src\\compiler\\sutra_runtime.c";
+    if (src_runtime_c.empty()) {
+        src_runtime_c = "संकलक\\src\\compiler\\sutra_runtime.c";
     }
 
-    // Step 1: Compile the C runtime to .o
-    std::string cmd_rt = "C:\\msys64\\ucrt64\\bin\\gcc.exe -m64 -c \"" + runtime_c + "\" -o \"" + runtime_o + "\"";
+    // 4. Copy the runtime source file to an ASCII-only temp C file
+    std::string temp_rt_c = "sutra_runtime_temp.c";
+    std::string temp_rt_o = "sutra_runtime_temp.o";
+    std::string temp_exe = "sutra_temp.exe";
+
+    try {
+#if defined(_WIN32)
+        std::filesystem::path src_p = std::filesystem::u8path(src_runtime_c);
+#else
+        std::filesystem::path src_p(src_runtime_c);
+#endif
+        std::filesystem::copy_file(src_p, temp_rt_c, std::filesystem::copy_options::overwrite_existing);
+    } catch (...) {
+        std::remove(temp_s.c_str());
+        return false;
+    }
+
+    // 5. Compile the C runtime (using ASCII paths only)
+    std::string cmd_rt = "C:\\msys64\\ucrt64\\bin\\gcc.exe -m64 -c \"" + temp_rt_c + "\" -o \"" + temp_rt_o + "\"";
     int res = system(cmd_rt.c_str());
     if (res != 0) {
-        cmd_rt = "gcc -m64 -c \"" + runtime_c + "\" -o \"" + runtime_o + "\"";
+        cmd_rt = "gcc -m64 -c \"" + temp_rt_c + "\" -o \"" + temp_rt_o + "\"";
         res = system(cmd_rt.c_str());
     }
-    if (res != 0) return false;
 
-    // Step 2: Link assembly + runtime .o -> executable
-    std::string cmd = "C:\\msys64\\ucrt64\\bin\\gcc.exe -m64 \"" + s_file + "\" \"" + runtime_o + "\" -o \"" + output_exe_path + "\"";
+    if (res != 0) {
+        std::remove(temp_s.c_str());
+        std::remove(temp_rt_c.c_str());
+        return false;
+    }
+
+    // 6. Link assembly + runtime .o to temp executable (using ASCII paths only)
+    std::string cmd = "C:\\msys64\\ucrt64\\bin\\gcc.exe -m64 \"" + temp_s + "\" \"" + temp_rt_o + "\" -o \"" + temp_exe + "\"";
     res = system(cmd.c_str());
     if (res != 0) {
-        cmd = "gcc -m64 \"" + s_file + "\" \"" + runtime_o + "\" -o \"" + output_exe_path + "\"";
+        cmd = "gcc -m64 \"" + temp_s + "\" \"" + temp_rt_o + "\" -o \"" + temp_exe + "\"";
         res = system(cmd.c_str());
     }
-    
-    // Clean up temporary files
-    remove(s_file.c_str());
-    remove(runtime_o.c_str());
-    
-    return (res == 0);
+
+    // 7. Clean up temporary compile files
+    std::remove(temp_s.c_str());
+    std::remove(temp_rt_c.c_str());
+    std::remove(temp_rt_o.c_str());
+
+    if (res != 0) {
+        std::remove(temp_exe.c_str());
+        return false;
+    }
+
+    // 8. Copy temp_exe to final Unicode path using Unicode-safe std::filesystem
+    bool success = false;
+    try {
+#if defined(_WIN32)
+        std::filesystem::path dst_p = std::filesystem::u8path(output_exe_path);
+#else
+        std::filesystem::path dst_p(output_exe_path);
+#endif
+        std::filesystem::copy_file(temp_exe, dst_p, std::filesystem::copy_options::overwrite_existing);
+        std::filesystem::remove(temp_exe);
+        success = true;
+    } catch (...) {
+        std::remove(temp_exe.c_str());
+    }
+
+    return success;
 }
 
 } // namespace compiler

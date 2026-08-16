@@ -9,6 +9,18 @@
 namespace sutra {
 namespace compiler {
 
+enum class IRValueType {
+    UNKNOWN,
+    INT,
+    FLOAT,
+    BOOL,
+    STRING,
+    ARRAY,
+    DICTIONARY,
+    OBJECT,
+    NULL_VAL
+};
+
 enum class IROpcode {
     CONST_INT,      // %dest = const int_val
     CONST_STR,      // %dest = const str_val (pointer to string)
@@ -36,6 +48,7 @@ enum class IROpcode {
     PRINT_STR,      // print_str %val (string pointer)
     PRINT_NULL,     // print "शून्यम्"
     PRINT_BOOL,     // print "सत्य" or "असत्य"
+    PRINT_FLOAT,    // print_float %val (float bits)
     LABEL,          // label_name:
     JUMP,           // jump label_name
     JUMP_IF_ZERO,   // jump_if_zero %cond, label_name
@@ -55,7 +68,20 @@ enum class IROpcode {
     ARRAY_CREATE,       // %dest = arr_create(n) + init from call_args
     ARRAY_GET,          // %dest = arr_get(%arg1, %arg2)
     ARRAY_SET,          // arr_set(%arg1, %arg2, call_args[0])
-    ARRAY_LENGTH        // %dest = arr_length(%arg1)
+    ARRAY_LENGTH,       // %dest = arr_length(%arg1)
+    // Milestone 4: Dictionary operations
+    DICT_CREATE,        // %dest = dict_create()
+    DICT_GET,           // %dest = dict_get(%arg1, %arg2)
+    DICT_SET,           // dict_set(%arg1, %arg2, call_args[0])
+    // Milestone 5: File I/O
+    FILE_READ,          // %dest = file_read(%arg1)
+    FILE_WRITE,         // %dest = file_write(%arg1, %arg2)
+    FILE_EXISTS,        // %dest = file_exists(%arg1)
+    // Milestone 6: Exception Handling
+    TRY_BEGIN,          // try_begin label_name
+    TRY_END,            // try_end
+    CATCH_BEGIN,        // catch_begin %dest
+    THROW               // throw %arg1
 };
 
 struct IRValue {

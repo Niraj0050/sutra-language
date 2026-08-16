@@ -30,6 +30,7 @@ static const std::unordered_map<std::string, TokenType> SUTRA_KEYWORDS = {
     {"आयात", TokenType::K_AAYAT},
     {"आयानम्", TokenType::K_AAYAT},
     {"परत्", TokenType::K_PARAT},
+    {"लौटाएं", TokenType::K_PARAT},
     {"सत्य", TokenType::K_SATYA},
     {"असत्य", TokenType::K_ASATYA},
     {"शून्यम्", TokenType::K_SHUNYAM},
@@ -39,6 +40,7 @@ static const std::unordered_map<std::string, TokenType> SUTRA_KEYWORDS = {
     {"पाठ", TokenType::K_PATH},
     {"बूल", TokenType::K_BOOL},
     {"सूची", TokenType::K_SUCHI},
+    {"शब्दकोश", TokenType::K_SHABDAKOSH},
     {"वर्ग", TokenType::K_VARGA},
     {"नवीन", TokenType::K_NAVIN},
     {"स्व", TokenType::K_SVA},
@@ -85,6 +87,7 @@ std::string token_type_to_string(TokenType type) {
         case TokenType::K_PATH: return "K_PATH (पाठ)";
         case TokenType::K_BOOL: return "K_BOOL (बूल)";
         case TokenType::K_SUCHI: return "K_SUCHI (सूची)";
+        case TokenType::K_SHABDAKOSH: return "K_SHABDAKOSH (शब्दकोश)";
         case TokenType::K_VARGA: return "K_VARGA (वर्ग)";
         case TokenType::K_NAVIN: return "K_NAVIN (नवीन)";
         case TokenType::K_SVA: return "K_SVA (स्व)";

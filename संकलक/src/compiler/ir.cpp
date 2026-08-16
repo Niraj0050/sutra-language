@@ -118,6 +118,9 @@ void IRModule::dump(std::ostream& os) const {
                 case IROpcode::PRINT_BOOL:
                     os << "print_bool " << inst.arg1.to_string() << "\n";
                     break;
+                case IROpcode::PRINT_FLOAT:
+                    os << "print_float " << inst.arg1.to_string() << "\n";
+                    break;
                 case IROpcode::STRING_CONCAT:
                     os << "%" << inst.dest << " = str_concat " << inst.arg1.to_string() << ", " << inst.arg2.to_string() << "\n";
                     break;
@@ -162,6 +165,36 @@ void IRModule::dump(std::ostream& os) const {
                     break;
                 case IROpcode::ARRAY_LENGTH:
                     os << "%" << inst.dest << " = arr_length " << inst.arg1.to_string() << "\n";
+                    break;
+                case IROpcode::DICT_CREATE:
+                    os << "%" << inst.dest << " = dict_create\n";
+                    break;
+                case IROpcode::DICT_GET:
+                    os << "%" << inst.dest << " = dict_get " << inst.arg1.to_string() << ", " << inst.arg2.to_string() << "\n";
+                    break;
+                case IROpcode::DICT_SET:
+                    os << "dict_set " << inst.arg1.to_string() << ", " << inst.arg2.to_string() << ", " << (inst.call_args.empty() ? "?" : inst.call_args[0].to_string()) << "\n";
+                    break;
+                case IROpcode::FILE_READ:
+                    os << "%" << inst.dest << " = file_read " << inst.arg1.to_string() << "\n";
+                    break;
+                case IROpcode::FILE_WRITE:
+                    os << "%" << inst.dest << " = file_write " << inst.arg1.to_string() << ", " << inst.arg2.to_string() << "\n";
+                    break;
+                case IROpcode::FILE_EXISTS:
+                    os << "%" << inst.dest << " = file_exists " << inst.arg1.to_string() << "\n";
+                    break;
+                case IROpcode::TRY_BEGIN:
+                    os << "try_begin " << inst.arg1.str_val << "\n";
+                    break;
+                case IROpcode::TRY_END:
+                    os << "try_end\n";
+                    break;
+                case IROpcode::CATCH_BEGIN:
+                    os << "catch_begin " << inst.arg1.to_string() << "\n";
+                    break;
+                case IROpcode::THROW:
+                    os << "throw " << inst.arg1.to_string() << "\n";
                     break;
             }
         }

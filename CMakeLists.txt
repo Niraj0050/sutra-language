@@ -30,6 +30,9 @@ set(CORE_SOURCES
     "${PROJECT_SOURCE_DIR}/संकलक/src/environment.cpp"
     "${PROJECT_SOURCE_DIR}/संकलक/src/interpreter.cpp"
     "${PROJECT_SOURCE_DIR}/संकलक/src/repl.cpp"
+    "${PROJECT_SOURCE_DIR}/संकलक/src/compiler/ir.cpp"
+    "${PROJECT_SOURCE_DIR}/संकलक/src/compiler/ir_generator.cpp"
+    "${PROJECT_SOURCE_DIR}/संकलक/src/compiler/codegen.cpp"
 )
 
 # Sutra Compiler Executable Target

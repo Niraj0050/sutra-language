@@ -64,6 +64,11 @@ void SemanticAnalyzer::analyze(const ProgramASTNode& program) {
     m_functions["संग्रह_करो"] = FunctionSymbol{"संग्रह_करो", 0, 0, 0};
     m_functions["स्मृति_स्थिति"] = FunctionSymbol{"स्मृति_स्थिति", 0, 0, 0};
 
+    // Standard Library - File I/O
+    m_functions["सञ्चिका_पठतु"] = FunctionSymbol{"सञ्चिका_पठतु", 1, 0, 0};
+    m_functions["सञ्चिका_लिखतु"] = FunctionSymbol{"सञ्चिका_लिखतु", 2, 0, 0};
+    m_functions["सञ्चिका_अस्ति"] = FunctionSymbol{"सञ्चिका_अस्ति", 1, 0, 0};
+
     // Standard Library - Math
     m_functions["वर्गमूल"] = FunctionSymbol{"वर्गमूल", 1, 0, 0};
     m_functions["घात"] = FunctionSymbol{"घात", 2, 0, 0};
@@ -78,6 +83,22 @@ void SemanticAnalyzer::analyze(const ProgramASTNode& program) {
     m_functions["निम्न"] = FunctionSymbol{"निम्न", 1, 0, 0};
     m_functions["प्रकार"] = FunctionSymbol{"प्रकार", 1, 0, 0};
     m_functions["जोड़ें"] = FunctionSymbol{"जोड़ें", 2, 0, 0};
+    m_functions["निकालें"] = FunctionSymbol{"निकालें", 1, 0, 0};
+    m_functions["डालें"] = FunctionSymbol{"डालें", 3, 0, 0};
+    m_functions["हटाएं"] = FunctionSymbol{"हटाएं", 2, 0, 0};
+    m_functions["मिलाएं"] = FunctionSymbol{"मिलाएं", 2, 0, 0};
+    m_functions["कुंजी_है"] = FunctionSymbol{"कुंजी_है", 2, 0, 0};
+    m_functions["कुंजियाँ"] = FunctionSymbol{"कुंजियाँ", 1, 0, 0};
+
+    // Sutra 1.1 approved string API
+    m_functions["उपखंड"] = FunctionSymbol{"उपखंड", 3, 0, 0};
+    m_functions["खोजें"] = FunctionSymbol{"खोजें", 2, 0, 0};
+    m_functions["बदलें"] = FunctionSymbol{"बदलें", 3, 0, 0};
+    m_functions["विभाजित"] = FunctionSymbol{"विभाजित", 2, 0, 0};
+    m_functions["संयोजित"] = FunctionSymbol{"संयोजित", 2, 0, 0};
+    m_functions["छाँटें"] = FunctionSymbol{"छाँटें", 1, 0, 0};
+    m_functions["आरंभिक"] = FunctionSymbol{"आरंभिक", 2, 0, 0};
+    m_functions["अंतिम"] = FunctionSymbol{"अंतिम", 2, 0, 0};
 
     // Analyze global statements
     MemoryModelRegistry::get_instance().push_frame("global");
@@ -118,6 +139,22 @@ void SemanticAnalyzer::init_repl() {
     m_functions["निम्न"] = FunctionSymbol{"निम्न", 1, 0, 0};
     m_functions["प्रकार"] = FunctionSymbol{"प्रकार", 1, 0, 0};
     m_functions["जोड़ें"] = FunctionSymbol{"जोड़ें", 2, 0, 0};
+    m_functions["निकालें"] = FunctionSymbol{"निकालें", 1, 0, 0};
+    m_functions["डालें"] = FunctionSymbol{"डालें", 3, 0, 0};
+    m_functions["हटाएं"] = FunctionSymbol{"हटाएं", 2, 0, 0};
+    m_functions["मिलाएं"] = FunctionSymbol{"मिलाएं", 2, 0, 0};
+    m_functions["कुंजी_है"] = FunctionSymbol{"कुंजी_है", 2, 0, 0};
+    m_functions["कुंजियाँ"] = FunctionSymbol{"कुंजियाँ", 1, 0, 0};
+
+    // Sutra 1.1 approved string API
+    m_functions["उपखंड"] = FunctionSymbol{"उपखंड", 3, 0, 0};
+    m_functions["खोजें"] = FunctionSymbol{"खोजें", 2, 0, 0};
+    m_functions["बदलें"] = FunctionSymbol{"बदलें", 3, 0, 0};
+    m_functions["विभाजित"] = FunctionSymbol{"विभाजित", 2, 0, 0};
+    m_functions["संयोजित"] = FunctionSymbol{"संयोजित", 2, 0, 0};
+    m_functions["छाँटें"] = FunctionSymbol{"छाँटें", 1, 0, 0};
+    m_functions["आरंभिक"] = FunctionSymbol{"आरंभिक", 2, 0, 0};
+    m_functions["अंतिम"] = FunctionSymbol{"अंतिम", 2, 0, 0};
 }
 
 void SemanticAnalyzer::analyze_repl(const ProgramASTNode& program) {

@@ -17,6 +17,7 @@ $sutraExe = Resolve-Path ".\sutra.exe"
 $totalTests = 0
 $passedTests = 0
 $failedTests = 0
+$parityMismatches = 0
 $compilerErrors = 0
 $runtimeErrors = 0
 
@@ -25,19 +26,19 @@ $testFiles = @()
 
 if (Test-Path "tests") {
     foreach ($f in (Get-ChildItem -Path "tests" -Recurse -File)) {
-        if ($f.Extension -ne ".exe" -and $f.Extension -ne ".s" -and $f.Extension -ne ".txt" -and $f.Extension -ne ".md") {
+        if ($f.Extension -ne ".exe" -and $f.Extension -ne ".s" -and $f.Extension -ne ".txt" -and $f.Extension -ne ".md" -and $f.Extension -ne ".o" -and $f.Extension -ne ".obj") {
             # Skip helper files intended only for importing by other tests
             if ($f.Name -notlike "*circular_*" -and $f.Name -notlike "*सहायक*") {
-                $testFiles += $f.FullName
+                $testFiles += $f.FullName.Substring($PWD.Path.Length + 1)
             }
         }
     }
 }
 if (Test-Path "परीक्षण.सूत्र") {
-    $testFiles += (Resolve-Path "परीक्षण.सूत्र").Path
+    $testFiles += "परीक्षण.सूत्र"
 }
 if (Test-Path "परीक्षण_इनपुट.सूत्र") {
-    $testFiles += (Resolve-Path "परीक्षण_इनपुट.सूत्र").Path
+    $testFiles += "परीक्षण_इनपुट.सूत्र"
 }
 
 $testFiles = $testFiles | Select-Object -Unique
@@ -51,8 +52,14 @@ $inputMap = @{
 }
 
 foreach ($filePath in $testFiles) {
-    $totalTests++
     $fileName = [System.IO.Path]::GetFileNameWithoutExtension($filePath)
+    
+    # Skip module files
+    if ($fileName -eq "गणित_सहायक" -or $fileName -match "^circular_[ab]$" -or $fileName -eq "module_a" -or $fileName -eq "module_b") {
+        continue
+    }
+
+    $totalTests++
     $isNegativeTest = $filePath -like "*\negative\*" -or $filePath -like "*/negative/*"
     $inputData = ""
 
@@ -63,45 +70,85 @@ foreach ($filePath in $testFiles) {
         }
     }
 
+    # RUN INTERPRETER
     if ($inputData) {
-        $output = $inputData | & $sutraExe "$filePath" 2>&1
+        $interpOutput = $inputData | & $sutraExe "$filePath" 2>&1
     } else {
-        $output = & $sutraExe "$filePath" 2>&1
+        $interpOutput = & $sutraExe "$filePath" 2>&1
     }
-    $exitCode = $LASTEXITCODE
-    $outStr = ($output | Out-String).Trim()
+    $interpExitCode = $LASTEXITCODE
+    $interpOutStr = ($interpOutput | Out-String).Trim()
 
+    # RUN NATIVE COMPILER
+    $buildOutput = & $sutraExe build "$filePath" 2>&1
+    $buildExitCode = $LASTEXITCODE
+    
+    if ($buildExitCode -ne 0) {
+        $nativeOutStr = "COMPILER_ERROR: " + ($buildOutput | Out-String).Trim()
+        $nativeExitCode = $buildExitCode
+    } else {
+        $dir = [System.IO.Path]::GetDirectoryName($filePath)
+        $name = [System.IO.Path]::GetFileNameWithoutExtension($filePath)
+        if ([string]::IsNullOrEmpty($dir)) {
+            $nativeExePath = $name + "_native.exe"
+        } else {
+            $nativeExePath = [System.IO.Path]::Combine($dir, $name + "_native.exe")
+        }
+        
+        if (Test-Path $nativeExePath) {
+            if ($inputData) {
+                $nativeOutput = $inputData | & $nativeExePath 2>&1
+            } else {
+                $nativeOutput = & $nativeExePath 2>&1
+            }
+            $nativeExitCode = $LASTEXITCODE
+            $nativeOutStr = ($nativeOutput | Out-String).Trim()
+        } else {
+            $nativeOutStr = "COMPILER_ERROR: EXE NOT PRODUCED"
+            $nativeExitCode = -1
+        }
+    }
+
+    # PARITY CHECK
+    $parityMatch = ($interpExitCode -eq $nativeExitCode)
+    
+    $testPassed = $false
     if ($isNegativeTest) {
-        # Negative Test: Must produce error and exit with non-zero code
-        if ($exitCode -ne 0 -and $outStr.Length -gt 0) {
-            Write-Host "  [PASS-NEG] $fileName" -ForegroundColor Green
-            $passedTests++
-            if ($outStr -match "वाक्य-विच्छेद" -or $outStr -match "अक्षर-वाचन" -or $outStr -match "अपेक्षितम्") {
+        if ($interpExitCode -ne 0 -and $interpOutStr.Length -gt 0) {
+            $testPassed = $true
+            if ($interpOutStr -match "वाक्य-विच्छेद" -or $interpOutStr -match "अक्षर-वाचन" -or $interpOutStr -match "अपेक्षितम्") {
                 $compilerErrors++
             } else {
                 $runtimeErrors++
             }
-        } else {
-            Write-Host "  [FAIL-NEG] $fileName (Expected error, but exit code was $exitCode)" -ForegroundColor Red
-            Write-Host "             Output: $outStr" -ForegroundColor Yellow
-            $failedTests++
         }
     } else {
-        # Positive Test: Must execute cleanly with exit code 0
-        if ($exitCode -eq 0) {
-            Write-Host "  [PASS] $fileName" -ForegroundColor Green
-            $passedTests++
+        if ($interpExitCode -eq 0) {
+            $testPassed = $true
         } else {
-            Write-Host "  [FAIL] $fileName (Exit code: $exitCode)" -ForegroundColor Red
-            if ($outStr -match "वाक्य-विच्छेद" -or $outStr -match "अक्षर-वाचन" -or $outStr -match "अपेक्षितम्") {
-                Write-Host "         Category: COMPILER ERROR" -ForegroundColor Yellow
+            if ($interpOutStr -match "वाक्य-विच्छेद" -or $interpOutStr -match "अक्षर-वाचन" -or $interpOutStr -match "अपेक्षितम्") {
                 $compilerErrors++
             } else {
-                Write-Host "         Category: RUNTIME ERROR" -ForegroundColor Yellow
                 $runtimeErrors++
             }
-            Write-Host "         Error: $outStr" -ForegroundColor Red
-            $failedTests++
+        }
+    }
+
+    if ($testPassed -and $parityMatch) {
+        $passedTests++
+        Write-Host "  [PASS] $fileName (Parity Match)" -ForegroundColor Green
+    } else {
+        $failedTests++
+        if (-not $testPassed) {
+            Write-Host "  [FAIL] $fileName (Exit code: $interpExitCode)" -ForegroundColor Red
+            Write-Host "         Error: $interpOutStr" -ForegroundColor Red
+        }
+        if (-not $parityMatch) {
+            $parityMismatches++
+            Write-Host "  [PARITY MISMATCH] $fileName" -ForegroundColor Magenta
+            Write-Host "         Interpreter Exit: $interpExitCode, Native Exit: $nativeExitCode" -ForegroundColor Yellow
+            Write-Host "         Interpreter Out:  $interpOutStr" -ForegroundColor Yellow
+            Write-Host "         Native Out:       $nativeOutStr" -ForegroundColor Yellow
         }
     }
 }
@@ -114,10 +161,11 @@ Write-Host "  PASSED          : $passedTests" -ForegroundColor Green
 $failColor = "Green"
 if ($failedTests -gt 0) { $failColor = "Red" }
 Write-Host "  FAILED          : $failedTests" -ForegroundColor $failColor
+Write-Host "  PARITY MISMATCH : $parityMismatches" -ForegroundColor Magenta
 Write-Host "  COMPILER ERRORS : $compilerErrors" -ForegroundColor Yellow
 Write-Host "  RUNTIME ERRORS  : $runtimeErrors" -ForegroundColor Yellow
 
-if ($failedTests -eq 0) {
+if ($failedTests -eq 0 -and $parityMismatches -eq 0) {
     Write-Host "`n[SUCCESS] SUTRA 1.0 STABILITY VERIFIED - All $totalTests tests passed cleanly." -ForegroundColor Green
     exit 0
 } else {

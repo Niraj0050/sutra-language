@@ -1,0 +1,55 @@
+कार्य मुख्य() {
+    // उपखंड (substring) negative tests
+    प्रयत्न {
+        उपखंड("hello", -1, 2);
+        लिखतु("SUBSTR_NEG_FAIL");
+    } पकड़ो (त्रुटि) {
+        लिखतु("SUBSTR_NEG_OK");
+    }
+
+    प्रयत्न {
+        उपखंड("hello", 2, 1);
+        लिखतु("SUBSTR_RANGE_FAIL");
+    } पकड़ो (त्रुटि) {
+        लिखतु("SUBSTR_RANGE_OK");
+    }
+
+    प्रयत्न {
+        उपखंड("hello", 10, 12);
+        लिखतु("SUBSTR_OOB_FAIL");
+    } पकड़ो (त्रुटि) {
+        लिखतु("SUBSTR_OOB_OK");
+    }
+
+    // खोजें (find) negative test
+    प्रयत्न {
+        खोजें("abc", "");
+        लिखतु("FIND_EMPTY_FAIL");
+    } पकड़ो (त्रुटि) {
+        लिखतु("FIND_EMPTY_OK");
+    }
+
+    // बदलें (replace) negative test
+    प्रयत्न {
+        बदलें("abc", "", "X");
+        लिखतु("REPLACE_EMPTY_SEARCH_FAIL");
+    } पकड़ो (त्रुटि) {
+        लिखतु("REPLACE_EMPTY_SEARCH_OK");
+    }
+
+    // विभाजित (split) negative test
+    प्रयत्न {
+        विभाजित("abc", "");
+        लिखतु("SPLIT_EMPTY_DELIM_FAIL");
+    } पकड़ो (त्रुटि) {
+        लिखतु("SPLIT_EMPTY_DELIM_OK");
+    }
+
+    // संयोजित (join) negative test
+    प्रयत्न {
+        संयोजित(["a", 42], ",");
+        लिखतु("JOIN_ERR_FAIL");
+    } पकड़ो (त्रुटि) {
+        लिखतु("JOIN_ERR_OK");
+    }
+}

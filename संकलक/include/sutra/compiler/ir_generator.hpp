@@ -11,10 +11,17 @@
 namespace sutra {
 namespace compiler {
 
-enum class IRValueType { INT, STRING, ARRAY, NULL_VAL, BOOL, UNKNOWN };
+
 
 class IRGenerator {
 private:
+    struct ClassMetadata {
+        std::string name;
+        std::vector<std::string> field_names;
+        std::unordered_map<std::string, int> field_to_index;
+        std::unordered_map<std::string, IRValueType> field_types;
+    };
+
     std::unique_ptr<IRModule> m_module;
     IRFunction* m_current_func = nullptr;
     int m_temp_counter = 0;
@@ -27,6 +34,9 @@ private:
     std::unordered_map<std::string, IRValueType> m_type_map;
     std::unordered_map<std::string, IRValueType> m_func_return_types;
 
+    std::unordered_map<std::string, ClassMetadata> m_class_map;
+    std::unordered_map<std::string, std::string> m_class_instances;
+
     std::string new_temp() {
         return "t" + std::to_string(m_temp_counter++);
     }
@@ -38,6 +48,14 @@ private:
     IRValue visit_expr(ExprASTNode* expr);
     void visit_stmt(StmtASTNode* stmt);
     void visit_function_decl(FunctionDeclASTNode* func);
+    void visit_method_decl(FunctionDeclASTNode* func, const std::string& class_name);
+    
+    std::string add_string_literal(const std::string& val) {
+        std::string str_id = "str_" + std::to_string(m_module->string_literals.size());
+        m_module->string_literals.push_back(std::make_pair(str_id, val));
+        return str_id;
+    }
+    
     IRValueType get_type(const std::string& name);
 
 public:

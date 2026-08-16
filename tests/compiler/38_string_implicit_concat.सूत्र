@@ -1,0 +1,18 @@
+कार्य मुख्य() {
+    // Implicit conversion of integer to string
+    पाठ क = "आयु: " + 25;
+    लिखतु(क);
+
+    // Implicit conversion of boolean to string
+    पाठ ख = "स्थिति: " + सत्य;
+    लिखतु(ख);
+
+    // Implicit conversion of null to string
+    पाठ ग = "मान: " + शून्यम्;
+    लिखतु(ग);
+
+    // Relational comparison with empty strings
+    पाठ रिक्त = "";
+    लिखतु(रिक्त == "");
+    लिखतु(रिक्त < "अ");
+}

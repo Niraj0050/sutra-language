@@ -1,0 +1,20 @@
+// File I/O test
+// Tests reading, writing, and checking existence
+
+मान path = "test_sutra_file.txt";
+
+// Should not exist initially (or we overwrite it)
+लिखतु(सञ्चिका_अस्ति(path));
+
+// Write some content
+मान content = "नमस्ते संसार\nSutra File I/O Works!";
+मान success = सञ्चिका_लिखतु(path, content);
+लिखतु(success);
+
+// Now it should exist
+लिखतु(सञ्चिका_अस्ति(path));
+
+// Read it back
+मान read_content = सञ्चिका_पठतु(path);
+लिखतु(read_content == content);
+लिखतु(लंबाई(read_content) == लंबाई(content));

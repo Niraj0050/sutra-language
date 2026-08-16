@@ -95,6 +95,15 @@ public:
         : ExprASTNode(l, c), elements(std::move(elems)) {}
 };
 
+// Dictionary Literal Expression Node ({ "key": val, "key2": val2 })
+class DictionaryLiteralExprASTNode : public ExprASTNode {
+public:
+    std::vector<std::pair<std::string, std::unique_ptr<ExprASTNode>>> elements;
+
+    DictionaryLiteralExprASTNode(std::vector<std::pair<std::string, std::unique_ptr<ExprASTNode>>> elems, size_t l, size_t c)
+        : ExprASTNode(l, c), elements(std::move(elems)) {}
+};
+
 // Array Subscript Index Expression Node (अंक[0])
 class ArrayIndexExprASTNode : public ExprASTNode {
 public:

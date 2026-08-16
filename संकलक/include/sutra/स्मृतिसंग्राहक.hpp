@@ -36,10 +36,14 @@ public:
     void print_stats() const;
     void reset();
 
+    void push_exception(const SutraValue& val) { m_active_exceptions.push_back(val); }
+    void pop_exception() { if (!m_active_exceptions.empty()) m_active_exceptions.pop_back(); }
+
 private:
     GarbageCollector() = default;
 
     std::vector<Environment*> m_active_environments;
+    std::vector<SutraValue> m_active_exceptions;
     GCStats m_stats;
     bool m_logging_enabled{false};
     size_t m_alloc_count_since_last_gc{0};

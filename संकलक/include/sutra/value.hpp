@@ -11,7 +11,7 @@
 
 namespace sutra {
 
-enum class ValueType { INT, FLOAT, STRING, BOOL, NULL_VAL, RETURN_SIGNAL, BREAK_SIGNAL, CONTINUE_SIGNAL, LIST, OBJECT, CHAR };
+enum class ValueType { INT, FLOAT, STRING, BOOL, NULL_VAL, RETURN_SIGNAL, BREAK_SIGNAL, CONTINUE_SIGNAL, LIST, OBJECT, CHAR, DICTIONARY };
 
 struct SutraValue {
     ValueType type{ValueType::NULL_VAL};
@@ -21,9 +21,11 @@ struct SutraValue {
     bool bool_val{false};
     uint64_t heap_address{0};
     std::shared_ptr<SutraValue> return_payload; // For return statement evaluation
-    std::vector<SutraValue> list_val;           // For lists/arrays
+    std::vector<SutraValue> list_val;           // For lists/arrays (fallback)
+    std::shared_ptr<std::vector<SutraValue>> list_shared; // Shared list for typed parameters
     std::string class_name;
     std::shared_ptr<std::unordered_map<std::string, SutraValue>> fields; // For OOP objects
+    std::shared_ptr<std::unordered_map<std::string, SutraValue>> dict_val; // For dictionaries
 
     static SutraValue make_int(int64_t v) {
         SutraValue val; val.type = ValueType::INT; val.int_val = v; return val;
@@ -42,7 +44,10 @@ struct SutraValue {
         SutraValue val; val.type = ValueType::NULL_VAL; return val;
     }
     static SutraValue make_list(std::vector<SutraValue> elements);
+    // Returns a shallow copy that shares underlying list data (used for typed list parameters)
+    SutraValue shallow_copy() const;
     static SutraValue make_object(std::string cls_name, std::shared_ptr<std::unordered_map<std::string, SutraValue>> flds);
+    static SutraValue make_dict(std::shared_ptr<std::unordered_map<std::string, SutraValue>> dict);
     static SutraValue make_return(SutraValue ret) {
         SutraValue val; val.type = ValueType::RETURN_SIGNAL;
         val.return_payload = std::make_shared<SutraValue>(std::move(ret));
@@ -57,6 +62,9 @@ struct SutraValue {
 
     std::string to_string() const;
     bool is_truthy() const;
+    // Access the underlying list (shared or owned)
+    std::vector<SutraValue>& get_list();
+    const std::vector<SutraValue>& get_list() const;
 };
 
 } // namespace sutra
