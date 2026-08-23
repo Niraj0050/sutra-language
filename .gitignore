@@ -29,6 +29,8 @@ compile_commands.json
 *.tmp
 स्वसंकलक/*.cpp
 स्वसंकलक/*.exe
+स्वसंकलक/*.gdb
+स्वसंकलक/tokens.txt
 
 # Temporary generated C/C++
 *_temp.cpp
