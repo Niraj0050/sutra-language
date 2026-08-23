@@ -1,13 +1,57 @@
+# Build artifacts
 build/
 build*/
 *.exe
 *.o
 *.obj
 *.pdb
+*.ilk
+*.dll
 *.s
+
+# Temporary/generated files
 .cache/
-.vscode/
-compile_commands.json
+*.log
 out.txt
 err.txt
-*.log
+scratch/
+legacy_audit.txt
+test_sutra_file.txt
+sutra/
+
+# IDE
+.vscode/
+.clangd
+compile_commands.json
+
+# Compiler-generated outputs
+*_native.exe
+*.tmp
+स्वसंकलक/*.cpp
+स्वसंकलक/*.exe
+
+# Temporary generated C/C++
+*_temp.cpp
+*_temp.c
+*temp.cpp
+*temp.c
+
+# External downloaded dependencies
+external/
+
+# Local progress tracking
+progress.txt
+
+# Local-only C++ source implementation (excluding them from repository)
+संकलक/src/
+संकलक/include/
+परीक्षणानि/*.cpp
+परीक्षणानि/test_toolchain.cpp
+उपकरणानि/benchmark/
+उपकरणानि/debugger/
+उपकरणानि/formatter/
+उपकरणानि/linter/
+उपकरणानि/package_manager/
+उपकरणानि/src/
+उपकरणानि/sutra_lsp.cpp
+tests/lsp/

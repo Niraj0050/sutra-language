@@ -1,5 +1,5 @@
-कार्य मुख्य() {
+﻿कार्य मुख्य() {
     पाठ संदेश = "सत्यमेव जयते";
     लिखतु(संदेश);
-    लिखतु(लंबाई(संदेश)); // Byte length of "सत्यमेव जयते" (13 characters: 13 * 3 = 39 bytes? Wait, let's verify with interpreter behavior)
+    लिखतु(लंबाई(संदेश)); // Byte length of "सत्यमेव जयते" (13 characters: 13 * 3 = 39 bytes? Wait, let'स verify with interpreter behavior)
 }

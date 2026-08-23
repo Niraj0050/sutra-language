@@ -1,9 +1,9 @@
-// Native Compiler Test 10: While Loops (यावत्, जबतक)
+﻿// Native Compiler Test 10: While Loops (यावत्, जबतक)
 कार्य मुख्य() {
-    मान i = 1;
+    मान इ = 1;
 
-    जबतक (i <= 5) {
-        लिखतु(i);
-        i = i + 1;
+    जबतक (इ <= 5) {
+        लिखतु(इ);
+        इ = इ + 1;
     }
 }

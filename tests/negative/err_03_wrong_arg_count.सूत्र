@@ -1,4 +1,4 @@
-// Negative test: wrong argument count
+﻿// Negative test: wrong argument गणना
 कार्य योग(संख्या क, संख्या ख) {
     परत् क + ख;
 }

@@ -83,14 +83,14 @@ Conditional branching supports `अगर` / `यदि` and `अन्यथा
 Sutra supports `यावत्` / `जबतक` (while loops) and `पुनरावृत्तिः` (for loops).
 
 ```sutra
-मान count = 1;
-जबतक (count <= 3) {
-    लिखतु(count);
-    count = count + 1;
+मान गणना = 1;
+जबतक (गणना <= 3) {
+    लिखतु(गणना);
+    गणना = गणना + 1;
 }
 
-पुनरावृत्तिः (मान i = 0; i < 5; i = i + 1) {
-    लिखतु(i);
+पुनरावृत्तिः (मान इ = 1; इ <= 5; इ = इ + 1) {
+    लिखतु(इ);
 }
 ```
 
@@ -101,14 +101,14 @@ Sutra supports `यावत्` / `जबतक` (while loops) and `पुन�
 - `जारीरह` / `अग्रिमः` — Skips current iteration to next iteration (Continue).
 
 ```sutra
-पुनरावृत्तिः (मान i = 1; i <= 5; i = i + 1) {
-    यदि (i == 3) {
+पुनरावृत्तिः (मान इ = 1; इ <= 5; इ = इ + 1) {
+    यदि (इ == 3) {
         जारीरह;
     }
-    यदि (i == 5) {
+    यदि (इ == 5) {
         विरामः;
     }
-    लिखतु(i);
+    लिखतु(इ);
 }
 ```
 
@@ -136,7 +136,7 @@ Functions are declared using `कार्य`, support typed/untyped parameters
 ---
 
 ## 12. Arrays
-Dynamic array literal `[...]`, indexing `arr[i]`, and element assignment `arr[i] = val`.
+Dynamic array literal `[...]`, indexing `सूची[इ]`, and element assignment `सूची[इ] = मान`.
 
 ```sutra
 सूची फल = ["आम", "केला"];
@@ -174,8 +174,8 @@ Modules are imported using `आयात "मार्ग.सूत्र";`. Im
 
 ## 15. Standard Library
 Built-in functions exposed in global runtime scope:
-- **Math:** `वर्गमूल(x)`, `घात(x, y)`, `निरपेक्ष(x)`, `न्यूनतम(a, b)`, `अधिकतम(a, b)`, `गोल(x)`
-- **String & List:** `लंबाई(val)`, `उच्च(str)`, `निम्न(str)`, `प्रकार(val)`, `जोड़ें(list, val)`
+- **Math:** `वर्गमूल(संख्या)`, `घात(आधार, घातांक)`, `निरपेक्ष(मान)`, `न्यूनतम(संख्या१, संख्या२)`, `अधिकतम(संख्या१, संख्या२)`, `गोल(मान)`
+- **String & List:** `लंबाई(मान)`, `उच्च(पाठ्य)`, `निम्न(पाठ्य)`, `प्रकार(मान)`, `जोड़ें(सूची, मान)`
 
 ---
 
@@ -189,8 +189,8 @@ Built-in functions exposed in global runtime scope:
 वर्ग छात्र {
     पाठ नाम = "";
 
-    कार्य रचना(पाठ n) {
-        स्व.नाम = n;
+    कार्य रचना(पाठ न) {
+        स्व.नाम = न;
     }
 
     कार्य वदतु() {

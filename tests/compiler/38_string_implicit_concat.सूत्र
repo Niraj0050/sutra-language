@@ -1,4 +1,4 @@
-कार्य मुख्य() {
+﻿कार्य मुख्य() {
     // Implicit conversion of integer to string
     पाठ क = "आयु: " + 25;
     लिखतु(क);
@@ -11,7 +11,7 @@
     पाठ ग = "मान: " + शून्यम्;
     लिखतु(ग);
 
-    // Relational comparison with empty strings
+    // Relational comparison with रिक्त strings
     पाठ रिक्त = "";
     लिखतु(रिक्त == "");
     लिखतु(रिक्त < "अ");

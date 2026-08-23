@@ -1,20 +1,20 @@
-// File I/O test
+﻿// File I/O test
 // Tests reading, writing, and checking existence
 
-मान path = "test_sutra_file.txt";
+मान मार्गः = "test_sutra_file.txt";
 
 // Should not exist initially (or we overwrite it)
-लिखतु(सञ्चिका_अस्ति(path));
+लिखतु(सञ्चिका_अस्ति(मार्गः));
 
-// Write some content
-मान content = "नमस्ते संसार\nSutra File I/O Works!";
-मान success = सञ्चिका_लिखतु(path, content);
-लिखतु(success);
+// Write some सामग्री
+मान सामग्री = "नमस्ते संसार\nSutra File I/O Works!";
+मान सफलता = सञ्चिका_लिखतु(मार्गः, सामग्री);
+लिखतु(सफलता);
 
 // Now it should exist
-लिखतु(सञ्चिका_अस्ति(path));
+लिखतु(सञ्चिका_अस्ति(मार्गः));
 
 // Read it back
-मान read_content = सञ्चिका_पठतु(path);
-लिखतु(read_content == content);
-लिखतु(लंबाई(read_content) == लंबाई(content));
+मान पठित_सामग्री = सञ्चिका_पठतु(मार्गः);
+लिखतु(पठित_सामग्री == सामग्री);
+लिखतु(लंबाई(पठित_सामग्री) == लंबाई(सामग्री));

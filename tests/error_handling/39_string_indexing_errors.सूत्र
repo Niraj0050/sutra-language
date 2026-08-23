@@ -1,8 +1,8 @@
-कार्य मुख्य() {
+﻿कार्य मुख्य() {
     // 1. Out of bounds index access
     प्रयत्न {
-        पाठ s = "abc";
-        लिखतु(s[5]);
+        पाठ स = "abc";
+        लिखतु(स[5]);
         लिखतु("INDEX_OOB_FAIL");
     } पकड़ो (त्रुटि) {
         लिखतु("INDEX_OOB_OK");
@@ -10,8 +10,8 @@
 
     // 2. Negative index access
     प्रयत्न {
-        पाठ s = "abc";
-        लिखतु(s[-1]);
+        पाठ स = "abc";
+        लिखतु(स[-1]);
         लिखतु("INDEX_NEG_FAIL");
     } पकड़ो (त्रुटि) {
         लिखतु("INDEX_NEG_OK");
@@ -19,8 +19,8 @@
 
     // 3. Indexing on null string (should throw clean catchable exception)
     प्रयत्न {
-        पाठ s = शून्यम्;
-        लिखतु(s[0]);
+        पाठ स = शून्यम्;
+        लिखतु(स[0]);
         लिखतु("INDEX_NULL_FAIL");
     } पकड़ो (त्रुटि) {
         लिखतु("INDEX_NULL_OK");

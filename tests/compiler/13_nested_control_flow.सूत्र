@@ -1,9 +1,9 @@
-// Native Compiler Test 13: Nested Control Flow & Functions
+﻿// Native Compiler Test 13: Nested Control Flow & Functions
 कार्य गणना(संख्या सीमा) {
     मान कुल = 0;
-    पुनरावृत्तिः (मान i = 1; i <= सीमा; i = i + 1) {
-        अगर (i % 2 == 0) {
-            कुल = कुल + i;
+    पुनरावृत्तिः (मान इ = 1; इ <= सीमा; इ = इ + 1) {
+        अगर (इ % 2 == 0) {
+            कुल = कुल + इ;
         }
     }
     परत् कुल;
