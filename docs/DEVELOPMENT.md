@@ -4,28 +4,35 @@ This document provides guidelines for developers contributing to the compiler, r
 
 ---
 
-## 1. Repository Layout
+## 1. Repository Layout & Pure Sutra Policy
 
-* **[`संकलक/`](file:///d:/my%20project/सूत्र/संकलक/)**: The main C++ source code of the compiler, lexer, parser, codegen, and runtime API bridge.
-* **[`उपकरणानि/`](file:///d:/my%20project/सूत्र/उपकरणानि/)**: Executable CLI wrapper sources for formatting, linting, debugging, package management, and building.
-* **[`परीक्षणानि/`](file:///d:/my%20project/सूत्र/परीक्षणानि/)**: Main test harness implementations.
-* **[`tests/`](file:///d:/my%20project/सूत्र/tests/)**: The stability test suite comprising 106 `.सूत्र` integration files.
-* **[`दस्तावेजाः/`](file:///d:/my%20project/सूत्र/दस्तावेजाः/)** & **[`docs/`](file:///d:/my%20project/सूत्र/docs/)**: English and Sanskrit project documentation.
+This repository implements a **Pure Sutra Source Representation** policy. Version control tracks only the canonical compiler source files, tests, and documentation, excluding local C++ bootstrap compilation wrappers:
+
+### 1.1 Git-Tracked Components
+* **[`स्वसंकलक/`](स्वसंकलक/)**: The canonical self-hosted compiler parser, lexer, and code generator backend written directly in Sutra.
+* **[`tests/`](tests/)**: Automated stability and compiler validation tests.
+* **[`दस्तावेजाः/`](दस्तावेजाः/) & [`docs/`](docs/)**: Specifications and developer documentation manuals.
+* **`build.ps1` / `run_tests.ps1` / `verify_compiler_self.ps1`**: Build and verification scripts.
+
+### 1.2 Local Bootstrap Components (Excluded from Git)
+* **`संकलक/`**: Local C++ compiler wrapper and C runtime host system libraries.
+* **`उपकरणानि/`**: Local C++ sources for formatter, linter, debugger, build systems, and LSP server adapter.
+* **`परीक्षणानि/`**: Local C++ unit test harnesses.
 
 ---
 
 ## 2. Developer Workflow
 
-Sutra development follows a sequential validation cycle:
+Developers edit self-hosted compiler files inside `स्वसंकलक/` and run local validation pipelines:
 
 ```text
-       1. Modify Compiler/Runtime Source
+        1. Modify Compiler Source (स्वसंकलक/)
                        ↓
-         2. Compile via build.ps1
+     2. Build Self-Hosted Driver (sutra.exe build)
                        ↓
-   3. Run Unified Tests via run_tests.ps1
+     3. Run Verification (verify_compiler_self.ps1)
                        ↓
-           4. Verification Result
+            4. Verification Result
             /                   \
       (Failures)              (Success)
           ↓                       ↓

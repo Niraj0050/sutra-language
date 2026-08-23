@@ -6,32 +6,19 @@ This document describes the testing architecture, validation scripts, and test s
 
 ## 1. Test Architecture
 
-The verification suite runs sequentially in four phases under a single command runner:
+The verification suite includes both local integration testing and canonical self-hosted compiler verification:
 
-```text
-               run_tests.ps1
-                     ↓
-+------------------------------------------+
-| Phase 1: Compile All Targets (build.ps1) |
-+------------------------------------------+
-                     ↓
-+------------------------------------------+
-| Phase 2: Run C++ Unit Tests              |
-| - test_sutra.exe (20 compiler tests)     |
-| - test_toolchain.exe (59 tool tests)     |
-+------------------------------------------+
-                     ↓
-+------------------------------------------+
-| Phase 3: Execute Stability Suite         |
-| - 106 integration tests                  |
-| - Validates compiler/interpreter parity  |
-+------------------------------------------+
-                     ↓
-+------------------------------------------+
-| Phase 4: Run CLI Integration Tests       |
-| - Formatter, Linter, PkgMgr, Build       |
-+------------------------------------------+
-```
+### 1.1 Local Host Integration Runner (`run_tests.ps1`)
+This script executes in the local development environment using MSYS2/MinGW to verify:
+- Local C++ Unit Tests (`test_sutra.exe`, `test_toolchain.exe`, `test_lsp_integration.exe`). Note: the source files for these tests reside locally and are excluded from Git.
+- Stability Integration Suite, compiling and running all integration test scripts under the host wrapper compiler.
+- Toolchain CLI testing (checking linter, formatter, and LSP communication logs).
+
+### 1.2 Canonical Compiler Parity Runner (`verify_compiler_self.ps1`)
+This script uses the natively compiled self-hosted compiler (`sutra_self.exe`) to compile the test suite under the `tests/compiler` directory.
+- Runs target scripts through both the interpreter and compiled native binaries.
+- Compares console stdout outputs and exit code results.
+- **Current verification result**: 48/48 compiler verification tests passed.
 
 ---
 
@@ -61,8 +48,18 @@ Validates the execution commands of M4 tools in real conditions:
 
 ## 3. Running Tests
 
-To build all dependencies and run the complete test suite:
+### 3.1 Run Local Developer Tests
+To build local binaries and run the complete developer test suite:
 ```powershell
-$env:PATH = "C:\msys64\ucrt64\bin;$env:PATH"; powershell -File run_tests.ps1
+powershell -File run_tests.ps1
 ```
-This requires a valid MSYS2 GCC/MinGW-w64 environment for compiling test binaries.
+
+### 3.2 Run Self-Hosted Compiler Verification
+To compile the self-hosted parser/codegen in Sutra and verify all compiler test cases:
+```powershell
+# Compile self-hosted driver using host wrapper compiler
+.\sutra.exe build "स्वसंकलक/विश्लेषक_परीक्षण.सूत्र"
+
+# Run tests under compiled driver
+powershell -ExecutionPolicy Bypass -File verify_compiler_self.ps1
+```

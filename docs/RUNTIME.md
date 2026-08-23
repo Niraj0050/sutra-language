@@ -6,9 +6,9 @@ This document describes the design, memory layout, dynamic allocations, and garb
 
 ## 1. Runtime Overview
 
-Sutra executes natively by linking target compiled code with a lightweight runtime engine.
-* **Core Runtime Source**: [`sutra_runtime.c`](file:///d:/my%20project/सूत्र/sutra_runtime.c)
-* **C API Bridge**: [`संकलक/src/runtime_api.cpp`](file:///d:/my%20project/सूत्र/संकलक/src/runtime_api.cpp), [`संकलक/include/sutra/runtime_api.hpp`](file:///d:/my%20project/सूत्र/संकलक/include/sutra/runtime_api.hpp)
+Sutra executes natively by linking compiled C++ output code with a lightweight runtime engine. In accordance with the Pure Sutra Git policy, the C++ runtime files reside in the local workspace for compilation and are excluded from Git tracking:
+* **Core Runtime Source (Local)**: Located at `संकलक/src/compiler/sutra_runtime.c`.
+* **C API Bridge (Local)**: Located at `संकलक/src/runtime_api.cpp` and headers in `संकलक/include/sutra/runtime_api.hpp`.
 
 ---
 

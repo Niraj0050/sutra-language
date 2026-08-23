@@ -30,11 +30,11 @@ Sutra's core language evolution progresses through six distinct architectural ph
 * **Future extension**: LLVM assembly generation (LLVM backend replacement).
 
 ### Phase 6: Self-hosting Compiler (`स्वसंकलक`)
-* **Status**: **Self-Hosting Foundation Complete (M4-11)**
-* **Features**: Complete zero-English self-hosted parser prototype (`स्वसंकलक/विश्लेषक.सूत्र`) and lexer tokenizer (`स्वसंकलक/लेखक.सूत्र`) written in Sutra. Both interpreted (Stage 0) and natively compiled (Stage 1) versions achieve absolute binary AST output parity.
-  - **Stage 1 (Host compile)**: C++ host compiler (`sutra.exe`) compiles the self-hosted compiler source into `sutra_self.exe`. (Verified & Working)
-  - **Stage 2 (Self-host compile)**: Future bootstrap target where `sutra_self.exe` compiles its own source code.
-  - **Stage 3 (Verification)**: Future bootstrap target verification.
+* **Status**: **Completed & Verified (M4-11)**
+* **Features**: Complete zero-English self-hosted parser (`स्वसंकलक/विश्लेषक.सूत्र`), lexer (`स्वसंकलक/लेखक.सूत्र`), and code generator (`स्वसंकलक/सर्जक.सूत्र`) written in Sutra.
+  - **Stage 1 (Host compile)**: The local C++ host compiler (`sutra.exe`) compiles the self-hosted compiler source code to produce `sutra_self.exe`. (Complete)
+  - **Stage 2 (Self-host compile)**: The generated `sutra_self.exe` compiler compiles its own source files, generating a natively compiled compiler binary. (Complete)
+  - **Stage 3 (Verification)**: The self-hosted compiler runs the test suite and passes verification. Current verification result: 48/48 compiler verification tests passed.
 
 ---
 

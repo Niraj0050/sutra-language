@@ -1,6 +1,6 @@
 # सूत्र साधनसमूहम् (Sutra Toolchain) Documentation
 
-This document describes the utilities and developer tools included in the Sutra programming language toolchain.
+This document describes the utilities and developer tools included in the Sutra programming language toolchain. In accordance with the Pure Sutra Git policy, the C++ sources for these tools reside locally in the developer environment to assist in bootstrapping and verification, and are excluded from Git tracking.
 
 ---
 

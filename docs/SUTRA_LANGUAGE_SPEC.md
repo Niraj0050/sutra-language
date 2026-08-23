@@ -7,7 +7,7 @@
 ---
 
 ## 1. Introduction
-सूत्र (Sutra) is an elegant, dynamically-typed Hindi/Sanskrit programming language built in modern C++. It provides a fully native Devanagari environment for learning and executing algorithms, complete with Hindi keywords, UTF-8 strings, Object-Oriented Programming (OOP), exception handling, module importing, standard math/string libraries, and an interactive REPL.
+Sutra (Sutra) is a Sanskrit/Hindi-first, Devanagari-native general-purpose programming language. The canonical compiler is written in Sutra itself, supported by a native C++ bootstrap and runtime execution environment maintained locally. It provides a native Devanagari syntax for executing algorithms, complete with keywords, UTF-8 strings, Object-Oriented Programming (OOP), exception handling, module importing, standard math/string libraries, and an interactive REPL.
 
 ---
 

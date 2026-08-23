@@ -1,6 +1,6 @@
 # सूत्र भाषा सर्वर (Sutra Language Server) Specification
 
-This document details the architecture, build procedure, JSON-RPC transport framing, and supported capabilities of the Sutra Language Server (`sutra_lsp.exe`), conforming to the Language Server Protocol (LSP) standards.
+This document details the architecture, build procedure, JSON-RPC transport framing, and supported capabilities of the Sutra Language Server (`sutra_lsp.exe`). In accordance with the Pure Sutra Git policy, the C++ sources for this LSP adapter reside locally in the developer workspace and are excluded from Git tracking.
 
 ---
 

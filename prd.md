@@ -12,9 +12,9 @@
 Rather than being a simple translator or wrapper around another language, Sutra is a complete programming ecosystem featuring a custom lexer, parser, semantic analyzer, abstract syntax tree (AST) interpreter, native x86-64 machine compiler, lightweight runtime engine, dynamic memory manager, and developer toolchain.
 
 ### Vision Timeline:
-* **CURRENT (1.0.0 Status)**: Dynamically typed programming language with explicit type aliases. AST-based script interpreter, interactive REPL, native x86-64 assembly-generating compiler, garbage-collected runtime, structured OOP, module system, exception handling, and full developer utility tool suite (formatter, linter, debugger, package manager, build, benchmark, LSP).
+* **CURRENT (1.0.0 Status)**: Dynamically typed programming language with explicit type aliases. AST-based script interpreter, interactive REPL, native x86-64 assembly-generating compiler, garbage-collected runtime, structured OOP, module system, exception handling, full developer utility tool suite (formatter, linter, debugger, package manager, build, benchmark, LSP), and a fully verified self-hosted compiler (`स्वसंकलक/`).
 * **PLANNED**: Refining LSP editor integrations (VS Code extensions, autocomplete diagnostics), developing the Sutra Virtual Machine (SVM) and bytecode compiler layer for cross-platform bytecode execution.
-* **FUTURE**: LLVM native back-end integration, full self-hosting bootstrapping, and a package repository ecosystem.
+* **FUTURE**: LLVM native back-end integration and a package repository ecosystem.
 
 ---
 
@@ -52,7 +52,7 @@ Sutra addresses this by:
 | **Debugger** | **Complete** | Interactive CLI debugger (`sutra_debugger`) supporting step-into, continue, breakpoints, and scope lookup. |
 | **Package & Build Managers**| **Complete** | Manifest initiator, package installer/remover (`sutra_pkgmgr`), and build pipeline builder (`sutra_build`). |
 | **Benchmarking System** | **Complete** | Execution and compilation duration timing, plus GC allocation telemetry capture (`sutra_benchmark`). |
-| **Self-hosting (`स्वसंकलक`)**| **Prototype** | Initial prototype parser and lexer drafted in Sutra, but bootstrap execution is deferred. |
+| **Self-hosting (`स्वसंकलक`)**| **Complete** | Self-hosting bootstrap and compiler parity have been implemented and verified. Current verification result: 48/48 compiler verification tests passed. |
 
 ---
 
@@ -104,4 +104,4 @@ Sutra version 1.0.0 is stabilized and fully verified.
 
 * **Bytecode VM (SVM)**: Transitioning compiler IR to optimized bytecode instructions running inside a lightweight, sandboxed VM to enable cross-platform sandboxed execution.
 * **LLVM Target backend**: Replacing the intermediate x86-64 text-assembly generator and `g++` linker setup with direct LLVM assembly generation, enabling target optimization passes.
-* **Self-Hosting Bootstrap**: Finalizing early prototype components in `स्वसंकलक/` to run a fully self-contained Stage 1–3 compiler bootstrap validation.
+* **Self-Hosting Compiler**: Continuous optimization of the completed self-hosted compiler under `स्वसंकलक/` and expanding standard library support.

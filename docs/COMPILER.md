@@ -34,28 +34,24 @@ The compilation workflow is structured as a sequential pipeline:
 
 ## 2. Compilation Phases
 
+The canonical compiler pipeline is written in Sutra under the `स्वसंकलक/` directory. A native C++ host compiler wrapper is maintained locally under `संकलक/` (excluded from Git) to build and verify this self-hosted compiler.
+
 ### 2.1 Lexer (अक्षर-वाचकः)
-* **File**: `संकलक/src/lexer.cpp`, `संकलक/include/sutra/lexer.hpp`
+* **Canonical Source**: `स्वसंकलक/लेखक.सूत्र` (Local Host: `संकलक/src/lexer.cpp`)
 * **Purpose**: Performs UTF-8 multi-byte decoding on source buffer. Parses identifiers, numbers, operator punctuation, and literals.
 * **Devanagari Enforcements**: Identifiers must start with a Devanagari letter (conforming to Unicode ranges `0x0904` to `0x097F`). English ASCII alphabetic characters (like `a-z`/`A-Z`) are strictly forbidden as identifier start characters, triggering `अज्ञातः वर्णः` errors.
 
 ### 2.2 Parser (वाक्य-विच्छेदकः)
-* **File**: `संकलक/src/parser.cpp`, `संकलक/include/sutra/parser.hpp`
-* **Purpose**: A recursive descent parser that validates grammatical syntax rules and constructs an Abstract Syntax Tree (AST).
-* **AST Nodes**: Declared in `संकलक/include/sutra/ast.hpp`. Includes constructs for conditions (`IfStmtASTNode`), loops (`WhileStmtASTNode`, `ForStmtASTNode`), objects, lists, and exception blocks.
+* **Canonical Source**: `स्वसंकलक/विश्लेषक.सूत्र` (Local Host: `संकलक/src/parser.cpp`)
+* **Purpose**: A recursive descent parser that validates grammatical syntax rules and constructs an Abstract Syntax Tree (AST) representing statements, loops, classes, and exceptions.
 
 ### 2.3 Semantic Analyzer (अर्थ-परीक्षकः)
-* **File**: `संकलक/src/semantic.cpp`, `संकलक/include/sutra/semantic.hpp`
+* **Canonical Source**: Handled inside `स्वसंकलक/विश्लेषक.सूत्र` (Local Host: `संकलक/src/semantic.cpp`)
 * **Purpose**: Walks the AST to verify symbol declaration scopes, parameter types, variable initialization, and validates loop-control contexts (rejects `विरामः` or `जारीरह` placed outside loops).
 
-### 2.4 IR Generator (मध्यम-संकेत-सर्जकः)
-* **File**: `संकलक/src/compiler/ir_generator.cpp`, `संकलक/include/sutra/compiler/ir.hpp`
-* **Purpose**: Translates the parsed AST representation into a structured compiler Intermediate Representation (IR), exposing execution flow instructions.
-
-### 2.5 Native CodeGen (यन्त्र-सङ्केत-सर्जकः)
-* **File**: `संकलक/src/compiler/codegen.cpp`, `संकलक/include/sutra/compiler/codegen.hpp`
-* **Purpose**: Translates intermediate instructions to x86-64 assembly commands. Emits functions, loops, global declarations, and stack frames.
-* **Assembly linking**: Compiles generated assembly code and links it with the precompiled C Runtime object (`sutra_runtime.o`) using `g++.exe` to produce a standalone native binary.
+### 2.4 Code Generator (संकलक-इंजन / यन्त्र-सङ्केत-सर्जकः)
+* **Canonical Source**: `स्वसंकलक/सर्जक.सूत्र` (Local Host: `संकलक/src/compiler/codegen.cpp`, `ir_generator.cpp`)
+* **Purpose**: Translates intermediate scopes to C++ assembly outputs which are compiled to standalone native executables using GCC.
 
 ---
 

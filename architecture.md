@@ -6,12 +6,17 @@ This document describes the canonical system architecture, compiler and interpre
 
 ## 1. Directory Structure Layout
 
-The Sutra codebase is organized into key subsystem folders:
-* **[`संकलक/include/sutra/`](file:///d:/my%20project/सूत्र/संकलक/include/sutra/)**: Shared header interfaces for lexing, parsing, semantic analysis, memory model, compiler IR, code generation, and debugger/toolchain APIs.
-* **[`संकलक/src/`](file:///d:/my%20project/सूत्र/संकलक/src/)**: Implementations of the language core, AST interpreter, REPL loops, and native memory management.
-  - `compiler/`: Native code generation, x86-64 assembly generator, and compiler runtime files.
-* **[`उपकरणानि/`](file:///d:/my%20project/सूत्र/उपकरणानि/)**: Command-line wrapper sources for formatter, linter, debugger, package manager, build system, benchmarking system, and language server (LSP).
-* **[`परीक्षणानि/`](file:///d:/my%20project/सूत्र/परीक्षणानि/)** & **[`tests/`](file:///d:/my%20project/सूत्र/tests/)**: C++ unit test runner targets and stability/parity regression tests.
+The canonical repository follows a **Pure Sutra Source Representation** policy. The Git-tracked files represent the language and self-hosted compiler, while the local MSYS2/MinGW C++ environment acts as the bootstrap, build, and verification host.
+
+### 1.1 Git-Tracked Canonical Sources
+* **[`स्वसंकलक/`](स्वसंकलक/)**: The self-hosted compiler source code implemented entirely in Sutra (Lexer, Parser, AST representation, Code Generator).
+* **[`tests/`](tests/)**: Automated stability and regression test cases written in Sutra.
+* **[`दस्तावेजाः/`](दस्तावेजाः/) & [`docs/`](docs/)**: System manuals, specifications, and roadmap documentations.
+
+### 1.2 Local Bootstrap & Development Environment (Excluded from Git)
+* **[`संकलक/`](संकलक/)**: C++ host implementation files (lexer, parser, compiler IR, and C++ heap manager) used to bootstrap the self-hosted compiler.
+* **[`उपकरणानि/`](उपकरणानि/)**: C++ toolchain source files (formatting, linting, package management, debugger, and LSP server adapter).
+* **[`परीक्षणानि/`](परीक्षणानि/)**: C++ host test harness code.
 
 ---
 
@@ -88,7 +93,7 @@ Sutra offers an execution mode bypassing intermediate translation to assembly.
 
 ## 4. Runtime Integration Layer
 
-The compiled executable requires low-level support for managing allocations, UTF-8 strings, arrays, dictionary layouts, and garbage collection.
+The compiled executable requires low-level runtime support for managing allocations, UTF-8 strings, arrays, dictionary layouts, and garbage collection. In the Pure Sutra policy, these runtime implementation files reside locally for build/verification purposes:
 
 ```text
 +-------------------------------------------------------------+
@@ -97,42 +102,42 @@ The compiled executable requires low-level support for managing allocations, UTF
                                | calls allocation & GC routines
                                v
 +-------------------------------------------------------------+
-|                  sutra_runtime.c (C Runtime)                |
+|    sutra_runtime.c (Local Runtime Compiler Helper)          |
 +-------------------------------------------------------------+
                                | redirects allocation and GC
                                v
 +-------------------------------------------------------------+
-|             runtime_api.cpp (C / C++ Bridge API)            |
+|             runtime_api.cpp (Local C / C++ Bridge API)      |
 +-------------------------------------------------------------+
                                | maps allocations & tracks roots
                                v
 +-------------------------------------------------------------+
-|             memory.cpp (C++ HeapManager & GC Engine)        |
+|             memory.cpp (Local HeapManager & GC Engine)      |
 +-------------------------------------------------------------+
 ```
 
 ### Runtime Layer Details:
-* **Native Runtime**: [`sutra_runtime.c`](file:///d:/my%20project/सूत्र/sutra_runtime.c). Implements core routines for dynamic structures, console writing (`लिखतु`), string concatenation, dictionary structures, math library calls, and exception unwinding structures using `setjmp` / `longjmp` frames.
-* **C++ API Bridge**: [`runtime_api.cpp`](file:///d:/my%20project/सूत्र/संकलक/src/runtime_api.cpp). Exports runtime functions as `extern "C"` interfaces, mapping allocation types, reclaiming garbage objects, and registering allocations into the compiler validation `HeapManager`.
+* **Native Runtime (Local)**: Located at `संकलक/src/compiler/sutra_runtime.c`. Implements core routines for dynamic structures, console writing (`लिखतु`), string concatenation, dictionary structures, math library calls, and exception unwinding structures using standard C `setjmp` / `longjmp` frames.
+* **C++ API Bridge (Local)**: Located at `संकलक/src/runtime_api.cpp`. Exports runtime functions as `extern "C"` interfaces, mapping allocation types, reclaiming garbage objects, and registering allocations into the compiler validation `HeapManager`.
 
 ---
 
 ## 5. Developer Toolchain & LSP Server
 
-All developer utilities (formatter, linter, debugger, package manager, build, benchmark, and LSP) share a common foundation library.
+All developer utilities (formatter, linter, debugger, package manager, build, benchmark, and LSP) are implemented inside the C++ bootstrap environment. Their source code resides in the local workspace and is excluded from Git tracking.
 
 ```text
-                 sutra_toolchain (Static Library)
+             sutra_toolchain (Local Static Library)
              [formatter.cpp, linter.cpp, debugger.cpp,
              package_manager.cpp, build_system.cpp, benchmark.cpp]
                  /               |               \
                 /                |                \
                v                 v                 v
-       CLI Executables       LSP Server       C++ Unit Tests
+     Local CLI Executables   Local LSP Server   Local C++ Unit Tests
      (sutra_formatter,       (sutra_lsp,     (test_toolchain,
       sutra_linter, ...)   lsp_handlers.cpp)   test_sutra)
 ```
 
 ### Shared Toolchain Components:
-* **Static Library (`sutra_toolchain`)**: Static library target in `CMakeLists.txt` compiling the formatter (`formatter.cpp`), linter (`linter.cpp`), debugger interface (`debugger.cpp`), package manager (`package_manager.cpp`), build backend (`build_system.cpp`), and benchmark engine (`benchmark.cpp`).
-* **LSP Language Server (`sutra_lsp`)**: [`sutra_lsp.cpp`](file:///d:/my%20project/सूत्र/उपकरणानि/sutra_lsp.cpp). Handles JSON-RPC packets received from IDE clients (like VS Code or Neovim) over stdin/stdout. Uses [`lsp_handlers.cpp`](file:///d:/my%20project/सूत्र/उपकरणानि/src/lsp_handlers.cpp) and [`lsp_adapter.cpp`](file:///d:/my%20project/सूत्र/उपकरणानि/src/lsp_adapter.cpp) to call toolchain formatting, linting, and compile-diagnostics, converting results into LSP JSON format.
+* **Static Library (`sutra_toolchain` - Local)**: Static library target in `CMakeLists.txt` compiling the formatter (`formatter.cpp`), linter (`linter.cpp`), debugger interface (`debugger.cpp`), package manager (`package_manager.cpp`), build backend (`build_system.cpp`), and benchmark engine (`benchmark.cpp`).
+* **LSP Language Server (`sutra_lsp` - Local)**: Located at `उपकरणानि/sutra_lsp.cpp`. Handles JSON-RPC packets received from IDE clients (like VS Code or Neovim) over stdin/stdout. Uses `उपकरणानि/src/lsp_handlers.cpp` and `उपकरणानि/src/lsp_adapter.cpp` to call toolchain formatting, linting, and compile-diagnostics.
