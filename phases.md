@@ -29,6 +29,15 @@ Sutra's core language evolution progresses through six distinct architectural ph
 * **Features**: Custom IR intermediate structure generator, target x86-64 assembly generation, compiler C runtime integration (`sutra_runtime.c`), and native executables output linking via `g++.exe`.
 * **Future extension**: LLVM assembly generation (LLVM backend replacement).
 
+#### Phase 5 Audit: Token Files
+
+* Exact filename `token.txt`: **not present** anywhere in the repository.
+* `स्वसंकलक/tokens.txt`: `SECRET_PRESENT = NO`; this is generated compiler diagnostic/test data, specifically a lexer token dump of self-hosted compiler source.
+* References/dependencies: no source file, script, build file, or tool references this path. `स्वसंकलक/लेखक_परीक्षण.सूत्र` emits lexer output to standard output, so the dump may have been captured manually; it is not a build output or input.
+* Sutra compiler dependency: **NO**. Self-hosted compiler dependency: **NO**.
+* Required for building: **NO**. Required for testing: **NO**. Required for running: **NO**. Required for self-hosting: **NO**.
+* Secret ignore status: the existing `.gitignore` entry for `स्वसंकलक/tokens.txt` is sufficient; no additional secret ignore rule is required because the file contains no detected credentials or secrets.
+
 ### Phase 6: Self-hosting Compiler (`स्वसंकलक`)
 * **Status**: **Completed & Verified (M4-11)**
 * **Features**: Complete zero-English self-hosted parser (`स्वसंकलक/विश्लेषक.सूत्र`), lexer (`स्वसंकलक/लेखक.सूत्र`), and code generator (`स्वसंकलक/सर्जक.सूत्र`) written in Sutra.
