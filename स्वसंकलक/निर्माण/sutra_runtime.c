@@ -1284,6 +1284,13 @@ int64_t sutra_str_greater_equal(void* a, void* b) {
     return sutra_utf8_cmp_codepoints(a, b) >= 0 ? 1 : 0;
 }
 
+/* NOTE: sutra_str_length / sutra_arr_length / sutra_dynamic_length /
+ * sutra_char_ord are now implemented in Sutra
+ * (स्वसंकलक/निर्माण/मूल_रनटाइम.सूत्र :: पाठ_कोडबिंदु_गणना / सञ्चय_गणना /
+ * दैशिक_लंबाई / अक्षर_कोडबिंदु). The self-hosted native-asm compiler emits
+ * calls to those. The C copies below stay only for the C++ host path and
+ * go away when the C++ host is removed. */
+
 /* Return UTF-8 character count (number of Unicode codepoints) */
 int64_t sutra_str_length(void* s) {
     if (!s) return 0;

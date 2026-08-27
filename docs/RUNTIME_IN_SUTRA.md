@@ -80,31 +80,46 @@ dict   : [cap:8][len:8][entries*:8] → [key*:8][val:8] × n
 `अंतर्_पढ़8(s, 8)` = byte length; `अंतर्_पढ़1(s, 16)` = first payload byte;
 `अंतर्_पढ़8(arr, 16 + i*8)` = element i.
 
+## The Sutra runtime module (`स्वसंकलक/निर्माण/मूल_रनटाइम.सूत्र`)
+
+L3 runtime functions written in Sutra. Compiled to `मूल_रनटाइम.s` (committed,
+`.gitattributes -text`), assembled to `sutra_srt.o` and linked into every
+native-asm output (`मूल_संकलन.सूत्र` does it best-effort, `bootstrap.ps1` up
+front). A source with no `मुख्य` and no top-level code emits **no `main`
+wrapper** (library mode) so its `.o` links cleanly.
+
+Pure Devanagari names — no `sutra_` prefix.
+
 ## Porting order
 
-1. **Read-only leaves** (no allocation): `sutra_str_length`, `sutra_str_equal`,
-   `sutra_str_compare` + `_less`/`_greater`/…, `sutra_char_ord`,
-   `sutra_arr_length`, `sutra_arr_get` (bounds-checked), `sutra_is_dict`
-   via a tag scheme.  ← start here
-2. **OS floor** (L0/L1): arena alloc, `write`, `exit`.  Windows = PE
-   imports of `kernel32!VirtualAlloc / WriteFile / ExitProcess`; Linux =
-   `syscall`.
+1. **Read-only leaves** (no allocation) — ✅ first batch done:
+   `अक्षर_कोडबिंदु` (was `sutra_char_ord`), `पाठ_कोडबिंदु_गणना` (`sutra_str_length`),
+   `पाठ_तुल्य` (`sutra_str_equal`), `सञ्चय_गणना` (`sutra_arr_length`),
+   `दैशिक_लंबाई` (`sutra_dynamic_length`). Codegen retargeted: `लंबाई` →
+   `दैशिक_लंबाई`, `अक्षर_मान`/`अक्षरम्` → `अक्षर_कोडबिंदु`, string `==`/`!=` →
+   `पाठ_तुल्य`. Type checks still call C via `अंतर्_क्या_पाठ` / `अंतर्_क्या_शब्दकोश`
+   (→ `sutra_native_is_string` / `sutra_is_dict`) until the GC moves.
+   Remaining leaves: `sutra_str_compare` + `_less`/`_greater`/…,
+   `sutra_arr_get`, `sutra_str_get`.
+2. **OS floor** (L0/L1) — ✅ done (`तल.s`, see above).
 3. **L2 allocator + GC** in restricted Sutra over the arena; replace the
-   C `gc_register_alloc` / mark-sweep.
+   C `gc_register_alloc` / mark-sweep. Unblocks the type-check intrinsics
+   and everything allocating.
 4. **Allocating string ops**: `sutra_str_alloc`, `_concat`, `_substr`,
    `sutra_int_to_str`, `_bool_to_str`, `_null_to_str`.
 5. **Array / dict ops**: `sutra_list_append` (+ realloc), `sutra_dict_set`/`_get`.
 6. **Print**: `sutra_print_dynamic` and friends → format into a buffer,
-   `अंतर्_लिख_धारा(1, …)`.
+   `अंतर्_मुद्रण(buf, 0, n)`.
 7. **Math**: `sqrt` → `sqrtsd`; `pow` etc. → software or `libm` (last to go).
 8. **Exceptions**: drop `setjmp`/`longjmp` — codegen already tracks a try
    stack; implement unwinding in the epilogue.
 9. **File I/O, args**: `अंतर्_पढ़_धारा` + path handling; argv from the
    process block.
 
-Each ported function: keep the C version, add the Sutra version, switch
-the codegen symbol mapping, run `verify_intrinsics.ps1` + the 51-test
-suite + the self-hosting fixed point, then delete the C version.
+Each ported function: keep the C version (C++ host still needs it), add
+the Sutra version, retarget the native codegen symbol, run
+`verify_intrinsics.ps1` + the 51-test suite + the self-hosting fixed
+point. C versions are deleted when the C++ host is removed.
 
 ## What stays non-Sutra at the end
 
