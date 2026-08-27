@@ -117,8 +117,8 @@ Sutra compiler development is designed around a multi-stage bootstrap pipeline:
 ## Pure Sutra Source Repository
 
 This repository adheres to a **Pure Sutra Source Representation** policy. To keep the repository clean and language-focused:
-- **Tracked in Git**: Canonical compiler code written in Sutra (`स्वसंकलक/`), specification documentation, verification scripts, and compiler tests (`tests/`).
-- **Local-Only (Not in Git)**: The native C++ bootstrap implementation files (`संकलक/`), toolchain C++ sources (`उपकरणानि/`), testing binaries (`*.exe`), and downloaded libraries (`external/`). These reside only in the local development environment for compilation and regression testing.
+- **Tracked in Git**: Canonical compiler code written in Sutra (`स्वसंकलक/`), the bootstrap seed (`स्वसंकलक/निर्माण/` — a frozen assembly image of the compiler plus the C runtime, so a fresh clone can build **without the C++ host**), specification documentation, verification scripts, and compiler tests (`tests/`).
+- **Local-Only (Not in Git)**: The native C++ host implementation (`संकलक/`), toolchain C++ sources (`उपकरणानि/`), testing binaries (`*.exe`), and downloaded libraries (`external/`). The C++ host is now **bootstrap-optional** — it produces the same compiler the seed does, and is kept only as an alternate/recovery path.
 
 ---
 
@@ -154,12 +154,24 @@ Refer to the following files for compiler and language design details:
 
 ---
 
+## Bootstrap (from a fresh clone, no C++ host)
+
+```powershell
+powershell -ExecutionPolicy Bypass -File bootstrap.ps1
+```
+
+This assembles the frozen seed (`स्वसंकलक/निर्माण/मूल_संकलन.s`), links it against
+the C runtime into a seed compiler, then rebuilds the current Sutra source with
+that seed and checks the self-hosting fixed point. Requires only MSYS2 ucrt64
+(`as`, `gcc`, `ld`) — no C++ compiler, no `sutra.exe`. See
+[`स्वसंकलक/निर्माण/README.md`](स्वसंकलक/निर्माण/README.md).
+
 ## Verification & Testing (परीक्षण)
 
 To compile the self-hosted compiler and run the verification test suite locally:
 
 ```powershell
-# 1. Compile the self-hosted compiler using the local host environment
+# 1. Compile the self-hosted compiler (either via the seed's output, or the host)
 .\sutra.exe build "स्वसंकलक/विश्लेषक_परीक्षण.सूत्र"
 
 # 2. Run all compiler tests under the compiled self-hosted compiler

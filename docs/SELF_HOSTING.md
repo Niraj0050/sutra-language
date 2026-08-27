@@ -6,10 +6,25 @@ This document describes the design, status, and roadmap for building a self-host
 
 ## 1. Current Status
 
-* **Milestone M4-11 (स्वसंकलक / Self-Hosting Compiler)**: **COMPLETE & VERIFIED**
-  - **Zero-English Rule Compliance**: The self-hosted compiler source code (`स्वसंकलक/विश्लेषक.सूत्र`, `स्वसंकलक/लेखक.सूत्र`, `स्वसंकलक/सर्जक.सूत्र`) is fully compliant with the mandatory rule: zero English alphabet characters (including strings, comments, and escape representations like `\न` instead of `\n`).
-  - **Compiler Parity Verified**: The self-hosted compiler compiles the entire test suite and matches the reference output. Current verification result: 53/53 compiler verification tests passed.
-  - **GC & Type Conversion Optimizations**: Resolved interpreter memory issues during complex parsing phases. Fixed dynamic pointer-to-string conversion bugs when printing dictionary-retrieved node values in natively compiled binaries.
+Two self-hosted back ends exist, both written in zero-English Devanagari Sutra:
+
+| Back end | Entry | Emits | Tests |
+|---|---|---|---|
+| **C++ transpiler** | `स्वसंकलक/विश्लेषक_परीक्षण.सूत्र` (`विश्लेषक` + `सर्जक`) | Sutra → C++ → `g++` | 53/53 |
+| **Native x86-64** | `स्वसंकलक/मूल_संकलन.सूत्र` (`विश्लेषक` + `मूल_सर्जक` + `सार्थक_विश्लेषक`) | Sutra → GAS asm → `as`/`ld` | 51/51 |
+
+* **Native back end reaches its self-hosting fixed point**: Gen1 (built by the C++
+  host) compiles the compiler → Gen2; Gen2 compiles the compiler → Gen3. Gen2 and
+  Gen3 emit **byte-identical assembly** for the compiler (≈140k lines), and each
+  passes 51/51. The C++ host is no longer in the correctness chain.
+* **Bootstrap without the C++ host**: `स्वसंकलक/निर्माण/मूल_संकलन.s` is a frozen
+  assembly image of the whole native compiler. `bootstrap.ps1` assembles + links
+  it (against the tracked `sutra_runtime.c`) into a seed compiler, which then
+  rebuilds the current source. Only `as`/`gcc`/`ld` are needed — no C++.
+* **Zero-English Rule Compliance**: `विश्लेषक.सूत्र`, `लेखक.सूत्र`, `सर्जक.सूत्र` contain
+  zero English alphabet characters (strings, comments, and escapes such as `\न`).
+* Remaining C in the pipeline: the ~2.1k-line C runtime (`sutra_runtime.c`,
+  linked into every output) and the GNU assembler/linker.
 
 ---
 
@@ -35,6 +50,17 @@ Once active, the self-hosting compiler development will progress through the fol
    Self-Hosted Output Executable (स्वयं-उत्पाद)
 ```
 
-1. **Stage 1 (C++ Host)**: The local C++ host compiler (`sutra.exe`) compiles the self-hosted compiler source code (written in Sutra) into a native machine binary (`sutra_self.exe`). (Complete)
-2. **Stage 2 (Self-Host compile)**: The generated `sutra_self.exe` compiler is run, taking its own Sutra source files as input, to compile itself. (Complete)
-3. **Stage 3 (Verification)**: The self-hosted compiler compiles the test suite and achieves output parity with the reference interpreter. (Complete - 53/53 compiler tests passed)
+1. **Stage 1 (C++ Host)**: The local C++ host compiler (`sutra.exe`) compiles the self-hosted compiler source code (written in Sutra) into a native machine binary. (Complete)
+2. **Stage 2 (Self-Host compile)**: The generated compiler is run, taking its own Sutra source files as input, to compile itself. (Complete)
+3. **Stage 3 (Verification)**: The self-hosted compiler compiles the test suite and achieves output parity with the reference interpreter. (Complete — transpiler 53/53, native 51/51)
+4. **Stage 4 (Fixed point)**: Gen2 → Gen3 emit byte-identical assembly for the compiler. (Complete, native back end)
+5. **Stage 5 (Seedable bootstrap)**: A frozen `.s` seed (`स्वसंकलक/निर्माण/`) + `bootstrap.ps1` build the compiler with no C++ host. (Complete)
+
+### Still C / non-Sutra
+
+* `sutra_runtime.c` — allocator, GC, string/array/dict ops, print, exceptions,
+  file I/O, argv. Linked into every binary. To be ported to Sutra once the
+  language has raw-memory / syscall primitives.
+* GNU `as` + `ld` (via `gcc`) — assembler and linker.
+* C++ host (`संकलक/`) — kept as an alternate front end and recovery path; not
+  required for the build.

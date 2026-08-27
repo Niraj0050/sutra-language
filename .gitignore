@@ -44,6 +44,14 @@ external/
 # Local progress tracking
 progress.txt
 
+# बूटस्ट्रैप बीज — जानबूझकर track किया गया, ताकि नया क्लोन C++ host के बिना
+# सूत्र संकलक बना सके (bootstrap.ps1 देखें)।
+!स्वसंकलक/निर्माण/
+!स्वसंकलक/निर्माण/मूल_संकलन.s
+!स्वसंकलक/निर्माण/sutra_runtime.c
+!स्वसंकलक/निर्माण/README.md
+!bootstrap.ps1
+
 # Local-only C++ source implementation (excluding them from repository)
 संकलक/src/
 संकलक/include/
