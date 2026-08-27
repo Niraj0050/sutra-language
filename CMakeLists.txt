@@ -43,7 +43,6 @@ set(CORE_SOURCES
     "${SUTRA_SRC}/environment.cpp"
     "${SUTRA_SRC}/interpreter.cpp"
     "${SUTRA_SRC}/repl.cpp"
-    "${SUTRA_SRC}/runtime_api.cpp"
     "${SUTRA_SRC}/compiler/ir.cpp"
     "${SUTRA_SRC}/compiler/ir_generator.cpp"
     "${SUTRA_SRC}/compiler/codegen.cpp"

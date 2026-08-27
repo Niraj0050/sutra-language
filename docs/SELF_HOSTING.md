@@ -8,7 +8,7 @@ This document describes the design, status, and roadmap for building a self-host
 
 * **Milestone M4-11 (स्वसंकलक / Self-Hosting Compiler)**: **COMPLETE & VERIFIED**
   - **Zero-English Rule Compliance**: The self-hosted compiler source code (`स्वसंकलक/विश्लेषक.सूत्र`, `स्वसंकलक/लेखक.सूत्र`, `स्वसंकलक/सर्जक.सूत्र`) is fully compliant with the mandatory rule: zero English alphabet characters (including strings, comments, and escape representations like `\न` instead of `\n`).
-  - **Compiler Parity Verified**: The self-hosted compiler compiles the entire test suite and matches the reference output. Current verification result: 48/48 compiler verification tests passed.
+  - **Compiler Parity Verified**: The self-hosted compiler compiles the entire test suite and matches the reference output. Current verification result: 53/53 compiler verification tests passed.
   - **GC & Type Conversion Optimizations**: Resolved interpreter memory issues during complex parsing phases. Fixed dynamic pointer-to-string conversion bugs when printing dictionary-retrieved node values in natively compiled binaries.
 
 ---
@@ -37,4 +37,4 @@ Once active, the self-hosting compiler development will progress through the fol
 
 1. **Stage 1 (C++ Host)**: The local C++ host compiler (`sutra.exe`) compiles the self-hosted compiler source code (written in Sutra) into a native machine binary (`sutra_self.exe`). (Complete)
 2. **Stage 2 (Self-Host compile)**: The generated `sutra_self.exe` compiler is run, taking its own Sutra source files as input, to compile itself. (Complete)
-3. **Stage 3 (Verification)**: The self-hosted compiler compiles the test suite and achieves output parity with the reference interpreter. (Complete - 48/48 compiler tests passed)
+3. **Stage 3 (Verification)**: The self-hosted compiler compiles the test suite and achieves output parity with the reference interpreter. (Complete - 53/53 compiler tests passed)
