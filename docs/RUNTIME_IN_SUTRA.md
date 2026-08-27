@@ -38,14 +38,35 @@ Handled in `मूल_सर्जक.सूत्र` → `अभिव्य�
 | `अंतर्_पढ़1(आधार, ऑफ)` | 2 | `movzbq (base,off), %rax` | ✅ done |
 | `अंतर्_लिख8(आधार, ऑफ, मान)` | 3 | `movq val, (base,off)` → मान | ✅ done |
 | `अंतर्_लिख1(आधार, ऑफ, मान)` | 3 | `movb val8, (base,off)` → मान | ✅ done |
-| `अंतर्_क्षेत्र_आवंटन(बाइट्स)` | 1 | OS arena request (VirtualAlloc / mmap) | ☐ |
-| `अंतर्_लिख_धारा(fd, आधार, लंबाई)` | 3 | write(fd, buf, n) | ☐ |
-| `अंतर्_पढ़_धारा(fd, आधार, लंबाई)` | 3 | read(fd, buf, n) | ☐ |
-| `अंतर्_निकास(कोड)` | 1 | ExitProcess / exit syscall | ☐ |
+| `अंतर्_क्षेत्र_आवंटन(बाइट्स)` | 1 | `call सूत्र_तल_आवंटन` (VirtualAlloc) → पता | ✅ done |
+| `अंतर्_क्षेत्र_मुक्त(पता)` | 1 | `call सूत्र_तल_मुक्त` (VirtualFree) | ✅ done |
+| `अंतर्_मुद्रण(आधार, ऑफ, लंबाई)` | 3 | `call सूत्र_तल_मुद्रण` (GetStdHandle + WriteFile) | ✅ done |
+| `अंतर्_निकास(कोड)` | 1 | `call सूत्र_तल_निकास` (ExitProcess) | ✅ done |
+| `अंतर्_पढ़_धारा(आधार, ऑफ, लंबाई)` | 3 | ReadFile(stdin) | ☐ |
 | `अंतर्_पता(चर)` | 1 | address of a local (for shadow-stack roots) | ☐ |
 
-The `अंतर्_*` intrinsics return plain 64-bit ints and are recognised by
+The read/write/alloc `अंतर्_*` return plain 64-bit ints and are recognised by
 `क्या_संख्या_अभिव्यक्ति_है`, so the `+` fast path treats offset math inline.
+
+## L0 — the OS floor (`स्वसंकलक/निर्माण/तल.s`)
+
+Hand-written GAS, **no C**. Wraps kernel32 — the Windows floor, since there is
+no stable syscall ABI below it:
+
+```
+सूत्र_तल_आवंटन(rcx=बाइट्स)          → VirtualAlloc(NULL, n, MEM_COMMIT|RESERVE, RW)
+सूत्र_तल_मुक्त(rcx=पता)              → VirtualFree(p, 0, MEM_RELEASE)
+सूत्र_तल_मुद्रण(rcx=पता, rdx=लंबाई)  → GetStdHandle(-11); WriteFile(...)
+सूत्र_तल_निकास(rcx=कोड)             → ExitProcess(code)
+```
+
+`मूल_संकलन.सूत्र` reads `स्वसंकलक/निर्माण/तल.s`, assembles it to `sutra_floor.o`
+(best-effort) and links it when present; `bootstrap.ps1` assembles it up front.
+`tests/intrinsics/02_os_floor.सूत्र` allocates, fills, writes to stdout, and frees
+with zero libc on that path.
+
+Linux port later: `सूत्र_तल_*` become raw `syscall` (mmap/write/exit) and the
+binary links `-nostdlib`.
 
 ## Heap object layout (already fixed, see memory.md)
 

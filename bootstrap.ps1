@@ -43,12 +43,16 @@ Write-Host "== 1/5  compile C runtime (sutra_runtime.c -> .o) ==" -ForegroundCol
 & $gcc -m64 -O2 -finput-charset=UTF-8 -fexec-charset=UTF-8 -c "_seed_rt.c" -o "sutra_runtime_prebuilt.o"
 if ($LASTEXITCODE -ne 0) { throw "runtime compile failed" }
 
-Write-Host "== 2/5  assemble seed (.s -> .o) ==" -ForegroundColor Cyan
+Write-Host "== 2/5  assemble seed + OS floor (.s -> .o) ==" -ForegroundColor Cyan
 & $as -o "_seed.o" "_seed.s"
-if ($LASTEXITCODE -ne 0) { throw "as failed" }
+if ($LASTEXITCODE -ne 0) { throw "as failed (seed)" }
+Copy-Item (Join-Path $seedDir "तल.s") "_floor.s" -Force
+& $as -o "sutra_floor.o" "_floor.s"
+if ($LASTEXITCODE -ne 0) { throw "as failed (तल.s)" }
+Remove-Item "_floor.s" -ErrorAction SilentlyContinue
 
 Write-Host "== 3/5  link seed compiler (gcc as linker) ==" -ForegroundColor Cyan
-& $gcc -m64 "_seed.o" "sutra_runtime_prebuilt.o" -lm -lshell32 -o "seed_sutrac.exe"
+& $gcc -m64 "_seed.o" "sutra_runtime_prebuilt.o" "sutra_floor.o" -lm -lshell32 -o "seed_sutrac.exe"
 if ($LASTEXITCODE -ne 0) { throw "link failed" }
 Remove-Item "_seed.s", "_seed.o", "_seed_rt.c" -ErrorAction SilentlyContinue
 Write-Host "   seed compiler ready: seed_sutrac.exe" -ForegroundColor Green
