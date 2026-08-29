@@ -1105,3 +1105,1000 @@
   popq %rbp
   ret
 
+  .text
+  .globl अक्षर_बाइट_चौड़ाई
+  .def अक्षर_बाइट_चौड़ाई; .scl 2; .type 32; .endef
+अक्षर_बाइट_चौड़ाई:
+  pushq %rbp
+  movq %rsp, %rbp
+  subq $48, %rsp
+
+  movq $0, -8(%rbp)
+  movq %rcx, -8(%rbp)
+  leaq -8(%rbp), %rcx
+  call sutra_gc_push_root
+
+  movq -8(%rbp), %rax
+  pushq %rax
+  movq $128, %rax
+  movq %rax, %rdx
+  popq %rax
+  cmpq %rdx, %rax
+  setl %al
+  movzbl %al, %eax
+  cmpq $0, %rax
+  je .L_sutra_if_end_48
+  movq $1, %rax
+  jmp .L_epilogue_अक्षर_बाइट_चौड़ाई
+.L_sutra_if_end_48:
+  movq -8(%rbp), %rax
+  pushq %rax
+  movq $192, %rax
+  movq %rax, %rdx
+  popq %rax
+  cmpq %rdx, %rax
+  setge %al
+  movzbl %al, %eax
+  pushq %rax
+  movq -8(%rbp), %rax
+  pushq %rax
+  movq $224, %rax
+  movq %rax, %rdx
+  popq %rax
+  cmpq %rdx, %rax
+  setl %al
+  movzbl %al, %eax
+  movq %rax, %rdx
+  popq %rax
+  andq %rdx, %rax
+  cmpq $0, %rax
+  setne %al
+  movzbl %al, %eax
+  cmpq $0, %rax
+  je .L_sutra_if_end_50
+  movq $2, %rax
+  jmp .L_epilogue_अक्षर_बाइट_चौड़ाई
+.L_sutra_if_end_50:
+  movq -8(%rbp), %rax
+  pushq %rax
+  movq $224, %rax
+  movq %rax, %rdx
+  popq %rax
+  cmpq %rdx, %rax
+  setge %al
+  movzbl %al, %eax
+  pushq %rax
+  movq -8(%rbp), %rax
+  pushq %rax
+  movq $240, %rax
+  movq %rax, %rdx
+  popq %rax
+  cmpq %rdx, %rax
+  setl %al
+  movzbl %al, %eax
+  movq %rax, %rdx
+  popq %rax
+  andq %rdx, %rax
+  cmpq $0, %rax
+  setne %al
+  movzbl %al, %eax
+  cmpq $0, %rax
+  je .L_sutra_if_end_52
+  movq $3, %rax
+  jmp .L_epilogue_अक्षर_बाइट_चौड़ाई
+.L_sutra_if_end_52:
+  movq -8(%rbp), %rax
+  pushq %rax
+  movq $240, %rax
+  movq %rax, %rdx
+  popq %rax
+  cmpq %rdx, %rax
+  setge %al
+  movzbl %al, %eax
+  pushq %rax
+  movq -8(%rbp), %rax
+  pushq %rax
+  movq $248, %rax
+  movq %rax, %rdx
+  popq %rax
+  cmpq %rdx, %rax
+  setl %al
+  movzbl %al, %eax
+  movq %rax, %rdx
+  popq %rax
+  andq %rdx, %rax
+  cmpq $0, %rax
+  setne %al
+  movzbl %al, %eax
+  cmpq $0, %rax
+  je .L_sutra_if_end_54
+  movq $4, %rax
+  jmp .L_epilogue_अक्षर_बाइट_चौड़ाई
+.L_sutra_if_end_54:
+  movq $1, %rax
+  jmp .L_epilogue_अक्षर_बाइट_चौड़ाई
+.L_epilogue_अक्षर_बाइट_चौड़ाई:
+  subq $48, %rsp
+  movq %rax, 32(%rsp)
+  leaq -8(%rbp), %rcx
+  call sutra_gc_pop_root
+  movq 32(%rsp), %rax
+  addq $48, %rsp
+  movq %rbp, %rsp
+  popq %rbp
+  ret
+
+  .text
+  .globl कोडबिंदु_मान
+  .def कोडबिंदु_मान; .scl 2; .type 32; .endef
+कोडबिंदु_मान:
+  pushq %rbp
+  movq %rsp, %rbp
+  subq $64, %rsp
+
+  movq $0, -8(%rbp)
+  movq $0, -16(%rbp)
+  movq $0, -24(%rbp)
+  movq $0, -32(%rbp)
+  movq %rcx, -8(%rbp)
+  movq %rdx, -16(%rbp)
+  movq %r8, -24(%rbp)
+  leaq -8(%rbp), %rcx
+  call sutra_gc_push_root
+  leaq -16(%rbp), %rcx
+  call sutra_gc_push_root
+  leaq -24(%rbp), %rcx
+  call sutra_gc_push_root
+  leaq -32(%rbp), %rcx
+  call sutra_gc_push_root
+
+  movq -8(%rbp), %rax
+  pushq %rax
+  movq $16, %rax
+  pushq %rax
+  movq -16(%rbp), %rax
+  movq %rax, %rdx
+  popq %rax
+  addq %rdx, %rax
+  movq %rax, %rcx
+  popq %rax
+  movzbq (%rax,%rcx), %rax
+  movq %rax, -32(%rbp)
+  movq -24(%rbp), %rax
+  pushq %rax
+  movq $1, %rax
+  movq %rax, %rdx
+  popq %rax
+  cmpq %rdx, %rax
+  sete %al
+  movzbl %al, %eax
+  cmpq $0, %rax
+  je .L_sutra_if_end_56
+  movq -32(%rbp), %rax
+  jmp .L_epilogue_कोडबिंदु_मान
+.L_sutra_if_end_56:
+  movq -24(%rbp), %rax
+  pushq %rax
+  movq $2, %rax
+  movq %rax, %rdx
+  popq %rax
+  cmpq %rdx, %rax
+  sete %al
+  movzbl %al, %eax
+  cmpq $0, %rax
+  je .L_sutra_if_end_58
+  movq -32(%rbp), %rax
+  pushq %rax
+  movq $192, %rax
+  movq %rax, %rdx
+  popq %rax
+  subq %rdx, %rax
+  pushq %rax
+  movq $64, %rax
+  movq %rax, %rdx
+  popq %rax
+  imulq %rdx, %rax
+  pushq %rax
+  movq -8(%rbp), %rax
+  pushq %rax
+  movq $17, %rax
+  pushq %rax
+  movq -16(%rbp), %rax
+  movq %rax, %rdx
+  popq %rax
+  addq %rdx, %rax
+  movq %rax, %rcx
+  popq %rax
+  movzbq (%rax,%rcx), %rax
+  pushq %rax
+  movq $64, %rax
+  movq %rax, %rdx
+  popq %rax
+  cmpq $0, %rdx
+  je .L_div_zero_7
+  movq %rdx, %r8
+  cqto
+  idivq %r8
+  movq %rdx, %rax
+  jmp .L_div_end_7
+.L_div_zero_7:
+  subq $32, %rsp
+  call sutra_throw_div_by_zero
+  addq $32, %rsp
+.L_div_end_7:
+  movq %rax, %rdx
+  popq %rax
+  addq %rdx, %rax
+  jmp .L_epilogue_कोडबिंदु_मान
+.L_sutra_if_end_58:
+  movq -24(%rbp), %rax
+  pushq %rax
+  movq $3, %rax
+  movq %rax, %rdx
+  popq %rax
+  cmpq %rdx, %rax
+  sete %al
+  movzbl %al, %eax
+  cmpq $0, %rax
+  je .L_sutra_if_end_60
+  movq -32(%rbp), %rax
+  pushq %rax
+  movq $224, %rax
+  movq %rax, %rdx
+  popq %rax
+  subq %rdx, %rax
+  pushq %rax
+  movq $4096, %rax
+  movq %rax, %rdx
+  popq %rax
+  imulq %rdx, %rax
+  pushq %rax
+  movq -8(%rbp), %rax
+  pushq %rax
+  movq $17, %rax
+  pushq %rax
+  movq -16(%rbp), %rax
+  movq %rax, %rdx
+  popq %rax
+  addq %rdx, %rax
+  movq %rax, %rcx
+  popq %rax
+  movzbq (%rax,%rcx), %rax
+  pushq %rax
+  movq $64, %rax
+  movq %rax, %rdx
+  popq %rax
+  cmpq $0, %rdx
+  je .L_div_zero_8
+  movq %rdx, %r8
+  cqto
+  idivq %r8
+  movq %rdx, %rax
+  jmp .L_div_end_8
+.L_div_zero_8:
+  subq $32, %rsp
+  call sutra_throw_div_by_zero
+  addq $32, %rsp
+.L_div_end_8:
+  pushq %rax
+  movq $64, %rax
+  movq %rax, %rdx
+  popq %rax
+  imulq %rdx, %rax
+  movq %rax, %rdx
+  popq %rax
+  addq %rdx, %rax
+  pushq %rax
+  movq -8(%rbp), %rax
+  pushq %rax
+  movq $18, %rax
+  pushq %rax
+  movq -16(%rbp), %rax
+  movq %rax, %rdx
+  popq %rax
+  addq %rdx, %rax
+  movq %rax, %rcx
+  popq %rax
+  movzbq (%rax,%rcx), %rax
+  pushq %rax
+  movq $64, %rax
+  movq %rax, %rdx
+  popq %rax
+  cmpq $0, %rdx
+  je .L_div_zero_9
+  movq %rdx, %r8
+  cqto
+  idivq %r8
+  movq %rdx, %rax
+  jmp .L_div_end_9
+.L_div_zero_9:
+  subq $32, %rsp
+  call sutra_throw_div_by_zero
+  addq $32, %rsp
+.L_div_end_9:
+  movq %rax, %rdx
+  popq %rax
+  addq %rdx, %rax
+  jmp .L_epilogue_कोडबिंदु_मान
+.L_sutra_if_end_60:
+  movq -32(%rbp), %rax
+  pushq %rax
+  movq $240, %rax
+  movq %rax, %rdx
+  popq %rax
+  subq %rdx, %rax
+  pushq %rax
+  movq $262144, %rax
+  movq %rax, %rdx
+  popq %rax
+  imulq %rdx, %rax
+  pushq %rax
+  movq -8(%rbp), %rax
+  pushq %rax
+  movq $17, %rax
+  pushq %rax
+  movq -16(%rbp), %rax
+  movq %rax, %rdx
+  popq %rax
+  addq %rdx, %rax
+  movq %rax, %rcx
+  popq %rax
+  movzbq (%rax,%rcx), %rax
+  pushq %rax
+  movq $64, %rax
+  movq %rax, %rdx
+  popq %rax
+  cmpq $0, %rdx
+  je .L_div_zero_10
+  movq %rdx, %r8
+  cqto
+  idivq %r8
+  movq %rdx, %rax
+  jmp .L_div_end_10
+.L_div_zero_10:
+  subq $32, %rsp
+  call sutra_throw_div_by_zero
+  addq $32, %rsp
+.L_div_end_10:
+  pushq %rax
+  movq $4096, %rax
+  movq %rax, %rdx
+  popq %rax
+  imulq %rdx, %rax
+  movq %rax, %rdx
+  popq %rax
+  addq %rdx, %rax
+  pushq %rax
+  movq -8(%rbp), %rax
+  pushq %rax
+  movq $18, %rax
+  pushq %rax
+  movq -16(%rbp), %rax
+  movq %rax, %rdx
+  popq %rax
+  addq %rdx, %rax
+  movq %rax, %rcx
+  popq %rax
+  movzbq (%rax,%rcx), %rax
+  pushq %rax
+  movq $64, %rax
+  movq %rax, %rdx
+  popq %rax
+  cmpq $0, %rdx
+  je .L_div_zero_11
+  movq %rdx, %r8
+  cqto
+  idivq %r8
+  movq %rdx, %rax
+  jmp .L_div_end_11
+.L_div_zero_11:
+  subq $32, %rsp
+  call sutra_throw_div_by_zero
+  addq $32, %rsp
+.L_div_end_11:
+  pushq %rax
+  movq $64, %rax
+  movq %rax, %rdx
+  popq %rax
+  imulq %rdx, %rax
+  movq %rax, %rdx
+  popq %rax
+  addq %rdx, %rax
+  pushq %rax
+  movq -8(%rbp), %rax
+  pushq %rax
+  movq $19, %rax
+  pushq %rax
+  movq -16(%rbp), %rax
+  movq %rax, %rdx
+  popq %rax
+  addq %rdx, %rax
+  movq %rax, %rcx
+  popq %rax
+  movzbq (%rax,%rcx), %rax
+  pushq %rax
+  movq $64, %rax
+  movq %rax, %rdx
+  popq %rax
+  cmpq $0, %rdx
+  je .L_div_zero_12
+  movq %rdx, %r8
+  cqto
+  idivq %r8
+  movq %rdx, %rax
+  jmp .L_div_end_12
+.L_div_zero_12:
+  subq $32, %rsp
+  call sutra_throw_div_by_zero
+  addq $32, %rsp
+.L_div_end_12:
+  movq %rax, %rdx
+  popq %rax
+  addq %rdx, %rax
+  jmp .L_epilogue_कोडबिंदु_मान
+.L_epilogue_कोडबिंदु_मान:
+  subq $48, %rsp
+  movq %rax, 32(%rsp)
+  leaq -32(%rbp), %rcx
+  call sutra_gc_pop_root
+  leaq -24(%rbp), %rcx
+  call sutra_gc_pop_root
+  leaq -16(%rbp), %rcx
+  call sutra_gc_pop_root
+  leaq -8(%rbp), %rcx
+  call sutra_gc_pop_root
+  movq 32(%rsp), %rax
+  addq $48, %rsp
+  movq %rbp, %rsp
+  popq %rbp
+  ret
+
+  .text
+  .globl पाठ_कोडबिंदु_तुलना
+  .def पाठ_कोडबिंदु_तुलना; .scl 2; .type 32; .endef
+पाठ_कोडबिंदु_तुलना:
+  pushq %rbp
+  movq %rsp, %rbp
+  subq $112, %rsp
+
+  movq $0, -8(%rbp)
+  movq $0, -16(%rbp)
+  movq $0, -24(%rbp)
+  movq $0, -32(%rbp)
+  movq $0, -40(%rbp)
+  movq $0, -48(%rbp)
+  movq $0, -56(%rbp)
+  movq $0, -64(%rbp)
+  movq $0, -72(%rbp)
+  movq $0, -80(%rbp)
+  movq %rcx, -8(%rbp)
+  movq %rdx, -16(%rbp)
+  leaq -8(%rbp), %rcx
+  call sutra_gc_push_root
+  leaq -16(%rbp), %rcx
+  call sutra_gc_push_root
+  leaq -24(%rbp), %rcx
+  call sutra_gc_push_root
+  leaq -32(%rbp), %rcx
+  call sutra_gc_push_root
+  leaq -40(%rbp), %rcx
+  call sutra_gc_push_root
+  leaq -48(%rbp), %rcx
+  call sutra_gc_push_root
+  leaq -56(%rbp), %rcx
+  call sutra_gc_push_root
+  leaq -64(%rbp), %rcx
+  call sutra_gc_push_root
+  leaq -72(%rbp), %rcx
+  call sutra_gc_push_root
+  leaq -80(%rbp), %rcx
+  call sutra_gc_push_root
+
+  movq -8(%rbp), %rax
+  pushq %rax
+  movq -16(%rbp), %rax
+  movq %rax, %rdx
+  popq %rax
+  cmpq %rdx, %rax
+  sete %al
+  movzbl %al, %eax
+  cmpq $0, %rax
+  je .L_sutra_if_end_62
+  movq $0, %rax
+  jmp .L_epilogue_पाठ_कोडबिंदु_तुलना
+.L_sutra_if_end_62:
+  movq -8(%rbp), %rax
+  pushq %rax
+  xorq %rax, %rax
+  movq %rax, %rdx
+  popq %rax
+  cmpq %rdx, %rax
+  sete %al
+  movzbl %al, %eax
+  cmpq $0, %rax
+  je .L_sutra_if_end_64
+  movq $1, %rax
+  negq %rax
+  jmp .L_epilogue_पाठ_कोडबिंदु_तुलना
+.L_sutra_if_end_64:
+  movq -16(%rbp), %rax
+  pushq %rax
+  xorq %rax, %rax
+  movq %rax, %rdx
+  popq %rax
+  cmpq %rdx, %rax
+  sete %al
+  movzbl %al, %eax
+  cmpq $0, %rax
+  je .L_sutra_if_end_66
+  movq $1, %rax
+  jmp .L_epilogue_पाठ_कोडबिंदु_तुलना
+.L_sutra_if_end_66:
+  movq -8(%rbp), %rax
+  pushq %rax
+  movq $8, %rax
+  movq %rax, %rcx
+  popq %rax
+  movq (%rax,%rcx), %rax
+  movq %rax, -24(%rbp)
+  movq -16(%rbp), %rax
+  pushq %rax
+  movq $8, %rax
+  movq %rax, %rcx
+  popq %rax
+  movq (%rax,%rcx), %rax
+  movq %rax, -32(%rbp)
+  movq $0, %rax
+  movq %rax, -40(%rbp)
+  movq $0, %rax
+  movq %rax, -48(%rbp)
+.L_sutra_while_cond_67:
+  movq -40(%rbp), %rax
+  pushq %rax
+  movq -24(%rbp), %rax
+  movq %rax, %rdx
+  popq %rax
+  cmpq %rdx, %rax
+  setl %al
+  movzbl %al, %eax
+  pushq %rax
+  movq -48(%rbp), %rax
+  pushq %rax
+  movq -32(%rbp), %rax
+  movq %rax, %rdx
+  popq %rax
+  cmpq %rdx, %rax
+  setl %al
+  movzbl %al, %eax
+  movq %rax, %rdx
+  popq %rax
+  andq %rdx, %rax
+  cmpq $0, %rax
+  setne %al
+  movzbl %al, %eax
+  cmpq $0, %rax
+  je .L_sutra_while_end_68
+  movq -8(%rbp), %rax
+  pushq %rax
+  movq $16, %rax
+  pushq %rax
+  movq -40(%rbp), %rax
+  movq %rax, %rdx
+  popq %rax
+  addq %rdx, %rax
+  movq %rax, %rcx
+  popq %rax
+  movzbq (%rax,%rcx), %rax
+  pushq %rax
+  subq $40, %rsp
+  movq 40(%rsp), %rcx
+  call अक्षर_बाइट_चौड़ाई
+  addq $48, %rsp
+  movq %rax, -56(%rbp)
+  movq -40(%rbp), %rax
+  pushq %rax
+  movq -56(%rbp), %rax
+  movq %rax, %rdx
+  popq %rax
+  addq %rdx, %rax
+  pushq %rax
+  movq -24(%rbp), %rax
+  movq %rax, %rdx
+  popq %rax
+  cmpq %rdx, %rax
+  setg %al
+  movzbl %al, %eax
+  cmpq $0, %rax
+  je .L_sutra_if_end_70
+  movq $1, %rax
+  movq %rax, -56(%rbp)
+.L_sutra_if_end_70:
+  movq -16(%rbp), %rax
+  pushq %rax
+  movq $16, %rax
+  pushq %rax
+  movq -48(%rbp), %rax
+  movq %rax, %rdx
+  popq %rax
+  addq %rdx, %rax
+  movq %rax, %rcx
+  popq %rax
+  movzbq (%rax,%rcx), %rax
+  pushq %rax
+  subq $40, %rsp
+  movq 40(%rsp), %rcx
+  call अक्षर_बाइट_चौड़ाई
+  addq $48, %rsp
+  movq %rax, -64(%rbp)
+  movq -48(%rbp), %rax
+  pushq %rax
+  movq -64(%rbp), %rax
+  movq %rax, %rdx
+  popq %rax
+  addq %rdx, %rax
+  pushq %rax
+  movq -32(%rbp), %rax
+  movq %rax, %rdx
+  popq %rax
+  cmpq %rdx, %rax
+  setg %al
+  movzbl %al, %eax
+  cmpq $0, %rax
+  je .L_sutra_if_end_72
+  movq $1, %rax
+  movq %rax, -64(%rbp)
+.L_sutra_if_end_72:
+  movq -8(%rbp), %rax
+  pushq %rax
+  movq -40(%rbp), %rax
+  pushq %rax
+  movq -56(%rbp), %rax
+  pushq %rax
+  subq $40, %rsp
+  movq 56(%rsp), %rcx
+  movq 48(%rsp), %rdx
+  movq 40(%rsp), %r8
+  call कोडबिंदु_मान
+  addq $64, %rsp
+  movq %rax, -72(%rbp)
+  movq -16(%rbp), %rax
+  pushq %rax
+  movq -48(%rbp), %rax
+  pushq %rax
+  movq -64(%rbp), %rax
+  pushq %rax
+  subq $40, %rsp
+  movq 56(%rsp), %rcx
+  movq 48(%rsp), %rdx
+  movq 40(%rsp), %r8
+  call कोडबिंदु_मान
+  addq $64, %rsp
+  movq %rax, -80(%rbp)
+  movq -72(%rbp), %rax
+  pushq %rax
+  movq -80(%rbp), %rax
+  movq %rax, %rdx
+  popq %rax
+  cmpq %rdx, %rax
+  setne %al
+  movzbl %al, %eax
+  cmpq $0, %rax
+  je .L_sutra_if_end_74
+  movq -72(%rbp), %rax
+  pushq %rax
+  movq -80(%rbp), %rax
+  movq %rax, %rdx
+  popq %rax
+  cmpq %rdx, %rax
+  setl %al
+  movzbl %al, %eax
+  cmpq $0, %rax
+  je .L_sutra_if_end_76
+  movq $1, %rax
+  negq %rax
+  jmp .L_epilogue_पाठ_कोडबिंदु_तुलना
+.L_sutra_if_end_76:
+  movq $1, %rax
+  jmp .L_epilogue_पाठ_कोडबिंदु_तुलना
+.L_sutra_if_end_74:
+  movq -40(%rbp), %rax
+  pushq %rax
+  movq -56(%rbp), %rax
+  movq %rax, %rdx
+  popq %rax
+  addq %rdx, %rax
+  movq %rax, -40(%rbp)
+  movq -48(%rbp), %rax
+  pushq %rax
+  movq -64(%rbp), %rax
+  movq %rax, %rdx
+  popq %rax
+  addq %rdx, %rax
+  movq %rax, -48(%rbp)
+  jmp .L_sutra_while_cond_67
+.L_sutra_while_end_68:
+  movq -40(%rbp), %rax
+  pushq %rax
+  movq -24(%rbp), %rax
+  movq %rax, %rdx
+  popq %rax
+  cmpq %rdx, %rax
+  setge %al
+  movzbl %al, %eax
+  pushq %rax
+  movq -48(%rbp), %rax
+  pushq %rax
+  movq -32(%rbp), %rax
+  movq %rax, %rdx
+  popq %rax
+  cmpq %rdx, %rax
+  setge %al
+  movzbl %al, %eax
+  movq %rax, %rdx
+  popq %rax
+  andq %rdx, %rax
+  cmpq $0, %rax
+  setne %al
+  movzbl %al, %eax
+  cmpq $0, %rax
+  je .L_sutra_if_end_78
+  movq $0, %rax
+  jmp .L_epilogue_पाठ_कोडबिंदु_तुलना
+.L_sutra_if_end_78:
+  movq -40(%rbp), %rax
+  pushq %rax
+  movq -24(%rbp), %rax
+  movq %rax, %rdx
+  popq %rax
+  cmpq %rdx, %rax
+  setge %al
+  movzbl %al, %eax
+  cmpq $0, %rax
+  je .L_sutra_if_end_80
+  movq $1, %rax
+  negq %rax
+  jmp .L_epilogue_पाठ_कोडबिंदु_तुलना
+.L_sutra_if_end_80:
+  movq $1, %rax
+  jmp .L_epilogue_पाठ_कोडबिंदु_तुलना
+.L_epilogue_पाठ_कोडबिंदु_तुलना:
+  subq $48, %rsp
+  movq %rax, 32(%rsp)
+  leaq -80(%rbp), %rcx
+  call sutra_gc_pop_root
+  leaq -72(%rbp), %rcx
+  call sutra_gc_pop_root
+  leaq -64(%rbp), %rcx
+  call sutra_gc_pop_root
+  leaq -56(%rbp), %rcx
+  call sutra_gc_pop_root
+  leaq -48(%rbp), %rcx
+  call sutra_gc_pop_root
+  leaq -40(%rbp), %rcx
+  call sutra_gc_pop_root
+  leaq -32(%rbp), %rcx
+  call sutra_gc_pop_root
+  leaq -24(%rbp), %rcx
+  call sutra_gc_pop_root
+  leaq -16(%rbp), %rcx
+  call sutra_gc_pop_root
+  leaq -8(%rbp), %rcx
+  call sutra_gc_pop_root
+  movq 32(%rsp), %rax
+  addq $48, %rsp
+  movq %rbp, %rsp
+  popq %rbp
+  ret
+
+  .text
+  .globl पाठ_न्यून
+  .def पाठ_न्यून; .scl 2; .type 32; .endef
+पाठ_न्यून:
+  pushq %rbp
+  movq %rsp, %rbp
+  subq $48, %rsp
+
+  movq $0, -8(%rbp)
+  movq $0, -16(%rbp)
+  movq %rcx, -8(%rbp)
+  movq %rdx, -16(%rbp)
+  leaq -8(%rbp), %rcx
+  call sutra_gc_push_root
+  leaq -16(%rbp), %rcx
+  call sutra_gc_push_root
+
+  movq -8(%rbp), %rax
+  pushq %rax
+  movq -16(%rbp), %rax
+  pushq %rax
+  subq $32, %rsp
+  movq 40(%rsp), %rcx
+  movq 32(%rsp), %rdx
+  call पाठ_कोडबिंदु_तुलना
+  addq $48, %rsp
+  pushq %rax
+  movq $0, %rax
+  movq %rax, %rdx
+  popq %rax
+  cmpq %rdx, %rax
+  setl %al
+  movzbl %al, %eax
+  cmpq $0, %rax
+  je .L_sutra_if_end_82
+  movq $1, %rax
+  jmp .L_epilogue_पाठ_न्यून
+.L_sutra_if_end_82:
+  movq $0, %rax
+  jmp .L_epilogue_पाठ_न्यून
+.L_epilogue_पाठ_न्यून:
+  subq $48, %rsp
+  movq %rax, 32(%rsp)
+  leaq -16(%rbp), %rcx
+  call sutra_gc_pop_root
+  leaq -8(%rbp), %rcx
+  call sutra_gc_pop_root
+  movq 32(%rsp), %rax
+  addq $48, %rsp
+  movq %rbp, %rsp
+  popq %rbp
+  ret
+
+  .text
+  .globl पाठ_अधिक
+  .def पाठ_अधिक; .scl 2; .type 32; .endef
+पाठ_अधिक:
+  pushq %rbp
+  movq %rsp, %rbp
+  subq $48, %rsp
+
+  movq $0, -8(%rbp)
+  movq $0, -16(%rbp)
+  movq %rcx, -8(%rbp)
+  movq %rdx, -16(%rbp)
+  leaq -8(%rbp), %rcx
+  call sutra_gc_push_root
+  leaq -16(%rbp), %rcx
+  call sutra_gc_push_root
+
+  movq -8(%rbp), %rax
+  pushq %rax
+  movq -16(%rbp), %rax
+  pushq %rax
+  subq $32, %rsp
+  movq 40(%rsp), %rcx
+  movq 32(%rsp), %rdx
+  call पाठ_कोडबिंदु_तुलना
+  addq $48, %rsp
+  pushq %rax
+  movq $0, %rax
+  movq %rax, %rdx
+  popq %rax
+  cmpq %rdx, %rax
+  setg %al
+  movzbl %al, %eax
+  cmpq $0, %rax
+  je .L_sutra_if_end_84
+  movq $1, %rax
+  jmp .L_epilogue_पाठ_अधिक
+.L_sutra_if_end_84:
+  movq $0, %rax
+  jmp .L_epilogue_पाठ_अधिक
+.L_epilogue_पाठ_अधिक:
+  subq $48, %rsp
+  movq %rax, 32(%rsp)
+  leaq -16(%rbp), %rcx
+  call sutra_gc_pop_root
+  leaq -8(%rbp), %rcx
+  call sutra_gc_pop_root
+  movq 32(%rsp), %rax
+  addq $48, %rsp
+  movq %rbp, %rsp
+  popq %rbp
+  ret
+
+  .text
+  .globl पाठ_न्यून_सम
+  .def पाठ_न्यून_सम; .scl 2; .type 32; .endef
+पाठ_न्यून_सम:
+  pushq %rbp
+  movq %rsp, %rbp
+  subq $48, %rsp
+
+  movq $0, -8(%rbp)
+  movq $0, -16(%rbp)
+  movq %rcx, -8(%rbp)
+  movq %rdx, -16(%rbp)
+  leaq -8(%rbp), %rcx
+  call sutra_gc_push_root
+  leaq -16(%rbp), %rcx
+  call sutra_gc_push_root
+
+  movq -8(%rbp), %rax
+  pushq %rax
+  movq -16(%rbp), %rax
+  pushq %rax
+  subq $32, %rsp
+  movq 40(%rsp), %rcx
+  movq 32(%rsp), %rdx
+  call पाठ_कोडबिंदु_तुलना
+  addq $48, %rsp
+  pushq %rax
+  movq $0, %rax
+  movq %rax, %rdx
+  popq %rax
+  cmpq %rdx, %rax
+  setle %al
+  movzbl %al, %eax
+  cmpq $0, %rax
+  je .L_sutra_if_end_86
+  movq $1, %rax
+  jmp .L_epilogue_पाठ_न्यून_सम
+.L_sutra_if_end_86:
+  movq $0, %rax
+  jmp .L_epilogue_पाठ_न्यून_सम
+.L_epilogue_पाठ_न्यून_सम:
+  subq $48, %rsp
+  movq %rax, 32(%rsp)
+  leaq -16(%rbp), %rcx
+  call sutra_gc_pop_root
+  leaq -8(%rbp), %rcx
+  call sutra_gc_pop_root
+  movq 32(%rsp), %rax
+  addq $48, %rsp
+  movq %rbp, %rsp
+  popq %rbp
+  ret
+
+  .text
+  .globl पाठ_अधिक_सम
+  .def पाठ_अधिक_सम; .scl 2; .type 32; .endef
+पाठ_अधिक_सम:
+  pushq %rbp
+  movq %rsp, %rbp
+  subq $48, %rsp
+
+  movq $0, -8(%rbp)
+  movq $0, -16(%rbp)
+  movq %rcx, -8(%rbp)
+  movq %rdx, -16(%rbp)
+  leaq -8(%rbp), %rcx
+  call sutra_gc_push_root
+  leaq -16(%rbp), %rcx
+  call sutra_gc_push_root
+
+  movq -8(%rbp), %rax
+  pushq %rax
+  movq -16(%rbp), %rax
+  pushq %rax
+  subq $32, %rsp
+  movq 40(%rsp), %rcx
+  movq 32(%rsp), %rdx
+  call पाठ_कोडबिंदु_तुलना
+  addq $48, %rsp
+  pushq %rax
+  movq $0, %rax
+  movq %rax, %rdx
+  popq %rax
+  cmpq %rdx, %rax
+  setge %al
+  movzbl %al, %eax
+  cmpq $0, %rax
+  je .L_sutra_if_end_88
+  movq $1, %rax
+  jmp .L_epilogue_पाठ_अधिक_सम
+.L_sutra_if_end_88:
+  movq $0, %rax
+  jmp .L_epilogue_पाठ_अधिक_सम
+.L_epilogue_पाठ_अधिक_सम:
+  subq $48, %rsp
+  movq %rax, 32(%rsp)
+  leaq -16(%rbp), %rcx
+  call sutra_gc_pop_root
+  leaq -8(%rbp), %rcx
+  call sutra_gc_pop_root
+  movq 32(%rsp), %rax
+  addq $48, %rsp
+  movq %rbp, %rsp
+  popq %rbp
+  ret
+

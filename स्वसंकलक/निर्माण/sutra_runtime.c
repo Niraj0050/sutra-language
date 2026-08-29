@@ -1200,6 +1200,10 @@ int64_t sutra_str_lower(void* s) {
     return (int64_t)sutra_str_map_case(s, 0);
 }
 
+/* NOTE: sutra_utf8_cmp_codepoints + sutra_str_less/_greater/_less_equal/
+ * _greater_equal are now in Sutra (मूल_रनटाइम.सूत्र :: पाठ_कोडबिंदु_तुलना /
+ * पाठ_न्यून / पाठ_अधिक / पाठ_न्यून_सम / पाठ_अधिक_सम). C copies stay for the
+ * C++ host path. */
 static int64_t sutra_utf8_cmp_codepoints(void* a, void* b) {
     if (!a || !b) {
         if (!a && !b) return 0;

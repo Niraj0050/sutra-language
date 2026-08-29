@@ -92,15 +92,21 @@ Pure Devanagari names — no `sutra_` prefix.
 
 ## Porting order
 
-1. **Read-only leaves** (no allocation) — ✅ first batch done:
-   `अक्षर_कोडबिंदु` (was `sutra_char_ord`), `पाठ_कोडबिंदु_गणना` (`sutra_str_length`),
-   `पाठ_तुल्य` (`sutra_str_equal`), `सञ्चय_गणना` (`sutra_arr_length`),
-   `दैशिक_लंबाई` (`sutra_dynamic_length`). Codegen retargeted: `लंबाई` →
-   `दैशिक_लंबाई`, `अक्षर_मान`/`अक्षरम्` → `अक्षर_कोडबिंदु`, string `==`/`!=` →
-   `पाठ_तुल्य`. Type checks still call C via `अंतर्_क्या_पाठ` / `अंतर्_क्या_शब्दकोश`
-   (→ `sutra_native_is_string` / `sutra_is_dict`) until the GC moves.
-   Remaining leaves: `sutra_str_compare` + `_less`/`_greater`/…,
-   `sutra_arr_get`, `sutra_str_get`.
+1. **Read-only leaves** (no allocation) — ✅ done:
+   - batch 1: `अक्षर_कोडबिंदु` (was `sutra_char_ord`), `पाठ_कोडबिंदु_गणना`
+     (`sutra_str_length`), `पाठ_तुल्य` (`sutra_str_equal`), `सञ्चय_गणना`
+     (`sutra_arr_length`), `दैशिक_लंबाई` (`sutra_dynamic_length`)
+   - batch 2: `पाठ_कोडबिंदु_तुलना` (`sutra_utf8_cmp_codepoints`) +
+     `पाठ_न्यून` / `पाठ_अधिक` / `पाठ_न्यून_सम` / `पाठ_अधिक_सम`
+     (`sutra_str_less` / `_greater` / `_less_equal` / `_greater_equal`)
+
+   Codegen retargeted: `लंबाई` → `दैशिक_लंबाई`, `अक्षर_मान`/`अक्षरम्` →
+   `अक्षर_कोडबिंदु`, string `==`/`!=` → `पाठ_तुल्य`, string `<`/`>`/`<=`/`>=`
+   → `पाठ_न्यून` etc. Type checks still call C via `अंतर्_क्या_पाठ` /
+   `अंतर्_क्या_शब्दकोश` (→ `sutra_native_is_string` / `sutra_is_dict`) until
+   the GC moves. `sutra_str_compare` is dead code (no callers).
+   Still C: `sutra_arr_get`, `sutra_str_get` (their string / substring
+   branches allocate — go with the allocating batch).
 2. **OS floor** (L0/L1) — ✅ done (`तल.s`, see above).
 3. **L2 allocator + GC** in restricted Sutra over the arena; replace the
    C `gc_register_alloc` / mark-sweep. Unblocks the type-check intrinsics
