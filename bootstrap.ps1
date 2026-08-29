@@ -52,10 +52,13 @@ if ($LASTEXITCODE -ne 0) { throw "as failed (तल.s)" }
 Copy-Item (Join-Path $seedDir "मूल_रनटाइम.s") "_srt.s" -Force
 & $as -o "sutra_srt.o" "_srt.s"
 if ($LASTEXITCODE -ne 0) { throw "as failed (मूल_रनटाइम.s)" }
-Remove-Item "_floor.s", "_srt.s" -ErrorAction SilentlyContinue
+Copy-Item (Join-Path $seedDir "मूल_आवंटक.s") "_alloc.s" -Force
+& $as -o "sutra_alloc.o" "_alloc.s"
+if ($LASTEXITCODE -ne 0) { throw "as failed (मूल_आवंटक.s)" }
+Remove-Item "_floor.s", "_srt.s", "_alloc.s" -ErrorAction SilentlyContinue
 
 Write-Host "== 3/5  link seed compiler (gcc as linker) ==" -ForegroundColor Cyan
-& $gcc -m64 "_seed.o" "sutra_runtime_prebuilt.o" "sutra_srt.o" "sutra_floor.o" -lm -lshell32 -o "seed_sutrac.exe"
+& $gcc -m64 "_seed.o" "sutra_runtime_prebuilt.o" "sutra_alloc.o" "sutra_srt.o" "sutra_floor.o" -lm -lshell32 -o "seed_sutrac.exe"
 if ($LASTEXITCODE -ne 0) { throw "link failed" }
 Remove-Item "_seed.s", "_seed.o", "_seed_rt.c" -ErrorAction SilentlyContinue
 Write-Host "   seed compiler ready: seed_sutrac.exe" -ForegroundColor Green

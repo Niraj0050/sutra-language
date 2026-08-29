@@ -7,3 +7,4 @@
 # Bootstrap script carries a UTF-8 BOM (PowerShell 5.1 needs it to read
 # the Devanagari paths) — leave it exactly as authored.
 bootstrap.ps1 -text
+स्वसंकलक/निर्माण/मूल_आवंटक.s -text

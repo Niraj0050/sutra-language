@@ -128,6 +128,37 @@ void sutra_throw_div_by_zero() {
 void** gc_roots[GC_MAX_ROOTS];
 volatile int gc_roots_count = 0;
 
+/* ============================================================
+ * Sutra allocator + GC  (स्वसंकलक/निर्माण/मूल_आवंटक.सूत्र)
+ * The heap now lives in a VirtualAlloc arena managed in Sutra;
+ * every object carries a hidden 16-byte prefix [tm:8][size:8] so
+ * type is read from p-16 — no registry, no hash.
+ * ========================================================== */
+extern void*   सूत्र_आवंटन(int64_t size, int64_t type);   /* -> p (= base+16) */
+extern void*   सूत्र_पुनः_आवंटन(void* p, int64_t new_size);
+extern void    सूत्र_मुक्त(void* p);
+extern int64_t सूत्र_ब्लॉक_प्रकार(void* p);  /* 0 = none/free, 1 str, 2 arr, 3 obj, 4 dict */
+extern void    सूत्र_संग्रह(void);
+extern int64_t सूत्र_गण_चक्र(void);
+extern int64_t सूत्र_गण_सक्रिय(void);
+extern int64_t सूत्र_गण_संग्रहित(void);
+extern int64_t सूत्र_गण_पुनःप्राप्त(void);
+
+#define SR_STR  1
+#define SR_ARR  2
+#define SR_OBJ  3
+#define SR_DICT 4
+
+/* GC roots — the Sutra collector reads them through these */
+int64_t sutra_gc_root_count(void) { return gc_roots_count; }
+int64_t sutra_gc_root_deref(int64_t i) {
+    if (i < 0 || i >= gc_roots_count) return 0;
+    void** r = gc_roots[i];
+    return r ? (int64_t)(intptr_t)*r : 0;
+}
+extern void* volatile sutra_active_exception;
+int64_t sutra_gc_active_exc(void) { return (int64_t)(intptr_t)sutra_active_exception; }
+
 #if 0
 void sutra_gc_push_root(void* addr) {
     if (gc_roots_count < GC_MAX_ROOTS) {
@@ -373,78 +404,29 @@ void gc_mark_allocation(void* ptr) {
 }
 
 void sutra_gc_collect() {
-#ifdef USE_LEGACY_RUNTIME
-    gc_collection_count++;
-    sg_cache_str = NULL; /* संग्रहण मुक्त पते बदल सकता है */
-
-    // 1. Reset marks
-    for (size_t i = 0; i < gc_allocs_count; i++) {
-        gc_allocs[i].marked = 0;
-    }
-
-    // 2. Mark from registered roots
-    for (int i = 0; i < gc_roots_count; i++) {
-        if (gc_roots[i]) {
-            void* root_ptr = *(gc_roots[i]);
-            gc_mark_allocation(root_ptr);
-        }
-    }
-    // Mark active exception if exists
-    if (sutra_active_exception) {
-        gc_mark_allocation(sutra_active_exception);
-    }
-    // 3. Sweep unmarked allocations
-    gc_live_allocs_count = 0;
-    size_t i = 0;
-    while (i < gc_allocs_count) {
-        if (!gc_allocs[i].marked) {
-            void* p = gc_allocs[i].ptr;
-            size_t sz = gc_allocs[i].size;
-
-            // Clean up dictionary helper array
-            if (gc_allocs[i].type == GC_TYPE_DICTIONARY) {
-                void* entries = *((void**)((char*)p + 16));
-                if (entries) {
-                    free(entries);
-                }
-            }
-
-            free(p);
-            gc_bytes_reclaimed += sz;
-            gc_collected_objects_count++;
-
-            // Swap delete
-            gc_allocs[i] = gc_allocs[gc_allocs_count - 1];
-            gc_allocs_count--;
-        } else {
-            gc_live_allocs_count++;
-            i++;
-        }
-    }
-    gc_hash_rebuild(gc_hash_cap); /* sweep ने अनुक्रमणिकाएँ पुनर्व्यवस्थित कीं */
-#else
-    sutra_native_gc_collect(gc_roots, gc_roots_count, sutra_active_exception);
-#endif
+    sg_cache_str = NULL;
+    सूत्र_संग्रह();
 }
 
 void sutra_gc_status() {
-#ifdef USE_LEGACY_RUNTIME
     printf("चक्र: %lld\nसक्रिय: %lld\nसंग्रहित: %lld\n",
-           (long long)gc_collection_count,
-           (long long)gc_live_allocs_count,
-           (long long)gc_collected_objects_count);
-#else
-    printf("चक्र: %lld\nसक्रिय: %lld\nसंग्रहित: %lld\n",
-           (long long)native_gc_collection_count,
-           (long long)native_gc_live_allocs_count,
-           (long long)native_gc_collected_objects_count);
-#endif
+           (long long)सूत्र_गण_चक्र(),
+           (long long)सूत्र_गण_सक्रिय(),
+           (long long)सूत्र_गण_संग्रहित());
 }
 
+/* adapter over the Sutra allocator's hidden [tm][size] prefix.
+ * scratch is safe — no caller holds the result across another call. */
 static GCAllocation* find_gc_allocation(void* ptr) {
+    static GCAllocation scratch;
     if (!ptr || (uintptr_t)ptr < 65536) return NULL;
-    size_t idx = gc_hash_get(ptr);
-    return (idx == GC_HASH_NONE) ? NULL : &gc_allocs[idx];
+    int64_t t = सूत्र_ब्लॉक_प्रकार(ptr);
+    if (t < 1 || t > 4) return NULL;
+    scratch.ptr = ptr;
+    scratch.type = (GCType)(t - 1);   /* Sutra 1..4 -> enum STRING..DICT */
+    scratch.size = 0;
+    scratch.marked = 0;
+    return &scratch;
 }
 
 int sutra_native_is_string(void* ptr) {
@@ -518,17 +500,13 @@ void* sutra_str_alloc(const char* data, int64_t len) {
     int64_t cap = len == 0 ? 4 : len;
     /* Allocate: 16 bytes for capacity/length + cap bytes for data + 1 for null terminator */
 #ifdef USE_LEGACY_RUNTIME
-    char* block = (char*)malloc(16 + cap + 1);
-    if (!block) {
-        sutra_throw_str("त्रुटिः — स्मृति आवंटन विफल (string alloc)");
-    }
+    char* block = (char*)सूत्र_आवंटन(16 + cap + 1, SR_STR);
     *((int64_t*)block) = cap;
     *((int64_t*)(block + 8)) = len;
     if (len > 0 && data) {
         memcpy(block + 16, data, len);
     }
     block[16 + len] = '\0';
-    gc_register_alloc(block, 16 + cap + 1, GC_TYPE_STRING);
     return block;
 #else
     void* block = sutra_native_alloc(16 + cap + 1, GC_TYPE_STRING);
@@ -1008,11 +986,10 @@ void* sutra_list_append(void* arr, int64_t val) {
     } else {
         int64_t new_cap = capacity == 0 ? 4 : capacity * 2;
 #ifdef USE_LEGACY_RUNTIME
-        void* new_block = realloc(arr, 16 + new_cap * 8);
+        void* new_block = सूत्र_पुनः_आवंटन(arr, 16 + new_cap * 8);
         if (!new_block) {
             sutra_throw_str("त्रुटिः — स्मृति आवंटन विफल (list append)");
         }
-        gc_update_alloc(arr, new_block, 16 + new_cap * 8);
 #else
         void* new_block = sutra_native_realloc(arr, 16 + new_cap * 8);
 #endif
@@ -1046,10 +1023,9 @@ void* sutra_list_pop(void* arr) {
         int64_t new_cap = capacity / 2;
         if (new_cap < 4) new_cap = 4;
 #ifdef USE_LEGACY_RUNTIME
-        void* new_block = realloc(arr, 16 + new_cap * 8);
+        void* new_block = सूत्र_पुनः_आवंटन(arr, 16 + new_cap * 8);
         if (new_block) {
-            gc_update_alloc(arr, new_block, 16 + new_cap * 8);
-            arr = new_block;
+                arr = new_block;
             *((int64_t*)arr) = new_cap;
         }
 #else
@@ -1084,11 +1060,10 @@ void* sutra_list_insert(void* arr, int64_t idx, int64_t val) {
     } else {
         int64_t new_cap = capacity == 0 ? 4 : capacity * 2;
 #ifdef USE_LEGACY_RUNTIME
-        void* new_block = realloc(arr, 16 + new_cap * 8);
+        void* new_block = सूत्र_पुनः_आवंटन(arr, 16 + new_cap * 8);
         if (!new_block) {
             sutra_throw_str("त्रुटिः — स्मृति आवंटन विफल (list insert)");
         }
-        gc_update_alloc(arr, new_block, 16 + new_cap * 8);
 #else
         void* new_block = sutra_native_realloc(arr, 16 + new_cap * 8);
 #endif
@@ -1128,10 +1103,9 @@ void* sutra_list_remove(void* arr, int64_t idx) {
         int64_t new_cap = capacity / 2;
         if (new_cap < 4) new_cap = 4;
 #ifdef USE_LEGACY_RUNTIME
-        void* new_block = realloc(arr, 16 + new_cap * 8);
+        void* new_block = सूत्र_पुनः_आवंटन(arr, 16 + new_cap * 8);
         if (new_block) {
-            gc_update_alloc(arr, new_block, 16 + new_cap * 8);
-            arr = new_block;
+                arr = new_block;
             *((int64_t*)arr) = new_cap;
         }
 #else
@@ -1396,15 +1370,11 @@ void sutra_str_print(void* s) {
 /* Allocate an array of n int64 elements (initialized to 0) */
 void* sutra_arr_create(int64_t n) {
 #ifdef USE_LEGACY_RUNTIME
-    char* block = (char*)malloc(16 + n * 8);
-    if (!block) {
-        sutra_throw_str("त्रुटिः — स्मृति आवंटन विफल (array alloc)");
-    }
+    char* block = (char*)सूत्र_आवंटन(16 + n * 8, SR_ARR);
     *((int64_t*)block) = n; // capacity
     *((int64_t*)(block + 8)) = n; // count
     /* Zero-initialize elements */
     memset(block + 16, 0, n * 8);
-    gc_register_alloc(block, 16 + n * 8, GC_TYPE_ARRAY);
     return block;
 #else
     void* block = sutra_native_alloc(16 + n * 8, GC_TYPE_ARRAY);
@@ -1458,8 +1428,7 @@ void sutra_arr_set(void* arr, int64_t idx, int64_t val) {
 
 int sutra_is_dict(void* ptr) {
 #ifdef USE_LEGACY_RUNTIME
-    size_t idx = gc_hash_get(ptr);
-    return (idx != GC_HASH_NONE && gc_allocs[idx].type == GC_TYPE_DICTIONARY) ? 1 : 0;
+    return सूत्र_ब्लॉक_प्रकार(ptr) == 4 ? 1 : 0;
 #else
     return sutra_native_is_dict(ptr);
 #endif
@@ -1487,14 +1456,10 @@ int64_t sutra_dynamic_length(void* obj) {
 
 void* sutra_obj_alloc(int64_t field_count) {
 #ifdef USE_LEGACY_RUNTIME
-    char* block = (char*)malloc(16 + field_count * 8);
-    if (!block) {
-        sutra_throw_str("त्रुटिः — स्मृति आवंटन विफल (object alloc)");
-    }
+    char* block = (char*)सूत्र_आवंटन(16 + field_count * 8, SR_OBJ);
     *((int64_t*)block) = field_count; // capacity
     *((int64_t*)(block + 8)) = field_count; // count
     memset(block + 16, 0, field_count * 8);
-    gc_register_alloc(block, 16 + field_count * 8, GC_TYPE_OBJECT);
     return block;
 #else
     void* block = sutra_native_alloc(16 + field_count * 8, GC_TYPE_OBJECT);
@@ -1535,19 +1500,13 @@ void sutra_print_bool(int64_t v) {
  */
 void* sutra_dict_create(void) {
 #ifdef USE_LEGACY_RUNTIME
-    char* dict = (char*)malloc(24);
-    if (!dict) {
-        sutra_throw_str("त्रुटिः — स्मृति आवंटन विफल (dict alloc)");
-    }
+    char* dict = (char*)सूत्र_आवंटन(24, SR_DICT);
     int64_t initial_cap = 4;
-    void* entries = malloc(initial_cap * 16);
-    if (!entries) {
-        sutra_throw_str("त्रुटिः — स्मृति आवंटन विफल (dict entries alloc)");
-    }
+    void* entries = सूत्र_आवंटन(initial_cap * 16, SR_ARR);
+    memset(entries, 0, initial_cap * 16);
     *((int64_t*)dict) = 0;
     *((int64_t*)(dict + 8)) = initial_cap;
     *((void**)(dict + 16)) = entries;
-    gc_register_alloc(dict, 24, GC_TYPE_DICTIONARY);
     return dict;
 #else
     void* dict = sutra_native_alloc(24, GC_TYPE_DICTIONARY);
@@ -1594,12 +1553,10 @@ void sutra_dict_set(void* dict, void* key, int64_t val) {
 
     if (count >= capacity) {
         int64_t new_cap = capacity * 2;
-        char* new_entries = (char*)malloc(new_cap * 16);
-        if (!new_entries) {
-            sutra_throw_str("त्रुटिः — स्मृति आवंटन विफल (dict grow)");
-        }
+        char* new_entries = (char*)सूत्र_आवंटन(new_cap * 16, SR_ARR);
         memcpy(new_entries, entries, count * 16);
-        free(entries);
+        memset(new_entries + count * 16, 0, (new_cap - count) * 16);
+        सूत्र_मुक्त(entries);
         entries = new_entries;
         *((int64_t*)((char*)dict + 8)) = new_cap;
         *((void**)((char*)dict + 16)) = entries;

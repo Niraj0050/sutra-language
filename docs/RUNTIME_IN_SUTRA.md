@@ -108,9 +108,24 @@ Pure Devanagari names — no `sutra_` prefix.
    Still C: `sutra_arr_get`, `sutra_str_get` (their string / substring
    branches allocate — go with the allocating batch).
 2. **OS floor** (L0/L1) — ✅ done (`तल.s`, see above).
-3. **L2 allocator + GC** in restricted Sutra over the arena; replace the
-   C `gc_register_alloc` / mark-sweep. Unblocks the type-check intrinsics
-   and everything allocating.
+3. **L2 allocator + GC** — ✅ done (`स्वसंकलक/निर्माण/मूल_आवंटक.सूत्र`).
+   VirtualAlloc arena (16 MB chunks, linked list) + first-fit free list +
+   bump; every block carries a hidden 32-byte-aligned prefix
+   `[tag:8][size:8]` (tag = type 1–4, +256 = GC mark), so the returned
+   pointer is 16-aligned and `p-16` is the header. Mark-and-sweep walks
+   the arena linearly. `सूत्र_आवंटन` / `सूत्र_पुनः_आवंटन` / `सूत्र_मुक्त` /
+   `सूत्र_ब्लॉक_प्रकार` / `सूत्र_संग्रह`. The whole module is typed `संख्या`
+   throughout (no `मान`) so no `+` ever falls to `sutra_add_dynamic` —
+   that path recurses via the type check. C keeps thin shims:
+   `sutra_str_alloc` etc. now just call `सूत्र_आवंटन`; `find_gc_allocation`
+   is a 6-line adapter over `सूत्र_ब्लॉक_प्रकार`; `sutra_gc_collect` →
+   `सूत्र_संग्रह`. GC roots stay in the fixed C `gc_roots[]` array, read by
+   the Sutra collector through `sutra_gc_root_count` / `_deref` /
+   `sutra_gc_active_exc` (via new intrinsics `अंतर्_जड़_संख्या` /
+   `अंतर्_जड़_मान` / `अंतर्_सक्रिय_अपवाद`). Old C `gc_allocs` hash is dead
+   code, deleted next.
+   Library-mode codegen: a source whose top level is only `कठन_चर_घोषणा`
+   (no `मुख्य`) emits no `main` wrapper — globals are `.data .quad 0`.
 4. **Allocating string ops**: `sutra_str_alloc`, `_concat`, `_substr`,
    `sutra_int_to_str`, `_bool_to_str`, `_null_to_str`.
 5. **Array / dict ops**: `sutra_list_append` (+ realloc), `sutra_dict_set`/`_get`.
