@@ -144,10 +144,11 @@ optimiser के बिना runtime port regression है — इसलिए
    स्थिर/अंकगणित/भाग-शेष/तुलना/और-या-नकार/पढ़-लिख_वैश्विक/बुलाओ/अंतर्;
    terminators + edge पर cycle-safe parallel-move phi resolution;
    prologue/epilogue + main wrapper (__शीर्ष + sutra_main)।
-   `verify_emit.sh` — 10 प्रोग्राम पूरी नई path से चलते हैं
-   (arith/calls/loop/recursion/if/cmp/string/&&-||/div-mod/globals)।
-   बाकी (1e follow-up): floats, list/dict/index/field, नव_*,
-   विधि_बुलाओ, परिवर्तन, प्रकार_है।
+   follow-ups done: strings/lists/dicts/indexing, type-aware +/==,
+   classes/objects/methods/fields। **tests/compiler through the IR
+   path: 42 / 51** (`verify_emit.sh` 16/16)।
+   बाकी: 4 GC tests (precise roots — 1f), 1 float test, ~4 list/string
+   edge-case bugs, `प्रकार()` builtin।
 
 **1f. GC roots** — precise: register में रखे pointers के लिए। calls/
    allocations से पहले live pointers को root-area में spill।
