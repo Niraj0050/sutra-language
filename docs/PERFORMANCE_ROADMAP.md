@@ -130,9 +130,13 @@ optimiser के बिना runtime port regression है — इसलिए
    - v0 अब आरक्षित ("invalid/none") — dict 0="absent" टकराव हटा
    - बाद में: copy-prop, inlining, LICM, phi type-refinement
 
-**1d. register allocator** — linear-scan (SSA live intervals से)।
-   अभी हर value memory/stack में; इसके बाद rax/rcx/rdx/r8-r15 में।
-   caller/callee-saved, spill slots।
+**1d. register allocator** — ✅ done (`स्वसंकलक/रजि_नियतक.सूत्र`, commit 19be732)
+   RPO क्रमांकन → backward liveness (fixpoint) → live intervals →
+   linear-scan (expire/assign/spill-furthest)। रजिस्टर pool = 7
+   callee-saved (rbx rsi rdi r12-r15) ताकि calls clobber न करें।
+   spill → 16-byte ढेर slots। परिणाम फलन पर: रजि_नियतन, ढेर_आकार,
+   प्रयुक्त_सुरक्षित। `रजि_नियतक_परीक्षण.सूत्र` — loop (0 spill, phi
+   coalesced) + 9-live-value fn (4 spill)। 8 checks.
 
 **1e. IR → x86-64** (`मूल_सर्जक.सूत्र` का backend हिस्सा) — अब यह IR
    instrs पर चलता है, register assignments के साथ। text एक बार, अंत में।
