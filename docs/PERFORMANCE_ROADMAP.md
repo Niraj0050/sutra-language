@@ -153,13 +153,30 @@ optimiser के बिना runtime port regression है — इसलिए
    `उत्_कॉल` में `मुख्य`→`sutra_main` rename भी fix।
    **tests/compiler through the IR path: 44 / 51** (`verify_emit.sh` 16/16,
    `verify_emit_full.sh` full-suite harness)।
-   बाकी 7 (सब पूर्व-मौजूद): precise GC roots — 1f (41, 44),
-   tagged dynamic values (38, 45, 47), float-typed builtin returns +
-   exceptions (40), null-in-list ops (37)।
 
-**1f. GC roots** — precise: register में रखे pointers के लिए। calls/
-   allocations से पहले live pointers को root-area में spill।
-   auto-GC unblock (byte threshold `सूत्र_आवंटन` में)।
+**1f. GC roots — ✅ DONE** (commit के बाद) — emitter-only shadow slots:
+   `मध्यम_सुरक्षा_बिंदु_है` (कौन-सा call allocate/collect कर सकता है) +
+   `मध्यम_जीसी_टैप्ड` (पूर्ण/दशमलव/बूल/शून्य छोड़ बाकी सब — वर्ग-नाम
+   समेत)। `रजि_जीसी_जड़ें` (regalloc के बाद): हर GC-टैप्ड मान जिसका
+   जीवन-अंतराल एक सुरक्षा-बिंदु घेरता है → spill-क्षेत्र में समर्पित
+   स्लॉट, `ढेर_आकार` बढ़ता है। emitter: prologue में zero-init + inline
+   `gc_roots[]` पंजीकरण (कोई call नहीं — `movl gc_roots_count`/`leaq`/
+   `movq`/`incl`), def के बाद store, मृत्यु पर `movq $0` clear, phi
+   block-आरंभ पर, epilogue `subl $N, gc_roots_count` (rax अछूता)।
+   **tests/compiler: 46 / 51** — 45, 47 अब pass (था freed-memory read)।
+   बाकी 5 (सब पूर्व-मौजूद, कोई regression नहीं):
+   - **37** null-in-list ops (native path errors, interpreter allows)
+   - **38** dynamic `"str" + सत्य/शून्यम्` → `1`/`0` (tagged dynamic word चाहिए)
+   - **40** float-typed builtin returns (`वर्गमूल` etc. "मान" typed) +
+     `प्रयत्न`/`पकड़ो` exceptions अभी emit नहीं होते
+   - **41, 44** GC गणना — प्रोग्राम सही चलते हैं, बस `स्मृति_स्थिति()` गिनती
+     भिन्न: interpreter हर in-scope local रूट करता (conservative), यह
+     liveness-आधारित (precise); 44 में DCE मृत alloc हटा देता जो
+     interpreter execute करता। यह unwinnable है बिना optimiser/GC-model
+     बदले — accounting अंतर, correctness नहीं।
+
+   auto-GC (byte threshold `सूत्र_आवंटन` में) अभी बाकी — abhi explicit
+   `संग्रह_करो()` ही, roots उसके लिए सही हैं।
 
 फिर: `मूल_संकलन.सूत्र` को IR path पर switch → 51-suite + fixed point।
 
