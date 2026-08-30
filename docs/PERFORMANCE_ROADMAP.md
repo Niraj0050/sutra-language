@@ -101,13 +101,12 @@ compounding (compiler खुद IR से compile होगा)।
 ### Phase 1 — सूत्र IR + optimiser। ~3-6 महीने। **पहले यह** (order बदला)।
 optimiser के बिना runtime port regression है — इसलिए यह पहले।
 
-**1a. IR define** (`स्वसंकलक/मध्यम.सूत्र` — नई फ़ाइल)
-   - typed SSA, ~30 opcodes: `const int/float/str`, `add/sub/mul/div/mod`,
-     `cmp_eq/lt/…`, `and/or/not`, `load/store` (local/global/field/index),
-     `call`, `ret`, `br/br_cond`, `phi`, `alloc_str/arr/dict`, `gc_root`.
-   - हर value का type tag (int / float / str-ptr / arr-ptr / dict-ptr /
-     bool) — codegen में जो static inference है वही IR में explicit।
-   - function = basic blocks की सूची; block = instrs + terminator।
+**1a. IR define** — ✅ done (`स्वसंकलक/मध्यम.सूत्र`, commit 6e10f85)
+   - typed SSA, ~35 opcodes; 9 type tags (पूर्ण/दशमलव/पाठ/सूची/शब्दकोश/
+     वस्तु/बूल/शून्य/मान)। एकक → कार्य → खंड → निर्देश। fresh SSA
+     value/label counters, deduped string-const table, pretty-printer।
+   - `मध्यम_परीक्षण.सूत्र` — hand-built IR (branch+phi+call), 15 checks green।
+   - मूल_संकलन.सूत्र अछूता — fixed point safe।
 
 **1b. AST → IR lowering** (`मूल_सर्जक.सूत्र` का काम बदलेगा —
    AST→text की जगह AST→IR)। यहीं `स = स + piece` वाला O(n²) खत्म —
