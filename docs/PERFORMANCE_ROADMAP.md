@@ -145,10 +145,17 @@ optimiser के बिना runtime port regression है — इसलिए
    terminators + edge पर cycle-safe parallel-move phi resolution;
    prologue/epilogue + main wrapper (__शीर्ष + sutra_main)।
    follow-ups done: strings/lists/dicts/indexing, type-aware +/==,
-   classes/objects/methods/fields। **tests/compiler through the IR
-   path: 42 / 51** (`verify_emit.sh` 16/16)।
-   बाकी: 4 GC tests (precise roots — 1f), 1 float test, ~4 list/string
-   edge-case bugs, `प्रकार()` builtin।
+   classes/objects/methods/fields, floats + `प्रकार()`।
+   **driver split** (commit इसके बाद): पुराना `उत्सर्जक_चालक` (6 modules)
+   O(n²)-स्मृति संकलक में OOM होता था → अब `अग्र_चालक` (parse→lower→opt,
+   IR-पाठ dumps) + `पश्च_चालक` (IR-पाठ→regalloc→.s)। बीच में
+   `मध्यम_क्रम.सूत्र` — compact line IR serialize/deserialize।
+   `उत्_कॉल` में `मुख्य`→`sutra_main` rename भी fix।
+   **tests/compiler through the IR path: 44 / 51** (`verify_emit.sh` 16/16,
+   `verify_emit_full.sh` full-suite harness)।
+   बाकी 7 (सब पूर्व-मौजूद): precise GC roots — 1f (41, 44),
+   tagged dynamic values (38, 45, 47), float-typed builtin returns +
+   exceptions (40), null-in-list ops (37)।
 
 **1f. GC roots** — precise: register में रखे pointers के लिए। calls/
    allocations से पहले live pointers को root-area में spill।
