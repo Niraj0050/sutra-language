@@ -138,11 +138,22 @@ optimiser के बिना runtime port regression है — इसलिए
    प्रयुक्त_सुरक्षित। `रजि_नियतक_परीक्षण.सूत्र` — loop (0 spill, phi
    coalesced) + 9-live-value fn (4 spill)। 8 checks.
 
-**1e. IR → x86-64** (`मूल_सर्जक.सूत्र` का backend हिस्सा) — अब यह IR
-   instrs पर चलता है, register assignments के साथ। text एक बार, अंत में।
+**1e. IR → x86-64** — ✅ core done (`स्वसंकलक/मूल_उत्सर्जक.सूत्र`, commit 4ef8871)
+   Chunk-list builder (no `स = स + piece`)। values registers में
+   (रजि_नियतन), हर binop r10 से — कोई push/pop-per-op नहीं।
+   स्थिर/अंकगणित/भाग-शेष/तुलना/और-या-नकार/पढ़-लिख_वैश्विक/बुलाओ/अंतर्;
+   terminators + edge पर cycle-safe parallel-move phi resolution;
+   prologue/epilogue + main wrapper (__शीर्ष + sutra_main)।
+   `verify_emit.sh` — 10 प्रोग्राम पूरी नई path से चलते हैं
+   (arith/calls/loop/recursion/if/cmp/string/&&-||/div-mod/globals)।
+   बाकी (1e follow-up): floats, list/dict/index/field, नव_*,
+   विधि_बुलाओ, परिवर्तन, प्रकार_है।
 
-**1f. GC roots** — precise: IR में `gc_root` pseudo-instrs, stack map
-   generate करो। auto-GC unblock (byte threshold `सूत्र_आवंटन` में)।
+**1f. GC roots** — precise: register में रखे pointers के लिए। calls/
+   allocations से पहले live pointers को root-area में spill।
+   auto-GC unblock (byte threshold `सूत्र_आवंटन` में)।
+
+फिर: `मूल_संकलन.सूत्र` को IR path पर switch → 51-suite + fixed point।
 
 - **Milestone: compiled सूत्र ~1.5-2× of C (scalar)। self-compile seconds।
   push/pop 13,670 → ~कुछ सौ। अब hot code C→सूत्र move करना safe है।**
