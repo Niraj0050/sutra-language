@@ -691,8 +691,15 @@ static void* sutra_utf8_substr_raw(const unsigned char* data, int64_t len, int64
     return sutra_str_alloc((const char*)data + byte_start, byte_end - byte_start);
 }
 
-void* sutra_substr(void* text, int64_t start, int64_t end) {  /* -> मूल_रनटाइम.सूत्र */
-    return पाठ_उपखंड(text, start, end);
+void* sutra_substr(void* text, int64_t start, int64_t end) {
+    /* HOT PATH — lexer calls this per token; the Sutra पाठ_उपखंड version
+       regressed self-compile ~40x (unoptimised Sutra + O(n) per call, no
+       cache). Keep in C until the optimiser lands. पाठ_उपखंड stays defined
+       in मूल_रनटाइम.सूत्र for when codegen can route to it cheaply. */
+    if (!text) return sutra_str_alloc("", 0);
+    int64_t len = *((int64_t*)((char*)text + 8));
+    const unsigned char* data = (const unsigned char*)text + 16;
+    return sutra_utf8_substr_raw(data, len, start, end);
 }
 
 int64_t sutra_find(void* text, void* needle) {
@@ -1363,7 +1370,11 @@ int64_t sutra_arr_get(void* arr, int64_t idx) {
         sutra_throw_str("त्रुटिः — शून्य सूची पर सूचकांक प्रयास");
     }
     if (sutra_native_is_string(arr)) {
-        return (int64_t)sutra_substr(arr, idx, idx + 1);
+        /* sutra_str_get carries a sequential-access cache — the lexer reads
+           स्रोत[0], स्रोत[1], ... so this turns per-char reads from O(n)
+           (full UTF-8 recount) into O(1) amortised. Same 1-char-string
+           result and bounds errors as sutra_substr(arr, idx, idx+1). */
+        return (int64_t)sutra_str_get(arr, idx);
     }
     if (sutra_is_dict(arr)) {
         return sutra_dict_get(arr, (void*)idx);

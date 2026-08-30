@@ -139,6 +139,13 @@ Pure Devanagari names — no `sutra_` prefix.
    in batch 3. Semantic analyzer: builtins carry an `अंतर्निहित` flag so a
    user `कार्य` (e.g. `मूल_आवंटक.सूत्र`'s own `सूत्र_आवंटन`) may override
    one without a redefinition error.
+
+   ⚠️ **`sutra_substr` reverted to C** (Phase-0 perf) — the lexer calls
+   `स्रोत[i]` per char, and unoptimised Sutra `पाठ_उपखंड` (O(n) per call,
+   no cache) regressed self-compile ~40×. `पाठ_उपखंड` stays defined and
+   tested (`04_string_ops`); codegen routes `x[i]` on a string to C
+   `sutra_str_get` (sequential cache) for now. Re-wire to Sutra once the
+   optimiser lands. See `docs/PERFORMANCE_ROADMAP.md`.
 5. **Array / dict ops**: `sutra_list_append` (+ realloc), `sutra_dict_set`/`_get`.
 6. **Print**: `sutra_print_dynamic` and friends → format into a buffer,
    `अंतर्_मुद्रण(buf, 0, n)`.
