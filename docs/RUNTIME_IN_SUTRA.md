@@ -126,8 +126,19 @@ Pure Devanagari names — no `sutra_` prefix.
    code, deleted next.
    Library-mode codegen: a source whose top level is only `कठन_चर_घोषणा`
    (no `मुख्य`) emits no `main` wrapper — globals are `.data .quad 0`.
-4. **Allocating string ops**: `sutra_str_alloc`, `_concat`, `_substr`,
-   `sutra_int_to_str`, `_bool_to_str`, `_null_to_str`.
+4. **Allocating string ops** — ✅ done (`स्वसंकलक/निर्माण/मूल_रनटाइम.सूत्र`).
+   `पाठ_आवंटित` (`sutra_str_alloc`), `पाठ_जोड़` (`_concat`),
+   `पाठ_उपखंड` (`_substr`), `संख्या_से_पाठ` (`sutra_int_to_str`),
+   `बूल_से_पाठ` (`_bool_to_str`), `शून्य_से_पाठ` (`_null_to_str`),
+   `अक्षर_बना` (`sutra_char_chr`). Shared `खंड_प्रतिलिपि` block-copy
+   helper (8-byte words + byte tail) — no `memcpy` on the concat path.
+   `बूल_से_पाठ` / `शून्य_से_पाठ` write the सत्य/असत्य/शून्यम् UTF-8 bytes
+   literally (no string constants in a module that has no string leaves).
+   C shims: `sutra_str_concat` etc. are now one-liners forwarding to the
+   Sutra symbols; `sutra_str_alloc` already routed through `सूत्र_आवंटन`
+   in batch 3. Semantic analyzer: builtins carry an `अंतर्निहित` flag so a
+   user `कार्य` (e.g. `मूल_आवंटक.सूत्र`'s own `सूत्र_आवंटन`) may override
+   one without a redefinition error.
 5. **Array / dict ops**: `sutra_list_append` (+ realloc), `sutra_dict_set`/`_get`.
 6. **Print**: `sutra_print_dynamic` and friends → format into a buffer,
    `अंतर्_मुद्रण(buf, 0, n)`.

@@ -149,6 +149,14 @@ extern int64_t सूत्र_गण_पुनःप्राप्त(void);
 #define SR_OBJ  3
 #define SR_DICT 4
 
+/* allocating string ops, now in मूल_रनटाइम.सूत्र */
+extern void* पाठ_जोड़(void* a, void* b);
+extern void* संख्या_से_पाठ(int64_t v);
+extern void* बूल_से_पाठ(int64_t v);
+extern void* शून्य_से_पाठ(void);
+extern void* अक्षर_बना(int64_t cp);
+extern void* पाठ_उपखंड(void* text, int64_t start, int64_t end);
+
 /* GC roots — the Sutra collector reads them through these */
 int64_t sutra_gc_root_count(void) { return gc_roots_count; }
 int64_t sutra_gc_root_deref(int64_t i) {
@@ -522,14 +530,7 @@ void* sutra_str_alloc(const char* data, int64_t len) {
 
 extern int sutra_native_is_string(void* ptr);
 
-void* sutra_int_to_str(int64_t v) {
-    if (sutra_native_is_string((void*)v)) {
-        return (void*)v;
-    }
-    char buf[32];
-    int len = snprintf(buf, sizeof(buf), "%" PRId64, v);
-    return sutra_str_alloc(buf, len);
-}
+void* sutra_int_to_str(int64_t v) { return संख्या_से_पाठ(v); }  /* -> मूल_रनटाइम.सूत्र */
 
 /* '+' का runtime निर्णय — जब native codegen static रूप से तय नहीं कर सका
  * कि operand पाठ है या संख्या। कोई भी पक्ष पंजीकृत स्ट्रिंग हो → concat,
@@ -546,42 +547,11 @@ int64_t sutra_add_dynamic(int64_t a, int64_t b) {
     return a + b;
 }
 
-void* sutra_bool_to_str(int64_t v) {
-    if (v) return sutra_str_alloc("सत्य", strlen("सत्य"));
-    else return sutra_str_alloc("असत्य", strlen("असत्य"));
-}
+void* sutra_bool_to_str(int64_t v) { return बूल_से_पाठ(v); }   /* -> मूल_रनटाइम.सूत्र */
+void* sutra_null_to_str() { return शून्य_से_पाठ(); }           /* -> मूल_रनटाइम.सूत्र */
 
-void* sutra_null_to_str() {
-    return sutra_str_alloc("शून्यम्", strlen("शून्यम्"));
-}
-
-/* Concatenate two strings, return new string */
-void* sutra_str_concat(void* a, void* b) {
-    if (!a && !b) return sutra_str_alloc("", 0);
-    if (!a) {
-        int64_t len_b = *((int64_t*)((char*)b + 8));
-        return sutra_str_alloc((char*)b + 16, len_b);
-    }
-    if (!b) {
-        int64_t len_a = *((int64_t*)((char*)a + 8));
-        return sutra_str_alloc((char*)a + 16, len_a);
-    }
-
-    int64_t len_a = *((int64_t*)((char*)a + 8));
-    int64_t len_b = *((int64_t*)((char*)b + 8));
-    int64_t total = len_a + len_b;
-
-    // Always allocate a brand new block to preserve parity with the interpreter's allocation pattern
-    void* new_block = sutra_str_alloc(NULL, total);
-    if (len_a > 0) {
-        memcpy((char*)new_block + 16, (char*)a + 16, len_a);
-    }
-    if (len_b > 0) {
-        memcpy((char*)new_block + 16 + len_a, (char*)b + 16, len_b);
-    }
-    ((char*)new_block)[16 + total] = '\0';
-    return new_block;
-}
+/* Concatenate two strings -> मूल_रनटाइम.सूत्र :: पाठ_जोड़ */
+void* sutra_str_concat(void* a, void* b) { return पाठ_जोड़(a, b); }
 
 /* Compare two strings for equality. Returns 1 if equal, 0 otherwise. */
 int64_t sutra_str_equal(void* a, void* b) {
@@ -721,11 +691,8 @@ static void* sutra_utf8_substr_raw(const unsigned char* data, int64_t len, int64
     return sutra_str_alloc((const char*)data + byte_start, byte_end - byte_start);
 }
 
-void* sutra_substr(void* text, int64_t start, int64_t end) {
-    if (!text) return sutra_str_alloc("", 0);
-    int64_t len = *((int64_t*)((char*)text + 8));
-    const unsigned char* data = (const unsigned char*)text + 16;
-    return sutra_utf8_substr_raw(data, len, start, end);
+void* sutra_substr(void* text, int64_t start, int64_t end) {  /* -> मूल_रनटाइम.सूत्र */
+    return पाठ_उपखंड(text, start, end);
 }
 
 int64_t sutra_find(void* text, void* needle) {
@@ -1754,33 +1721,7 @@ int64_t sutra_char_ord(void* str) {
     return 0xFFFD;
 }
 
-void* sutra_char_chr(int64_t cp) {
-    char buf[4];
-    int len = 0;
-    if (cp <= 0x7F) {
-        buf[0] = (char)cp;
-        len = 1;
-    } else if (cp <= 0x7FF) {
-        buf[0] = (char)(0xC0 | ((cp >> 6) & 0x1F));
-        buf[1] = (char)(0x80 | (cp & 0x3F));
-        len = 2;
-    } else if (cp <= 0xFFFF) {
-        buf[0] = (char)(0xE0 | ((cp >> 12) & 0x0F));
-        buf[1] = (char)(0x80 | ((cp >> 6) & 0x3F));
-        buf[2] = (char)(0x80 | (cp & 0x3F));
-        len = 3;
-    } else if (cp <= 0x10FFFF) {
-        buf[0] = (char)(0xF0 | ((cp >> 18) & 0x07));
-        buf[1] = (char)(0x80 | ((cp >> 12) & 0x3F));
-        buf[2] = (char)(0x80 | ((cp >> 6) & 0x3F));
-        buf[3] = (char)(0x80 | (cp & 0x3F));
-        len = 4;
-    } else {
-        buf[0] = (char)0xEF; buf[1] = (char)0xBF; buf[2] = (char)0xBD;
-        len = 3;
-    }
-    return sutra_str_alloc(buf, len);
-}
+void* sutra_char_chr(int64_t cp) { return अक्षर_बना(cp); }  /* -> मूल_रनटाइम.सूत्र */
 
 // Float support runtime helper functions
 #if 0
