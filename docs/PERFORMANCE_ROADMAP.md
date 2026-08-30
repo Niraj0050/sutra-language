@@ -100,11 +100,40 @@ compounding (compiler खुद IR से compile होगा)।
 
 ### Phase 1 — सूत्र IR + optimiser। ~3-6 महीने। **पहले यह** (order बदला)।
 optimiser के बिना runtime port regression है — इसलिए यह पहले।
-IR define (typed SSA, ~30 opcodes), AST→IR lowering, passes
-(const-fold · DCE · copy-prop · inline · mem2reg · LICM), linear-scan
-regalloc। GC roots के लिए proper shadow stack (auto-GC unblock)।
+
+**1a. IR define** (`स्वसंकलक/मध्यम.सूत्र` — नई फ़ाइल)
+   - typed SSA, ~30 opcodes: `const int/float/str`, `add/sub/mul/div/mod`,
+     `cmp_eq/lt/…`, `and/or/not`, `load/store` (local/global/field/index),
+     `call`, `ret`, `br/br_cond`, `phi`, `alloc_str/arr/dict`, `gc_root`.
+   - हर value का type tag (int / float / str-ptr / arr-ptr / dict-ptr /
+     bool) — codegen में जो static inference है वही IR में explicit।
+   - function = basic blocks की सूची; block = instrs + terminator।
+
+**1b. AST → IR lowering** (`मूल_सर्जक.सूत्र` का काम बदलेगा —
+   AST→text की जगह AST→IR)। यहीं `स = स + piece` वाला O(n²) खत्म —
+   IR instrs एक growable array में push होते हैं।
+
+**1c. passes** (`स्वसंकलक/अनुकूलक.सूत्र` — नई फ़ाइल), क्रम में:
+   - const-fold + const-prop
+   - copy-prop
+   - dead-code-elim (कोई use नहीं → हटाओ)
+   - mem2reg — local `load`/`store` को SSA values बनाओ (सबसे बड़ा जीत:
+     stack traffic खत्म)
+   - simple inlining (छोटे leaf functions)
+   - LICM (loop-invariant code motion) — बाद में
+
+**1d. register allocator** — linear-scan (SSA live intervals से)।
+   अभी हर value memory/stack में; इसके बाद rax/rcx/rdx/r8-r15 में।
+   caller/callee-saved, spill slots।
+
+**1e. IR → x86-64** (`मूल_सर्जक.सूत्र` का backend हिस्सा) — अब यह IR
+   instrs पर चलता है, register assignments के साथ। text एक बार, अंत में।
+
+**1f. GC roots** — precise: IR में `gc_root` pseudo-instrs, stack map
+   generate करो। auto-GC unblock (byte threshold `सूत्र_आवंटन` में)।
+
 - **Milestone: compiled सूत्र ~1.5-2× of C (scalar)। self-compile seconds।
-  अब hot code C→सूत्र move करना safe है।**
+  push/pop 13,670 → ~कुछ सौ। अब hot code C→सूत्र move करना safe है।**
 
 ### Phase 2 — Runtime port complete, BUILT properly। ~1 महीना (optimiser के बाद)
 list / dict (open-addressing hash) / print / float / exceptions /
@@ -121,21 +150,25 @@ COFF/ELF writer + minimal linker → Level 2 independence।
 IR की वजह से "नया backend" बस। `as` ARM cross-assemble करता है।
 - **Milestone: सूत्र on Apple Silicon / Linux ARM / phones**
 
-### Phase 5 — optional LLVM release backend। ~1 महीना
-`sutra build --release` → IR → LLVM। pure-सूत्र backend dev default।
-- **Milestone: "beat C++" release builds**
+### Phase 5 — LLVM release backend (निर्णय B)। ~1 महीना
+`sutra build --release` → सूत्र IR → LLVM IR text (`.ll`) → `llc`/`clang`।
+pure-सूत्र backend `sutra build` का default रहता है। LLVM external tool
+है (`as` जैसा), dependency नहीं।
+- **Milestone: `--release` builds clang-tier — यहीं "C++ से टक्कर"**
 
 ### Phase 6 — domain performance। ongoing
 SIMD + autovec, tensor types, GPU (SPIR-V / PTX IR से emit),
 WASM backend (web), async runtime।
 
-## खुला निर्णय
+## निर्णय (Niraj, 2026-08-30): **B**
 
-**Phase 2 backend philosophy:**
-- A. सिर्फ़ अपना optimizer (100% pure सूत्र, Go-tier ceiling, "C++ beat"
-  = साल)
-- B. अपना optimizer + LLVM release backend (LLVM सिर्फ़ `--release` के
-  लिए, `as` जैसा external tool, "C++ beat" achievable)
+**अपना optimizer + LLVM release backend।**
+- **default** (`sutra build`) → अपना सूत्र backend: IR → अपना optimizer →
+  linear-scan regalloc → `.s` text → `as`/`ld`। यही पहचान, dev loop,
+  पूरा control, "pure सूत्र" कहानी।
+- **`sutra build --release`** → IR → LLVM IR → `llc`/`clang` (external
+  tool, बिलकुल `as` जैसा)। यहीं "C++ tier" performance आती है — clang का
+  वही backend।
 
-सुझाव: **B** — pure-सूत्र backend = पहचान + dev builds + पूरा control;
-LLVM = opt-in release speed। Zig / early-Rust का pragmatic model।
+दोनों एक ही सूत्र IR से निकलते हैं। LLVM सिर्फ़ एक वैकल्पिक backend है,
+कोई dependency नहीं जो पूरे project को बाँधे। Zig / early-Rust model।
