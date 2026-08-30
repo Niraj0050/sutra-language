@@ -117,14 +117,18 @@ optimiser के बिना runtime port regression है — इसलिए
    function return types। यहीं `स = स + piece` का O(n²) खत्म होगा (जब
    1e emitter बनेगा और यह path wire होगा)।
 
-**1c. passes** (`स्वसंकलक/अनुकूलक.सूत्र` — नई फ़ाइल), क्रम में:
-   - const-fold + const-prop
-   - copy-prop
-   - dead-code-elim (कोई use नहीं → हटाओ)
-   - mem2reg — local `load`/`store` को SSA values बनाओ (सबसे बड़ा जीत:
-     stack traffic खत्म)
-   - simple inlining (छोटे leaf functions)
-   - LICM (loop-invariant code motion) — बाद में
+**1c. passes** — ✅ core done (`स्वसंकलक/अनुकूलक.सूत्र`, commit 2a4b7ca)
+   - CFG helpers (successors, pred-map, RPO via DFS)
+   - **mem2reg** (स्लॉट_उन्नयन) — स्लॉट + पढ़/लिख_स्लॉट → SSA + phi;
+     back-edge phi operands deferred (loops); trivial-phi removal।
+     असली यावत् loop पर verified।
+   - **const-fold** — const∘const → single स्थिर (fixpoint)
+   - **बीज_सरल** — x+0/0+x/x-0/x*1/1*x → x
+   - **DCE** — अगम्य खंड + zero-use side-effect-free निर्देश (fixpoint)
+   - driver: mem2reg once, फिर {fold, DCE} × 5
+   - `verify_ir.ps1` — 46 checks (मध्यम 15 + निम्नक 21 + अनुकूलक 10)
+   - v0 अब आरक्षित ("invalid/none") — dict 0="absent" टकराव हटा
+   - बाद में: copy-prop, inlining, LICM, phi type-refinement
 
 **1d. register allocator** — linear-scan (SSA live intervals से)।
    अभी हर value memory/stack में; इसके बाद rax/rcx/rdx/r8-r15 में।
