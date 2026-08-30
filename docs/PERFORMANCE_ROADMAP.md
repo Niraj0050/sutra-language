@@ -108,9 +108,14 @@ optimiser के बिना runtime port regression है — इसलिए
    - `मध्यम_परीक्षण.सूत्र` — hand-built IR (branch+phi+call), 15 checks green।
    - मूल_संकलन.सूत्र अछूता — fixed point safe।
 
-**1b. AST → IR lowering** (`मूल_सर्जक.सूत्र` का काम बदलेगा —
-   AST→text की जगह AST→IR)। यहीं `स = स + piece` वाला O(n²) खत्म —
-   IR instrs एक growable array में push होते हैं।
+**1b. AST → IR lowering** — ✅ core done (`स्वसंकलक/मूल_निम्नक.सूत्र`, commit a898821)
+   हर local = स्लॉट (alloca); SSA-निर्माण mem2reg (1c) पर टाला।
+   functions/params/चर_घोषणा/असाइनमेंट/यदि/यावत्/पुनरावृत्ति/विराम-जारी/
+   परत्/लिखतु/फेको + सारे expressions (&&/|| short-circuit शाखा+फाई से)।
+   `मूल_निम्नक_परीक्षण.सूत्र` — असली parser से 5 snippets, 21 checks green।
+   बाकी (1b follow-up): कठन_प्रयत्न, method/class resolution, real
+   function return types। यहीं `स = स + piece` का O(n²) खत्म होगा (जब
+   1e emitter बनेगा और यह path wire होगा)।
 
 **1c. passes** (`स्वसंकलक/अनुकूलक.सूत्र` — नई फ़ाइल), क्रम में:
    - const-fold + const-prop
