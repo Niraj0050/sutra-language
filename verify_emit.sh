@@ -1,19 +1,34 @@
 #!/usr/bin/env bash
 # verify_emit.sh — IR उत्सर्जक (Phase 1e) end-to-end test
+# split pipeline:  अग्र_चालक (.सूत्र → IR-पाठ)  →  पश्च_चालक (IR-पाठ → .s)
 set -u
 export PATH="/c/msys64/ucrt64/bin:$PATH"
 cd "$(dirname "$0")"
 COMPILER="${1:-./sutrac.exe}"
-DRV="स्वसंकलक/उत्सर्जक_चालक.सूत्र"
+FRONT="स्वसंकलक/अग्र_चालक.सूत्र"
+BACK="स्वसंकलक/पश्च_चालक.सूत्र"
+FRONT_EXE="${FRONT}_native.exe"
+BACK_EXE="${BACK}_native.exe"
 RT="sutra_runtime_prebuilt.o sutra_alloc.o sutra_srt.o sutra_floor.o"
-rm -f sutra_native_temp.s "${DRV}_native.exe"
-"$COMPILER" "$DRV" >/dev/null 2>&1
-[ -x "${DRV}_native.exe" ] || { echo "उत्सर्जक_चालक compile विफल"; exit 1; }
+
+rm -f sutra_native_temp.s "$FRONT_EXE" "$BACK_EXE"
+echo "अग्र_चालक संकलन..."
+"$COMPILER" "$FRONT" >/dev/null 2>&1
+[ -x "$FRONT_EXE" ] || { echo "अग्र_चालक compile विफल"; exit 1; }
+echo "पश्च_चालक संकलन..."
+"$COMPILER" "$BACK" >/dev/null 2>&1
+[ -x "$BACK_EXE" ] || { echo "पश्च_चालक compile विफल"; exit 1; }
+
 pass=0; fail=0
 check() {
   local name="$1" src="$2" exp="$3"
   printf '%s' "$src" > /tmp/ve.sutra
-  "./${DRV}_native.exe" /tmp/ve.sutra > /tmp/ve.s 2>/tmp/ve.drverr
+  if ! "./$FRONT_EXE" /tmp/ve.sutra > /tmp/ve.ir 2>/tmp/ve.fronterr; then
+    echo "  [FAIL] $name — अग्र"; head -3 /tmp/ve.fronterr | sed 's/^/         /'; fail=$((fail+1)); return
+  fi
+  if ! "./$BACK_EXE" /tmp/ve.ir > /tmp/ve.s 2>/tmp/ve.backerr; then
+    echo "  [FAIL] $name — पश्च"; head -3 /tmp/ve.backerr | sed 's/^/         /'; fail=$((fail+1)); return
+  fi
   if ! as -o /tmp/ve.o /tmp/ve.s 2>/tmp/ve.aserr; then
     echo "  [FAIL] $name — as"; head -3 /tmp/ve.aserr | sed 's/^/         /'; fail=$((fail+1)); return
   fi
@@ -41,6 +56,6 @@ check "सूची"            'कार्य मुख्य() { सूच�
 check "सूची-जोड़ें"     'कार्य मुख्य() { सूची स = [1]; स = जोड़ें(स, 2); स = जोड़ें(स, 3); लिखतु(लंबाई(स)); लिखतु(स[2]); }' $'3\n3'
 check "शब्दकोश"         'कार्य मुख्य() { शब्दकोश द = {}; द["क"] = 5; द["ख"] = 9; लिखतु(द["क"] + द["ख"]); }' '14'
 check "पाठ-सूचकांक"     'कार्य मुख्य() { पाठ स = "नमस्ते"; लिखतु(स[0]); लिखतु(लंबाई(स)); }' $'न\n6'
-rm -f "${DRV}_native.exe" sutra_native_temp.s
+rm -f "$FRONT_EXE" "$BACK_EXE" sutra_native_temp.s
 echo; echo "  PASS: $pass  FAIL: $fail"
 [ "$fail" -eq 0 ]
