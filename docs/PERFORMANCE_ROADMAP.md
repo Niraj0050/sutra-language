@@ -255,6 +255,26 @@ optimiser के बिना runtime port regression है — इसलिए
    pop नहीं करता। Driver को `प्रयत्न`/`पकड़ो` में लपेटना अभी बाकी है
    (throw-fix से errors पहले ही साफ़ छपते हैं — कम प्राथमिकता)।
 
+**1l. dynamic str-concat + float-builtin return type — ✅ DONE** (2026-08-31)।
+   दो असली edge bug (37/40 के बाद बचे थे):
+   - **str + बूल/शून्य/दशमलव** — `sutra_add_dynamic` को f64-bits / bool-int /
+     null-int सादा पूर्णांक दिखता ("1"/"0"/कचरा)। `निम्नक_पाठ_में_बदलो`
+     (`मूल_निम्नक.सूत्र`): `+` में एक operand पाठ हो तो दूसरे का
+     static टैग देखकर `बूल_से_पाठ` / `शून्य_से_पाठ` / `sutra_float_to_str`
+     inject करो, फिर `sutra_str_concat`। "मान" (सच में dynamic) अब भी
+     `add_dynamic` — दुर्लभ, ज्ञात gap।
+   - **float builtins की परत्-type** — `वर्गमूल`/`घात`/`निरपेक्ष`/`न्यूनतम`/
+     `अधिकतम` `_f` symbols पर हैं, परिणाम f64-bits, पर टैग "मान" था →
+     `लिखतु` कच्चा पूर्णांक छापता। `निम्नक_अंतर्निहित_परत्` → "दशमलव"।
+     `गोल` असल में `llround` से **पूर्णांक** लौटाता → टैग "पूर्ण"।
+   - रास्ते में मिला third bug: **float unary `-`** — emitter `ऋणात्मक`
+     हमेशा `negq` (integer two's-complement) करता था → `-5.5` = bits of
+     `-0.8125`। Fix: `प्रकार=="दशमलव"` पर `btcq $63` (चिह्न-बिट पलटो)।
+   `bootstrap.ps1` [OK] fixed point, split==unified, **tests/compiler
+   50/52** — बचे सिर्फ़ 41, 44 (GC-accounting: program output सही, बस
+   `स्मृति_स्थिति()` गिनती interpreter-conservative बनाम IR-precise;
+   optimiser/GC-model बदले बिना unwinnable)।
+
 अगला: **runtime C→Sutra port** (Phase 2) — dict = open-addressing hash,
 `sutra_runtime.c` को टुकड़े-टुकड़े हटाना।
 
