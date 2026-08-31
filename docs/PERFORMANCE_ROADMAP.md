@@ -221,9 +221,18 @@ optimiser के बिना runtime port regression है — इसलिए
    byte-identical (129483 lines) — पूर्ण determinism।** `verify_ir_selfhost.sh`
    Gen1==Gen2 भी assert करता है।
 
-फिर: `मूल_संकलन.सूत्र` को *default* रूप से IR path पर (अभी `मूल_संकलन_ir`
-अलग से coexist करता); कठन_प्रयत्न lowering (driver में साफ़ errors);
-फिर runtime C→Sutra port।
+**1j. IR path = DEFAULT — ✅ DONE** (commit `333ea9c`)। `मूल_संकलन.सूत्र`
+   (= `sutrac.exe` का source) अब IR pipeline चलाता है, पुराना
+   `मूल_सर्जक` नहीं। `मूल_संकलन_ir.सूत्र` delete। seed
+   `स्वसंकलक/निर्माण/मूल_संकलन.s` IR-path source से regenerate
+   (129483 lines, पहले ~256K)। `bootstrap.ps1` end-to-end verified:
+   seed → seed_sutrac.exe → 5500-line source compile → fresh
+   `sutrac.exe` → **[OK] Fixed point, byte-identical, C++ host अछूता**।
+   verify_ir 4/4 (अब IR sutrac.exe से — मज़बूत जाँच)। tests/compiler
+   46/51. `मूल_सर्जक`/`निर्माता` रखे पर off critical path।
+
+अगला: कठन_प्रयत्न lowering (driver में साफ़ `प्रयत्न`/`पकड़ो` errors —
+अभी raw throw); फिर **runtime C→Sutra port** (Phase 2)।
 
 - **Milestone: compiled सूत्र ~1.5-2× of C (scalar)। self-compile seconds।
   push/pop 13,670 → ~कुछ सौ। अब hot code C→सूत्र move करना safe है।**
