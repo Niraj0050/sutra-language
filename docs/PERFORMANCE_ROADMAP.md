@@ -204,14 +204,26 @@ optimiser के बिना runtime port regression है — इसलिए
      (suppression counter) से multi-alloc window लपेटो।
    - नव_सूची/शब्दकोश/वस्तु परिणाम अब **सदा रूट** + fill-steps से पहले
      store (dict grow / constructor खुद allocate कर सकता)।
-   Gen1→Gen2→Gen3 (auto-GC ON): **Gen2 .s == Gen3 .s (129372 lines) —
-   फिक्स्ड पॉइंट**, 46/51 tests। self-compile अब **39 सेकंड** (OOM-मुक्त)।
-   `verify_ir_selfhost.sh` = पूरा bootstrap chain + tests।
+   Gen1→Gen2→Gen3 (auto-GC ON): **Gen2 .s == Gen3 .s — फिक्स्ड पॉइंट**,
+   46/51 tests। self-compile अब **39 सेकंड** (OOM-मुक्त)।
+
+**1i. Gen1 ≠ Gen2 determinism — ✅ FOUND + FIXED** (commit `a9bdb5b`)।
+   पुराना `मूल_सर्जक` codegen string `==`/`!=` को **pointer-compare**
+   करता है जब कोई भी operand static रूप से `पाठ` न हो (दोनों `सूची`
+   elements)। `उत्_चालें` का identity-move filter दो register-नाम
+   strings (`"%rbx"` दो बार `"%"+नाम` से बना) की तुलना करता — same
+   content, अलग object → filter fail → phantom parallel-move
+   cycle-break। अकेला identity pair → हानिरहित no-op; असली move के साथ
+   → `movq %rbx,%r11; movq real,%rbx; movq %r11,%rbx` जहाँ आखिरी move
+   सही मान **overwrite** कर देता (असली miscompile)। हल: `उत्_सम_पाठ`
+   (`लंबाई`+`खोजें`, सिर्फ़ integer ops) — `उत्_चालें`/`उत्_एक_चाल`/
+   `उत्_स्रोत_में`/cycle-break में। **अब Gen1(split) == Gen2(IR-compiled)
+   byte-identical (129483 lines) — पूर्ण determinism।** `verify_ir_selfhost.sh`
+   Gen1==Gen2 भी assert करता है।
 
 फिर: `मूल_संकलन.सूत्र` को *default* रूप से IR path पर (अभी `मूल_संकलन_ir`
 अलग से coexist करता); कठन_प्रयत्न lowering (driver में साफ़ errors);
-Gen1 (split, auto-GC OFF) बनाम Gen2 का ~3000-line फ़र्क़ (`कुंजियाँ()`
-iteration order GC से) — देखना कि यह benign है।
+फिर runtime C→Sutra port।
 
 - **Milestone: compiled सूत्र ~1.5-2× of C (scalar)। self-compile seconds।
   push/pop 13,670 → ~कुछ सौ। अब hot code C→सूत्र move करना safe है।**
