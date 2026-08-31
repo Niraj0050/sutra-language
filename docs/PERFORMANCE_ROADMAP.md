@@ -175,10 +175,21 @@ optimiser के बिना runtime port regression है — इसलिए
      interpreter execute करता। यह unwinnable है बिना optimiser/GC-model
      बदले — accounting अंतर, correctness नहीं।
 
-   auto-GC (byte threshold `सूत्र_आवंटन` में) अभी बाकी — abhi explicit
-   `संग्रह_करो()` ही, roots उसके लिए सही हैं।
+**1g. IR backend SELF-HOSTS — ✅ FIXED POINT** (commit `59fdcb8`, 2026-08-31)।
+   `स्वसंकलक/मूल_संकलन_ir.सूत्र` = IR-path compiler driver। Gen1 = split
+   (`अग्र_चालक`→`पश्च_चालक`)। Gen1 → Gen2 → Gen3, **Gen2 .s == Gen3 .s
+   byte-identical (128289 lines)**। तीनों 46/51 tests/compiler।
+   रास्ते के bug fixes: अनुकूलक O(N²)→O(N) (`ac8d6ea`); `उत्_कॉल`
+   odd-stack-args pad placement (`f503725`+`0eca2d2` — pad पुश से पहले,
+   वरना callee के `16+i*8(%rbp)` offset 8 खिसकते); `निम्नक_लघुपथ`
+   dedicated `लघु_खंड` (malformed IR fix); `मुख्य`→`sutra_main` call।
 
-फिर: `मूल_संकलन.सूत्र` को IR path पर switch → 51-suite + fixed point।
+**1h. auto-GC — अगला काम।** अभी compile के दौरान कोई GC नहीं → 5500-line
+   self-compile arena ~1 GB, RAM-तंग machine पर कभी OOM। `सूत्र_आवंटन`
+   में byte-threshold trigger चाहिए (roots पहले से सही हैं)।
+
+फिर: `मूल_संकलन.सूत्र` को *default* रूप से IR path पर (अभी `मूल_संकलन_ir`
+अलग से coexist करता); कठन_प्रयत्न lowering (driver में साफ़ errors)।
 
 - **Milestone: compiled सूत्र ~1.5-2× of C (scalar)। self-compile seconds।
   push/pop 13,670 → ~कुछ सौ। अब hot code C→सूत्र move करना safe है।**
