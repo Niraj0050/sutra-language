@@ -231,8 +231,32 @@ optimiser के बिना runtime port regression है — इसलिए
    verify_ir 4/4 (अब IR sutrac.exe से — मज़बूत जाँच)। tests/compiler
    46/51. `मूल_सर्जक`/`निर्माता` रखे पर off critical path।
 
-अगला: कठन_प्रयत्न lowering (driver में साफ़ `प्रयत्न`/`पकड़ो` errors —
-अभी raw throw); फिर **runtime C→Sutra port** (Phase 2)।
+**1k. कठन_प्रयत्न (try/catch) lowering — ✅ DONE** (2026-08-31)।
+   `निम्नक_प्रयत्न` (`मूल_निम्नक.सूत्र`) — रनटाइम setjmp/longjmp ABI पर,
+   कोई नया IR opcode नहीं:
+   `jbuf = बुलाओ sutra_exception_get_jmp_buf []` →
+   `sjr = बुलाओ _setjmp [jbuf, (स्थिर 0)]` → `यदि_जाओ sjr≠0 → पकड़ो : प्रयत्न`।
+   प्रयत्न-खंड सामान्य निकास पर `बुलाओ sutra_exception_pop` फिर `जाओ अंत`;
+   पकड़ो-खंड `बुलाओ sutra_get_exception_value` → त्रुटि-चर स्लॉट → देह।
+   पकड़ो-खंड का एकमात्र CFG पूर्ववर्ती setjmp-खंड है → mem2reg पकड़ो में
+   पढ़े बाहरी चरों को try-से-पहले वाला मान देता (longjmp callee-saved
+   रजिस्टर/spill वैसे भी उसी मान पर restore करता — semantically sound)।
+   **साथ में एक असली bug fix:** `कठन_फेको` lowering `नोड["मानः"]` पढ़ता था
+   (parser field `नोड["अभिव्यक्ति"]` है) → हर फेंका मान `$0` बनता था।
+   इससे `विश्लेषक` का `त्रुटि_फेको` कभी असली संदेश नहीं फेंकता था →
+   syntax error पर native संकलक "Uncaught exception" छापता था; अब पूरा
+   `त्रुटिः [पङ्क्तिः N, स्तम्भः M]: …` संदेश छपता है।
+   Gen2 .s == Gen3 .s (132158 lines), `bootstrap.ps1` [OK] fixed point।
+   split (अग्र→पश्च) == unified byte-identical। verify_ir 4/4,
+   verify_emit 16/16, **tests/compiler 47/51** (37 null-in-list अब pass;
+   40 का exception-भाग अब pass, बचा float-builtin-return type)।
+   नया regression test: `tests/compiler/49_exceptions.सूत्र`।
+   सीमा (पुराने codegen जैसी): try-देह के अंदर सीधा `परत्` exception frame
+   pop नहीं करता। Driver को `प्रयत्न`/`पकड़ो` में लपेटना अभी बाकी है
+   (throw-fix से errors पहले ही साफ़ छपते हैं — कम प्राथमिकता)।
+
+अगला: **runtime C→Sutra port** (Phase 2) — dict = open-addressing hash,
+`sutra_runtime.c` को टुकड़े-टुकड़े हटाना।
 
 - **Milestone: compiled सूत्र ~1.5-2× of C (scalar)। self-compile seconds।
   push/pop 13,670 → ~कुछ सौ। अब hot code C→सूत्र move करना safe है।**
