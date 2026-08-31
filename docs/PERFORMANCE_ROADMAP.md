@@ -184,12 +184,34 @@ optimiser के बिना runtime port regression है — इसलिए
    वरना callee के `16+i*8(%rbp)` offset 8 खिसकते); `निम्नक_लघुपथ`
    dedicated `लघु_खंड` (malformed IR fix); `मुख्य`→`sutra_main` call।
 
-**1h. auto-GC — अगला काम।** अभी compile के दौरान कोई GC नहीं → 5500-line
-   self-compile arena ~1 GB, RAM-तंग machine पर कभी OOM। `सूत्र_आवंटन`
-   में byte-threshold trigger चाहिए (roots पहले से सही हैं)।
+**1h. auto-GC during compile — ✅ DONE** (2026-08-31)।
+   `सूत्र_आवंटन` में byte-threshold (128 MB, GC कम reclaim करे तो दुगनी)।
+   **opt-in**: सिर्फ़ IR-backend programs `सूत्र_स्वजीसी_आरंभ` (emitter के
+   `main:` से) call करके चालू करते हैं — पुराने codegen में roots नहीं।
+   library-mode globals initializer नहीं चलते तो threshold भी उसी fn में
+   सेट होता (वरना `जीसी_सीमा == 0` → हर alloc पर GC)।
+   **इस दौरान 3 असली GC bug मिले+fix हुए:**
+   - `जड़_नक्शा[id] == 0` (पहला gcslot offset 0) को `उत्_जड़_संचय`
+     "कोई स्लॉट नहीं" समझता (शब्दकोश-get 0 बनाम अनुपस्थित) → offset ≥ 8
+     floor (`रजि_जीसी_जड़ें`)। यह Phase-1f roots को भी पूरा करता।
+   - `चिह्नित` शब्दकोश-entries buffer को प्रकार-2 array मान के recurse
+     करता (raw `[key,val]*` है) → out-of-bounds mark → `चिह्नित_कच्चा`
+     (सिर्फ़ mark-bit)।
+   - **मुख्य bug:** `sutra_dict_create` = dict + entries दो alloc; दूसरा
+     auto-GC कर के अभी-un-rooted dict को sweep कर देता (dict का header
+     बाद में overwrite होता → arena walk desync → random block corrupt)।
+     `sutra_split`/`sutra_args_get` में भी। हल: `सूत्र_जीसी_दबाओ()/छोड़ो()`
+     (suppression counter) से multi-alloc window लपेटो।
+   - नव_सूची/शब्दकोश/वस्तु परिणाम अब **सदा रूट** + fill-steps से पहले
+     store (dict grow / constructor खुद allocate कर सकता)।
+   Gen1→Gen2→Gen3 (auto-GC ON): **Gen2 .s == Gen3 .s (129372 lines) —
+   फिक्स्ड पॉइंट**, 46/51 tests। self-compile अब **39 सेकंड** (OOM-मुक्त)।
+   `verify_ir_selfhost.sh` = पूरा bootstrap chain + tests।
 
 फिर: `मूल_संकलन.सूत्र` को *default* रूप से IR path पर (अभी `मूल_संकलन_ir`
-अलग से coexist करता); कठन_प्रयत्न lowering (driver में साफ़ errors)।
+अलग से coexist करता); कठन_प्रयत्न lowering (driver में साफ़ errors);
+Gen1 (split, auto-GC OFF) बनाम Gen2 का ~3000-line फ़र्क़ (`कुंजियाँ()`
+iteration order GC से) — देखना कि यह benign है।
 
 - **Milestone: compiled सूत्र ~1.5-2× of C (scalar)। self-compile seconds।
   push/pop 13,670 → ~कुछ सौ। अब hot code C→सूत्र move करना safe है।**

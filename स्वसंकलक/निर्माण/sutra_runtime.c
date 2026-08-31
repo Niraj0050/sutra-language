@@ -139,6 +139,8 @@ extern void*   सूत्र_पुनः_आवंटन(void* p, int64_t new
 extern void    सूत्र_मुक्त(void* p);
 extern int64_t सूत्र_ब्लॉक_प्रकार(void* p);  /* 0 = none/free, 1 str, 2 arr, 3 obj, 4 dict */
 extern void    सूत्र_संग्रह(void);
+extern void    सूत्र_जीसी_दबाओ(void);   /* auto-GC suppress (multi-alloc window) */
+extern void    सूत्र_जीसी_छोड़ो(void);
 extern int64_t सूत्र_गण_चक्र(void);
 extern int64_t सूत्र_गण_सक्रिय(void);
 extern int64_t सूत्र_गण_संग्रहित(void);
@@ -780,6 +782,8 @@ void* sutra_split(void* text, void* delim) {
         }
     }
 
+    /* arr + N part-strings; arr is un-rooted from C → suppress auto-GC */
+    सूत्र_जीसी_दबाओ();
     void* arr = sutra_arr_create(count);
     int64_t idx = 0;
     int64_t start = 0;
@@ -797,6 +801,7 @@ void* sutra_split(void* text, void* delim) {
         if (next + delim_len > hay_len) break;
         start = next + delim_len;
     }
+    सूत्र_जीसी_छोड़ो();
     return arr;
 }
 
@@ -1478,9 +1483,12 @@ void sutra_print_bool(int64_t v) {
  */
 void* sutra_dict_create(void) {
 #ifdef USE_LEGACY_RUNTIME
+    /* dict + entries = two allocs; the 2nd could auto-GC the un-rooted dict */
+    सूत्र_जीसी_दबाओ();
     char* dict = (char*)सूत्र_आवंटन(24, SR_DICT);
     int64_t initial_cap = 4;
     void* entries = सूत्र_आवंटन(initial_cap * 16, SR_ARR);
+    सूत्र_जीसी_छोड़ो();
     memset(entries, 0, initial_cap * 16);
     *((int64_t*)dict) = 0;
     *((int64_t*)(dict + 8)) = initial_cap;
@@ -1705,11 +1713,13 @@ void sutra_init_args(int argc, char** argv) {
 }
 
 void* sutra_args_get() {
+    सूत्र_जीसी_दबाओ();
     void* arr = sutra_arr_create(sutra_argc);
     for (int i = 0; i < sutra_argc; i++) {
         void* s = sutra_str_alloc(sutra_argv[i], strlen(sutra_argv[i]));
         sutra_arr_set(arr, i, (int64_t)s);
     }
+    सूत्र_जीसी_छोड़ो();
     return arr;
 }
 
