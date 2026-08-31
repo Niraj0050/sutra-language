@@ -1,14 +1,14 @@
 #!/usr/bin/env bash
 # verify_ir_selfhost.sh — IR-backend compiler bootstrap + fixed point
-#   Gen1 = split (अग्र_चालक → पश्च_चालक) compiles मूल_संकलन_ir.सूत्र
-#   Gen1 compiles मूल_संकलन_ir.सूत्र → Gen2   (+ .s snapshot)
-#   Gen2 compiles मूल_संकलन_ir.सूत्र → Gen3   (+ .s snapshot)
+#   Gen1 = split (अग्र_चालक → पश्च_चालक) compiles मूल_संकलन.सूत्र
+#   Gen1 compiles मूल_संकलन.सूत्र → Gen2   (+ .s snapshot)
+#   Gen2 compiles मूल_संकलन.सूत्र → Gen3   (+ .s snapshot)
 #   Gen2.s == Gen3.s  → fixed point
 set -u
 export PATH="/c/msys64/ucrt64/bin:$PATH"
 cd "$(dirname "$0")"
 RT="sutra_runtime_prebuilt.o sutra_alloc.o sutra_srt.o sutra_floor.o"
-SRC="स्वसंकलक/मूल_संकलन_ir.सूत्र"
+SRC="स्वसंकलक/मूल_संकलन.सूत्र"
 FRONT="स्वसंकलक/अग्र_चालक.सूत्र_native.exe"
 BACK="स्वसंकलक/पश्च_चालक.सूत्र_native.exe"
 W=/tmp/irsh; mkdir -p "$W"
