@@ -20,7 +20,7 @@ echo "== Gen1: split-compile $SRC =="
 [ -x "$FRONT" ] || ./sutrac.exe स्वसंकलक/अग्र_चालक.सूत्र >/dev/null 2>&1
 [ -x "$BACK" ]  || ./sutrac.exe स्वसंकलक/पश्च_चालक.सूत्र >/dev/null 2>&1
 "./$FRONT" "$SRC" > "$W/g1.ir" 2>"$W/e" || { echo "अग्र विफल"; cat "$W/e"; exit 1; }
-"./$BACK" "$W/g1.ir" > "$W/g1.s" 2>"$W/e" || { echo "पश्च विफल"; cat "$W/e"; exit 1; }
+"./$BACK" "$W/g1.ir" 2>"$W/e" | sed 's/\r$//' > "$W/g1.s" || { echo "पश्च विफल"; cat "$W/e"; exit 1; }
 link "$W/g1.s" "$W/gen1.exe" || { echo "Gen1 link विफल"; exit 1; }
 echo "   Gen1 ready ($(wc -l < "$W/g1.s") lines)"
 
@@ -42,6 +42,12 @@ else
   echo "✗ NOT fixed — Gen2.s != Gen3.s"
   diff "$W/gen2.s" "$W/gen3.s" | head -20
   exit 1
+fi
+if diff -q <(sed -e 's/[[:space:]]*$//' -e '/^$/d' "$W/g1.s") <(sed -e 's/[[:space:]]*$//' -e '/^$/d' "$W/gen2.s") >/dev/null; then
+  echo "✓ Gen1 (split) == Gen2 (unified) — no serialization/backend drift"
+else
+  echo "⚠ Gen1 != Gen2 ($(diff <(sed -e 's/[[:space:]]*$//' -e '/^$/d' "$W/g1.s") <(sed -e 's/[[:space:]]*$//' -e '/^$/d' "$W/gen2.s") | grep -c '^[<>]') diff lines)"
+  diff <(sed -e 's/[[:space:]]*$//' -e '/^$/d' "$W/g1.s") <(sed -e 's/[[:space:]]*$//' -e '/^$/d' "$W/gen2.s") | head -16
 fi
 
 echo
