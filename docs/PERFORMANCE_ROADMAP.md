@@ -310,15 +310,23 @@ fileIO — हर एक designed, अब बिना regression।
 अगला (Phase 2 शेष): list ops / split / join / trim / find → सूत्र;
 `sutra_runtime.c` को और छोटा करना; फिर print / float / fileIO।
 
-**2b. मानक पुस्तकालय (`पुस्तकालय/`) — सूत्र में** (commit `07205ac`, 2026-09-01)।
-   Phase 2 रोककर पहले लाइब्रेरी (Niraj का निर्णय)। सूत्र में लिखे reusable
-   मॉड्यूल — कोई C नहीं, interp/native समान:
-   - `सूची.सूत्र` — 30 list ops + मर्ज-सॉर्ट + binary-search
-   - `शब्दकोश.सूत्र` — मान_सूची/युग्म_सूची/विलय/उलट/चुनो/कुंजी_हटाओ/…
-   - `पाठ.सूत्र` — दोहराओ/भरो/उलटा_पाठ/पंक्तियाँ/गिनो_पाठ/शीर्षक_रूप/सब_बदलो/…
-   - `समुच्चय.सूत्र` (Set) · `ढेर.सूत्र` (Stack) · `कतार.सूत्र` (Queue) — वर्ग-आधारित
-   - `मानक.सूत्र` सब import करता; `README.md` में भाषा-सीमाएँ documented
-   **रास्ते में 2 पूर्व-मौजूद IR bugs मिले+fix** (commit `b99a12a`):
+**2b. मानक पुस्तकालय (`पुस्तकालय/`) — सूत्र में** (commits `07205ac` + `c07ba45`, 2026-09-01)।
+   Phase 2 रोककर पहले लाइब्रेरी (Niraj का निर्णय)। **12 मॉड्यूल**, कोई C
+   नहीं, interp/native समान (`tests/stdlib/` 8 फ़ाइलें):
+   - बैच 1: `सूची` (30 ops + merge-sort + binary-search) · `शब्दकोश` ·
+     `पाठ` · `समुच्चय` (Set) · `ढेर` (Stack) · `कतार` (Queue)
+   - बैच 2: `गणित` (number-theory + stats + seedable MINSTD PRNG — सूत्र में
+     बिटवार नहीं तो xorshift असंभव) · `प्रारूप` (templates + संख्या-प्रारूप +
+     आधार-रूपांतरण) · `जेसन` (बनाओ/सुंदर/पार्स, कुंजियाँ क्रमबद्ध) ·
+     `क्रमचय` (itertools) · `ढेर_प्राथमिकता` (min-heap PQ) · `परीक्षण` (mini
+     test framework: जाँच/जाँच_निकट/परीक्षण_सारांश)
+   - `मानक.सूत्र` सब import; `README.md` में **9 भाषा-सीमाएँ** documented
+     (कोई first-class fn / static method-call resolution / class-typed local
+     / bool-return display / `हटाएं` on dict / कुंजियाँ order / **कोई tagged
+     मान → native में बूल/दशमलव `मान`-सीमा पार करते ही संख्या बन जाते** /
+     `स्व.field[i]=v` / int literal ≥ 2³¹)। बैच 2 में **कोई compiler बदलाव
+     नहीं** चाहिए (tests/compiler 51/52 बरकरार)।
+   **बैच 1 में रास्ते के 2 पूर्व-मौजूद IR bugs मिले+fix** (commit `b99a12a`):
    (1) बहु-प्रविष्टि शब्दकोश-साहित्य `{"अ":1,"ब":2}` — निम्नक `युगल[0/1]`
    पढ़ता था पर parser `{कुंजी, मानः}` देता → हर key+value `$0` बनता था
    (कोई test literal से value नहीं पढ़ता था तो पकड़ा नहीं गया)।
