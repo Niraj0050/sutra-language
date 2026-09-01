@@ -1472,97 +1472,29 @@ void sutra_print_bool(int64_t v) {
 }
 
 /* ============================================================
- * DICTIONARY RUNTIME
- * ============================================================ */
-
-/* Memory layout:
- * A dictionary block is 24 bytes:
- * int64_t count; (8 bytes)
- * int64_t capacity; (8 bytes)
- * void* entries; (8 bytes pointer to array of 16-byte entries)
+ * DICTIONARY RUNTIME  —  now in स्वसंकलक/निर्माण/मूल_रनटाइम.सूत्र
+ * ============================================================
+ * open-addressing hash index over a packed insertion-order entries
+ * array. Block layout (40 bytes, type 4):
+ *   +0  count      (GC reads this — unchanged offset)
+ *   +8  entries-capacity (in pairs)
+ *   +16 entries*   packed [key:8][val:8] (GC traces `count` — unchanged)
+ *   +24 index*     int64 slot array, slot = entry_index+1 (0 = empty)
+ *   +32 hash-capacity (power of 2)
+ * These C symbols are thin shims; the real logic is in Sutra.
+ * sutra_dict_keys still reads the packed array directly (layout kept).
  */
-void* sutra_dict_create(void) {
-#ifdef USE_LEGACY_RUNTIME
-    /* dict + entries = two allocs; the 2nd could auto-GC the un-rooted dict */
-    सूत्र_जीसी_दबाओ();
-    char* dict = (char*)सूत्र_आवंटन(24, SR_DICT);
-    int64_t initial_cap = 4;
-    void* entries = सूत्र_आवंटन(initial_cap * 16, SR_ARR);
-    सूत्र_जीसी_छोड़ो();
-    memset(entries, 0, initial_cap * 16);
-    *((int64_t*)dict) = 0;
-    *((int64_t*)(dict + 8)) = initial_cap;
-    *((void**)(dict + 16)) = entries;
-    return dict;
-#else
-    void* dict = sutra_native_alloc(24, GC_TYPE_DICTIONARY);
-    int64_t initial_cap = 4;
-    void* entries = malloc(initial_cap * 16);
-    if (!entries) {
-        sutra_throw_str("त्रुटिः — स्मृति आवंटन विफल (dict entries alloc)");
-    }
-    *((int64_t*)dict) = 0;
-    *((int64_t*)((char*)dict + 8)) = initial_cap;
-    *((void**)((char*)dict + 16)) = entries;
-    return dict;
-#endif
-}
+extern void*   शब्दकोश_रचना(void);
+extern int64_t शब्दकोश_पाओ(void* dict, void* key);
+extern void    शब्दकोश_सेट(void* dict, void* key, int64_t val);
+extern int64_t शब्दकोश_कुंजी_है(void* dict, void* key);
+extern void*   शब्दकोश_हटाओ(void* dict, void* key);
 
-int64_t sutra_dict_get(void* dict, void* key) {
-    if (!dict) return 0;
-    int64_t count = *((int64_t*)dict);
-    char* entries = (char*)(*((void**)((char*)dict + 16)));
-    for (int64_t i = 0; i < count; i++) {
-        void* k = *((void**)(entries + i * 16));
-        if (sutra_str_equal(k, key)) {
-            return *((int64_t*)(entries + i * 16 + 8));
-        }
-    }
-    return 0; /* null (शून्यम्) */
-}
-
-void sutra_dict_set(void* dict, void* key, int64_t val) {
-    if (!dict) {
-        sutra_throw_str("त्रुटिः — शून्य शब्दकोश पर सेट प्रयास");
-    }
-    int64_t count = *((int64_t*)dict);
-    int64_t capacity = *((int64_t*)((char*)dict + 8));
-    char* entries = (char*)(*((void**)((char*)dict + 16)));
-
-    for (int64_t i = 0; i < count; i++) {
-        void* k = *((void**)(entries + i * 16));
-        if (sutra_str_equal(k, key)) {
-            *((int64_t*)(entries + i * 16 + 8)) = val;
-            return;
-        }
-    }
-
-    if (count >= capacity) {
-        int64_t new_cap = capacity * 2;
-        char* new_entries = (char*)सूत्र_आवंटन(new_cap * 16, SR_ARR);
-        memcpy(new_entries, entries, count * 16);
-        memset(new_entries + count * 16, 0, (new_cap - count) * 16);
-        सूत्र_मुक्त(entries);
-        entries = new_entries;
-        *((int64_t*)((char*)dict + 8)) = new_cap;
-        *((void**)((char*)dict + 16)) = entries;
-    }
-
-    *((void**)(entries + count * 16)) = key;
-    *((int64_t*)(entries + count * 16 + 8)) = val;
-    *((int64_t*)dict) = count + 1;
-}
-
-int64_t sutra_dict_has_key(void* dict, void* key) {
-    if (!dict) return 0;
-    int64_t count = *((int64_t*)dict);
-    char* entries = (char*)(*((void**)((char*)dict + 16)));
-    for (int64_t i = 0; i < count; i++) {
-        void* k = *((void**)(entries + i * 16));
-        if (sutra_str_equal(k, key)) return 1;
-    }
-    return 0;
-}
+void* sutra_dict_create(void) { return शब्दकोश_रचना(); }
+int64_t sutra_dict_get(void* dict, void* key) { return शब्दकोश_पाओ(dict, key); }
+void sutra_dict_set(void* dict, void* key, int64_t val) { शब्दकोश_सेट(dict, key, val); }
+int64_t sutra_dict_has_key(void* dict, void* key) { return शब्दकोश_कुंजी_है(dict, key); }
+void* sutra_dict_remove(void* dict, void* key) { return शब्दकोश_हटाओ(dict, key); }
 
 void* sutra_dict_keys(void* dict) {
     if (!dict) return sutra_arr_create(0);
@@ -1574,27 +1506,6 @@ void* sutra_dict_keys(void* dict) {
         sutra_arr_set(arr, i, (int64_t)k);
     }
     return arr;
-}
-
-void* sutra_dict_remove(void* dict, void* key) {
-    if (!dict) return dict;
-    int64_t count = *((int64_t*)dict);
-    char* entries = (char*)(*((void**)((char*)dict + 16)));
-
-    for (int64_t i = 0; i < count; i++) {
-        void* k = *((void**)(entries + i * 16));
-        if (sutra_str_equal(k, key)) {
-            /* Shift remaining entries left by 1 */
-            for (int64_t j = i; j < count - 1; j++) {
-                *((void**)(entries + j * 16)) = *((void**)(entries + (j + 1) * 16));
-                *((int64_t*)(entries + j * 16 + 8)) = *((int64_t*)(entries + (j + 1) * 16 + 8));
-            }
-            *((int64_t*)dict) = count - 1;
-            break;
-        }
-    }
-
-    return dict;
 }
 
 /* ============================================================

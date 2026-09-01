@@ -46840,7 +46840,7 @@
 सार्थक_पंजीकरण_बिल्टिन:
   pushq %rbp
   movq %rsp, %rbp
-  subq $1952, %rsp
+  subq $2032, %rsp
   movq %rbx, -8(%rbp)
   movq %rsi, -16(%rbp)
   movq %rdi, -24(%rbp)
@@ -46849,10 +46849,6 @@
   movq %r14, -48(%rbp)
   movq %r15, -56(%rbp)
   movq %rcx, -72(%rbp)
-  movq $0, -888(%rbp)
-  movq $0, -896(%rbp)
-  movq $0, -904(%rbp)
-  movq $0, -912(%rbp)
   movq $0, -920(%rbp)
   movq $0, -928(%rbp)
   movq $0, -936(%rbp)
@@ -46981,20 +46977,18 @@
   movq $0, -1920(%rbp)
   movq $0, -1928(%rbp)
   movq $0, -1936(%rbp)
+  movq $0, -1944(%rbp)
+  movq $0, -1952(%rbp)
+  movq $0, -1960(%rbp)
+  movq $0, -1968(%rbp)
+  movq $0, -1976(%rbp)
+  movq $0, -1984(%rbp)
+  movq $0, -1992(%rbp)
+  movq $0, -2000(%rbp)
+  movq $0, -2008(%rbp)
+  movq $0, -2016(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
-  leaq -888(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -896(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -904(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -912(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
   leaq -920(%rbp), %r11
   movq %r11, (%r10,%rax,8)
   incl %eax
@@ -47379,9 +47373,39 @@
   leaq -1936(%rbp), %r11
   movq %r11, (%r10,%rax,8)
   incl %eax
+  leaq -1944(%rbp), %r11
+  movq %r11, (%r10,%rax,8)
+  incl %eax
+  leaq -1952(%rbp), %r11
+  movq %r11, (%r10,%rax,8)
+  incl %eax
+  leaq -1960(%rbp), %r11
+  movq %r11, (%r10,%rax,8)
+  incl %eax
+  leaq -1968(%rbp), %r11
+  movq %r11, (%r10,%rax,8)
+  incl %eax
+  leaq -1976(%rbp), %r11
+  movq %r11, (%r10,%rax,8)
+  incl %eax
+  leaq -1984(%rbp), %r11
+  movq %r11, (%r10,%rax,8)
+  incl %eax
+  leaq -1992(%rbp), %r11
+  movq %r11, (%r10,%rax,8)
+  incl %eax
+  leaq -2000(%rbp), %r11
+  movq %r11, (%r10,%rax,8)
+  incl %eax
+  leaq -2008(%rbp), %r11
+  movq %r11, (%r10,%rax,8)
+  incl %eax
+  leaq -2016(%rbp), %r11
+  movq %r11, (%r10,%rax,8)
+  incl %eax
   movl %eax, gc_roots_count(%rip)
   movq -72(%rbp), %r11
-  movq %r11, -888(%rbp)
+  movq %r11, -920(%rbp)
 
 .L_सार्थक_पंजीकरण_बिल्टिन__प्रवेश_0:
   leaq .LC_str_4(%rip), %rcx
@@ -47390,49 +47414,49 @@
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %rsi
-  movq %rsi, -896(%rbp)
+  movq %rsi, -928(%rbp)
   leaq .LC_str_6(%rip), %rcx
   movq .LC_str_6_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %rdi
-  movq %rdi, -904(%rbp)
+  movq %rdi, -936(%rbp)
   leaq .LC_str_8(%rip), %rcx
   movq .LC_str_8_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %r12
-  movq %r12, -912(%rbp)
+  movq %r12, -944(%rbp)
   leaq .LC_str_22(%rip), %rcx
   movq .LC_str_22_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %r13
-  movq %r13, -920(%rbp)
+  movq %r13, -952(%rbp)
   leaq .LC_str_337(%rip), %rcx
   movq .LC_str_337_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %r14
-  movq %r14, -928(%rbp)
+  movq %r14, -960(%rbp)
   leaq .LC_str_338(%rip), %rcx
   movq .LC_str_338_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %r15
-  movq %r15, -936(%rbp)
+  movq %r15, -968(%rbp)
   leaq .LC_str_339(%rip), %rcx
   movq .LC_str_339_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %rbx
-  movq %rbx, -944(%rbp)
+  movq %rbx, -976(%rbp)
   leaq .LC_str_340(%rip), %rcx
   movq .LC_str_340_len(%rip), %rdx
   subq $32, %rsp
@@ -47440,7 +47464,7 @@
   addq $32, %rsp
   movq %rax, -88(%rbp)
   movq -88(%rbp), %r11
-  movq %r11, -952(%rbp)
+  movq %r11, -984(%rbp)
   leaq .LC_str_341(%rip), %rcx
   movq .LC_str_341_len(%rip), %rdx
   subq $32, %rsp
@@ -47448,7 +47472,7 @@
   addq $32, %rsp
   movq %rax, -104(%rbp)
   movq -104(%rbp), %r11
-  movq %r11, -960(%rbp)
+  movq %r11, -992(%rbp)
   leaq .LC_str_342(%rip), %rcx
   movq .LC_str_342_len(%rip), %rdx
   subq $32, %rsp
@@ -47456,7 +47480,7 @@
   addq $32, %rsp
   movq %rax, -120(%rbp)
   movq -120(%rbp), %r11
-  movq %r11, -968(%rbp)
+  movq %r11, -1000(%rbp)
   leaq .LC_str_343(%rip), %rcx
   movq .LC_str_343_len(%rip), %rdx
   subq $32, %rsp
@@ -47464,7 +47488,7 @@
   addq $32, %rsp
   movq %rax, -136(%rbp)
   movq -136(%rbp), %r11
-  movq %r11, -976(%rbp)
+  movq %r11, -1008(%rbp)
   leaq .LC_str_344(%rip), %rcx
   movq .LC_str_344_len(%rip), %rdx
   subq $32, %rsp
@@ -47472,7 +47496,7 @@
   addq $32, %rsp
   movq %rax, -152(%rbp)
   movq -152(%rbp), %r11
-  movq %r11, -984(%rbp)
+  movq %r11, -1016(%rbp)
   leaq .LC_str_345(%rip), %rcx
   movq .LC_str_345_len(%rip), %rdx
   subq $32, %rsp
@@ -47480,7 +47504,7 @@
   addq $32, %rsp
   movq %rax, -168(%rbp)
   movq -168(%rbp), %r11
-  movq %r11, -992(%rbp)
+  movq %r11, -1024(%rbp)
   leaq .LC_str_346(%rip), %rcx
   movq .LC_str_346_len(%rip), %rdx
   subq $32, %rsp
@@ -47488,7 +47512,7 @@
   addq $32, %rsp
   movq %rax, -184(%rbp)
   movq -184(%rbp), %r11
-  movq %r11, -1000(%rbp)
+  movq %r11, -1032(%rbp)
   leaq .LC_str_347(%rip), %rcx
   movq .LC_str_347_len(%rip), %rdx
   subq $32, %rsp
@@ -47496,7 +47520,7 @@
   addq $32, %rsp
   movq %rax, -200(%rbp)
   movq -200(%rbp), %r11
-  movq %r11, -1008(%rbp)
+  movq %r11, -1040(%rbp)
   leaq .LC_str_348(%rip), %rcx
   movq .LC_str_348_len(%rip), %rdx
   subq $32, %rsp
@@ -47504,7 +47528,7 @@
   addq $32, %rsp
   movq %rax, -216(%rbp)
   movq -216(%rbp), %r11
-  movq %r11, -1016(%rbp)
+  movq %r11, -1048(%rbp)
   leaq .LC_str_349(%rip), %rcx
   movq .LC_str_349_len(%rip), %rdx
   subq $32, %rsp
@@ -47512,7 +47536,7 @@
   addq $32, %rsp
   movq %rax, -232(%rbp)
   movq -232(%rbp), %r11
-  movq %r11, -1024(%rbp)
+  movq %r11, -1056(%rbp)
   leaq .LC_str_350(%rip), %rcx
   movq .LC_str_350_len(%rip), %rdx
   subq $32, %rsp
@@ -47520,7 +47544,7 @@
   addq $32, %rsp
   movq %rax, -248(%rbp)
   movq -248(%rbp), %r11
-  movq %r11, -1032(%rbp)
+  movq %r11, -1064(%rbp)
   leaq .LC_str_351(%rip), %rcx
   movq .LC_str_351_len(%rip), %rdx
   subq $32, %rsp
@@ -47528,7 +47552,7 @@
   addq $32, %rsp
   movq %rax, -264(%rbp)
   movq -264(%rbp), %r11
-  movq %r11, -1040(%rbp)
+  movq %r11, -1072(%rbp)
   leaq .LC_str_352(%rip), %rcx
   movq .LC_str_352_len(%rip), %rdx
   subq $32, %rsp
@@ -47536,7 +47560,7 @@
   addq $32, %rsp
   movq %rax, -280(%rbp)
   movq -280(%rbp), %r11
-  movq %r11, -1048(%rbp)
+  movq %r11, -1080(%rbp)
   leaq .LC_str_353(%rip), %rcx
   movq .LC_str_353_len(%rip), %rdx
   subq $32, %rsp
@@ -47544,7 +47568,7 @@
   addq $32, %rsp
   movq %rax, -296(%rbp)
   movq -296(%rbp), %r11
-  movq %r11, -1056(%rbp)
+  movq %r11, -1088(%rbp)
   leaq .LC_str_354(%rip), %rcx
   movq .LC_str_354_len(%rip), %rdx
   subq $32, %rsp
@@ -47552,7 +47576,7 @@
   addq $32, %rsp
   movq %rax, -312(%rbp)
   movq -312(%rbp), %r11
-  movq %r11, -1064(%rbp)
+  movq %r11, -1096(%rbp)
   leaq .LC_str_355(%rip), %rcx
   movq .LC_str_355_len(%rip), %rdx
   subq $32, %rsp
@@ -47560,7 +47584,7 @@
   addq $32, %rsp
   movq %rax, -328(%rbp)
   movq -328(%rbp), %r11
-  movq %r11, -1072(%rbp)
+  movq %r11, -1104(%rbp)
   leaq .LC_str_356(%rip), %rcx
   movq .LC_str_356_len(%rip), %rdx
   subq $32, %rsp
@@ -47568,7 +47592,7 @@
   addq $32, %rsp
   movq %rax, -344(%rbp)
   movq -344(%rbp), %r11
-  movq %r11, -1080(%rbp)
+  movq %r11, -1112(%rbp)
   leaq .LC_str_357(%rip), %rcx
   movq .LC_str_357_len(%rip), %rdx
   subq $32, %rsp
@@ -47576,7 +47600,7 @@
   addq $32, %rsp
   movq %rax, -360(%rbp)
   movq -360(%rbp), %r11
-  movq %r11, -1088(%rbp)
+  movq %r11, -1120(%rbp)
   leaq .LC_str_358(%rip), %rcx
   movq .LC_str_358_len(%rip), %rdx
   subq $32, %rsp
@@ -47584,7 +47608,7 @@
   addq $32, %rsp
   movq %rax, -376(%rbp)
   movq -376(%rbp), %r11
-  movq %r11, -1096(%rbp)
+  movq %r11, -1128(%rbp)
   leaq .LC_str_359(%rip), %rcx
   movq .LC_str_359_len(%rip), %rdx
   subq $32, %rsp
@@ -47592,7 +47616,7 @@
   addq $32, %rsp
   movq %rax, -392(%rbp)
   movq -392(%rbp), %r11
-  movq %r11, -1104(%rbp)
+  movq %r11, -1136(%rbp)
   leaq .LC_str_360(%rip), %rcx
   movq .LC_str_360_len(%rip), %rdx
   subq $32, %rsp
@@ -47600,7 +47624,7 @@
   addq $32, %rsp
   movq %rax, -408(%rbp)
   movq -408(%rbp), %r11
-  movq %r11, -1112(%rbp)
+  movq %r11, -1144(%rbp)
   leaq .LC_str_361(%rip), %rcx
   movq .LC_str_361_len(%rip), %rdx
   subq $32, %rsp
@@ -47608,7 +47632,7 @@
   addq $32, %rsp
   movq %rax, -424(%rbp)
   movq -424(%rbp), %r11
-  movq %r11, -1120(%rbp)
+  movq %r11, -1152(%rbp)
   leaq .LC_str_362(%rip), %rcx
   movq .LC_str_362_len(%rip), %rdx
   subq $32, %rsp
@@ -47616,7 +47640,7 @@
   addq $32, %rsp
   movq %rax, -440(%rbp)
   movq -440(%rbp), %r11
-  movq %r11, -1128(%rbp)
+  movq %r11, -1160(%rbp)
   leaq .LC_str_363(%rip), %rcx
   movq .LC_str_363_len(%rip), %rdx
   subq $32, %rsp
@@ -47624,7 +47648,7 @@
   addq $32, %rsp
   movq %rax, -456(%rbp)
   movq -456(%rbp), %r11
-  movq %r11, -1136(%rbp)
+  movq %r11, -1168(%rbp)
   leaq .LC_str_364(%rip), %rcx
   movq .LC_str_364_len(%rip), %rdx
   subq $32, %rsp
@@ -47632,7 +47656,7 @@
   addq $32, %rsp
   movq %rax, -472(%rbp)
   movq -472(%rbp), %r11
-  movq %r11, -1144(%rbp)
+  movq %r11, -1176(%rbp)
   leaq .LC_str_365(%rip), %rcx
   movq .LC_str_365_len(%rip), %rdx
   subq $32, %rsp
@@ -47640,7 +47664,7 @@
   addq $32, %rsp
   movq %rax, -488(%rbp)
   movq -488(%rbp), %r11
-  movq %r11, -1152(%rbp)
+  movq %r11, -1184(%rbp)
   leaq .LC_str_366(%rip), %rcx
   movq .LC_str_366_len(%rip), %rdx
   subq $32, %rsp
@@ -47648,7 +47672,7 @@
   addq $32, %rsp
   movq %rax, -504(%rbp)
   movq -504(%rbp), %r11
-  movq %r11, -1160(%rbp)
+  movq %r11, -1192(%rbp)
   leaq .LC_str_367(%rip), %rcx
   movq .LC_str_367_len(%rip), %rdx
   subq $32, %rsp
@@ -47656,7 +47680,7 @@
   addq $32, %rsp
   movq %rax, -520(%rbp)
   movq -520(%rbp), %r11
-  movq %r11, -1168(%rbp)
+  movq %r11, -1200(%rbp)
   leaq .LC_str_173(%rip), %rcx
   movq .LC_str_173_len(%rip), %rdx
   subq $32, %rsp
@@ -47664,7 +47688,7 @@
   addq $32, %rsp
   movq %rax, -536(%rbp)
   movq -536(%rbp), %r11
-  movq %r11, -1176(%rbp)
+  movq %r11, -1208(%rbp)
   leaq .LC_str_368(%rip), %rcx
   movq .LC_str_368_len(%rip), %rdx
   subq $32, %rsp
@@ -47672,7 +47696,7 @@
   addq $32, %rsp
   movq %rax, -552(%rbp)
   movq -552(%rbp), %r11
-  movq %r11, -1184(%rbp)
+  movq %r11, -1216(%rbp)
   leaq .LC_str_369(%rip), %rcx
   movq .LC_str_369_len(%rip), %rdx
   subq $32, %rsp
@@ -47680,7 +47704,7 @@
   addq $32, %rsp
   movq %rax, -568(%rbp)
   movq -568(%rbp), %r11
-  movq %r11, -1192(%rbp)
+  movq %r11, -1224(%rbp)
   leaq .LC_str_370(%rip), %rcx
   movq .LC_str_370_len(%rip), %rdx
   subq $32, %rsp
@@ -47688,7 +47712,7 @@
   addq $32, %rsp
   movq %rax, -584(%rbp)
   movq -584(%rbp), %r11
-  movq %r11, -1200(%rbp)
+  movq %r11, -1232(%rbp)
   leaq .LC_str_371(%rip), %rcx
   movq .LC_str_371_len(%rip), %rdx
   subq $32, %rsp
@@ -47696,7 +47720,7 @@
   addq $32, %rsp
   movq %rax, -600(%rbp)
   movq -600(%rbp), %r11
-  movq %r11, -1208(%rbp)
+  movq %r11, -1240(%rbp)
   leaq .LC_str_372(%rip), %rcx
   movq .LC_str_372_len(%rip), %rdx
   subq $32, %rsp
@@ -47704,7 +47728,7 @@
   addq $32, %rsp
   movq %rax, -616(%rbp)
   movq -616(%rbp), %r11
-  movq %r11, -1216(%rbp)
+  movq %r11, -1248(%rbp)
   leaq .LC_str_373(%rip), %rcx
   movq .LC_str_373_len(%rip), %rdx
   subq $32, %rsp
@@ -47712,7 +47736,7 @@
   addq $32, %rsp
   movq %rax, -632(%rbp)
   movq -632(%rbp), %r11
-  movq %r11, -1224(%rbp)
+  movq %r11, -1256(%rbp)
   leaq .LC_str_374(%rip), %rcx
   movq .LC_str_374_len(%rip), %rdx
   subq $32, %rsp
@@ -47720,7 +47744,7 @@
   addq $32, %rsp
   movq %rax, -648(%rbp)
   movq -648(%rbp), %r11
-  movq %r11, -1232(%rbp)
+  movq %r11, -1264(%rbp)
   leaq .LC_str_375(%rip), %rcx
   movq .LC_str_375_len(%rip), %rdx
   subq $32, %rsp
@@ -47728,7 +47752,7 @@
   addq $32, %rsp
   movq %rax, -664(%rbp)
   movq -664(%rbp), %r11
-  movq %r11, -1240(%rbp)
+  movq %r11, -1272(%rbp)
   leaq .LC_str_376(%rip), %rcx
   movq .LC_str_376_len(%rip), %rdx
   subq $32, %rsp
@@ -47736,7 +47760,7 @@
   addq $32, %rsp
   movq %rax, -680(%rbp)
   movq -680(%rbp), %r11
-  movq %r11, -1248(%rbp)
+  movq %r11, -1280(%rbp)
   leaq .LC_str_377(%rip), %rcx
   movq .LC_str_377_len(%rip), %rdx
   subq $32, %rsp
@@ -47744,7 +47768,7 @@
   addq $32, %rsp
   movq %rax, -696(%rbp)
   movq -696(%rbp), %r11
-  movq %r11, -1256(%rbp)
+  movq %r11, -1288(%rbp)
   leaq .LC_str_378(%rip), %rcx
   movq .LC_str_378_len(%rip), %rdx
   subq $32, %rsp
@@ -47752,7 +47776,7 @@
   addq $32, %rsp
   movq %rax, -712(%rbp)
   movq -712(%rbp), %r11
-  movq %r11, -1264(%rbp)
+  movq %r11, -1296(%rbp)
   leaq .LC_str_379(%rip), %rcx
   movq .LC_str_379_len(%rip), %rdx
   subq $32, %rsp
@@ -47760,7 +47784,7 @@
   addq $32, %rsp
   movq %rax, -728(%rbp)
   movq -728(%rbp), %r11
-  movq %r11, -1272(%rbp)
+  movq %r11, -1304(%rbp)
   leaq .LC_str_380(%rip), %rcx
   movq .LC_str_380_len(%rip), %rdx
   subq $32, %rsp
@@ -47768,7 +47792,7 @@
   addq $32, %rsp
   movq %rax, -744(%rbp)
   movq -744(%rbp), %r11
-  movq %r11, -1280(%rbp)
+  movq %r11, -1312(%rbp)
   leaq .LC_str_381(%rip), %rcx
   movq .LC_str_381_len(%rip), %rdx
   subq $32, %rsp
@@ -47776,7 +47800,7 @@
   addq $32, %rsp
   movq %rax, -760(%rbp)
   movq -760(%rbp), %r11
-  movq %r11, -1288(%rbp)
+  movq %r11, -1320(%rbp)
   leaq .LC_str_382(%rip), %rcx
   movq .LC_str_382_len(%rip), %rdx
   subq $32, %rsp
@@ -47784,7 +47808,7 @@
   addq $32, %rsp
   movq %rax, -776(%rbp)
   movq -776(%rbp), %r11
-  movq %r11, -1296(%rbp)
+  movq %r11, -1328(%rbp)
   leaq .LC_str_383(%rip), %rcx
   movq .LC_str_383_len(%rip), %rdx
   subq $32, %rsp
@@ -47792,7 +47816,7 @@
   addq $32, %rsp
   movq %rax, -792(%rbp)
   movq -792(%rbp), %r11
-  movq %r11, -1304(%rbp)
+  movq %r11, -1336(%rbp)
   leaq .LC_str_384(%rip), %rcx
   movq .LC_str_384_len(%rip), %rdx
   subq $32, %rsp
@@ -47800,7 +47824,7 @@
   addq $32, %rsp
   movq %rax, -808(%rbp)
   movq -808(%rbp), %r11
-  movq %r11, -1312(%rbp)
+  movq %r11, -1344(%rbp)
   leaq .LC_str_385(%rip), %rcx
   movq .LC_str_385_len(%rip), %rdx
   subq $32, %rsp
@@ -47808,7 +47832,7 @@
   addq $32, %rsp
   movq %rax, -824(%rbp)
   movq -824(%rbp), %r11
-  movq %r11, -1320(%rbp)
+  movq %r11, -1352(%rbp)
   leaq .LC_str_386(%rip), %rcx
   movq .LC_str_386_len(%rip), %rdx
   subq $32, %rsp
@@ -47816,7 +47840,7 @@
   addq $32, %rsp
   movq %rax, -840(%rbp)
   movq -840(%rbp), %r11
-  movq %r11, -1328(%rbp)
+  movq %r11, -1360(%rbp)
   leaq .LC_str_387(%rip), %rcx
   movq .LC_str_387_len(%rip), %rdx
   subq $32, %rsp
@@ -47824,356 +47848,380 @@
   addq $32, %rsp
   movq %rax, -856(%rbp)
   movq -856(%rbp), %r11
-  movq %r11, -1336(%rbp)
-  movq $56, %rcx
+  movq %r11, -1368(%rbp)
+  leaq .LC_str_388(%rip), %rcx
+  movq .LC_str_388_len(%rip), %rdx
   subq $32, %rsp
-  call sutra_arr_create
+  call sutra_str_alloc
   addq $32, %rsp
   movq %rax, -872(%rbp)
   movq -872(%rbp), %r11
-  movq %r11, -1344(%rbp)
-  movq -872(%rbp), %rcx
+  movq %r11, -1376(%rbp)
+  leaq .LC_str_389(%rip), %rcx
+  movq .LC_str_389_len(%rip), %rdx
+  subq $32, %rsp
+  call sutra_str_alloc
+  addq $32, %rsp
+  movq %rax, -888(%rbp)
+  movq -888(%rbp), %r11
+  movq %r11, -1384(%rbp)
+  movq $58, %rcx
+  subq $32, %rsp
+  call sutra_arr_create
+  addq $32, %rsp
+  movq %rax, -904(%rbp)
+  movq -904(%rbp), %r11
+  movq %r11, -1392(%rbp)
+  movq -904(%rbp), %rcx
   movq $0, %rdx
   movq %rsi, %r8
   subq $32, %rsp
   call sutra_arr_set
   addq $32, %rsp
-  movq -872(%rbp), %rcx
+  movq -904(%rbp), %rcx
   movq $1, %rdx
   movq %rdi, %r8
   subq $32, %rsp
   call sutra_arr_set
   addq $32, %rsp
-  movq -872(%rbp), %rcx
+  movq -904(%rbp), %rcx
   movq $2, %rdx
   movq %r12, %r8
   subq $32, %rsp
   call sutra_arr_set
   addq $32, %rsp
-  movq -872(%rbp), %rcx
+  movq -904(%rbp), %rcx
   movq $3, %rdx
   movq %r13, %r8
   subq $32, %rsp
   call sutra_arr_set
   addq $32, %rsp
-  movq -872(%rbp), %rcx
+  movq -904(%rbp), %rcx
   movq $4, %rdx
   movq %r14, %r8
   subq $32, %rsp
   call sutra_arr_set
   addq $32, %rsp
-  movq -872(%rbp), %rcx
+  movq -904(%rbp), %rcx
   movq $5, %rdx
   movq %r15, %r8
   subq $32, %rsp
   call sutra_arr_set
   addq $32, %rsp
-  movq -872(%rbp), %rcx
+  movq -904(%rbp), %rcx
   movq $6, %rdx
   movq %rbx, %r8
   subq $32, %rsp
   call sutra_arr_set
   addq $32, %rsp
-  movq -872(%rbp), %rcx
+  movq -904(%rbp), %rcx
   movq $7, %rdx
   movq -88(%rbp), %r8
   subq $32, %rsp
   call sutra_arr_set
   addq $32, %rsp
-  movq -872(%rbp), %rcx
+  movq -904(%rbp), %rcx
   movq $8, %rdx
   movq -104(%rbp), %r8
   subq $32, %rsp
   call sutra_arr_set
   addq $32, %rsp
-  movq -872(%rbp), %rcx
+  movq -904(%rbp), %rcx
   movq $9, %rdx
   movq -120(%rbp), %r8
   subq $32, %rsp
   call sutra_arr_set
   addq $32, %rsp
-  movq -872(%rbp), %rcx
+  movq -904(%rbp), %rcx
   movq $10, %rdx
   movq -136(%rbp), %r8
   subq $32, %rsp
   call sutra_arr_set
   addq $32, %rsp
-  movq -872(%rbp), %rcx
+  movq -904(%rbp), %rcx
   movq $11, %rdx
   movq -152(%rbp), %r8
   subq $32, %rsp
   call sutra_arr_set
   addq $32, %rsp
-  movq -872(%rbp), %rcx
+  movq -904(%rbp), %rcx
   movq $12, %rdx
   movq -168(%rbp), %r8
   subq $32, %rsp
   call sutra_arr_set
   addq $32, %rsp
-  movq -872(%rbp), %rcx
+  movq -904(%rbp), %rcx
   movq $13, %rdx
   movq -184(%rbp), %r8
   subq $32, %rsp
   call sutra_arr_set
   addq $32, %rsp
-  movq -872(%rbp), %rcx
+  movq -904(%rbp), %rcx
   movq $14, %rdx
   movq -200(%rbp), %r8
   subq $32, %rsp
   call sutra_arr_set
   addq $32, %rsp
-  movq -872(%rbp), %rcx
+  movq -904(%rbp), %rcx
   movq $15, %rdx
   movq -216(%rbp), %r8
   subq $32, %rsp
   call sutra_arr_set
   addq $32, %rsp
-  movq -872(%rbp), %rcx
+  movq -904(%rbp), %rcx
   movq $16, %rdx
   movq -232(%rbp), %r8
   subq $32, %rsp
   call sutra_arr_set
   addq $32, %rsp
-  movq -872(%rbp), %rcx
+  movq -904(%rbp), %rcx
   movq $17, %rdx
   movq -248(%rbp), %r8
   subq $32, %rsp
   call sutra_arr_set
   addq $32, %rsp
-  movq -872(%rbp), %rcx
+  movq -904(%rbp), %rcx
   movq $18, %rdx
   movq -264(%rbp), %r8
   subq $32, %rsp
   call sutra_arr_set
   addq $32, %rsp
-  movq -872(%rbp), %rcx
+  movq -904(%rbp), %rcx
   movq $19, %rdx
   movq -280(%rbp), %r8
   subq $32, %rsp
   call sutra_arr_set
   addq $32, %rsp
-  movq -872(%rbp), %rcx
+  movq -904(%rbp), %rcx
   movq $20, %rdx
   movq -296(%rbp), %r8
   subq $32, %rsp
   call sutra_arr_set
   addq $32, %rsp
-  movq -872(%rbp), %rcx
+  movq -904(%rbp), %rcx
   movq $21, %rdx
   movq -312(%rbp), %r8
   subq $32, %rsp
   call sutra_arr_set
   addq $32, %rsp
-  movq -872(%rbp), %rcx
+  movq -904(%rbp), %rcx
   movq $22, %rdx
   movq -328(%rbp), %r8
   subq $32, %rsp
   call sutra_arr_set
   addq $32, %rsp
-  movq -872(%rbp), %rcx
+  movq -904(%rbp), %rcx
   movq $23, %rdx
   movq -344(%rbp), %r8
   subq $32, %rsp
   call sutra_arr_set
   addq $32, %rsp
-  movq -872(%rbp), %rcx
+  movq -904(%rbp), %rcx
   movq $24, %rdx
   movq -360(%rbp), %r8
   subq $32, %rsp
   call sutra_arr_set
   addq $32, %rsp
-  movq -872(%rbp), %rcx
+  movq -904(%rbp), %rcx
   movq $25, %rdx
   movq -376(%rbp), %r8
   subq $32, %rsp
   call sutra_arr_set
   addq $32, %rsp
-  movq -872(%rbp), %rcx
+  movq -904(%rbp), %rcx
   movq $26, %rdx
   movq -392(%rbp), %r8
   subq $32, %rsp
   call sutra_arr_set
   addq $32, %rsp
-  movq -872(%rbp), %rcx
+  movq -904(%rbp), %rcx
   movq $27, %rdx
   movq -408(%rbp), %r8
   subq $32, %rsp
   call sutra_arr_set
   addq $32, %rsp
-  movq -872(%rbp), %rcx
+  movq -904(%rbp), %rcx
   movq $28, %rdx
   movq -424(%rbp), %r8
   subq $32, %rsp
   call sutra_arr_set
   addq $32, %rsp
-  movq -872(%rbp), %rcx
+  movq -904(%rbp), %rcx
   movq $29, %rdx
   movq -440(%rbp), %r8
   subq $32, %rsp
   call sutra_arr_set
   addq $32, %rsp
-  movq -872(%rbp), %rcx
+  movq -904(%rbp), %rcx
   movq $30, %rdx
   movq -456(%rbp), %r8
   subq $32, %rsp
   call sutra_arr_set
   addq $32, %rsp
-  movq -872(%rbp), %rcx
+  movq -904(%rbp), %rcx
   movq $31, %rdx
   movq -472(%rbp), %r8
   subq $32, %rsp
   call sutra_arr_set
   addq $32, %rsp
-  movq -872(%rbp), %rcx
+  movq -904(%rbp), %rcx
   movq $32, %rdx
   movq -488(%rbp), %r8
   subq $32, %rsp
   call sutra_arr_set
   addq $32, %rsp
-  movq -872(%rbp), %rcx
+  movq -904(%rbp), %rcx
   movq $33, %rdx
   movq -504(%rbp), %r8
   subq $32, %rsp
   call sutra_arr_set
   addq $32, %rsp
-  movq -872(%rbp), %rcx
+  movq -904(%rbp), %rcx
   movq $34, %rdx
   movq -520(%rbp), %r8
   subq $32, %rsp
   call sutra_arr_set
   addq $32, %rsp
-  movq -872(%rbp), %rcx
+  movq -904(%rbp), %rcx
   movq $35, %rdx
   movq -536(%rbp), %r8
   subq $32, %rsp
   call sutra_arr_set
   addq $32, %rsp
-  movq -872(%rbp), %rcx
+  movq -904(%rbp), %rcx
   movq $36, %rdx
   movq -552(%rbp), %r8
   subq $32, %rsp
   call sutra_arr_set
   addq $32, %rsp
-  movq -872(%rbp), %rcx
+  movq -904(%rbp), %rcx
   movq $37, %rdx
   movq -568(%rbp), %r8
   subq $32, %rsp
   call sutra_arr_set
   addq $32, %rsp
-  movq -872(%rbp), %rcx
+  movq -904(%rbp), %rcx
   movq $38, %rdx
   movq -584(%rbp), %r8
   subq $32, %rsp
   call sutra_arr_set
   addq $32, %rsp
-  movq -872(%rbp), %rcx
+  movq -904(%rbp), %rcx
   movq $39, %rdx
   movq -600(%rbp), %r8
   subq $32, %rsp
   call sutra_arr_set
   addq $32, %rsp
-  movq -872(%rbp), %rcx
+  movq -904(%rbp), %rcx
   movq $40, %rdx
   movq -616(%rbp), %r8
   subq $32, %rsp
   call sutra_arr_set
   addq $32, %rsp
-  movq -872(%rbp), %rcx
+  movq -904(%rbp), %rcx
   movq $41, %rdx
   movq -632(%rbp), %r8
   subq $32, %rsp
   call sutra_arr_set
   addq $32, %rsp
-  movq -872(%rbp), %rcx
+  movq -904(%rbp), %rcx
   movq $42, %rdx
   movq -648(%rbp), %r8
   subq $32, %rsp
   call sutra_arr_set
   addq $32, %rsp
-  movq -872(%rbp), %rcx
+  movq -904(%rbp), %rcx
   movq $43, %rdx
   movq -664(%rbp), %r8
   subq $32, %rsp
   call sutra_arr_set
   addq $32, %rsp
-  movq -872(%rbp), %rcx
+  movq -904(%rbp), %rcx
   movq $44, %rdx
   movq -680(%rbp), %r8
   subq $32, %rsp
   call sutra_arr_set
   addq $32, %rsp
-  movq -872(%rbp), %rcx
+  movq -904(%rbp), %rcx
   movq $45, %rdx
   movq -696(%rbp), %r8
   subq $32, %rsp
   call sutra_arr_set
   addq $32, %rsp
-  movq -872(%rbp), %rcx
+  movq -904(%rbp), %rcx
   movq $46, %rdx
   movq -712(%rbp), %r8
   subq $32, %rsp
   call sutra_arr_set
   addq $32, %rsp
-  movq -872(%rbp), %rcx
+  movq -904(%rbp), %rcx
   movq $47, %rdx
   movq -728(%rbp), %r8
   subq $32, %rsp
   call sutra_arr_set
   addq $32, %rsp
-  movq -872(%rbp), %rcx
+  movq -904(%rbp), %rcx
   movq $48, %rdx
   movq -744(%rbp), %r8
   subq $32, %rsp
   call sutra_arr_set
   addq $32, %rsp
-  movq -872(%rbp), %rcx
+  movq -904(%rbp), %rcx
   movq $49, %rdx
   movq -760(%rbp), %r8
   subq $32, %rsp
   call sutra_arr_set
   addq $32, %rsp
-  movq -872(%rbp), %rcx
+  movq -904(%rbp), %rcx
   movq $50, %rdx
   movq -776(%rbp), %r8
   subq $32, %rsp
   call sutra_arr_set
   addq $32, %rsp
-  movq -872(%rbp), %rcx
+  movq -904(%rbp), %rcx
   movq $51, %rdx
   movq -792(%rbp), %r8
   subq $32, %rsp
   call sutra_arr_set
   addq $32, %rsp
-  movq -872(%rbp), %rcx
+  movq -904(%rbp), %rcx
   movq $52, %rdx
   movq -808(%rbp), %r8
   subq $32, %rsp
   call sutra_arr_set
   addq $32, %rsp
-  movq -872(%rbp), %rcx
+  movq -904(%rbp), %rcx
   movq $53, %rdx
   movq -824(%rbp), %r8
   subq $32, %rsp
   call sutra_arr_set
   addq $32, %rsp
-  movq -872(%rbp), %rcx
+  movq -904(%rbp), %rcx
   movq $54, %rdx
   movq -840(%rbp), %r8
   subq $32, %rsp
   call sutra_arr_set
   addq $32, %rsp
-  movq -872(%rbp), %rcx
+  movq -904(%rbp), %rcx
   movq $55, %rdx
   movq -856(%rbp), %r8
   subq $32, %rsp
   call sutra_arr_set
   addq $32, %rsp
-  movq -872(%rbp), %r11
-  movq %r11, -1344(%rbp)
-  movq $0, -896(%rbp)
-  movq $0, -904(%rbp)
-  movq $0, -912(%rbp)
-  movq $0, -920(%rbp)
+  movq -904(%rbp), %rcx
+  movq $56, %rdx
+  movq -872(%rbp), %r8
+  subq $32, %rsp
+  call sutra_arr_set
+  addq $32, %rsp
+  movq -904(%rbp), %rcx
+  movq $57, %rdx
+  movq -888(%rbp), %r8
+  subq $32, %rsp
+  call sutra_arr_set
+  addq $32, %rsp
+  movq -904(%rbp), %r11
+  movq %r11, -1392(%rbp)
   movq $0, -928(%rbp)
   movq $0, -936(%rbp)
   movq $0, -944(%rbp)
@@ -48226,11 +48274,17 @@
   movq $0, -1320(%rbp)
   movq $0, -1328(%rbp)
   movq $0, -1336(%rbp)
+  movq $0, -1344(%rbp)
+  movq $0, -1352(%rbp)
+  movq $0, -1360(%rbp)
+  movq $0, -1368(%rbp)
+  movq $0, -1376(%rbp)
+  movq $0, -1384(%rbp)
   movq $0, %rbx
   jmp .L_सार्थक_पंजीकरण_बिल्टिन__wh_शर्त_1
 .L_सार्थक_पंजीकरण_बिल्टिन__wh_शर्त_1:
-  movq %rbx, -1928(%rbp)
-  movq -872(%rbp), %rcx
+  movq %rbx, -2008(%rbp)
+  movq -904(%rbp), %rcx
   subq $32, %rsp
   call दैशिक_लंबाई
   addq $32, %rsp
@@ -48254,139 +48308,40 @@
   call sutra_dict_create
   addq $32, %rsp
   movq %rax, %rsi
-  movq %rsi, -1352(%rbp)
-  movq %rsi, -1352(%rbp)
+  movq %rsi, -1400(%rbp)
+  movq %rsi, -1400(%rbp)
   leaq .LC_str_166(%rip), %rcx
   movq .LC_str_166_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %rdi
-  movq %rdi, -1360(%rbp)
-  movq -872(%rbp), %rcx
+  movq %rdi, -1408(%rbp)
+  movq -904(%rbp), %rcx
   movq %rbx, %rdx
   subq $32, %rsp
   call sutra_arr_get
   addq $32, %rsp
   movq %rax, %r12
-  movq %r12, -1368(%rbp)
+  movq %r12, -1416(%rbp)
   movq %rsi, %rcx
   movq %rdi, %rdx
   movq %r12, %r8
   subq $32, %rsp
   call sutra_arr_set
   addq $32, %rsp
-  movq $0, -1360(%rbp)
-  movq $0, -1368(%rbp)
-  movq $1, %rdi
-  movq -872(%rbp), %rcx
-  movq %rbx, %rdx
-  subq $32, %rsp
-  call sutra_arr_get
-  addq $32, %rsp
-  movq %rax, %r12
-  movq %r12, -1376(%rbp)
-  leaq .LC_str_22(%rip), %rcx
-  movq .LC_str_22_len(%rip), %rdx
-  subq $32, %rsp
-  call sutra_str_alloc
-  addq $32, %rsp
-  movq %rax, %r13
-  movq %r13, -1384(%rbp)
-  movq %r12, %rcx
-  movq %r13, %rdx
-  subq $32, %rsp
-  call पाठ_तुल्य
-  addq $32, %rsp
-  movq %rax, %r14
-  movq $0, -1376(%rbp)
-  movq $0, -1384(%rbp)
-  movq %r14, %r10
-  cmpq $0, %r10
-  je .L_किनारा_सार्थक_पंजीकरण_बिल्टिन_1
-  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_लघु_5
-.L_किनारा_सार्थक_पंजीकरण_बिल्टिन_1:
-  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_दायाँ_4
-.L_सार्थक_पंजीकरण_बिल्टिन__sc_दायाँ_4:
-  movq -872(%rbp), %rcx
-  movq %rbx, %rdx
-  subq $32, %rsp
-  call sutra_arr_get
-  addq $32, %rsp
-  movq %rax, %r12
-  movq %r12, -1392(%rbp)
-  leaq .LC_str_337(%rip), %rcx
-  movq .LC_str_337_len(%rip), %rdx
-  subq $32, %rsp
-  call sutra_str_alloc
-  addq $32, %rsp
-  movq %rax, %r13
-  movq %r13, -1400(%rbp)
-  movq %r12, %rcx
-  movq %r13, %rdx
-  subq $32, %rsp
-  call पाठ_तुल्य
-  addq $32, %rsp
-  movq %rax, %r14
-  movq $0, -1392(%rbp)
-  movq $0, -1400(%rbp)
-  movq %r14, %r12
-  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_6
-.L_सार्थक_पंजीकरण_बिल्टिन__sc_लघु_5:
-  movq $1, %r12
-  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_6
-.L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_6:
-  movq %r12, %r10
-  cmpq $0, %r10
-  je .L_किनारा_सार्थक_पंजीकरण_बिल्टिन_2
-  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_लघु_8
-.L_किनारा_सार्थक_पंजीकरण_बिल्टिन_2:
-  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_दायाँ_7
-.L_सार्थक_पंजीकरण_बिल्टिन__sc_दायाँ_7:
-  movq -872(%rbp), %rcx
-  movq %rbx, %rdx
-  subq $32, %rsp
-  call sutra_arr_get
-  addq $32, %rsp
-  movq %rax, %r12
-  movq %r12, -1408(%rbp)
-  leaq .LC_str_338(%rip), %rcx
-  movq .LC_str_338_len(%rip), %rdx
-  subq $32, %rsp
-  call sutra_str_alloc
-  addq $32, %rsp
-  movq %rax, %r13
-  movq %r13, -1416(%rbp)
-  movq %r12, %rcx
-  movq %r13, %rdx
-  subq $32, %rsp
-  call पाठ_तुल्य
-  addq $32, %rsp
-  movq %rax, %r14
   movq $0, -1408(%rbp)
   movq $0, -1416(%rbp)
-  movq %r14, %r12
-  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_9
-.L_सार्थक_पंजीकरण_बिल्टिन__sc_लघु_8:
-  movq $1, %r12
-  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_9
-.L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_9:
-  movq %r12, %r10
-  cmpq $0, %r10
-  je .L_किनारा_सार्थक_पंजीकरण_बिल्टिन_3
-  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_लघु_11
-.L_किनारा_सार्थक_पंजीकरण_बिल्टिन_3:
-  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_दायाँ_10
-.L_सार्थक_पंजीकरण_बिल्टिन__sc_दायाँ_10:
-  movq -872(%rbp), %rcx
+  movq $1, %rdi
+  movq -904(%rbp), %rcx
   movq %rbx, %rdx
   subq $32, %rsp
   call sutra_arr_get
   addq $32, %rsp
   movq %rax, %r12
   movq %r12, -1424(%rbp)
-  leaq .LC_str_173(%rip), %rcx
-  movq .LC_str_173_len(%rip), %rdx
+  leaq .LC_str_22(%rip), %rcx
+  movq .LC_str_22_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -48400,28 +48355,22 @@
   movq %rax, %r14
   movq $0, -1424(%rbp)
   movq $0, -1432(%rbp)
-  movq %r14, %r12
-  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_12
-.L_सार्थक_पंजीकरण_बिल्टिन__sc_लघु_11:
-  movq $1, %r12
-  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_12
-.L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_12:
-  movq %r12, %r10
+  movq %r14, %r10
   cmpq $0, %r10
-  je .L_किनारा_सार्थक_पंजीकरण_बिल्टिन_4
-  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_लघु_14
-.L_किनारा_सार्थक_पंजीकरण_बिल्टिन_4:
-  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_दायाँ_13
-.L_सार्थक_पंजीकरण_बिल्टिन__sc_दायाँ_13:
-  movq -872(%rbp), %rcx
+  je .L_किनारा_सार्थक_पंजीकरण_बिल्टिन_1
+  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_लघु_5
+.L_किनारा_सार्थक_पंजीकरण_बिल्टिन_1:
+  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_दायाँ_4
+.L_सार्थक_पंजीकरण_बिल्टिन__sc_दायाँ_4:
+  movq -904(%rbp), %rcx
   movq %rbx, %rdx
   subq $32, %rsp
   call sutra_arr_get
   addq $32, %rsp
   movq %rax, %r12
   movq %r12, -1440(%rbp)
-  leaq .LC_str_380(%rip), %rcx
-  movq .LC_str_380_len(%rip), %rdx
+  leaq .LC_str_337(%rip), %rcx
+  movq .LC_str_337_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -48436,27 +48385,27 @@
   movq $0, -1440(%rbp)
   movq $0, -1448(%rbp)
   movq %r14, %r12
-  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_15
-.L_सार्थक_पंजीकरण_बिल्टिन__sc_लघु_14:
+  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_6
+.L_सार्थक_पंजीकरण_बिल्टिन__sc_लघु_5:
   movq $1, %r12
-  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_15
-.L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_15:
+  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_6
+.L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_6:
   movq %r12, %r10
   cmpq $0, %r10
-  je .L_किनारा_सार्थक_पंजीकरण_बिल्टिन_5
-  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_लघु_17
-.L_किनारा_सार्थक_पंजीकरण_बिल्टिन_5:
-  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_दायाँ_16
-.L_सार्थक_पंजीकरण_बिल्टिन__sc_दायाँ_16:
-  movq -872(%rbp), %rcx
+  je .L_किनारा_सार्थक_पंजीकरण_बिल्टिन_2
+  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_लघु_8
+.L_किनारा_सार्थक_पंजीकरण_बिल्टिन_2:
+  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_दायाँ_7
+.L_सार्थक_पंजीकरण_बिल्टिन__sc_दायाँ_7:
+  movq -904(%rbp), %rcx
   movq %rbx, %rdx
   subq $32, %rsp
   call sutra_arr_get
   addq $32, %rsp
   movq %rax, %r12
   movq %r12, -1456(%rbp)
-  leaq .LC_str_382(%rip), %rcx
-  movq .LC_str_382_len(%rip), %rdx
+  leaq .LC_str_338(%rip), %rcx
+  movq .LC_str_338_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -48471,27 +48420,27 @@
   movq $0, -1456(%rbp)
   movq $0, -1464(%rbp)
   movq %r14, %r12
-  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_18
-.L_सार्थक_पंजीकरण_बिल्टिन__sc_लघु_17:
+  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_9
+.L_सार्थक_पंजीकरण_बिल्टिन__sc_लघु_8:
   movq $1, %r12
-  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_18
-.L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_18:
+  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_9
+.L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_9:
   movq %r12, %r10
   cmpq $0, %r10
-  je .L_किनारा_सार्थक_पंजीकरण_बिल्टिन_6
-  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_लघु_20
-.L_किनारा_सार्थक_पंजीकरण_बिल्टिन_6:
-  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_दायाँ_19
-.L_सार्थक_पंजीकरण_बिल्टिन__sc_दायाँ_19:
-  movq -872(%rbp), %rcx
+  je .L_किनारा_सार्थक_पंजीकरण_बिल्टिन_3
+  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_लघु_11
+.L_किनारा_सार्थक_पंजीकरण_बिल्टिन_3:
+  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_दायाँ_10
+.L_सार्थक_पंजीकरण_बिल्टिन__sc_दायाँ_10:
+  movq -904(%rbp), %rcx
   movq %rbx, %rdx
   subq $32, %rsp
   call sutra_arr_get
   addq $32, %rsp
   movq %rax, %r12
   movq %r12, -1472(%rbp)
-  leaq .LC_str_387(%rip), %rcx
-  movq .LC_str_387_len(%rip), %rdx
+  leaq .LC_str_173(%rip), %rcx
+  movq .LC_str_173_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -48506,27 +48455,27 @@
   movq $0, -1472(%rbp)
   movq $0, -1480(%rbp)
   movq %r14, %r12
-  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_21
-.L_सार्थक_पंजीकरण_बिल्टिन__sc_लघु_20:
+  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_12
+.L_सार्थक_पंजीकरण_बिल्टिन__sc_लघु_11:
   movq $1, %r12
-  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_21
-.L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_21:
+  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_12
+.L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_12:
   movq %r12, %r10
   cmpq $0, %r10
-  je .L_किनारा_सार्थक_पंजीकरण_बिल्टिन_7
-  jmp .L_सार्थक_पंजीकरण_बिल्टिन__if_सत्य_22
-.L_किनारा_सार्थक_पंजीकरण_बिल्टिन_7:
-  jmp .L_सार्थक_पंजीकरण_बिल्टिन__if_असत्य_24
-.L_सार्थक_पंजीकरण_बिल्टिन__if_असत्य_24:
-  movq -872(%rbp), %rcx
+  je .L_किनारा_सार्थक_पंजीकरण_बिल्टिन_4
+  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_लघु_14
+.L_किनारा_सार्थक_पंजीकरण_बिल्टिन_4:
+  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_दायाँ_13
+.L_सार्थक_पंजीकरण_बिल्टिन__sc_दायाँ_13:
+  movq -904(%rbp), %rcx
   movq %rbx, %rdx
   subq $32, %rsp
   call sutra_arr_get
   addq $32, %rsp
   movq %rax, %r12
   movq %r12, -1488(%rbp)
-  leaq .LC_str_340(%rip), %rcx
-  movq .LC_str_340_len(%rip), %rdx
+  leaq .LC_str_380(%rip), %rcx
+  movq .LC_str_380_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -48540,22 +48489,28 @@
   movq %rax, %r14
   movq $0, -1488(%rbp)
   movq $0, -1496(%rbp)
-  movq %r14, %r10
+  movq %r14, %r12
+  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_15
+.L_सार्थक_पंजीकरण_बिल्टिन__sc_लघु_14:
+  movq $1, %r12
+  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_15
+.L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_15:
+  movq %r12, %r10
   cmpq $0, %r10
-  je .L_किनारा_सार्थक_पंजीकरण_बिल्टिन_8
-  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_लघु_26
-.L_किनारा_सार्थक_पंजीकरण_बिल्टिन_8:
-  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_दायाँ_25
-.L_सार्थक_पंजीकरण_बिल्टिन__sc_दायाँ_25:
-  movq -872(%rbp), %rcx
+  je .L_किनारा_सार्थक_पंजीकरण_बिल्टिन_5
+  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_लघु_17
+.L_किनारा_सार्थक_पंजीकरण_बिल्टिन_5:
+  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_दायाँ_16
+.L_सार्थक_पंजीकरण_बिल्टिन__sc_दायाँ_16:
+  movq -904(%rbp), %rcx
   movq %rbx, %rdx
   subq $32, %rsp
   call sutra_arr_get
   addq $32, %rsp
   movq %rax, %r12
   movq %r12, -1504(%rbp)
-  leaq .LC_str_344(%rip), %rcx
-  movq .LC_str_344_len(%rip), %rdx
+  leaq .LC_str_382(%rip), %rcx
+  movq .LC_str_382_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -48570,27 +48525,27 @@
   movq $0, -1504(%rbp)
   movq $0, -1512(%rbp)
   movq %r14, %r12
-  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_27
-.L_सार्थक_पंजीकरण_बिल्टिन__sc_लघु_26:
+  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_18
+.L_सार्थक_पंजीकरण_बिल्टिन__sc_लघु_17:
   movq $1, %r12
-  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_27
-.L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_27:
+  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_18
+.L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_18:
   movq %r12, %r10
   cmpq $0, %r10
-  je .L_किनारा_सार्थक_पंजीकरण_बिल्टिन_9
-  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_लघु_29
-.L_किनारा_सार्थक_पंजीकरण_बिल्टिन_9:
-  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_दायाँ_28
-.L_सार्थक_पंजीकरण_बिल्टिन__sc_दायाँ_28:
-  movq -872(%rbp), %rcx
+  je .L_किनारा_सार्थक_पंजीकरण_बिल्टिन_6
+  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_लघु_20
+.L_किनारा_सार्थक_पंजीकरण_बिल्टिन_6:
+  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_दायाँ_19
+.L_सार्थक_पंजीकरण_बिल्टिन__sc_दायाँ_19:
+  movq -904(%rbp), %rcx
   movq %rbx, %rdx
   subq $32, %rsp
   call sutra_arr_get
   addq $32, %rsp
   movq %rax, %r12
   movq %r12, -1520(%rbp)
-  leaq .LC_str_346(%rip), %rcx
-  movq .LC_str_346_len(%rip), %rdx
+  leaq .LC_str_387(%rip), %rcx
+  movq .LC_str_387_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -48605,27 +48560,27 @@
   movq $0, -1520(%rbp)
   movq $0, -1528(%rbp)
   movq %r14, %r12
-  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_30
-.L_सार्थक_पंजीकरण_बिल्टिन__sc_लघु_29:
+  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_21
+.L_सार्थक_पंजीकरण_बिल्टिन__sc_लघु_20:
   movq $1, %r12
-  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_30
-.L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_30:
+  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_21
+.L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_21:
   movq %r12, %r10
   cmpq $0, %r10
-  je .L_किनारा_सार्थक_पंजीकरण_बिल्टिन_10
-  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_लघु_32
-.L_किनारा_सार्थक_पंजीकरण_बिल्टिन_10:
-  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_दायाँ_31
-.L_सार्थक_पंजीकरण_बिल्टिन__sc_दायाँ_31:
-  movq -872(%rbp), %rcx
+  je .L_किनारा_सार्थक_पंजीकरण_बिल्टिन_7
+  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_लघु_23
+.L_किनारा_सार्थक_पंजीकरण_बिल्टिन_7:
+  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_दायाँ_22
+.L_सार्थक_पंजीकरण_बिल्टिन__sc_दायाँ_22:
+  movq -904(%rbp), %rcx
   movq %rbx, %rdx
   subq $32, %rsp
   call sutra_arr_get
   addq $32, %rsp
   movq %rax, %r12
   movq %r12, -1536(%rbp)
-  leaq .LC_str_347(%rip), %rcx
-  movq .LC_str_347_len(%rip), %rdx
+  leaq .LC_str_388(%rip), %rcx
+  movq .LC_str_388_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -48640,27 +48595,27 @@
   movq $0, -1536(%rbp)
   movq $0, -1544(%rbp)
   movq %r14, %r12
-  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_33
-.L_सार्थक_पंजीकरण_बिल्टिन__sc_लघु_32:
+  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_24
+.L_सार्थक_पंजीकरण_बिल्टिन__sc_लघु_23:
   movq $1, %r12
-  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_33
-.L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_33:
+  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_24
+.L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_24:
   movq %r12, %r10
   cmpq $0, %r10
-  je .L_किनारा_सार्थक_पंजीकरण_बिल्टिन_11
-  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_लघु_35
-.L_किनारा_सार्थक_पंजीकरण_बिल्टिन_11:
-  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_दायाँ_34
-.L_सार्थक_पंजीकरण_बिल्टिन__sc_दायाँ_34:
-  movq -872(%rbp), %rcx
+  je .L_किनारा_सार्थक_पंजीकरण_बिल्टिन_8
+  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_लघु_26
+.L_किनारा_सार्थक_पंजीकरण_बिल्टिन_8:
+  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_दायाँ_25
+.L_सार्थक_पंजीकरण_बिल्टिन__sc_दायाँ_25:
+  movq -904(%rbp), %rcx
   movq %rbx, %rdx
   subq $32, %rsp
   call sutra_arr_get
   addq $32, %rsp
   movq %rax, %r12
   movq %r12, -1552(%rbp)
-  leaq .LC_str_353(%rip), %rcx
-  movq .LC_str_353_len(%rip), %rdx
+  leaq .LC_str_389(%rip), %rcx
+  movq .LC_str_389_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -48675,27 +48630,27 @@
   movq $0, -1552(%rbp)
   movq $0, -1560(%rbp)
   movq %r14, %r12
-  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_36
-.L_सार्थक_पंजीकरण_बिल्टिन__sc_लघु_35:
+  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_27
+.L_सार्थक_पंजीकरण_बिल्टिन__sc_लघु_26:
   movq $1, %r12
-  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_36
-.L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_36:
+  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_27
+.L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_27:
   movq %r12, %r10
   cmpq $0, %r10
-  je .L_किनारा_सार्थक_पंजीकरण_बिल्टिन_12
-  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_लघु_38
-.L_किनारा_सार्थक_पंजीकरण_बिल्टिन_12:
-  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_दायाँ_37
-.L_सार्थक_पंजीकरण_बिल्टिन__sc_दायाँ_37:
-  movq -872(%rbp), %rcx
+  je .L_किनारा_सार्थक_पंजीकरण_बिल्टिन_9
+  jmp .L_सार्थक_पंजीकरण_बिल्टिन__if_सत्य_28
+.L_किनारा_सार्थक_पंजीकरण_बिल्टिन_9:
+  jmp .L_सार्थक_पंजीकरण_बिल्टिन__if_असत्य_30
+.L_सार्थक_पंजीकरण_बिल्टिन__if_असत्य_30:
+  movq -904(%rbp), %rcx
   movq %rbx, %rdx
   subq $32, %rsp
   call sutra_arr_get
   addq $32, %rsp
   movq %rax, %r12
   movq %r12, -1568(%rbp)
-  leaq .LC_str_356(%rip), %rcx
-  movq .LC_str_356_len(%rip), %rdx
+  leaq .LC_str_340(%rip), %rcx
+  movq .LC_str_340_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -48709,28 +48664,22 @@
   movq %rax, %r14
   movq $0, -1568(%rbp)
   movq $0, -1576(%rbp)
-  movq %r14, %r12
-  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_39
-.L_सार्थक_पंजीकरण_बिल्टिन__sc_लघु_38:
-  movq $1, %r12
-  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_39
-.L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_39:
-  movq %r12, %r10
+  movq %r14, %r10
   cmpq $0, %r10
-  je .L_किनारा_सार्थक_पंजीकरण_बिल्टिन_13
-  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_लघु_41
-.L_किनारा_सार्थक_पंजीकरण_बिल्टिन_13:
-  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_दायाँ_40
-.L_सार्थक_पंजीकरण_बिल्टिन__sc_दायाँ_40:
-  movq -872(%rbp), %rcx
+  je .L_किनारा_सार्थक_पंजीकरण_बिल्टिन_10
+  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_लघु_32
+.L_किनारा_सार्थक_पंजीकरण_बिल्टिन_10:
+  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_दायाँ_31
+.L_सार्थक_पंजीकरण_बिल्टिन__sc_दायाँ_31:
+  movq -904(%rbp), %rcx
   movq %rbx, %rdx
   subq $32, %rsp
   call sutra_arr_get
   addq $32, %rsp
   movq %rax, %r12
   movq %r12, -1584(%rbp)
-  leaq .LC_str_357(%rip), %rcx
-  movq .LC_str_357_len(%rip), %rdx
+  leaq .LC_str_344(%rip), %rcx
+  movq .LC_str_344_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -48745,27 +48694,27 @@
   movq $0, -1584(%rbp)
   movq $0, -1592(%rbp)
   movq %r14, %r12
-  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_42
-.L_सार्थक_पंजीकरण_बिल्टिन__sc_लघु_41:
+  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_33
+.L_सार्थक_पंजीकरण_बिल्टिन__sc_लघु_32:
   movq $1, %r12
-  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_42
-.L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_42:
+  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_33
+.L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_33:
   movq %r12, %r10
   cmpq $0, %r10
-  je .L_किनारा_सार्थक_पंजीकरण_बिल्टिन_14
-  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_लघु_44
-.L_किनारा_सार्थक_पंजीकरण_बिल्टिन_14:
-  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_दायाँ_43
-.L_सार्थक_पंजीकरण_बिल्टिन__sc_दायाँ_43:
-  movq -872(%rbp), %rcx
+  je .L_किनारा_सार्थक_पंजीकरण_बिल्टिन_11
+  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_लघु_35
+.L_किनारा_सार्थक_पंजीकरण_बिल्टिन_11:
+  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_दायाँ_34
+.L_सार्थक_पंजीकरण_बिल्टिन__sc_दायाँ_34:
+  movq -904(%rbp), %rcx
   movq %rbx, %rdx
   subq $32, %rsp
   call sutra_arr_get
   addq $32, %rsp
   movq %rax, %r12
   movq %r12, -1600(%rbp)
-  leaq .LC_str_358(%rip), %rcx
-  movq .LC_str_358_len(%rip), %rdx
+  leaq .LC_str_346(%rip), %rcx
+  movq .LC_str_346_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -48780,27 +48729,27 @@
   movq $0, -1600(%rbp)
   movq $0, -1608(%rbp)
   movq %r14, %r12
-  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_45
-.L_सार्थक_पंजीकरण_बिल्टिन__sc_लघु_44:
+  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_36
+.L_सार्थक_पंजीकरण_बिल्टिन__sc_लघु_35:
   movq $1, %r12
-  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_45
-.L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_45:
+  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_36
+.L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_36:
   movq %r12, %r10
   cmpq $0, %r10
-  je .L_किनारा_सार्थक_पंजीकरण_बिल्टिन_15
-  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_लघु_47
-.L_किनारा_सार्थक_पंजीकरण_बिल्टिन_15:
-  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_दायाँ_46
-.L_सार्थक_पंजीकरण_बिल्टिन__sc_दायाँ_46:
-  movq -872(%rbp), %rcx
+  je .L_किनारा_सार्थक_पंजीकरण_बिल्टिन_12
+  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_लघु_38
+.L_किनारा_सार्थक_पंजीकरण_बिल्टिन_12:
+  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_दायाँ_37
+.L_सार्थक_पंजीकरण_बिल्टिन__sc_दायाँ_37:
+  movq -904(%rbp), %rcx
   movq %rbx, %rdx
   subq $32, %rsp
   call sutra_arr_get
   addq $32, %rsp
   movq %rax, %r12
   movq %r12, -1616(%rbp)
-  leaq .LC_str_361(%rip), %rcx
-  movq .LC_str_361_len(%rip), %rdx
+  leaq .LC_str_347(%rip), %rcx
+  movq .LC_str_347_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -48815,27 +48764,27 @@
   movq $0, -1616(%rbp)
   movq $0, -1624(%rbp)
   movq %r14, %r12
-  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_48
-.L_सार्थक_पंजीकरण_बिल्टिन__sc_लघु_47:
+  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_39
+.L_सार्थक_पंजीकरण_बिल्टिन__sc_लघु_38:
   movq $1, %r12
-  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_48
-.L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_48:
+  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_39
+.L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_39:
   movq %r12, %r10
   cmpq $0, %r10
-  je .L_किनारा_सार्थक_पंजीकरण_बिल्टिन_16
-  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_लघु_50
-.L_किनारा_सार्थक_पंजीकरण_बिल्टिन_16:
-  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_दायाँ_49
-.L_सार्थक_पंजीकरण_बिल्टिन__sc_दायाँ_49:
-  movq -872(%rbp), %rcx
+  je .L_किनारा_सार्थक_पंजीकरण_बिल्टिन_13
+  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_लघु_41
+.L_किनारा_सार्थक_पंजीकरण_बिल्टिन_13:
+  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_दायाँ_40
+.L_सार्थक_पंजीकरण_बिल्टिन__sc_दायाँ_40:
+  movq -904(%rbp), %rcx
   movq %rbx, %rdx
   subq $32, %rsp
   call sutra_arr_get
   addq $32, %rsp
   movq %rax, %r12
   movq %r12, -1632(%rbp)
-  leaq .LC_str_363(%rip), %rcx
-  movq .LC_str_363_len(%rip), %rdx
+  leaq .LC_str_353(%rip), %rcx
+  movq .LC_str_353_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -48850,27 +48799,27 @@
   movq $0, -1632(%rbp)
   movq $0, -1640(%rbp)
   movq %r14, %r12
-  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_51
-.L_सार्थक_पंजीकरण_बिल्टिन__sc_लघु_50:
+  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_42
+.L_सार्थक_पंजीकरण_बिल्टिन__sc_लघु_41:
   movq $1, %r12
-  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_51
-.L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_51:
+  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_42
+.L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_42:
   movq %r12, %r10
   cmpq $0, %r10
-  je .L_किनारा_सार्थक_पंजीकरण_बिल्टिन_17
-  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_लघु_53
-.L_किनारा_सार्थक_पंजीकरण_बिल्टिन_17:
-  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_दायाँ_52
-.L_सार्थक_पंजीकरण_बिल्टिन__sc_दायाँ_52:
-  movq -872(%rbp), %rcx
+  je .L_किनारा_सार्थक_पंजीकरण_बिल्टिन_14
+  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_लघु_44
+.L_किनारा_सार्थक_पंजीकरण_बिल्टिन_14:
+  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_दायाँ_43
+.L_सार्थक_पंजीकरण_बिल्टिन__sc_दायाँ_43:
+  movq -904(%rbp), %rcx
   movq %rbx, %rdx
   subq $32, %rsp
   call sutra_arr_get
   addq $32, %rsp
   movq %rax, %r12
   movq %r12, -1648(%rbp)
-  leaq .LC_str_364(%rip), %rcx
-  movq .LC_str_364_len(%rip), %rdx
+  leaq .LC_str_356(%rip), %rcx
+  movq .LC_str_356_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -48885,27 +48834,27 @@
   movq $0, -1648(%rbp)
   movq $0, -1656(%rbp)
   movq %r14, %r12
-  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_54
-.L_सार्थक_पंजीकरण_बिल्टिन__sc_लघु_53:
+  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_45
+.L_सार्थक_पंजीकरण_बिल्टिन__sc_लघु_44:
   movq $1, %r12
-  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_54
-.L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_54:
+  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_45
+.L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_45:
   movq %r12, %r10
   cmpq $0, %r10
-  je .L_किनारा_सार्थक_पंजीकरण_बिल्टिन_18
-  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_लघु_56
-.L_किनारा_सार्थक_पंजीकरण_बिल्टिन_18:
-  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_दायाँ_55
-.L_सार्थक_पंजीकरण_बिल्टिन__sc_दायाँ_55:
-  movq -872(%rbp), %rcx
+  je .L_किनारा_सार्थक_पंजीकरण_बिल्टिन_15
+  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_लघु_47
+.L_किनारा_सार्थक_पंजीकरण_बिल्टिन_15:
+  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_दायाँ_46
+.L_सार्थक_पंजीकरण_बिल्टिन__sc_दायाँ_46:
+  movq -904(%rbp), %rcx
   movq %rbx, %rdx
   subq $32, %rsp
   call sutra_arr_get
   addq $32, %rsp
   movq %rax, %r12
   movq %r12, -1664(%rbp)
-  leaq .LC_str_366(%rip), %rcx
-  movq .LC_str_366_len(%rip), %rdx
+  leaq .LC_str_357(%rip), %rcx
+  movq .LC_str_357_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -48920,27 +48869,27 @@
   movq $0, -1664(%rbp)
   movq $0, -1672(%rbp)
   movq %r14, %r12
-  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_57
-.L_सार्थक_पंजीकरण_बिल्टिन__sc_लघु_56:
+  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_48
+.L_सार्थक_पंजीकरण_बिल्टिन__sc_लघु_47:
   movq $1, %r12
-  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_57
-.L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_57:
+  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_48
+.L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_48:
   movq %r12, %r10
   cmpq $0, %r10
-  je .L_किनारा_सार्थक_पंजीकरण_बिल्टिन_19
-  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_लघु_59
-.L_किनारा_सार्थक_पंजीकरण_बिल्टिन_19:
-  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_दायाँ_58
-.L_सार्थक_पंजीकरण_बिल्टिन__sc_दायाँ_58:
-  movq -872(%rbp), %rcx
+  je .L_किनारा_सार्थक_पंजीकरण_बिल्टिन_16
+  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_लघु_50
+.L_किनारा_सार्थक_पंजीकरण_बिल्टिन_16:
+  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_दायाँ_49
+.L_सार्थक_पंजीकरण_बिल्टिन__sc_दायाँ_49:
+  movq -904(%rbp), %rcx
   movq %rbx, %rdx
   subq $32, %rsp
   call sutra_arr_get
   addq $32, %rsp
   movq %rax, %r12
   movq %r12, -1680(%rbp)
-  leaq .LC_str_367(%rip), %rcx
-  movq .LC_str_367_len(%rip), %rdx
+  leaq .LC_str_358(%rip), %rcx
+  movq .LC_str_358_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -48955,27 +48904,27 @@
   movq $0, -1680(%rbp)
   movq $0, -1688(%rbp)
   movq %r14, %r12
-  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_60
-.L_सार्थक_पंजीकरण_बिल्टिन__sc_लघु_59:
+  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_51
+.L_सार्थक_पंजीकरण_बिल्टिन__sc_लघु_50:
   movq $1, %r12
-  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_60
-.L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_60:
+  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_51
+.L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_51:
   movq %r12, %r10
   cmpq $0, %r10
-  je .L_किनारा_सार्थक_पंजीकरण_बिल्टिन_20
-  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_लघु_62
-.L_किनारा_सार्थक_पंजीकरण_बिल्टिन_20:
-  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_दायाँ_61
-.L_सार्थक_पंजीकरण_बिल्टिन__sc_दायाँ_61:
-  movq -872(%rbp), %rcx
+  je .L_किनारा_सार्थक_पंजीकरण_बिल्टिन_17
+  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_लघु_53
+.L_किनारा_सार्थक_पंजीकरण_बिल्टिन_17:
+  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_दायाँ_52
+.L_सार्थक_पंजीकरण_बिल्टिन__sc_दायाँ_52:
+  movq -904(%rbp), %rcx
   movq %rbx, %rdx
   subq $32, %rsp
   call sutra_arr_get
   addq $32, %rsp
   movq %rax, %r12
   movq %r12, -1696(%rbp)
-  leaq .LC_str_370(%rip), %rcx
-  movq .LC_str_370_len(%rip), %rdx
+  leaq .LC_str_361(%rip), %rcx
+  movq .LC_str_361_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -48990,27 +48939,27 @@
   movq $0, -1696(%rbp)
   movq $0, -1704(%rbp)
   movq %r14, %r12
-  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_63
-.L_सार्थक_पंजीकरण_बिल्टिन__sc_लघु_62:
+  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_54
+.L_सार्थक_पंजीकरण_बिल्टिन__sc_लघु_53:
   movq $1, %r12
-  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_63
-.L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_63:
+  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_54
+.L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_54:
   movq %r12, %r10
   cmpq $0, %r10
-  je .L_किनारा_सार्थक_पंजीकरण_बिल्टिन_21
-  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_लघु_65
-.L_किनारा_सार्थक_पंजीकरण_बिल्टिन_21:
-  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_दायाँ_64
-.L_सार्थक_पंजीकरण_बिल्टिन__sc_दायाँ_64:
-  movq -872(%rbp), %rcx
+  je .L_किनारा_सार्थक_पंजीकरण_बिल्टिन_18
+  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_लघु_56
+.L_किनारा_सार्थक_पंजीकरण_बिल्टिन_18:
+  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_दायाँ_55
+.L_सार्थक_पंजीकरण_बिल्टिन__sc_दायाँ_55:
+  movq -904(%rbp), %rcx
   movq %rbx, %rdx
   subq $32, %rsp
   call sutra_arr_get
   addq $32, %rsp
   movq %rax, %r12
   movq %r12, -1712(%rbp)
-  leaq .LC_str_371(%rip), %rcx
-  movq .LC_str_371_len(%rip), %rdx
+  leaq .LC_str_363(%rip), %rcx
+  movq .LC_str_363_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -49025,27 +48974,27 @@
   movq $0, -1712(%rbp)
   movq $0, -1720(%rbp)
   movq %r14, %r12
-  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_66
-.L_सार्थक_पंजीकरण_बिल्टिन__sc_लघु_65:
+  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_57
+.L_सार्थक_पंजीकरण_बिल्टिन__sc_लघु_56:
   movq $1, %r12
-  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_66
-.L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_66:
+  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_57
+.L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_57:
   movq %r12, %r10
   cmpq $0, %r10
-  je .L_किनारा_सार्थक_पंजीकरण_बिल्टिन_22
-  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_लघु_68
-.L_किनारा_सार्थक_पंजीकरण_बिल्टिन_22:
-  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_दायाँ_67
-.L_सार्थक_पंजीकरण_बिल्टिन__sc_दायाँ_67:
-  movq -872(%rbp), %rcx
+  je .L_किनारा_सार्थक_पंजीकरण_बिल्टिन_19
+  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_लघु_59
+.L_किनारा_सार्थक_पंजीकरण_बिल्टिन_19:
+  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_दायाँ_58
+.L_सार्थक_पंजीकरण_बिल्टिन__sc_दायाँ_58:
+  movq -904(%rbp), %rcx
   movq %rbx, %rdx
   subq $32, %rsp
   call sutra_arr_get
   addq $32, %rsp
   movq %rax, %r12
   movq %r12, -1728(%rbp)
-  leaq .LC_str_383(%rip), %rcx
-  movq .LC_str_383_len(%rip), %rdx
+  leaq .LC_str_364(%rip), %rcx
+  movq .LC_str_364_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -49060,27 +49009,27 @@
   movq $0, -1728(%rbp)
   movq $0, -1736(%rbp)
   movq %r14, %r12
-  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_69
-.L_सार्थक_पंजीकरण_बिल्टिन__sc_लघु_68:
+  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_60
+.L_सार्थक_पंजीकरण_बिल्टिन__sc_लघु_59:
   movq $1, %r12
-  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_69
-.L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_69:
+  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_60
+.L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_60:
   movq %r12, %r10
   cmpq $0, %r10
-  je .L_किनारा_सार्थक_पंजीकरण_बिल्टिन_23
-  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_लघु_71
-.L_किनारा_सार्थक_पंजीकरण_बिल्टिन_23:
-  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_दायाँ_70
-.L_सार्थक_पंजीकरण_बिल्टिन__sc_दायाँ_70:
-  movq -872(%rbp), %rcx
+  je .L_किनारा_सार्थक_पंजीकरण_बिल्टिन_20
+  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_लघु_62
+.L_किनारा_सार्थक_पंजीकरण_बिल्टिन_20:
+  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_दायाँ_61
+.L_सार्थक_पंजीकरण_बिल्टिन__sc_दायाँ_61:
+  movq -904(%rbp), %rcx
   movq %rbx, %rdx
   subq $32, %rsp
   call sutra_arr_get
   addq $32, %rsp
   movq %rax, %r12
   movq %r12, -1744(%rbp)
-  leaq .LC_str_384(%rip), %rcx
-  movq .LC_str_384_len(%rip), %rdx
+  leaq .LC_str_366(%rip), %rcx
+  movq .LC_str_366_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -49095,27 +49044,27 @@
   movq $0, -1744(%rbp)
   movq $0, -1752(%rbp)
   movq %r14, %r12
-  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_72
-.L_सार्थक_पंजीकरण_बिल्टिन__sc_लघु_71:
+  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_63
+.L_सार्थक_पंजीकरण_बिल्टिन__sc_लघु_62:
   movq $1, %r12
-  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_72
-.L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_72:
+  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_63
+.L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_63:
   movq %r12, %r10
   cmpq $0, %r10
-  je .L_किनारा_सार्थक_पंजीकरण_बिल्टिन_24
-  jmp .L_सार्थक_पंजीकरण_बिल्टिन__if_सत्य_73
-.L_किनारा_सार्थक_पंजीकरण_बिल्टिन_24:
-  jmp .L_सार्थक_पंजीकरण_बिल्टिन__if_असत्य_75
-.L_सार्थक_पंजीकरण_बिल्टिन__if_असत्य_75:
-  movq -872(%rbp), %rcx
+  je .L_किनारा_सार्थक_पंजीकरण_बिल्टिन_21
+  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_लघु_65
+.L_किनारा_सार्थक_पंजीकरण_बिल्टिन_21:
+  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_दायाँ_64
+.L_सार्थक_पंजीकरण_बिल्टिन__sc_दायाँ_64:
+  movq -904(%rbp), %rcx
   movq %rbx, %rdx
   subq $32, %rsp
   call sutra_arr_get
   addq $32, %rsp
   movq %rax, %r12
   movq %r12, -1760(%rbp)
-  leaq .LC_str_355(%rip), %rcx
-  movq .LC_str_355_len(%rip), %rdx
+  leaq .LC_str_367(%rip), %rcx
+  movq .LC_str_367_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -49129,22 +49078,28 @@
   movq %rax, %r14
   movq $0, -1760(%rbp)
   movq $0, -1768(%rbp)
-  movq %r14, %r10
+  movq %r14, %r12
+  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_66
+.L_सार्थक_पंजीकरण_बिल्टिन__sc_लघु_65:
+  movq $1, %r12
+  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_66
+.L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_66:
+  movq %r12, %r10
   cmpq $0, %r10
-  je .L_किनारा_सार्थक_पंजीकरण_बिल्टिन_25
-  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_लघु_77
-.L_किनारा_सार्थक_पंजीकरण_बिल्टिन_25:
-  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_दायाँ_76
-.L_सार्थक_पंजीकरण_बिल्टिन__sc_दायाँ_76:
-  movq -872(%rbp), %rcx
+  je .L_किनारा_सार्थक_पंजीकरण_बिल्टिन_22
+  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_लघु_68
+.L_किनारा_सार्थक_पंजीकरण_बिल्टिन_22:
+  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_दायाँ_67
+.L_सार्थक_पंजीकरण_बिल्टिन__sc_दायाँ_67:
+  movq -904(%rbp), %rcx
   movq %rbx, %rdx
   subq $32, %rsp
   call sutra_arr_get
   addq $32, %rsp
   movq %rax, %r12
   movq %r12, -1776(%rbp)
-  leaq .LC_str_360(%rip), %rcx
-  movq .LC_str_360_len(%rip), %rdx
+  leaq .LC_str_370(%rip), %rcx
+  movq .LC_str_370_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -49159,27 +49114,27 @@
   movq $0, -1776(%rbp)
   movq $0, -1784(%rbp)
   movq %r14, %r12
-  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_78
-.L_सार्थक_पंजीकरण_बिल्टिन__sc_लघु_77:
+  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_69
+.L_सार्थक_पंजीकरण_बिल्टिन__sc_लघु_68:
   movq $1, %r12
-  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_78
-.L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_78:
+  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_69
+.L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_69:
   movq %r12, %r10
   cmpq $0, %r10
-  je .L_किनारा_सार्थक_पंजीकरण_बिल्टिन_26
-  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_लघु_80
-.L_किनारा_सार्थक_पंजीकरण_बिल्टिन_26:
-  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_दायाँ_79
-.L_सार्थक_पंजीकरण_बिल्टिन__sc_दायाँ_79:
-  movq -872(%rbp), %rcx
+  je .L_किनारा_सार्थक_पंजीकरण_बिल्टिन_23
+  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_लघु_71
+.L_किनारा_सार्थक_पंजीकरण_बिल्टिन_23:
+  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_दायाँ_70
+.L_सार्थक_पंजीकरण_बिल्टिन__sc_दायाँ_70:
+  movq -904(%rbp), %rcx
   movq %rbx, %rdx
   subq $32, %rsp
   call sutra_arr_get
   addq $32, %rsp
   movq %rax, %r12
   movq %r12, -1792(%rbp)
-  leaq .LC_str_362(%rip), %rcx
-  movq .LC_str_362_len(%rip), %rdx
+  leaq .LC_str_371(%rip), %rcx
+  movq .LC_str_371_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -49194,27 +49149,27 @@
   movq $0, -1792(%rbp)
   movq $0, -1800(%rbp)
   movq %r14, %r12
-  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_81
-.L_सार्थक_पंजीकरण_बिल्टिन__sc_लघु_80:
+  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_72
+.L_सार्थक_पंजीकरण_बिल्टिन__sc_लघु_71:
   movq $1, %r12
-  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_81
-.L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_81:
+  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_72
+.L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_72:
   movq %r12, %r10
   cmpq $0, %r10
-  je .L_किनारा_सार्थक_पंजीकरण_बिल्टिन_27
-  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_लघु_83
-.L_किनारा_सार्थक_पंजीकरण_बिल्टिन_27:
-  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_दायाँ_82
-.L_सार्थक_पंजीकरण_बिल्टिन__sc_दायाँ_82:
-  movq -872(%rbp), %rcx
+  je .L_किनारा_सार्थक_पंजीकरण_बिल्टिन_24
+  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_लघु_74
+.L_किनारा_सार्थक_पंजीकरण_बिल्टिन_24:
+  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_दायाँ_73
+.L_सार्थक_पंजीकरण_बिल्टिन__sc_दायाँ_73:
+  movq -904(%rbp), %rcx
   movq %rbx, %rdx
   subq $32, %rsp
   call sutra_arr_get
   addq $32, %rsp
   movq %rax, %r12
   movq %r12, -1808(%rbp)
-  leaq .LC_str_372(%rip), %rcx
-  movq .LC_str_372_len(%rip), %rdx
+  leaq .LC_str_383(%rip), %rcx
+  movq .LC_str_383_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -49229,27 +49184,27 @@
   movq $0, -1808(%rbp)
   movq $0, -1816(%rbp)
   movq %r14, %r12
-  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_84
-.L_सार्थक_पंजीकरण_बिल्टिन__sc_लघु_83:
+  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_75
+.L_सार्थक_पंजीकरण_बिल्टिन__sc_लघु_74:
   movq $1, %r12
-  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_84
-.L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_84:
+  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_75
+.L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_75:
   movq %r12, %r10
   cmpq $0, %r10
-  je .L_किनारा_सार्थक_पंजीकरण_बिल्टिन_28
-  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_लघु_86
-.L_किनारा_सार्थक_पंजीकरण_बिल्टिन_28:
-  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_दायाँ_85
-.L_सार्थक_पंजीकरण_बिल्टिन__sc_दायाँ_85:
-  movq -872(%rbp), %rcx
+  je .L_किनारा_सार्थक_पंजीकरण_बिल्टिन_25
+  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_लघु_77
+.L_किनारा_सार्थक_पंजीकरण_बिल्टिन_25:
+  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_दायाँ_76
+.L_सार्थक_पंजीकरण_बिल्टिन__sc_दायाँ_76:
+  movq -904(%rbp), %rcx
   movq %rbx, %rdx
   subq $32, %rsp
   call sutra_arr_get
   addq $32, %rsp
   movq %rax, %r12
   movq %r12, -1824(%rbp)
-  leaq .LC_str_373(%rip), %rcx
-  movq .LC_str_373_len(%rip), %rdx
+  leaq .LC_str_384(%rip), %rcx
+  movq .LC_str_384_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -49264,27 +49219,27 @@
   movq $0, -1824(%rbp)
   movq $0, -1832(%rbp)
   movq %r14, %r12
-  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_87
-.L_सार्थक_पंजीकरण_बिल्टिन__sc_लघु_86:
+  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_78
+.L_सार्थक_पंजीकरण_बिल्टिन__sc_लघु_77:
   movq $1, %r12
-  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_87
-.L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_87:
+  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_78
+.L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_78:
   movq %r12, %r10
   cmpq $0, %r10
-  je .L_किनारा_सार्थक_पंजीकरण_बिल्टिन_29
-  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_लघु_89
-.L_किनारा_सार्थक_पंजीकरण_बिल्टिन_29:
-  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_दायाँ_88
-.L_सार्थक_पंजीकरण_बिल्टिन__sc_दायाँ_88:
-  movq -872(%rbp), %rcx
+  je .L_किनारा_सार्थक_पंजीकरण_बिल्टिन_26
+  jmp .L_सार्थक_पंजीकरण_बिल्टिन__if_सत्य_79
+.L_किनारा_सार्थक_पंजीकरण_बिल्टिन_26:
+  jmp .L_सार्थक_पंजीकरण_बिल्टिन__if_असत्य_81
+.L_सार्थक_पंजीकरण_बिल्टिन__if_असत्य_81:
+  movq -904(%rbp), %rcx
   movq %rbx, %rdx
   subq $32, %rsp
   call sutra_arr_get
   addq $32, %rsp
   movq %rax, %r12
   movq %r12, -1840(%rbp)
-  leaq .LC_str_377(%rip), %rcx
-  movq .LC_str_377_len(%rip), %rdx
+  leaq .LC_str_355(%rip), %rcx
+  movq .LC_str_355_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -49298,6 +49253,105 @@
   movq %rax, %r14
   movq $0, -1840(%rbp)
   movq $0, -1848(%rbp)
+  movq %r14, %r10
+  cmpq $0, %r10
+  je .L_किनारा_सार्थक_पंजीकरण_बिल्टिन_27
+  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_लघु_83
+.L_किनारा_सार्थक_पंजीकरण_बिल्टिन_27:
+  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_दायाँ_82
+.L_सार्थक_पंजीकरण_बिल्टिन__sc_दायाँ_82:
+  movq -904(%rbp), %rcx
+  movq %rbx, %rdx
+  subq $32, %rsp
+  call sutra_arr_get
+  addq $32, %rsp
+  movq %rax, %r12
+  movq %r12, -1856(%rbp)
+  leaq .LC_str_360(%rip), %rcx
+  movq .LC_str_360_len(%rip), %rdx
+  subq $32, %rsp
+  call sutra_str_alloc
+  addq $32, %rsp
+  movq %rax, %r13
+  movq %r13, -1864(%rbp)
+  movq %r12, %rcx
+  movq %r13, %rdx
+  subq $32, %rsp
+  call पाठ_तुल्य
+  addq $32, %rsp
+  movq %rax, %r14
+  movq $0, -1856(%rbp)
+  movq $0, -1864(%rbp)
+  movq %r14, %r12
+  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_84
+.L_सार्थक_पंजीकरण_बिल्टिन__sc_लघु_83:
+  movq $1, %r12
+  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_84
+.L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_84:
+  movq %r12, %r10
+  cmpq $0, %r10
+  je .L_किनारा_सार्थक_पंजीकरण_बिल्टिन_28
+  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_लघु_86
+.L_किनारा_सार्थक_पंजीकरण_बिल्टिन_28:
+  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_दायाँ_85
+.L_सार्थक_पंजीकरण_बिल्टिन__sc_दायाँ_85:
+  movq -904(%rbp), %rcx
+  movq %rbx, %rdx
+  subq $32, %rsp
+  call sutra_arr_get
+  addq $32, %rsp
+  movq %rax, %r12
+  movq %r12, -1872(%rbp)
+  leaq .LC_str_362(%rip), %rcx
+  movq .LC_str_362_len(%rip), %rdx
+  subq $32, %rsp
+  call sutra_str_alloc
+  addq $32, %rsp
+  movq %rax, %r13
+  movq %r13, -1880(%rbp)
+  movq %r12, %rcx
+  movq %r13, %rdx
+  subq $32, %rsp
+  call पाठ_तुल्य
+  addq $32, %rsp
+  movq %rax, %r14
+  movq $0, -1872(%rbp)
+  movq $0, -1880(%rbp)
+  movq %r14, %r12
+  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_87
+.L_सार्थक_पंजीकरण_बिल्टिन__sc_लघु_86:
+  movq $1, %r12
+  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_87
+.L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_87:
+  movq %r12, %r10
+  cmpq $0, %r10
+  je .L_किनारा_सार्थक_पंजीकरण_बिल्टिन_29
+  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_लघु_89
+.L_किनारा_सार्थक_पंजीकरण_बिल्टिन_29:
+  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_दायाँ_88
+.L_सार्थक_पंजीकरण_बिल्टिन__sc_दायाँ_88:
+  movq -904(%rbp), %rcx
+  movq %rbx, %rdx
+  subq $32, %rsp
+  call sutra_arr_get
+  addq $32, %rsp
+  movq %rax, %r12
+  movq %r12, -1888(%rbp)
+  leaq .LC_str_372(%rip), %rcx
+  movq .LC_str_372_len(%rip), %rdx
+  subq $32, %rsp
+  call sutra_str_alloc
+  addq $32, %rsp
+  movq %rax, %r13
+  movq %r13, -1896(%rbp)
+  movq %r12, %rcx
+  movq %r13, %rdx
+  subq $32, %rsp
+  call पाठ_तुल्य
+  addq $32, %rsp
+  movq %rax, %r14
+  movq $0, -1888(%rbp)
+  movq $0, -1896(%rbp)
   movq %r14, %r12
   jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_90
 .L_सार्थक_पंजीकरण_बिल्टिन__sc_लघु_89:
@@ -49307,90 +49361,160 @@
   movq %r12, %r10
   cmpq $0, %r10
   je .L_किनारा_सार्थक_पंजीकरण_बिल्टिन_30
-  jmp .L_सार्थक_पंजीकरण_बिल्टिन__if_सत्य_91
+  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_लघु_92
 .L_किनारा_सार्थक_पंजीकरण_बिल्टिन_30:
-  jmp .L_सार्थक_पंजीकरण_बिल्टिन__if_अंत_92
-.L_सार्थक_पंजीकरण_बिल्टिन__if_सत्य_91:
+  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_दायाँ_91
+.L_सार्थक_पंजीकरण_बिल्टिन__sc_दायाँ_91:
+  movq -904(%rbp), %rcx
+  movq %rbx, %rdx
+  subq $32, %rsp
+  call sutra_arr_get
+  addq $32, %rsp
+  movq %rax, %r12
+  movq %r12, -1904(%rbp)
+  leaq .LC_str_373(%rip), %rcx
+  movq .LC_str_373_len(%rip), %rdx
+  subq $32, %rsp
+  call sutra_str_alloc
+  addq $32, %rsp
+  movq %rax, %r13
+  movq %r13, -1912(%rbp)
+  movq %r12, %rcx
+  movq %r13, %rdx
+  subq $32, %rsp
+  call पाठ_तुल्य
+  addq $32, %rsp
+  movq %rax, %r14
+  movq $0, -1904(%rbp)
+  movq $0, -1912(%rbp)
+  movq %r14, %r12
+  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_93
+.L_सार्थक_पंजीकरण_बिल्टिन__sc_लघु_92:
+  movq $1, %r12
+  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_93
+.L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_93:
+  movq %r12, %r10
+  cmpq $0, %r10
+  je .L_किनारा_सार्थक_पंजीकरण_बिल्टिन_31
+  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_लघु_95
+.L_किनारा_सार्थक_पंजीकरण_बिल्टिन_31:
+  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_दायाँ_94
+.L_सार्थक_पंजीकरण_बिल्टिन__sc_दायाँ_94:
+  movq -904(%rbp), %rcx
+  movq %rbx, %rdx
+  subq $32, %rsp
+  call sutra_arr_get
+  addq $32, %rsp
+  movq %rax, %r12
+  movq %r12, -1920(%rbp)
+  leaq .LC_str_377(%rip), %rcx
+  movq .LC_str_377_len(%rip), %rdx
+  subq $32, %rsp
+  call sutra_str_alloc
+  addq $32, %rsp
+  movq %rax, %r13
+  movq %r13, -1928(%rbp)
+  movq %r12, %rcx
+  movq %r13, %rdx
+  subq $32, %rsp
+  call पाठ_तुल्य
+  addq $32, %rsp
+  movq %rax, %r14
+  movq $0, -1920(%rbp)
+  movq $0, -1928(%rbp)
+  movq %r14, %r12
+  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_96
+.L_सार्थक_पंजीकरण_बिल्टिन__sc_लघु_95:
+  movq $1, %r12
+  jmp .L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_96
+.L_सार्थक_पंजीकरण_बिल्टिन__sc_अंत_96:
+  movq %r12, %r10
+  cmpq $0, %r10
+  je .L_किनारा_सार्थक_पंजीकरण_बिल्टिन_32
+  jmp .L_सार्थक_पंजीकरण_बिल्टिन__if_सत्य_97
+.L_किनारा_सार्थक_पंजीकरण_बिल्टिन_32:
+  jmp .L_सार्थक_पंजीकरण_बिल्टिन__if_अंत_98
+.L_सार्थक_पंजीकरण_बिल्टिन__if_सत्य_97:
   movq $3, %rdi
-  jmp .L_सार्थक_पंजीकरण_बिल्टिन__if_अंत_92
-.L_सार्थक_पंजीकरण_बिल्टिन__if_अंत_92:
-  jmp .L_सार्थक_पंजीकरण_बिल्टिन__if_अंत_74
-.L_सार्थक_पंजीकरण_बिल्टिन__if_सत्य_73:
+  jmp .L_सार्थक_पंजीकरण_बिल्टिन__if_अंत_98
+.L_सार्थक_पंजीकरण_बिल्टिन__if_अंत_98:
+  jmp .L_सार्थक_पंजीकरण_बिल्टिन__if_अंत_80
+.L_सार्थक_पंजीकरण_बिल्टिन__if_सत्य_79:
   movq $2, %rdi
-  jmp .L_सार्थक_पंजीकरण_बिल्टिन__if_अंत_74
-.L_सार्थक_पंजीकरण_बिल्टिन__if_अंत_74:
-  jmp .L_सार्थक_पंजीकरण_बिल्टिन__if_अंत_23
-.L_सार्थक_पंजीकरण_बिल्टिन__if_सत्य_22:
+  jmp .L_सार्थक_पंजीकरण_बिल्टिन__if_अंत_80
+.L_सार्थक_पंजीकरण_बिल्टिन__if_अंत_80:
+  jmp .L_सार्थक_पंजीकरण_बिल्टिन__if_अंत_29
+.L_सार्थक_पंजीकरण_बिल्टिन__if_सत्य_28:
   movq $0, %rdi
-  jmp .L_सार्थक_पंजीकरण_बिल्टिन__if_अंत_23
-.L_सार्थक_पंजीकरण_बिल्टिन__if_अंत_23:
-  movq %rdi, -1936(%rbp)
+  jmp .L_सार्थक_पंजीकरण_बिल्टिन__if_अंत_29
+.L_सार्थक_पंजीकरण_बिल्टिन__if_अंत_29:
+  movq %rdi, -2016(%rbp)
   leaq .LC_str_166(%rip), %rcx
   movq .LC_str_166_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %r12
-  movq %r12, -1856(%rbp)
-  movq -872(%rbp), %rcx
+  movq %r12, -1936(%rbp)
+  movq -904(%rbp), %rcx
   movq %rbx, %rdx
   subq $32, %rsp
   call sutra_arr_get
   addq $32, %rsp
   movq %rax, %r13
-  movq %r13, -1864(%rbp)
+  movq %r13, -1944(%rbp)
   movq %rsi, %rcx
   movq %r12, %rdx
   movq %r13, %r8
   subq $32, %rsp
   call sutra_arr_set
   addq $32, %rsp
-  movq $0, -1856(%rbp)
-  movq $0, -1864(%rbp)
+  movq $0, -1936(%rbp)
+  movq $0, -1944(%rbp)
   leaq .LC_str_317(%rip), %rcx
   movq .LC_str_317_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %r12
-  movq %r12, -1872(%rbp)
+  movq %r12, -1952(%rbp)
   movq %rsi, %rcx
   movq %r12, %rdx
   movq %rdi, %r8
   subq $32, %rsp
   call sutra_arr_set
   addq $32, %rsp
-  movq $0, -1872(%rbp)
-  movq $0, -1936(%rbp)
+  movq $0, -1952(%rbp)
+  movq $0, -2016(%rbp)
   leaq .LC_str_325(%rip), %rcx
   movq .LC_str_325_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %rdi
-  movq %rdi, -1880(%rbp)
+  movq %rdi, -1960(%rbp)
   leaq .LC_str_309(%rip), %rcx
   movq .LC_str_309_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %r12
-  movq %r12, -1888(%rbp)
+  movq %r12, -1968(%rbp)
   movq %rsi, %rcx
   movq %rdi, %rdx
   movq %r12, %r8
   subq $32, %rsp
   call sutra_arr_set
   addq $32, %rsp
-  movq $0, -1880(%rbp)
-  movq $0, -1888(%rbp)
-  leaq .LC_str_388(%rip), %rcx
-  movq .LC_str_388_len(%rip), %rdx
+  movq $0, -1960(%rbp)
+  movq $0, -1968(%rbp)
+  leaq .LC_str_390(%rip), %rcx
+  movq .LC_str_390_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %rdi
-  movq %rdi, -1896(%rbp)
+  movq %rdi, -1976(%rbp)
   movq $1, %r12
   movq %rsi, %rcx
   movq %rdi, %rdx
@@ -49398,47 +49522,47 @@
   subq $32, %rsp
   call sutra_arr_set
   addq $32, %rsp
-  movq $0, -1896(%rbp)
+  movq $0, -1976(%rbp)
   leaq .LC_str_315(%rip), %rcx
   movq .LC_str_315_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %rdi
-  movq %rdi, -1904(%rbp)
+  movq %rdi, -1984(%rbp)
   movq -72(%rbp), %rcx
   movq %rdi, %rdx
   subq $32, %rsp
   call sutra_arr_get
   addq $32, %rsp
   movq %rax, %r12
-  movq %r12, -1912(%rbp)
-  movq $0, -1904(%rbp)
-  movq -872(%rbp), %rcx
+  movq %r12, -1992(%rbp)
+  movq $0, -1984(%rbp)
+  movq -904(%rbp), %rcx
   movq %rbx, %rdx
   subq $32, %rsp
   call sutra_arr_get
   addq $32, %rsp
   movq %rax, %rdi
-  movq %rdi, -1920(%rbp)
+  movq %rdi, -2000(%rbp)
   movq %r12, %rcx
   movq %rdi, %rdx
   movq %rsi, %r8
   subq $32, %rsp
   call sutra_arr_set
   addq $32, %rsp
-  movq $0, -1352(%rbp)
-  movq $0, -1912(%rbp)
-  movq $0, -1920(%rbp)
+  movq $0, -1400(%rbp)
+  movq $0, -1992(%rbp)
+  movq $0, -2000(%rbp)
   movq $1, %rsi
   movq %rbx, %r10
   addq %rsi, %r10
   movq %r10, %rdi
-  movq $0, -1928(%rbp)
+  movq $0, -2008(%rbp)
   movq %rdi, %rbx
   jmp .L_सार्थक_पंजीकरण_बिल्टिन__wh_शर्त_1
 .L_epilogue_सार्थक_पंजीकरण_बिल्टिन:
-  subl $132, gc_roots_count(%rip)
+  subl $138, gc_roots_count(%rip)
   movq -8(%rbp), %rbx
   movq -16(%rbp), %rsi
   movq -24(%rbp), %rdi
@@ -50261,8 +50385,8 @@
 .L_किनारा_मूल_सार्थक_विश्लेषण_7:
   jmp .L_मूल_सार्थक_विश्लेषण__if_अंत_15
 .L_मूल_सार्थक_विश्लेषण__if_सत्य_14:
-  leaq .LC_str_388(%rip), %rcx
-  movq .LC_str_388_len(%rip), %rdx
+  leaq .LC_str_390(%rip), %rcx
+  movq .LC_str_390_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -50312,8 +50436,8 @@
   movq %rax, %r12
   movq %r12, -552(%rbp)
   movq $0, -544(%rbp)
-  leaq .LC_str_390(%rip), %rcx
-  movq .LC_str_390_len(%rip), %rdx
+  leaq .LC_str_392(%rip), %rcx
+  movq .LC_str_392_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -50665,8 +50789,8 @@
   movq %rax, %r12
   movq %r12, -384(%rbp)
   movq $0, -376(%rbp)
-  leaq .LC_str_389(%rip), %rcx
-  movq .LC_str_389_len(%rip), %rdx
+  leaq .LC_str_391(%rip), %rcx
+  movq .LC_str_391_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -50849,8 +50973,8 @@
   addq $32, %rsp
   movq $0, -56(%rbp)
   movq $0, -64(%rbp)
-  leaq .LC_str_391(%rip), %rcx
-  movq .LC_str_391_len(%rip), %rdx
+  leaq .LC_str_393(%rip), %rcx
+  movq .LC_str_393_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -50871,8 +50995,8 @@
   addq $32, %rsp
   movq $0, -72(%rbp)
   movq $0, -80(%rbp)
-  leaq .LC_str_392(%rip), %rcx
-  movq .LC_str_392_len(%rip), %rdx
+  leaq .LC_str_394(%rip), %rcx
+  movq .LC_str_394_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -50893,8 +51017,8 @@
   addq $32, %rsp
   movq $0, -88(%rbp)
   movq $0, -96(%rbp)
-  leaq .LC_str_393(%rip), %rcx
-  movq .LC_str_393_len(%rip), %rdx
+  leaq .LC_str_395(%rip), %rcx
+  movq .LC_str_395_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -50985,8 +51109,8 @@
   movq %rsi, -96(%rbp)
 
 .L_मध्यम_दशमलव_स्थिरांक__प्रवेश_0:
-  leaq .LC_str_393(%rip), %rcx
-  movq .LC_str_393_len(%rip), %rdx
+  leaq .LC_str_395(%rip), %rcx
+  movq .LC_str_395_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -51029,8 +51153,8 @@
   call दैशिक_लंबाई
   addq $32, %rsp
   movq %rax, %r14
-  leaq .LC_str_393(%rip), %rcx
-  movq .LC_str_393_len(%rip), %rdx
+  leaq .LC_str_395(%rip), %rcx
+  movq .LC_str_395_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -51156,8 +51280,8 @@
   movq %rsi, -96(%rbp)
 
 .L_मध्यम_पाठ_स्थिरांक__प्रवेश_0:
-  leaq .LC_str_392(%rip), %rcx
-  movq .LC_str_392_len(%rip), %rdx
+  leaq .LC_str_394(%rip), %rcx
+  movq .LC_str_394_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -51200,8 +51324,8 @@
   call दैशिक_लंबाई
   addq $32, %rsp
   movq %rax, %r14
-  leaq .LC_str_392(%rip), %rcx
-  movq .LC_str_392_len(%rip), %rdx
+  leaq .LC_str_394(%rip), %rcx
+  movq .LC_str_394_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -51368,8 +51492,8 @@
   addq $32, %rsp
   movq $0, -64(%rbp)
   movq $0, -88(%rbp)
-  leaq .LC_str_394(%rip), %rcx
-  movq .LC_str_394_len(%rip), %rdx
+  leaq .LC_str_396(%rip), %rcx
+  movq .LC_str_396_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -51390,8 +51514,8 @@
   addq $32, %rsp
   movq $0, -96(%rbp)
   movq $0, -104(%rbp)
-  leaq .LC_str_395(%rip), %rcx
-  movq .LC_str_395_len(%rip), %rdx
+  leaq .LC_str_397(%rip), %rcx
+  movq .LC_str_397_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -51412,8 +51536,8 @@
   addq $32, %rsp
   movq $0, -112(%rbp)
   movq $0, -120(%rbp)
-  leaq .LC_str_396(%rip), %rcx
-  movq .LC_str_396_len(%rip), %rdx
+  leaq .LC_str_398(%rip), %rcx
+  movq .LC_str_398_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -51427,8 +51551,8 @@
   call sutra_arr_set
   addq $32, %rsp
   movq $0, -128(%rbp)
-  leaq .LC_str_397(%rip), %rcx
-  movq .LC_str_397_len(%rip), %rdx
+  leaq .LC_str_399(%rip), %rcx
+  movq .LC_str_399_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -51489,8 +51613,8 @@
   movq %rbx, -64(%rbp)
 
 .L_मध्यम_ताजा_आईडी__प्रवेश_0:
-  leaq .LC_str_396(%rip), %rcx
-  movq .LC_str_396_len(%rip), %rdx
+  leaq .LC_str_398(%rip), %rcx
+  movq .LC_str_398_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -51504,8 +51628,8 @@
   movq %rax, %rdi
   movq %rdi, -80(%rbp)
   movq $0, -72(%rbp)
-  leaq .LC_str_396(%rip), %rcx
-  movq .LC_str_396_len(%rip), %rdx
+  leaq .LC_str_398(%rip), %rcx
+  movq .LC_str_398_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -51650,8 +51774,8 @@
   addq $32, %rsp
   movq $0, -88(%rbp)
   movq $0, -120(%rbp)
-  leaq .LC_str_398(%rip), %rcx
-  movq .LC_str_398_len(%rip), %rdx
+  leaq .LC_str_400(%rip), %rcx
+  movq .LC_str_400_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -51664,15 +51788,15 @@
   call sutra_arr_set
   addq $32, %rsp
   movq $0, -128(%rbp)
-  leaq .LC_str_394(%rip), %rcx
-  movq .LC_str_394_len(%rip), %rdx
+  leaq .LC_str_396(%rip), %rcx
+  movq .LC_str_396_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %rsi
   movq %rsi, -136(%rbp)
-  leaq .LC_str_394(%rip), %rcx
-  movq .LC_str_394_len(%rip), %rdx
+  leaq .LC_str_396(%rip), %rcx
+  movq .LC_str_396_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -51821,8 +51945,8 @@
   movq %rsi, -88(%rbp)
 
 .L_मध्यम_नव_खंड__प्रवेश_0:
-  leaq .LC_str_397(%rip), %rcx
-  movq .LC_str_397_len(%rip), %rdx
+  leaq .LC_str_399(%rip), %rcx
+  movq .LC_str_399_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -51836,8 +51960,8 @@
   movq %rax, %r12
   movq %r12, -104(%rbp)
   movq $0, -96(%rbp)
-  leaq .LC_str_397(%rip), %rcx
-  movq .LC_str_397_len(%rip), %rdx
+  leaq .LC_str_399(%rip), %rcx
+  movq .LC_str_399_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -51860,15 +51984,15 @@
   movq %rax, %rdi
   movq %rdi, -120(%rbp)
   movq %rdi, -120(%rbp)
-  leaq .LC_str_399(%rip), %rcx
-  movq .LC_str_399_len(%rip), %rdx
+  leaq .LC_str_401(%rip), %rcx
+  movq .LC_str_401_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %r13
   movq %r13, -128(%rbp)
-  leaq .LC_str_400(%rip), %rcx
-  movq .LC_str_400_len(%rip), %rdx
+  leaq .LC_str_402(%rip), %rcx
+  movq .LC_str_402_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -51900,8 +52024,8 @@
   addq $32, %rsp
   movq $0, -128(%rbp)
   movq $0, -152(%rbp)
-  leaq .LC_str_401(%rip), %rcx
-  movq .LC_str_401_len(%rip), %rdx
+  leaq .LC_str_403(%rip), %rcx
+  movq .LC_str_403_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -51922,8 +52046,8 @@
   addq $32, %rsp
   movq $0, -160(%rbp)
   movq $0, -168(%rbp)
-  leaq .LC_str_402(%rip), %rcx
-  movq .LC_str_402_len(%rip), %rdx
+  leaq .LC_str_404(%rip), %rcx
+  movq .LC_str_404_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -51944,8 +52068,8 @@
   addq $32, %rsp
   movq $0, -176(%rbp)
   movq $0, -184(%rbp)
-  leaq .LC_str_403(%rip), %rcx
-  movq .LC_str_403_len(%rip), %rdx
+  leaq .LC_str_405(%rip), %rcx
+  movq .LC_str_405_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -51961,15 +52085,15 @@
   addq $32, %rsp
   movq $0, -192(%rbp)
   movq $0, -200(%rbp)
-  leaq .LC_str_395(%rip), %rcx
-  movq .LC_str_395_len(%rip), %rdx
+  leaq .LC_str_397(%rip), %rcx
+  movq .LC_str_397_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %rsi
   movq %rsi, -208(%rbp)
-  leaq .LC_str_395(%rip), %rcx
-  movq .LC_str_395_len(%rip), %rdx
+  leaq .LC_str_397(%rip), %rcx
+  movq .LC_str_397_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -52090,8 +52214,8 @@
   movq %rax, %r14
   movq %r14, -112(%rbp)
   movq %r14, -112(%rbp)
-  leaq .LC_str_404(%rip), %rcx
-  movq .LC_str_404_len(%rip), %rdx
+  leaq .LC_str_406(%rip), %rcx
+  movq .LC_str_406_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -52105,8 +52229,8 @@
   addq $32, %rsp
   movq $0, -80(%rbp)
   movq $0, -120(%rbp)
-  leaq .LC_str_398(%rip), %rcx
-  movq .LC_str_398_len(%rip), %rdx
+  leaq .LC_str_400(%rip), %rcx
+  movq .LC_str_400_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -52134,8 +52258,8 @@
   addq $32, %rsp
   movq $0, -88(%rbp)
   movq $0, -136(%rbp)
-  leaq .LC_str_405(%rip), %rcx
-  movq .LC_str_405_len(%rip), %rdx
+  leaq .LC_str_407(%rip), %rcx
+  movq .LC_str_407_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -52149,8 +52273,8 @@
   addq $32, %rsp
   movq $0, -96(%rbp)
   movq $0, -144(%rbp)
-  leaq .LC_str_406(%rip), %rcx
-  movq .LC_str_406_len(%rip), %rdx
+  leaq .LC_str_408(%rip), %rcx
+  movq .LC_str_408_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -52283,15 +52407,15 @@
   movq $0, -104(%rbp)
   movq $0, -112(%rbp)
   movq $0, -120(%rbp)
-  leaq .LC_str_402(%rip), %rcx
-  movq .LC_str_402_len(%rip), %rdx
+  leaq .LC_str_404(%rip), %rcx
+  movq .LC_str_404_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %rdi
   movq %rdi, -144(%rbp)
-  leaq .LC_str_402(%rip), %rcx
-  movq .LC_str_402_len(%rip), %rdx
+  leaq .LC_str_404(%rip), %rcx
+  movq .LC_str_404_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -52406,8 +52530,8 @@
 
 .L_मध्यम_जोड़_प्रभाव__प्रवेश_0:
   movq $-1, %r13
-  leaq .LC_str_407(%rip), %rcx
-  movq .LC_str_407_len(%rip), %rdx
+  leaq .LC_str_409(%rip), %rcx
+  movq .LC_str_409_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -52429,15 +52553,15 @@
   movq $0, -96(%rbp)
   movq $0, -104(%rbp)
   movq $0, -112(%rbp)
-  leaq .LC_str_402(%rip), %rcx
-  movq .LC_str_402_len(%rip), %rdx
+  leaq .LC_str_404(%rip), %rcx
+  movq .LC_str_404_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %rsi
   movq %rsi, -128(%rbp)
-  leaq .LC_str_402(%rip), %rcx
-  movq .LC_str_402_len(%rip), %rdx
+  leaq .LC_str_404(%rip), %rcx
+  movq .LC_str_404_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -52596,8 +52720,8 @@
   addq $32, %rsp
   movq $0, -104(%rbp)
   movq $0, -128(%rbp)
-  leaq .LC_str_401(%rip), %rcx
-  movq .LC_str_401_len(%rip), %rdx
+  leaq .LC_str_403(%rip), %rcx
+  movq .LC_str_403_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -52626,15 +52750,15 @@
   movq $0, -120(%rbp)
   movq $0, -136(%rbp)
   movq $0, -144(%rbp)
-  leaq .LC_str_401(%rip), %rcx
-  movq .LC_str_401_len(%rip), %rdx
+  leaq .LC_str_403(%rip), %rcx
+  movq .LC_str_403_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %rbx
   movq %rbx, -160(%rbp)
-  leaq .LC_str_401(%rip), %rcx
-  movq .LC_str_401_len(%rip), %rdx
+  leaq .LC_str_403(%rip), %rcx
+  movq .LC_str_403_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -52777,23 +52901,23 @@
   jmp .L_मध्यम_वापस__if_अंत_2
 .L_मध्यम_वापस__if_अंत_2:
   movq %rsi, -152(%rbp)
-  leaq .LC_str_403(%rip), %rcx
-  movq .LC_str_403_len(%rip), %rdx
+  leaq .LC_str_405(%rip), %rcx
+  movq .LC_str_405_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %rdi
   movq %rdi, -112(%rbp)
-  leaq .LC_str_408(%rip), %rcx
-  movq .LC_str_408_len(%rip), %rdx
+  leaq .LC_str_410(%rip), %rcx
+  movq .LC_str_410_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %r12
   movq %r12, -120(%rbp)
   movq $-1, %r13
-  leaq .LC_str_407(%rip), %rcx
-  movq .LC_str_407_len(%rip), %rdx
+  leaq .LC_str_409(%rip), %rcx
+  movq .LC_str_409_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -52912,8 +53036,8 @@
   movq %rax, %rdi
   movq %rdi, -104(%rbp)
   movq %rdi, -104(%rbp)
-  leaq .LC_str_409(%rip), %rcx
-  movq .LC_str_409_len(%rip), %rdx
+  leaq .LC_str_411(%rip), %rcx
+  movq .LC_str_411_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -52927,23 +53051,23 @@
   addq $32, %rsp
   movq $0, -96(%rbp)
   movq $0, -112(%rbp)
-  leaq .LC_str_403(%rip), %rcx
-  movq .LC_str_403_len(%rip), %rdx
+  leaq .LC_str_405(%rip), %rcx
+  movq .LC_str_405_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %rsi
   movq %rsi, -120(%rbp)
-  leaq .LC_str_410(%rip), %rcx
-  movq .LC_str_410_len(%rip), %rdx
+  leaq .LC_str_412(%rip), %rcx
+  movq .LC_str_412_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %r12
   movq %r12, -128(%rbp)
   movq $-1, %r13
-  leaq .LC_str_407(%rip), %rcx
-  movq .LC_str_407_len(%rip), %rdx
+  leaq .LC_str_409(%rip), %rcx
+  movq .LC_str_409_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -53104,24 +53228,24 @@
   addq $32, %rsp
   movq $0, -104(%rbp)
   movq $0, -128(%rbp)
-  leaq .LC_str_403(%rip), %rcx
-  movq .LC_str_403_len(%rip), %rdx
+  leaq .LC_str_405(%rip), %rcx
+  movq .LC_str_405_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, -72(%rbp)
   movq -72(%rbp), %r11
   movq %r11, -136(%rbp)
-  leaq .LC_str_411(%rip), %rcx
-  movq .LC_str_411_len(%rip), %rdx
+  leaq .LC_str_413(%rip), %rcx
+  movq .LC_str_413_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %r12
   movq %r12, -144(%rbp)
   movq $-1, %r14
-  leaq .LC_str_407(%rip), %rcx
-  movq .LC_str_407_len(%rip), %rdx
+  leaq .LC_str_409(%rip), %rcx
+  movq .LC_str_409_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -53231,23 +53355,23 @@
   movq %rbx, -88(%rbp)
 
 .L_मध्यम_फेंको__प्रवेश_0:
-  leaq .LC_str_403(%rip), %rcx
-  movq .LC_str_403_len(%rip), %rdx
+  leaq .LC_str_405(%rip), %rcx
+  movq .LC_str_405_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %rdi
   movq %rdi, -96(%rbp)
-  leaq .LC_str_412(%rip), %rcx
-  movq .LC_str_412_len(%rip), %rdx
+  leaq .LC_str_414(%rip), %rcx
+  movq .LC_str_414_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %r12
   movq %r12, -104(%rbp)
   movq $-1, %r13
-  leaq .LC_str_407(%rip), %rcx
-  movq .LC_str_407_len(%rip), %rdx
+  leaq .LC_str_409(%rip), %rcx
+  movq .LC_str_409_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -53380,15 +53504,15 @@
   movq %rax, %r12
   movq %r12, -96(%rbp)
   movq %r12, -96(%rbp)
-  leaq .LC_str_413(%rip), %rcx
-  movq .LC_str_413_len(%rip), %rdx
+  leaq .LC_str_415(%rip), %rcx
+  movq .LC_str_415_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %r13
   movq %r13, -104(%rbp)
-  leaq .LC_str_414(%rip), %rcx
-  movq .LC_str_414_len(%rip), %rdx
+  leaq .LC_str_416(%rip), %rcx
+  movq .LC_str_416_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -53416,15 +53540,15 @@
   call sutra_arr_set
   addq $32, %rsp
   movq $0, -120(%rbp)
-  leaq .LC_str_415(%rip), %rcx
-  movq .LC_str_415_len(%rip), %rdx
+  leaq .LC_str_417(%rip), %rcx
+  movq .LC_str_417_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %rdi
   movq %rdi, -128(%rbp)
-  leaq .LC_str_414(%rip), %rcx
-  movq .LC_str_414_len(%rip), %rdx
+  leaq .LC_str_416(%rip), %rcx
+  movq .LC_str_416_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -53541,8 +53665,8 @@
   movq %rax, %r12
   movq %r12, -104(%rbp)
   movq %r12, -104(%rbp)
-  leaq .LC_str_413(%rip), %rcx
-  movq .LC_str_413_len(%rip), %rdx
+  leaq .LC_str_415(%rip), %rcx
+  movq .LC_str_415_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -53578,8 +53702,8 @@
   addq $32, %rsp
   movq $0, -96(%rbp)
   movq $0, -128(%rbp)
-  leaq .LC_str_415(%rip), %rcx
-  movq .LC_str_415_len(%rip), %rdx
+  leaq .LC_str_417(%rip), %rcx
+  movq .LC_str_417_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -53693,8 +53817,8 @@
   movq %rax, %rdi
   movq %rdi, -96(%rbp)
   movq %rdi, -96(%rbp)
-  leaq .LC_str_413(%rip), %rcx
-  movq .LC_str_413_len(%rip), %rdx
+  leaq .LC_str_415(%rip), %rcx
+  movq .LC_str_415_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -53715,8 +53839,8 @@
   addq $32, %rsp
   movq $0, -104(%rbp)
   movq $0, -112(%rbp)
-  leaq .LC_str_415(%rip), %rcx
-  movq .LC_str_415_len(%rip), %rdx
+  leaq .LC_str_417(%rip), %rcx
+  movq .LC_str_417_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -53859,8 +53983,8 @@
   movq %rax, %rbx
   movq %rbx, -120(%rbp)
   movq %rbx, -120(%rbp)
-  leaq .LC_str_413(%rip), %rcx
-  movq .LC_str_413_len(%rip), %rdx
+  leaq .LC_str_415(%rip), %rcx
+  movq .LC_str_415_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -53896,8 +54020,8 @@
   addq $32, %rsp
   movq $0, -112(%rbp)
   movq $0, -144(%rbp)
-  leaq .LC_str_415(%rip), %rcx
-  movq .LC_str_415_len(%rip), %rdx
+  leaq .LC_str_417(%rip), %rcx
+  movq .LC_str_417_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -54258,8 +54382,8 @@
   addq $32, %rsp
   movq $0, -96(%rbp)
   movq $0, -112(%rbp)
-  leaq .LC_str_416(%rip), %rcx
-  movq .LC_str_416_len(%rip), %rdx
+  leaq .LC_str_418(%rip), %rcx
+  movq .LC_str_418_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -54362,8 +54486,8 @@
   movq %rdi, -96(%rbp)
 
 .L_मध्यम_पढ़_स्लॉट__प्रवेश_0:
-  leaq .LC_str_417(%rip), %rcx
-  movq .LC_str_417_len(%rip), %rdx
+  leaq .LC_str_419(%rip), %rcx
+  movq .LC_str_419_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -54458,8 +54582,8 @@
   movq %rbx, -64(%rbp)
 
 .L_मध्यम_लिख_स्लॉट__प्रवेश_0:
-  leaq .LC_str_418(%rip), %rcx
-  movq .LC_str_418_len(%rip), %rdx
+  leaq .LC_str_420(%rip), %rcx
+  movq .LC_str_420_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -54583,8 +54707,8 @@
   movq %rax, %r14
   movq %r14, -120(%rbp)
   movq %r14, -120(%rbp)
-  leaq .LC_str_409(%rip), %rcx
-  movq .LC_str_409_len(%rip), %rdx
+  leaq .LC_str_411(%rip), %rcx
+  movq .LC_str_411_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -54598,8 +54722,8 @@
   addq $32, %rsp
   movq $0, -96(%rbp)
   movq $0, -128(%rbp)
-  leaq .LC_str_419(%rip), %rcx
-  movq .LC_str_419_len(%rip), %rdx
+  leaq .LC_str_421(%rip), %rcx
+  movq .LC_str_421_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -54721,8 +54845,8 @@
   addq $32, %rsp
   movq $0, -96(%rbp)
   movq $0, -128(%rbp)
-  leaq .LC_str_420(%rip), %rcx
-  movq .LC_str_420_len(%rip), %rdx
+  leaq .LC_str_422(%rip), %rcx
+  movq .LC_str_422_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -54794,8 +54918,8 @@
 .L_किनारा_मध्यम_मान_नाम_0:
   jmp .L_मध्यम_मान_नाम__if_अंत_2
 .L_मध्यम_मान_नाम__if_अंत_2:
-  leaq .LC_str_421(%rip), %rcx
-  movq .LC_str_421_len(%rip), %rdx
+  leaq .LC_str_423(%rip), %rcx
+  movq .LC_str_423_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -54811,8 +54935,8 @@
   movq %rdi, %rax
   jmp .L_epilogue_मध्यम_मान_नाम
 .L_मध्यम_मान_नाम__if_सत्य_1:
-  leaq .LC_str_400(%rip), %rcx
-  movq .LC_str_400_len(%rip), %rdx
+  leaq .LC_str_402(%rip), %rcx
+  movq .LC_str_402_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -54919,8 +55043,8 @@
 .L_किनारा_मध्यम_संचालक_सूची_1:
   jmp .L_मध्यम_संचालक_सूची__if_अंत_5
 .L_मध्यम_संचालक_सूची__if_सत्य_4:
-  leaq .LC_str_422(%rip), %rcx
-  movq .LC_str_422_len(%rip), %rdx
+  leaq .LC_str_424(%rip), %rcx
+  movq .LC_str_424_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -55229,8 +55353,8 @@
   movq %rbx, -56(%rbp)
 
 .L_मध्यम_अंश_सार__प्रवेश_0:
-  leaq .LC_str_404(%rip), %rcx
-  movq .LC_str_404_len(%rip), %rdx
+  leaq .LC_str_406(%rip), %rcx
+  movq .LC_str_406_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -55244,8 +55368,8 @@
   movq %rax, %rdi
   movq %rdi, -72(%rbp)
   movq $0, -64(%rbp)
-  leaq .LC_str_406(%rip), %rcx
-  movq .LC_str_406_len(%rip), %rdx
+  leaq .LC_str_408(%rip), %rcx
+  movq .LC_str_408_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -55260,8 +55384,8 @@
   movq %r12, -88(%rbp)
   movq $0, -56(%rbp)
   movq $0, -80(%rbp)
-  leaq .LC_str_415(%rip), %rcx
-  movq .LC_str_415_len(%rip), %rdx
+  leaq .LC_str_417(%rip), %rcx
+  movq .LC_str_417_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -55279,8 +55403,8 @@
 .L_किनारा_मध्यम_अंश_सार_0:
   jmp .L_मध्यम_अंश_सार__if_अंत_2
 .L_मध्यम_अंश_सार__if_अंत_2:
-  leaq .LC_str_419(%rip), %rcx
-  movq .LC_str_419_len(%rip), %rdx
+  leaq .LC_str_421(%rip), %rcx
+  movq .LC_str_421_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -55298,8 +55422,8 @@
 .L_किनारा_मध्यम_अंश_सार_1:
   jmp .L_मध्यम_अंश_सार__if_अंत_6
 .L_मध्यम_अंश_सार__if_अंत_6:
-  leaq .LC_str_420(%rip), %rcx
-  movq .LC_str_420_len(%rip), %rdx
+  leaq .LC_str_422(%rip), %rcx
+  movq .LC_str_422_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -55317,8 +55441,8 @@
 .L_किनारा_मध्यम_अंश_सार_2:
   jmp .L_मध्यम_अंश_सार__if_अंत_8
 .L_मध्यम_अंश_सार__if_अंत_8:
-  leaq .LC_str_426(%rip), %rcx
-  movq .LC_str_426_len(%rip), %rdx
+  leaq .LC_str_428(%rip), %rcx
+  movq .LC_str_428_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -55336,8 +55460,8 @@
 .L_किनारा_मध्यम_अंश_सार_3:
   jmp .L_मध्यम_अंश_सार__if_अंत_10
 .L_मध्यम_अंश_सार__if_अंत_10:
-  leaq .LC_str_428(%rip), %rcx
-  movq .LC_str_428_len(%rip), %rdx
+  leaq .LC_str_430(%rip), %rcx
+  movq .LC_str_430_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -55355,8 +55479,8 @@
 .L_किनारा_मध्यम_अंश_सार_4:
   jmp .L_मध्यम_अंश_सार__sc_दायाँ_11
 .L_मध्यम_अंश_सार__sc_दायाँ_11:
-  leaq .LC_str_429(%rip), %rcx
-  movq .LC_str_429_len(%rip), %rdx
+  leaq .LC_str_431(%rip), %rcx
+  movq .LC_str_431_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -55380,8 +55504,8 @@
 .L_किनारा_मध्यम_अंश_सार_5:
   jmp .L_मध्यम_अंश_सार__sc_दायाँ_14
 .L_मध्यम_अंश_सार__sc_दायाँ_14:
-  leaq .LC_str_416(%rip), %rcx
-  movq .LC_str_416_len(%rip), %rdx
+  leaq .LC_str_418(%rip), %rcx
+  movq .LC_str_418_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -55405,8 +55529,8 @@
 .L_किनारा_मध्यम_अंश_सार_6:
   jmp .L_मध्यम_अंश_सार__if_अंत_18
 .L_मध्यम_अंश_सार__if_अंत_18:
-  leaq .LC_str_430(%rip), %rcx
-  movq .LC_str_430_len(%rip), %rdx
+  leaq .LC_str_432(%rip), %rcx
+  movq .LC_str_432_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -55424,8 +55548,8 @@
 .L_किनारा_मध्यम_अंश_सार_7:
   jmp .L_मध्यम_अंश_सार__sc_दायाँ_19
 .L_मध्यम_अंश_सार__sc_दायाँ_19:
-  leaq .LC_str_431(%rip), %rcx
-  movq .LC_str_431_len(%rip), %rdx
+  leaq .LC_str_433(%rip), %rcx
+  movq .LC_str_433_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -55449,8 +55573,8 @@
 .L_किनारा_मध्यम_अंश_सार_8:
   jmp .L_मध्यम_अंश_सार__if_अंत_23
 .L_मध्यम_अंश_सार__if_अंत_23:
-  leaq .LC_str_434(%rip), %rcx
-  movq .LC_str_434_len(%rip), %rdx
+  leaq .LC_str_436(%rip), %rcx
+  movq .LC_str_436_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -55468,8 +55592,8 @@
 .L_किनारा_मध्यम_अंश_सार_9:
   jmp .L_मध्यम_अंश_सार__if_अंत_25
 .L_मध्यम_अंश_सार__if_अंत_25:
-  leaq .LC_str_435(%rip), %rcx
-  movq .LC_str_435_len(%rip), %rdx
+  leaq .LC_str_437(%rip), %rcx
+  movq .LC_str_437_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -55487,8 +55611,8 @@
 .L_किनारा_मध्यम_अंश_सार_10:
   jmp .L_मध्यम_अंश_सार__if_अंत_27
 .L_मध्यम_अंश_सार__if_अंत_27:
-  leaq .LC_str_437(%rip), %rcx
-  movq .LC_str_437_len(%rip), %rdx
+  leaq .LC_str_439(%rip), %rcx
+  movq .LC_str_439_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -55506,8 +55630,8 @@
 .L_किनारा_मध्यम_अंश_सार_11:
   jmp .L_मध्यम_अंश_सार__if_अंत_29
 .L_मध्यम_अंश_सार__if_अंत_29:
-  leaq .LC_str_410(%rip), %rcx
-  movq .LC_str_410_len(%rip), %rdx
+  leaq .LC_str_412(%rip), %rcx
+  movq .LC_str_412_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -55525,8 +55649,8 @@
 .L_किनारा_मध्यम_अंश_सार_12:
   jmp .L_मध्यम_अंश_सार__if_अंत_31
 .L_मध्यम_अंश_सार__if_अंत_31:
-  leaq .LC_str_411(%rip), %rcx
-  movq .LC_str_411_len(%rip), %rdx
+  leaq .LC_str_413(%rip), %rcx
+  movq .LC_str_413_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -55554,8 +55678,8 @@
   movq %rbx, %rax
   jmp .L_epilogue_मध्यम_अंश_सार
 .L_मध्यम_अंश_सार__if_सत्य_32:
-  leaq .LC_str_441(%rip), %rcx
-  movq .LC_str_441_len(%rip), %rdx
+  leaq .LC_str_443(%rip), %rcx
+  movq .LC_str_443_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -55585,8 +55709,8 @@
   movq %rsi, -480(%rbp)
   movq $0, -456(%rbp)
   movq $0, -472(%rbp)
-  leaq .LC_str_442(%rip), %rcx
-  movq .LC_str_442_len(%rip), %rdx
+  leaq .LC_str_444(%rip), %rcx
+  movq .LC_str_444_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -55634,8 +55758,8 @@
   addq $32, %rsp
   movq %rax, %rbx
   movq %rbx, -432(%rbp)
-  leaq .LC_str_409(%rip), %rcx
-  movq .LC_str_409_len(%rip), %rdx
+  leaq .LC_str_411(%rip), %rcx
+  movq .LC_str_411_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -55667,8 +55791,8 @@
   addq $32, %rsp
   movq %rax, %rbx
   movq %rbx, -368(%rbp)
-  leaq .LC_str_438(%rip), %rcx
-  movq .LC_str_438_len(%rip), %rdx
+  leaq .LC_str_440(%rip), %rcx
+  movq .LC_str_440_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -55691,8 +55815,8 @@
   movq %rsi, -392(%rbp)
   movq $0, -368(%rbp)
   movq $0, -384(%rbp)
-  leaq .LC_str_439(%rip), %rcx
-  movq .LC_str_439_len(%rip), %rdx
+  leaq .LC_str_441(%rip), %rcx
+  movq .LC_str_441_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -55707,8 +55831,8 @@
   movq %rdi, -408(%rbp)
   movq $0, -392(%rbp)
   movq $0, -400(%rbp)
-  leaq .LC_str_440(%rip), %rcx
-  movq .LC_str_440_len(%rip), %rdx
+  leaq .LC_str_442(%rip), %rcx
+  movq .LC_str_442_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -55740,8 +55864,8 @@
   addq $32, %rsp
   movq %rax, %rbx
   movq %rbx, -344(%rbp)
-  leaq .LC_str_436(%rip), %rcx
-  movq .LC_str_436_len(%rip), %rdx
+  leaq .LC_str_438(%rip), %rcx
+  movq .LC_str_438_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -55799,15 +55923,15 @@
   movq %rsi, %rax
   jmp .L_epilogue_मध्यम_अंश_सार
 .L_मध्यम_अंश_सार__if_सत्य_22:
-  leaq .LC_str_432(%rip), %rcx
-  movq .LC_str_432_len(%rip), %rdx
+  leaq .LC_str_434(%rip), %rcx
+  movq .LC_str_434_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %rbx
   movq %rbx, -296(%rbp)
-  leaq .LC_str_433(%rip), %rcx
-  movq .LC_str_433_len(%rip), %rdx
+  leaq .LC_str_435(%rip), %rcx
+  movq .LC_str_435_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -55912,8 +56036,8 @@
   movq %rdi, -248(%rbp)
   movq $0, -232(%rbp)
   movq $0, -240(%rbp)
-  leaq .LC_str_427(%rip), %rcx
-  movq .LC_str_427_len(%rip), %rdx
+  leaq .LC_str_429(%rip), %rcx
+  movq .LC_str_429_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -55938,8 +56062,8 @@
   movq %rbx, %rax
   jmp .L_epilogue_मध्यम_अंश_सार
 .L_मध्यम_अंश_सार__if_सत्य_7:
-  leaq .LC_str_425(%rip), %rcx
-  movq .LC_str_425_len(%rip), %rdx
+  leaq .LC_str_427(%rip), %rcx
+  movq .LC_str_427_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -55971,15 +56095,15 @@
   movq %rsi, %rax
   jmp .L_epilogue_मध्यम_अंश_सार
 .L_मध्यम_अंश_सार__if_सत्य_5:
-  leaq .LC_str_424(%rip), %rcx
-  movq .LC_str_424_len(%rip), %rdx
+  leaq .LC_str_426(%rip), %rcx
+  movq .LC_str_426_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %rbx
   movq %rbx, -160(%rbp)
-  leaq .LC_str_409(%rip), %rcx
-  movq .LC_str_409_len(%rip), %rdx
+  leaq .LC_str_411(%rip), %rcx
+  movq .LC_str_411_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -56004,8 +56128,8 @@
   movq %rsi, %rax
   jmp .L_epilogue_मध्यम_अंश_सार
 .L_मध्यम_अंश_सार__if_सत्य_1:
-  leaq .LC_str_413(%rip), %rcx
-  movq .LC_str_413_len(%rip), %rdx
+  leaq .LC_str_415(%rip), %rcx
+  movq .LC_str_415_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -56097,8 +56221,8 @@
   movq %rbx, %rax
   jmp .L_epilogue_मध्यम_अंश_सार
 .L_मध्यम_अंश_सार__if_सत्य_3:
-  leaq .LC_str_423(%rip), %rcx
-  movq .LC_str_423_len(%rip), %rdx
+  leaq .LC_str_425(%rip), %rcx
+  movq .LC_str_425_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -56239,15 +56363,15 @@
   movq %rbx, -72(%rbp)
 
 .L_मध्यम_निर्देश_पंक्ति__प्रवेश_0:
-  leaq .LC_str_443(%rip), %rcx
-  movq .LC_str_443_len(%rip), %rdx
+  leaq .LC_str_445(%rip), %rcx
+  movq .LC_str_445_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %rsi
   movq %rsi, -80(%rbp)
-  leaq .LC_str_398(%rip), %rcx
-  movq .LC_str_398_len(%rip), %rdx
+  leaq .LC_str_400(%rip), %rcx
+  movq .LC_str_400_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -56289,8 +56413,8 @@
   movq %r13, -112(%rbp)
   movq $0, -80(%rbp)
   movq $0, -104(%rbp)
-  leaq .LC_str_444(%rip), %rcx
-  movq .LC_str_444_len(%rip), %rdx
+  leaq .LC_str_446(%rip), %rcx
+  movq .LC_str_446_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -56308,8 +56432,8 @@
   jmp .L_मध्यम_निर्देश_पंक्ति__if_अंत_2
 .L_मध्यम_निर्देश_पंक्ति__if_अंत_2:
   movq %rsi, -264(%rbp)
-  leaq .LC_str_404(%rip), %rcx
-  movq .LC_str_404_len(%rip), %rdx
+  leaq .LC_str_406(%rip), %rcx
+  movq .LC_str_406_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -56332,8 +56456,8 @@
   movq %rdi, -144(%rbp)
   movq $0, -136(%rbp)
   movq $0, -264(%rbp)
-  leaq .LC_str_405(%rip), %rcx
-  movq .LC_str_405_len(%rip), %rdx
+  leaq .LC_str_407(%rip), %rcx
+  movq .LC_str_407_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -56454,8 +56578,8 @@
   movq %rax, %rdi
   movq %rdi, -216(%rbp)
   movq $0, -208(%rbp)
-  leaq .LC_str_407(%rip), %rcx
-  movq .LC_str_407_len(%rip), %rdx
+  leaq .LC_str_409(%rip), %rcx
+  movq .LC_str_409_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -56485,8 +56609,8 @@
   movq %r13, %rbx
   jmp .L_मध्यम_निर्देश_पंक्ति__if_अंत_9
 .L_मध्यम_निर्देश_पंक्ति__if_सत्य_8:
-  leaq .LC_str_445(%rip), %rcx
-  movq .LC_str_445_len(%rip), %rdx
+  leaq .LC_str_447(%rip), %rcx
+  movq .LC_str_447_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -56690,15 +56814,15 @@
   movq %rbx, -80(%rbp)
 
 .L_मध्यम_फाई_पंक्ति__प्रवेश_0:
-  leaq .LC_str_443(%rip), %rcx
-  movq .LC_str_443_len(%rip), %rdx
+  leaq .LC_str_445(%rip), %rcx
+  movq .LC_str_445_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %rsi
   movq %rsi, -88(%rbp)
-  leaq .LC_str_398(%rip), %rcx
-  movq .LC_str_398_len(%rip), %rdx
+  leaq .LC_str_400(%rip), %rcx
+  movq .LC_str_400_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -56728,8 +56852,8 @@
   movq %r12, -120(%rbp)
   movq $0, -88(%rbp)
   movq $0, -112(%rbp)
-  leaq .LC_str_446(%rip), %rcx
-  movq .LC_str_446_len(%rip), %rdx
+  leaq .LC_str_448(%rip), %rcx
+  movq .LC_str_448_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -56744,8 +56868,8 @@
   movq %rdi, -136(%rbp)
   movq $0, -120(%rbp)
   movq $0, -128(%rbp)
-  leaq .LC_str_406(%rip), %rcx
-  movq .LC_str_406_len(%rip), %rdx
+  leaq .LC_str_408(%rip), %rcx
+  movq .LC_str_408_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -56800,8 +56924,8 @@
 .L_किनारा_मध्यम_फाई_पंक्ति_0:
   jmp .L_मध्यम_फाई_पंक्ति__wh_अंत_3
 .L_मध्यम_फाई_पंक्ति__wh_अंत_3:
-  leaq .LC_str_445(%rip), %rcx
-  movq .LC_str_445_len(%rip), %rdx
+  leaq .LC_str_447(%rip), %rcx
+  movq .LC_str_447_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -56873,8 +56997,8 @@
   jmp .L_मध्यम_फाई_पंक्ति__if_अंत_5
 .L_मध्यम_फाई_पंक्ति__if_अंत_5:
   movq %rsi, -328(%rbp)
-  leaq .LC_str_447(%rip), %rcx
-  movq .LC_str_447_len(%rip), %rdx
+  leaq .LC_str_449(%rip), %rcx
+  movq .LC_str_449_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -56914,8 +57038,8 @@
   movq %rsi, -216(%rbp)
   movq $0, -192(%rbp)
   movq $0, -208(%rbp)
-  leaq .LC_str_448(%rip), %rcx
-  movq .LC_str_448_len(%rip), %rdx
+  leaq .LC_str_450(%rip), %rcx
+  movq .LC_str_450_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -57352,8 +57476,8 @@
   movq %r11, -280(%rbp)
 
 .L_मध्यम_छापो_कार्य__प्रवेश_0:
-  leaq .LC_str_449(%rip), %rcx
-  movq .LC_str_449_len(%rip), %rdx
+  leaq .LC_str_451(%rip), %rcx
+  movq .LC_str_451_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -57399,8 +57523,8 @@
   movq %r12, -328(%rbp)
   movq $0, -312(%rbp)
   movq $0, -320(%rbp)
-  leaq .LC_str_394(%rip), %rcx
-  movq .LC_str_394_len(%rip), %rdx
+  leaq .LC_str_396(%rip), %rcx
+  movq .LC_str_396_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -57441,8 +57565,8 @@
 .L_किनारा_मध्यम_छापो_कार्य_0:
   jmp .L_मध्यम_छापो_कार्य__wh_अंत_3
 .L_मध्यम_छापो_कार्य__wh_अंत_3:
-  leaq .LC_str_450(%rip), %rcx
-  movq .LC_str_450_len(%rip), %rdx
+  leaq .LC_str_452(%rip), %rcx
+  movq .LC_str_452_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -57480,8 +57604,8 @@
   movq %r13, -472(%rbp)
   movq $0, -448(%rbp)
   movq $0, -464(%rbp)
-  leaq .LC_str_451(%rip), %rcx
-  movq .LC_str_451_len(%rip), %rdx
+  leaq .LC_str_453(%rip), %rcx
+  movq .LC_str_453_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -57512,8 +57636,8 @@
   movq %r13, -504(%rbp)
   movq $0, -488(%rbp)
   movq $0, -496(%rbp)
-  leaq .LC_str_395(%rip), %rcx
-  movq .LC_str_395_len(%rip), %rdx
+  leaq .LC_str_397(%rip), %rcx
+  movq .LC_str_397_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -57609,8 +57733,8 @@
   movq %r12, -544(%rbp)
   movq $0, -536(%rbp)
   movq $0, -832(%rbp)
-  leaq .LC_str_399(%rip), %rcx
-  movq .LC_str_399_len(%rip), %rdx
+  leaq .LC_str_401(%rip), %rcx
+  movq .LC_str_401_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -57665,8 +57789,8 @@
   movq %rdi, -600(%rbp)
   movq $0, -584(%rbp)
   movq $0, -592(%rbp)
-  leaq .LC_str_401(%rip), %rcx
-  movq .LC_str_401_len(%rip), %rdx
+  leaq .LC_str_403(%rip), %rcx
+  movq .LC_str_403_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -57705,8 +57829,8 @@
 .L_किनारा_मध्यम_छापो_कार्य_2:
   jmp .L_मध्यम_छापो_कार्य__wh_अंत_11
 .L_मध्यम_छापो_कार्य__wh_अंत_11:
-  leaq .LC_str_402(%rip), %rcx
-  movq .LC_str_402_len(%rip), %rdx
+  leaq .LC_str_404(%rip), %rcx
+  movq .LC_str_404_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -57744,8 +57868,8 @@
 .L_किनारा_मध्यम_छापो_कार्य_3:
   jmp .L_मध्यम_छापो_कार्य__wh_अंत_14
 .L_मध्यम_छापो_कार्य__wh_अंत_14:
-  leaq .LC_str_403(%rip), %rcx
-  movq .LC_str_403_len(%rip), %rdx
+  leaq .LC_str_405(%rip), %rcx
+  movq .LC_str_405_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -57781,8 +57905,8 @@
 .L_किनारा_मध्यम_छापो_कार्य_4:
   jmp .L_मध्यम_छापो_कार्य__if_असत्य_17
 .L_मध्यम_छापो_कार्य__if_असत्य_17:
-  leaq .LC_str_452(%rip), %rcx
-  movq .LC_str_452_len(%rip), %rdx
+  leaq .LC_str_454(%rip), %rcx
+  movq .LC_str_454_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -57813,8 +57937,8 @@
   movq $0, -784(%rbp)
   jmp .L_मध्यम_छापो_कार्य__if_अंत_16
 .L_मध्यम_छापो_कार्य__if_सत्य_15:
-  leaq .LC_str_403(%rip), %rcx
-  movq .LC_str_403_len(%rip), %rdx
+  leaq .LC_str_405(%rip), %rcx
+  movq .LC_str_405_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -57975,8 +58099,8 @@
   movq -120(%rbp), %rbx
   jmp .L_मध्यम_छापो_कार्य__if_अंत_5
 .L_मध्यम_छापो_कार्य__if_सत्य_4:
-  leaq .LC_str_422(%rip), %rcx
-  movq .LC_str_422_len(%rip), %rdx
+  leaq .LC_str_424(%rip), %rcx
+  movq .LC_str_424_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -58012,8 +58136,8 @@
   addq $32, %rsp
   movq %rax, %r15
   movq %r15, -360(%rbp)
-  leaq .LC_str_398(%rip), %rcx
-  movq .LC_str_398_len(%rip), %rdx
+  leaq .LC_str_400(%rip), %rcx
+  movq .LC_str_400_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -58044,8 +58168,8 @@
   movq %r13, -392(%rbp)
   movq $0, -384(%rbp)
   movq $0, -880(%rbp)
-  leaq .LC_str_448(%rip), %rcx
-  movq .LC_str_448_len(%rip), %rdx
+  leaq .LC_str_450(%rip), %rcx
+  movq .LC_str_450_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -58190,8 +58314,8 @@
   movq %rbx, -56(%rbp)
 
 .L_मध्यम_सुरक्षा_बिंदु_है__प्रवेश_0:
-  leaq .LC_str_404(%rip), %rcx
-  movq .LC_str_404_len(%rip), %rdx
+  leaq .LC_str_406(%rip), %rcx
+  movq .LC_str_406_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -58205,8 +58329,8 @@
   movq %rax, %rdi
   movq %rdi, -72(%rbp)
   movq $0, -64(%rbp)
-  leaq .LC_str_419(%rip), %rcx
-  movq .LC_str_419_len(%rip), %rdx
+  leaq .LC_str_421(%rip), %rcx
+  movq .LC_str_421_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -58224,8 +58348,8 @@
 .L_किनारा_मध्यम_सुरक्षा_बिंदु_है_0:
   jmp .L_मध्यम_सुरक्षा_बिंदु_है__sc_दायाँ_1
 .L_मध्यम_सुरक्षा_बिंदु_है__sc_दायाँ_1:
-  leaq .LC_str_420(%rip), %rcx
-  movq .LC_str_420_len(%rip), %rdx
+  leaq .LC_str_422(%rip), %rcx
+  movq .LC_str_422_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -58249,8 +58373,8 @@
 .L_किनारा_मध्यम_सुरक्षा_बिंदु_है_1:
   jmp .L_मध्यम_सुरक्षा_बिंदु_है__sc_दायाँ_4
 .L_मध्यम_सुरक्षा_बिंदु_है__sc_दायाँ_4:
-  leaq .LC_str_426(%rip), %rcx
-  movq .LC_str_426_len(%rip), %rdx
+  leaq .LC_str_428(%rip), %rcx
+  movq .LC_str_428_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -58274,8 +58398,8 @@
 .L_किनारा_मध्यम_सुरक्षा_बिंदु_है_2:
   jmp .L_मध्यम_सुरक्षा_बिंदु_है__if_अंत_8
 .L_मध्यम_सुरक्षा_बिंदु_है__if_अंत_8:
-  leaq .LC_str_453(%rip), %rcx
-  movq .LC_str_453_len(%rip), %rdx
+  leaq .LC_str_455(%rip), %rcx
+  movq .LC_str_455_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -58293,8 +58417,8 @@
 .L_किनारा_मध्यम_सुरक्षा_बिंदु_है_3:
   jmp .L_मध्यम_सुरक्षा_बिंदु_है__sc_दायाँ_9
 .L_मध्यम_सुरक्षा_बिंदु_है__sc_दायाँ_9:
-  leaq .LC_str_454(%rip), %rcx
-  movq .LC_str_454_len(%rip), %rdx
+  leaq .LC_str_456(%rip), %rcx
+  movq .LC_str_456_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -58318,8 +58442,8 @@
 .L_किनारा_मध्यम_सुरक्षा_बिंदु_है_4:
   jmp .L_मध्यम_सुरक्षा_बिंदु_है__sc_दायाँ_12
 .L_मध्यम_सुरक्षा_बिंदु_है__sc_दायाँ_12:
-  leaq .LC_str_434(%rip), %rcx
-  movq .LC_str_434_len(%rip), %rdx
+  leaq .LC_str_436(%rip), %rcx
+  movq .LC_str_436_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -58343,8 +58467,8 @@
 .L_किनारा_मध्यम_सुरक्षा_बिंदु_है_5:
   jmp .L_मध्यम_सुरक्षा_बिंदु_है__sc_दायाँ_15
 .L_मध्यम_सुरक्षा_बिंदु_है__sc_दायाँ_15:
-  leaq .LC_str_455(%rip), %rcx
-  movq .LC_str_455_len(%rip), %rdx
+  leaq .LC_str_457(%rip), %rcx
+  movq .LC_str_457_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -58368,8 +58492,8 @@
 .L_किनारा_मध्यम_सुरक्षा_बिंदु_है_6:
   jmp .L_मध्यम_सुरक्षा_बिंदु_है__if_अंत_19
 .L_मध्यम_सुरक्षा_बिंदु_है__if_अंत_19:
-  leaq .LC_str_456(%rip), %rcx
-  movq .LC_str_456_len(%rip), %rdx
+  leaq .LC_str_458(%rip), %rcx
+  movq .LC_str_458_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -58387,8 +58511,8 @@
 .L_किनारा_मध्यम_सुरक्षा_बिंदु_है_7:
   jmp .L_मध्यम_सुरक्षा_बिंदु_है__sc_दायाँ_20
 .L_मध्यम_सुरक्षा_बिंदु_है__sc_दायाँ_20:
-  leaq .LC_str_457(%rip), %rcx
-  movq .LC_str_457_len(%rip), %rdx
+  leaq .LC_str_459(%rip), %rcx
+  movq .LC_str_459_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -58412,8 +58536,8 @@
 .L_किनारा_मध्यम_सुरक्षा_बिंदु_है_8:
   jmp .L_मध्यम_सुरक्षा_बिंदु_है__if_अंत_24
 .L_मध्यम_सुरक्षा_बिंदु_है__if_अंत_24:
-  leaq .LC_str_406(%rip), %rcx
-  movq .LC_str_406_len(%rip), %rdx
+  leaq .LC_str_408(%rip), %rcx
+  movq .LC_str_408_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -58441,8 +58565,8 @@
 .L_किनारा_मध्यम_सुरक्षा_बिंदु_है_9:
   jmp .L_मध्यम_सुरक्षा_बिंदु_है__if_अंत_26
 .L_मध्यम_सुरक्षा_बिंदु_है__if_अंत_26:
-  leaq .LC_str_415(%rip), %rcx
-  movq .LC_str_415_len(%rip), %rdx
+  leaq .LC_str_417(%rip), %rcx
+  movq .LC_str_417_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -58460,8 +58584,8 @@
 .L_किनारा_मध्यम_सुरक्षा_बिंदु_है_10:
   jmp .L_मध्यम_सुरक्षा_बिंदु_है__if_अंत_28
 .L_मध्यम_सुरक्षा_बिंदु_है__if_अंत_28:
-  leaq .LC_str_458(%rip), %rcx
-  movq .LC_str_458_len(%rip), %rdx
+  leaq .LC_str_460(%rip), %rcx
+  movq .LC_str_460_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -58479,8 +58603,8 @@
 .L_किनारा_मध्यम_सुरक्षा_बिंदु_है_11:
   jmp .L_मध्यम_सुरक्षा_बिंदु_है__sc_दायाँ_29
 .L_मध्यम_सुरक्षा_बिंदु_है__sc_दायाँ_29:
-  leaq .LC_str_459(%rip), %rcx
-  movq .LC_str_459_len(%rip), %rdx
+  leaq .LC_str_461(%rip), %rcx
+  movq .LC_str_461_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -58504,8 +58628,8 @@
 .L_किनारा_मध्यम_सुरक्षा_बिंदु_है_12:
   jmp .L_मध्यम_सुरक्षा_बिंदु_है__sc_दायाँ_32
 .L_मध्यम_सुरक्षा_बिंदु_है__sc_दायाँ_32:
-  leaq .LC_str_460(%rip), %rcx
-  movq .LC_str_460_len(%rip), %rdx
+  leaq .LC_str_462(%rip), %rcx
+  movq .LC_str_462_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -58529,8 +58653,8 @@
 .L_किनारा_मध्यम_सुरक्षा_बिंदु_है_13:
   jmp .L_मध्यम_सुरक्षा_बिंदु_है__sc_दायाँ_35
 .L_मध्यम_सुरक्षा_बिंदु_है__sc_दायाँ_35:
-  leaq .LC_str_461(%rip), %rcx
-  movq .LC_str_461_len(%rip), %rdx
+  leaq .LC_str_463(%rip), %rcx
+  movq .LC_str_463_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -58554,8 +58678,8 @@
 .L_किनारा_मध्यम_सुरक्षा_बिंदु_है_14:
   jmp .L_मध्यम_सुरक्षा_बिंदु_है__sc_दायाँ_38
 .L_मध्यम_सुरक्षा_बिंदु_है__sc_दायाँ_38:
-  leaq .LC_str_462(%rip), %rcx
-  movq .LC_str_462_len(%rip), %rdx
+  leaq .LC_str_464(%rip), %rcx
+  movq .LC_str_464_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -58579,8 +58703,8 @@
 .L_किनारा_मध्यम_सुरक्षा_बिंदु_है_15:
   jmp .L_मध्यम_सुरक्षा_बिंदु_है__if_अंत_42
 .L_मध्यम_सुरक्षा_बिंदु_है__if_अंत_42:
-  leaq .LC_str_463(%rip), %rcx
-  movq .LC_str_463_len(%rip), %rdx
+  leaq .LC_str_465(%rip), %rcx
+  movq .LC_str_465_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -58598,8 +58722,8 @@
 .L_किनारा_मध्यम_सुरक्षा_बिंदु_है_16:
   jmp .L_मध्यम_सुरक्षा_बिंदु_है__sc_दायाँ_46
 .L_मध्यम_सुरक्षा_बिंदु_है__sc_दायाँ_46:
-  leaq .LC_str_464(%rip), %rcx
-  movq .LC_str_464_len(%rip), %rdx
+  leaq .LC_str_466(%rip), %rcx
+  movq .LC_str_466_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -58623,8 +58747,8 @@
 .L_किनारा_मध्यम_सुरक्षा_बिंदु_है_17:
   jmp .L_मध्यम_सुरक्षा_बिंदु_है__sc_दायाँ_49
 .L_मध्यम_सुरक्षा_बिंदु_है__sc_दायाँ_49:
-  leaq .LC_str_465(%rip), %rcx
-  movq .LC_str_465_len(%rip), %rdx
+  leaq .LC_str_467(%rip), %rcx
+  movq .LC_str_467_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -58648,8 +58772,8 @@
 .L_किनारा_मध्यम_सुरक्षा_बिंदु_है_18:
   jmp .L_मध्यम_सुरक्षा_बिंदु_है__sc_दायाँ_52
 .L_मध्यम_सुरक्षा_बिंदु_है__sc_दायाँ_52:
-  leaq .LC_str_466(%rip), %rcx
-  movq .LC_str_466_len(%rip), %rdx
+  leaq .LC_str_468(%rip), %rcx
+  movq .LC_str_468_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -58673,8 +58797,8 @@
 .L_किनारा_मध्यम_सुरक्षा_बिंदु_है_19:
   jmp .L_मध्यम_सुरक्षा_बिंदु_है__sc_दायाँ_55
 .L_मध्यम_सुरक्षा_बिंदु_है__sc_दायाँ_55:
-  leaq .LC_str_467(%rip), %rcx
-  movq .LC_str_467_len(%rip), %rdx
+  leaq .LC_str_469(%rip), %rcx
+  movq .LC_str_469_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -58698,8 +58822,8 @@
 .L_किनारा_मध्यम_सुरक्षा_बिंदु_है_20:
   jmp .L_मध्यम_सुरक्षा_बिंदु_है__sc_दायाँ_58
 .L_मध्यम_सुरक्षा_बिंदु_है__sc_दायाँ_58:
-  leaq .LC_str_468(%rip), %rcx
-  movq .LC_str_468_len(%rip), %rdx
+  leaq .LC_str_470(%rip), %rcx
+  movq .LC_str_470_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -58728,8 +58852,8 @@
   movq %rbx, %rax
   jmp .L_epilogue_मध्यम_सुरक्षा_बिंदु_है
 .L_मध्यम_सुरक्षा_बिंदु_है__if_सत्य_61:
-  leaq .LC_str_427(%rip), %rcx
-  movq .LC_str_427_len(%rip), %rdx
+  leaq .LC_str_429(%rip), %rcx
+  movq .LC_str_429_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -58761,8 +58885,8 @@
   movq %rdi, %rax
   jmp .L_epilogue_मध्यम_सुरक्षा_बिंदु_है
 .L_मध्यम_सुरक्षा_बिंदु_है__if_सत्य_41:
-  leaq .LC_str_427(%rip), %rcx
-  movq .LC_str_427_len(%rip), %rdx
+  leaq .LC_str_429(%rip), %rcx
+  movq .LC_str_429_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -58821,8 +58945,8 @@
   movq %rbx, %rax
   jmp .L_epilogue_मध्यम_सुरक्षा_बिंदु_है
 .L_मध्यम_सुरक्षा_बिंदु_है__if_सत्य_27:
-  leaq .LC_str_413(%rip), %rcx
-  movq .LC_str_413_len(%rip), %rdx
+  leaq .LC_str_415(%rip), %rcx
+  movq .LC_str_415_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -58937,8 +59061,8 @@
 .L_किनारा_मध्यम_जीसी_टैप्ड_0:
   jmp .L_मध्यम_जीसी_टैप्ड__if_अंत_2
 .L_मध्यम_जीसी_टैप्ड__if_अंत_2:
-  leaq .LC_str_414(%rip), %rcx
-  movq .LC_str_414_len(%rip), %rdx
+  leaq .LC_str_416(%rip), %rcx
+  movq .LC_str_416_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -59012,8 +59136,8 @@
 .L_किनारा_मध्यम_जीसी_टैप्ड_3:
   jmp .L_मध्यम_जीसी_टैप्ड__sc_दायाँ_9
 .L_मध्यम_जीसी_टैप्ड__sc_दायाँ_9:
-  leaq .LC_str_407(%rip), %rcx
-  movq .LC_str_407_len(%rip), %rdx
+  leaq .LC_str_409(%rip), %rcx
+  movq .LC_str_409_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -59193,8 +59317,8 @@
   addq $32, %rsp
   movq %rax, %rsi
   movq %rsi, -144(%rbp)
-  leaq .LC_str_392(%rip), %rcx
-  movq .LC_str_392_len(%rip), %rdx
+  leaq .LC_str_394(%rip), %rcx
+  movq .LC_str_394_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -59324,8 +59448,8 @@
   movq %r12, %r14
   jmp .L_मध्यम_छापो_एकक__wh_शर्त_4
 .L_मध्यम_छापो_एकक__wh_देह_2:
-  leaq .LC_str_469(%rip), %rcx
-  movq .LC_str_469_len(%rip), %rdx
+  leaq .LC_str_471(%rip), %rcx
+  movq .LC_str_471_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -59348,8 +59472,8 @@
   movq %rax, %rbx
   movq %rbx, -184(%rbp)
   movq $0, -176(%rbp)
-  leaq .LC_str_470(%rip), %rcx
-  movq .LC_str_470_len(%rip), %rdx
+  leaq .LC_str_472(%rip), %rcx
+  movq .LC_str_472_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -59615,8 +59739,8 @@
 .L_किनारा_निम्नक_प्रकार_टैग_7:
   jmp .L_निम्नक_प्रकार_टैग__sc_दायाँ_16
 .L_निम्नक_प्रकार_टैग__sc_दायाँ_16:
-  leaq .LC_str_407(%rip), %rcx
-  movq .LC_str_407_len(%rip), %rdx
+  leaq .LC_str_409(%rip), %rcx
+  movq .LC_str_409_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -59718,8 +59842,8 @@
   movq %rbx, %rax
   jmp .L_epilogue_निम्नक_प्रकार_टैग
 .L_निम्नक_प्रकार_टैग__if_सत्य_19:
-  leaq .LC_str_407(%rip), %rcx
-  movq .LC_str_407_len(%rip), %rdx
+  leaq .LC_str_409(%rip), %rcx
+  movq .LC_str_409_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -59772,8 +59896,8 @@
   movq %rbx, %rax
   jmp .L_epilogue_निम्नक_प्रकार_टैग
 .L_निम्नक_प्रकार_टैग__if_सत्य_4:
-  leaq .LC_str_414(%rip), %rcx
-  movq .LC_str_414_len(%rip), %rdx
+  leaq .LC_str_416(%rip), %rcx
+  movq .LC_str_416_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -59818,8 +59942,8 @@
   movq %rbx, -48(%rbp)
 
 .L_नि_ताजा_मान__प्रवेश_0:
-  leaq .LC_str_471(%rip), %rcx
-  movq .LC_str_471_len(%rip), %rdx
+  leaq .LC_str_473(%rip), %rcx
+  movq .LC_str_473_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -59930,8 +60054,8 @@
   movq %r13, -120(%rbp)
 
 .L_नि_जोड़__प्रवेश_0:
-  leaq .LC_str_471(%rip), %rcx
-  movq .LC_str_471_len(%rip), %rdx
+  leaq .LC_str_473(%rip), %rcx
+  movq .LC_str_473_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -59945,8 +60069,8 @@
   movq %rax, %r15
   movq %r15, -136(%rbp)
   movq $0, -128(%rbp)
-  leaq .LC_str_472(%rip), %rcx
-  movq .LC_str_472_len(%rip), %rdx
+  leaq .LC_str_474(%rip), %rcx
+  movq .LC_str_474_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -59978,8 +60102,8 @@
   movq $0, -120(%rbp)
   movq $0, -136(%rbp)
   movq $0, -152(%rbp)
-  leaq .LC_str_413(%rip), %rcx
-  movq .LC_str_413_len(%rip), %rdx
+  leaq .LC_str_415(%rip), %rcx
+  movq .LC_str_415_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -60067,8 +60191,8 @@
   movq %r12, -96(%rbp)
 
 .L_नि_प्रभाव__प्रवेश_0:
-  leaq .LC_str_472(%rip), %rcx
-  movq .LC_str_472_len(%rip), %rdx
+  leaq .LC_str_474(%rip), %rcx
+  movq .LC_str_474_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -60148,8 +60272,8 @@
   movq %rbx, -56(%rbp)
 
 .L_नि_मान_प्रकार__प्रवेश_0:
-  leaq .LC_str_413(%rip), %rcx
-  movq .LC_str_413_len(%rip), %rdx
+  leaq .LC_str_415(%rip), %rcx
+  movq .LC_str_415_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -60250,8 +60374,8 @@
   movq %rbx, -48(%rbp)
 
 .L_नि_समाप्त_है__प्रवेश_0:
-  leaq .LC_str_472(%rip), %rcx
-  movq .LC_str_472_len(%rip), %rdx
+  leaq .LC_str_474(%rip), %rcx
+  movq .LC_str_474_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -60266,8 +60390,8 @@
   movq %rdi, -64(%rbp)
   movq $0, -48(%rbp)
   movq $0, -56(%rbp)
-  leaq .LC_str_403(%rip), %rcx
-  movq .LC_str_403_len(%rip), %rdx
+  leaq .LC_str_405(%rip), %rcx
+  movq .LC_str_405_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -60344,8 +60468,8 @@
   movq %rsi, -64(%rbp)
 
 .L_नि_नया_खंड__प्रवेश_0:
-  leaq .LC_str_471(%rip), %rcx
-  movq .LC_str_471_len(%rip), %rdx
+  leaq .LC_str_473(%rip), %rcx
+  movq .LC_str_473_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -60411,8 +60535,8 @@
   movq %rsi, -56(%rbp)
 
 .L_नि_खंड_पर__प्रवेश_0:
-  leaq .LC_str_472(%rip), %rcx
-  movq .LC_str_472_len(%rip), %rdx
+  leaq .LC_str_474(%rip), %rcx
+  movq .LC_str_474_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -61537,8 +61661,8 @@
 .L_किनारा_निम्नक_अभिव्यक्ति_12:
   jmp .L_निम्नक_अभिव्यक्ति__if_अंत_39
 .L_निम्नक_अभिव्यक्ति__if_अंत_39:
-  leaq .LC_str_471(%rip), %rcx
-  movq .LC_str_471_len(%rip), %rdx
+  leaq .LC_str_473(%rip), %rcx
+  movq .LC_str_473_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -61552,8 +61676,8 @@
   movq %rax, %r12
   movq %r12, -2352(%rbp)
   movq $0, -2344(%rbp)
-  leaq .LC_str_472(%rip), %rcx
-  movq .LC_str_472_len(%rip), %rdx
+  leaq .LC_str_474(%rip), %rcx
+  movq .LC_str_474_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -61726,15 +61850,15 @@
   movq %rax, %r15
   movq %r15, -2256(%rbp)
   movq %r15, -2256(%rbp)
-  leaq .LC_str_409(%rip), %rcx
-  movq .LC_str_409_len(%rip), %rdx
+  leaq .LC_str_411(%rip), %rcx
+  movq .LC_str_411_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %r12
   movq %r12, -2264(%rbp)
-  leaq .LC_str_479(%rip), %rcx
-  movq .LC_str_479_len(%rip), %rdx
+  leaq .LC_str_481(%rip), %rcx
+  movq .LC_str_481_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -61749,8 +61873,8 @@
   movq %r13, -2280(%rbp)
   movq $0, -2248(%rbp)
   movq $0, -2272(%rbp)
-  leaq .LC_str_400(%rip), %rcx
-  movq .LC_str_400_len(%rip), %rdx
+  leaq .LC_str_402(%rip), %rcx
+  movq .LC_str_402_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -61797,8 +61921,8 @@
   addq $32, %rsp
   movq $0, -2264(%rbp)
   movq $0, -2320(%rbp)
-  leaq .LC_str_419(%rip), %rcx
-  movq .LC_str_419_len(%rip), %rdx
+  leaq .LC_str_421(%rip), %rcx
+  movq .LC_str_421_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -61967,8 +62091,8 @@
   movq %r13, -2056(%rbp)
   movq $0, -2048(%rbp)
   movq $0, %r12
-  leaq .LC_str_475(%rip), %rcx
-  movq .LC_str_475_len(%rip), %rdx
+  leaq .LC_str_477(%rip), %rcx
+  movq .LC_str_477_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -62013,8 +62137,8 @@
   movq %r12, %rbx
   jmp .L_निम्नक_अभिव्यक्ति__if_अंत_37
 .L_निम्नक_अभिव्यक्ति__if_सत्य_36:
-  leaq .LC_str_475(%rip), %rcx
-  movq .LC_str_475_len(%rip), %rdx
+  leaq .LC_str_477(%rip), %rcx
+  movq .LC_str_477_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -62064,8 +62188,8 @@
   call sutra_arr_set
   addq $32, %rsp
   movq $0, -2120(%rbp)
-  leaq .LC_str_476(%rip), %rcx
-  movq .LC_str_476_len(%rip), %rdx
+  leaq .LC_str_478(%rip), %rcx
+  movq .LC_str_478_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -62079,15 +62203,15 @@
   addq $32, %rsp
   movq $0, -2128(%rbp)
   movq $0, -2752(%rbp)
-  leaq .LC_str_477(%rip), %rcx
-  movq .LC_str_477_len(%rip), %rdx
+  leaq .LC_str_479(%rip), %rcx
+  movq .LC_str_479_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %rbx
   movq %rbx, -2136(%rbp)
-  leaq .LC_str_478(%rip), %rcx
-  movq .LC_str_478_len(%rip), %rdx
+  leaq .LC_str_480(%rip), %rcx
+  movq .LC_str_480_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -62109,8 +62233,8 @@
   addq $32, %rsp
   movq $0, -2136(%rbp)
   movq $0, -2152(%rbp)
-  leaq .LC_str_434(%rip), %rcx
-  movq .LC_str_434_len(%rip), %rdx
+  leaq .LC_str_436(%rip), %rcx
+  movq .LC_str_436_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -62270,8 +62394,8 @@
 .L_किनारा_निम्नक_अभिव्यक्ति_16:
   jmp .L_निम्नक_अभिव्यक्ति__wh_अंत_28
 .L_निम्नक_अभिव्यक्ति__wh_अंत_28:
-  leaq .LC_str_454(%rip), %rcx
-  movq .LC_str_454_len(%rip), %rdx
+  leaq .LC_str_456(%rip), %rcx
+  movq .LC_str_456_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -62463,8 +62587,8 @@
 .L_किनारा_निम्नक_अभिव्यक्ति_17:
   jmp .L_निम्नक_अभिव्यक्ति__wh_अंत_23
 .L_निम्नक_अभिव्यक्ति__wh_अंत_23:
-  leaq .LC_str_453(%rip), %rcx
-  movq .LC_str_453_len(%rip), %rdx
+  leaq .LC_str_455(%rip), %rcx
+  movq .LC_str_455_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -62561,8 +62685,8 @@
   movq %rax, %rsi
   movq %rsi, -1736(%rbp)
   movq %rsi, -1736(%rbp)
-  leaq .LC_str_433(%rip), %rcx
-  movq .LC_str_433_len(%rip), %rdx
+  leaq .LC_str_435(%rip), %rcx
+  movq .LC_str_435_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -62591,8 +62715,8 @@
   addq $32, %rsp
   movq $0, -1744(%rbp)
   movq $0, -1760(%rbp)
-  leaq .LC_str_474(%rip), %rcx
-  movq .LC_str_474_len(%rip), %rdx
+  leaq .LC_str_476(%rip), %rcx
+  movq .LC_str_476_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -62646,8 +62770,8 @@
   addq $32, %rsp
   movq $0, -1768(%rbp)
   movq $0, -1808(%rbp)
-  leaq .LC_str_430(%rip), %rcx
-  movq .LC_str_430_len(%rip), %rdx
+  leaq .LC_str_432(%rip), %rcx
+  movq .LC_str_432_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -62744,8 +62868,8 @@
   movq %rax, %rdi
   movq %rdi, -1640(%rbp)
   movq %rdi, -1640(%rbp)
-  leaq .LC_str_473(%rip), %rcx
-  movq .LC_str_473_len(%rip), %rdx
+  leaq .LC_str_475(%rip), %rcx
+  movq .LC_str_475_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -62773,8 +62897,8 @@
   addq $32, %rsp
   movq %rax, %r12
   movq %r12, -1664(%rbp)
-  leaq .LC_str_473(%rip), %rcx
-  movq .LC_str_473_len(%rip), %rdx
+  leaq .LC_str_475(%rip), %rcx
+  movq .LC_str_475_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -62819,8 +62943,8 @@
   jmp .L_निम्नक_अभिव्यक्ति__if_अंत_16
 .L_निम्नक_अभिव्यक्ति__if_अंत_16:
   movq %r12, -3136(%rbp)
-  leaq .LC_str_456(%rip), %rcx
-  movq .LC_str_456_len(%rip), %rdx
+  leaq .LC_str_458(%rip), %rcx
+  movq .LC_str_458_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -62927,8 +63051,8 @@
   movq %rbx, %rax
   jmp .L_epilogue_निम्नक_अभिव्यक्ति
 .L_निम्नक_अभिव्यक्ति__if_सत्य_1:
-  leaq .LC_str_471(%rip), %rcx
-  movq .LC_str_471_len(%rip), %rdx
+  leaq .LC_str_473(%rip), %rcx
+  movq .LC_str_473_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -62942,8 +63066,8 @@
   movq %rax, %rsi
   movq %rsi, -1536(%rbp)
   movq $0, -1528(%rbp)
-  leaq .LC_str_472(%rip), %rcx
-  movq .LC_str_472_len(%rip), %rdx
+  leaq .LC_str_474(%rip), %rcx
+  movq .LC_str_474_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -63308,8 +63432,8 @@
 .L_किनारा_निम्नक_स्थिरांक_3:
   jmp .L_निम्नक_स्थिरांक__if_अंत_10
 .L_निम्नक_स्थिरांक__if_अंत_10:
-  leaq .LC_str_471(%rip), %rcx
-  movq .LC_str_471_len(%rip), %rdx
+  leaq .LC_str_473(%rip), %rcx
+  movq .LC_str_473_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -63323,8 +63447,8 @@
   movq %rax, %rdi
   movq %rdi, -400(%rbp)
   movq $0, -392(%rbp)
-  leaq .LC_str_472(%rip), %rcx
-  movq .LC_str_472_len(%rip), %rdx
+  leaq .LC_str_474(%rip), %rcx
+  movq .LC_str_474_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -63355,8 +63479,8 @@
   movq $0, -400(%rbp)
   movq $0, -416(%rbp)
   movq $0, -424(%rbp)
-  leaq .LC_str_413(%rip), %rcx
-  movq .LC_str_413_len(%rip), %rdx
+  leaq .LC_str_415(%rip), %rcx
+  movq .LC_str_415_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -63370,8 +63494,8 @@
   movq %rax, %rdi
   movq %rdi, -448(%rbp)
   movq $0, -440(%rbp)
-  leaq .LC_str_414(%rip), %rcx
-  movq .LC_str_414_len(%rip), %rdx
+  leaq .LC_str_416(%rip), %rcx
+  movq .LC_str_416_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -63394,8 +63518,8 @@
   movq %rax, %rsi
   movq %rsi, -336(%rbp)
   movq %rsi, -336(%rbp)
-  leaq .LC_str_413(%rip), %rcx
-  movq .LC_str_413_len(%rip), %rdx
+  leaq .LC_str_415(%rip), %rcx
+  movq .LC_str_415_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -63430,8 +63554,8 @@
   call sutra_arr_set
   addq $32, %rsp
   movq $0, -360(%rbp)
-  leaq .LC_str_415(%rip), %rcx
-  movq .LC_str_415_len(%rip), %rdx
+  leaq .LC_str_417(%rip), %rcx
+  movq .LC_str_417_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -63469,8 +63593,8 @@
   movq %r15, %rax
   jmp .L_epilogue_निम्नक_स्थिरांक
 .L_निम्नक_स्थिरांक__if_सत्य_7:
-  leaq .LC_str_471(%rip), %rcx
-  movq .LC_str_471_len(%rip), %rdx
+  leaq .LC_str_473(%rip), %rcx
+  movq .LC_str_473_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -63484,8 +63608,8 @@
   movq %rax, %rdi
   movq %rdi, -280(%rbp)
   movq $0, -272(%rbp)
-  leaq .LC_str_472(%rip), %rcx
-  movq .LC_str_472_len(%rip), %rdx
+  leaq .LC_str_474(%rip), %rcx
+  movq .LC_str_474_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -63508,8 +63632,8 @@
   movq %rsi, -304(%rbp)
   movq $0, -280(%rbp)
   movq $0, -296(%rbp)
-  leaq .LC_str_413(%rip), %rcx
-  movq .LC_str_413_len(%rip), %rdx
+  leaq .LC_str_415(%rip), %rcx
+  movq .LC_str_415_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -63523,8 +63647,8 @@
   movq %rax, %r12
   movq %r12, -320(%rbp)
   movq $0, -312(%rbp)
-  leaq .LC_str_407(%rip), %rcx
-  movq .LC_str_407_len(%rip), %rdx
+  leaq .LC_str_409(%rip), %rcx
+  movq .LC_str_409_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -63565,8 +63689,8 @@
   jmp .L_निम्नक_स्थिरांक__if_अंत_6
 .L_निम्नक_स्थिरांक__if_अंत_6:
   movq %rsi, -464(%rbp)
-  leaq .LC_str_471(%rip), %rcx
-  movq .LC_str_471_len(%rip), %rdx
+  leaq .LC_str_473(%rip), %rcx
+  movq .LC_str_473_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -63580,8 +63704,8 @@
   movq %rax, %r12
   movq %r12, -216(%rbp)
   movq $0, -208(%rbp)
-  leaq .LC_str_472(%rip), %rcx
-  movq .LC_str_472_len(%rip), %rdx
+  leaq .LC_str_474(%rip), %rcx
+  movq .LC_str_474_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -63606,8 +63730,8 @@
   movq $0, -216(%rbp)
   movq $0, -232(%rbp)
   movq $0, -464(%rbp)
-  leaq .LC_str_413(%rip), %rcx
-  movq .LC_str_413_len(%rip), %rdx
+  leaq .LC_str_415(%rip), %rcx
+  movq .LC_str_415_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -63639,8 +63763,8 @@
   movq %rdi, %rax
   jmp .L_epilogue_निम्नक_स्थिरांक
 .L_निम्नक_स्थिरांक__if_सत्य_1:
-  leaq .LC_str_480(%rip), %rcx
-  movq .LC_str_480_len(%rip), %rdx
+  leaq .LC_str_482(%rip), %rcx
+  movq .LC_str_482_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -63654,8 +63778,8 @@
   movq %rax, %rdi
   movq %rdi, -136(%rbp)
   movq $0, -128(%rbp)
-  leaq .LC_str_471(%rip), %rcx
-  movq .LC_str_471_len(%rip), %rdx
+  leaq .LC_str_473(%rip), %rcx
+  movq .LC_str_473_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -63669,8 +63793,8 @@
   movq %rax, %r12
   movq %r12, -152(%rbp)
   movq $0, -144(%rbp)
-  leaq .LC_str_472(%rip), %rcx
-  movq .LC_str_472_len(%rip), %rdx
+  leaq .LC_str_474(%rip), %rcx
+  movq .LC_str_474_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -63697,8 +63821,8 @@
   movq $0, -136(%rbp)
   movq $0, -152(%rbp)
   movq $0, -168(%rbp)
-  leaq .LC_str_413(%rip), %rcx
-  movq .LC_str_413_len(%rip), %rdx
+  leaq .LC_str_415(%rip), %rcx
+  movq .LC_str_415_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -64193,8 +64317,8 @@
   movq %rax, %r13
   movq %r13, -160(%rbp)
   movq $0, -152(%rbp)
-  leaq .LC_str_482(%rip), %rcx
-  movq .LC_str_482_len(%rip), %rdx
+  leaq .LC_str_484(%rip), %rcx
+  movq .LC_str_484_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -64276,8 +64400,8 @@
 .L_निम्नक_वस्तु_वर्ग__if_अंत_12:
   jmp .L_निम्नक_वस्तु_वर्ग__if_अंत_10
 .L_निम्नक_वस्तु_वर्ग__if_अंत_10:
-  leaq .LC_str_483(%rip), %rcx
-  movq .LC_str_483_len(%rip), %rdx
+  leaq .LC_str_485(%rip), %rcx
+  movq .LC_str_485_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -64350,8 +64474,8 @@
   movq $0, %r13
   jmp .L_निम्नक_वस्तु_वर्ग__sc_अंत_17
 .L_निम्नक_वस्तु_वर्ग__sc_दायाँ_15:
-  leaq .LC_str_414(%rip), %rcx
-  movq .LC_str_414_len(%rip), %rdx
+  leaq .LC_str_416(%rip), %rcx
+  movq .LC_str_416_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -64542,8 +64666,8 @@
   movq $0, %r13
   jmp .L_निम्नक_वस्तु_वर्ग__sc_अंत_35
 .L_निम्नक_वस्तु_वर्ग__sc_दायाँ_33:
-  leaq .LC_str_407(%rip), %rcx
-  movq .LC_str_407_len(%rip), %rdx
+  leaq .LC_str_409(%rip), %rcx
+  movq .LC_str_409_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -64643,8 +64767,8 @@
   movq %rsi, %rax
   jmp .L_epilogue_निम्नक_वस्तु_वर्ग
 .L_निम्नक_वस्तु_वर्ग__if_सत्य_3:
-  leaq .LC_str_481(%rip), %rcx
-  movq .LC_str_481_len(%rip), %rdx
+  leaq .LC_str_483(%rip), %rcx
+  movq .LC_str_483_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -64694,8 +64818,8 @@
   movq %rbx, %rax
   jmp .L_epilogue_निम्नक_वस्तु_वर्ग
 .L_निम्नक_वस्तु_वर्ग__if_सत्य_5:
-  leaq .LC_str_481(%rip), %rcx
-  movq .LC_str_481_len(%rip), %rdx
+  leaq .LC_str_483(%rip), %rcx
+  movq .LC_str_483_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -64777,8 +64901,8 @@
   movq %rsi, -64(%rbp)
 
 .L_निम्नक_वर्ग_प्रकार_है__प्रवेश_0:
-  leaq .LC_str_475(%rip), %rcx
-  movq .LC_str_475_len(%rip), %rdx
+  leaq .LC_str_477(%rip), %rcx
+  movq .LC_str_477_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -64912,8 +65036,8 @@
   movq %rax, %r12
   movq %r12, -88(%rbp)
   movq $0, -72(%rbp)
-  leaq .LC_str_475(%rip), %rcx
-  movq .LC_str_475_len(%rip), %rdx
+  leaq .LC_str_477(%rip), %rcx
+  movq .LC_str_477_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -65141,8 +65265,8 @@
   movq %rsi, -88(%rbp)
 
 .L_निम्नक_पहचान__प्रवेश_0:
-  leaq .LC_str_482(%rip), %rcx
-  movq .LC_str_482_len(%rip), %rdx
+  leaq .LC_str_484(%rip), %rcx
+  movq .LC_str_484_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -65185,8 +65309,8 @@
 .L_किनारा_निम्नक_पहचान_0:
   jmp .L_निम्नक_पहचान__if_अंत_2
 .L_निम्नक_पहचान__if_अंत_2:
-  leaq .LC_str_483(%rip), %rcx
-  movq .LC_str_483_len(%rip), %rdx
+  leaq .LC_str_485(%rip), %rcx
+  movq .LC_str_485_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -65261,8 +65385,8 @@
   addq $32, %rsp
   movq $0, -88(%rbp)
   movq $0, -232(%rbp)
-  leaq .LC_str_428(%rip), %rcx
-  movq .LC_str_428_len(%rip), %rdx
+  leaq .LC_str_430(%rip), %rcx
+  movq .LC_str_430_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -65293,8 +65417,8 @@
   movq %r15, %rax
   jmp .L_epilogue_निम्नक_पहचान
 .L_निम्नक_पहचान__if_सत्य_1:
-  leaq .LC_str_417(%rip), %rcx
-  movq .LC_str_417_len(%rip), %rdx
+  leaq .LC_str_419(%rip), %rcx
+  movq .LC_str_419_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -65315,8 +65439,8 @@
   movq %rax, %r13
   movq %r13, -144(%rbp)
   movq $0, -136(%rbp)
-  leaq .LC_str_416(%rip), %rcx
-  movq .LC_str_416_len(%rip), %rdx
+  leaq .LC_str_418(%rip), %rcx
+  movq .LC_str_418_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -65771,8 +65895,8 @@
 .L_किनारा_निम्नक_द्विआधारी_प्रकार_14:
   jmp .L_निम्नक_द्विआधारी_प्रकार__if_अंत_41
 .L_निम्नक_द्विआधारी_प्रकार__if_अंत_41:
-  leaq .LC_str_414(%rip), %rcx
-  movq .LC_str_414_len(%rip), %rdx
+  leaq .LC_str_416(%rip), %rcx
+  movq .LC_str_416_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -65794,8 +65918,8 @@
   movq $0, %rbx
   jmp .L_निम्नक_द्विआधारी_प्रकार__sc_अंत_44
 .L_निम्नक_द्विआधारी_प्रकार__sc_दायाँ_42:
-  leaq .LC_str_414(%rip), %rcx
-  movq .LC_str_414_len(%rip), %rdx
+  leaq .LC_str_416(%rip), %rcx
+  movq .LC_str_416_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -65826,8 +65950,8 @@
   movq %rbx, %rax
   jmp .L_epilogue_निम्नक_द्विआधारी_प्रकार
 .L_निम्नक_द्विआधारी_प्रकार__if_सत्य_45:
-  leaq .LC_str_414(%rip), %rcx
-  movq .LC_str_414_len(%rip), %rdx
+  leaq .LC_str_416(%rip), %rcx
+  movq .LC_str_416_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -66103,87 +66227,6 @@
 .L_किनारा_निम्नक_संचालक_कोड_10:
   jmp .L_निम्नक_संचालक_कोड__if_अंत_22
 .L_निम्नक_संचालक_कोड__if_अंत_22:
-  leaq .LC_str_458(%rip), %rcx
-  movq .LC_str_458_len(%rip), %rdx
-  subq $32, %rsp
-  call sutra_str_alloc
-  addq $32, %rsp
-  movq %rax, %rbx
-  movq %rbx, %rax
-  jmp .L_epilogue_निम्नक_संचालक_कोड
-.L_निम्नक_संचालक_कोड__if_सत्य_21:
-  leaq .LC_str_468(%rip), %rcx
-  movq .LC_str_468_len(%rip), %rdx
-  subq $32, %rsp
-  call sutra_str_alloc
-  addq $32, %rsp
-  movq %rax, %rbx
-  movq %rbx, %rax
-  jmp .L_epilogue_निम्नक_संचालक_कोड
-.L_निम्नक_संचालक_कोड__if_सत्य_19:
-  leaq .LC_str_467(%rip), %rcx
-  movq .LC_str_467_len(%rip), %rdx
-  subq $32, %rsp
-  call sutra_str_alloc
-  addq $32, %rsp
-  movq %rax, %rbx
-  movq %rbx, %rax
-  jmp .L_epilogue_निम्नक_संचालक_कोड
-.L_निम्नक_संचालक_कोड__if_सत्य_17:
-  leaq .LC_str_466(%rip), %rcx
-  movq .LC_str_466_len(%rip), %rdx
-  subq $32, %rsp
-  call sutra_str_alloc
-  addq $32, %rsp
-  movq %rax, %rbx
-  movq %rbx, %rax
-  jmp .L_epilogue_निम्नक_संचालक_कोड
-.L_निम्नक_संचालक_कोड__if_सत्य_15:
-  leaq .LC_str_465(%rip), %rcx
-  movq .LC_str_465_len(%rip), %rdx
-  subq $32, %rsp
-  call sutra_str_alloc
-  addq $32, %rsp
-  movq %rax, %rbx
-  movq %rbx, %rax
-  jmp .L_epilogue_निम्नक_संचालक_कोड
-.L_निम्नक_संचालक_कोड__if_सत्य_13:
-  leaq .LC_str_464(%rip), %rcx
-  movq .LC_str_464_len(%rip), %rdx
-  subq $32, %rsp
-  call sutra_str_alloc
-  addq $32, %rsp
-  movq %rax, %rbx
-  movq %rbx, %rax
-  jmp .L_epilogue_निम्नक_संचालक_कोड
-.L_निम्नक_संचालक_कोड__if_सत्य_11:
-  leaq .LC_str_463(%rip), %rcx
-  movq .LC_str_463_len(%rip), %rdx
-  subq $32, %rsp
-  call sutra_str_alloc
-  addq $32, %rsp
-  movq %rax, %rbx
-  movq %rbx, %rax
-  jmp .L_epilogue_निम्नक_संचालक_कोड
-.L_निम्नक_संचालक_कोड__if_सत्य_9:
-  leaq .LC_str_462(%rip), %rcx
-  movq .LC_str_462_len(%rip), %rdx
-  subq $32, %rsp
-  call sutra_str_alloc
-  addq $32, %rsp
-  movq %rax, %rbx
-  movq %rbx, %rax
-  jmp .L_epilogue_निम्नक_संचालक_कोड
-.L_निम्नक_संचालक_कोड__if_सत्य_7:
-  leaq .LC_str_461(%rip), %rcx
-  movq .LC_str_461_len(%rip), %rdx
-  subq $32, %rsp
-  call sutra_str_alloc
-  addq $32, %rsp
-  movq %rax, %rbx
-  movq %rbx, %rax
-  jmp .L_epilogue_निम्नक_संचालक_कोड
-.L_निम्नक_संचालक_कोड__if_सत्य_5:
   leaq .LC_str_460(%rip), %rcx
   movq .LC_str_460_len(%rip), %rdx
   subq $32, %rsp
@@ -66192,9 +66235,90 @@
   movq %rax, %rbx
   movq %rbx, %rax
   jmp .L_epilogue_निम्नक_संचालक_कोड
+.L_निम्नक_संचालक_कोड__if_सत्य_21:
+  leaq .LC_str_470(%rip), %rcx
+  movq .LC_str_470_len(%rip), %rdx
+  subq $32, %rsp
+  call sutra_str_alloc
+  addq $32, %rsp
+  movq %rax, %rbx
+  movq %rbx, %rax
+  jmp .L_epilogue_निम्नक_संचालक_कोड
+.L_निम्नक_संचालक_कोड__if_सत्य_19:
+  leaq .LC_str_469(%rip), %rcx
+  movq .LC_str_469_len(%rip), %rdx
+  subq $32, %rsp
+  call sutra_str_alloc
+  addq $32, %rsp
+  movq %rax, %rbx
+  movq %rbx, %rax
+  jmp .L_epilogue_निम्नक_संचालक_कोड
+.L_निम्नक_संचालक_कोड__if_सत्य_17:
+  leaq .LC_str_468(%rip), %rcx
+  movq .LC_str_468_len(%rip), %rdx
+  subq $32, %rsp
+  call sutra_str_alloc
+  addq $32, %rsp
+  movq %rax, %rbx
+  movq %rbx, %rax
+  jmp .L_epilogue_निम्नक_संचालक_कोड
+.L_निम्नक_संचालक_कोड__if_सत्य_15:
+  leaq .LC_str_467(%rip), %rcx
+  movq .LC_str_467_len(%rip), %rdx
+  subq $32, %rsp
+  call sutra_str_alloc
+  addq $32, %rsp
+  movq %rax, %rbx
+  movq %rbx, %rax
+  jmp .L_epilogue_निम्नक_संचालक_कोड
+.L_निम्नक_संचालक_कोड__if_सत्य_13:
+  leaq .LC_str_466(%rip), %rcx
+  movq .LC_str_466_len(%rip), %rdx
+  subq $32, %rsp
+  call sutra_str_alloc
+  addq $32, %rsp
+  movq %rax, %rbx
+  movq %rbx, %rax
+  jmp .L_epilogue_निम्नक_संचालक_कोड
+.L_निम्नक_संचालक_कोड__if_सत्य_11:
+  leaq .LC_str_465(%rip), %rcx
+  movq .LC_str_465_len(%rip), %rdx
+  subq $32, %rsp
+  call sutra_str_alloc
+  addq $32, %rsp
+  movq %rax, %rbx
+  movq %rbx, %rax
+  jmp .L_epilogue_निम्नक_संचालक_कोड
+.L_निम्नक_संचालक_कोड__if_सत्य_9:
+  leaq .LC_str_464(%rip), %rcx
+  movq .LC_str_464_len(%rip), %rdx
+  subq $32, %rsp
+  call sutra_str_alloc
+  addq $32, %rsp
+  movq %rax, %rbx
+  movq %rbx, %rax
+  jmp .L_epilogue_निम्नक_संचालक_कोड
+.L_निम्नक_संचालक_कोड__if_सत्य_7:
+  leaq .LC_str_463(%rip), %rcx
+  movq .LC_str_463_len(%rip), %rdx
+  subq $32, %rsp
+  call sutra_str_alloc
+  addq $32, %rsp
+  movq %rax, %rbx
+  movq %rbx, %rax
+  jmp .L_epilogue_निम्नक_संचालक_कोड
+.L_निम्नक_संचालक_कोड__if_सत्य_5:
+  leaq .LC_str_462(%rip), %rcx
+  movq .LC_str_462_len(%rip), %rdx
+  subq $32, %rsp
+  call sutra_str_alloc
+  addq $32, %rsp
+  movq %rax, %rbx
+  movq %rbx, %rax
+  jmp .L_epilogue_निम्नक_संचालक_कोड
 .L_निम्नक_संचालक_कोड__if_सत्य_3:
-  leaq .LC_str_459(%rip), %rcx
-  movq .LC_str_459_len(%rip), %rdx
+  leaq .LC_str_461(%rip), %rcx
+  movq .LC_str_461_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -66202,8 +66326,8 @@
   movq %rbx, %rax
   jmp .L_epilogue_निम्नक_संचालक_कोड
 .L_निम्नक_संचालक_कोड__if_सत्य_1:
-  leaq .LC_str_458(%rip), %rcx
-  movq .LC_str_458_len(%rip), %rdx
+  leaq .LC_str_460(%rip), %rcx
+  movq .LC_str_460_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -66342,8 +66466,8 @@
 .L_किनारा_निम्नक_पाठ_में_बदलो_0:
   jmp .L_निम्नक_पाठ_में_बदलो__if_अंत_2
 .L_निम्नक_पाठ_में_बदलो__if_अंत_2:
-  leaq .LC_str_407(%rip), %rcx
-  movq .LC_str_407_len(%rip), %rdx
+  leaq .LC_str_409(%rip), %rcx
+  movq .LC_str_409_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -66390,15 +66514,15 @@
   movq %rax, %rdi
   movq %rdi, -192(%rbp)
   movq %rdi, -192(%rbp)
-  leaq .LC_str_409(%rip), %rcx
-  movq .LC_str_409_len(%rip), %rdx
+  leaq .LC_str_411(%rip), %rcx
+  movq .LC_str_411_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %r12
   movq %r12, -200(%rbp)
-  leaq .LC_str_486(%rip), %rcx
-  movq .LC_str_486_len(%rip), %rdx
+  leaq .LC_str_488(%rip), %rcx
+  movq .LC_str_488_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -66412,8 +66536,8 @@
   addq $32, %rsp
   movq $0, -200(%rbp)
   movq $0, -208(%rbp)
-  leaq .LC_str_419(%rip), %rcx
-  movq .LC_str_419_len(%rip), %rdx
+  leaq .LC_str_421(%rip), %rcx
+  movq .LC_str_421_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -66463,15 +66587,15 @@
   movq %rax, %rdi
   movq %rdi, -144(%rbp)
   movq %rdi, -144(%rbp)
-  leaq .LC_str_409(%rip), %rcx
-  movq .LC_str_409_len(%rip), %rdx
+  leaq .LC_str_411(%rip), %rcx
+  movq .LC_str_411_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %r12
   movq %r12, -152(%rbp)
-  leaq .LC_str_485(%rip), %rcx
-  movq .LC_str_485_len(%rip), %rdx
+  leaq .LC_str_487(%rip), %rcx
+  movq .LC_str_487_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -66485,8 +66609,8 @@
   addq $32, %rsp
   movq $0, -152(%rbp)
   movq $0, -160(%rbp)
-  leaq .LC_str_419(%rip), %rcx
-  movq .LC_str_419_len(%rip), %rdx
+  leaq .LC_str_421(%rip), %rcx
+  movq .LC_str_421_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -66530,15 +66654,15 @@
   movq %rax, %rdi
   movq %rdi, -96(%rbp)
   movq %rdi, -96(%rbp)
-  leaq .LC_str_409(%rip), %rcx
-  movq .LC_str_409_len(%rip), %rdx
+  leaq .LC_str_411(%rip), %rcx
+  movq .LC_str_411_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %r12
   movq %r12, -104(%rbp)
-  leaq .LC_str_484(%rip), %rcx
-  movq .LC_str_484_len(%rip), %rdx
+  leaq .LC_str_486(%rip), %rcx
+  movq .LC_str_486_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -66552,8 +66676,8 @@
   addq $32, %rsp
   movq $0, -104(%rbp)
   movq $0, -112(%rbp)
-  leaq .LC_str_419(%rip), %rcx
-  movq .LC_str_419_len(%rip), %rdx
+  leaq .LC_str_421(%rip), %rcx
+  movq .LC_str_421_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -67015,8 +67139,8 @@
   movq -104(%rbp), %r11
   movq %r11, -320(%rbp)
   movq $0, -176(%rbp)
-  leaq .LC_str_458(%rip), %rcx
-  movq .LC_str_458_len(%rip), %rdx
+  leaq .LC_str_460(%rip), %rcx
+  movq .LC_str_460_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -67187,8 +67311,8 @@
   movq %rdi, -496(%rbp)
   movq %r12, -504(%rbp)
   movq %r13, -512(%rbp)
-  leaq .LC_str_414(%rip), %rcx
-  movq .LC_str_414_len(%rip), %rdx
+  leaq .LC_str_416(%rip), %rcx
+  movq .LC_str_416_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -67434,8 +67558,8 @@
   movq %rdi, %rsi
   jmp .L_निम्नक_द्विआधारी__if_अंत_46
 .L_निम्नक_द्विआधारी__if_सत्य_45:
-  leaq .LC_str_414(%rip), %rcx
-  movq .LC_str_414_len(%rip), %rdx
+  leaq .LC_str_416(%rip), %rcx
+  movq .LC_str_416_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -67461,15 +67585,15 @@
   movq %rax, %r12
   movq %r12, -352(%rbp)
   movq %r12, -352(%rbp)
-  leaq .LC_str_409(%rip), %rcx
-  movq .LC_str_409_len(%rip), %rdx
+  leaq .LC_str_411(%rip), %rcx
+  movq .LC_str_411_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %r14
   movq %r14, -360(%rbp)
-  leaq .LC_str_487(%rip), %rcx
-  movq .LC_str_487_len(%rip), %rdx
+  leaq .LC_str_489(%rip), %rcx
+  movq .LC_str_489_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -67483,8 +67607,8 @@
   addq $32, %rsp
   movq $0, -360(%rbp)
   movq $0, -368(%rbp)
-  leaq .LC_str_419(%rip), %rcx
-  movq .LC_str_419_len(%rip), %rdx
+  leaq .LC_str_421(%rip), %rcx
+  movq .LC_str_421_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -67530,8 +67654,8 @@
   jmp .L_निम्नक_द्विआधारी__if_अंत_48
 .L_निम्नक_द्विआधारी__if_अंत_48:
   movq %rbx, -528(%rbp)
-  leaq .LC_str_414(%rip), %rcx
-  movq .LC_str_414_len(%rip), %rdx
+  leaq .LC_str_416(%rip), %rcx
+  movq .LC_str_416_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -67557,15 +67681,15 @@
   movq %rax, %rsi
   movq %rsi, -400(%rbp)
   movq %rsi, -400(%rbp)
-  leaq .LC_str_409(%rip), %rcx
-  movq .LC_str_409_len(%rip), %rdx
+  leaq .LC_str_411(%rip), %rcx
+  movq .LC_str_411_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %r12
   movq %r12, -408(%rbp)
-  leaq .LC_str_487(%rip), %rcx
-  movq .LC_str_487_len(%rip), %rdx
+  leaq .LC_str_489(%rip), %rcx
+  movq .LC_str_489_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -67579,8 +67703,8 @@
   addq $32, %rsp
   movq $0, -408(%rbp)
   movq $0, -416(%rbp)
-  leaq .LC_str_419(%rip), %rcx
-  movq .LC_str_419_len(%rip), %rdx
+  leaq .LC_str_421(%rip), %rcx
+  movq .LC_str_421_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -67635,8 +67759,8 @@
   movq %rax, %rdi
   movq %rdi, -448(%rbp)
   movq %rdi, -448(%rbp)
-  leaq .LC_str_427(%rip), %rcx
-  movq .LC_str_427_len(%rip), %rdx
+  leaq .LC_str_429(%rip), %rcx
+  movq .LC_str_429_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -68012,8 +68136,8 @@
   movq %rax, %r13
   movq %r13, -168(%rbp)
   movq $0, -144(%rbp)
-  leaq .LC_str_472(%rip), %rcx
-  movq .LC_str_472_len(%rip), %rdx
+  leaq .LC_str_474(%rip), %rcx
+  movq .LC_str_474_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -68027,8 +68151,8 @@
   movq %rax, %r14
   movq %r14, -184(%rbp)
   movq $0, -176(%rbp)
-  leaq .LC_str_488(%rip), %rcx
-  movq .LC_str_488_len(%rip), %rdx
+  leaq .LC_str_490(%rip), %rcx
+  movq .LC_str_490_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -68042,8 +68166,8 @@
   movq %rax, %r15
   movq %r15, -200(%rbp)
   movq $0, -192(%rbp)
-  leaq .LC_str_489(%rip), %rcx
-  movq .LC_str_489_len(%rip), %rdx
+  leaq .LC_str_491(%rip), %rcx
+  movq .LC_str_491_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -68058,8 +68182,8 @@
   movq -104(%rbp), %r11
   movq %r11, -216(%rbp)
   movq $0, -208(%rbp)
-  leaq .LC_str_490(%rip), %rcx
-  movq .LC_str_490_len(%rip), %rdx
+  leaq .LC_str_492(%rip), %rcx
+  movq .LC_str_492_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -68081,8 +68205,8 @@
 .L_किनारा_निम्नक_लघुपथ_0:
   jmp .L_निम्नक_लघुपथ__if_असत्य_3
 .L_निम्नक_लघुपथ__if_असत्य_3:
-  leaq .LC_str_399(%rip), %rcx
-  movq .LC_str_399_len(%rip), %rdx
+  leaq .LC_str_401(%rip), %rcx
+  movq .LC_str_401_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -68096,8 +68220,8 @@
   movq %rax, %rbx
   movq %rbx, -280(%rbp)
   movq $0, -272(%rbp)
-  leaq .LC_str_399(%rip), %rcx
-  movq .LC_str_399_len(%rip), %rdx
+  leaq .LC_str_401(%rip), %rcx
+  movq .LC_str_401_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -68123,8 +68247,8 @@
   movq $0, -296(%rbp)
   jmp .L_निम्नक_लघुपथ__if_अंत_2
 .L_निम्नक_लघुपथ__if_सत्य_1:
-  leaq .LC_str_399(%rip), %rcx
-  movq .LC_str_399_len(%rip), %rdx
+  leaq .LC_str_401(%rip), %rcx
+  movq .LC_str_401_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -68138,8 +68262,8 @@
   movq %rax, %rsi
   movq %rsi, -248(%rbp)
   movq $0, -240(%rbp)
-  leaq .LC_str_399(%rip), %rcx
-  movq .LC_str_399_len(%rip), %rdx
+  leaq .LC_str_401(%rip), %rcx
+  movq .LC_str_401_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -68185,8 +68309,8 @@
   jmp .L_निम्नक_लघुपथ__if_अंत_5
 .L_निम्नक_लघुपथ__if_अंत_5:
   movq %rbx, -496(%rbp)
-  leaq .LC_str_471(%rip), %rcx
-  movq .LC_str_471_len(%rip), %rdx
+  leaq .LC_str_473(%rip), %rcx
+  movq .LC_str_473_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -68210,8 +68334,8 @@
   movq %rsi, -320(%rbp)
   movq $0, -312(%rbp)
   movq $0, -496(%rbp)
-  leaq .LC_str_399(%rip), %rcx
-  movq .LC_str_399_len(%rip), %rdx
+  leaq .LC_str_401(%rip), %rcx
+  movq .LC_str_401_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -68247,8 +68371,8 @@
   movq %rax, %rbx
   movq %rbx, -344(%rbp)
   movq $0, -152(%rbp)
-  leaq .LC_str_472(%rip), %rcx
-  movq .LC_str_472_len(%rip), %rdx
+  leaq .LC_str_474(%rip), %rcx
+  movq .LC_str_474_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -68262,8 +68386,8 @@
   movq %rax, %r12
   movq %r12, -360(%rbp)
   movq $0, -352(%rbp)
-  leaq .LC_str_399(%rip), %rcx
-  movq .LC_str_399_len(%rip), %rdx
+  leaq .LC_str_401(%rip), %rcx
+  movq .LC_str_401_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -68290,8 +68414,8 @@
   call नि_खंड_पर
   addq $32, %rsp
   movq %rax, %rdi
-  leaq .LC_str_399(%rip), %rcx
-  movq .LC_str_399_len(%rip), %rdx
+  leaq .LC_str_401(%rip), %rcx
+  movq .LC_str_401_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -68327,8 +68451,8 @@
   movq %rdi, -400(%rbp)
   movq $0, -320(%rbp)
   movq $0, -392(%rbp)
-  leaq .LC_str_399(%rip), %rcx
-  movq .LC_str_399_len(%rip), %rdx
+  leaq .LC_str_401(%rip), %rcx
+  movq .LC_str_401_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -68385,8 +68509,8 @@
   movq %rbx, -432(%rbp)
   movq $0, -400(%rbp)
   movq $0, -424(%rbp)
-  leaq .LC_str_471(%rip), %rcx
-  movq .LC_str_471_len(%rip), %rdx
+  leaq .LC_str_473(%rip), %rcx
+  movq .LC_str_473_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -68420,8 +68544,8 @@
   movq $0, -432(%rbp)
   movq $0, -448(%rbp)
   movq $0, -456(%rbp)
-  leaq .LC_str_413(%rip), %rcx
-  movq .LC_str_413_len(%rip), %rdx
+  leaq .LC_str_415(%rip), %rcx
+  movq .LC_str_415_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -68612,8 +68736,8 @@
 .L_किनारा_निम्नक_एकल_0:
   jmp .L_निम्नक_एकल__if_अंत_2
 .L_निम्नक_एकल__if_अंत_2:
-  leaq .LC_str_492(%rip), %rcx
-  movq .LC_str_492_len(%rip), %rdx
+  leaq .LC_str_494(%rip), %rcx
+  movq .LC_str_494_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -68694,8 +68818,8 @@
 .L_किनारा_निम्नक_एकल_1:
   jmp .L_निम्नक_एकल__if_अंत_4
 .L_निम्नक_एकल__if_सत्य_3:
-  leaq .LC_str_414(%rip), %rcx
-  movq .LC_str_414_len(%rip), %rdx
+  leaq .LC_str_416(%rip), %rcx
+  movq .LC_str_416_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -68703,8 +68827,8 @@
   jmp .L_निम्नक_एकल__if_अंत_4
 .L_निम्नक_एकल__if_अंत_4:
   movq %rdi, -200(%rbp)
-  leaq .LC_str_491(%rip), %rcx
-  movq .LC_str_491_len(%rip), %rdx
+  leaq .LC_str_493(%rip), %rcx
+  movq .LC_str_493_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -69134,8 +69258,8 @@
   addq $32, %rsp
   movq %rax, %r15
   movq %r15, -368(%rbp)
-  leaq .LC_str_493(%rip), %rcx
-  movq .LC_str_493_len(%rip), %rdx
+  leaq .LC_str_495(%rip), %rcx
+  movq .LC_str_495_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -69226,8 +69350,8 @@
   addq $32, %rsp
   movq %rax, %r13
   movq %r13, -584(%rbp)
-  leaq .LC_str_495(%rip), %rcx
-  movq .LC_str_495_len(%rip), %rdx
+  leaq .LC_str_497(%rip), %rcx
+  movq .LC_str_497_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -69322,8 +69446,8 @@
   movq %rax, %rdi
   movq %rdi, -640(%rbp)
   movq %rdi, -640(%rbp)
-  leaq .LC_str_409(%rip), %rcx
-  movq .LC_str_409_len(%rip), %rdx
+  leaq .LC_str_411(%rip), %rcx
+  movq .LC_str_411_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -69337,8 +69461,8 @@
   addq $32, %rsp
   movq $0, -584(%rbp)
   movq $0, -648(%rbp)
-  leaq .LC_str_419(%rip), %rcx
-  movq .LC_str_419_len(%rip), %rdx
+  leaq .LC_str_421(%rip), %rcx
+  movq .LC_str_421_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -69414,15 +69538,15 @@
   movq %rax, %rbx
   movq %rbx, -544(%rbp)
   movq %rbx, -544(%rbp)
-  leaq .LC_str_409(%rip), %rcx
-  movq .LC_str_409_len(%rip), %rdx
+  leaq .LC_str_411(%rip), %rcx
+  movq .LC_str_411_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %r12
   movq %r12, -552(%rbp)
-  leaq .LC_str_494(%rip), %rcx
-  movq .LC_str_494_len(%rip), %rdx
+  leaq .LC_str_496(%rip), %rcx
+  movq .LC_str_496_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -69436,8 +69560,8 @@
   addq $32, %rsp
   movq $0, -552(%rbp)
   movq $0, -560(%rbp)
-  leaq .LC_str_419(%rip), %rcx
-  movq .LC_str_419_len(%rip), %rdx
+  leaq .LC_str_421(%rip), %rcx
+  movq .LC_str_421_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -69467,8 +69591,8 @@
   movq %r14, %rax
   jmp .L_epilogue_निम्नक_कॉल
 .L_निम्नक_कॉल__if_सत्य_15:
-  leaq .LC_str_480(%rip), %rcx
-  movq .LC_str_480_len(%rip), %rdx
+  leaq .LC_str_482(%rip), %rcx
+  movq .LC_str_482_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -69482,8 +69606,8 @@
   movq %rax, %r12
   movq %r12, -472(%rbp)
   movq $0, -464(%rbp)
-  leaq .LC_str_471(%rip), %rcx
-  movq .LC_str_471_len(%rip), %rdx
+  leaq .LC_str_473(%rip), %rcx
+  movq .LC_str_473_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -69497,8 +69621,8 @@
   movq %rax, %r13
   movq %r13, -488(%rbp)
   movq $0, -480(%rbp)
-  leaq .LC_str_472(%rip), %rcx
-  movq .LC_str_472_len(%rip), %rdx
+  leaq .LC_str_474(%rip), %rcx
+  movq .LC_str_474_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -69525,8 +69649,8 @@
   movq $0, -472(%rbp)
   movq $0, -488(%rbp)
   movq $0, -504(%rbp)
-  leaq .LC_str_413(%rip), %rcx
-  movq .LC_str_413_len(%rip), %rdx
+  leaq .LC_str_415(%rip), %rcx
+  movq .LC_str_415_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -69565,8 +69689,8 @@
   addq $32, %rsp
   movq %rax, %rbx
   movq %rbx, -416(%rbp)
-  leaq .LC_str_414(%rip), %rcx
-  movq .LC_str_414_len(%rip), %rdx
+  leaq .LC_str_416(%rip), %rcx
+  movq .LC_str_416_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -69615,15 +69739,15 @@
   call sutra_arr_set
   addq $32, %rsp
   movq $0, -392(%rbp)
-  leaq .LC_str_420(%rip), %rcx
-  movq .LC_str_420_len(%rip), %rdx
+  leaq .LC_str_422(%rip), %rcx
+  movq .LC_str_422_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %rdi
   movq %rdi, -400(%rbp)
-  leaq .LC_str_414(%rip), %rcx
-  movq .LC_str_414_len(%rip), %rdx
+  leaq .LC_str_416(%rip), %rcx
+  movq .LC_str_416_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -69859,8 +69983,8 @@
   movq %rbx, %rax
   jmp .L_epilogue_निम्नक_अंतर्निहित_परत्
 .L_निम्नक_अंतर्निहित_परत्__if_सत्य_15:
-  leaq .LC_str_414(%rip), %rcx
-  movq .LC_str_414_len(%rip), %rdx
+  leaq .LC_str_416(%rip), %rcx
+  movq .LC_str_416_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -69906,8 +70030,8 @@
   movq %rbx, -48(%rbp)
 
 .L_निम्नक_प्रकार_का_नाम__प्रवेश_0:
-  leaq .LC_str_414(%rip), %rcx
-  movq .LC_str_414_len(%rip), %rdx
+  leaq .LC_str_416(%rip), %rcx
+  movq .LC_str_416_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -69982,8 +70106,8 @@
 .L_किनारा_निम्नक_प्रकार_का_नाम_3:
   jmp .L_निम्नक_प्रकार_का_नाम__if_अंत_8
 .L_निम्नक_प्रकार_का_नाम__if_अंत_8:
-  leaq .LC_str_407(%rip), %rcx
-  movq .LC_str_407_len(%rip), %rdx
+  leaq .LC_str_409(%rip), %rcx
+  movq .LC_str_409_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -70495,8 +70619,8 @@
 .L_किनारा_निम्नक_कॉल_लक्ष्य_17:
   jmp .L_निम्नक_कॉल_लक्ष्य__sc_दायाँ_37
 .L_निम्नक_कॉल_लक्ष्य__sc_दायाँ_37:
-  leaq .LC_str_510(%rip), %rcx
-  movq .LC_str_510_len(%rip), %rdx
+  leaq .LC_str_512(%rip), %rcx
+  movq .LC_str_512_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -70539,8 +70663,8 @@
 .L_किनारा_निम्नक_कॉल_लक्ष्य_19:
   jmp .L_निम्नक_कॉल_लक्ष्य__sc_दायाँ_42
 .L_निम्नक_कॉल_लक्ष्य__sc_दायाँ_42:
-  leaq .LC_str_512(%rip), %rcx
-  movq .LC_str_512_len(%rip), %rdx
+  leaq .LC_str_514(%rip), %rcx
+  movq .LC_str_514_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -70909,6 +71033,24 @@
   movq %rbx, %rax
   jmp .L_epilogue_निम्नक_कॉल_लक्ष्य
 .L_निम्नक_कॉल_लक्ष्य__if_सत्य_81:
+  leaq .LC_str_533(%rip), %rcx
+  movq .LC_str_533_len(%rip), %rdx
+  subq $32, %rsp
+  call sutra_str_alloc
+  addq $32, %rsp
+  movq %rax, %rbx
+  movq %rbx, %rax
+  jmp .L_epilogue_निम्नक_कॉल_लक्ष्य
+.L_निम्नक_कॉल_लक्ष्य__if_सत्य_79:
+  leaq .LC_str_532(%rip), %rcx
+  movq .LC_str_532_len(%rip), %rdx
+  subq $32, %rsp
+  call sutra_str_alloc
+  addq $32, %rsp
+  movq %rax, %rbx
+  movq %rbx, %rax
+  jmp .L_epilogue_निम्नक_कॉल_लक्ष्य
+.L_निम्नक_कॉल_लक्ष्य__if_सत्य_77:
   leaq .LC_str_531(%rip), %rcx
   movq .LC_str_531_len(%rip), %rdx
   subq $32, %rsp
@@ -70917,7 +71059,7 @@
   movq %rax, %rbx
   movq %rbx, %rax
   jmp .L_epilogue_निम्नक_कॉल_लक्ष्य
-.L_निम्नक_कॉल_लक्ष्य__if_सत्य_79:
+.L_निम्नक_कॉल_लक्ष्य__if_सत्य_75:
   leaq .LC_str_530(%rip), %rcx
   movq .LC_str_530_len(%rip), %rdx
   subq $32, %rsp
@@ -70926,7 +71068,7 @@
   movq %rax, %rbx
   movq %rbx, %rax
   jmp .L_epilogue_निम्नक_कॉल_लक्ष्य
-.L_निम्नक_कॉल_लक्ष्य__if_सत्य_77:
+.L_निम्नक_कॉल_लक्ष्य__if_सत्य_73:
   leaq .LC_str_529(%rip), %rcx
   movq .LC_str_529_len(%rip), %rdx
   subq $32, %rsp
@@ -70935,7 +71077,7 @@
   movq %rax, %rbx
   movq %rbx, %rax
   jmp .L_epilogue_निम्नक_कॉल_लक्ष्य
-.L_निम्नक_कॉल_लक्ष्य__if_सत्य_75:
+.L_निम्नक_कॉल_लक्ष्य__if_सत्य_71:
   leaq .LC_str_528(%rip), %rcx
   movq .LC_str_528_len(%rip), %rdx
   subq $32, %rsp
@@ -70944,7 +71086,7 @@
   movq %rax, %rbx
   movq %rbx, %rax
   jmp .L_epilogue_निम्नक_कॉल_लक्ष्य
-.L_निम्नक_कॉल_लक्ष्य__if_सत्य_73:
+.L_निम्नक_कॉल_लक्ष्य__if_सत्य_69:
   leaq .LC_str_527(%rip), %rcx
   movq .LC_str_527_len(%rip), %rdx
   subq $32, %rsp
@@ -70953,7 +71095,7 @@
   movq %rax, %rbx
   movq %rbx, %rax
   jmp .L_epilogue_निम्नक_कॉल_लक्ष्य
-.L_निम्नक_कॉल_लक्ष्य__if_सत्य_71:
+.L_निम्नक_कॉल_लक्ष्य__if_सत्य_67:
   leaq .LC_str_526(%rip), %rcx
   movq .LC_str_526_len(%rip), %rdx
   subq $32, %rsp
@@ -70962,7 +71104,7 @@
   movq %rax, %rbx
   movq %rbx, %rax
   jmp .L_epilogue_निम्नक_कॉल_लक्ष्य
-.L_निम्नक_कॉल_लक्ष्य__if_सत्य_69:
+.L_निम्नक_कॉल_लक्ष्य__if_सत्य_65:
   leaq .LC_str_525(%rip), %rcx
   movq .LC_str_525_len(%rip), %rdx
   subq $32, %rsp
@@ -70971,7 +71113,7 @@
   movq %rax, %rbx
   movq %rbx, %rax
   jmp .L_epilogue_निम्नक_कॉल_लक्ष्य
-.L_निम्नक_कॉल_लक्ष्य__if_सत्य_67:
+.L_निम्नक_कॉल_लक्ष्य__if_सत्य_63:
   leaq .LC_str_524(%rip), %rcx
   movq .LC_str_524_len(%rip), %rdx
   subq $32, %rsp
@@ -70980,7 +71122,7 @@
   movq %rax, %rbx
   movq %rbx, %rax
   jmp .L_epilogue_निम्नक_कॉल_लक्ष्य
-.L_निम्नक_कॉल_लक्ष्य__if_सत्य_65:
+.L_निम्नक_कॉल_लक्ष्य__if_सत्य_61:
   leaq .LC_str_523(%rip), %rcx
   movq .LC_str_523_len(%rip), %rdx
   subq $32, %rsp
@@ -70989,7 +71131,7 @@
   movq %rax, %rbx
   movq %rbx, %rax
   jmp .L_epilogue_निम्नक_कॉल_लक्ष्य
-.L_निम्नक_कॉल_लक्ष्य__if_सत्य_63:
+.L_निम्नक_कॉल_लक्ष्य__if_सत्य_59:
   leaq .LC_str_522(%rip), %rcx
   movq .LC_str_522_len(%rip), %rdx
   subq $32, %rsp
@@ -70998,7 +71140,7 @@
   movq %rax, %rbx
   movq %rbx, %rax
   jmp .L_epilogue_निम्नक_कॉल_लक्ष्य
-.L_निम्नक_कॉल_लक्ष्य__if_सत्य_61:
+.L_निम्नक_कॉल_लक्ष्य__if_सत्य_57:
   leaq .LC_str_521(%rip), %rcx
   movq .LC_str_521_len(%rip), %rdx
   subq $32, %rsp
@@ -71007,7 +71149,7 @@
   movq %rax, %rbx
   movq %rbx, %rax
   jmp .L_epilogue_निम्नक_कॉल_लक्ष्य
-.L_निम्नक_कॉल_लक्ष्य__if_सत्य_59:
+.L_निम्नक_कॉल_लक्ष्य__if_सत्य_55:
   leaq .LC_str_520(%rip), %rcx
   movq .LC_str_520_len(%rip), %rdx
   subq $32, %rsp
@@ -71016,7 +71158,7 @@
   movq %rax, %rbx
   movq %rbx, %rax
   jmp .L_epilogue_निम्नक_कॉल_लक्ष्य
-.L_निम्नक_कॉल_लक्ष्य__if_सत्य_57:
+.L_निम्नक_कॉल_लक्ष्य__if_सत्य_53:
   leaq .LC_str_519(%rip), %rcx
   movq .LC_str_519_len(%rip), %rdx
   subq $32, %rsp
@@ -71025,7 +71167,7 @@
   movq %rax, %rbx
   movq %rbx, %rax
   jmp .L_epilogue_निम्नक_कॉल_लक्ष्य
-.L_निम्नक_कॉल_लक्ष्य__if_सत्य_55:
+.L_निम्नक_कॉल_लक्ष्य__if_सत्य_51:
   leaq .LC_str_518(%rip), %rcx
   movq .LC_str_518_len(%rip), %rdx
   subq $32, %rsp
@@ -71034,7 +71176,7 @@
   movq %rax, %rbx
   movq %rbx, %rax
   jmp .L_epilogue_निम्नक_कॉल_लक्ष्य
-.L_निम्नक_कॉल_लक्ष्य__if_सत्य_53:
+.L_निम्नक_कॉल_लक्ष्य__if_सत्य_49:
   leaq .LC_str_517(%rip), %rcx
   movq .LC_str_517_len(%rip), %rdx
   subq $32, %rsp
@@ -71043,7 +71185,7 @@
   movq %rax, %rbx
   movq %rbx, %rax
   jmp .L_epilogue_निम्नक_कॉल_लक्ष्य
-.L_निम्नक_कॉल_लक्ष्य__if_सत्य_51:
+.L_निम्नक_कॉल_लक्ष्य__if_सत्य_47:
   leaq .LC_str_516(%rip), %rcx
   movq .LC_str_516_len(%rip), %rdx
   subq $32, %rsp
@@ -71052,7 +71194,7 @@
   movq %rax, %rbx
   movq %rbx, %rax
   jmp .L_epilogue_निम्नक_कॉल_लक्ष्य
-.L_निम्नक_कॉल_लक्ष्य__if_सत्य_49:
+.L_निम्नक_कॉल_लक्ष्य__if_सत्य_45:
   leaq .LC_str_515(%rip), %rcx
   movq .LC_str_515_len(%rip), %rdx
   subq $32, %rsp
@@ -71061,16 +71203,7 @@
   movq %rax, %rbx
   movq %rbx, %rax
   jmp .L_epilogue_निम्नक_कॉल_लक्ष्य
-.L_निम्नक_कॉल_लक्ष्य__if_सत्य_47:
-  leaq .LC_str_514(%rip), %rcx
-  movq .LC_str_514_len(%rip), %rdx
-  subq $32, %rsp
-  call sutra_str_alloc
-  addq $32, %rsp
-  movq %rax, %rbx
-  movq %rbx, %rax
-  jmp .L_epilogue_निम्नक_कॉल_लक्ष्य
-.L_निम्नक_कॉल_लक्ष्य__if_सत्य_45:
+.L_निम्नक_कॉल_लक्ष्य__if_सत्य_40:
   leaq .LC_str_513(%rip), %rcx
   movq .LC_str_513_len(%rip), %rdx
   subq $32, %rsp
@@ -71079,7 +71212,7 @@
   movq %rax, %rbx
   movq %rbx, %rax
   jmp .L_epilogue_निम्नक_कॉल_लक्ष्य
-.L_निम्नक_कॉल_लक्ष्य__if_सत्य_40:
+.L_निम्नक_कॉल_लक्ष्य__if_सत्य_35:
   leaq .LC_str_511(%rip), %rcx
   movq .LC_str_511_len(%rip), %rdx
   subq $32, %rsp
@@ -71088,7 +71221,16 @@
   movq %rax, %rbx
   movq %rbx, %rax
   jmp .L_epilogue_निम्नक_कॉल_लक्ष्य
-.L_निम्नक_कॉल_लक्ष्य__if_सत्य_35:
+.L_निम्नक_कॉल_लक्ष्य__if_सत्य_33:
+  leaq .LC_str_510(%rip), %rcx
+  movq .LC_str_510_len(%rip), %rdx
+  subq $32, %rsp
+  call sutra_str_alloc
+  addq $32, %rsp
+  movq %rax, %rbx
+  movq %rbx, %rax
+  jmp .L_epilogue_निम्नक_कॉल_लक्ष्य
+.L_निम्नक_कॉल_लक्ष्य__if_सत्य_31:
   leaq .LC_str_509(%rip), %rcx
   movq .LC_str_509_len(%rip), %rdx
   subq $32, %rsp
@@ -71097,7 +71239,7 @@
   movq %rax, %rbx
   movq %rbx, %rax
   jmp .L_epilogue_निम्नक_कॉल_लक्ष्य
-.L_निम्नक_कॉल_लक्ष्य__if_सत्य_33:
+.L_निम्नक_कॉल_लक्ष्य__if_सत्य_29:
   leaq .LC_str_508(%rip), %rcx
   movq .LC_str_508_len(%rip), %rdx
   subq $32, %rsp
@@ -71106,7 +71248,7 @@
   movq %rax, %rbx
   movq %rbx, %rax
   jmp .L_epilogue_निम्नक_कॉल_लक्ष्य
-.L_निम्नक_कॉल_लक्ष्य__if_सत्य_31:
+.L_निम्नक_कॉल_लक्ष्य__if_सत्य_27:
   leaq .LC_str_507(%rip), %rcx
   movq .LC_str_507_len(%rip), %rdx
   subq $32, %rsp
@@ -71115,7 +71257,7 @@
   movq %rax, %rbx
   movq %rbx, %rax
   jmp .L_epilogue_निम्नक_कॉल_लक्ष्य
-.L_निम्नक_कॉल_लक्ष्य__if_सत्य_29:
+.L_निम्नक_कॉल_लक्ष्य__if_सत्य_25:
   leaq .LC_str_506(%rip), %rcx
   movq .LC_str_506_len(%rip), %rdx
   subq $32, %rsp
@@ -71124,7 +71266,7 @@
   movq %rax, %rbx
   movq %rbx, %rax
   jmp .L_epilogue_निम्नक_कॉल_लक्ष्य
-.L_निम्नक_कॉल_लक्ष्य__if_सत्य_27:
+.L_निम्नक_कॉल_लक्ष्य__if_सत्य_23:
   leaq .LC_str_505(%rip), %rcx
   movq .LC_str_505_len(%rip), %rdx
   subq $32, %rsp
@@ -71133,7 +71275,7 @@
   movq %rax, %rbx
   movq %rbx, %rax
   jmp .L_epilogue_निम्नक_कॉल_लक्ष्य
-.L_निम्नक_कॉल_लक्ष्य__if_सत्य_25:
+.L_निम्नक_कॉल_लक्ष्य__if_सत्य_21:
   leaq .LC_str_504(%rip), %rcx
   movq .LC_str_504_len(%rip), %rdx
   subq $32, %rsp
@@ -71142,7 +71284,7 @@
   movq %rax, %rbx
   movq %rbx, %rax
   jmp .L_epilogue_निम्नक_कॉल_लक्ष्य
-.L_निम्नक_कॉल_लक्ष्य__if_सत्य_23:
+.L_निम्नक_कॉल_लक्ष्य__if_सत्य_19:
   leaq .LC_str_503(%rip), %rcx
   movq .LC_str_503_len(%rip), %rdx
   subq $32, %rsp
@@ -71151,7 +71293,7 @@
   movq %rax, %rbx
   movq %rbx, %rax
   jmp .L_epilogue_निम्नक_कॉल_लक्ष्य
-.L_निम्नक_कॉल_लक्ष्य__if_सत्य_21:
+.L_निम्नक_कॉल_लक्ष्य__if_सत्य_17:
   leaq .LC_str_502(%rip), %rcx
   movq .LC_str_502_len(%rip), %rdx
   subq $32, %rsp
@@ -71160,7 +71302,7 @@
   movq %rax, %rbx
   movq %rbx, %rax
   jmp .L_epilogue_निम्नक_कॉल_लक्ष्य
-.L_निम्नक_कॉल_लक्ष्य__if_सत्य_19:
+.L_निम्नक_कॉल_लक्ष्य__if_सत्य_15:
   leaq .LC_str_501(%rip), %rcx
   movq .LC_str_501_len(%rip), %rdx
   subq $32, %rsp
@@ -71169,7 +71311,7 @@
   movq %rax, %rbx
   movq %rbx, %rax
   jmp .L_epilogue_निम्नक_कॉल_लक्ष्य
-.L_निम्नक_कॉल_लक्ष्य__if_सत्य_17:
+.L_निम्नक_कॉल_लक्ष्य__if_सत्य_13:
   leaq .LC_str_500(%rip), %rcx
   movq .LC_str_500_len(%rip), %rdx
   subq $32, %rsp
@@ -71178,7 +71320,7 @@
   movq %rax, %rbx
   movq %rbx, %rax
   jmp .L_epilogue_निम्नक_कॉल_लक्ष्य
-.L_निम्नक_कॉल_लक्ष्य__if_सत्य_15:
+.L_निम्नक_कॉल_लक्ष्य__if_सत्य_11:
   leaq .LC_str_499(%rip), %rcx
   movq .LC_str_499_len(%rip), %rdx
   subq $32, %rsp
@@ -71187,27 +71329,9 @@
   movq %rax, %rbx
   movq %rbx, %rax
   jmp .L_epilogue_निम्नक_कॉल_लक्ष्य
-.L_निम्नक_कॉल_लक्ष्य__if_सत्य_13:
-  leaq .LC_str_498(%rip), %rcx
-  movq .LC_str_498_len(%rip), %rdx
-  subq $32, %rsp
-  call sutra_str_alloc
-  addq $32, %rsp
-  movq %rax, %rbx
-  movq %rbx, %rax
-  jmp .L_epilogue_निम्नक_कॉल_लक्ष्य
-.L_निम्नक_कॉल_लक्ष्य__if_सत्य_11:
-  leaq .LC_str_497(%rip), %rcx
-  movq .LC_str_497_len(%rip), %rdx
-  subq $32, %rsp
-  call sutra_str_alloc
-  addq $32, %rsp
-  movq %rax, %rbx
-  movq %rbx, %rax
-  jmp .L_epilogue_निम्नक_कॉल_लक्ष्य
 .L_निम्नक_कॉल_लक्ष्य__if_सत्य_9:
-  leaq .LC_str_494(%rip), %rcx
-  movq .LC_str_494_len(%rip), %rdx
+  leaq .LC_str_496(%rip), %rcx
+  movq .LC_str_496_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -71215,8 +71339,8 @@
   movq %rbx, %rax
   jmp .L_epilogue_निम्नक_कॉल_लक्ष्य
 .L_निम्नक_कॉल_लक्ष्य__if_सत्य_7:
-  leaq .LC_str_496(%rip), %rcx
-  movq .LC_str_496_len(%rip), %rdx
+  leaq .LC_str_498(%rip), %rcx
+  movq .LC_str_498_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -72339,8 +72463,8 @@
 .L_किनारा_निम्नक_कथन_15:
   jmp .L_निम्नक_कथन__sc_दायाँ_69
 .L_निम्नक_कथन__sc_दायाँ_69:
-  leaq .LC_str_535(%rip), %rcx
-  movq .LC_str_535_len(%rip), %rdx
+  leaq .LC_str_537(%rip), %rcx
+  movq .LC_str_537_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -72456,8 +72580,8 @@
   movq %rax, %r12
   movq %r12, -2016(%rbp)
   movq $0, -2040(%rbp)
-  leaq .LC_str_472(%rip), %rcx
-  movq .LC_str_472_len(%rip), %rdx
+  leaq .LC_str_474(%rip), %rcx
+  movq .LC_str_474_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -72483,8 +72607,8 @@
   movq %rdi, %rax
   jmp .L_epilogue_निम्नक_कथन
 .L_निम्नक_कथन__if_सत्य_65:
-  leaq .LC_str_534(%rip), %rcx
-  movq .LC_str_534_len(%rip), %rdx
+  leaq .LC_str_536(%rip), %rcx
+  movq .LC_str_536_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -72516,8 +72640,8 @@
 .L_किनारा_निम्नक_कथन_19:
   jmp .L_निम्नक_कथन__if_अंत_68
 .L_निम्नक_कथन__if_सत्य_67:
-  leaq .LC_str_472(%rip), %rcx
-  movq .LC_str_472_len(%rip), %rdx
+  leaq .LC_str_474(%rip), %rcx
+  movq .LC_str_474_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -72562,8 +72686,8 @@
   movq %rdi, %rax
   jmp .L_epilogue_निम्नक_कथन
 .L_निम्नक_कथन__if_सत्य_61:
-  leaq .LC_str_533(%rip), %rcx
-  movq .LC_str_533_len(%rip), %rdx
+  leaq .LC_str_535(%rip), %rcx
+  movq .LC_str_535_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -72595,8 +72719,8 @@
 .L_किनारा_निम्नक_कथन_20:
   jmp .L_निम्नक_कथन__if_अंत_64
 .L_निम्नक_कथन__if_सत्य_63:
-  leaq .LC_str_472(%rip), %rcx
-  movq .LC_str_472_len(%rip), %rdx
+  leaq .LC_str_474(%rip), %rcx
+  movq .LC_str_474_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -72710,8 +72834,8 @@
   movq %rax, %rdi
   movq %rdi, -1880(%rbp)
   movq $0, -1848(%rbp)
-  leaq .LC_str_472(%rip), %rcx
-  movq .LC_str_472_len(%rip), %rdx
+  leaq .LC_str_474(%rip), %rcx
+  movq .LC_str_474_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -72735,8 +72859,8 @@
   movq $0, -1896(%rbp)
   jmp .L_निम्नक_कथन__if_अंत_53
 .L_निम्नक_कथन__if_सत्य_52:
-  leaq .LC_str_472(%rip), %rcx
-  movq .LC_str_472_len(%rip), %rdx
+  leaq .LC_str_474(%rip), %rcx
+  movq .LC_str_474_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -72868,8 +72992,8 @@
   movq %rax, %r13
   movq %r13, -1712(%rbp)
   movq %r13, -1712(%rbp)
-  leaq .LC_str_433(%rip), %rcx
-  movq .LC_str_433_len(%rip), %rdx
+  leaq .LC_str_435(%rip), %rcx
+  movq .LC_str_435_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -72898,8 +73022,8 @@
   addq $32, %rsp
   movq $0, -1720(%rbp)
   movq $0, -1736(%rbp)
-  leaq .LC_str_474(%rip), %rcx
-  movq .LC_str_474_len(%rip), %rdx
+  leaq .LC_str_476(%rip), %rcx
+  movq .LC_str_476_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -72953,8 +73077,8 @@
   addq $32, %rsp
   movq $0, -1744(%rbp)
   movq $0, -1784(%rbp)
-  leaq .LC_str_431(%rip), %rcx
-  movq .LC_str_431_len(%rip), %rdx
+  leaq .LC_str_433(%rip), %rcx
+  movq .LC_str_433_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -73163,8 +73287,8 @@
   movq %rax, %rsi
   movq %rsi, -1632(%rbp)
   movq $0, -1624(%rbp)
-  leaq .LC_str_457(%rip), %rcx
-  movq .LC_str_457_len(%rip), %rdx
+  leaq .LC_str_459(%rip), %rcx
+  movq .LC_str_459_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -73233,8 +73357,8 @@
   movq %rax, %rsi
   movq %rsi, -1560(%rbp)
   movq $0, -1552(%rbp)
-  leaq .LC_str_456(%rip), %rcx
-  movq .LC_str_456_len(%rip), %rdx
+  leaq .LC_str_458(%rip), %rcx
+  movq .LC_str_458_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -73335,8 +73459,8 @@
   movq %rax, %rbx
   movq %rbx, -1400(%rbp)
   movq $0, -1392(%rbp)
-  leaq .LC_str_482(%rip), %rcx
-  movq .LC_str_482_len(%rip), %rdx
+  leaq .LC_str_484(%rip), %rcx
+  movq .LC_str_484_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -73400,8 +73524,8 @@
   addq $32, %rsp
   movq $0, -1376(%rbp)
   movq $0, -1488(%rbp)
-  leaq .LC_str_429(%rip), %rcx
-  movq .LC_str_429_len(%rip), %rdx
+  leaq .LC_str_431(%rip), %rcx
+  movq .LC_str_431_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -73433,15 +73557,15 @@
   movq $0, -1504(%rbp)
   jmp .L_निम्नक_कथन__if_अंत_37
 .L_निम्नक_कथन__if_सत्य_36:
-  leaq .LC_str_418(%rip), %rcx
-  movq .LC_str_418_len(%rip), %rdx
+  leaq .LC_str_420(%rip), %rcx
+  movq .LC_str_420_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %rsi
   movq %rsi, -1440(%rbp)
-  leaq .LC_str_416(%rip), %rcx
-  movq .LC_str_416_len(%rip), %rdx
+  leaq .LC_str_418(%rip), %rcx
+  movq .LC_str_418_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -73538,8 +73662,8 @@
   movq %rax, %rbx
   movq %rbx, -1056(%rbp)
   movq $0, -1048(%rbp)
-  leaq .LC_str_532(%rip), %rcx
-  movq .LC_str_532_len(%rip), %rdx
+  leaq .LC_str_534(%rip), %rcx
+  movq .LC_str_534_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -73571,8 +73695,8 @@
   movq $0, %rdi
   jmp .L_निम्नक_कथन__sc_अंत_14
 .L_निम्नक_कथन__sc_दायाँ_12:
-  leaq .LC_str_483(%rip), %rcx
-  movq .LC_str_483_len(%rip), %rdx
+  leaq .LC_str_485(%rip), %rcx
+  movq .LC_str_485_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -73619,8 +73743,8 @@
 .L_किनारा_निम्नक_कथन_25:
   jmp .L_निम्नक_कथन__if_अंत_16
 .L_निम्नक_कथन__if_अंत_16:
-  leaq .LC_str_471(%rip), %rcx
-  movq .LC_str_471_len(%rip), %rdx
+  leaq .LC_str_473(%rip), %rcx
+  movq .LC_str_473_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -73634,8 +73758,8 @@
   movq %rax, %r12
   movq %r12, -1208(%rbp)
   movq $0, -1200(%rbp)
-  leaq .LC_str_472(%rip), %rcx
-  movq .LC_str_472_len(%rip), %rdx
+  leaq .LC_str_474(%rip), %rcx
+  movq .LC_str_474_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -73665,8 +73789,8 @@
   movq %rax, %r12
   movq %r12, -1240(%rbp)
   movq %r12, -1240(%rbp)
-  leaq .LC_str_416(%rip), %rcx
-  movq .LC_str_416_len(%rip), %rdx
+  leaq .LC_str_418(%rip), %rcx
+  movq .LC_str_418_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -73693,8 +73817,8 @@
   call sutra_arr_set
   addq $32, %rsp
   movq $0, -1256(%rbp)
-  leaq .LC_str_482(%rip), %rcx
-  movq .LC_str_482_len(%rip), %rdx
+  leaq .LC_str_484(%rip), %rcx
+  movq .LC_str_484_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -73785,8 +73909,8 @@
 .L_किनारा_निम्नक_कथन_27:
   jmp .L_निम्नक_कथन__sc_दायाँ_23
 .L_निम्नक_कथन__sc_दायाँ_23:
-  leaq .LC_str_407(%rip), %rcx
-  movq .LC_str_407_len(%rip), %rdx
+  leaq .LC_str_409(%rip), %rcx
+  movq .LC_str_409_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -73872,8 +73996,8 @@
   addq $32, %rsp
   movq $0, -1312(%rbp)
   movq $0, -1320(%rbp)
-  leaq .LC_str_482(%rip), %rcx
-  movq .LC_str_482_len(%rip), %rdx
+  leaq .LC_str_484(%rip), %rcx
+  movq .LC_str_484_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -73897,8 +74021,8 @@
   movq $0, -1336(%rbp)
   jmp .L_निम्नक_कथन__if_अंत_33
 .L_निम्नक_कथन__if_अंत_33:
-  leaq .LC_str_418(%rip), %rcx
-  movq .LC_str_418_len(%rip), %rdx
+  leaq .LC_str_420(%rip), %rcx
+  movq .LC_str_420_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -74012,8 +74136,8 @@
 .L_किनारा_निम्नक_कथन_32:
   jmp .L_निम्नक_कथन__if_अंत_20
 .L_निम्नक_कथन__if_सत्य_19:
-  leaq .LC_str_483(%rip), %rcx
-  movq .LC_str_483_len(%rip), %rdx
+  leaq .LC_str_485(%rip), %rcx
+  movq .LC_str_485_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -74065,8 +74189,8 @@
   addq $32, %rsp
   movq $0, -1032(%rbp)
   movq $0, -1176(%rbp)
-  leaq .LC_str_429(%rip), %rcx
-  movq .LC_str_429_len(%rip), %rdx
+  leaq .LC_str_431(%rip), %rcx
+  movq .LC_str_431_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -74572,15 +74696,15 @@
   movq %rax, %rdi
   movq %rdi, -136(%rbp)
   movq %rdi, -136(%rbp)
-  leaq .LC_str_409(%rip), %rcx
-  movq .LC_str_409_len(%rip), %rdx
+  leaq .LC_str_411(%rip), %rcx
+  movq .LC_str_411_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %r12
   movq %r12, -144(%rbp)
-  leaq .LC_str_536(%rip), %rcx
-  movq .LC_str_536_len(%rip), %rdx
+  leaq .LC_str_538(%rip), %rcx
+  movq .LC_str_538_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -74594,8 +74718,8 @@
   addq $32, %rsp
   movq $0, -144(%rbp)
   movq $0, -152(%rbp)
-  leaq .LC_str_419(%rip), %rcx
-  movq .LC_str_419_len(%rip), %rdx
+  leaq .LC_str_421(%rip), %rcx
+  movq .LC_str_421_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -74631,8 +74755,8 @@
   movq $0, -160(%rbp)
   movq $0, -168(%rbp)
   movq $0, -176(%rbp)
-  leaq .LC_str_471(%rip), %rcx
-  movq .LC_str_471_len(%rip), %rdx
+  leaq .LC_str_473(%rip), %rcx
+  movq .LC_str_473_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -74646,8 +74770,8 @@
   movq %rax, %r12
   movq %r12, -200(%rbp)
   movq $0, -192(%rbp)
-  leaq .LC_str_472(%rip), %rcx
-  movq .LC_str_472_len(%rip), %rdx
+  leaq .LC_str_474(%rip), %rcx
+  movq .LC_str_474_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -74678,15 +74802,15 @@
   movq %rax, %rdi
   movq %rdi, -232(%rbp)
   movq %rdi, -232(%rbp)
-  leaq .LC_str_409(%rip), %rcx
-  movq .LC_str_409_len(%rip), %rdx
+  leaq .LC_str_411(%rip), %rcx
+  movq .LC_str_411_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %r12
   movq %r12, -240(%rbp)
-  leaq .LC_str_537(%rip), %rcx
-  movq .LC_str_537_len(%rip), %rdx
+  leaq .LC_str_539(%rip), %rcx
+  movq .LC_str_539_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -74700,15 +74824,15 @@
   addq $32, %rsp
   movq $0, -240(%rbp)
   movq $0, -248(%rbp)
-  leaq .LC_str_419(%rip), %rcx
-  movq .LC_str_419_len(%rip), %rdx
+  leaq .LC_str_421(%rip), %rcx
+  movq .LC_str_421_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %r12
   movq %r12, -256(%rbp)
-  leaq .LC_str_414(%rip), %rcx
-  movq .LC_str_414_len(%rip), %rdx
+  leaq .LC_str_416(%rip), %rcx
+  movq .LC_str_416_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -74751,8 +74875,8 @@
   movq $0, -256(%rbp)
   movq $0, -264(%rbp)
   movq $0, -272(%rbp)
-  leaq .LC_str_472(%rip), %rcx
-  movq .LC_str_472_len(%rip), %rdx
+  leaq .LC_str_474(%rip), %rcx
+  movq .LC_str_474_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -74766,8 +74890,8 @@
   movq %rax, %rdi
   movq %rdi, -296(%rbp)
   movq $0, -288(%rbp)
-  leaq .LC_str_538(%rip), %rcx
-  movq .LC_str_538_len(%rip), %rdx
+  leaq .LC_str_540(%rip), %rcx
+  movq .LC_str_540_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -74781,8 +74905,8 @@
   movq %rax, %r12
   movq %r12, -312(%rbp)
   movq $0, -304(%rbp)
-  leaq .LC_str_539(%rip), %rcx
-  movq .LC_str_539_len(%rip), %rdx
+  leaq .LC_str_541(%rip), %rcx
+  movq .LC_str_541_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -74796,8 +74920,8 @@
   movq %rax, %r13
   movq %r13, -328(%rbp)
   movq $0, -320(%rbp)
-  leaq .LC_str_540(%rip), %rcx
-  movq .LC_str_540_len(%rip), %rdx
+  leaq .LC_str_542(%rip), %rcx
+  movq .LC_str_542_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -74812,8 +74936,8 @@
   movq -88(%rbp), %r11
   movq %r11, -344(%rbp)
   movq $0, -336(%rbp)
-  leaq .LC_str_399(%rip), %rcx
-  movq .LC_str_399_len(%rip), %rdx
+  leaq .LC_str_401(%rip), %rcx
+  movq .LC_str_401_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -74827,8 +74951,8 @@
   movq %rax, %r15
   movq %r15, -360(%rbp)
   movq $0, -352(%rbp)
-  leaq .LC_str_399(%rip), %rcx
-  movq .LC_str_399_len(%rip), %rdx
+  leaq .LC_str_401(%rip), %rcx
+  movq .LC_str_401_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -74906,15 +75030,15 @@
   movq %rax, %rbx
   movq %rbx, -400(%rbp)
   movq %rbx, -400(%rbp)
-  leaq .LC_str_409(%rip), %rcx
-  movq .LC_str_409_len(%rip), %rdx
+  leaq .LC_str_411(%rip), %rcx
+  movq .LC_str_411_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %rsi
   movq %rsi, -408(%rbp)
-  leaq .LC_str_541(%rip), %rcx
-  movq .LC_str_541_len(%rip), %rdx
+  leaq .LC_str_543(%rip), %rcx
+  movq .LC_str_543_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -74928,8 +75052,8 @@
   addq $32, %rsp
   movq $0, -408(%rbp)
   movq $0, -416(%rbp)
-  leaq .LC_str_419(%rip), %rcx
-  movq .LC_str_419_len(%rip), %rdx
+  leaq .LC_str_421(%rip), %rcx
+  movq .LC_str_421_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -74953,8 +75077,8 @@
   movq $0, -400(%rbp)
   movq $0, -424(%rbp)
   movq $0, -432(%rbp)
-  leaq .LC_str_472(%rip), %rcx
-  movq .LC_str_472_len(%rip), %rdx
+  leaq .LC_str_474(%rip), %rcx
+  movq .LC_str_474_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -74968,8 +75092,8 @@
   movq %rax, %rsi
   movq %rsi, -448(%rbp)
   movq $0, -440(%rbp)
-  leaq .LC_str_399(%rip), %rcx
-  movq .LC_str_399_len(%rip), %rdx
+  leaq .LC_str_401(%rip), %rcx
+  movq .LC_str_401_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -75006,15 +75130,15 @@
   movq %rax, %rbx
   movq %rbx, -472(%rbp)
   movq %rbx, -472(%rbp)
-  leaq .LC_str_409(%rip), %rcx
-  movq .LC_str_409_len(%rip), %rdx
+  leaq .LC_str_411(%rip), %rcx
+  movq .LC_str_411_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %rsi
   movq %rsi, -480(%rbp)
-  leaq .LC_str_542(%rip), %rcx
-  movq .LC_str_542_len(%rip), %rdx
+  leaq .LC_str_544(%rip), %rcx
+  movq .LC_str_544_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -75028,8 +75152,8 @@
   addq $32, %rsp
   movq $0, -480(%rbp)
   movq $0, -488(%rbp)
-  leaq .LC_str_419(%rip), %rcx
-  movq .LC_str_419_len(%rip), %rdx
+  leaq .LC_str_421(%rip), %rcx
+  movq .LC_str_421_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -75133,8 +75257,8 @@
 .L_किनारा_निम्नक_प्रयत्न_2:
   jmp .L_निम्नक_प्रयत्न__if_अंत_7
 .L_निम्नक_प्रयत्न__if_सत्य_6:
-  leaq .LC_str_471(%rip), %rcx
-  movq .LC_str_471_len(%rip), %rdx
+  leaq .LC_str_473(%rip), %rcx
+  movq .LC_str_473_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -75148,8 +75272,8 @@
   movq %rax, %rdi
   movq %rdi, -568(%rbp)
   movq $0, -560(%rbp)
-  leaq .LC_str_472(%rip), %rcx
-  movq .LC_str_472_len(%rip), %rdx
+  leaq .LC_str_474(%rip), %rcx
+  movq .LC_str_474_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -75179,8 +75303,8 @@
   movq %rax, %rdi
   movq %rdi, -600(%rbp)
   movq %rdi, -600(%rbp)
-  leaq .LC_str_416(%rip), %rcx
-  movq .LC_str_416_len(%rip), %rdx
+  leaq .LC_str_418(%rip), %rcx
+  movq .LC_str_418_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -75215,8 +75339,8 @@
   addq $32, %rsp
   movq $0, -616(%rbp)
   movq $0, -624(%rbp)
-  leaq .LC_str_482(%rip), %rcx
-  movq .LC_str_482_len(%rip), %rdx
+  leaq .LC_str_484(%rip), %rcx
+  movq .LC_str_484_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -75239,8 +75363,8 @@
   movq $0, -536(%rbp)
   movq $0, -600(%rbp)
   movq $0, -640(%rbp)
-  leaq .LC_str_418(%rip), %rcx
-  movq .LC_str_418_len(%rip), %rdx
+  leaq .LC_str_420(%rip), %rcx
+  movq .LC_str_420_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -75326,8 +75450,8 @@
 .L_किनारा_निम्नक_प्रयत्न_3:
   jmp .L_निम्नक_प्रयत्न__if_अंत_9
 .L_निम्नक_प्रयत्न__if_सत्य_8:
-  leaq .LC_str_472(%rip), %rcx
-  movq .LC_str_472_len(%rip), %rdx
+  leaq .LC_str_474(%rip), %rcx
+  movq .LC_str_474_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -75341,8 +75465,8 @@
   movq %rax, %rsi
   movq %rsi, -696(%rbp)
   movq $0, -688(%rbp)
-  leaq .LC_str_399(%rip), %rcx
-  movq .LC_str_399_len(%rip), %rdx
+  leaq .LC_str_401(%rip), %rcx
+  movq .LC_str_401_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -75475,8 +75599,8 @@
   addq $32, %rsp
   movq %rax, %rsi
   movq %rsi, -96(%rbp)
-  leaq .LC_str_496(%rip), %rcx
-  movq .LC_str_496_len(%rip), %rdx
+  leaq .LC_str_498(%rip), %rcx
+  movq .LC_str_498_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -75501,8 +75625,8 @@
 .L_किनारा_निम्नक_लिखतु_0:
   jmp .L_निम्नक_लिखतु__if_अंत_2
 .L_निम्नक_लिखतु__if_सत्य_1:
-  leaq .LC_str_543(%rip), %rcx
-  movq .LC_str_543_len(%rip), %rdx
+  leaq .LC_str_545(%rip), %rcx
+  movq .LC_str_545_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -75529,8 +75653,8 @@
 .L_किनारा_निम्नक_लिखतु_1:
   jmp .L_निम्नक_लिखतु__if_अंत_4
 .L_निम्नक_लिखतु__if_सत्य_3:
-  leaq .LC_str_544(%rip), %rcx
-  movq .LC_str_544_len(%rip), %rdx
+  leaq .LC_str_546(%rip), %rcx
+  movq .LC_str_546_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -75538,8 +75662,8 @@
   jmp .L_निम्नक_लिखतु__if_अंत_4
 .L_निम्नक_लिखतु__if_अंत_4:
   movq %r12, -152(%rbp)
-  leaq .LC_str_407(%rip), %rcx
-  movq .LC_str_407_len(%rip), %rdx
+  leaq .LC_str_409(%rip), %rcx
+  movq .LC_str_409_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -75559,8 +75683,8 @@
   movq %r12, %rsi
   jmp .L_निम्नक_लिखतु__if_अंत_6
 .L_निम्नक_लिखतु__if_सत्य_5:
-  leaq .LC_str_545(%rip), %rcx
-  movq .LC_str_545_len(%rip), %rdx
+  leaq .LC_str_547(%rip), %rcx
+  movq .LC_str_547_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -75574,8 +75698,8 @@
   movq %rax, %r12
   movq %r12, -112(%rbp)
   movq %r12, -112(%rbp)
-  leaq .LC_str_409(%rip), %rcx
-  movq .LC_str_409_len(%rip), %rdx
+  leaq .LC_str_411(%rip), %rcx
+  movq .LC_str_411_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -75589,8 +75713,8 @@
   addq $32, %rsp
   movq $0, -120(%rbp)
   movq $0, -160(%rbp)
-  leaq .LC_str_419(%rip), %rcx
-  movq .LC_str_419_len(%rip), %rdx
+  leaq .LC_str_421(%rip), %rcx
+  movq .LC_str_421_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -75808,8 +75932,8 @@
   movq %rax, %rdi
   movq %rdi, -168(%rbp)
   movq $0, -160(%rbp)
-  leaq .LC_str_472(%rip), %rcx
-  movq .LC_str_472_len(%rip), %rdx
+  leaq .LC_str_474(%rip), %rcx
+  movq .LC_str_474_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -75839,8 +75963,8 @@
   movq -104(%rbp), %r11
   movq %r11, -200(%rbp)
   movq $0, -192(%rbp)
-  leaq .LC_str_546(%rip), %rcx
-  movq .LC_str_546_len(%rip), %rdx
+  leaq .LC_str_548(%rip), %rcx
+  movq .LC_str_548_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -75854,8 +75978,8 @@
   movq %rax, %r15
   movq %r15, -216(%rbp)
   movq $0, -208(%rbp)
-  leaq .LC_str_547(%rip), %rcx
-  movq .LC_str_547_len(%rip), %rdx
+  leaq .LC_str_549(%rip), %rcx
+  movq .LC_str_549_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -75893,8 +76017,8 @@
   movq %r11, -120(%rbp)
   jmp .L_निम्नक_यदि__if_अंत_2
 .L_निम्नक_यदि__if_सत्य_1:
-  leaq .LC_str_548(%rip), %rcx
-  movq .LC_str_548_len(%rip), %rdx
+  leaq .LC_str_550(%rip), %rcx
+  movq .LC_str_550_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -75912,8 +76036,8 @@
 .L_निम्नक_यदि__if_अंत_2:
   movq -120(%rbp), %r11
   movq %r11, -376(%rbp)
-  leaq .LC_str_399(%rip), %rcx
-  movq .LC_str_399_len(%rip), %rdx
+  leaq .LC_str_401(%rip), %rcx
+  movq .LC_str_401_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -75927,8 +76051,8 @@
   movq %rax, %r14
   movq %r14, -264(%rbp)
   movq $0, -256(%rbp)
-  leaq .LC_str_399(%rip), %rcx
-  movq .LC_str_399_len(%rip), %rdx
+  leaq .LC_str_401(%rip), %rcx
+  movq .LC_str_401_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -76001,8 +76125,8 @@
 .L_किनारा_निम्नक_यदि_1:
   jmp .L_निम्नक_यदि__if_अंत_4
 .L_निम्नक_यदि__if_सत्य_3:
-  leaq .LC_str_472(%rip), %rcx
-  movq .LC_str_472_len(%rip), %rdx
+  leaq .LC_str_474(%rip), %rcx
+  movq .LC_str_474_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -76016,8 +76140,8 @@
   movq %rax, %rsi
   movq %rsi, -312(%rbp)
   movq $0, -304(%rbp)
-  leaq .LC_str_399(%rip), %rcx
-  movq .LC_str_399_len(%rip), %rdx
+  leaq .LC_str_401(%rip), %rcx
+  movq .LC_str_401_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -76093,8 +76217,8 @@
 .L_किनारा_निम्नक_यदि_3:
   jmp .L_निम्नक_यदि__if_अंत_8
 .L_निम्नक_यदि__if_सत्य_7:
-  leaq .LC_str_472(%rip), %rcx
-  movq .LC_str_472_len(%rip), %rdx
+  leaq .LC_str_474(%rip), %rcx
+  movq .LC_str_474_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -76108,8 +76232,8 @@
   movq %rax, %rsi
   movq %rsi, -352(%rbp)
   movq $0, -344(%rbp)
-  leaq .LC_str_399(%rip), %rcx
-  movq .LC_str_399_len(%rip), %rdx
+  leaq .LC_str_401(%rip), %rcx
+  movq .LC_str_401_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -76371,8 +76495,8 @@
   movq %rsi, -128(%rbp)
 
 .L_निम्नक_यावत्__प्रवेश_0:
-  leaq .LC_str_549(%rip), %rcx
-  movq .LC_str_549_len(%rip), %rdx
+  leaq .LC_str_551(%rip), %rcx
+  movq .LC_str_551_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -76387,8 +76511,8 @@
   movq -104(%rbp), %r11
   movq %r11, -144(%rbp)
   movq $0, -136(%rbp)
-  leaq .LC_str_550(%rip), %rcx
-  movq .LC_str_550_len(%rip), %rdx
+  leaq .LC_str_552(%rip), %rcx
+  movq .LC_str_552_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -76402,8 +76526,8 @@
   movq %rax, %r13
   movq %r13, -160(%rbp)
   movq $0, -152(%rbp)
-  leaq .LC_str_551(%rip), %rcx
-  movq .LC_str_551_len(%rip), %rdx
+  leaq .LC_str_553(%rip), %rcx
+  movq .LC_str_553_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -76418,8 +76542,8 @@
   movq -72(%rbp), %r11
   movq %r11, -176(%rbp)
   movq $0, -168(%rbp)
-  leaq .LC_str_472(%rip), %rcx
-  movq .LC_str_472_len(%rip), %rdx
+  leaq .LC_str_474(%rip), %rcx
+  movq .LC_str_474_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -76433,8 +76557,8 @@
   movq %rax, %r15
   movq %r15, -192(%rbp)
   movq $0, -184(%rbp)
-  leaq .LC_str_399(%rip), %rcx
-  movq .LC_str_399_len(%rip), %rdx
+  leaq .LC_str_401(%rip), %rcx
+  movq .LC_str_401_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -76485,8 +76609,8 @@
   movq %rax, %rdi
   movq %rdi, -232(%rbp)
   movq $0, -224(%rbp)
-  leaq .LC_str_472(%rip), %rcx
-  movq .LC_str_472_len(%rip), %rdx
+  leaq .LC_str_474(%rip), %rcx
+  movq .LC_str_474_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -76500,8 +76624,8 @@
   movq %rax, %r15
   movq %r15, -248(%rbp)
   movq $0, -240(%rbp)
-  leaq .LC_str_399(%rip), %rcx
-  movq .LC_str_399_len(%rip), %rdx
+  leaq .LC_str_401(%rip), %rcx
+  movq .LC_str_401_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -76515,8 +76639,8 @@
   movq %rax, %rbx
   movq %rbx, -264(%rbp)
   movq $0, -256(%rbp)
-  leaq .LC_str_399(%rip), %rcx
-  movq .LC_str_399_len(%rip), %rdx
+  leaq .LC_str_401(%rip), %rcx
+  movq .LC_str_401_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -76542,15 +76666,15 @@
   movq $0, -248(%rbp)
   movq $0, -264(%rbp)
   movq $0, -280(%rbp)
-  leaq .LC_str_534(%rip), %rcx
-  movq .LC_str_534_len(%rip), %rdx
+  leaq .LC_str_536(%rip), %rcx
+  movq .LC_str_536_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %rbx
   movq %rbx, -288(%rbp)
-  leaq .LC_str_534(%rip), %rcx
-  movq .LC_str_534_len(%rip), %rdx
+  leaq .LC_str_536(%rip), %rcx
+  movq .LC_str_536_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -76564,8 +76688,8 @@
   movq %rax, %r12
   movq %r12, -304(%rbp)
   movq $0, -296(%rbp)
-  leaq .LC_str_399(%rip), %rcx
-  movq .LC_str_399_len(%rip), %rdx
+  leaq .LC_str_401(%rip), %rcx
+  movq .LC_str_401_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -76596,15 +76720,15 @@
   addq $32, %rsp
   movq $0, -288(%rbp)
   movq $0, -328(%rbp)
-  leaq .LC_str_533(%rip), %rcx
-  movq .LC_str_533_len(%rip), %rdx
+  leaq .LC_str_535(%rip), %rcx
+  movq .LC_str_535_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %rbx
   movq %rbx, -336(%rbp)
-  leaq .LC_str_533(%rip), %rcx
-  movq .LC_str_533_len(%rip), %rdx
+  leaq .LC_str_535(%rip), %rcx
+  movq .LC_str_535_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -76618,8 +76742,8 @@
   movq %rax, %r12
   movq %r12, -352(%rbp)
   movq $0, -344(%rbp)
-  leaq .LC_str_399(%rip), %rcx
-  movq .LC_str_399_len(%rip), %rdx
+  leaq .LC_str_401(%rip), %rcx
+  movq .LC_str_401_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -76697,8 +76821,8 @@
 .L_किनारा_निम्नक_यावत्_0:
   jmp .L_निम्नक_यावत्__if_अंत_2
 .L_निम्नक_यावत्__if_सत्य_1:
-  leaq .LC_str_472(%rip), %rcx
-  movq .LC_str_472_len(%rip), %rdx
+  leaq .LC_str_474(%rip), %rcx
+  movq .LC_str_474_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -76712,8 +76836,8 @@
   movq %rax, %rsi
   movq %rsi, -408(%rbp)
   movq $0, -400(%rbp)
-  leaq .LC_str_399(%rip), %rcx
-  movq .LC_str_399_len(%rip), %rdx
+  leaq .LC_str_401(%rip), %rcx
+  movq .LC_str_401_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -76738,15 +76862,15 @@
   movq $0, -424(%rbp)
   jmp .L_निम्नक_यावत्__if_अंत_2
 .L_निम्नक_यावत्__if_अंत_2:
-  leaq .LC_str_534(%rip), %rcx
-  movq .LC_str_534_len(%rip), %rdx
+  leaq .LC_str_536(%rip), %rcx
+  movq .LC_str_536_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %rbx
   movq %rbx, -432(%rbp)
-  leaq .LC_str_534(%rip), %rcx
-  movq .LC_str_534_len(%rip), %rdx
+  leaq .LC_str_536(%rip), %rcx
+  movq .LC_str_536_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -76775,15 +76899,15 @@
   addq $32, %rsp
   movq $0, -432(%rbp)
   movq $0, -456(%rbp)
-  leaq .LC_str_533(%rip), %rcx
-  movq .LC_str_533_len(%rip), %rdx
+  leaq .LC_str_535(%rip), %rcx
+  movq .LC_str_535_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %rbx
   movq %rbx, -464(%rbp)
-  leaq .LC_str_533(%rip), %rcx
-  movq .LC_str_533_len(%rip), %rdx
+  leaq .LC_str_535(%rip), %rcx
+  movq .LC_str_535_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -77131,8 +77255,8 @@
   addq $32, %rsp
   movq %rax, %rdi
   movq $0, -160(%rbp)
-  leaq .LC_str_552(%rip), %rcx
-  movq .LC_str_552_len(%rip), %rdx
+  leaq .LC_str_554(%rip), %rcx
+  movq .LC_str_554_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -77147,8 +77271,8 @@
   movq -104(%rbp), %r11
   movq %r11, -176(%rbp)
   movq $0, -168(%rbp)
-  leaq .LC_str_553(%rip), %rcx
-  movq .LC_str_553_len(%rip), %rdx
+  leaq .LC_str_555(%rip), %rcx
+  movq .LC_str_555_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -77162,8 +77286,8 @@
   movq %rax, %r13
   movq %r13, -192(%rbp)
   movq $0, -184(%rbp)
-  leaq .LC_str_554(%rip), %rcx
-  movq .LC_str_554_len(%rip), %rdx
+  leaq .LC_str_556(%rip), %rcx
+  movq .LC_str_556_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -77177,8 +77301,8 @@
   movq %rax, %r14
   movq %r14, -208(%rbp)
   movq $0, -200(%rbp)
-  leaq .LC_str_555(%rip), %rcx
-  movq .LC_str_555_len(%rip), %rdx
+  leaq .LC_str_557(%rip), %rcx
+  movq .LC_str_557_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -77193,8 +77317,8 @@
   movq -72(%rbp), %r11
   movq %r11, -224(%rbp)
   movq $0, -216(%rbp)
-  leaq .LC_str_472(%rip), %rcx
-  movq .LC_str_472_len(%rip), %rdx
+  leaq .LC_str_474(%rip), %rcx
+  movq .LC_str_474_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -77208,8 +77332,8 @@
   movq %rax, %r15
   movq %r15, -240(%rbp)
   movq $0, -232(%rbp)
-  leaq .LC_str_399(%rip), %rcx
-  movq .LC_str_399_len(%rip), %rdx
+  leaq .LC_str_401(%rip), %rcx
+  movq .LC_str_401_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -77276,8 +77400,8 @@
   movq %rax, %rbx
   movq %rbx, -320(%rbp)
   movq $0, -272(%rbp)
-  leaq .LC_str_472(%rip), %rcx
-  movq .LC_str_472_len(%rip), %rdx
+  leaq .LC_str_474(%rip), %rcx
+  movq .LC_str_474_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -77291,8 +77415,8 @@
   movq %rax, %r15
   movq %r15, -336(%rbp)
   movq $0, -328(%rbp)
-  leaq .LC_str_399(%rip), %rcx
-  movq .LC_str_399_len(%rip), %rdx
+  leaq .LC_str_401(%rip), %rcx
+  movq .LC_str_401_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -77306,8 +77430,8 @@
   movq %rax, %r12
   movq %r12, -352(%rbp)
   movq $0, -344(%rbp)
-  leaq .LC_str_399(%rip), %rcx
-  movq .LC_str_399_len(%rip), %rdx
+  leaq .LC_str_401(%rip), %rcx
+  movq .LC_str_401_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -77335,8 +77459,8 @@
   movq $0, -368(%rbp)
   jmp .L_निम्नक_पुनरावृत्ति__if_अंत_2
 .L_निम्नक_पुनरावृत्ति__if_सत्य_1:
-  leaq .LC_str_472(%rip), %rcx
-  movq .LC_str_472_len(%rip), %rdx
+  leaq .LC_str_474(%rip), %rcx
+  movq .LC_str_474_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -77350,8 +77474,8 @@
   movq %rax, %rsi
   movq %rsi, -296(%rbp)
   movq $0, -288(%rbp)
-  leaq .LC_str_399(%rip), %rcx
-  movq .LC_str_399_len(%rip), %rdx
+  leaq .LC_str_401(%rip), %rcx
+  movq .LC_str_401_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -77375,15 +77499,15 @@
   movq $0, -312(%rbp)
   jmp .L_निम्नक_पुनरावृत्ति__if_अंत_2
 .L_निम्नक_पुनरावृत्ति__if_अंत_2:
-  leaq .LC_str_534(%rip), %rcx
-  movq .LC_str_534_len(%rip), %rdx
+  leaq .LC_str_536(%rip), %rcx
+  movq .LC_str_536_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %rbx
   movq %rbx, -376(%rbp)
-  leaq .LC_str_534(%rip), %rcx
-  movq .LC_str_534_len(%rip), %rdx
+  leaq .LC_str_536(%rip), %rcx
+  movq .LC_str_536_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -77397,8 +77521,8 @@
   movq %rax, %rdi
   movq %rdi, -392(%rbp)
   movq $0, -384(%rbp)
-  leaq .LC_str_399(%rip), %rcx
-  movq .LC_str_399_len(%rip), %rdx
+  leaq .LC_str_401(%rip), %rcx
+  movq .LC_str_401_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -77429,15 +77553,15 @@
   addq $32, %rsp
   movq $0, -376(%rbp)
   movq $0, -416(%rbp)
-  leaq .LC_str_533(%rip), %rcx
-  movq .LC_str_533_len(%rip), %rdx
+  leaq .LC_str_535(%rip), %rcx
+  movq .LC_str_535_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %rbx
   movq %rbx, -424(%rbp)
-  leaq .LC_str_533(%rip), %rcx
-  movq .LC_str_533_len(%rip), %rdx
+  leaq .LC_str_535(%rip), %rcx
+  movq .LC_str_535_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -77451,8 +77575,8 @@
   movq %rax, %rdi
   movq %rdi, -440(%rbp)
   movq $0, -432(%rbp)
-  leaq .LC_str_399(%rip), %rcx
-  movq .LC_str_399_len(%rip), %rdx
+  leaq .LC_str_401(%rip), %rcx
+  movq .LC_str_401_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -77529,8 +77653,8 @@
 .L_किनारा_निम्नक_पुनरावृत्ति_1:
   jmp .L_निम्नक_पुनरावृत्ति__if_अंत_5
 .L_निम्नक_पुनरावृत्ति__if_सत्य_4:
-  leaq .LC_str_472(%rip), %rcx
-  movq .LC_str_472_len(%rip), %rdx
+  leaq .LC_str_474(%rip), %rcx
+  movq .LC_str_474_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -77544,8 +77668,8 @@
   movq %rax, %rsi
   movq %rsi, -496(%rbp)
   movq $0, -488(%rbp)
-  leaq .LC_str_399(%rip), %rcx
-  movq .LC_str_399_len(%rip), %rdx
+  leaq .LC_str_401(%rip), %rcx
+  movq .LC_str_401_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -77616,8 +77740,8 @@
 .L_किनारा_निम्नक_पुनरावृत्ति_2:
   jmp .L_निम्नक_पुनरावृत्ति__if_अंत_7
 .L_निम्नक_पुनरावृत्ति__if_सत्य_6:
-  leaq .LC_str_472(%rip), %rcx
-  movq .LC_str_472_len(%rip), %rdx
+  leaq .LC_str_474(%rip), %rcx
+  movq .LC_str_474_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -77631,8 +77755,8 @@
   movq %rax, %rsi
   movq %rsi, -544(%rbp)
   movq $0, -536(%rbp)
-  leaq .LC_str_399(%rip), %rcx
-  movq .LC_str_399_len(%rip), %rdx
+  leaq .LC_str_401(%rip), %rcx
+  movq .LC_str_401_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -77657,15 +77781,15 @@
   movq $0, -560(%rbp)
   jmp .L_निम्नक_पुनरावृत्ति__if_अंत_7
 .L_निम्नक_पुनरावृत्ति__if_अंत_7:
-  leaq .LC_str_534(%rip), %rcx
-  movq .LC_str_534_len(%rip), %rdx
+  leaq .LC_str_536(%rip), %rcx
+  movq .LC_str_536_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %rbx
   movq %rbx, -568(%rbp)
-  leaq .LC_str_534(%rip), %rcx
-  movq .LC_str_534_len(%rip), %rdx
+  leaq .LC_str_536(%rip), %rcx
+  movq .LC_str_536_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -77694,15 +77818,15 @@
   addq $32, %rsp
   movq $0, -568(%rbp)
   movq $0, -592(%rbp)
-  leaq .LC_str_533(%rip), %rcx
-  movq .LC_str_533_len(%rip), %rdx
+  leaq .LC_str_535(%rip), %rcx
+  movq .LC_str_535_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %rbx
   movq %rbx, -600(%rbp)
-  leaq .LC_str_533(%rip), %rcx
-  movq .LC_str_533_len(%rip), %rdx
+  leaq .LC_str_535(%rip), %rcx
+  movq .LC_str_535_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -78176,8 +78300,8 @@
   movq %r11, -368(%rbp)
   movq -168(%rbp), %r11
   movq %r11, -368(%rbp)
-  leaq .LC_str_480(%rip), %rcx
-  movq .LC_str_480_len(%rip), %rdx
+  leaq .LC_str_482(%rip), %rcx
+  movq .LC_str_482_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -78191,8 +78315,8 @@
   addq $32, %rsp
   movq $0, -280(%rbp)
   movq $0, -376(%rbp)
-  leaq .LC_str_471(%rip), %rcx
-  movq .LC_str_471_len(%rip), %rdx
+  leaq .LC_str_473(%rip), %rcx
+  movq .LC_str_473_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -78205,8 +78329,8 @@
   call sutra_arr_set
   addq $32, %rsp
   movq $0, -384(%rbp)
-  leaq .LC_str_482(%rip), %rcx
-  movq .LC_str_482_len(%rip), %rdx
+  leaq .LC_str_484(%rip), %rcx
+  movq .LC_str_484_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -78226,8 +78350,8 @@
   addq $32, %rsp
   movq $0, -392(%rbp)
   movq $0, -400(%rbp)
-  leaq .LC_str_483(%rip), %rcx
-  movq .LC_str_483_len(%rip), %rdx
+  leaq .LC_str_485(%rip), %rcx
+  movq .LC_str_485_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -78241,8 +78365,8 @@
   addq $32, %rsp
   movq $0, -296(%rbp)
   movq $0, -408(%rbp)
-  leaq .LC_str_495(%rip), %rcx
-  movq .LC_str_495_len(%rip), %rdx
+  leaq .LC_str_497(%rip), %rcx
+  movq .LC_str_497_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -78256,8 +78380,8 @@
   addq $32, %rsp
   movq $0, -304(%rbp)
   movq $0, -416(%rbp)
-  leaq .LC_str_475(%rip), %rcx
-  movq .LC_str_475_len(%rip), %rdx
+  leaq .LC_str_477(%rip), %rcx
+  movq .LC_str_477_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -78271,8 +78395,8 @@
   addq $32, %rsp
   movq $0, -312(%rbp)
   movq $0, -424(%rbp)
-  leaq .LC_str_481(%rip), %rcx
-  movq .LC_str_481_len(%rip), %rdx
+  leaq .LC_str_483(%rip), %rcx
+  movq .LC_str_483_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -78285,8 +78409,8 @@
   call sutra_arr_set
   addq $32, %rsp
   movq $0, -432(%rbp)
-  leaq .LC_str_533(%rip), %rcx
-  movq .LC_str_533_len(%rip), %rdx
+  leaq .LC_str_535(%rip), %rcx
+  movq .LC_str_535_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -78307,8 +78431,8 @@
   addq $32, %rsp
   movq $0, -440(%rbp)
   movq $0, -448(%rbp)
-  leaq .LC_str_534(%rip), %rcx
-  movq .LC_str_534_len(%rip), %rdx
+  leaq .LC_str_536(%rip), %rcx
+  movq .LC_str_536_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -78329,8 +78453,8 @@
   addq $32, %rsp
   movq $0, -456(%rbp)
   movq $0, -464(%rbp)
-  leaq .LC_str_413(%rip), %rcx
-  movq .LC_str_413_len(%rip), %rdx
+  leaq .LC_str_415(%rip), %rcx
+  movq .LC_str_415_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -78350,8 +78474,8 @@
   addq $32, %rsp
   movq $0, -472(%rbp)
   movq $0, -480(%rbp)
-  leaq .LC_str_532(%rip), %rcx
-  movq .LC_str_532_len(%rip), %rdx
+  leaq .LC_str_534(%rip), %rcx
+  movq .LC_str_534_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -78365,8 +78489,8 @@
   call sutra_arr_set
   addq $32, %rsp
   movq $0, -488(%rbp)
-  leaq .LC_str_556(%rip), %rcx
-  movq .LC_str_556_len(%rip), %rdx
+  leaq .LC_str_558(%rip), %rcx
+  movq .LC_str_558_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -78385,8 +78509,8 @@
 .L_किनारा_निम्नक_कार्य_1:
   jmp .L_निम्नक_कार्य__if_अंत_4
 .L_निम्नक_कार्य__if_सत्य_3:
-  leaq .LC_str_532(%rip), %rcx
-  movq .LC_str_532_len(%rip), %rdx
+  leaq .LC_str_534(%rip), %rcx
+  movq .LC_str_534_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -78402,8 +78526,8 @@
   movq $0, -496(%rbp)
   jmp .L_निम्नक_कार्य__if_अंत_4
 .L_निम्नक_कार्य__if_अंत_4:
-  leaq .LC_str_557(%rip), %rcx
-  movq .LC_str_557_len(%rip), %rdx
+  leaq .LC_str_559(%rip), %rcx
+  movq .LC_str_559_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -78418,8 +78542,8 @@
   movq -152(%rbp), %r11
   movq %r11, -512(%rbp)
   movq $0, -504(%rbp)
-  leaq .LC_str_472(%rip), %rcx
-  movq .LC_str_472_len(%rip), %rdx
+  leaq .LC_str_474(%rip), %rcx
+  movq .LC_str_474_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -78655,8 +78779,8 @@
 .L_किनारा_निम्नक_कार्य_6:
   jmp .L_निम्नक_कार्य__if_अंत_17
 .L_निम्नक_कार्य__if_सत्य_16:
-  leaq .LC_str_407(%rip), %rcx
-  movq .LC_str_407_len(%rip), %rdx
+  leaq .LC_str_409(%rip), %rcx
+  movq .LC_str_409_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -78699,8 +78823,8 @@
 .L_किनारा_निम्नक_कार्य_8:
   jmp .L_निम्नक_कार्य__if_असत्य_23
 .L_निम्नक_कार्य__if_असत्य_23:
-  leaq .LC_str_472(%rip), %rcx
-  movq .LC_str_472_len(%rip), %rdx
+  leaq .LC_str_474(%rip), %rcx
+  movq .LC_str_474_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -78722,8 +78846,8 @@
   movq %rax, %r12
   movq %r12, -848(%rbp)
   movq $0, -840(%rbp)
-  leaq .LC_str_472(%rip), %rcx
-  movq .LC_str_472_len(%rip), %rdx
+  leaq .LC_str_474(%rip), %rcx
+  movq .LC_str_474_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -78747,8 +78871,8 @@
   movq $0, -864(%rbp)
   jmp .L_निम्नक_कार्य__if_अंत_22
 .L_निम्नक_कार्य__if_सत्य_21:
-  leaq .LC_str_472(%rip), %rcx
-  movq .LC_str_472_len(%rip), %rdx
+  leaq .LC_str_474(%rip), %rcx
+  movq .LC_str_474_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -78836,8 +78960,8 @@
   movq %rax, %r12
   movq %r12, -728(%rbp)
   movq %r12, -728(%rbp)
-  leaq .LC_str_416(%rip), %rcx
-  movq .LC_str_416_len(%rip), %rdx
+  leaq .LC_str_418(%rip), %rcx
+  movq .LC_str_418_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -78865,8 +78989,8 @@
   addq $32, %rsp
   movq $0, -712(%rbp)
   movq $0, -744(%rbp)
-  leaq .LC_str_482(%rip), %rcx
-  movq .LC_str_482_len(%rip), %rdx
+  leaq .LC_str_484(%rip), %rcx
+  movq .LC_str_484_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -78889,8 +79013,8 @@
   movq $0, -688(%rbp)
   movq $0, -728(%rbp)
   movq $0, -760(%rbp)
-  leaq .LC_str_418(%rip), %rcx
-  movq .LC_str_418_len(%rip), %rdx
+  leaq .LC_str_420(%rip), %rcx
+  movq .LC_str_420_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -79003,8 +79127,8 @@
   movq %rax, %rbx
   movq %rbx, -648(%rbp)
   movq $0, -640(%rbp)
-  leaq .LC_str_413(%rip), %rcx
-  movq .LC_str_413_len(%rip), %rdx
+  leaq .LC_str_415(%rip), %rcx
+  movq .LC_str_415_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -79085,7 +79209,7 @@
 निम्नक_एकक:
   pushq %rbp
   movq %rsp, %rbp
-  subq $2048, %rsp
+  subq $2192, %rsp
   movq %rbx, -8(%rbp)
   movq %rsi, -16(%rbp)
   movq %rdi, -24(%rbp)
@@ -79093,15 +79217,7 @@
   movq %r13, -40(%rbp)
   movq %r14, -48(%rbp)
   movq %r15, -56(%rbp)
-  movq %rcx, -488(%rbp)
-  movq $0, -776(%rbp)
-  movq $0, -784(%rbp)
-  movq $0, -792(%rbp)
-  movq $0, -800(%rbp)
-  movq $0, -808(%rbp)
-  movq $0, -816(%rbp)
-  movq $0, -824(%rbp)
-  movq $0, -832(%rbp)
+  movq %rcx, -520(%rbp)
   movq $0, -840(%rbp)
   movq $0, -848(%rbp)
   movq $0, -856(%rbp)
@@ -79252,32 +79368,26 @@
   movq $0, -2016(%rbp)
   movq $0, -2024(%rbp)
   movq $0, -2032(%rbp)
+  movq $0, -2040(%rbp)
+  movq $0, -2048(%rbp)
+  movq $0, -2056(%rbp)
+  movq $0, -2064(%rbp)
+  movq $0, -2072(%rbp)
+  movq $0, -2080(%rbp)
+  movq $0, -2088(%rbp)
+  movq $0, -2096(%rbp)
+  movq $0, -2104(%rbp)
+  movq $0, -2112(%rbp)
+  movq $0, -2120(%rbp)
+  movq $0, -2128(%rbp)
+  movq $0, -2136(%rbp)
+  movq $0, -2144(%rbp)
+  movq $0, -2152(%rbp)
+  movq $0, -2160(%rbp)
+  movq $0, -2168(%rbp)
+  movq $0, -2176(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
-  leaq -776(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -784(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -792(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -800(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -808(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -816(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -824(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -832(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
   leaq -840(%rbp), %r11
   movq %r11, (%r10,%rax,8)
   incl %eax
@@ -79728,99 +79838,157 @@
   leaq -2032(%rbp), %r11
   movq %r11, (%r10,%rax,8)
   incl %eax
+  leaq -2040(%rbp), %r11
+  movq %r11, (%r10,%rax,8)
+  incl %eax
+  leaq -2048(%rbp), %r11
+  movq %r11, (%r10,%rax,8)
+  incl %eax
+  leaq -2056(%rbp), %r11
+  movq %r11, (%r10,%rax,8)
+  incl %eax
+  leaq -2064(%rbp), %r11
+  movq %r11, (%r10,%rax,8)
+  incl %eax
+  leaq -2072(%rbp), %r11
+  movq %r11, (%r10,%rax,8)
+  incl %eax
+  leaq -2080(%rbp), %r11
+  movq %r11, (%r10,%rax,8)
+  incl %eax
+  leaq -2088(%rbp), %r11
+  movq %r11, (%r10,%rax,8)
+  incl %eax
+  leaq -2096(%rbp), %r11
+  movq %r11, (%r10,%rax,8)
+  incl %eax
+  leaq -2104(%rbp), %r11
+  movq %r11, (%r10,%rax,8)
+  incl %eax
+  leaq -2112(%rbp), %r11
+  movq %r11, (%r10,%rax,8)
+  incl %eax
+  leaq -2120(%rbp), %r11
+  movq %r11, (%r10,%rax,8)
+  incl %eax
+  leaq -2128(%rbp), %r11
+  movq %r11, (%r10,%rax,8)
+  incl %eax
+  leaq -2136(%rbp), %r11
+  movq %r11, (%r10,%rax,8)
+  incl %eax
+  leaq -2144(%rbp), %r11
+  movq %r11, (%r10,%rax,8)
+  incl %eax
+  leaq -2152(%rbp), %r11
+  movq %r11, (%r10,%rax,8)
+  incl %eax
+  leaq -2160(%rbp), %r11
+  movq %r11, (%r10,%rax,8)
+  incl %eax
+  leaq -2168(%rbp), %r11
+  movq %r11, (%r10,%rax,8)
+  incl %eax
+  leaq -2176(%rbp), %r11
+  movq %r11, (%r10,%rax,8)
+  incl %eax
   movl %eax, gc_roots_count(%rip)
-  movq -488(%rbp), %r11
-  movq %r11, -776(%rbp)
+  movq -520(%rbp), %r11
+  movq %r11, -840(%rbp)
 
 .L_निम्नक_एकक__प्रवेश_0:
   subq $32, %rsp
   call मध्यम_नव_एकक
   addq $32, %rsp
-  movq %rax, -472(%rbp)
-  movq -472(%rbp), %r11
-  movq %r11, -784(%rbp)
+  movq %rax, -504(%rbp)
+  movq -504(%rbp), %r11
+  movq %r11, -848(%rbp)
   subq $32, %rsp
   call sutra_dict_create
   addq $32, %rsp
-  movq %rax, -456(%rbp)
-  movq -456(%rbp), %r11
-  movq %r11, -792(%rbp)
-  movq -456(%rbp), %r11
-  movq %r11, -792(%rbp)
+  movq %rax, -488(%rbp)
+  movq -488(%rbp), %r11
+  movq %r11, -856(%rbp)
+  movq -488(%rbp), %r11
+  movq %r11, -856(%rbp)
   leaq .LC_str_221(%rip), %rcx
   movq .LC_str_221_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %r12
-  movq %r12, -800(%rbp)
-  movq -488(%rbp), %rcx
+  movq %r12, -864(%rbp)
+  movq -520(%rbp), %rcx
   movq %r12, %rdx
   subq $32, %rsp
   call sutra_arr_get
   addq $32, %rsp
-  movq %rax, -440(%rbp)
-  movq -440(%rbp), %r11
-  movq %r11, -808(%rbp)
-  movq $0, -800(%rbp)
+  movq %rax, -472(%rbp)
+  movq -472(%rbp), %r11
+  movq %r11, -872(%rbp)
+  movq $0, -864(%rbp)
   movq $0, %r12
-  movq %r12, -504(%rbp)
+  movq %r12, -536(%rbp)
   jmp .L_निम्नक_एकक__wh_शर्त_1
 .L_निम्नक_एकक__wh_शर्त_1:
-  movq -504(%rbp), %r11
-  movq %r11, -1728(%rbp)
-  movq -424(%rbp), %r11
-  movq %r11, -1736(%rbp)
-  movq -408(%rbp), %r11
-  movq %r11, -1744(%rbp)
-  movq -72(%rbp), %r11
-  movq %r11, -1752(%rbp)
-  movq -88(%rbp), %r11
-  movq %r11, -1760(%rbp)
-  movq -104(%rbp), %r11
-  movq %r11, -1768(%rbp)
-  movq -120(%rbp), %r11
-  movq %r11, -1776(%rbp)
-  movq -136(%rbp), %r11
-  movq %r11, -1784(%rbp)
-  movq -152(%rbp), %r11
-  movq %r11, -1792(%rbp)
-  movq -168(%rbp), %r11
-  movq %r11, -1800(%rbp)
-  movq -184(%rbp), %r11
-  movq %r11, -1808(%rbp)
-  movq -200(%rbp), %r11
-  movq %r11, -1816(%rbp)
-  movq -216(%rbp), %r11
-  movq %r11, -1824(%rbp)
-  movq -232(%rbp), %r11
-  movq %r11, -1832(%rbp)
-  movq -248(%rbp), %r11
+  movq -536(%rbp), %r11
   movq %r11, -1840(%rbp)
-  movq -264(%rbp), %r11
+  movq -456(%rbp), %r11
   movq %r11, -1848(%rbp)
-  movq -280(%rbp), %r11
+  movq -440(%rbp), %r11
   movq %r11, -1856(%rbp)
-  movq -296(%rbp), %r11
+  movq -72(%rbp), %r11
   movq %r11, -1864(%rbp)
-  movq -312(%rbp), %r11
+  movq -88(%rbp), %r11
   movq %r11, -1872(%rbp)
-  movq -328(%rbp), %r11
+  movq -104(%rbp), %r11
   movq %r11, -1880(%rbp)
-  movq -344(%rbp), %r11
+  movq -120(%rbp), %r11
   movq %r11, -1888(%rbp)
-  movq -360(%rbp), %r11
+  movq -136(%rbp), %r11
   movq %r11, -1896(%rbp)
-  movq -376(%rbp), %r11
+  movq -152(%rbp), %r11
   movq %r11, -1904(%rbp)
-  movq -392(%rbp), %r11
+  movq -168(%rbp), %r11
   movq %r11, -1912(%rbp)
-  movq -440(%rbp), %rcx
+  movq -184(%rbp), %r11
+  movq %r11, -1920(%rbp)
+  movq -200(%rbp), %r11
+  movq %r11, -1928(%rbp)
+  movq -216(%rbp), %r11
+  movq %r11, -1936(%rbp)
+  movq -232(%rbp), %r11
+  movq %r11, -1944(%rbp)
+  movq -248(%rbp), %r11
+  movq %r11, -1952(%rbp)
+  movq -264(%rbp), %r11
+  movq %r11, -1960(%rbp)
+  movq -280(%rbp), %r11
+  movq %r11, -1968(%rbp)
+  movq -296(%rbp), %r11
+  movq %r11, -1976(%rbp)
+  movq -312(%rbp), %r11
+  movq %r11, -1984(%rbp)
+  movq -328(%rbp), %r11
+  movq %r11, -1992(%rbp)
+  movq -344(%rbp), %r11
+  movq %r11, -2000(%rbp)
+  movq -360(%rbp), %r11
+  movq %r11, -2008(%rbp)
+  movq -376(%rbp), %r11
+  movq %r11, -2016(%rbp)
+  movq -392(%rbp), %r11
+  movq %r11, -2024(%rbp)
+  movq -408(%rbp), %r11
+  movq %r11, -2032(%rbp)
+  movq -424(%rbp), %r11
+  movq %r11, -2040(%rbp)
+  movq -472(%rbp), %rcx
   subq $32, %rsp
   call दैशिक_लंबाई
   addq $32, %rsp
   movq %rax, %r15
-  movq -504(%rbp), %r10
+  movq -536(%rbp), %r10
   cmpq %r15, %r10
   setl %al
   movzbq %al, %r10
@@ -79835,43 +80003,43 @@
   subq $32, %rsp
   call sutra_dict_create
   addq $32, %rsp
-  movq %rax, -568(%rbp)
-  movq -568(%rbp), %r11
-  movq %r11, -848(%rbp)
-  movq -568(%rbp), %r11
-  movq %r11, -848(%rbp)
+  movq %rax, -600(%rbp)
+  movq -600(%rbp), %r11
+  movq %r11, -912(%rbp)
+  movq -600(%rbp), %r11
+  movq %r11, -912(%rbp)
   leaq .LC_str_223(%rip), %rcx
   movq .LC_str_223_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %r15
-  movq %r15, -856(%rbp)
-  movq -488(%rbp), %rcx
+  movq %r15, -920(%rbp)
+  movq -520(%rbp), %rcx
   movq %r15, %rdx
   subq $32, %rsp
   call sutra_arr_get
   addq $32, %rsp
-  movq %rax, -552(%rbp)
-  movq -552(%rbp), %r11
-  movq %r11, -864(%rbp)
-  movq $0, -856(%rbp)
+  movq %rax, -584(%rbp)
+  movq -584(%rbp), %r11
+  movq %r11, -928(%rbp)
+  movq $0, -920(%rbp)
   movq $0, %r15
   movq -184(%rbp), %r11
-  movq %r11, -520(%rbp)
-  movq %r15, -536(%rbp)
+  movq %r11, -552(%rbp)
+  movq %r15, -568(%rbp)
   jmp .L_निम्नक_एकक__wh_शर्त_4
 .L_निम्नक_एकक__wh_शर्त_4:
-  movq -536(%rbp), %r11
-  movq %r11, -1920(%rbp)
-  movq -520(%rbp), %r11
-  movq %r11, -1928(%rbp)
-  movq -552(%rbp), %rcx
+  movq -568(%rbp), %r11
+  movq %r11, -2048(%rbp)
+  movq -552(%rbp), %r11
+  movq %r11, -2056(%rbp)
+  movq -584(%rbp), %rcx
   subq $32, %rsp
   call दैशिक_लंबाई
   addq $32, %rsp
   movq %rax, %rsi
-  movq -536(%rbp), %r10
+  movq -568(%rbp), %r10
   cmpq %rsi, %r10
   setl %al
   movzbq %al, %r10
@@ -79886,47 +80054,47 @@
   subq $32, %rsp
   call sutra_dict_create
   addq $32, %rsp
-  movq %rax, -600(%rbp)
-  movq -600(%rbp), %r11
-  movq %r11, -1096(%rbp)
-  movq -600(%rbp), %r11
-  movq %r11, -1096(%rbp)
+  movq %rax, -632(%rbp)
+  movq -632(%rbp), %r11
+  movq %r11, -1160(%rbp)
+  movq -632(%rbp), %r11
+  movq %r11, -1160(%rbp)
   leaq .LC_str_224(%rip), %rcx
   movq .LC_str_224_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %rsi
-  movq %rsi, -1104(%rbp)
-  movq -488(%rbp), %rcx
+  movq %rsi, -1168(%rbp)
+  movq -520(%rbp), %rcx
   movq %rsi, %rdx
   subq $32, %rsp
   call sutra_arr_get
   addq $32, %rsp
-  movq %rax, -584(%rbp)
-  movq -584(%rbp), %r11
-  movq %r11, -1112(%rbp)
-  movq $0, -1104(%rbp)
+  movq %rax, -616(%rbp)
+  movq -616(%rbp), %r11
+  movq %r11, -1176(%rbp)
+  movq $0, -1168(%rbp)
   movq $0, %rsi
   movq -232(%rbp), %r11
-  movq %r11, -632(%rbp)
+  movq %r11, -664(%rbp)
   movq -216(%rbp), %r11
-  movq %r11, -648(%rbp)
-  movq %rsi, -616(%rbp)
+  movq %r11, -680(%rbp)
+  movq %rsi, -648(%rbp)
   jmp .L_निम्नक_एकक__wh_शर्त_16
 .L_निम्नक_एकक__wh_शर्त_16:
-  movq -616(%rbp), %r11
-  movq %r11, -1936(%rbp)
   movq -648(%rbp), %r11
-  movq %r11, -1944(%rbp)
-  movq -632(%rbp), %r11
-  movq %r11, -1952(%rbp)
-  movq -584(%rbp), %rcx
+  movq %r11, -2064(%rbp)
+  movq -680(%rbp), %r11
+  movq %r11, -2072(%rbp)
+  movq -664(%rbp), %r11
+  movq %r11, -2080(%rbp)
+  movq -616(%rbp), %rcx
   subq $32, %rsp
   call दैशिक_लंबाई
   addq $32, %rsp
   movq %rax, %r13
-  movq -616(%rbp), %r10
+  movq -648(%rbp), %r10
   cmpq %r13, %r10
   setl %al
   movzbq %al, %r10
@@ -79938,33 +80106,33 @@
 .L_किनारा_निम्नक_एकक_2:
   jmp .L_निम्नक_एकक__wh_अंत_18
 .L_निम्नक_एकक__wh_अंत_18:
-  leaq .LC_str_558(%rip), %rcx
-  movq .LC_str_558_len(%rip), %rdx
+  leaq .LC_str_560(%rip), %rcx
+  movq .LC_str_560_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %r13
-  movq %r13, -1256(%rbp)
+  movq %r13, -1320(%rbp)
   movq $0, %r14
-  movq -472(%rbp), %rcx
+  movq -504(%rbp), %rcx
   movq %r13, %rdx
   movq %r14, %r8
   subq $32, %rsp
   call sutra_arr_set
   addq $32, %rsp
-  movq $0, -1256(%rbp)
+  movq $0, -1320(%rbp)
   movq $0, %r13
-  movq %r13, -664(%rbp)
+  movq %r13, -696(%rbp)
   jmp .L_निम्नक_एकक__wh_शर्त_21
 .L_निम्नक_एकक__wh_शर्त_21:
-  movq -664(%rbp), %r11
-  movq %r11, -1960(%rbp)
-  movq -440(%rbp), %rcx
+  movq -696(%rbp), %r11
+  movq %r11, -2088(%rbp)
+  movq -472(%rbp), %rcx
   subq $32, %rsp
   call दैशिक_लंबाई
   addq $32, %rsp
   movq %rax, %r14
-  movq -664(%rbp), %r10
+  movq -696(%rbp), %r10
   cmpq %r14, %r10
   setl %al
   movzbq %al, %r10
@@ -79977,23 +80145,27 @@
   jmp .L_निम्नक_एकक__wh_अंत_23
 .L_निम्नक_एकक__wh_अंत_23:
   movq $0, %r12
-  movq -344(%rbp), %rsi
-  movq -328(%rbp), %rbx
-  movq -312(%rbp), %r14
-  movq %r12, -680(%rbp)
+  movq -376(%rbp), %r11
+  movq %r11, -728(%rbp)
+  movq -360(%rbp), %r11
+  movq %r11, -744(%rbp)
+  movq -344(%rbp), %r14
+  movq %r12, -712(%rbp)
   jmp .L_निम्नक_एकक__wh_शर्त_26
 .L_निम्नक_एकक__wh_शर्त_26:
-  movq -680(%rbp), %r11
-  movq %r11, -1968(%rbp)
-  movq %r14, -1976(%rbp)
-  movq %rbx, -1984(%rbp)
-  movq %rsi, -1992(%rbp)
-  movq -552(%rbp), %rcx
+  movq -712(%rbp), %r11
+  movq %r11, -2096(%rbp)
+  movq %r14, -2104(%rbp)
+  movq -744(%rbp), %r11
+  movq %r11, -2112(%rbp)
+  movq -728(%rbp), %r11
+  movq %r11, -2120(%rbp)
+  movq -584(%rbp), %rcx
   subq $32, %rsp
   call दैशिक_लंबाई
   addq $32, %rsp
   movq %rax, %r15
-  movq -680(%rbp), %r10
+  movq -712(%rbp), %r10
   cmpq %r15, %r10
   setl %al
   movzbq %al, %r10
@@ -80005,247 +80177,739 @@
 .L_किनारा_निम्नक_एकक_4:
   jmp .L_निम्नक_एकक__wh_अंत_28
 .L_निम्नक_एकक__wh_अंत_28:
-  leaq .LC_str_559(%rip), %rcx
-  movq .LC_str_559_len(%rip), %rdx
+  leaq .LC_str_561(%rip), %rcx
+  movq .LC_str_561_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %rdi
-  movq %rdi, -1576(%rbp)
+  movq %rdi, -1640(%rbp)
   movq $0, %r15
-  movq -472(%rbp), %rcx
+  movq -504(%rbp), %rcx
   movq %rdi, %rdx
   movq %r15, %r8
   subq $32, %rsp
   call sutra_arr_set
   addq $32, %rsp
-  movq $0, -1576(%rbp)
-  movq -584(%rbp), %rcx
+  movq $0, -1640(%rbp)
+  movq $1, %rdi
+  movq $0, %r15
+  jmp .L_निम्नक_एकक__wh_शर्त_34
+.L_निम्नक_एकक__wh_शर्त_34:
+  movq %rdi, -2128(%rbp)
+  movq %r15, -2136(%rbp)
+  movq -616(%rbp), %rcx
   subq $32, %rsp
   call दैशिक_लंबाई
   addq $32, %rsp
-  movq %rax, %rdi
-  movq $0, %r15
-  movq %rdi, %r10
-  cmpq %r15, %r10
-  setg %al
+  movq %rax, %r13
+  movq %r15, %r10
+  cmpq %r13, %r10
+  setl %al
   movzbq %al, %r10
-  movq %r10, %r13
-  movq %r13, %r10
+  movq %r10, %r12
+  movq %r12, %r10
   cmpq $0, %r10
   je .L_किनारा_निम्नक_एकक_5
-  jmp .L_निम्नक_एकक__if_सत्य_34
+  jmp .L_निम्नक_एकक__wh_देह_35
 .L_किनारा_निम्नक_एकक_5:
-  jmp .L_निम्नक_एकक__if_अंत_35
-.L_निम्नक_एकक__if_सत्य_34:
+  jmp .L_निम्नक_एकक__wh_अंत_36
+.L_निम्नक_एकक__wh_अंत_36:
+  movq -616(%rbp), %rcx
+  subq $32, %rsp
+  call दैशिक_लंबाई
+  addq $32, %rsp
+  movq %rax, %r12
+  movq $0, %r13
+  movq %r12, %r10
+  cmpq %r13, %r10
+  setg %al
+  movzbq %al, %r10
+  movq %r10, %rsi
+  movq %rsi, %r10
+  cmpq $0, %r10
+  je .L_किनारा_निम्नक_एकक_6
+  jmp .L_निम्नक_एकक__sc_दायाँ_39
+.L_किनारा_निम्नक_एकक_6:
+  jmp .L_निम्नक_एकक__sc_लघु_40
+.L_निम्नक_एकक__sc_लघु_40:
+  movq $0, %rsi
+  jmp .L_निम्नक_एकक__sc_अंत_41
+.L_निम्नक_एकक__sc_दायाँ_39:
+  leaq .LC_str_560(%rip), %rcx
+  movq .LC_str_560_len(%rip), %rdx
+  subq $32, %rsp
+  call sutra_str_alloc
+  addq $32, %rsp
+  movq %rax, %rsi
+  movq %rsi, -1680(%rbp)
+  movq -504(%rbp), %rcx
+  movq %rsi, %rdx
+  subq $32, %rsp
+  call sutra_arr_get
+  addq $32, %rsp
+  movq %rax, %r12
+  movq %r12, -1688(%rbp)
+  movq $0, -1680(%rbp)
+  movq $1, %rsi
+  movq %r12, %rcx
+  movq %rsi, %rdx
+  subq $32, %rsp
+  call पाठ_तुल्य
+  addq $32, %rsp
+  movq %rax, %r13
+  movq $0, -1688(%rbp)
+  movq %r13, %r10
+  cmpq $0, %r10
+  je .L_किनारा_निम्नक_एकक_7
+  jmp .L_निम्नक_एकक__sc_लघु_43
+.L_किनारा_निम्नक_एकक_7:
+  jmp .L_निम्नक_एकक__sc_दायाँ_42
+.L_निम्नक_एकक__sc_दायाँ_42:
+  movq %rdi, %r10
+  cmpq $0, %r10
+  sete %al
+  movzbq %al, %r10
+  movq %r10, %rsi
+  jmp .L_निम्नक_एकक__sc_अंत_44
+.L_निम्नक_एकक__sc_लघु_43:
+  movq $1, %rsi
+  jmp .L_निम्नक_एकक__sc_अंत_44
+.L_निम्नक_एकक__sc_अंत_44:
+  jmp .L_निम्नक_एकक__sc_अंत_41
+.L_निम्नक_एकक__sc_अंत_41:
+  movq %rsi, %r10
+  cmpq $0, %r10
+  je .L_किनारा_निम्नक_एकक_8
+  jmp .L_निम्नक_एकक__if_सत्य_45
+.L_किनारा_निम्नक_एकक_8:
+  jmp .L_निम्नक_एकक__if_अंत_46
+.L_निम्नक_एकक__if_सत्य_45:
   subq $32, %rsp
   call sutra_dict_create
   addq $32, %rsp
-  movq %rax, %rdi
-  movq %rdi, -1584(%rbp)
-  movq %rdi, -1584(%rbp)
+  movq %rax, %rsi
+  movq %rsi, -1696(%rbp)
+  movq %rsi, -1696(%rbp)
   leaq .LC_str_166(%rip), %rcx
   movq .LC_str_166_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
-  movq %rax, %r13
-  movq %r13, -1592(%rbp)
-  leaq .LC_str_556(%rip), %rcx
-  movq .LC_str_556_len(%rip), %rdx
-  subq $32, %rsp
-  call sutra_str_alloc
-  addq $32, %rsp
-  movq %rax, %r15
-  movq %r15, -1600(%rbp)
-  movq %rdi, %rcx
-  movq %r13, %rdx
-  movq %r15, %r8
-  subq $32, %rsp
-  call sutra_arr_set
-  addq $32, %rsp
-  movq $0, -1592(%rbp)
-  movq $0, -1600(%rbp)
-  leaq .LC_str_173(%rip), %rcx
-  movq .LC_str_173_len(%rip), %rdx
+  movq %rax, %r12
+  movq %r12, -1704(%rbp)
+  leaq .LC_str_558(%rip), %rcx
+  movq .LC_str_558_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %r13
-  movq %r13, -1608(%rbp)
-  movq $0, %rcx
-  subq $32, %rsp
-  call sutra_arr_create
-  addq $32, %rsp
-  movq %rax, %r15
-  movq %r15, -1616(%rbp)
-  movq %r15, -1616(%rbp)
-  movq %rdi, %rcx
-  movq %r13, %rdx
-  movq %r15, %r8
-  subq $32, %rsp
-  call sutra_arr_set
-  addq $32, %rsp
-  movq $0, -1608(%rbp)
-  movq $0, -1616(%rbp)
-  subq $32, %rsp
-  call sutra_dict_create
-  addq $32, %rsp
-  movq %rax, %r13
-  movq %r13, -1624(%rbp)
-  movq %r13, -1624(%rbp)
-  leaq .LC_str_161(%rip), %rcx
-  movq .LC_str_161_len(%rip), %rdx
-  subq $32, %rsp
-  call sutra_str_alloc
-  addq $32, %rsp
-  movq %rax, %r15
-  movq %r15, -1632(%rbp)
-  leaq .LC_str_197(%rip), %rcx
-  movq .LC_str_197_len(%rip), %rdx
-  subq $32, %rsp
-  call sutra_str_alloc
-  addq $32, %rsp
-  movq %rax, %r12
-  movq %r12, -1640(%rbp)
-  movq %r13, %rcx
-  movq %r15, %rdx
-  movq %r12, %r8
-  subq $32, %rsp
-  call sutra_arr_set
-  addq $32, %rsp
-  movq $0, -1632(%rbp)
-  movq $0, -1640(%rbp)
-  leaq .LC_str_198(%rip), %rcx
-  movq .LC_str_198_len(%rip), %rdx
-  subq $32, %rsp
-  call sutra_str_alloc
-  addq $32, %rsp
-  movq %rax, %r12
-  movq %r12, -1648(%rbp)
-  movq %r13, %rcx
-  movq %r12, %rdx
-  movq -584(%rbp), %r8
-  subq $32, %rsp
-  call sutra_arr_set
-  addq $32, %rsp
-  movq $0, -1648(%rbp)
-  leaq .LC_str_204(%rip), %rcx
-  movq .LC_str_204_len(%rip), %rdx
-  subq $32, %rsp
-  call sutra_str_alloc
-  addq $32, %rsp
-  movq %rax, %r12
-  movq %r12, -1656(%rbp)
-  movq %rdi, %rcx
+  movq %r13, -1712(%rbp)
+  movq %rsi, %rcx
   movq %r12, %rdx
   movq %r13, %r8
   subq $32, %rsp
   call sutra_arr_set
   addq $32, %rsp
-  movq $0, -1624(%rbp)
-  movq $0, -1656(%rbp)
+  movq $0, -1704(%rbp)
+  movq $0, -1712(%rbp)
+  leaq .LC_str_173(%rip), %rcx
+  movq .LC_str_173_len(%rip), %rdx
+  subq $32, %rsp
+  call sutra_str_alloc
+  addq $32, %rsp
+  movq %rax, %r12
+  movq %r12, -1720(%rbp)
+  movq $0, %rcx
+  subq $32, %rsp
+  call sutra_arr_create
+  addq $32, %rsp
+  movq %rax, %r13
+  movq %r13, -1728(%rbp)
+  movq %r13, -1728(%rbp)
+  movq %rsi, %rcx
+  movq %r12, %rdx
+  movq %r13, %r8
+  subq $32, %rsp
+  call sutra_arr_set
+  addq $32, %rsp
+  movq $0, -1720(%rbp)
+  movq $0, -1728(%rbp)
+  subq $32, %rsp
+  call sutra_dict_create
+  addq $32, %rsp
+  movq %rax, %r12
+  movq %r12, -1736(%rbp)
+  movq %r12, -1736(%rbp)
+  leaq .LC_str_161(%rip), %rcx
+  movq .LC_str_161_len(%rip), %rdx
+  subq $32, %rsp
+  call sutra_str_alloc
+  addq $32, %rsp
+  movq %rax, %r13
+  movq %r13, -1744(%rbp)
+  leaq .LC_str_197(%rip), %rcx
+  movq .LC_str_197_len(%rip), %rdx
+  subq $32, %rsp
+  call sutra_str_alloc
+  addq $32, %rsp
+  movq %rax, %rbx
+  movq %rbx, -1752(%rbp)
+  movq %r12, %rcx
+  movq %r13, %rdx
+  movq %rbx, %r8
+  subq $32, %rsp
+  call sutra_arr_set
+  addq $32, %rsp
+  movq $0, -1744(%rbp)
+  movq $0, -1752(%rbp)
+  leaq .LC_str_198(%rip), %rcx
+  movq .LC_str_198_len(%rip), %rdx
+  subq $32, %rsp
+  call sutra_str_alloc
+  addq $32, %rsp
+  movq %rax, %rbx
+  movq %rbx, -1760(%rbp)
+  movq %r12, %rcx
+  movq %rbx, %rdx
+  movq -616(%rbp), %r8
+  subq $32, %rsp
+  call sutra_arr_set
+  addq $32, %rsp
+  movq $0, -1760(%rbp)
+  leaq .LC_str_204(%rip), %rcx
+  movq .LC_str_204_len(%rip), %rdx
+  subq $32, %rsp
+  call sutra_str_alloc
+  addq $32, %rsp
+  movq %rax, %rbx
+  movq %rbx, -1768(%rbp)
+  movq %rsi, %rcx
+  movq %rbx, %rdx
+  movq %r12, %r8
+  subq $32, %rsp
+  call sutra_arr_set
+  addq $32, %rsp
+  movq $0, -1736(%rbp)
+  movq $0, -1768(%rbp)
   leaq .LC_str_92(%rip), %rcx
   movq .LC_str_92_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
-  movq %rax, %r12
-  movq %r12, -1664(%rbp)
-  leaq .LC_str_556(%rip), %rcx
-  movq .LC_str_556_len(%rip), %rdx
+  movq %rax, %rbx
+  movq %rbx, -1776(%rbp)
+  leaq .LC_str_558(%rip), %rcx
+  movq .LC_str_558_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
-  movq %rax, %r13
-  movq %r13, -1672(%rbp)
+  movq %rax, %r12
+  movq %r12, -1784(%rbp)
   subq $8, %rsp
-  movq %r13, %r11
-  pushq %r11
   movq %r12, %r11
   pushq %r11
-  movq -568(%rbp), %r11
+  movq %rbx, %r11
   pushq %r11
-  movq -472(%rbp), %rcx
-  movq %rdi, %rdx
-  movq -600(%rbp), %r8
-  movq -456(%rbp), %r9
+  movq -600(%rbp), %r11
+  pushq %r11
+  movq -504(%rbp), %rcx
+  movq %rsi, %rdx
+  movq -632(%rbp), %r8
+  movq -488(%rbp), %r9
   subq $32, %rsp
   call निम्नक_कार्य
   addq $64, %rsp
-  movq %rax, %r15
-  movq %r15, -1680(%rbp)
-  movq $0, -1584(%rbp)
-  movq $0, -1664(%rbp)
-  movq $0, -1672(%rbp)
+  movq %rax, %r13
+  movq %r13, -1792(%rbp)
+  movq $0, -1696(%rbp)
+  movq $0, -1776(%rbp)
+  movq $0, -1784(%rbp)
   leaq .LC_str_221(%rip), %rcx
   movq .LC_str_221_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
-  movq %rax, %rdi
-  movq %rdi, -1688(%rbp)
+  movq %rax, %rbx
+  movq %rbx, -1800(%rbp)
   leaq .LC_str_221(%rip), %rcx
   movq .LC_str_221_len(%rip), %rdx
+  subq $32, %rsp
+  call sutra_str_alloc
+  addq $32, %rsp
+  movq %rax, %rsi
+  movq %rsi, -1808(%rbp)
+  movq -504(%rbp), %rcx
+  movq %rsi, %rdx
+  subq $32, %rsp
+  call sutra_arr_get
+  addq $32, %rsp
+  movq %rax, %r12
+  movq %r12, -1816(%rbp)
+  movq $0, -1808(%rbp)
+  movq %r12, %rcx
+  movq %r13, %rdx
+  subq $32, %rsp
+  call sutra_list_append
+  addq $32, %rsp
+  movq %rax, %rsi
+  movq %rsi, -1824(%rbp)
+  movq $0, -1792(%rbp)
+  movq $0, -1816(%rbp)
+  movq -504(%rbp), %rcx
+  movq %rbx, %rdx
+  movq %rsi, %r8
+  subq $32, %rsp
+  call sutra_arr_set
+  addq $32, %rsp
+  movq $0, -1800(%rbp)
+  movq $0, -1824(%rbp)
+  leaq .LC_str_561(%rip), %rcx
+  movq .LC_str_561_len(%rip), %rdx
+  subq $32, %rsp
+  call sutra_str_alloc
+  addq $32, %rsp
+  movq %rax, %rbx
+  movq %rbx, -1832(%rbp)
+  movq $1, %rsi
+  movq -504(%rbp), %rcx
+  movq %rbx, %rdx
+  movq %rsi, %r8
+  subq $32, %rsp
+  call sutra_arr_set
+  addq $32, %rsp
+  movq $0, -1832(%rbp)
+  jmp .L_निम्नक_एकक__if_अंत_46
+.L_निम्नक_एकक__if_अंत_46:
+  movq -504(%rbp), %rax
+  jmp .L_epilogue_निम्नक_एकक
+.L_निम्नक_एकक__wh_देह_35:
+  movq -616(%rbp), %rcx
+  movq %r15, %rdx
+  subq $32, %rsp
+  call sutra_arr_get
+  addq $32, %rsp
+  movq %rax, %rbx
+  movq %rbx, -1648(%rbp)
+  leaq .LC_str_161(%rip), %rcx
+  movq .LC_str_161_len(%rip), %rdx
+  subq $32, %rsp
+  call sutra_str_alloc
+  addq $32, %rsp
+  movq %rax, %rsi
+  movq %rsi, -1656(%rbp)
+  movq %rbx, %rcx
+  movq %rsi, %rdx
+  subq $32, %rsp
+  call sutra_arr_get
+  addq $32, %rsp
+  movq %rax, %r12
+  movq %r12, -1664(%rbp)
+  movq $0, -1648(%rbp)
+  movq $0, -1656(%rbp)
+  leaq .LC_str_186(%rip), %rcx
+  movq .LC_str_186_len(%rip), %rdx
+  subq $32, %rsp
+  call sutra_str_alloc
+  addq $32, %rsp
+  movq %rax, %rbx
+  movq %rbx, -1672(%rbp)
+  movq %r12, %rcx
+  movq %rbx, %rdx
+  subq $32, %rsp
+  call पाठ_तुल्य
+  addq $32, %rsp
+  movq %rax, %rsi
+  movq %rsi, %r10
+  cmpq $0, %r10
+  sete %al
+  movzbq %al, %r10
+  movq %r10, %rsi
+  movq $0, -1664(%rbp)
+  movq $0, -1672(%rbp)
+  movq %rsi, %r10
+  cmpq $0, %r10
+  je .L_किनारा_निम्नक_एकक_9
+  jmp .L_निम्नक_एकक__if_सत्य_37
+.L_किनारा_निम्नक_एकक_9:
+  movq %rdi, %rbx
+  jmp .L_निम्नक_एकक__if_अंत_38
+.L_निम्नक_एकक__if_सत्य_37:
+  movq $0, %rbx
+  jmp .L_निम्नक_एकक__if_अंत_38
+.L_निम्नक_एकक__if_अंत_38:
+  movq $1, %rsi
+  movq %r15, %r10
+  addq %rsi, %r10
+  movq %r10, %rdi
+  movq $0, -2136(%rbp)
+  movq %rdi, %r15
+  movq %rbx, %rdi
+  jmp .L_निम्नक_एकक__wh_शर्त_34
+.L_निम्नक_एकक__wh_देह_27:
+  movq -584(%rbp), %rcx
+  movq -712(%rbp), %rdx
+  subq $32, %rsp
+  call sutra_arr_get
+  addq $32, %rsp
+  movq %rax, %rbx
+  movq %rbx, -1448(%rbp)
+  leaq .LC_str_221(%rip), %rcx
+  movq .LC_str_221_len(%rip), %rdx
+  subq $32, %rsp
+  call sutra_str_alloc
+  addq $32, %rsp
+  movq %rax, %rsi
+  movq %rsi, -1456(%rbp)
+  movq %rbx, %rcx
+  movq %rsi, %rdx
+  subq $32, %rsp
+  call sutra_arr_get
+  addq $32, %rsp
+  movq %rax, -760(%rbp)
+  movq -760(%rbp), %r11
+  movq %r11, -1464(%rbp)
+  movq $0, -1456(%rbp)
+  movq $0, %rsi
+  movq -744(%rbp), %r13
+  movq %r14, %r12
+  movq -728(%rbp), %r14
+  jmp .L_निम्नक_एकक__wh_शर्त_29
+.L_निम्नक_एकक__wh_शर्त_29:
+  movq %rsi, -2144(%rbp)
+  movq -760(%rbp), %rcx
+  subq $32, %rsp
+  call दैशिक_लंबाई
+  addq $32, %rsp
+  movq %rax, %r15
+  movq %rsi, %r10
+  cmpq %r15, %r10
+  setl %al
+  movzbq %al, %r10
+  movq %r10, %rdi
+  movq %rdi, %r10
+  cmpq $0, %r10
+  je .L_किनारा_निम्नक_एकक_10
+  jmp .L_निम्नक_एकक__wh_देह_30
+.L_किनारा_निम्नक_एकक_10:
+  jmp .L_निम्नक_एकक__wh_अंत_31
+.L_निम्नक_एकक__wh_अंत_31:
+  movq $1, %rdi
+  movq -712(%rbp), %r10
+  addq %rdi, %r10
+  movq %r10, %r15
+  movq %r14, -728(%rbp)
+  movq %r13, -744(%rbp)
+  movq %r12, %r14
+  movq %r15, -712(%rbp)
+  jmp .L_निम्नक_एकक__wh_शर्त_26
+.L_निम्नक_एकक__wh_देह_30:
+  movq -760(%rbp), %rcx
+  movq %rsi, %rdx
+  subq $32, %rsp
+  call sutra_arr_get
+  addq $32, %rsp
+  movq %rax, %rdi
+  movq %rdi, -1472(%rbp)
+  leaq .LC_str_166(%rip), %rcx
+  movq .LC_str_166_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %r12
-  movq %r12, -1696(%rbp)
-  movq -472(%rbp), %rcx
+  movq %r12, -1480(%rbp)
+  movq %rdi, %rcx
   movq %r12, %rdx
   subq $32, %rsp
   call sutra_arr_get
   addq $32, %rsp
   movq %rax, %r13
-  movq %r13, -1704(%rbp)
-  movq $0, -1696(%rbp)
-  movq %r13, %rcx
-  movq %r15, %rdx
-  subq $32, %rsp
-  call sutra_list_append
-  addq $32, %rsp
-  movq %rax, %r12
-  movq %r12, -1712(%rbp)
-  movq $0, -1680(%rbp)
-  movq $0, -1704(%rbp)
-  movq -472(%rbp), %rcx
-  movq %rdi, %rdx
-  movq %r12, %r8
-  subq $32, %rsp
-  call sutra_arr_set
-  addq $32, %rsp
-  movq $0, -1688(%rbp)
-  movq $0, -1712(%rbp)
-  leaq .LC_str_559(%rip), %rcx
-  movq .LC_str_559_len(%rip), %rdx
+  movq %r13, -1488(%rbp)
+  movq $0, -1472(%rbp)
+  movq $0, -1480(%rbp)
+  leaq .LC_str_481(%rip), %rcx
+  movq .LC_str_481_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %rdi
-  movq %rdi, -1720(%rbp)
-  movq $1, %r12
-  movq -472(%rbp), %rcx
+  movq %rdi, -1496(%rbp)
+  leaq .LC_str_166(%rip), %rcx
+  movq .LC_str_166_len(%rip), %rdx
+  subq $32, %rsp
+  call sutra_str_alloc
+  addq $32, %rsp
+  movq %rax, %r12
+  movq %r12, -1504(%rbp)
+  movq %rbx, %rcx
+  movq %r12, %rdx
+  subq $32, %rsp
+  call sutra_arr_get
+  addq $32, %rsp
+  movq %rax, %r14
+  movq %r14, -1512(%rbp)
+  movq $0, -1504(%rbp)
+  movq %rdi, %rcx
+  movq %r14, %rdx
+  subq $32, %rsp
+  call sutra_add_dynamic
+  addq $32, %rsp
+  movq %rax, %r12
+  movq %r12, -1520(%rbp)
+  movq $0, -1496(%rbp)
+  movq $0, -1512(%rbp)
+  leaq .LC_str_402(%rip), %rcx
+  movq .LC_str_402_len(%rip), %rdx
+  subq $32, %rsp
+  call sutra_str_alloc
+  addq $32, %rsp
+  movq %rax, %rdi
+  movq %rdi, -1528(%rbp)
+  movq %r12, %rcx
   movq %rdi, %rdx
-  movq %r12, %r8
+  subq $32, %rsp
+  call sutra_str_concat
+  addq $32, %rsp
+  movq %rax, %r14
+  movq %r14, -1536(%rbp)
+  movq $0, -1520(%rbp)
+  movq $0, -1528(%rbp)
+  movq %r14, %rcx
+  movq %r13, %rdx
+  subq $32, %rsp
+  call sutra_str_concat
+  addq $32, %rsp
+  movq %rax, %rdi
+  movq %rdi, -1544(%rbp)
+  movq $0, -1536(%rbp)
+  leaq .LC_str_479(%rip), %rcx
+  movq .LC_str_479_len(%rip), %rdx
+  subq $32, %rsp
+  call sutra_str_alloc
+  addq $32, %rsp
+  movq %rax, %r12
+  movq %r13, %rcx
+  movq %r12, %rdx
+  subq $32, %rsp
+  call पाठ_तुल्य
+  addq $32, %rsp
+  movq %rax, %r14
+  movq %r14, %r10
+  cmpq $0, %r10
+  je .L_किनारा_निम्नक_एकक_11
+  jmp .L_निम्नक_एकक__if_सत्य_32
+.L_किनारा_निम्नक_एकक_11:
+  jmp .L_निम्नक_एकक__if_अंत_33
+.L_निम्नक_एकक__if_सत्य_32:
+  leaq .LC_str_166(%rip), %rcx
+  movq .LC_str_166_len(%rip), %rdx
+  subq $32, %rsp
+  call sutra_str_alloc
+  addq $32, %rsp
+  movq %rax, %rdi
+  movq %rdi, -1552(%rbp)
+  movq %rbx, %rcx
+  movq %rdi, %rdx
+  subq $32, %rsp
+  call sutra_arr_get
+  addq $32, %rsp
+  movq %rax, %r12
+  movq %r12, -1560(%rbp)
+  movq $0, -1552(%rbp)
+  leaq .LC_str_480(%rip), %rcx
+  movq .LC_str_480_len(%rip), %rdx
+  subq $32, %rsp
+  call sutra_str_alloc
+  addq $32, %rsp
+  movq %rax, %rdi
+  movq %rdi, -1568(%rbp)
+  movq %r12, %rcx
+  movq %rdi, %rdx
+  subq $32, %rsp
+  call sutra_add_dynamic
+  addq $32, %rsp
+  movq %rax, %r14
+  movq $0, -1560(%rbp)
+  movq $0, -1568(%rbp)
+  movq %r14, %rdi
+  jmp .L_निम्नक_एकक__if_अंत_33
+.L_निम्नक_एकक__if_अंत_33:
+  movq %rdi, -2152(%rbp)
+  movq -760(%rbp), %rcx
+  movq %rsi, %rdx
+  subq $32, %rsp
+  call sutra_arr_get
+  addq $32, %rsp
+  movq %rax, %r12
+  movq %r12, -1576(%rbp)
+  leaq .LC_str_166(%rip), %rcx
+  movq .LC_str_166_len(%rip), %rdx
+  subq $32, %rsp
+  call sutra_str_alloc
+  addq $32, %rsp
+  movq %rax, %r14
+  movq %r14, -1584(%rbp)
+  movq %rbx, %rcx
+  movq %r14, %rdx
+  subq $32, %rsp
+  call sutra_arr_get
+  addq $32, %rsp
+  movq %rax, %r15
+  movq %r15, -1592(%rbp)
+  movq $0, -1584(%rbp)
+  subq $8, %rsp
+  movq %rdi, %r11
+  pushq %r11
+  movq %r15, %r11
+  pushq %r11
+  movq -600(%rbp), %r11
+  pushq %r11
+  movq -504(%rbp), %rcx
+  movq %r12, %rdx
+  movq -632(%rbp), %r8
+  movq -488(%rbp), %r9
+  subq $32, %rsp
+  call निम्नक_कार्य
+  addq $64, %rsp
+  movq %rax, -776(%rbp)
+  movq -776(%rbp), %r11
+  movq %r11, -1600(%rbp)
+  movq $0, -1576(%rbp)
+  movq $0, -1592(%rbp)
+  leaq .LC_str_221(%rip), %rcx
+  movq .LC_str_221_len(%rip), %rdx
+  subq $32, %rsp
+  call sutra_str_alloc
+  addq $32, %rsp
+  movq %rax, %r12
+  movq %r12, -1608(%rbp)
+  leaq .LC_str_221(%rip), %rcx
+  movq .LC_str_221_len(%rip), %rdx
+  subq $32, %rsp
+  call sutra_str_alloc
+  addq $32, %rsp
+  movq %rax, %r15
+  movq %r15, -1616(%rbp)
+  movq -504(%rbp), %rcx
+  movq %r15, %rdx
+  subq $32, %rsp
+  call sutra_arr_get
+  addq $32, %rsp
+  movq %rax, %r14
+  movq %r14, -1624(%rbp)
+  movq $0, -1616(%rbp)
+  movq %r14, %rcx
+  movq -776(%rbp), %rdx
+  subq $32, %rsp
+  call sutra_list_append
+  addq $32, %rsp
+  movq %rax, %r15
+  movq %r15, -1632(%rbp)
+  movq $0, -1624(%rbp)
+  movq -504(%rbp), %rcx
+  movq %r12, %rdx
+  movq %r15, %r8
   subq $32, %rsp
   call sutra_arr_set
   addq $32, %rsp
-  movq $0, -1720(%rbp)
-  jmp .L_निम्नक_एकक__if_अंत_35
-.L_निम्नक_एकक__if_अंत_35:
-  movq -472(%rbp), %rax
-  jmp .L_epilogue_निम्नक_एकक
-.L_निम्नक_एकक__wh_देह_27:
-  movq -552(%rbp), %rcx
-  movq -680(%rbp), %rdx
+  movq $0, -1608(%rbp)
+  movq $0, -1632(%rbp)
+  movq $1, %r12
+  movq %rsi, %r10
+  addq %r12, %r10
+  movq %r10, %r14
+  movq $0, -2144(%rbp)
+  movq %r13, %r12
+  movq %rdi, %r13
+  movq %r14, %rsi
+  movq -776(%rbp), %r14
+  jmp .L_निम्नक_एकक__wh_शर्त_29
+.L_निम्नक_एकक__wh_देह_22:
+  movq -472(%rbp), %rcx
+  movq -696(%rbp), %rdx
+  subq $32, %rsp
+  call sutra_arr_get
+  addq $32, %rsp
+  movq %rax, %rbx
+  movq %rbx, -1328(%rbp)
+  leaq .LC_str_166(%rip), %rcx
+  movq .LC_str_166_len(%rip), %rdx
+  subq $32, %rsp
+  call sutra_str_alloc
+  addq $32, %rsp
+  movq %rax, %rsi
+  movq %rsi, -1336(%rbp)
+  movq %rbx, %rcx
+  movq %rsi, %rdx
+  subq $32, %rsp
+  call sutra_arr_get
+  addq $32, %rsp
+  movq %rax, %rdi
+  movq %rdi, -1344(%rbp)
+  movq $0, -1328(%rbp)
+  movq $0, -1336(%rbp)
+  leaq .LC_str_2(%rip), %rcx
+  movq .LC_str_2_len(%rip), %rdx
+  subq $32, %rsp
+  call sutra_str_alloc
+  addq $32, %rsp
+  movq %rax, %rbx
+  movq %rbx, -1352(%rbp)
+  movq %rdi, %rcx
+  movq %rbx, %rdx
+  subq $32, %rsp
+  call पाठ_तुल्य
+  addq $32, %rsp
+  movq %rax, %rsi
+  movq $0, -1344(%rbp)
+  movq $0, -1352(%rbp)
+  movq %rsi, %r10
+  cmpq $0, %r10
+  je .L_किनारा_निम्नक_एकक_12
+  jmp .L_निम्नक_एकक__if_सत्य_24
+.L_किनारा_निम्नक_एकक_12:
+  jmp .L_निम्नक_एकक__if_अंत_25
+.L_निम्नक_एकक__if_सत्य_24:
+  leaq .LC_str_560(%rip), %rcx
+  movq .LC_str_560_len(%rip), %rdx
+  subq $32, %rsp
+  call sutra_str_alloc
+  addq $32, %rsp
+  movq %rax, %rbx
+  movq %rbx, -1360(%rbp)
+  movq $1, %rsi
+  movq -504(%rbp), %rcx
+  movq %rbx, %rdx
+  movq %rsi, %r8
+  subq $32, %rsp
+  call sutra_arr_set
+  addq $32, %rsp
+  movq $0, -1360(%rbp)
+  jmp .L_निम्नक_एकक__if_अंत_25
+.L_निम्नक_एकक__if_अंत_25:
+  movq -472(%rbp), %rcx
+  movq -696(%rbp), %rdx
+  subq $32, %rsp
+  call sutra_arr_get
+  addq $32, %rsp
+  movq %rax, %rbx
+  movq %rbx, -1368(%rbp)
+  leaq .LC_str_92(%rip), %rcx
+  movq .LC_str_92_len(%rip), %rdx
+  subq $32, %rsp
+  call sutra_str_alloc
+  addq $32, %rsp
+  movq %rax, %rsi
+  movq %rsi, -1376(%rbp)
+  movq -472(%rbp), %rcx
+  movq -696(%rbp), %rdx
   subq $32, %rsp
   call sutra_arr_get
   addq $32, %rsp
   movq %rax, %rdi
   movq %rdi, -1384(%rbp)
-  leaq .LC_str_221(%rip), %rcx
-  movq .LC_str_221_len(%rip), %rdx
+  leaq .LC_str_166(%rip), %rcx
+  movq .LC_str_166_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -80256,478 +80920,120 @@
   subq $32, %rsp
   call sutra_arr_get
   addq $32, %rsp
-  movq %rax, -696(%rbp)
-  movq -696(%rbp), %r11
-  movq %r11, -1400(%rbp)
+  movq %rax, %r13
+  movq %r13, -1400(%rbp)
+  movq $0, -1384(%rbp)
   movq $0, -1392(%rbp)
-  movq $0, %r12
-  movq %rbx, %r11
-  movq %r12, %rbx
-  movq %r11, %r12
-  movq %rsi, %r11
-  movq %r14, %rsi
-  movq %r11, %r14
-  jmp .L_निम्नक_एकक__wh_शर्त_29
-.L_निम्नक_एकक__wh_शर्त_29:
-  movq %rbx, -2000(%rbp)
-  movq -696(%rbp), %rcx
-  subq $32, %rsp
-  call दैशिक_लंबाई
-  addq $32, %rsp
-  movq %rax, %r15
-  movq %rbx, %r10
-  cmpq %r15, %r10
-  setl %al
-  movzbq %al, %r10
-  movq %r10, %r13
-  movq %r13, %r10
-  cmpq $0, %r10
-  je .L_किनारा_निम्नक_एकक_6
-  jmp .L_निम्नक_एकक__wh_देह_30
-.L_किनारा_निम्नक_एकक_6:
-  jmp .L_निम्नक_एकक__wh_अंत_31
-.L_निम्नक_एकक__wh_अंत_31:
-  movq $1, %r13
-  movq -680(%rbp), %r10
-  addq %r13, %r10
-  movq %r10, %r15
-  movq %r12, %rbx
-  movq %r15, -680(%rbp)
-  movq %r14, %r11
-  movq %rsi, %r14
-  movq %r11, %rsi
-  jmp .L_निम्नक_एकक__wh_शर्त_26
-.L_निम्नक_एकक__wh_देह_30:
-  movq -696(%rbp), %rcx
-  movq %rbx, %rdx
-  subq $32, %rsp
-  call sutra_arr_get
-  addq $32, %rsp
-  movq %rax, %rsi
-  movq %rsi, -1408(%rbp)
-  leaq .LC_str_166(%rip), %rcx
-  movq .LC_str_166_len(%rip), %rdx
-  subq $32, %rsp
-  call sutra_str_alloc
-  addq $32, %rsp
-  movq %rax, %r12
-  movq %r12, -1416(%rbp)
-  movq %rsi, %rcx
-  movq %r12, %rdx
-  subq $32, %rsp
-  call sutra_arr_get
-  addq $32, %rsp
-  movq %rax, %r13
-  movq %r13, -1424(%rbp)
-  movq $0, -1408(%rbp)
-  movq $0, -1416(%rbp)
-  leaq .LC_str_479(%rip), %rcx
-  movq .LC_str_479_len(%rip), %rdx
-  subq $32, %rsp
-  call sutra_str_alloc
-  addq $32, %rsp
-  movq %rax, %rsi
-  movq %rsi, -1432(%rbp)
-  leaq .LC_str_166(%rip), %rcx
-  movq .LC_str_166_len(%rip), %rdx
-  subq $32, %rsp
-  call sutra_str_alloc
-  addq $32, %rsp
-  movq %rax, %r12
-  movq %r12, -1440(%rbp)
-  movq %rdi, %rcx
-  movq %r12, %rdx
-  subq $32, %rsp
-  call sutra_arr_get
-  addq $32, %rsp
-  movq %rax, %r14
-  movq %r14, -1448(%rbp)
-  movq $0, -1440(%rbp)
-  movq %rsi, %rcx
-  movq %r14, %rdx
-  subq $32, %rsp
-  call sutra_add_dynamic
-  addq $32, %rsp
-  movq %rax, %r12
-  movq %r12, -1456(%rbp)
-  movq $0, -1432(%rbp)
-  movq $0, -1448(%rbp)
-  leaq .LC_str_400(%rip), %rcx
-  movq .LC_str_400_len(%rip), %rdx
-  subq $32, %rsp
-  call sutra_str_alloc
-  addq $32, %rsp
-  movq %rax, %rsi
-  movq %rsi, -1464(%rbp)
-  movq %r12, %rcx
-  movq %rsi, %rdx
-  subq $32, %rsp
-  call sutra_str_concat
-  addq $32, %rsp
-  movq %rax, %r14
-  movq %r14, -1472(%rbp)
-  movq $0, -1456(%rbp)
-  movq $0, -1464(%rbp)
-  movq %r14, %rcx
-  movq %r13, %rdx
-  subq $32, %rsp
-  call sutra_str_concat
-  addq $32, %rsp
-  movq %rax, %rsi
-  movq %rsi, -1480(%rbp)
-  movq $0, -1472(%rbp)
-  leaq .LC_str_477(%rip), %rcx
-  movq .LC_str_477_len(%rip), %rdx
-  subq $32, %rsp
-  call sutra_str_alloc
-  addq $32, %rsp
-  movq %rax, %r12
-  movq %r13, %rcx
-  movq %r12, %rdx
-  subq $32, %rsp
-  call पाठ_तुल्य
-  addq $32, %rsp
-  movq %rax, %r14
-  movq %r14, %r10
-  cmpq $0, %r10
-  je .L_किनारा_निम्नक_एकक_7
-  jmp .L_निम्नक_एकक__if_सत्य_32
-.L_किनारा_निम्नक_एकक_7:
-  jmp .L_निम्नक_एकक__if_अंत_33
-.L_निम्नक_एकक__if_सत्य_32:
-  leaq .LC_str_166(%rip), %rcx
-  movq .LC_str_166_len(%rip), %rdx
-  subq $32, %rsp
-  call sutra_str_alloc
-  addq $32, %rsp
-  movq %rax, %rsi
-  movq %rsi, -1488(%rbp)
-  movq %rdi, %rcx
-  movq %rsi, %rdx
-  subq $32, %rsp
-  call sutra_arr_get
-  addq $32, %rsp
-  movq %rax, %r12
-  movq %r12, -1496(%rbp)
-  movq $0, -1488(%rbp)
-  leaq .LC_str_478(%rip), %rcx
-  movq .LC_str_478_len(%rip), %rdx
-  subq $32, %rsp
-  call sutra_str_alloc
-  addq $32, %rsp
-  movq %rax, %rsi
-  movq %rsi, -1504(%rbp)
-  movq %r12, %rcx
-  movq %rsi, %rdx
-  subq $32, %rsp
-  call sutra_add_dynamic
-  addq $32, %rsp
-  movq %rax, %r14
-  movq $0, -1496(%rbp)
-  movq $0, -1504(%rbp)
-  movq %r14, %rsi
-  jmp .L_निम्नक_एकक__if_अंत_33
-.L_निम्नक_एकक__if_अंत_33:
-  movq %rsi, -2008(%rbp)
-  movq -696(%rbp), %rcx
-  movq %rbx, %rdx
-  subq $32, %rsp
-  call sutra_arr_get
-  addq $32, %rsp
-  movq %rax, %r12
-  movq %r12, -1512(%rbp)
-  leaq .LC_str_166(%rip), %rcx
-  movq .LC_str_166_len(%rip), %rdx
-  subq $32, %rsp
-  call sutra_str_alloc
-  addq $32, %rsp
-  movq %rax, %r14
-  movq %r14, -1520(%rbp)
-  movq %rdi, %rcx
-  movq %r14, %rdx
-  subq $32, %rsp
-  call sutra_arr_get
-  addq $32, %rsp
-  movq %rax, %r15
-  movq %r15, -1528(%rbp)
-  movq $0, -1520(%rbp)
-  subq $8, %rsp
-  movq %rsi, %r11
-  pushq %r11
-  movq %r15, %r11
-  pushq %r11
-  movq -568(%rbp), %r11
-  pushq %r11
-  movq -472(%rbp), %rcx
-  movq %r12, %rdx
-  movq -600(%rbp), %r8
-  movq -456(%rbp), %r9
-  subq $32, %rsp
-  call निम्नक_कार्य
-  addq $64, %rsp
-  movq %rax, -712(%rbp)
-  movq -712(%rbp), %r11
-  movq %r11, -1536(%rbp)
-  movq $0, -1512(%rbp)
-  movq $0, -1528(%rbp)
-  leaq .LC_str_221(%rip), %rcx
-  movq .LC_str_221_len(%rip), %rdx
-  subq $32, %rsp
-  call sutra_str_alloc
-  addq $32, %rsp
-  movq %rax, %r12
-  movq %r12, -1544(%rbp)
-  leaq .LC_str_221(%rip), %rcx
-  movq .LC_str_221_len(%rip), %rdx
-  subq $32, %rsp
-  call sutra_str_alloc
-  addq $32, %rsp
-  movq %rax, %r15
-  movq %r15, -1552(%rbp)
-  movq -472(%rbp), %rcx
-  movq %r15, %rdx
-  subq $32, %rsp
-  call sutra_arr_get
-  addq $32, %rsp
-  movq %rax, %r14
-  movq %r14, -1560(%rbp)
-  movq $0, -1552(%rbp)
-  movq %r14, %rcx
-  movq -712(%rbp), %rdx
-  subq $32, %rsp
-  call sutra_list_append
-  addq $32, %rsp
-  movq %rax, %r15
-  movq %r15, -1568(%rbp)
-  movq $0, -1560(%rbp)
-  movq -472(%rbp), %rcx
-  movq %r12, %rdx
-  movq %r15, %r8
-  subq $32, %rsp
-  call sutra_arr_set
-  addq $32, %rsp
-  movq $0, -1544(%rbp)
-  movq $0, -1568(%rbp)
-  movq $1, %r12
-  movq %rbx, %r10
-  addq %r12, %r10
-  movq %r10, %r14
-  movq $0, -2000(%rbp)
-  movq %rsi, %r12
-  movq %r13, %rsi
-  movq %r14, %rbx
-  movq -712(%rbp), %r14
-  jmp .L_निम्नक_एकक__wh_शर्त_29
-.L_निम्नक_एकक__wh_देह_22:
-  movq -440(%rbp), %rcx
-  movq -664(%rbp), %rdx
-  subq $32, %rsp
-  call sutra_arr_get
-  addq $32, %rsp
-  movq %rax, %rbx
-  movq %rbx, -1264(%rbp)
-  leaq .LC_str_166(%rip), %rcx
-  movq .LC_str_166_len(%rip), %rdx
-  subq $32, %rsp
-  call sutra_str_alloc
-  addq $32, %rsp
-  movq %rax, %rsi
-  movq %rsi, -1272(%rbp)
-  movq %rbx, %rcx
-  movq %rsi, %rdx
-  subq $32, %rsp
-  call sutra_arr_get
-  addq $32, %rsp
-  movq %rax, %rdi
-  movq %rdi, -1280(%rbp)
-  movq $0, -1264(%rbp)
-  movq $0, -1272(%rbp)
-  leaq .LC_str_2(%rip), %rcx
-  movq .LC_str_2_len(%rip), %rdx
-  subq $32, %rsp
-  call sutra_str_alloc
-  addq $32, %rsp
-  movq %rax, %rbx
-  movq %rbx, -1288(%rbp)
-  movq %rdi, %rcx
-  movq %rbx, %rdx
-  subq $32, %rsp
-  call पाठ_तुल्य
-  addq $32, %rsp
-  movq %rax, %rsi
-  movq $0, -1280(%rbp)
-  movq $0, -1288(%rbp)
-  movq %rsi, %r10
-  cmpq $0, %r10
-  je .L_किनारा_निम्नक_एकक_8
-  jmp .L_निम्नक_एकक__if_सत्य_24
-.L_किनारा_निम्नक_एकक_8:
-  jmp .L_निम्नक_एकक__if_अंत_25
-.L_निम्नक_एकक__if_सत्य_24:
-  leaq .LC_str_558(%rip), %rcx
-  movq .LC_str_558_len(%rip), %rdx
-  subq $32, %rsp
-  call sutra_str_alloc
-  addq $32, %rsp
-  movq %rax, %rbx
-  movq %rbx, -1296(%rbp)
-  movq $1, %rsi
-  movq -472(%rbp), %rcx
-  movq %rbx, %rdx
-  movq %rsi, %r8
-  subq $32, %rsp
-  call sutra_arr_set
-  addq $32, %rsp
-  movq $0, -1296(%rbp)
-  jmp .L_निम्नक_एकक__if_अंत_25
-.L_निम्नक_एकक__if_अंत_25:
-  movq -440(%rbp), %rcx
-  movq -664(%rbp), %rdx
-  subq $32, %rsp
-  call sutra_arr_get
-  addq $32, %rsp
-  movq %rax, %rbx
-  movq %rbx, -1304(%rbp)
-  leaq .LC_str_92(%rip), %rcx
-  movq .LC_str_92_len(%rip), %rdx
-  subq $32, %rsp
-  call sutra_str_alloc
-  addq $32, %rsp
-  movq %rax, %rsi
-  movq %rsi, -1312(%rbp)
-  movq -440(%rbp), %rcx
-  movq -664(%rbp), %rdx
-  subq $32, %rsp
-  call sutra_arr_get
-  addq $32, %rsp
-  movq %rax, %rdi
-  movq %rdi, -1320(%rbp)
-  leaq .LC_str_166(%rip), %rcx
-  movq .LC_str_166_len(%rip), %rdx
-  subq $32, %rsp
-  call sutra_str_alloc
-  addq $32, %rsp
-  movq %rax, %r12
-  movq %r12, -1328(%rbp)
-  movq %rdi, %rcx
-  movq %r12, %rdx
-  subq $32, %rsp
-  call sutra_arr_get
-  addq $32, %rsp
-  movq %rax, %r13
-  movq %r13, -1336(%rbp)
-  movq $0, -1320(%rbp)
-  movq $0, -1328(%rbp)
   subq $8, %rsp
   movq %r13, %r11
   pushq %r11
   movq %rsi, %r11
   pushq %r11
-  movq -568(%rbp), %r11
+  movq -600(%rbp), %r11
   pushq %r11
-  movq -472(%rbp), %rcx
+  movq -504(%rbp), %rcx
   movq %rbx, %rdx
-  movq -600(%rbp), %r8
-  movq -456(%rbp), %r9
+  movq -632(%rbp), %r8
+  movq -488(%rbp), %r9
   subq $32, %rsp
   call निम्नक_कार्य
   addq $64, %rsp
   movq %rax, %rdi
-  movq %rdi, -1344(%rbp)
-  movq $0, -1304(%rbp)
-  movq $0, -1312(%rbp)
-  movq $0, -1336(%rbp)
+  movq %rdi, -1408(%rbp)
+  movq $0, -1368(%rbp)
+  movq $0, -1376(%rbp)
+  movq $0, -1400(%rbp)
   leaq .LC_str_221(%rip), %rcx
   movq .LC_str_221_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %rbx
-  movq %rbx, -1352(%rbp)
+  movq %rbx, -1416(%rbp)
   leaq .LC_str_221(%rip), %rcx
   movq .LC_str_221_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %rsi
-  movq %rsi, -1360(%rbp)
-  movq -472(%rbp), %rcx
+  movq %rsi, -1424(%rbp)
+  movq -504(%rbp), %rcx
   movq %rsi, %rdx
   subq $32, %rsp
   call sutra_arr_get
   addq $32, %rsp
   movq %rax, %r12
-  movq %r12, -1368(%rbp)
-  movq $0, -1360(%rbp)
+  movq %r12, -1432(%rbp)
+  movq $0, -1424(%rbp)
   movq %r12, %rcx
   movq %rdi, %rdx
   subq $32, %rsp
   call sutra_list_append
   addq $32, %rsp
   movq %rax, %rsi
-  movq %rsi, -1376(%rbp)
-  movq $0, -1344(%rbp)
-  movq $0, -1368(%rbp)
-  movq -472(%rbp), %rcx
+  movq %rsi, -1440(%rbp)
+  movq $0, -1408(%rbp)
+  movq $0, -1432(%rbp)
+  movq -504(%rbp), %rcx
   movq %rbx, %rdx
   movq %rsi, %r8
   subq $32, %rsp
   call sutra_arr_set
   addq $32, %rsp
-  movq $0, -1352(%rbp)
-  movq $0, -1376(%rbp)
+  movq $0, -1416(%rbp)
+  movq $0, -1440(%rbp)
   movq $1, %rbx
-  movq -664(%rbp), %r10
+  movq -696(%rbp), %r10
   addq %rbx, %r10
   movq %r10, %rsi
-  movq $0, -1960(%rbp)
-  movq %rsi, -664(%rbp)
+  movq $0, -2088(%rbp)
+  movq %rsi, -696(%rbp)
   jmp .L_निम्नक_एकक__wh_शर्त_21
 .L_निम्नक_एकक__wh_देह_17:
-  movq -584(%rbp), %rcx
-  movq -616(%rbp), %rdx
+  movq -616(%rbp), %rcx
+  movq -648(%rbp), %rdx
   subq $32, %rsp
   call sutra_arr_get
   addq $32, %rsp
   movq %rax, %rbx
-  movq %rbx, -1120(%rbp)
+  movq %rbx, -1184(%rbp)
   leaq .LC_str_161(%rip), %rcx
   movq .LC_str_161_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %rsi
-  movq %rsi, -1128(%rbp)
+  movq %rsi, -1192(%rbp)
   movq %rbx, %rcx
   movq %rsi, %rdx
   subq $32, %rsp
   call sutra_arr_get
   addq $32, %rsp
   movq %rax, %rdi
-  movq %rdi, -1136(%rbp)
-  movq $0, -1128(%rbp)
+  movq %rdi, -1200(%rbp)
+  movq $0, -1192(%rbp)
   leaq .LC_str_186(%rip), %rcx
   movq .LC_str_186_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %rsi
-  movq %rsi, -1144(%rbp)
+  movq %rsi, -1208(%rbp)
   movq %rdi, %rcx
   movq %rsi, %rdx
   subq $32, %rsp
   call पाठ_तुल्य
   addq $32, %rsp
   movq %rax, %r12
-  movq $0, -1136(%rbp)
-  movq $0, -1144(%rbp)
+  movq $0, -1200(%rbp)
+  movq $0, -1208(%rbp)
   movq %r12, %r10
   cmpq $0, %r10
-  je .L_किनारा_निम्नक_एकक_9
+  je .L_किनारा_निम्नक_एकक_13
   jmp .L_निम्नक_एकक__if_सत्य_19
-.L_किनारा_निम्नक_एकक_9:
-  movq -632(%rbp), %rsi
-  movq -648(%rbp), %rbx
+.L_किनारा_निम्नक_एकक_13:
+  movq -664(%rbp), %rsi
+  movq -680(%rbp), %rbx
   jmp .L_निम्नक_एकक__if_अंत_20
 .L_निम्नक_एकक__if_सत्य_19:
   leaq .LC_str_166(%rip), %rcx
@@ -80736,192 +81042,192 @@
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %rsi
-  movq %rsi, -1152(%rbp)
+  movq %rsi, -1216(%rbp)
   movq %rbx, %rcx
   movq %rsi, %rdx
   subq $32, %rsp
   call sutra_arr_get
   addq $32, %rsp
   movq %rax, %rdi
-  movq %rdi, -1160(%rbp)
-  movq $0, -1152(%rbp)
+  movq %rdi, -1224(%rbp)
+  movq $0, -1216(%rbp)
   leaq .LC_str_187(%rip), %rcx
   movq .LC_str_187_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %rsi
-  movq %rsi, -1168(%rbp)
+  movq %rsi, -1232(%rbp)
   movq %rbx, %rcx
   movq %rsi, %rdx
   subq $32, %rsp
   call sutra_arr_get
   addq $32, %rsp
   movq %rax, %r12
-  movq %r12, -1176(%rbp)
-  movq $0, -1120(%rbp)
-  movq $0, -1168(%rbp)
+  movq %r12, -1240(%rbp)
+  movq $0, -1184(%rbp)
+  movq $0, -1232(%rbp)
   movq %r12, %rcx
   subq $32, %rsp
   call निम्नक_प्रकार_टैग
   addq $32, %rsp
   movq %rax, %rbx
-  movq %rbx, -1184(%rbp)
-  movq $0, -1176(%rbp)
-  movq -600(%rbp), %rcx
+  movq %rbx, -1248(%rbp)
+  movq $0, -1240(%rbp)
+  movq -632(%rbp), %rcx
   movq %rdi, %rdx
   movq %rbx, %r8
   subq $32, %rsp
   call sutra_arr_set
   addq $32, %rsp
-  movq $0, -1184(%rbp)
+  movq $0, -1248(%rbp)
   subq $32, %rsp
   call sutra_dict_create
   addq $32, %rsp
   movq %rax, %rbx
-  movq %rbx, -1192(%rbp)
-  movq %rbx, -1192(%rbp)
+  movq %rbx, -1256(%rbp)
+  movq %rbx, -1256(%rbp)
   leaq .LC_str_166(%rip), %rcx
   movq .LC_str_166_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %rsi
-  movq %rsi, -1200(%rbp)
+  movq %rsi, -1264(%rbp)
   movq %rbx, %rcx
   movq %rsi, %rdx
   movq %rdi, %r8
   subq $32, %rsp
   call sutra_arr_set
   addq $32, %rsp
-  movq $0, -1200(%rbp)
+  movq $0, -1264(%rbp)
   leaq .LC_str_352(%rip), %rcx
   movq .LC_str_352_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %rsi
-  movq %rsi, -1208(%rbp)
-  movq -600(%rbp), %rcx
+  movq %rsi, -1272(%rbp)
+  movq -632(%rbp), %rcx
   movq %rdi, %rdx
   subq $32, %rsp
   call sutra_arr_get
   addq $32, %rsp
   movq %rax, %r12
-  movq %r12, -1216(%rbp)
+  movq %r12, -1280(%rbp)
   movq %rbx, %rcx
   movq %rsi, %rdx
   movq %r12, %r8
   subq $32, %rsp
   call sutra_arr_set
   addq $32, %rsp
-  movq $0, -1208(%rbp)
-  movq $0, -1216(%rbp)
-  leaq .LC_str_391(%rip), %rcx
-  movq .LC_str_391_len(%rip), %rdx
+  movq $0, -1272(%rbp)
+  movq $0, -1280(%rbp)
+  leaq .LC_str_393(%rip), %rcx
+  movq .LC_str_393_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %rsi
-  movq %rsi, -1224(%rbp)
-  leaq .LC_str_391(%rip), %rcx
-  movq .LC_str_391_len(%rip), %rdx
+  movq %rsi, -1288(%rbp)
+  leaq .LC_str_393(%rip), %rcx
+  movq .LC_str_393_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %r12
-  movq %r12, -1232(%rbp)
-  movq -472(%rbp), %rcx
+  movq %r12, -1296(%rbp)
+  movq -504(%rbp), %rcx
   movq %r12, %rdx
   subq $32, %rsp
   call sutra_arr_get
   addq $32, %rsp
   movq %rax, %r13
-  movq %r13, -1240(%rbp)
-  movq $0, -1232(%rbp)
+  movq %r13, -1304(%rbp)
+  movq $0, -1296(%rbp)
   movq %r13, %rcx
   movq %rbx, %rdx
   subq $32, %rsp
   call sutra_list_append
   addq $32, %rsp
   movq %rax, %r12
-  movq %r12, -1248(%rbp)
-  movq $0, -1240(%rbp)
-  movq -472(%rbp), %rcx
+  movq %r12, -1312(%rbp)
+  movq $0, -1304(%rbp)
+  movq -504(%rbp), %rcx
   movq %rsi, %rdx
   movq %r12, %r8
   subq $32, %rsp
   call sutra_arr_set
   addq $32, %rsp
-  movq $0, -1224(%rbp)
-  movq $0, -1248(%rbp)
+  movq $0, -1288(%rbp)
+  movq $0, -1312(%rbp)
   movq %rbx, %rsi
   movq %rdi, %rbx
   jmp .L_निम्नक_एकक__if_अंत_20
 .L_निम्नक_एकक__if_अंत_20:
   movq $1, %rdi
-  movq -616(%rbp), %r10
+  movq -648(%rbp), %r10
   addq %rdi, %r10
   movq %r10, %r12
-  movq $0, -1936(%rbp)
-  movq %rsi, -632(%rbp)
-  movq %rbx, -648(%rbp)
-  movq %r12, -616(%rbp)
+  movq $0, -2064(%rbp)
+  movq %rsi, -664(%rbp)
+  movq %rbx, -680(%rbp)
+  movq %r12, -648(%rbp)
   jmp .L_निम्नक_एकक__wh_शर्त_16
 .L_निम्नक_एकक__wh_देह_5:
-  movq -552(%rbp), %rcx
-  movq -536(%rbp), %rdx
+  movq -584(%rbp), %rcx
+  movq -568(%rbp), %rdx
   subq $32, %rsp
   call sutra_arr_get
   addq $32, %rsp
-  movq %rax, -744(%rbp)
-  movq -744(%rbp), %r11
-  movq %r11, -872(%rbp)
+  movq %rax, -808(%rbp)
+  movq -808(%rbp), %r11
+  movq %r11, -936(%rbp)
   movq $0, %rcx
   subq $32, %rsp
   call sutra_arr_create
   addq $32, %rsp
   movq %rax, %rsi
-  movq %rsi, -880(%rbp)
-  movq %rsi, -880(%rbp)
+  movq %rsi, -944(%rbp)
+  movq %rsi, -944(%rbp)
   leaq .LC_str_220(%rip), %rcx
   movq .LC_str_220_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %rdi
-  movq %rdi, -888(%rbp)
-  movq -744(%rbp), %rcx
+  movq %rdi, -952(%rbp)
+  movq -808(%rbp), %rcx
   movq %rdi, %rdx
   subq $32, %rsp
   call sutra_arr_get
   addq $32, %rsp
-  movq %rax, -728(%rbp)
-  movq -728(%rbp), %r11
-  movq %r11, -896(%rbp)
-  movq $0, -888(%rbp)
+  movq %rax, -792(%rbp)
+  movq -792(%rbp), %r11
+  movq %r11, -960(%rbp)
+  movq $0, -952(%rbp)
   movq $0, %rdi
-  movq %rdi, -760(%rbp)
+  movq %rdi, -824(%rbp)
   jmp .L_निम्नक_एकक__wh_शर्त_7
 .L_निम्नक_एकक__wh_शर्त_7:
-  movq %rsi, -2016(%rbp)
-  movq -760(%rbp), %r11
-  movq %r11, -2024(%rbp)
-  movq -728(%rbp), %rcx
+  movq %rsi, -2160(%rbp)
+  movq -824(%rbp), %r11
+  movq %r11, -2168(%rbp)
+  movq -792(%rbp), %rcx
   subq $32, %rsp
   call दैशिक_लंबाई
   addq $32, %rsp
   movq %rax, %r13
-  movq -760(%rbp), %r10
+  movq -824(%rbp), %r10
   cmpq %r13, %r10
   setl %al
   movzbq %al, %r10
   movq %r10, %r14
   movq %r14, %r10
   cmpq $0, %r10
-  je .L_किनारा_निम्नक_एकक_10
+  je .L_किनारा_निम्नक_एकक_14
   jmp .L_निम्नक_एकक__wh_देह_8
-.L_किनारा_निम्नक_एकक_10:
+.L_किनारा_निम्नक_एकक_14:
   jmp .L_निम्नक_एकक__wh_अंत_9
 .L_निम्नक_एकक__wh_अंत_9:
   leaq .LC_str_166(%rip), %rcx
@@ -80930,42 +81236,42 @@
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %r13
-  movq %r13, -928(%rbp)
-  movq -744(%rbp), %rcx
+  movq %r13, -992(%rbp)
+  movq -808(%rbp), %rcx
   movq %r13, %rdx
   subq $32, %rsp
   call sutra_arr_get
   addq $32, %rsp
   movq %rax, %r14
-  movq %r14, -936(%rbp)
-  movq $0, -928(%rbp)
-  movq -568(%rbp), %rcx
+  movq %r14, -1000(%rbp)
+  movq $0, -992(%rbp)
+  movq -600(%rbp), %rcx
   movq %r14, %rdx
   movq %rsi, %r8
   subq $32, %rsp
   call sutra_arr_set
   addq $32, %rsp
-  movq $0, -936(%rbp)
+  movq $0, -1000(%rbp)
   leaq .LC_str_221(%rip), %rcx
   movq .LC_str_221_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %r13
-  movq %r13, -944(%rbp)
-  movq -744(%rbp), %rcx
+  movq %r13, -1008(%rbp)
+  movq -808(%rbp), %rcx
   movq %r13, %rdx
   subq $32, %rsp
   call sutra_arr_get
   addq $32, %rsp
   movq %rax, %r14
-  movq %r14, -952(%rbp)
-  movq $0, -944(%rbp)
+  movq %r14, -1016(%rbp)
+  movq $0, -1008(%rbp)
   movq $0, %r13
-  movq -520(%rbp), %r15
+  movq -552(%rbp), %r15
   jmp .L_निम्नक_एकक__wh_शर्त_10
 .L_निम्नक_एकक__wh_शर्त_10:
-  movq %r13, -2032(%rbp)
+  movq %r13, -2176(%rbp)
   movq %r14, %rcx
   subq $32, %rsp
   call दैशिक_लंबाई
@@ -80978,17 +81284,17 @@
   movq %r10, %rbx
   movq %rbx, %r10
   cmpq $0, %r10
-  je .L_किनारा_निम्नक_एकक_11
+  je .L_किनारा_निम्नक_एकक_15
   jmp .L_निम्नक_एकक__wh_देह_11
-.L_किनारा_निम्नक_एकक_11:
+.L_किनारा_निम्नक_एकक_15:
   jmp .L_निम्नक_एकक__wh_अंत_12
 .L_निम्नक_एकक__wh_अंत_12:
   movq $1, %rbx
-  movq -536(%rbp), %r10
+  movq -568(%rbp), %r10
   addq %rbx, %r10
   movq %r10, %r12
-  movq %r15, -520(%rbp)
-  movq %r12, -536(%rbp)
+  movq %r15, -552(%rbp)
+  movq %r12, -568(%rbp)
   jmp .L_निम्नक_एकक__wh_शर्त_4
 .L_निम्नक_एकक__wh_देह_11:
   movq %r14, %rcx
@@ -80997,25 +81303,25 @@
   call sutra_arr_get
   addq $32, %rsp
   movq %rax, %rbx
-  movq %rbx, -960(%rbp)
+  movq %rbx, -1024(%rbp)
   leaq .LC_str_166(%rip), %rcx
   movq .LC_str_166_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %r12
-  movq %r12, -968(%rbp)
+  movq %r12, -1032(%rbp)
   movq %rbx, %rcx
   movq %r12, %rdx
   subq $32, %rsp
   call sutra_arr_get
   addq $32, %rsp
   movq %rax, %r15
-  movq %r15, -976(%rbp)
-  movq $0, -960(%rbp)
-  movq $0, -968(%rbp)
-  leaq .LC_str_477(%rip), %rcx
-  movq .LC_str_477_len(%rip), %rdx
+  movq %r15, -1040(%rbp)
+  movq $0, -1024(%rbp)
+  movq $0, -1032(%rbp)
+  leaq .LC_str_479(%rip), %rcx
+  movq .LC_str_479_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -81028,81 +81334,81 @@
   movq %rax, %r12
   movq %r12, %r10
   cmpq $0, %r10
-  je .L_किनारा_निम्नक_एकक_12
+  je .L_किनारा_निम्नक_एकक_16
   jmp .L_निम्नक_एकक__if_सत्य_13
-.L_किनारा_निम्नक_एकक_12:
+.L_किनारा_निम्नक_एकक_16:
   jmp .L_निम्नक_एकक__if_असत्य_15
 .L_निम्नक_एकक__if_असत्य_15:
-  leaq .LC_str_479(%rip), %rcx
-  movq .LC_str_479_len(%rip), %rdx
+  leaq .LC_str_481(%rip), %rcx
+  movq .LC_str_481_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %rbx
-  movq %rbx, -1032(%rbp)
+  movq %rbx, -1096(%rbp)
   leaq .LC_str_166(%rip), %rcx
   movq .LC_str_166_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %r12
-  movq %r12, -1040(%rbp)
-  movq -744(%rbp), %rcx
+  movq %r12, -1104(%rbp)
+  movq -808(%rbp), %rcx
   movq %r12, %rdx
   subq $32, %rsp
   call sutra_arr_get
   addq $32, %rsp
   movq %rax, %rdi
-  movq %rdi, -1048(%rbp)
-  movq $0, -1040(%rbp)
+  movq %rdi, -1112(%rbp)
+  movq $0, -1104(%rbp)
   movq %rbx, %rcx
   movq %rdi, %rdx
   subq $32, %rsp
   call sutra_add_dynamic
   addq $32, %rsp
   movq %rax, %r12
-  movq %r12, -1056(%rbp)
-  movq $0, -1032(%rbp)
-  movq $0, -1048(%rbp)
-  leaq .LC_str_400(%rip), %rcx
-  movq .LC_str_400_len(%rip), %rdx
+  movq %r12, -1120(%rbp)
+  movq $0, -1096(%rbp)
+  movq $0, -1112(%rbp)
+  leaq .LC_str_402(%rip), %rcx
+  movq .LC_str_402_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %rbx
-  movq %rbx, -1064(%rbp)
+  movq %rbx, -1128(%rbp)
   movq %r12, %rcx
   movq %rbx, %rdx
   subq $32, %rsp
   call sutra_str_concat
   addq $32, %rsp
   movq %rax, %rdi
-  movq %rdi, -1072(%rbp)
-  movq $0, -1056(%rbp)
-  movq $0, -1064(%rbp)
+  movq %rdi, -1136(%rbp)
+  movq $0, -1120(%rbp)
+  movq $0, -1128(%rbp)
   movq %rdi, %rcx
   movq %r15, %rdx
   subq $32, %rsp
   call sutra_str_concat
   addq $32, %rsp
   movq %rax, %rbx
-  movq %rbx, -1080(%rbp)
-  movq $0, -1072(%rbp)
+  movq %rbx, -1144(%rbp)
+  movq $0, -1136(%rbp)
   leaq .LC_str_53(%rip), %rcx
   movq .LC_str_53_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %rdi
-  movq %rdi, -1088(%rbp)
-  movq -456(%rbp), %rcx
+  movq %rdi, -1152(%rbp)
+  movq -488(%rbp), %rcx
   movq %rbx, %rdx
   movq %rdi, %r8
   subq $32, %rsp
   call sutra_arr_set
   addq $32, %rsp
-  movq $0, -1080(%rbp)
-  movq $0, -1088(%rbp)
+  movq $0, -1144(%rbp)
+  movq $0, -1152(%rbp)
   jmp .L_निम्नक_एकक__if_अंत_14
 .L_निम्नक_एकक__if_सत्य_13:
   leaq .LC_str_166(%rip), %rcx
@@ -81111,151 +81417,151 @@
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %rbx
-  movq %rbx, -984(%rbp)
-  movq -744(%rbp), %rcx
+  movq %rbx, -1048(%rbp)
+  movq -808(%rbp), %rcx
   movq %rbx, %rdx
   subq $32, %rsp
   call sutra_arr_get
   addq $32, %rsp
   movq %rax, %rdi
-  movq %rdi, -992(%rbp)
-  movq $0, -984(%rbp)
-  leaq .LC_str_478(%rip), %rcx
-  movq .LC_str_478_len(%rip), %rdx
+  movq %rdi, -1056(%rbp)
+  movq $0, -1048(%rbp)
+  leaq .LC_str_480(%rip), %rcx
+  movq .LC_str_480_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %rbx
-  movq %rbx, -1000(%rbp)
+  movq %rbx, -1064(%rbp)
   movq %rdi, %rcx
   movq %rbx, %rdx
   subq $32, %rsp
   call sutra_add_dynamic
   addq $32, %rsp
   movq %rax, %r12
-  movq %r12, -1008(%rbp)
-  movq $0, -992(%rbp)
-  movq $0, -1000(%rbp)
+  movq %r12, -1072(%rbp)
+  movq $0, -1056(%rbp)
+  movq $0, -1064(%rbp)
   leaq .LC_str_166(%rip), %rcx
   movq .LC_str_166_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %rbx
-  movq %rbx, -1016(%rbp)
-  movq -744(%rbp), %rcx
+  movq %rbx, -1080(%rbp)
+  movq -808(%rbp), %rcx
   movq %rbx, %rdx
   subq $32, %rsp
   call sutra_arr_get
   addq $32, %rsp
   movq %rax, %rdi
-  movq %rdi, -1024(%rbp)
-  movq $0, -1016(%rbp)
-  movq -456(%rbp), %rcx
+  movq %rdi, -1088(%rbp)
+  movq $0, -1080(%rbp)
+  movq -488(%rbp), %rcx
   movq %r12, %rdx
   movq %rdi, %r8
   subq $32, %rsp
   call sutra_arr_set
   addq $32, %rsp
-  movq $0, -1008(%rbp)
-  movq $0, -1024(%rbp)
+  movq $0, -1072(%rbp)
+  movq $0, -1088(%rbp)
   jmp .L_निम्नक_एकक__if_अंत_14
 .L_निम्नक_एकक__if_अंत_14:
   movq $1, %rbx
   movq %r13, %r10
   addq %rbx, %r10
   movq %r10, %rdi
-  movq $0, -2032(%rbp)
+  movq $0, -2176(%rbp)
   movq %rdi, %r13
   jmp .L_निम्नक_एकक__wh_शर्त_10
 .L_निम्नक_एकक__wh_देह_8:
-  movq -728(%rbp), %rcx
-  movq -760(%rbp), %rdx
+  movq -792(%rbp), %rcx
+  movq -824(%rbp), %rdx
   subq $32, %rsp
   call sutra_arr_get
   addq $32, %rsp
   movq %rax, %rbx
-  movq %rbx, -904(%rbp)
+  movq %rbx, -968(%rbp)
   leaq .LC_str_166(%rip), %rcx
   movq .LC_str_166_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %rdi
-  movq %rdi, -912(%rbp)
+  movq %rdi, -976(%rbp)
   movq %rbx, %rcx
   movq %rdi, %rdx
   subq $32, %rsp
   call sutra_arr_get
   addq $32, %rsp
   movq %rax, %r12
-  movq %r12, -920(%rbp)
-  movq $0, -904(%rbp)
-  movq $0, -912(%rbp)
+  movq %r12, -984(%rbp)
+  movq $0, -968(%rbp)
+  movq $0, -976(%rbp)
   movq %rsi, %rcx
   movq %r12, %rdx
   subq $32, %rsp
   call sutra_list_append
   addq $32, %rsp
   movq %rax, %rbx
-  movq $0, -920(%rbp)
-  movq $0, -2016(%rbp)
+  movq $0, -984(%rbp)
+  movq $0, -2160(%rbp)
   movq $1, %rsi
-  movq -760(%rbp), %r10
+  movq -824(%rbp), %r10
   addq %rsi, %r10
   movq %r10, %rdi
-  movq $0, -2024(%rbp)
-  movq %rdi, -760(%rbp)
+  movq $0, -2168(%rbp)
+  movq %rdi, -824(%rbp)
   movq %rbx, %rsi
   jmp .L_निम्नक_एकक__wh_शर्त_7
 .L_निम्नक_एकक__wh_देह_2:
-  movq -440(%rbp), %rcx
-  movq -504(%rbp), %rdx
+  movq -472(%rbp), %rcx
+  movq -536(%rbp), %rdx
   subq $32, %rsp
   call sutra_arr_get
   addq $32, %rsp
   movq %rax, %rbx
-  movq %rbx, -816(%rbp)
+  movq %rbx, -880(%rbp)
   leaq .LC_str_166(%rip), %rcx
   movq .LC_str_166_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %rsi
-  movq %rsi, -824(%rbp)
+  movq %rsi, -888(%rbp)
   movq %rbx, %rcx
   movq %rsi, %rdx
   subq $32, %rsp
   call sutra_arr_get
   addq $32, %rsp
   movq %rax, %rdi
-  movq %rdi, -832(%rbp)
-  movq $0, -816(%rbp)
-  movq $0, -824(%rbp)
+  movq %rdi, -896(%rbp)
+  movq $0, -880(%rbp)
+  movq $0, -888(%rbp)
   leaq .LC_str_53(%rip), %rcx
   movq .LC_str_53_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %rbx
-  movq %rbx, -840(%rbp)
-  movq -456(%rbp), %rcx
+  movq %rbx, -904(%rbp)
+  movq -488(%rbp), %rcx
   movq %rdi, %rdx
   movq %rbx, %r8
   subq $32, %rsp
   call sutra_arr_set
   addq $32, %rsp
-  movq $0, -832(%rbp)
-  movq $0, -840(%rbp)
+  movq $0, -896(%rbp)
+  movq $0, -904(%rbp)
   movq $1, %rbx
-  movq -504(%rbp), %r10
+  movq -536(%rbp), %r10
   addq %rbx, %r10
   movq %r10, %rsi
-  movq $0, -1728(%rbp)
-  movq %rsi, -504(%rbp)
+  movq $0, -1840(%rbp)
+  movq %rsi, -536(%rbp)
   jmp .L_निम्नक_एकक__wh_शर्त_1
 .L_epilogue_निम्नक_एकक:
-  subl $158, gc_roots_count(%rip)
+  subl $168, gc_roots_count(%rip)
   movq -8(%rbp), %rbx
   movq -16(%rbp), %rsi
   movq -24(%rbp), %rdi
@@ -81374,8 +81680,8 @@
   movq %rbx, -64(%rbp)
 
 .L_अनु_उत्तराधिकारी__प्रवेश_0:
-  leaq .LC_str_403(%rip), %rcx
-  movq .LC_str_403_len(%rip), %rdx
+  leaq .LC_str_405(%rip), %rcx
+  movq .LC_str_405_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -81406,8 +81712,8 @@
 .L_किनारा_अनु_उत्तराधिकारी_0:
   jmp .L_अनु_उत्तराधिकारी__if_अंत_2
 .L_अनु_उत्तराधिकारी__if_अंत_2:
-  leaq .LC_str_404(%rip), %rcx
-  movq .LC_str_404_len(%rip), %rdx
+  leaq .LC_str_406(%rip), %rcx
+  movq .LC_str_406_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -81421,8 +81727,8 @@
   movq %rax, %rsi
   movq %rsi, -112(%rbp)
   movq $0, -104(%rbp)
-  leaq .LC_str_410(%rip), %rcx
-  movq .LC_str_410_len(%rip), %rdx
+  leaq .LC_str_412(%rip), %rcx
+  movq .LC_str_412_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -81440,8 +81746,8 @@
 .L_किनारा_अनु_उत्तराधिकारी_1:
   jmp .L_अनु_उत्तराधिकारी__if_अंत_4
 .L_अनु_उत्तराधिकारी__if_अंत_4:
-  leaq .LC_str_411(%rip), %rcx
-  movq .LC_str_411_len(%rip), %rdx
+  leaq .LC_str_413(%rip), %rcx
+  movq .LC_str_413_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -81470,8 +81776,8 @@
   movq %rbx, %rax
   jmp .L_epilogue_अनु_उत्तराधिकारी
 .L_अनु_उत्तराधिकारी__if_सत्य_5:
-  leaq .LC_str_406(%rip), %rcx
-  movq .LC_str_406_len(%rip), %rdx
+  leaq .LC_str_408(%rip), %rcx
+  movq .LC_str_408_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -81501,8 +81807,8 @@
   movq %r12, -184(%rbp)
   movq $0, -168(%rbp)
   movq $0, -176(%rbp)
-  leaq .LC_str_406(%rip), %rcx
-  movq .LC_str_406_len(%rip), %rdx
+  leaq .LC_str_408(%rip), %rcx
+  movq .LC_str_408_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -81556,8 +81862,8 @@
   movq %rbx, %rax
   jmp .L_epilogue_अनु_उत्तराधिकारी
 .L_अनु_उत्तराधिकारी__if_सत्य_3:
-  leaq .LC_str_406(%rip), %rcx
-  movq .LC_str_406_len(%rip), %rdx
+  leaq .LC_str_408(%rip), %rcx
+  movq .LC_str_408_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -81572,8 +81878,8 @@
   movq %rsi, -128(%rbp)
   movq $0, -80(%rbp)
   movq $0, -120(%rbp)
-  leaq .LC_str_409(%rip), %rcx
-  movq .LC_str_409_len(%rip), %rdx
+  leaq .LC_str_411(%rip), %rcx
+  movq .LC_str_411_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -81728,8 +82034,8 @@
   movq %rsi, -96(%rbp)
 
 .L_अनु_खंड_खोजें__प्रवेश_0:
-  leaq .LC_str_395(%rip), %rcx
-  movq .LC_str_395_len(%rip), %rdx
+  leaq .LC_str_397(%rip), %rcx
+  movq .LC_str_397_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -81743,8 +82049,8 @@
   movq %rax, %r12
   movq %r12, -112(%rbp)
   movq $0, -104(%rbp)
-  leaq .LC_str_560(%rip), %rcx
-  movq .LC_str_560_len(%rip), %rdx
+  leaq .LC_str_562(%rip), %rcx
+  movq .LC_str_562_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -81774,8 +82080,8 @@
 .L_किनारा_अनु_खंड_खोजें_0:
   jmp .L_अनु_खंड_खोजें__sc_दायाँ_1
 .L_अनु_खंड_खोजें__sc_दायाँ_1:
-  leaq .LC_str_561(%rip), %rcx
-  movq .LC_str_561_len(%rip), %rdx
+  leaq .LC_str_563(%rip), %rcx
+  movq .LC_str_563_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -81849,8 +82155,8 @@
 .L_किनारा_अनु_खंड_खोजें_2:
   jmp .L_अनु_खंड_खोजें__wh_अंत_8
 .L_अनु_खंड_खोजें__wh_अंत_8:
-  leaq .LC_str_560(%rip), %rcx
-  movq .LC_str_560_len(%rip), %rdx
+  leaq .LC_str_562(%rip), %rcx
+  movq .LC_str_562_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -81863,8 +82169,8 @@
   call sutra_arr_set
   addq $32, %rsp
   movq $0, -200(%rbp)
-  leaq .LC_str_561(%rip), %rcx
-  movq .LC_str_561_len(%rip), %rdx
+  leaq .LC_str_563(%rip), %rcx
+  movq .LC_str_563_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -81924,8 +82230,8 @@
   addq $32, %rsp
   movq %rax, %rdi
   movq %rdi, -168(%rbp)
-  leaq .LC_str_399(%rip), %rcx
-  movq .LC_str_399_len(%rip), %rdx
+  leaq .LC_str_401(%rip), %rcx
+  movq .LC_str_401_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -82189,8 +82495,8 @@
 .L_किनारा_अनु_बहु_बदलो_0:
   jmp .L_अनु_बहु_बदलो__if_अंत_2
 .L_अनु_बहु_बदलो__if_अंत_2:
-  leaq .LC_str_395(%rip), %rcx
-  movq .LC_str_395_len(%rip), %rdx
+  leaq .LC_str_397(%rip), %rcx
+  movq .LC_str_397_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -82237,8 +82543,8 @@
   addq $32, %rsp
   movq %rax, %rdi
   movq %rdi, -112(%rbp)
-  leaq .LC_str_401(%rip), %rcx
-  movq .LC_str_401_len(%rip), %rdx
+  leaq .LC_str_403(%rip), %rcx
+  movq .LC_str_403_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -82259,8 +82565,8 @@
   addq $32, %rsp
   movq %rax, %r13
   movq $0, -128(%rbp)
-  leaq .LC_str_402(%rip), %rcx
-  movq .LC_str_402_len(%rip), %rdx
+  leaq .LC_str_404(%rip), %rcx
+  movq .LC_str_404_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -82281,8 +82587,8 @@
   addq $32, %rsp
   movq %rax, %r13
   movq $0, -144(%rbp)
-  leaq .LC_str_403(%rip), %rcx
-  movq .LC_str_403_len(%rip), %rdx
+  leaq .LC_str_405(%rip), %rcx
+  movq .LC_str_405_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -82318,8 +82624,8 @@
 .L_किनारा_अनु_बहु_बदलो_2:
   jmp .L_अनु_बहु_बदलो__if_अंत_7
 .L_अनु_बहु_बदलो__if_सत्य_6:
-  leaq .LC_str_403(%rip), %rcx
-  movq .LC_str_403_len(%rip), %rdx
+  leaq .LC_str_405(%rip), %rcx
+  movq .LC_str_405_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -82590,8 +82896,8 @@
   movq %r11, -144(%rbp)
 
 .L_अनु_बहु_एक__प्रवेश_0:
-  leaq .LC_str_405(%rip), %rcx
-  movq .LC_str_405_len(%rip), %rdx
+  leaq .LC_str_407(%rip), %rcx
+  movq .LC_str_407_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -82629,8 +82935,8 @@
 .L_किनारा_अनु_बहु_एक_0:
   jmp .L_अनु_बहु_एक__wh_अंत_3
 .L_अनु_बहु_एक__wh_अंत_3:
-  leaq .LC_str_404(%rip), %rcx
-  movq .LC_str_404_len(%rip), %rdx
+  leaq .LC_str_406(%rip), %rcx
+  movq .LC_str_406_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -82644,8 +82950,8 @@
   movq %rax, %r14
   movq %r14, -224(%rbp)
   movq $0, -216(%rbp)
-  leaq .LC_str_401(%rip), %rcx
-  movq .LC_str_401_len(%rip), %rdx
+  leaq .LC_str_403(%rip), %rcx
+  movq .LC_str_403_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -82666,8 +82972,8 @@
 .L_किनारा_अनु_बहु_एक_1:
   jmp .L_अनु_बहु_एक__if_अंत_9
 .L_अनु_बहु_एक__if_सत्य_8:
-  leaq .LC_str_406(%rip), %rcx
-  movq .LC_str_406_len(%rip), %rdx
+  leaq .LC_str_408(%rip), %rcx
+  movq .LC_str_408_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -83059,8 +83365,8 @@
   movq %r11, -192(%rbp)
   movq -152(%rbp), %r11
   movq %r11, -192(%rbp)
-  leaq .LC_str_395(%rip), %rcx
-  movq .LC_str_395_len(%rip), %rdx
+  leaq .LC_str_397(%rip), %rcx
+  movq .LC_str_397_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -83140,8 +83446,8 @@
   addq $32, %rsp
   movq %rax, %rdi
   movq %rdi, -248(%rbp)
-  leaq .LC_str_399(%rip), %rcx
-  movq .LC_str_399_len(%rip), %rdx
+  leaq .LC_str_401(%rip), %rcx
+  movq .LC_str_401_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -83274,8 +83580,8 @@
   addq $32, %rsp
   movq %rax, %rbx
   movq %rbx, -216(%rbp)
-  leaq .LC_str_399(%rip), %rcx
-  movq .LC_str_399_len(%rip), %rdx
+  leaq .LC_str_401(%rip), %rcx
+  movq .LC_str_401_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -83413,8 +83719,8 @@
   movq %rbx, -72(%rbp)
 
 .L_अनु_विपक्रम__प्रवेश_0:
-  leaq .LC_str_395(%rip), %rcx
-  movq .LC_str_395_len(%rip), %rdx
+  leaq .LC_str_397(%rip), %rcx
+  movq .LC_str_397_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -83489,8 +83795,8 @@
   movq %rax, %r14
   movq %r14, -136(%rbp)
   movq $0, -88(%rbp)
-  leaq .LC_str_399(%rip), %rcx
-  movq .LC_str_399_len(%rip), %rdx
+  leaq .LC_str_401(%rip), %rcx
+  movq .LC_str_401_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -83984,8 +84290,8 @@
   movq %r11, -168(%rbp)
 
 .L_अनु_निर्देश_बदलो__प्रवेश_0:
-  leaq .LC_str_405(%rip), %rcx
-  movq .LC_str_405_len(%rip), %rdx
+  leaq .LC_str_407(%rip), %rcx
+  movq .LC_str_407_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -84033,8 +84339,8 @@
 .L_किनारा_अनु_निर्देश_बदलो_0:
   jmp .L_अनु_निर्देश_बदलो__wh_अंत_3
 .L_अनु_निर्देश_बदलो__wh_अंत_3:
-  leaq .LC_str_405(%rip), %rcx
-  movq .LC_str_405_len(%rip), %rdx
+  leaq .LC_str_407(%rip), %rcx
+  movq .LC_str_407_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -84047,8 +84353,8 @@
   call sutra_arr_set
   addq $32, %rsp
   movq $0, -216(%rbp)
-  leaq .LC_str_404(%rip), %rcx
-  movq .LC_str_404_len(%rip), %rdx
+  leaq .LC_str_406(%rip), %rcx
+  movq .LC_str_406_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -84062,8 +84368,8 @@
   movq %rax, %r15
   movq %r15, -232(%rbp)
   movq $0, -224(%rbp)
-  leaq .LC_str_401(%rip), %rcx
-  movq .LC_str_401_len(%rip), %rdx
+  leaq .LC_str_403(%rip), %rcx
+  movq .LC_str_403_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -84084,8 +84390,8 @@
 .L_किनारा_अनु_निर्देश_बदलो_1:
   jmp .L_अनु_निर्देश_बदलो__if_अंत_8
 .L_अनु_निर्देश_बदलो__if_सत्य_7:
-  leaq .LC_str_406(%rip), %rcx
-  movq .LC_str_406_len(%rip), %rdx
+  leaq .LC_str_408(%rip), %rcx
+  movq .LC_str_408_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -84147,8 +84453,8 @@
 .L_किनारा_अनु_निर्देश_बदलो_2:
   jmp .L_अनु_निर्देश_बदलो__wh_अंत_11
 .L_अनु_निर्देश_बदलो__wh_अंत_11:
-  leaq .LC_str_406(%rip), %rcx
-  movq .LC_str_406_len(%rip), %rdx
+  leaq .LC_str_408(%rip), %rcx
+  movq .LC_str_408_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -84424,8 +84730,8 @@
   movq %rbx, -152(%rbp)
 
 .L_अनु_हर_उपयोग_बदलो__प्रवेश_0:
-  leaq .LC_str_395(%rip), %rcx
-  movq .LC_str_395_len(%rip), %rdx
+  leaq .LC_str_397(%rip), %rcx
+  movq .LC_str_397_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -84477,8 +84783,8 @@
   movq -88(%rbp), %r11
   movq %r11, -176(%rbp)
   movq $0, %r14
-  leaq .LC_str_401(%rip), %rcx
-  movq .LC_str_401_len(%rip), %rdx
+  leaq .LC_str_403(%rip), %rcx
+  movq .LC_str_403_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -84514,8 +84820,8 @@
   jmp .L_अनु_हर_उपयोग_बदलो__wh_अंत_6
 .L_अनु_हर_उपयोग_बदलो__wh_अंत_6:
   movq $0, %r12
-  leaq .LC_str_402(%rip), %rcx
-  movq .LC_str_402_len(%rip), %rdx
+  leaq .LC_str_404(%rip), %rcx
+  movq .LC_str_404_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -84549,8 +84855,8 @@
 .L_किनारा_अनु_हर_उपयोग_बदलो_2:
   jmp .L_अनु_हर_उपयोग_बदलो__wh_अंत_9
 .L_अनु_हर_उपयोग_बदलो__wh_अंत_9:
-  leaq .LC_str_403(%rip), %rcx
-  movq .LC_str_403_len(%rip), %rdx
+  leaq .LC_str_405(%rip), %rcx
+  movq .LC_str_405_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -84586,8 +84892,8 @@
 .L_किनारा_अनु_हर_उपयोग_बदलो_3:
   jmp .L_अनु_हर_उपयोग_बदलो__if_अंत_11
 .L_अनु_हर_उपयोग_बदलो__if_सत्य_10:
-  leaq .LC_str_403(%rip), %rcx
-  movq .LC_str_403_len(%rip), %rdx
+  leaq .LC_str_405(%rip), %rcx
+  movq .LC_str_405_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -85196,8 +85502,8 @@
   movq %r11, -1104(%rbp)
   movq -72(%rbp), %r11
   movq %r11, -1104(%rbp)
-  leaq .LC_str_562(%rip), %rcx
-  movq .LC_str_562_len(%rip), %rdx
+  leaq .LC_str_564(%rip), %rcx
+  movq .LC_str_564_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -85218,8 +85524,8 @@
   addq $32, %rsp
   movq $0, -1112(%rbp)
   movq $0, -1120(%rbp)
-  leaq .LC_str_563(%rip), %rcx
-  movq .LC_str_563_len(%rip), %rdx
+  leaq .LC_str_565(%rip), %rcx
+  movq .LC_str_565_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -85248,8 +85554,8 @@
   movq %r11, -1144(%rbp)
   movq -120(%rbp), %r11
   movq %r11, -1144(%rbp)
-  leaq .LC_str_395(%rip), %rcx
-  movq .LC_str_395_len(%rip), %rdx
+  leaq .LC_str_397(%rip), %rcx
+  movq .LC_str_397_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -85349,8 +85655,8 @@
 .L_किनारा_स्लॉट_उन्नयन_1:
   jmp .L_स्लॉट_उन्नयन__wh_अंत_11
 .L_स्लॉट_उन्नयन__wh_अंत_11:
-  leaq .LC_str_562(%rip), %rcx
-  movq .LC_str_562_len(%rip), %rdx
+  leaq .LC_str_564(%rip), %rcx
+  movq .LC_str_564_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -85386,8 +85692,8 @@
 .L_किनारा_स्लॉट_उन्नयन_2:
   jmp .L_स्लॉट_उन्नयन__wh_अंत_43
 .L_स्लॉट_उन्नयन__wh_अंत_43:
-  leaq .LC_str_563(%rip), %rcx
-  movq .LC_str_563_len(%rip), %rdx
+  leaq .LC_str_565(%rip), %rcx
+  movq .LC_str_565_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -85451,8 +85757,8 @@
   movq %rax, %r13
   movq %r13, -1640(%rbp)
   movq $0, -1616(%rbp)
-  leaq .LC_str_564(%rip), %rcx
-  movq .LC_str_564_len(%rip), %rdx
+  leaq .LC_str_566(%rip), %rcx
+  movq .LC_str_566_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -85510,8 +85816,8 @@
   jmp .L_स्लॉट_उन्नयन__if_अंत_45
 .L_स्लॉट_उन्नयन__if_अंत_45:
   movq %rsi, -1864(%rbp)
-  leaq .LC_str_406(%rip), %rcx
-  movq .LC_str_406_len(%rip), %rdx
+  leaq .LC_str_408(%rip), %rcx
+  movq .LC_str_408_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -85541,8 +85847,8 @@
   movq %r15, -1712(%rbp)
   movq $0, -1696(%rbp)
   movq $0, -1704(%rbp)
-  leaq .LC_str_406(%rip), %rcx
-  movq .LC_str_406_len(%rip), %rdx
+  leaq .LC_str_408(%rip), %rcx
+  movq .LC_str_408_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -85705,8 +86011,8 @@
 .L_किनारा_स्लॉट_उन्नयन_5:
   jmp .L_स्लॉट_उन्नयन__wh_अंत_19
 .L_स्लॉट_उन्नयन__wh_अंत_19:
-  leaq .LC_str_402(%rip), %rcx
-  movq .LC_str_402_len(%rip), %rdx
+  leaq .LC_str_404(%rip), %rcx
+  movq .LC_str_404_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -85772,8 +86078,8 @@
 .L_किनारा_स्लॉट_उन्नयन_6:
   jmp .L_स्लॉट_उन्नयन__wh_अंत_24
 .L_स्लॉट_उन्नयन__wh_अंत_24:
-  leaq .LC_str_402(%rip), %rcx
-  movq .LC_str_402_len(%rip), %rdx
+  leaq .LC_str_404(%rip), %rcx
+  movq .LC_str_404_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -85872,8 +86178,8 @@
   addq $32, %rsp
   movq %rax, %r12
   movq %r12, -1552(%rbp)
-  leaq .LC_str_564(%rip), %rcx
-  movq .LC_str_564_len(%rip), %rdx
+  leaq .LC_str_566(%rip), %rcx
+  movq .LC_str_566_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -85936,8 +86242,8 @@
   addq $32, %rsp
   movq %rax, %rsi
   movq %rsi, -1392(%rbp)
-  leaq .LC_str_404(%rip), %rcx
-  movq .LC_str_404_len(%rip), %rdx
+  leaq .LC_str_406(%rip), %rcx
+  movq .LC_str_406_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -85952,8 +86258,8 @@
   movq -632(%rbp), %r11
   movq %r11, -1408(%rbp)
   movq $0, -1400(%rbp)
-  leaq .LC_str_416(%rip), %rcx
-  movq .LC_str_416_len(%rip), %rdx
+  leaq .LC_str_418(%rip), %rcx
+  movq .LC_str_418_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -85971,8 +86277,8 @@
 .L_किनारा_स्लॉट_उन्नयन_9:
   jmp .L_स्लॉट_उन्नयन__if_असत्य_27
 .L_स्लॉट_उन्नयन__if_असत्य_27:
-  leaq .LC_str_418(%rip), %rcx
-  movq .LC_str_418_len(%rip), %rdx
+  leaq .LC_str_420(%rip), %rcx
+  movq .LC_str_420_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -85990,8 +86296,8 @@
 .L_किनारा_स्लॉट_उन्नयन_10:
   jmp .L_स्लॉट_उन्नयन__if_असत्य_30
 .L_स्लॉट_उन्नयन__if_असत्य_30:
-  leaq .LC_str_417(%rip), %rcx
-  movq .LC_str_417_len(%rip), %rdx
+  leaq .LC_str_419(%rip), %rcx
+  movq .LC_str_419_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -86019,8 +86325,8 @@
   movq -584(%rbp), %r13
   jmp .L_स्लॉट_उन्नयन__if_अंत_32
 .L_स्लॉट_उन्नयन__if_सत्य_31:
-  leaq .LC_str_405(%rip), %rcx
-  movq .LC_str_405_len(%rip), %rdx
+  leaq .LC_str_407(%rip), %rcx
+  movq .LC_str_407_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -86071,8 +86377,8 @@
 .L_किनारा_स्लॉट_उन्नयन_12:
   jmp .L_स्लॉट_उन्नयन__if_अंत_35
 .L_स्लॉट_उन्नयन__if_सत्य_34:
-  leaq .LC_str_398(%rip), %rcx
-  movq .LC_str_398_len(%rip), %rdx
+  leaq .LC_str_400(%rip), %rcx
+  movq .LC_str_400_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -86106,8 +86412,8 @@
   movq -616(%rbp), %r13
   jmp .L_स्लॉट_उन्नयन__if_अंत_29
 .L_स्लॉट_उन्नयन__if_सत्य_28:
-  leaq .LC_str_405(%rip), %rcx
-  movq .LC_str_405_len(%rip), %rdx
+  leaq .LC_str_407(%rip), %rcx
+  movq .LC_str_407_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -86130,8 +86436,8 @@
   movq %rax, %r14
   movq %r14, -1432(%rbp)
   movq $0, -1424(%rbp)
-  leaq .LC_str_405(%rip), %rcx
-  movq .LC_str_405_len(%rip), %rdx
+  leaq .LC_str_407(%rip), %rcx
+  movq .LC_str_407_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -86335,8 +86641,8 @@
   addq $32, %rsp
   movq %rax, %rbx
   movq %rbx, -1168(%rbp)
-  leaq .LC_str_402(%rip), %rcx
-  movq .LC_str_402_len(%rip), %rdx
+  leaq .LC_str_404(%rip), %rcx
+  movq .LC_str_404_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -86386,8 +86692,8 @@
   addq $32, %rsp
   movq %rax, %rsi
   movq %rsi, -1192(%rbp)
-  leaq .LC_str_404(%rip), %rcx
-  movq .LC_str_404_len(%rip), %rdx
+  leaq .LC_str_406(%rip), %rcx
+  movq .LC_str_406_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -86402,8 +86708,8 @@
   movq %r13, -1208(%rbp)
   movq $0, -1192(%rbp)
   movq $0, -1200(%rbp)
-  leaq .LC_str_416(%rip), %rcx
-  movq .LC_str_416_len(%rip), %rdx
+  leaq .LC_str_418(%rip), %rcx
+  movq .LC_str_418_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -86431,8 +86737,8 @@
   addq $32, %rsp
   movq %rax, %rsi
   movq %rsi, -1224(%rbp)
-  leaq .LC_str_398(%rip), %rcx
-  movq .LC_str_398_len(%rip), %rdx
+  leaq .LC_str_400(%rip), %rcx
+  movq .LC_str_400_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -86920,8 +87226,8 @@
   addq $32, %rsp
   movq $0, -328(%rbp)
   movq $0, -336(%rbp)
-  leaq .LC_str_401(%rip), %rcx
-  movq .LC_str_401_len(%rip), %rdx
+  leaq .LC_str_403(%rip), %rcx
+  movq .LC_str_403_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -86958,15 +87264,15 @@
   movq $0, -344(%rbp)
   movq $0, -352(%rbp)
   movq $0, -360(%rbp)
-  leaq .LC_str_401(%rip), %rcx
-  movq .LC_str_401_len(%rip), %rdx
+  leaq .LC_str_403(%rip), %rcx
+  movq .LC_str_403_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %rbx
   movq %rbx, -376(%rbp)
-  leaq .LC_str_401(%rip), %rcx
-  movq .LC_str_401_len(%rip), %rdx
+  leaq .LC_str_403(%rip), %rcx
+  movq .LC_str_403_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -86996,15 +87302,15 @@
   addq $32, %rsp
   movq $0, -376(%rbp)
   movq $0, -400(%rbp)
-  leaq .LC_str_563(%rip), %rcx
-  movq .LC_str_563_len(%rip), %rdx
+  leaq .LC_str_565(%rip), %rcx
+  movq .LC_str_565_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %rbx
   movq %rbx, -408(%rbp)
-  leaq .LC_str_563(%rip), %rcx
-  movq .LC_str_563_len(%rip), %rdx
+  leaq .LC_str_565(%rip), %rcx
+  movq .LC_str_565_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -87108,15 +87414,15 @@
 .L_किनारा_मेम_प्रवेश_मान_3:
   jmp .L_मेम_प्रवेश_मान__if_असत्य_12
 .L_मेम_प्रवेश_मान__if_असत्य_12:
-  leaq .LC_str_562(%rip), %rcx
-  movq .LC_str_562_len(%rip), %rdx
+  leaq .LC_str_564(%rip), %rcx
+  movq .LC_str_564_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %rdi
   movq %rdi, -568(%rbp)
-  leaq .LC_str_562(%rip), %rcx
-  movq .LC_str_562_len(%rip), %rdx
+  leaq .LC_str_564(%rip), %rcx
+  movq .LC_str_564_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -87174,8 +87480,8 @@
   movq $0, -600(%rbp)
   jmp .L_मेम_प्रवेश_मान__if_अंत_11
 .L_मेम_प्रवेश_मान__if_सत्य_10:
-  leaq .LC_str_564(%rip), %rcx
-  movq .LC_str_564_len(%rip), %rdx
+  leaq .LC_str_566(%rip), %rcx
+  movq .LC_str_566_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -87231,8 +87537,8 @@
   jmp .L_मेम_प्रवेश_मान__if_अंत_14
 .L_मेम_प्रवेश_मान__if_अंत_14:
   movq %rdi, -616(%rbp)
-  leaq .LC_str_406(%rip), %rcx
-  movq .LC_str_406_len(%rip), %rdx
+  leaq .LC_str_408(%rip), %rcx
+  movq .LC_str_408_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -87253,8 +87559,8 @@
   addq $32, %rsp
   movq %rax, %r12
   movq %r12, -512(%rbp)
-  leaq .LC_str_406(%rip), %rcx
-  movq .LC_str_406_len(%rip), %rdx
+  leaq .LC_str_408(%rip), %rcx
+  movq .LC_str_408_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -87333,8 +87639,8 @@
   movq %rdi, -200(%rbp)
   jmp .L_मेम_प्रवेश_मान__wh_शर्त_7
 .L_मेम_प्रवेश_मान__if_सत्य_3:
-  leaq .LC_str_564(%rip), %rcx
-  movq .LC_str_564_len(%rip), %rdx
+  leaq .LC_str_566(%rip), %rcx
+  movq .LC_str_566_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -87733,8 +88039,8 @@
   movq -72(%rbp), %r11
   movq %r11, -216(%rbp)
   movq $0, -200(%rbp)
-  leaq .LC_str_565(%rip), %rcx
-  movq .LC_str_565_len(%rip), %rdx
+  leaq .LC_str_567(%rip), %rcx
+  movq .LC_str_567_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -87769,8 +88075,8 @@
   movq -136(%rbp), %rbx
   jmp .L_मेम_तुच्छ_फाई_चिन्हित__if_अंत_8
 .L_मेम_तुच्छ_फाई_चिन्हित__if_सत्य_7:
-  leaq .LC_str_406(%rip), %rcx
-  movq .LC_str_406_len(%rip), %rdx
+  leaq .LC_str_408(%rip), %rcx
+  movq .LC_str_408_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -87853,8 +88159,8 @@
   movq -136(%rbp), %rbx
   jmp .L_मेम_तुच्छ_फाई_चिन्हित__if_अंत_28
 .L_मेम_तुच्छ_फाई_चिन्हित__if_सत्य_27:
-  leaq .LC_str_398(%rip), %rcx
-  movq .LC_str_398_len(%rip), %rdx
+  leaq .LC_str_400(%rip), %rcx
+  movq .LC_str_400_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -87875,15 +88181,15 @@
   call sutra_arr_set
   addq $32, %rsp
   movq $0, -312(%rbp)
-  leaq .LC_str_401(%rip), %rcx
-  movq .LC_str_401_len(%rip), %rdx
+  leaq .LC_str_403(%rip), %rcx
+  movq .LC_str_403_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %rbx
   movq %rbx, -320(%rbp)
-  leaq .LC_str_401(%rip), %rcx
-  movq .LC_str_401_len(%rip), %rdx
+  leaq .LC_str_403(%rip), %rcx
+  movq .LC_str_403_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -87897,8 +88203,8 @@
   movq %rax, %rdi
   movq %rdi, -336(%rbp)
   movq $0, -328(%rbp)
-  leaq .LC_str_398(%rip), %rcx
-  movq .LC_str_398_len(%rip), %rdx
+  leaq .LC_str_400(%rip), %rcx
+  movq .LC_str_400_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -87929,8 +88235,8 @@
   addq $32, %rsp
   movq $0, -320(%rbp)
   movq $0, -360(%rbp)
-  leaq .LC_str_565(%rip), %rcx
-  movq .LC_str_565_len(%rip), %rdx
+  leaq .LC_str_567(%rip), %rcx
+  movq .LC_str_567_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -87997,8 +88303,8 @@
   jmp .L_मेम_तुच्छ_फाई_चिन्हित__if_अंत_13
 .L_मेम_तुच्छ_फाई_चिन्हित__if_अंत_13:
   movq %rbx, -416(%rbp)
-  leaq .LC_str_398(%rip), %rcx
-  movq .LC_str_398_len(%rip), %rdx
+  leaq .LC_str_400(%rip), %rcx
+  movq .LC_str_400_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -88204,8 +88510,8 @@
   addq $32, %rsp
   movq %rax, %r13
   movq %r13, -96(%rbp)
-  leaq .LC_str_398(%rip), %rcx
-  movq .LC_str_398_len(%rip), %rdx
+  leaq .LC_str_400(%rip), %rcx
+  movq .LC_str_400_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -88596,8 +88902,8 @@
   jmp .L_epilogue_स्थिर_तह
 .L_स्थिर_तह__wh_देह_2:
   movq $0, %r12
-  leaq .LC_str_395(%rip), %rcx
-  movq .LC_str_395_len(%rip), %rdx
+  leaq .LC_str_397(%rip), %rcx
+  movq .LC_str_397_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -88645,8 +88951,8 @@
   addq $32, %rsp
   movq %rax, %r13
   movq %r13, -256(%rbp)
-  leaq .LC_str_402(%rip), %rcx
-  movq .LC_str_402_len(%rip), %rdx
+  leaq .LC_str_404(%rip), %rcx
+  movq .LC_str_404_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -88704,8 +89010,8 @@
   movq %rax, -200(%rbp)
   movq -200(%rbp), %r11
   movq %r11, -280(%rbp)
-  leaq .LC_str_404(%rip), %rcx
-  movq .LC_str_404_len(%rip), %rdx
+  leaq .LC_str_406(%rip), %rcx
+  movq .LC_str_406_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -88719,8 +89025,8 @@
   movq %rax, %rdi
   movq %rdi, -296(%rbp)
   movq $0, -288(%rbp)
-  leaq .LC_str_415(%rip), %rcx
-  movq .LC_str_415_len(%rip), %rdx
+  leaq .LC_str_417(%rip), %rcx
+  movq .LC_str_417_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -88751,8 +89057,8 @@
   movq -184(%rbp), %rbx
   jmp .L_स्थिर_तह__if_अंत_19
 .L_स्थिर_तह__if_सत्य_18:
-  leaq .LC_str_405(%rip), %rcx
-  movq .LC_str_405_len(%rip), %rdx
+  leaq .LC_str_407(%rip), %rcx
+  movq .LC_str_407_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -88928,8 +89234,8 @@
   movq -184(%rbp), %rbx
   jmp .L_स्थिर_तह__if_अंत_31
 .L_स्थिर_तह__if_सत्य_30:
-  leaq .LC_str_398(%rip), %rcx
-  movq .LC_str_398_len(%rip), %rdx
+  leaq .LC_str_400(%rip), %rcx
+  movq .LC_str_400_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -88951,15 +89257,15 @@
   addq $32, %rsp
   movq $0, -648(%rbp)
   movq $0, -664(%rbp)
-  leaq .LC_str_404(%rip), %rcx
-  movq .LC_str_404_len(%rip), %rdx
+  leaq .LC_str_406(%rip), %rcx
+  movq .LC_str_406_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %rbx
   movq %rbx, -672(%rbp)
-  leaq .LC_str_566(%rip), %rcx
-  movq .LC_str_566_len(%rip), %rdx
+  leaq .LC_str_568(%rip), %rcx
+  movq .LC_str_568_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -88973,8 +89279,8 @@
   addq $32, %rsp
   movq $0, -672(%rbp)
   movq $0, -680(%rbp)
-  leaq .LC_str_405(%rip), %rcx
-  movq .LC_str_405_len(%rip), %rdx
+  leaq .LC_str_407(%rip), %rcx
+  movq .LC_str_407_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -89000,8 +89306,8 @@
 .L_स्थिर_तह__if_अंत_31:
   jmp .L_स्थिर_तह__if_अंत_26
 .L_स्थिर_तह__if_सत्य_25:
-  leaq .LC_str_406(%rip), %rcx
-  movq .LC_str_406_len(%rip), %rdx
+  leaq .LC_str_408(%rip), %rcx
+  movq .LC_str_408_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -89032,8 +89338,8 @@
   movq %r12, -472(%rbp)
   movq $0, -456(%rbp)
   movq $0, -464(%rbp)
-  leaq .LC_str_406(%rip), %rcx
-  movq .LC_str_406_len(%rip), %rdx
+  leaq .LC_str_408(%rip), %rcx
+  movq .LC_str_408_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -89096,15 +89402,15 @@
   movq -184(%rbp), %rbx
   jmp .L_स्थिर_तह__if_अंत_29
 .L_स्थिर_तह__if_सत्य_28:
-  leaq .LC_str_404(%rip), %rcx
-  movq .LC_str_404_len(%rip), %rdx
+  leaq .LC_str_406(%rip), %rcx
+  movq .LC_str_406_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %rsi
   movq %rsi, -528(%rbp)
-  leaq .LC_str_415(%rip), %rcx
-  movq .LC_str_415_len(%rip), %rdx
+  leaq .LC_str_417(%rip), %rcx
+  movq .LC_str_417_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -89124,8 +89430,8 @@
   movq %rax, %rsi
   movq %rsi, -544(%rbp)
   movq %rsi, -544(%rbp)
-  leaq .LC_str_413(%rip), %rcx
-  movq .LC_str_413_len(%rip), %rdx
+  leaq .LC_str_415(%rip), %rcx
+  movq .LC_str_415_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -89161,8 +89467,8 @@
   addq $32, %rsp
   movq $0, -512(%rbp)
   movq $0, -568(%rbp)
-  leaq .LC_str_406(%rip), %rcx
-  movq .LC_str_406_len(%rip), %rdx
+  leaq .LC_str_408(%rip), %rcx
+  movq .LC_str_408_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -89175,8 +89481,8 @@
   call sutra_arr_set
   addq $32, %rsp
   movq $0, -576(%rbp)
-  leaq .LC_str_405(%rip), %rcx
-  movq .LC_str_405_len(%rip), %rdx
+  leaq .LC_str_407(%rip), %rcx
+  movq .LC_str_407_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -89204,8 +89510,8 @@
   addq $32, %rsp
   movq %rax, %rbx
   movq %rbx, -600(%rbp)
-  leaq .LC_str_413(%rip), %rcx
-  movq .LC_str_413_len(%rip), %rdx
+  leaq .LC_str_415(%rip), %rcx
+  movq .LC_str_415_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -89228,8 +89534,8 @@
   addq $32, %rsp
   movq $0, -600(%rbp)
   movq $0, -616(%rbp)
-  leaq .LC_str_398(%rip), %rcx
-  movq .LC_str_398_len(%rip), %rdx
+  leaq .LC_str_400(%rip), %rcx
+  movq .LC_str_400_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -89261,8 +89567,8 @@
 .L_स्थिर_तह__if_अंत_19:
   jmp .L_स्थिर_तह__if_अंत_11
 .L_स्थिर_तह__if_सत्य_10:
-  leaq .LC_str_406(%rip), %rcx
-  movq .LC_str_406_len(%rip), %rdx
+  leaq .LC_str_408(%rip), %rcx
+  movq .LC_str_408_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -89276,8 +89582,8 @@
   movq %rax, %rsi
   movq %rsi, -312(%rbp)
   movq $0, -304(%rbp)
-  leaq .LC_str_413(%rip), %rcx
-  movq .LC_str_413_len(%rip), %rdx
+  leaq .LC_str_415(%rip), %rcx
+  movq .LC_str_415_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -89292,8 +89598,8 @@
   movq %rdi, -328(%rbp)
   movq $0, -312(%rbp)
   movq $0, -320(%rbp)
-  leaq .LC_str_414(%rip), %rcx
-  movq .LC_str_414_len(%rip), %rdx
+  leaq .LC_str_416(%rip), %rcx
+  movq .LC_str_416_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -89341,8 +89647,8 @@
 .L_किनारा_स्थिर_तह_11:
   jmp .L_स्थिर_तह__if_अंत_17
 .L_स्थिर_तह__if_सत्य_16:
-  leaq .LC_str_398(%rip), %rcx
-  movq .LC_str_398_len(%rip), %rdx
+  leaq .LC_str_400(%rip), %rcx
+  movq .LC_str_400_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -89495,8 +89801,8 @@
 .L_किनारा_बीज_सरल_0:
   jmp .L_बीज_सरल__if_अंत_2
 .L_बीज_सरल__if_सत्य_1:
-  leaq .LC_str_406(%rip), %rcx
-  movq .LC_str_406_len(%rip), %rdx
+  leaq .LC_str_408(%rip), %rcx
+  movq .LC_str_408_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -89527,8 +89833,8 @@
   movq %rdi, -136(%rbp)
   movq $0, -120(%rbp)
   movq $0, -128(%rbp)
-  leaq .LC_str_458(%rip), %rcx
-  movq .LC_str_458_len(%rip), %rdx
+  leaq .LC_str_460(%rip), %rcx
+  movq .LC_str_460_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -89565,8 +89871,8 @@
 .L_किनारा_बीज_सरल_2:
   jmp .L_बीज_सरल__if_अंत_7
 .L_बीज_सरल__if_अंत_7:
-  leaq .LC_str_460(%rip), %rcx
-  movq .LC_str_460_len(%rip), %rdx
+  leaq .LC_str_462(%rip), %rcx
+  movq .LC_str_462_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -89627,8 +89933,8 @@
 .L_किनारा_बीज_सरल_5:
   jmp .L_बीज_सरल__if_अंत_14
 .L_बीज_सरल__if_सत्य_13:
-  leaq .LC_str_406(%rip), %rcx
-  movq .LC_str_406_len(%rip), %rdx
+  leaq .LC_str_408(%rip), %rcx
+  movq .LC_str_408_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -89659,8 +89965,8 @@
   movq %r12, -176(%rbp)
   movq $0, -160(%rbp)
   movq $0, -168(%rbp)
-  leaq .LC_str_458(%rip), %rcx
-  movq .LC_str_458_len(%rip), %rdx
+  leaq .LC_str_460(%rip), %rcx
+  movq .LC_str_460_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -89697,8 +90003,8 @@
 .L_किनारा_बीज_सरल_7:
   jmp .L_बीज_सरल__if_अंत_19
 .L_बीज_सरल__if_अंत_19:
-  leaq .LC_str_459(%rip), %rcx
-  movq .LC_str_459_len(%rip), %rdx
+  leaq .LC_str_461(%rip), %rcx
+  movq .LC_str_461_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -89735,8 +90041,8 @@
 .L_किनारा_बीज_सरल_9:
   jmp .L_बीज_सरल__if_अंत_24
 .L_बीज_सरल__if_अंत_24:
-  leaq .LC_str_460(%rip), %rcx
-  movq .LC_str_460_len(%rip), %rdx
+  leaq .LC_str_462(%rip), %rcx
+  movq .LC_str_462_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -89864,8 +90170,8 @@
   movq %rbx, -48(%rbp)
 
 .L_स्थिर_तह_योग्य__प्रवेश_0:
-  leaq .LC_str_458(%rip), %rcx
-  movq .LC_str_458_len(%rip), %rdx
+  leaq .LC_str_460(%rip), %rcx
+  movq .LC_str_460_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -89883,8 +90189,8 @@
 .L_किनारा_स्थिर_तह_योग्य_0:
   jmp .L_स्थिर_तह_योग्य__sc_दायाँ_1
 .L_स्थिर_तह_योग्य__sc_दायाँ_1:
-  leaq .LC_str_459(%rip), %rcx
-  movq .LC_str_459_len(%rip), %rdx
+  leaq .LC_str_461(%rip), %rcx
+  movq .LC_str_461_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -89908,8 +90214,8 @@
 .L_किनारा_स्थिर_तह_योग्य_1:
   jmp .L_स्थिर_तह_योग्य__sc_दायाँ_4
 .L_स्थिर_तह_योग्य__sc_दायाँ_4:
-  leaq .LC_str_460(%rip), %rcx
-  movq .LC_str_460_len(%rip), %rdx
+  leaq .LC_str_462(%rip), %rcx
+  movq .LC_str_462_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -89933,8 +90239,8 @@
 .L_किनारा_स्थिर_तह_योग्य_2:
   jmp .L_स्थिर_तह_योग्य__sc_दायाँ_7
 .L_स्थिर_तह_योग्य__sc_दायाँ_7:
-  leaq .LC_str_461(%rip), %rcx
-  movq .LC_str_461_len(%rip), %rdx
+  leaq .LC_str_463(%rip), %rcx
+  movq .LC_str_463_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -89958,8 +90264,8 @@
 .L_किनारा_स्थिर_तह_योग्य_3:
   jmp .L_स्थिर_तह_योग्य__sc_दायाँ_10
 .L_स्थिर_तह_योग्य__sc_दायाँ_10:
-  leaq .LC_str_462(%rip), %rcx
-  movq .LC_str_462_len(%rip), %rdx
+  leaq .LC_str_464(%rip), %rcx
+  movq .LC_str_464_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -89983,8 +90289,8 @@
 .L_किनारा_स्थिर_तह_योग्य_4:
   jmp .L_स्थिर_तह_योग्य__sc_दायाँ_13
 .L_स्थिर_तह_योग्य__sc_दायाँ_13:
-  leaq .LC_str_463(%rip), %rcx
-  movq .LC_str_463_len(%rip), %rdx
+  leaq .LC_str_465(%rip), %rcx
+  movq .LC_str_465_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -90008,8 +90314,8 @@
 .L_किनारा_स्थिर_तह_योग्य_5:
   jmp .L_स्थिर_तह_योग्य__sc_दायाँ_16
 .L_स्थिर_तह_योग्य__sc_दायाँ_16:
-  leaq .LC_str_464(%rip), %rcx
-  movq .LC_str_464_len(%rip), %rdx
+  leaq .LC_str_466(%rip), %rcx
+  movq .LC_str_466_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -90033,8 +90339,8 @@
 .L_किनारा_स्थिर_तह_योग्य_6:
   jmp .L_स्थिर_तह_योग्य__sc_दायाँ_19
 .L_स्थिर_तह_योग्य__sc_दायाँ_19:
-  leaq .LC_str_465(%rip), %rcx
-  movq .LC_str_465_len(%rip), %rdx
+  leaq .LC_str_467(%rip), %rcx
+  movq .LC_str_467_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -90058,8 +90364,8 @@
 .L_किनारा_स्थिर_तह_योग्य_7:
   jmp .L_स्थिर_तह_योग्य__sc_दायाँ_22
 .L_स्थिर_तह_योग्य__sc_दायाँ_22:
-  leaq .LC_str_466(%rip), %rcx
-  movq .LC_str_466_len(%rip), %rdx
+  leaq .LC_str_468(%rip), %rcx
+  movq .LC_str_468_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -90083,8 +90389,8 @@
 .L_किनारा_स्थिर_तह_योग्य_8:
   jmp .L_स्थिर_तह_योग्य__sc_दायाँ_25
 .L_स्थिर_तह_योग्य__sc_दायाँ_25:
-  leaq .LC_str_467(%rip), %rcx
-  movq .LC_str_467_len(%rip), %rdx
+  leaq .LC_str_469(%rip), %rcx
+  movq .LC_str_469_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -90108,8 +90414,8 @@
 .L_किनारा_स्थिर_तह_योग्य_9:
   jmp .L_स्थिर_तह_योग्य__sc_दायाँ_28
 .L_स्थिर_तह_योग्य__sc_दायाँ_28:
-  leaq .LC_str_468(%rip), %rcx
-  movq .LC_str_468_len(%rip), %rdx
+  leaq .LC_str_470(%rip), %rcx
+  movq .LC_str_470_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -90133,8 +90439,8 @@
 .L_किनारा_स्थिर_तह_योग्य_10:
   jmp .L_स्थिर_तह_योग्य__sc_दायाँ_31
 .L_स्थिर_तह_योग्य__sc_दायाँ_31:
-  leaq .LC_str_567(%rip), %rcx
-  movq .LC_str_567_len(%rip), %rdx
+  leaq .LC_str_569(%rip), %rcx
+  movq .LC_str_569_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -90158,8 +90464,8 @@
 .L_किनारा_स्थिर_तह_योग्य_11:
   jmp .L_स्थिर_तह_योग्य__sc_दायाँ_34
 .L_स्थिर_तह_योग्य__sc_दायाँ_34:
-  leaq .LC_str_568(%rip), %rcx
-  movq .LC_str_568_len(%rip), %rdx
+  leaq .LC_str_570(%rip), %rcx
+  movq .LC_str_570_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -90209,8 +90515,8 @@
   movq %rbx, -48(%rbp)
 
 .L_स्थिर_परिणाम_प्रकार__प्रवेश_0:
-  leaq .LC_str_458(%rip), %rcx
-  movq .LC_str_458_len(%rip), %rdx
+  leaq .LC_str_460(%rip), %rcx
+  movq .LC_str_460_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -90228,8 +90534,8 @@
 .L_किनारा_स्थिर_परिणाम_प्रकार_0:
   jmp .L_स्थिर_परिणाम_प्रकार__sc_दायाँ_1
 .L_स्थिर_परिणाम_प्रकार__sc_दायाँ_1:
-  leaq .LC_str_459(%rip), %rcx
-  movq .LC_str_459_len(%rip), %rdx
+  leaq .LC_str_461(%rip), %rcx
+  movq .LC_str_461_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -90253,8 +90559,8 @@
 .L_किनारा_स्थिर_परिणाम_प्रकार_1:
   jmp .L_स्थिर_परिणाम_प्रकार__sc_दायाँ_4
 .L_स्थिर_परिणाम_प्रकार__sc_दायाँ_4:
-  leaq .LC_str_460(%rip), %rcx
-  movq .LC_str_460_len(%rip), %rdx
+  leaq .LC_str_462(%rip), %rcx
+  movq .LC_str_462_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -90278,8 +90584,8 @@
 .L_किनारा_स्थिर_परिणाम_प्रकार_2:
   jmp .L_स्थिर_परिणाम_प्रकार__sc_दायाँ_7
 .L_स्थिर_परिणाम_प्रकार__sc_दायाँ_7:
-  leaq .LC_str_461(%rip), %rcx
-  movq .LC_str_461_len(%rip), %rdx
+  leaq .LC_str_463(%rip), %rcx
+  movq .LC_str_463_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -90303,8 +90609,8 @@
 .L_किनारा_स्थिर_परिणाम_प्रकार_3:
   jmp .L_स्थिर_परिणाम_प्रकार__sc_दायाँ_10
 .L_स्थिर_परिणाम_प्रकार__sc_दायाँ_10:
-  leaq .LC_str_462(%rip), %rcx
-  movq .LC_str_462_len(%rip), %rdx
+  leaq .LC_str_464(%rip), %rcx
+  movq .LC_str_464_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -90338,8 +90644,8 @@
   movq %rbx, %rax
   jmp .L_epilogue_स्थिर_परिणाम_प्रकार
 .L_स्थिर_परिणाम_प्रकार__if_सत्य_13:
-  leaq .LC_str_414(%rip), %rcx
-  movq .LC_str_414_len(%rip), %rdx
+  leaq .LC_str_416(%rip), %rcx
+  movq .LC_str_416_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -90380,8 +90686,8 @@
   movq %rbx, -64(%rbp)
 
 .L_स्थिर_गणना__प्रवेश_0:
-  leaq .LC_str_458(%rip), %rcx
-  movq .LC_str_458_len(%rip), %rdx
+  leaq .LC_str_460(%rip), %rcx
+  movq .LC_str_460_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -90399,8 +90705,8 @@
 .L_किनारा_स्थिर_गणना_0:
   jmp .L_स्थिर_गणना__if_अंत_2
 .L_स्थिर_गणना__if_अंत_2:
-  leaq .LC_str_459(%rip), %rcx
-  movq .LC_str_459_len(%rip), %rdx
+  leaq .LC_str_461(%rip), %rcx
+  movq .LC_str_461_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -90418,8 +90724,8 @@
 .L_किनारा_स्थिर_गणना_1:
   jmp .L_स्थिर_गणना__if_अंत_4
 .L_स्थिर_गणना__if_अंत_4:
-  leaq .LC_str_460(%rip), %rcx
-  movq .LC_str_460_len(%rip), %rdx
+  leaq .LC_str_462(%rip), %rcx
+  movq .LC_str_462_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -90437,8 +90743,8 @@
 .L_किनारा_स्थिर_गणना_2:
   jmp .L_स्थिर_गणना__if_अंत_6
 .L_स्थिर_गणना__if_अंत_6:
-  leaq .LC_str_461(%rip), %rcx
-  movq .LC_str_461_len(%rip), %rdx
+  leaq .LC_str_463(%rip), %rcx
+  movq .LC_str_463_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -90456,8 +90762,8 @@
 .L_किनारा_स्थिर_गणना_3:
   jmp .L_स्थिर_गणना__if_अंत_8
 .L_स्थिर_गणना__if_अंत_8:
-  leaq .LC_str_462(%rip), %rcx
-  movq .LC_str_462_len(%rip), %rdx
+  leaq .LC_str_464(%rip), %rcx
+  movq .LC_str_464_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -90475,8 +90781,8 @@
 .L_किनारा_स्थिर_गणना_4:
   jmp .L_स्थिर_गणना__if_अंत_12
 .L_स्थिर_गणना__if_अंत_12:
-  leaq .LC_str_463(%rip), %rcx
-  movq .LC_str_463_len(%rip), %rdx
+  leaq .LC_str_465(%rip), %rcx
+  movq .LC_str_465_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -90494,8 +90800,8 @@
 .L_किनारा_स्थिर_गणना_5:
   jmp .L_स्थिर_गणना__if_अंत_16
 .L_स्थिर_गणना__if_अंत_16:
-  leaq .LC_str_464(%rip), %rcx
-  movq .LC_str_464_len(%rip), %rdx
+  leaq .LC_str_466(%rip), %rcx
+  movq .LC_str_466_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -90513,8 +90819,8 @@
 .L_किनारा_स्थिर_गणना_6:
   jmp .L_स्थिर_गणना__if_अंत_20
 .L_स्थिर_गणना__if_अंत_20:
-  leaq .LC_str_465(%rip), %rcx
-  movq .LC_str_465_len(%rip), %rdx
+  leaq .LC_str_467(%rip), %rcx
+  movq .LC_str_467_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -90532,8 +90838,8 @@
 .L_किनारा_स्थिर_गणना_7:
   jmp .L_स्थिर_गणना__if_अंत_24
 .L_स्थिर_गणना__if_अंत_24:
-  leaq .LC_str_466(%rip), %rcx
-  movq .LC_str_466_len(%rip), %rdx
+  leaq .LC_str_468(%rip), %rcx
+  movq .LC_str_468_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -90551,8 +90857,8 @@
 .L_किनारा_स्थिर_गणना_8:
   jmp .L_स्थिर_गणना__if_अंत_28
 .L_स्थिर_गणना__if_अंत_28:
-  leaq .LC_str_467(%rip), %rcx
-  movq .LC_str_467_len(%rip), %rdx
+  leaq .LC_str_469(%rip), %rcx
+  movq .LC_str_469_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -90570,8 +90876,8 @@
 .L_किनारा_स्थिर_गणना_9:
   jmp .L_स्थिर_गणना__if_अंत_32
 .L_स्थिर_गणना__if_अंत_32:
-  leaq .LC_str_468(%rip), %rcx
-  movq .LC_str_468_len(%rip), %rdx
+  leaq .LC_str_470(%rip), %rcx
+  movq .LC_str_470_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -90589,8 +90895,8 @@
 .L_किनारा_स्थिर_गणना_10:
   jmp .L_स्थिर_गणना__if_अंत_36
 .L_स्थिर_गणना__if_अंत_36:
-  leaq .LC_str_567(%rip), %rcx
-  movq .LC_str_567_len(%rip), %rdx
+  leaq .LC_str_569(%rip), %rcx
+  movq .LC_str_569_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -90608,8 +90914,8 @@
 .L_किनारा_स्थिर_गणना_11:
   jmp .L_स्थिर_गणना__if_अंत_40
 .L_स्थिर_गणना__if_अंत_40:
-  leaq .LC_str_568(%rip), %rcx
-  movq .LC_str_568_len(%rip), %rdx
+  leaq .LC_str_570(%rip), %rcx
+  movq .LC_str_570_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -90931,8 +91237,8 @@
   movq %rbx, -48(%rbp)
 
 .L_क्या_दुष्प्रभावी__प्रवेश_0:
-  leaq .LC_str_418(%rip), %rcx
-  movq .LC_str_418_len(%rip), %rdx
+  leaq .LC_str_420(%rip), %rcx
+  movq .LC_str_420_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -90950,8 +91256,8 @@
 .L_किनारा_क्या_दुष्प्रभावी_0:
   jmp .L_क्या_दुष्प्रभावी__sc_दायाँ_1
 .L_क्या_दुष्प्रभावी__sc_दायाँ_1:
-  leaq .LC_str_429(%rip), %rcx
-  movq .LC_str_429_len(%rip), %rdx
+  leaq .LC_str_431(%rip), %rcx
+  movq .LC_str_431_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -90975,8 +91281,8 @@
 .L_किनारा_क्या_दुष्प्रभावी_1:
   jmp .L_क्या_दुष्प्रभावी__sc_दायाँ_4
 .L_क्या_दुष्प्रभावी__sc_दायाँ_4:
-  leaq .LC_str_457(%rip), %rcx
-  movq .LC_str_457_len(%rip), %rdx
+  leaq .LC_str_459(%rip), %rcx
+  movq .LC_str_459_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -91000,8 +91306,8 @@
 .L_किनारा_क्या_दुष्प्रभावी_2:
   jmp .L_क्या_दुष्प्रभावी__sc_दायाँ_7
 .L_क्या_दुष्प्रभावी__sc_दायाँ_7:
-  leaq .LC_str_431(%rip), %rcx
-  movq .LC_str_431_len(%rip), %rdx
+  leaq .LC_str_433(%rip), %rcx
+  movq .LC_str_433_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -91025,8 +91331,8 @@
 .L_किनारा_क्या_दुष्प्रभावी_3:
   jmp .L_क्या_दुष्प्रभावी__sc_दायाँ_10
 .L_क्या_दुष्प्रभावी__sc_दायाँ_10:
-  leaq .LC_str_419(%rip), %rcx
-  movq .LC_str_419_len(%rip), %rdx
+  leaq .LC_str_421(%rip), %rcx
+  movq .LC_str_421_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -91050,8 +91356,8 @@
 .L_किनारा_क्या_दुष्प्रभावी_4:
   jmp .L_क्या_दुष्प्रभावी__sc_दायाँ_13
 .L_क्या_दुष्प्रभावी__sc_दायाँ_13:
-  leaq .LC_str_420(%rip), %rcx
-  movq .LC_str_420_len(%rip), %rdx
+  leaq .LC_str_422(%rip), %rcx
+  movq .LC_str_422_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -91075,8 +91381,8 @@
 .L_किनारा_क्या_दुष्प्रभावी_5:
   jmp .L_क्या_दुष्प्रभावी__sc_दायाँ_16
 .L_क्या_दुष्प्रभावी__sc_दायाँ_16:
-  leaq .LC_str_426(%rip), %rcx
-  movq .LC_str_426_len(%rip), %rdx
+  leaq .LC_str_428(%rip), %rcx
+  movq .LC_str_428_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -91100,8 +91406,8 @@
 .L_किनारा_क्या_दुष्प्रभावी_6:
   jmp .L_क्या_दुष्प्रभावी__sc_दायाँ_19
 .L_क्या_दुष्प्रभावी__sc_दायाँ_19:
-  leaq .LC_str_455(%rip), %rcx
-  movq .LC_str_455_len(%rip), %rdx
+  leaq .LC_str_457(%rip), %rcx
+  movq .LC_str_457_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -91125,8 +91431,8 @@
 .L_किनारा_क्या_दुष्प्रभावी_7:
   jmp .L_क्या_दुष्प्रभावी__sc_दायाँ_22
 .L_क्या_दुष्प्रभावी__sc_दायाँ_22:
-  leaq .LC_str_453(%rip), %rcx
-  movq .LC_str_453_len(%rip), %rdx
+  leaq .LC_str_455(%rip), %rcx
+  movq .LC_str_455_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -91150,8 +91456,8 @@
 .L_किनारा_क्या_दुष्प्रभावी_8:
   jmp .L_क्या_दुष्प्रभावी__sc_दायाँ_25
 .L_क्या_दुष्प्रभावी__sc_दायाँ_25:
-  leaq .LC_str_454(%rip), %rcx
-  movq .LC_str_454_len(%rip), %rdx
+  leaq .LC_str_456(%rip), %rcx
+  movq .LC_str_456_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -91175,8 +91481,8 @@
 .L_किनारा_क्या_दुष्प्रभावी_9:
   jmp .L_क्या_दुष्प्रभावी__sc_दायाँ_28
 .L_क्या_दुष्प्रभावी__sc_दायाँ_28:
-  leaq .LC_str_434(%rip), %rcx
-  movq .LC_str_434_len(%rip), %rdx
+  leaq .LC_str_436(%rip), %rcx
+  movq .LC_str_436_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -91622,8 +91928,8 @@
   movq %rax, %r14
   movq %r14, -664(%rbp)
   movq %r14, -664(%rbp)
-  leaq .LC_str_395(%rip), %rcx
-  movq .LC_str_395_len(%rip), %rdx
+  leaq .LC_str_397(%rip), %rcx
+  movq .LC_str_397_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -91664,8 +91970,8 @@
 .L_किनारा_मृत_कोड_हटाओ_1:
   jmp .L_मृत_कोड_हटाओ__wh_अंत_6
 .L_मृत_कोड_हटाओ__wh_अंत_6:
-  leaq .LC_str_395(%rip), %rcx
-  movq .LC_str_395_len(%rip), %rdx
+  leaq .LC_str_397(%rip), %rcx
+  movq .LC_str_397_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -91720,8 +92026,8 @@
   movq %rax, -424(%rbp)
   movq -424(%rbp), %r11
   movq %r11, -736(%rbp)
-  leaq .LC_str_395(%rip), %rcx
-  movq .LC_str_395_len(%rip), %rdx
+  leaq .LC_str_397(%rip), %rcx
+  movq .LC_str_397_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -91822,8 +92128,8 @@
   movq %r11, -1216(%rbp)
   movq -616(%rbp), %r11
   movq %r11, -1224(%rbp)
-  leaq .LC_str_401(%rip), %rcx
-  movq .LC_str_401_len(%rip), %rdx
+  leaq .LC_str_403(%rip), %rcx
+  movq .LC_str_403_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -91853,8 +92159,8 @@
 .L_किनारा_मृत_कोड_हटाओ_4:
   jmp .L_मृत_कोड_हटाओ__wh_अंत_17
 .L_मृत_कोड_हटाओ__wh_अंत_17:
-  leaq .LC_str_401(%rip), %rcx
-  movq .LC_str_401_len(%rip), %rdx
+  leaq .LC_str_403(%rip), %rcx
+  movq .LC_str_403_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -91887,8 +92193,8 @@
   movq %rbx, -1248(%rbp)
   movq %r12, -1256(%rbp)
   movq %rsi, -1264(%rbp)
-  leaq .LC_str_402(%rip), %rcx
-  movq .LC_str_402_len(%rip), %rdx
+  leaq .LC_str_404(%rip), %rcx
+  movq .LC_str_404_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -91918,8 +92224,8 @@
 .L_किनारा_मृत_कोड_हटाओ_5:
   jmp .L_मृत_कोड_हटाओ__wh_अंत_26
 .L_मृत_कोड_हटाओ__wh_अंत_26:
-  leaq .LC_str_402(%rip), %rcx
-  movq .LC_str_402_len(%rip), %rdx
+  leaq .LC_str_404(%rip), %rcx
+  movq .LC_str_404_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -91948,8 +92254,8 @@
   movq %r14, -536(%rbp)
   jmp .L_मृत_कोड_हटाओ__wh_शर्त_12
 .L_मृत_कोड_हटाओ__wh_देह_25:
-  leaq .LC_str_402(%rip), %rcx
-  movq .LC_str_402_len(%rip), %rdx
+  leaq .LC_str_404(%rip), %rcx
+  movq .LC_str_404_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -91971,8 +92277,8 @@
   movq %rax, %rsi
   movq %rsi, -904(%rbp)
   movq $0, -896(%rbp)
-  leaq .LC_str_398(%rip), %rcx
-  movq .LC_str_398_len(%rip), %rdx
+  leaq .LC_str_400(%rip), %rcx
+  movq .LC_str_400_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -92014,8 +92320,8 @@
   jmp .L_मृत_कोड_हटाओ__if_अंत_28
 .L_मृत_कोड_हटाओ__if_अंत_28:
   movq %rdi, -1272(%rbp)
-  leaq .LC_str_404(%rip), %rcx
-  movq .LC_str_404_len(%rip), %rdx
+  leaq .LC_str_406(%rip), %rcx
+  movq .LC_str_406_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -92088,8 +92394,8 @@
   movq %rdi, %rsi
   jmp .L_मृत_कोड_हटाओ__wh_शर्त_24
 .L_मृत_कोड_हटाओ__wh_देह_16:
-  leaq .LC_str_401(%rip), %rcx
-  movq .LC_str_401_len(%rip), %rdx
+  leaq .LC_str_403(%rip), %rcx
+  movq .LC_str_403_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -92111,8 +92417,8 @@
   movq %rax, %rbx
   movq %rbx, -800(%rbp)
   movq $0, -792(%rbp)
-  leaq .LC_str_398(%rip), %rcx
-  movq .LC_str_398_len(%rip), %rdx
+  leaq .LC_str_400(%rip), %rcx
+  movq .LC_str_400_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -92159,8 +92465,8 @@
   movq $0, %rsi
   jmp .L_मृत_कोड_हटाओ__sc_अंत_20
 .L_मृत_कोड_हटाओ__sc_दायाँ_18:
-  leaq .LC_str_398(%rip), %rcx
-  movq .LC_str_398_len(%rip), %rdx
+  leaq .LC_str_400(%rip), %rcx
+  movq .LC_str_400_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -92232,8 +92538,8 @@
   addq $32, %rsp
   movq %rax, %rbx
   movq %rbx, -688(%rbp)
-  leaq .LC_str_399(%rip), %rcx
-  movq .LC_str_399_len(%rip), %rdx
+  leaq .LC_str_401(%rip), %rcx
+  movq .LC_str_401_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -92421,8 +92727,8 @@
   movq %rax, %rsi
   movq %rsi, -88(%rbp)
   movq %rsi, -88(%rbp)
-  leaq .LC_str_395(%rip), %rcx
-  movq .LC_str_395_len(%rip), %rdx
+  leaq .LC_str_397(%rip), %rcx
+  movq .LC_str_397_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -92468,8 +92774,8 @@
   addq $32, %rsp
   movq %rax, %rdi
   movq %rdi, -112(%rbp)
-  leaq .LC_str_401(%rip), %rcx
-  movq .LC_str_401_len(%rip), %rdx
+  leaq .LC_str_403(%rip), %rcx
+  movq .LC_str_403_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -92490,8 +92796,8 @@
   addq $32, %rsp
   movq %rax, %r13
   movq $0, -128(%rbp)
-  leaq .LC_str_402(%rip), %rcx
-  movq .LC_str_402_len(%rip), %rdx
+  leaq .LC_str_404(%rip), %rcx
+  movq .LC_str_404_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -92512,8 +92818,8 @@
   addq $32, %rsp
   movq %rax, %r13
   movq $0, -144(%rbp)
-  leaq .LC_str_403(%rip), %rcx
-  movq .LC_str_403_len(%rip), %rdx
+  leaq .LC_str_405(%rip), %rcx
+  movq .LC_str_405_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -92549,8 +92855,8 @@
 .L_किनारा_अनु_उपयोग_गणना_1:
   jmp .L_अनु_उपयोग_गणना__if_अंत_5
 .L_अनु_उपयोग_गणना__if_सत्य_4:
-  leaq .LC_str_403(%rip), %rcx
-  movq .LC_str_403_len(%rip), %rdx
+  leaq .LC_str_405(%rip), %rcx
+  movq .LC_str_405_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -92801,8 +93107,8 @@
   movq %r11, -128(%rbp)
 
 .L_अनु_गिनो_एक__प्रवेश_0:
-  leaq .LC_str_405(%rip), %rcx
-  movq .LC_str_405_len(%rip), %rdx
+  leaq .LC_str_407(%rip), %rcx
+  movq .LC_str_407_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -92838,8 +93144,8 @@
 .L_किनारा_अनु_गिनो_एक_0:
   jmp .L_अनु_गिनो_एक__wh_अंत_3
 .L_अनु_गिनो_एक__wh_अंत_3:
-  leaq .LC_str_404(%rip), %rcx
-  movq .LC_str_404_len(%rip), %rdx
+  leaq .LC_str_406(%rip), %rcx
+  movq .LC_str_406_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -92853,8 +93159,8 @@
   movq %rax, %r14
   movq %r14, -192(%rbp)
   movq $0, -184(%rbp)
-  leaq .LC_str_401(%rip), %rcx
-  movq .LC_str_401_len(%rip), %rdx
+  leaq .LC_str_403(%rip), %rcx
+  movq .LC_str_403_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -92875,8 +93181,8 @@
 .L_किनारा_अनु_गिनो_एक_1:
   jmp .L_अनु_गिनो_एक__if_अंत_8
 .L_अनु_गिनो_एक__if_सत्य_7:
-  leaq .LC_str_406(%rip), %rcx
-  movq .LC_str_406_len(%rip), %rdx
+  leaq .LC_str_408(%rip), %rcx
+  movq .LC_str_408_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -93325,50 +93631,50 @@
   movl %eax, gc_roots_count(%rip)
 
 .L_रजि_पूल__प्रवेश_0:
-  leaq .LC_str_569(%rip), %rcx
-  movq .LC_str_569_len(%rip), %rdx
-  subq $32, %rsp
-  call sutra_str_alloc
-  addq $32, %rsp
-  movq %rax, %rbx
-  movq %rbx, -88(%rbp)
-  leaq .LC_str_570(%rip), %rcx
-  movq .LC_str_570_len(%rip), %rdx
-  subq $32, %rsp
-  call sutra_str_alloc
-  addq $32, %rsp
-  movq %rax, %rsi
-  movq %rsi, -96(%rbp)
   leaq .LC_str_571(%rip), %rcx
   movq .LC_str_571_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
-  movq %rax, %rdi
-  movq %rdi, -104(%rbp)
+  movq %rax, %rbx
+  movq %rbx, -88(%rbp)
   leaq .LC_str_572(%rip), %rcx
   movq .LC_str_572_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
-  movq %rax, %r12
-  movq %r12, -112(%rbp)
+  movq %rax, %rsi
+  movq %rsi, -96(%rbp)
   leaq .LC_str_573(%rip), %rcx
   movq .LC_str_573_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
-  movq %rax, %r13
-  movq %r13, -120(%rbp)
+  movq %rax, %rdi
+  movq %rdi, -104(%rbp)
   leaq .LC_str_574(%rip), %rcx
   movq .LC_str_574_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
-  movq %rax, %r14
-  movq %r14, -128(%rbp)
+  movq %rax, %r12
+  movq %r12, -112(%rbp)
   leaq .LC_str_575(%rip), %rcx
   movq .LC_str_575_len(%rip), %rdx
+  subq $32, %rsp
+  call sutra_str_alloc
+  addq $32, %rsp
+  movq %rax, %r13
+  movq %r13, -120(%rbp)
+  leaq .LC_str_576(%rip), %rcx
+  movq .LC_str_576_len(%rip), %rdx
+  subq $32, %rsp
+  call sutra_str_alloc
+  addq $32, %rsp
+  movq %rax, %r14
+  movq %r14, -128(%rbp)
+  leaq .LC_str_577(%rip), %rcx
+  movq .LC_str_577_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -93741,8 +94047,8 @@
   movq %rax, %r14
   movq %r14, -544(%rbp)
   movq %r14, -544(%rbp)
-  leaq .LC_str_577(%rip), %rcx
-  movq .LC_str_577_len(%rip), %rdx
+  leaq .LC_str_579(%rip), %rcx
+  movq .LC_str_579_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -93755,8 +94061,8 @@
   call sutra_arr_set
   addq $32, %rsp
   movq $0, -552(%rbp)
-  leaq .LC_str_578(%rip), %rcx
-  movq .LC_str_578_len(%rip), %rdx
+  leaq .LC_str_580(%rip), %rcx
+  movq .LC_str_580_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -93769,8 +94075,8 @@
   call sutra_arr_set
   addq $32, %rsp
   movq $0, -560(%rbp)
-  leaq .LC_str_579(%rip), %rcx
-  movq .LC_str_579_len(%rip), %rdx
+  leaq .LC_str_581(%rip), %rcx
+  movq .LC_str_581_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -93797,8 +94103,8 @@
   call sutra_arr_set
   addq $32, %rsp
   movq $0, -576(%rbp)
-  leaq .LC_str_580(%rip), %rcx
-  movq .LC_str_580_len(%rip), %rdx
+  leaq .LC_str_582(%rip), %rcx
+  movq .LC_str_582_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -93840,8 +94146,8 @@
   jmp .L_रजि_क्रमांकन__wh_शर्त_4
 .L_रजि_क्रमांकन__wh_शर्त_4:
   movq %r15, -608(%rbp)
-  leaq .LC_str_401(%rip), %rcx
-  movq .LC_str_401_len(%rip), %rdx
+  leaq .LC_str_403(%rip), %rcx
+  movq .LC_str_403_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -93875,8 +94181,8 @@
   jmp .L_रजि_क्रमांकन__wh_शर्त_7
 .L_रजि_क्रमांकन__wh_शर्त_7:
   movq %r13, -616(%rbp)
-  leaq .LC_str_401(%rip), %rcx
-  movq .LC_str_401_len(%rip), %rdx
+  leaq .LC_str_403(%rip), %rcx
+  movq .LC_str_403_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -93920,8 +94226,8 @@
   movq %r14, -632(%rbp)
   movq -168(%rbp), %r11
   movq %r11, -640(%rbp)
-  leaq .LC_str_402(%rip), %rcx
-  movq .LC_str_402_len(%rip), %rdx
+  leaq .LC_str_404(%rip), %rcx
+  movq .LC_str_404_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -93951,8 +94257,8 @@
 .L_किनारा_रजि_क्रमांकन_3:
   jmp .L_रजि_क्रमांकन__wh_अंत_12
 .L_रजि_क्रमांकन__wh_अंत_12:
-  leaq .LC_str_403(%rip), %rcx
-  movq .LC_str_403_len(%rip), %rdx
+  leaq .LC_str_405(%rip), %rcx
+  movq .LC_str_405_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -93988,8 +94294,8 @@
 .L_किनारा_रजि_क्रमांकन_4:
   jmp .L_रजि_क्रमांकन__if_अंत_16
 .L_रजि_क्रमांकन__if_सत्य_15:
-  leaq .LC_str_403(%rip), %rcx
-  movq .LC_str_403_len(%rip), %rdx
+  leaq .LC_str_405(%rip), %rcx
+  movq .LC_str_405_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -94003,8 +94309,8 @@
   movq %rax, %rsi
   movq %rsi, -528(%rbp)
   movq $0, -520(%rbp)
-  leaq .LC_str_576(%rip), %rcx
-  movq .LC_str_576_len(%rip), %rdx
+  leaq .LC_str_578(%rip), %rcx
+  movq .LC_str_578_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -94038,8 +94344,8 @@
   movq %rsi, -88(%rbp)
   jmp .L_रजि_क्रमांकन__wh_शर्त_1
 .L_रजि_क्रमांकन__wh_देह_11:
-  leaq .LC_str_402(%rip), %rcx
-  movq .LC_str_402_len(%rip), %rdx
+  leaq .LC_str_404(%rip), %rcx
+  movq .LC_str_404_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -94061,8 +94367,8 @@
   movq %rax, %rbx
   movq %rbx, -400(%rbp)
   movq $0, -392(%rbp)
-  leaq .LC_str_576(%rip), %rcx
-  movq .LC_str_576_len(%rip), %rdx
+  leaq .LC_str_578(%rip), %rcx
+  movq .LC_str_578_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -94076,8 +94382,8 @@
   addq $32, %rsp
   movq $0, -400(%rbp)
   movq $0, -408(%rbp)
-  leaq .LC_str_402(%rip), %rcx
-  movq .LC_str_402_len(%rip), %rdx
+  leaq .LC_str_404(%rip), %rcx
+  movq .LC_str_404_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -94099,8 +94405,8 @@
   movq %rax, %rbx
   movq %rbx, -432(%rbp)
   movq $0, -424(%rbp)
-  leaq .LC_str_398(%rip), %rcx
-  movq .LC_str_398_len(%rip), %rdx
+  leaq .LC_str_400(%rip), %rcx
+  movq .LC_str_400_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -94129,8 +94435,8 @@
 .L_किनारा_रजि_क्रमांकन_5:
   jmp .L_रजि_क्रमांकन__if_अंत_14
 .L_रजि_क्रमांकन__if_सत्य_13:
-  leaq .LC_str_402(%rip), %rcx
-  movq .LC_str_402_len(%rip), %rdx
+  leaq .LC_str_404(%rip), %rcx
+  movq .LC_str_404_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -94152,8 +94458,8 @@
   movq %rax, %rbx
   movq %rbx, -472(%rbp)
   movq $0, -464(%rbp)
-  leaq .LC_str_398(%rip), %rcx
-  movq .LC_str_398_len(%rip), %rdx
+  leaq .LC_str_400(%rip), %rcx
+  movq .LC_str_400_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -94191,8 +94497,8 @@
   movq %rsi, %r12
   jmp .L_रजि_क्रमांकन__wh_शर्त_10
 .L_रजि_क्रमांकन__wh_देह_8:
-  leaq .LC_str_401(%rip), %rcx
-  movq .LC_str_401_len(%rip), %rdx
+  leaq .LC_str_403(%rip), %rcx
+  movq .LC_str_403_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -94214,8 +94520,8 @@
   movq %rax, %rbx
   movq %rbx, -360(%rbp)
   movq $0, -352(%rbp)
-  leaq .LC_str_576(%rip), %rcx
-  movq .LC_str_576_len(%rip), %rdx
+  leaq .LC_str_578(%rip), %rcx
+  movq .LC_str_578_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -94237,8 +94543,8 @@
   movq %rsi, %r13
   jmp .L_रजि_क्रमांकन__wh_शर्त_7
 .L_रजि_क्रमांकन__wh_देह_5:
-  leaq .LC_str_401(%rip), %rcx
-  movq .LC_str_401_len(%rip), %rdx
+  leaq .LC_str_403(%rip), %rcx
+  movq .LC_str_403_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -94260,8 +94566,8 @@
   movq %rax, %rbx
   movq %rbx, -312(%rbp)
   movq $0, -304(%rbp)
-  leaq .LC_str_398(%rip), %rcx
-  movq .LC_str_398_len(%rip), %rdx
+  leaq .LC_str_400(%rip), %rcx
+  movq .LC_str_400_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -94362,8 +94668,8 @@
   movq %rax, %rsi
   movq %rsi, -80(%rbp)
   movq %rsi, -80(%rbp)
-  leaq .LC_str_405(%rip), %rcx
-  movq .LC_str_405_len(%rip), %rdx
+  leaq .LC_str_407(%rip), %rcx
+  movq .LC_str_407_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -95101,8 +95407,8 @@
   movq %rax, %rdi
   movq %rdi, -1512(%rbp)
   movq %rdi, -1512(%rbp)
-  leaq .LC_str_581(%rip), %rcx
-  movq .LC_str_581_len(%rip), %rdx
+  leaq .LC_str_583(%rip), %rcx
+  movq .LC_str_583_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -95115,8 +95421,8 @@
   call sutra_arr_set
   addq $32, %rsp
   movq $0, -1520(%rbp)
-  leaq .LC_str_582(%rip), %rcx
-  movq .LC_str_582_len(%rip), %rdx
+  leaq .LC_str_584(%rip), %rcx
+  movq .LC_str_584_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -95129,8 +95435,8 @@
   call sutra_arr_set
   addq $32, %rsp
   movq $0, -1528(%rbp)
-  leaq .LC_str_583(%rip), %rcx
-  movq .LC_str_583_len(%rip), %rdx
+  leaq .LC_str_585(%rip), %rcx
+  movq .LC_str_585_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -95710,8 +96016,8 @@
 .L_रजि_सजीवता__wh_शर्त_4:
   movq -824(%rbp), %r11
   movq %r11, -1696(%rbp)
-  leaq .LC_str_401(%rip), %rcx
-  movq .LC_str_401_len(%rip), %rdx
+  leaq .LC_str_403(%rip), %rcx
+  movq .LC_str_403_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -95775,8 +96081,8 @@
   movq %r11, -1816(%rbp)
   movq -792(%rbp), %r11
   movq %r11, -1824(%rbp)
-  leaq .LC_str_402(%rip), %rcx
-  movq .LC_str_402_len(%rip), %rdx
+  leaq .LC_str_404(%rip), %rcx
+  movq .LC_str_404_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -95806,8 +96112,8 @@
 .L_किनारा_रजि_सजीवता_13:
   jmp .L_रजि_सजीवता__wh_अंत_16
 .L_रजि_सजीवता__wh_अंत_16:
-  leaq .LC_str_403(%rip), %rcx
-  movq .LC_str_403_len(%rip), %rdx
+  leaq .LC_str_405(%rip), %rcx
+  movq .LC_str_405_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -95843,8 +96149,8 @@
 .L_किनारा_रजि_सजीवता_14:
   jmp .L_रजि_सजीवता__if_अंत_25
 .L_रजि_सजीवता__if_सत्य_24:
-  leaq .LC_str_403(%rip), %rcx
-  movq .LC_str_403_len(%rip), %rdx
+  leaq .LC_str_405(%rip), %rcx
+  movq .LC_str_405_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -95981,8 +96287,8 @@
   movq %rdi, %r13
   jmp .L_रजि_सजीवता__wh_शर्त_26
 .L_रजि_सजीवता__wh_देह_15:
-  leaq .LC_str_402(%rip), %rcx
-  movq .LC_str_402_len(%rip), %rdx
+  leaq .LC_str_404(%rip), %rcx
+  movq .LC_str_404_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -96031,8 +96337,8 @@
 .L_किनारा_रजि_सजीवता_17:
   jmp .L_रजि_सजीवता__wh_अंत_19
 .L_रजि_सजीवता__wh_अंत_19:
-  leaq .LC_str_398(%rip), %rcx
-  movq .LC_str_398_len(%rip), %rdx
+  leaq .LC_str_400(%rip), %rcx
+  movq .LC_str_400_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -96060,8 +96366,8 @@
 .L_किनारा_रजि_सजीवता_18:
   jmp .L_रजि_सजीवता__if_अंत_23
 .L_रजि_सजीवता__if_सत्य_22:
-  leaq .LC_str_398(%rip), %rcx
-  movq .LC_str_398_len(%rip), %rdx
+  leaq .LC_str_400(%rip), %rcx
+  movq .LC_str_400_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -96152,8 +96458,8 @@
   movq %r13, %r12
   jmp .L_रजि_सजीवता__wh_शर्त_17
 .L_रजि_सजीवता__wh_देह_5:
-  leaq .LC_str_401(%rip), %rcx
-  movq .LC_str_401_len(%rip), %rdx
+  leaq .LC_str_403(%rip), %rcx
+  movq .LC_str_403_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -96175,8 +96481,8 @@
   movq %rax, %rbx
   movq %rbx, -1000(%rbp)
   movq $0, -992(%rbp)
-  leaq .LC_str_398(%rip), %rcx
-  movq .LC_str_398_len(%rip), %rdx
+  leaq .LC_str_400(%rip), %rcx
+  movq .LC_str_400_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -96198,8 +96504,8 @@
   call sutra_arr_set
   addq $32, %rsp
   movq $0, -1016(%rbp)
-  leaq .LC_str_406(%rip), %rcx
-  movq .LC_str_406_len(%rip), %rdx
+  leaq .LC_str_408(%rip), %rcx
+  movq .LC_str_408_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -97523,8 +97829,8 @@
   movq %rdi, -984(%rbp)
 
 .L_रजि_अंतराल__प्रवेश_0:
-  leaq .LC_str_577(%rip), %rcx
-  movq .LC_str_577_len(%rip), %rdx
+  leaq .LC_str_579(%rip), %rcx
+  movq .LC_str_579_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -97539,8 +97845,8 @@
   movq -472(%rbp), %r11
   movq %r11, -1000(%rbp)
   movq $0, -992(%rbp)
-  leaq .LC_str_578(%rip), %rcx
-  movq .LC_str_578_len(%rip), %rdx
+  leaq .LC_str_580(%rip), %rcx
+  movq .LC_str_580_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -97555,8 +97861,8 @@
   movq -456(%rbp), %r11
   movq %r11, -1016(%rbp)
   movq $0, -1008(%rbp)
-  leaq .LC_str_579(%rip), %rcx
-  movq .LC_str_579_len(%rip), %rdx
+  leaq .LC_str_581(%rip), %rcx
+  movq .LC_str_581_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -97571,8 +97877,8 @@
   movq -440(%rbp), %r11
   movq %r11, -1032(%rbp)
   movq $0, -1024(%rbp)
-  leaq .LC_str_580(%rip), %rcx
-  movq .LC_str_580_len(%rip), %rdx
+  leaq .LC_str_582(%rip), %rcx
+  movq .LC_str_582_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -97588,8 +97894,8 @@
   movq %r11, -1048(%rbp)
   movq $0, -976(%rbp)
   movq $0, -1040(%rbp)
-  leaq .LC_str_582(%rip), %rcx
-  movq .LC_str_582_len(%rip), %rdx
+  leaq .LC_str_584(%rip), %rcx
+  movq .LC_str_584_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -97621,8 +97927,8 @@
   movq %r11, -1080(%rbp)
   movq -88(%rbp), %r11
   movq %r11, -1080(%rbp)
-  leaq .LC_str_394(%rip), %rcx
-  movq .LC_str_394_len(%rip), %rdx
+  leaq .LC_str_396(%rip), %rcx
+  movq .LC_str_396_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -97792,8 +98098,8 @@
   movq %rax, %rsi
   movq %rsi, -1624(%rbp)
   movq %rsi, -1624(%rbp)
-  leaq .LC_str_584(%rip), %rcx
-  movq .LC_str_584_len(%rip), %rdx
+  leaq .LC_str_586(%rip), %rcx
+  movq .LC_str_586_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -97806,8 +98112,8 @@
   call sutra_arr_set
   addq $32, %rsp
   movq $0, -1632(%rbp)
-  leaq .LC_str_403(%rip), %rcx
-  movq .LC_str_403_len(%rip), %rdx
+  leaq .LC_str_405(%rip), %rcx
+  movq .LC_str_405_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -97895,8 +98201,8 @@
   movq %r11, -1928(%rbp)
   movq -824(%rbp), %r11
   movq %r11, -1936(%rbp)
-  leaq .LC_str_402(%rip), %rcx
-  movq .LC_str_402_len(%rip), %rdx
+  leaq .LC_str_404(%rip), %rcx
+  movq .LC_str_404_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -97926,8 +98232,8 @@
 .L_किनारा_रजि_अंतराल_4:
   jmp .L_रजि_अंतराल__wh_अंत_27
 .L_रजि_अंतराल__wh_अंत_27:
-  leaq .LC_str_403(%rip), %rcx
-  movq .LC_str_403_len(%rip), %rdx
+  leaq .LC_str_405(%rip), %rcx
+  movq .LC_str_405_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -97966,8 +98272,8 @@
   movq -696(%rbp), %rsi
   jmp .L_रजि_अंतराल__if_अंत_32
 .L_रजि_अंतराल__if_सत्य_31:
-  leaq .LC_str_403(%rip), %rcx
-  movq .LC_str_403_len(%rip), %rdx
+  leaq .LC_str_405(%rip), %rcx
+  movq .LC_str_405_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -98034,8 +98340,8 @@
   movq %rdi, -1984(%rbp)
   movq %r15, -1992(%rbp)
   movq %r13, -2000(%rbp)
-  leaq .LC_str_401(%rip), %rcx
-  movq .LC_str_401_len(%rip), %rdx
+  leaq .LC_str_403(%rip), %rcx
+  movq .LC_str_403_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -98085,8 +98391,8 @@
   movq %r14, -760(%rbp)
   jmp .L_रजि_अंतराल__wh_शर्त_19
 .L_रजि_अंतराल__wh_देह_37:
-  leaq .LC_str_401(%rip), %rcx
-  movq .LC_str_401_len(%rip), %rdx
+  leaq .LC_str_403(%rip), %rcx
+  movq .LC_str_403_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -98108,8 +98414,8 @@
   movq %rax, %rbx
   movq %rbx, -1528(%rbp)
   movq $0, -1520(%rbp)
-  leaq .LC_str_406(%rip), %rcx
-  movq .LC_str_406_len(%rip), %rdx
+  leaq .LC_str_408(%rip), %rcx
+  movq .LC_str_408_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -98312,8 +98618,8 @@
   movq %rsi, -872(%rbp)
   jmp .L_रजि_अंतराल__wh_शर्त_33
 .L_रजि_अंतराल__wh_देह_26:
-  leaq .LC_str_402(%rip), %rcx
-  movq .LC_str_402_len(%rip), %rdx
+  leaq .LC_str_404(%rip), %rcx
+  movq .LC_str_404_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -98379,8 +98685,8 @@
   addq $32, %rsp
   movq %rax, %r12
   movq %r12, -1416(%rbp)
-  leaq .LC_str_576(%rip), %rcx
-  movq .LC_str_576_len(%rip), %rdx
+  leaq .LC_str_578(%rip), %rcx
+  movq .LC_str_578_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -98464,8 +98770,8 @@
 .L_रजि_अंतराल__wh_शर्त_7:
   movq %rdi, -2024(%rbp)
   movq %r12, -2032(%rbp)
-  leaq .LC_str_401(%rip), %rcx
-  movq .LC_str_401_len(%rip), %rdx
+  leaq .LC_str_403(%rip), %rcx
+  movq .LC_str_403_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -98501,8 +98807,8 @@
 .L_रजि_अंतराल__wh_शर्त_12:
   movq %r13, -2040(%rbp)
   movq %r14, -2048(%rbp)
-  leaq .LC_str_402(%rip), %rcx
-  movq .LC_str_402_len(%rip), %rdx
+  leaq .LC_str_404(%rip), %rcx
+  movq .LC_str_404_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -98541,8 +98847,8 @@
   movq %r15, -536(%rbp)
   jmp .L_रजि_अंतराल__wh_शर्त_4
 .L_रजि_अंतराल__wh_देह_13:
-  leaq .LC_str_402(%rip), %rcx
-  movq .LC_str_402_len(%rip), %rdx
+  leaq .LC_str_404(%rip), %rcx
+  movq .LC_str_404_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -98564,8 +98870,8 @@
   movq %rax, %rsi
   movq %rsi, -1272(%rbp)
   movq $0, -1264(%rbp)
-  leaq .LC_str_398(%rip), %rcx
-  movq .LC_str_398_len(%rip), %rdx
+  leaq .LC_str_400(%rip), %rcx
+  movq .LC_str_400_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -98658,8 +98964,8 @@
   movq %rsi, %r13
   jmp .L_रजि_अंतराल__wh_शर्त_12
 .L_रजि_अंतराल__wh_देह_8:
-  leaq .LC_str_401(%rip), %rcx
-  movq .LC_str_401_len(%rip), %rdx
+  leaq .LC_str_403(%rip), %rcx
+  movq .LC_str_403_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -98681,8 +98987,8 @@
   movq %rax, %rbx
   movq %rbx, -1192(%rbp)
   movq $0, -1184(%rbp)
-  leaq .LC_str_398(%rip), %rcx
-  movq .LC_str_398_len(%rip), %rdx
+  leaq .LC_str_400(%rip), %rcx
+  movq .LC_str_400_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -98766,8 +99072,8 @@
   addq $32, %rsp
   movq %rax, %rbx
   movq %rbx, -1104(%rbp)
-  leaq .LC_str_398(%rip), %rcx
-  movq .LC_str_398_len(%rip), %rdx
+  leaq .LC_str_400(%rip), %rcx
+  movq .LC_str_400_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -98797,8 +99103,8 @@
   addq $32, %rsp
   movq %rax, %rbx
   movq %rbx, -1128(%rbp)
-  leaq .LC_str_398(%rip), %rcx
-  movq .LC_str_398_len(%rip), %rdx
+  leaq .LC_str_400(%rip), %rcx
+  movq .LC_str_400_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -99321,8 +99627,8 @@
   movq %rsi, -800(%rbp)
 
 .L_रजि_रैखिक_स्कैन__प्रवेश_0:
-  leaq .LC_str_584(%rip), %rcx
-  movq .LC_str_584_len(%rip), %rdx
+  leaq .LC_str_586(%rip), %rcx
+  movq .LC_str_586_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -99337,8 +99643,8 @@
   movq -408(%rbp), %r11
   movq %r11, -816(%rbp)
   movq $0, -808(%rbp)
-  leaq .LC_str_403(%rip), %rcx
-  movq .LC_str_403_len(%rip), %rdx
+  leaq .LC_str_405(%rip), %rcx
+  movq .LC_str_405_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -99551,8 +99857,8 @@
 .L_किनारा_रजि_रैखिक_स्कैन_2:
   jmp .L_रजि_रैखिक_स्कैन__wh_अंत_21
 .L_रजि_रैखिक_स्कैन__wh_अंत_21:
-  leaq .LC_str_588(%rip), %rcx
-  movq .LC_str_588_len(%rip), %rdx
+  leaq .LC_str_590(%rip), %rcx
+  movq .LC_str_590_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -99565,8 +99871,8 @@
   call sutra_arr_set
   addq $32, %rsp
   movq $0, -1216(%rbp)
-  leaq .LC_str_589(%rip), %rcx
-  movq .LC_str_589_len(%rip), %rdx
+  leaq .LC_str_591(%rip), %rcx
+  movq .LC_str_591_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -99579,8 +99885,8 @@
   call sutra_arr_set
   addq $32, %rsp
   movq $0, -1224(%rbp)
-  leaq .LC_str_590(%rip), %rcx
-  movq .LC_str_590_len(%rip), %rdx
+  leaq .LC_str_592(%rip), %rcx
+  movq .LC_str_592_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -99806,8 +100112,8 @@
   addq $32, %rsp
   movq %rax, %r13
   movq %r13, -1160(%rbp)
-  leaq .LC_str_586(%rip), %rcx
-  movq .LC_str_586_len(%rip), %rdx
+  leaq .LC_str_588(%rip), %rcx
+  movq .LC_str_588_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -99821,8 +100127,8 @@
   addq $32, %rsp
   movq $0, -1160(%rbp)
   movq $0, -1168(%rbp)
-  leaq .LC_str_587(%rip), %rcx
-  movq .LC_str_587_len(%rip), %rdx
+  leaq .LC_str_589(%rip), %rcx
+  movq .LC_str_589_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -99865,8 +100171,8 @@
   addq $32, %rsp
   movq %rax, %r13
   movq %r13, -1048(%rbp)
-  leaq .LC_str_585(%rip), %rcx
-  movq .LC_str_585_len(%rip), %rdx
+  leaq .LC_str_587(%rip), %rcx
+  movq .LC_str_587_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -99922,8 +100228,8 @@
   addq $32, %rsp
   movq %rax, %r14
   movq %r14, -1088(%rbp)
-  leaq .LC_str_586(%rip), %rcx
-  movq .LC_str_586_len(%rip), %rdx
+  leaq .LC_str_588(%rip), %rcx
+  movq .LC_str_588_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -99937,8 +100243,8 @@
   addq $32, %rsp
   movq $0, -1088(%rbp)
   movq $0, -1096(%rbp)
-  leaq .LC_str_587(%rip), %rcx
-  movq .LC_str_587_len(%rip), %rdx
+  leaq .LC_str_589(%rip), %rcx
+  movq .LC_str_589_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -100065,8 +100371,8 @@
   addq $32, %rsp
   movq %rax, %rsi
   movq %rsi, -976(%rbp)
-  leaq .LC_str_585(%rip), %rcx
-  movq .LC_str_585_len(%rip), %rdx
+  leaq .LC_str_587(%rip), %rcx
+  movq .LC_str_587_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -101167,8 +101473,8 @@
   addq $32, %rsp
   movq %rax, %rsi
   movq %rsi, -64(%rbp)
-  leaq .LC_str_580(%rip), %rcx
-  movq .LC_str_580_len(%rip), %rdx
+  leaq .LC_str_582(%rip), %rcx
+  movq .LC_str_582_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -101781,8 +102087,8 @@
   movq %r11, -992(%rbp)
   movq -440(%rbp), %r11
   movq %r11, -992(%rbp)
-  leaq .LC_str_394(%rip), %rcx
-  movq .LC_str_394_len(%rip), %rdx
+  leaq .LC_str_396(%rip), %rcx
+  movq .LC_str_396_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -101864,8 +102170,8 @@
 .L_किनारा_रजि_जीसी_जड़ें_0:
   jmp .L_रजि_जीसी_जड़ें__wh_अंत_3
 .L_रजि_जीसी_जड़ें__wh_अंत_3:
-  leaq .LC_str_580(%rip), %rcx
-  movq .LC_str_580_len(%rip), %rdx
+  leaq .LC_str_582(%rip), %rcx
+  movq .LC_str_582_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -101923,8 +102229,8 @@
 .L_किनारा_रजि_जीसी_जड़ें_1:
   jmp .L_रजि_जीसी_जड़ें__wh_अंत_6
 .L_रजि_जीसी_जड़ें__wh_अंत_6:
-  leaq .LC_str_584(%rip), %rcx
-  movq .LC_str_584_len(%rip), %rdx
+  leaq .LC_str_586(%rip), %rcx
+  movq .LC_str_586_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -101939,8 +102245,8 @@
   movq -792(%rbp), %r11
   movq %r11, -1360(%rbp)
   movq $0, -1352(%rbp)
-  leaq .LC_str_403(%rip), %rcx
-  movq .LC_str_403_len(%rip), %rdx
+  leaq .LC_str_405(%rip), %rcx
+  movq .LC_str_405_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -101978,8 +102284,8 @@
   movq %r11, -1400(%rbp)
   movq -664(%rbp), %r11
   movq %r11, -1400(%rbp)
-  leaq .LC_str_589(%rip), %rcx
-  movq .LC_str_589_len(%rip), %rdx
+  leaq .LC_str_591(%rip), %rcx
+  movq .LC_str_591_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -102098,8 +102404,8 @@
   jmp .L_रजि_जीसी_जड़ें__if_अंत_53
 .L_रजि_जीसी_जड़ें__if_अंत_53:
   movq %rsi, -1872(%rbp)
-  leaq .LC_str_589(%rip), %rcx
-  movq .LC_str_589_len(%rip), %rdx
+  leaq .LC_str_591(%rip), %rcx
+  movq .LC_str_591_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -102113,8 +102419,8 @@
   addq $32, %rsp
   movq $0, -1552(%rbp)
   movq $0, -1872(%rbp)
-  leaq .LC_str_591(%rip), %rcx
-  movq .LC_str_591_len(%rip), %rdx
+  leaq .LC_str_593(%rip), %rcx
+  movq .LC_str_593_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -102127,8 +102433,8 @@
   call sutra_arr_set
   addq $32, %rsp
   movq $0, -1560(%rbp)
-  leaq .LC_str_592(%rip), %rcx
-  movq .LC_str_592_len(%rip), %rdx
+  leaq .LC_str_594(%rip), %rcx
+  movq .LC_str_594_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -102141,8 +102447,8 @@
   call sutra_arr_set
   addq $32, %rsp
   movq $0, -1568(%rbp)
-  leaq .LC_str_593(%rip), %rcx
-  movq .LC_str_593_len(%rip), %rdx
+  leaq .LC_str_595(%rip), %rcx
+  movq .LC_str_595_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -102481,8 +102787,8 @@
   movq -920(%rbp), %r11
   movq %r11, -1096(%rbp)
   movq $0, -1088(%rbp)
-  leaq .LC_str_579(%rip), %rcx
-  movq .LC_str_579_len(%rip), %rdx
+  leaq .LC_str_581(%rip), %rcx
+  movq .LC_str_581_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -102526,8 +102832,8 @@
 .L_रजि_जीसी_जड़ें__wh_शर्त_7:
   movq -936(%rbp), %r11
   movq %r11, -1904(%rbp)
-  leaq .LC_str_401(%rip), %rcx
-  movq .LC_str_401_len(%rip), %rdx
+  leaq .LC_str_403(%rip), %rcx
+  movq .LC_str_403_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -102568,8 +102874,8 @@
   movq %r12, -1920(%rbp)
   movq %r13, -1928(%rbp)
   movq %r14, -1936(%rbp)
-  leaq .LC_str_402(%rip), %rcx
-  movq .LC_str_402_len(%rip), %rdx
+  leaq .LC_str_404(%rip), %rcx
+  movq .LC_str_404_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -102609,8 +102915,8 @@
   movq %rdi, -600(%rbp)
   jmp .L_रजि_जीसी_जड़ें__wh_शर्त_4
 .L_रजि_जीसी_जड़ें__wh_देह_11:
-  leaq .LC_str_402(%rip), %rcx
-  movq .LC_str_402_len(%rip), %rdx
+  leaq .LC_str_404(%rip), %rcx
+  movq .LC_str_404_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -102632,8 +102938,8 @@
   movq %rax, %rsi
   movq %rsi, -1248(%rbp)
   movq $0, -1240(%rbp)
-  leaq .LC_str_398(%rip), %rcx
-  movq .LC_str_398_len(%rip), %rdx
+  leaq .LC_str_400(%rip), %rcx
+  movq .LC_str_400_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -102662,8 +102968,8 @@
   movq %r14, %rbx
   jmp .L_रजि_जीसी_जड़ें__if_अंत_14
 .L_रजि_जीसी_जड़ें__if_सत्य_13:
-  leaq .LC_str_398(%rip), %rcx
-  movq .LC_str_398_len(%rip), %rdx
+  leaq .LC_str_400(%rip), %rcx
+  movq .LC_str_400_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -102700,8 +103006,8 @@
   addq $32, %rsp
   movq $0, -1280(%rbp)
   movq $0, -1296(%rbp)
-  leaq .LC_str_404(%rip), %rcx
-  movq .LC_str_404_len(%rip), %rdx
+  leaq .LC_str_406(%rip), %rcx
+  movq .LC_str_406_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -102715,8 +103021,8 @@
   movq %rax, %r13
   movq %r13, -1312(%rbp)
   movq $0, -1304(%rbp)
-  leaq .LC_str_454(%rip), %rcx
-  movq .LC_str_454_len(%rip), %rdx
+  leaq .LC_str_456(%rip), %rcx
+  movq .LC_str_456_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -102734,8 +103040,8 @@
 .L_किनारा_रजि_जीसी_जड़ें_17:
   jmp .L_रजि_जीसी_जड़ें__sc_दायाँ_15
 .L_रजि_जीसी_जड़ें__sc_दायाँ_15:
-  leaq .LC_str_434(%rip), %rcx
-  movq .LC_str_434_len(%rip), %rdx
+  leaq .LC_str_436(%rip), %rcx
+  movq .LC_str_436_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -102759,8 +103065,8 @@
 .L_किनारा_रजि_जीसी_जड़ें_18:
   jmp .L_रजि_जीसी_जड़ें__sc_दायाँ_18
 .L_रजि_जीसी_जड़ें__sc_दायाँ_18:
-  leaq .LC_str_453(%rip), %rcx
-  movq .LC_str_453_len(%rip), %rdx
+  leaq .LC_str_455(%rip), %rcx
+  movq .LC_str_455_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -102784,8 +103090,8 @@
 .L_किनारा_रजि_जीसी_जड़ें_19:
   jmp .L_रजि_जीसी_जड़ें__sc_दायाँ_21
 .L_रजि_जीसी_जड़ें__sc_दायाँ_21:
-  leaq .LC_str_455(%rip), %rcx
-  movq .LC_str_455_len(%rip), %rdx
+  leaq .LC_str_457(%rip), %rcx
+  movq .LC_str_457_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -102809,8 +103115,8 @@
 .L_किनारा_रजि_जीसी_जड़ें_20:
   jmp .L_रजि_जीसी_जड़ें__if_अंत_25
 .L_रजि_जीसी_जड़ें__if_सत्य_24:
-  leaq .LC_str_398(%rip), %rcx
-  movq .LC_str_398_len(%rip), %rdx
+  leaq .LC_str_400(%rip), %rcx
+  movq .LC_str_400_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -102850,8 +103156,8 @@
 .L_किनारा_रजि_जीसी_जड़ें_21:
   jmp .L_रजि_जीसी_जड़ें__if_अंत_27
 .L_रजि_जीसी_जड़ें__if_सत्य_26:
-  leaq .LC_str_576(%rip), %rcx
-  movq .LC_str_576_len(%rip), %rdx
+  leaq .LC_str_578(%rip), %rcx
+  movq .LC_str_578_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -102886,8 +103192,8 @@
   movq %rbx, %r14
   jmp .L_रजि_जीसी_जड़ें__wh_शर्त_10
 .L_रजि_जीसी_जड़ें__wh_देह_8:
-  leaq .LC_str_401(%rip), %rcx
-  movq .LC_str_401_len(%rip), %rdx
+  leaq .LC_str_403(%rip), %rcx
+  movq .LC_str_403_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -102909,8 +103215,8 @@
   movq %rax, %rbx
   movq %rbx, -1160(%rbp)
   movq $0, -1152(%rbp)
-  leaq .LC_str_398(%rip), %rcx
-  movq .LC_str_398_len(%rip), %rdx
+  leaq .LC_str_400(%rip), %rcx
+  movq .LC_str_400_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -102925,8 +103231,8 @@
   movq %rdi, -1176(%rbp)
   movq $0, -1160(%rbp)
   movq $0, -1168(%rbp)
-  leaq .LC_str_401(%rip), %rcx
-  movq .LC_str_401_len(%rip), %rdx
+  leaq .LC_str_403(%rip), %rcx
+  movq .LC_str_403_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -102987,8 +103293,8 @@
   addq $32, %rsp
   movq %rax, %rbx
   movq %rbx, -1016(%rbp)
-  leaq .LC_str_398(%rip), %rcx
-  movq .LC_str_398_len(%rip), %rdx
+  leaq .LC_str_400(%rip), %rcx
+  movq .LC_str_400_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -103388,8 +103694,8 @@
   movq %rbx, -104(%rbp)
 
 .L_रजि_छापो__प्रवेश_0:
-  leaq .LC_str_594(%rip), %rcx
-  movq .LC_str_594_len(%rip), %rdx
+  leaq .LC_str_596(%rip), %rcx
+  movq .LC_str_596_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -103435,8 +103741,8 @@
   movq %rsi, -152(%rbp)
   movq $0, -136(%rbp)
   movq $0, -144(%rbp)
-  leaq .LC_str_588(%rip), %rcx
-  movq .LC_str_588_len(%rip), %rdx
+  leaq .LC_str_590(%rip), %rcx
+  movq .LC_str_590_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -103495,8 +103801,8 @@
 .L_किनारा_रजि_छापो_0:
   jmp .L_रजि_छापो__wh_अंत_3
 .L_रजि_छापो__wh_अंत_3:
-  leaq .LC_str_598(%rip), %rcx
-  movq .LC_str_598_len(%rip), %rdx
+  leaq .LC_str_600(%rip), %rcx
+  movq .LC_str_600_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -103510,8 +103816,8 @@
   movq %rax, %r15
   movq %r15, -424(%rbp)
   movq $0, -416(%rbp)
-  leaq .LC_str_589(%rip), %rcx
-  movq .LC_str_589_len(%rip), %rdx
+  leaq .LC_str_591(%rip), %rcx
+  movq .LC_str_591_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -103534,8 +103840,8 @@
   movq %r13, -448(%rbp)
   movq $0, -424(%rbp)
   movq $0, -440(%rbp)
-  leaq .LC_str_599(%rip), %rcx
-  movq .LC_str_599_len(%rip), %rdx
+  leaq .LC_str_601(%rip), %rcx
+  movq .LC_str_601_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -103550,8 +103856,8 @@
   movq %r15, -464(%rbp)
   movq $0, -448(%rbp)
   movq $0, -456(%rbp)
-  leaq .LC_str_590(%rip), %rcx
-  movq .LC_str_590_len(%rip), %rdx
+  leaq .LC_str_592(%rip), %rcx
+  movq .LC_str_592_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -103625,8 +103931,8 @@
   movq %rax, %r15
   movq %r15, -224(%rbp)
   movq $0, -216(%rbp)
-  leaq .LC_str_585(%rip), %rcx
-  movq .LC_str_585_len(%rip), %rdx
+  leaq .LC_str_587(%rip), %rcx
+  movq .LC_str_587_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -103647,8 +103953,8 @@
 .L_किनारा_रजि_छापो_1:
   jmp .L_रजि_छापो__if_असत्य_6
 .L_रजि_छापो__if_असत्य_6:
-  leaq .LC_str_595(%rip), %rcx
-  movq .LC_str_595_len(%rip), %rdx
+  leaq .LC_str_597(%rip), %rcx
+  movq .LC_str_597_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -103678,8 +103984,8 @@
   movq %r15, -344(%rbp)
   movq $0, -328(%rbp)
   movq $0, -336(%rbp)
-  leaq .LC_str_597(%rip), %rcx
-  movq .LC_str_597_len(%rip), %rdx
+  leaq .LC_str_599(%rip), %rcx
+  movq .LC_str_599_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -103694,8 +104000,8 @@
   movq %r13, -360(%rbp)
   movq $0, -344(%rbp)
   movq $0, -352(%rbp)
-  leaq .LC_str_587(%rip), %rcx
-  movq .LC_str_587_len(%rip), %rdx
+  leaq .LC_str_589(%rip), %rcx
+  movq .LC_str_589_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -103752,8 +104058,8 @@
   movq %r12, %rsi
   jmp .L_रजि_छापो__if_अंत_5
 .L_रजि_छापो__if_सत्य_4:
-  leaq .LC_str_595(%rip), %rcx
-  movq .LC_str_595_len(%rip), %rdx
+  leaq .LC_str_597(%rip), %rcx
+  movq .LC_str_597_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -103784,8 +104090,8 @@
   movq %r12, -264(%rbp)
   movq $0, -248(%rbp)
   movq $0, -256(%rbp)
-  leaq .LC_str_596(%rip), %rcx
-  movq .LC_str_596_len(%rip), %rdx
+  leaq .LC_str_598(%rip), %rcx
+  movq .LC_str_598_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -104005,8 +104311,8 @@
   movq %rax, %rbx
   movq %rbx, -48(%rbp)
   movq %rbx, -48(%rbp)
-  leaq .LC_str_600(%rip), %rcx
-  movq .LC_str_600_len(%rip), %rdx
+  leaq .LC_str_602(%rip), %rcx
+  movq .LC_str_602_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -104083,15 +104389,15 @@
   movq %rsi, -72(%rbp)
 
 .L_उगल__प्रवेश_0:
-  leaq .LC_str_600(%rip), %rcx
-  movq .LC_str_600_len(%rip), %rdx
+  leaq .LC_str_602(%rip), %rcx
+  movq .LC_str_602_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %rdi
   movq %rdi, -80(%rbp)
-  leaq .LC_str_600(%rip), %rcx
-  movq .LC_str_600_len(%rip), %rdx
+  leaq .LC_str_602(%rip), %rcx
+  movq .LC_str_602_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -104202,15 +104508,15 @@
   movq %rsi, -72(%rbp)
 
 .L_उगपं__प्रवेश_0:
-  leaq .LC_str_600(%rip), %rcx
-  movq .LC_str_600_len(%rip), %rdx
+  leaq .LC_str_602(%rip), %rcx
+  movq .LC_str_602_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %rdi
   movq %rdi, -80(%rbp)
-  leaq .LC_str_600(%rip), %rcx
-  movq .LC_str_600_len(%rip), %rdx
+  leaq .LC_str_602(%rip), %rcx
+  movq .LC_str_602_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -104241,15 +104547,15 @@
   addq $32, %rsp
   movq $0, -80(%rbp)
   movq $0, -104(%rbp)
-  leaq .LC_str_600(%rip), %rcx
-  movq .LC_str_600_len(%rip), %rdx
+  leaq .LC_str_602(%rip), %rcx
+  movq .LC_str_602_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %rsi
   movq %rsi, -112(%rbp)
-  leaq .LC_str_600(%rip), %rcx
-  movq .LC_str_600_len(%rip), %rdx
+  leaq .LC_str_602(%rip), %rcx
+  movq .LC_str_602_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -104335,8 +104641,8 @@
   movq %rbx, -48(%rbp)
 
 .L_उब_पाठ__प्रवेश_0:
-  leaq .LC_str_600(%rip), %rcx
-  movq .LC_str_600_len(%rip), %rdx
+  leaq .LC_str_602(%rip), %rcx
+  movq .LC_str_602_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -105321,8 +105627,8 @@
   movq %rbx, -56(%rbp)
 
 .L_उत्_फ्रेम_आकार__प्रवेश_0:
-  leaq .LC_str_590(%rip), %rcx
-  movq .LC_str_590_len(%rip), %rdx
+  leaq .LC_str_592(%rip), %rcx
+  movq .LC_str_592_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -105348,8 +105654,8 @@
   movq %r12, %r10
   addq %rsi, %r10
   movq %r10, %rdi
-  leaq .LC_str_589(%rip), %rcx
-  movq .LC_str_589_len(%rip), %rdx
+  leaq .LC_str_591(%rip), %rcx
+  movq .LC_str_591_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -105431,8 +105737,8 @@
   movq %rsi, %r10
   subq %rbx, %r10
   movq %r10, %rdi
-  leaq .LC_str_601(%rip), %rcx
-  movq .LC_str_601_len(%rip), %rdx
+  leaq .LC_str_603(%rip), %rcx
+  movq .LC_str_603_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -105538,8 +105844,8 @@
   movq %rbx, -64(%rbp)
 
 .L_उत्_स्थान__प्रवेश_0:
-  leaq .LC_str_588(%rip), %rcx
-  movq .LC_str_588_len(%rip), %rdx
+  leaq .LC_str_590(%rip), %rcx
+  movq .LC_str_590_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -105592,8 +105898,8 @@
   movq %rax, %r12
   movq %r12, -112(%rbp)
   movq $0, -104(%rbp)
-  leaq .LC_str_585(%rip), %rcx
-  movq .LC_str_585_len(%rip), %rdx
+  leaq .LC_str_587(%rip), %rcx
+  movq .LC_str_587_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -105614,8 +105920,8 @@
 .L_किनारा_उत्_स्थान_1:
   jmp .L_उत्_स्थान__if_अंत_4
 .L_उत्_स्थान__if_अंत_4:
-  leaq .LC_str_590(%rip), %rcx
-  movq .LC_str_590_len(%rip), %rdx
+  leaq .LC_str_592(%rip), %rcx
+  movq .LC_str_592_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -105642,8 +105948,8 @@
   movq %r12, %r10
   addq %rbx, %r10
   movq %r10, %rsi
-  leaq .LC_str_587(%rip), %rcx
-  movq .LC_str_587_len(%rip), %rdx
+  leaq .LC_str_589(%rip), %rcx
+  movq .LC_str_589_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -105668,8 +105974,8 @@
   movq %rsi, %r10
   subq %rbx, %r10
   movq %r10, %r12
-  leaq .LC_str_601(%rip), %rcx
-  movq .LC_str_601_len(%rip), %rdx
+  leaq .LC_str_603(%rip), %rcx
+  movq .LC_str_603_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -105719,8 +106025,8 @@
   movq %rsi, %rax
   jmp .L_epilogue_उत्_स्थान
 .L_उत्_स्थान__if_सत्य_1:
-  leaq .LC_str_602(%rip), %rcx
-  movq .LC_str_602_len(%rip), %rdx
+  leaq .LC_str_604(%rip), %rcx
+  movq .LC_str_604_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -105767,8 +106073,8 @@
   movq %rbx, -48(%rbp)
 
 .L_उत्_मेम_है__प्रवेश_0:
-  leaq .LC_str_601(%rip), %rcx
-  movq .LC_str_601_len(%rip), %rdx
+  leaq .LC_str_603(%rip), %rcx
+  movq .LC_str_603_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -105833,8 +106139,8 @@
   movq %rbx, -64(%rbp)
 
 .L_उत्_जड़_स्थान__प्रवेश_0:
-  leaq .LC_str_590(%rip), %rcx
-  movq .LC_str_590_len(%rip), %rdx
+  leaq .LC_str_592(%rip), %rcx
+  movq .LC_str_592_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -105868,8 +106174,8 @@
   movq %rdi, %r10
   subq %rbx, %r10
   movq %r10, %rsi
-  leaq .LC_str_601(%rip), %rcx
-  movq .LC_str_601_len(%rip), %rdx
+  leaq .LC_str_603(%rip), %rcx
+  movq .LC_str_603_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -105967,8 +106273,8 @@
   movq %rsi, -88(%rbp)
 
 .L_उत्_जड़_मृत्यु__प्रवेश_0:
-  leaq .LC_str_593(%rip), %rcx
-  movq .LC_str_593_len(%rip), %rdx
+  leaq .LC_str_595(%rip), %rcx
+  movq .LC_str_595_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -106047,8 +106353,8 @@
   movq %r13, %rax
   jmp .L_epilogue_उत्_जड़_मृत्यु
 .L_उत्_जड़_मृत्यु__wh_देह_6:
-  leaq .LC_str_603(%rip), %rcx
-  movq .LC_str_603_len(%rip), %rdx
+  leaq .LC_str_605(%rip), %rcx
+  movq .LC_str_605_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -106216,8 +106522,8 @@
   movq %rsi, -80(%rbp)
 
 .L_उत्_जड़_संचय__प्रवेश_0:
-  leaq .LC_str_592(%rip), %rcx
-  movq .LC_str_592_len(%rip), %rdx
+  leaq .LC_str_594(%rip), %rcx
+  movq .LC_str_594_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -106299,8 +106605,8 @@
 .L_किनारा_उत्_जड़_संचय_2:
   jmp .L_उत्_जड़_संचय__if_असत्य_7
 .L_उत्_जड़_संचय__if_असत्य_7:
-  leaq .LC_str_604(%rip), %rcx
-  movq .LC_str_604_len(%rip), %rdx
+  leaq .LC_str_606(%rip), %rcx
+  movq .LC_str_606_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -106314,8 +106620,8 @@
   movq %rax, %r12
   movq %r12, -200(%rbp)
   movq $0, -192(%rbp)
-  leaq .LC_str_422(%rip), %rcx
-  movq .LC_str_422_len(%rip), %rdx
+  leaq .LC_str_424(%rip), %rcx
+  movq .LC_str_424_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -106347,8 +106653,8 @@
   movq $0, -224(%rbp)
   jmp .L_उत्_जड़_संचय__if_अंत_6
 .L_उत्_जड़_संचय__if_सत्य_5:
-  leaq .LC_str_604(%rip), %rcx
-  movq .LC_str_604_len(%rip), %rdx
+  leaq .LC_str_606(%rip), %rcx
+  movq .LC_str_606_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -106363,8 +106669,8 @@
   movq %r12, -152(%rbp)
   movq $0, -128(%rbp)
   movq $0, -144(%rbp)
-  leaq .LC_str_605(%rip), %rcx
-  movq .LC_str_605_len(%rip), %rdx
+  leaq .LC_str_607(%rip), %rcx
+  movq .LC_str_607_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -106386,8 +106692,8 @@
   addq $32, %rsp
   movq %rax, %rsi
   movq $0, -168(%rbp)
-  leaq .LC_str_606(%rip), %rcx
-  movq .LC_str_606_len(%rip), %rdx
+  leaq .LC_str_608(%rip), %rcx
+  movq .LC_str_608_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -106479,8 +106785,8 @@
   movq %rsi, -64(%rbp)
 
 .L_उत्_लेबल__प्रवेश_0:
-  leaq .LC_str_607(%rip), %rcx
-  movq .LC_str_607_len(%rip), %rdx
+  leaq .LC_str_609(%rip), %rcx
+  movq .LC_str_609_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -106495,8 +106801,8 @@
   movq %r12, -80(%rbp)
   movq $0, -56(%rbp)
   movq $0, -72(%rbp)
-  leaq .LC_str_608(%rip), %rcx
-  movq .LC_str_608_len(%rip), %rdx
+  leaq .LC_str_610(%rip), %rcx
+  movq .LC_str_610_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -106556,8 +106862,8 @@
   movq %rbx, -48(%rbp)
 
 .L_उत्_एपिलॉग__प्रवेश_0:
-  leaq .LC_str_609(%rip), %rcx
-  movq .LC_str_609_len(%rip), %rdx
+  leaq .LC_str_611(%rip), %rcx
+  movq .LC_str_611_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -108397,8 +108703,8 @@
   movq %r11, -192(%rbp)
 
 .L_उत्_निर्देश__प्रवेश_0:
-  leaq .LC_str_404(%rip), %rcx
-  movq .LC_str_404_len(%rip), %rdx
+  leaq .LC_str_406(%rip), %rcx
+  movq .LC_str_406_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -108413,8 +108719,8 @@
   movq -152(%rbp), %r11
   movq %r11, -208(%rbp)
   movq $0, -200(%rbp)
-  leaq .LC_str_398(%rip), %rcx
-  movq .LC_str_398_len(%rip), %rdx
+  leaq .LC_str_400(%rip), %rcx
+  movq .LC_str_400_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -108429,8 +108735,8 @@
   movq -136(%rbp), %r11
   movq %r11, -224(%rbp)
   movq $0, -216(%rbp)
-  leaq .LC_str_415(%rip), %rcx
-  movq .LC_str_415_len(%rip), %rdx
+  leaq .LC_str_417(%rip), %rcx
+  movq .LC_str_417_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -108448,8 +108754,8 @@
 .L_किनारा_उत्_निर्देश_0:
   jmp .L_उत्_निर्देश__if_अंत_2
 .L_उत्_निर्देश__if_अंत_2:
-  leaq .LC_str_458(%rip), %rcx
-  movq .LC_str_458_len(%rip), %rdx
+  leaq .LC_str_460(%rip), %rcx
+  movq .LC_str_460_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -108467,8 +108773,8 @@
 .L_किनारा_उत्_निर्देश_1:
   jmp .L_उत्_निर्देश__sc_दायाँ_3
 .L_उत्_निर्देश__sc_दायाँ_3:
-  leaq .LC_str_459(%rip), %rcx
-  movq .LC_str_459_len(%rip), %rdx
+  leaq .LC_str_461(%rip), %rcx
+  movq .LC_str_461_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -108492,8 +108798,8 @@
 .L_किनारा_उत्_निर्देश_2:
   jmp .L_उत्_निर्देश__sc_दायाँ_6
 .L_उत्_निर्देश__sc_दायाँ_6:
-  leaq .LC_str_460(%rip), %rcx
-  movq .LC_str_460_len(%rip), %rdx
+  leaq .LC_str_462(%rip), %rcx
+  movq .LC_str_462_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -108517,8 +108823,8 @@
 .L_किनारा_उत्_निर्देश_3:
   jmp .L_उत्_निर्देश__if_अंत_10
 .L_उत्_निर्देश__if_अंत_10:
-  leaq .LC_str_461(%rip), %rcx
-  movq .LC_str_461_len(%rip), %rdx
+  leaq .LC_str_463(%rip), %rcx
+  movq .LC_str_463_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -108536,8 +108842,8 @@
 .L_किनारा_उत्_निर्देश_4:
   jmp .L_उत्_निर्देश__sc_दायाँ_33
 .L_उत्_निर्देश__sc_दायाँ_33:
-  leaq .LC_str_462(%rip), %rcx
-  movq .LC_str_462_len(%rip), %rdx
+  leaq .LC_str_464(%rip), %rcx
+  movq .LC_str_464_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -108565,8 +108871,8 @@
   movq %r12, %rdi
   jmp .L_उत्_निर्देश__sc_अंत_38
 .L_उत्_निर्देश__sc_दायाँ_36:
-  leaq .LC_str_406(%rip), %rcx
-  movq .LC_str_406_len(%rip), %rdx
+  leaq .LC_str_408(%rip), %rcx
+  movq .LC_str_408_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -108580,8 +108886,8 @@
   movq %rax, %r13
   movq %r13, -760(%rbp)
   movq $0, -752(%rbp)
-  leaq .LC_str_427(%rip), %rcx
-  movq .LC_str_427_len(%rip), %rdx
+  leaq .LC_str_429(%rip), %rcx
+  movq .LC_str_429_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -108621,8 +108927,8 @@
 .L_किनारा_उत्_निर्देश_6:
   jmp .L_उत्_निर्देश__if_अंत_40
 .L_उत्_निर्देश__if_अंत_40:
-  leaq .LC_str_461(%rip), %rcx
-  movq .LC_str_461_len(%rip), %rdx
+  leaq .LC_str_463(%rip), %rcx
+  movq .LC_str_463_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -108640,8 +108946,8 @@
 .L_किनारा_उत्_निर्देश_7:
   jmp .L_उत्_निर्देश__sc_दायाँ_41
 .L_उत्_निर्देश__sc_दायाँ_41:
-  leaq .LC_str_462(%rip), %rcx
-  movq .LC_str_462_len(%rip), %rdx
+  leaq .LC_str_464(%rip), %rcx
+  movq .LC_str_464_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -108677,8 +108983,8 @@
 .L_किनारा_उत्_निर्देश_9:
   jmp .L_उत्_निर्देश__if_अंत_50
 .L_उत्_निर्देश__if_अंत_50:
-  leaq .LC_str_567(%rip), %rcx
-  movq .LC_str_567_len(%rip), %rdx
+  leaq .LC_str_569(%rip), %rcx
+  movq .LC_str_569_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -108696,8 +109002,8 @@
 .L_किनारा_उत्_निर्देश_10:
   jmp .L_उत्_निर्देश__sc_दायाँ_67
 .L_उत्_निर्देश__sc_दायाँ_67:
-  leaq .LC_str_568(%rip), %rcx
-  movq .LC_str_568_len(%rip), %rdx
+  leaq .LC_str_570(%rip), %rcx
+  movq .LC_str_570_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -108721,8 +109027,8 @@
 .L_किनारा_उत्_निर्देश_11:
   jmp .L_उत्_निर्देश__if_अंत_71
 .L_उत्_निर्देश__if_अंत_71:
-  leaq .LC_str_492(%rip), %rcx
-  movq .LC_str_492_len(%rip), %rdx
+  leaq .LC_str_494(%rip), %rcx
+  movq .LC_str_494_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -108740,8 +109046,8 @@
 .L_किनारा_उत्_निर्देश_12:
   jmp .L_उत्_निर्देश__if_अंत_75
 .L_उत्_निर्देश__if_अंत_75:
-  leaq .LC_str_491(%rip), %rcx
-  movq .LC_str_491_len(%rip), %rdx
+  leaq .LC_str_493(%rip), %rcx
+  movq .LC_str_493_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -108759,8 +109065,8 @@
 .L_किनारा_उत्_निर्देश_13:
   jmp .L_उत्_निर्देश__if_अंत_77
 .L_उत्_निर्देश__if_अंत_77:
-  leaq .LC_str_428(%rip), %rcx
-  movq .LC_str_428_len(%rip), %rdx
+  leaq .LC_str_430(%rip), %rcx
+  movq .LC_str_430_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -108778,8 +109084,8 @@
 .L_किनारा_उत्_निर्देश_14:
   jmp .L_उत्_निर्देश__if_अंत_82
 .L_उत्_निर्देश__if_अंत_82:
-  leaq .LC_str_429(%rip), %rcx
-  movq .LC_str_429_len(%rip), %rdx
+  leaq .LC_str_431(%rip), %rcx
+  movq .LC_str_431_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -108797,8 +109103,8 @@
 .L_किनारा_उत्_निर्देश_15:
   jmp .L_उत्_निर्देश__if_अंत_84
 .L_उत्_निर्देश__if_अंत_84:
-  leaq .LC_str_419(%rip), %rcx
-  movq .LC_str_419_len(%rip), %rdx
+  leaq .LC_str_421(%rip), %rcx
+  movq .LC_str_421_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -108816,8 +109122,8 @@
 .L_किनारा_उत्_निर्देश_16:
   jmp .L_उत्_निर्देश__if_अंत_86
 .L_उत्_निर्देश__if_अंत_86:
-  leaq .LC_str_420(%rip), %rcx
-  movq .LC_str_420_len(%rip), %rdx
+  leaq .LC_str_422(%rip), %rcx
+  movq .LC_str_422_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -108854,8 +109160,8 @@
 .L_किनारा_उत्_निर्देश_18:
   jmp .L_उत्_निर्देश__if_अंत_90
 .L_उत्_निर्देश__if_अंत_90:
-  leaq .LC_str_456(%rip), %rcx
-  movq .LC_str_456_len(%rip), %rdx
+  leaq .LC_str_458(%rip), %rcx
+  movq .LC_str_458_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -108873,8 +109179,8 @@
 .L_किनारा_उत्_निर्देश_19:
   jmp .L_उत्_निर्देश__if_अंत_92
 .L_उत्_निर्देश__if_अंत_92:
-  leaq .LC_str_457(%rip), %rcx
-  movq .LC_str_457_len(%rip), %rdx
+  leaq .LC_str_459(%rip), %rcx
+  movq .LC_str_459_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -108892,8 +109198,8 @@
 .L_किनारा_उत्_निर्देश_20:
   jmp .L_उत्_निर्देश__if_अंत_98
 .L_उत्_निर्देश__if_अंत_98:
-  leaq .LC_str_453(%rip), %rcx
-  movq .LC_str_453_len(%rip), %rdx
+  leaq .LC_str_455(%rip), %rcx
+  movq .LC_str_455_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -108911,8 +109217,8 @@
 .L_किनारा_उत्_निर्देश_21:
   jmp .L_उत्_निर्देश__if_अंत_100
 .L_उत्_निर्देश__if_अंत_100:
-  leaq .LC_str_454(%rip), %rcx
-  movq .LC_str_454_len(%rip), %rdx
+  leaq .LC_str_456(%rip), %rcx
+  movq .LC_str_456_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -108930,8 +109236,8 @@
 .L_किनारा_उत्_निर्देश_22:
   jmp .L_उत्_निर्देश__if_अंत_105
 .L_उत्_निर्देश__if_अंत_105:
-  leaq .LC_str_430(%rip), %rcx
-  movq .LC_str_430_len(%rip), %rdx
+  leaq .LC_str_432(%rip), %rcx
+  movq .LC_str_432_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -108949,8 +109255,8 @@
 .L_किनारा_उत्_निर्देश_23:
   jmp .L_उत्_निर्देश__if_अंत_110
 .L_उत्_निर्देश__if_अंत_110:
-  leaq .LC_str_431(%rip), %rcx
-  movq .LC_str_431_len(%rip), %rdx
+  leaq .LC_str_433(%rip), %rcx
+  movq .LC_str_433_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -108968,8 +109274,8 @@
 .L_किनारा_उत्_निर्देश_24:
   jmp .L_उत्_निर्देश__if_अंत_114
 .L_उत्_निर्देश__if_अंत_114:
-  leaq .LC_str_434(%rip), %rcx
-  movq .LC_str_434_len(%rip), %rdx
+  leaq .LC_str_436(%rip), %rcx
+  movq .LC_str_436_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -108987,8 +109293,8 @@
 .L_किनारा_उत्_निर्देश_25:
   jmp .L_उत्_निर्देश__if_अंत_118
 .L_उत्_निर्देश__if_अंत_118:
-  leaq .LC_str_435(%rip), %rcx
-  movq .LC_str_435_len(%rip), %rdx
+  leaq .LC_str_437(%rip), %rcx
+  movq .LC_str_437_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -109006,8 +109312,8 @@
 .L_किनारा_उत्_निर्देश_26:
   jmp .L_उत्_निर्देश__if_अंत_125
 .L_उत्_निर्देश__if_अंत_125:
-  leaq .LC_str_566(%rip), %rcx
-  movq .LC_str_566_len(%rip), %rdx
+  leaq .LC_str_568(%rip), %rcx
+  movq .LC_str_568_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -109025,8 +109331,8 @@
 .L_किनारा_उत्_निर्देश_27:
   jmp .L_उत्_निर्देश__sc_दायाँ_130
 .L_उत्_निर्देश__sc_दायाँ_130:
-  leaq .LC_str_416(%rip), %rcx
-  movq .LC_str_416_len(%rip), %rdx
+  leaq .LC_str_418(%rip), %rcx
+  movq .LC_str_418_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -109050,8 +109356,8 @@
 .L_किनारा_उत्_निर्देश_28:
   jmp .L_उत्_निर्देश__if_अंत_134
 .L_उत्_निर्देश__if_अंत_134:
-  leaq .LC_str_654(%rip), %rcx
-  movq .LC_str_654_len(%rip), %rdx
+  leaq .LC_str_656(%rip), %rcx
+  movq .LC_str_656_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -109080,8 +109386,8 @@
   movq %rdi, %rax
   jmp .L_epilogue_उत्_निर्देश
 .L_उत्_निर्देश__if_सत्य_124:
-  leaq .LC_str_406(%rip), %rcx
-  movq .LC_str_406_len(%rip), %rdx
+  leaq .LC_str_408(%rip), %rcx
+  movq .LC_str_408_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -109095,8 +109401,8 @@
   movq %rax, %r12
   movq %r12, -3488(%rbp)
   movq $0, -3480(%rbp)
-  leaq .LC_str_436(%rip), %rcx
-  movq .LC_str_436_len(%rip), %rdx
+  leaq .LC_str_438(%rip), %rcx
+  movq .LC_str_438_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -109111,8 +109417,8 @@
   movq %r13, -3504(%rbp)
   movq $0, -3488(%rbp)
   movq $0, -3496(%rbp)
-  leaq .LC_str_651(%rip), %rcx
-  movq .LC_str_651_len(%rip), %rdx
+  leaq .LC_str_653(%rip), %rcx
+  movq .LC_str_653_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -109138,8 +109444,8 @@
   movq %rdi, %rsi
   jmp .L_उत्_निर्देश__if_अंत_127
 .L_उत्_निर्देश__if_सत्य_126:
-  leaq .LC_str_652(%rip), %rcx
-  movq .LC_str_652_len(%rip), %rdx
+  leaq .LC_str_654(%rip), %rcx
+  movq .LC_str_654_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -109167,8 +109473,8 @@
 .L_किनारा_उत्_निर्देश_30:
   jmp .L_उत्_निर्देश__if_अंत_129
 .L_उत्_निर्देश__if_सत्य_128:
-  leaq .LC_str_653(%rip), %rcx
-  movq .LC_str_653_len(%rip), %rdx
+  leaq .LC_str_655(%rip), %rcx
+  movq .LC_str_655_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -109176,8 +109482,8 @@
   jmp .L_उत्_निर्देश__if_अंत_129
 .L_उत्_निर्देश__if_अंत_129:
   movq %rsi, -3592(%rbp)
-  leaq .LC_str_405(%rip), %rcx
-  movq .LC_str_405_len(%rip), %rdx
+  leaq .LC_str_407(%rip), %rcx
+  movq .LC_str_407_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -109245,8 +109551,8 @@
   jmp .L_epilogue_उत्_निर्देश
 .L_उत्_निर्देश__if_सत्य_117:
   movq $0, %rsi
-  leaq .LC_str_406(%rip), %rcx
-  movq .LC_str_406_len(%rip), %rdx
+  leaq .LC_str_408(%rip), %rcx
+  movq .LC_str_408_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -109260,8 +109566,8 @@
   movq %rax, %r12
   movq %r12, -3296(%rbp)
   movq $0, -3288(%rbp)
-  leaq .LC_str_476(%rip), %rcx
-  movq .LC_str_476_len(%rip), %rdx
+  leaq .LC_str_478(%rip), %rcx
+  movq .LC_str_478_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -109298,8 +109604,8 @@
 .L_किनारा_उत्_निर्देश_31:
   jmp .L_उत्_निर्देश__if_अंत_120
 .L_उत्_निर्देश__if_सत्य_119:
-  leaq .LC_str_406(%rip), %rcx
-  movq .LC_str_406_len(%rip), %rdx
+  leaq .LC_str_408(%rip), %rcx
+  movq .LC_str_408_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -109313,8 +109619,8 @@
   movq %rax, %rdi
   movq %rdi, -3336(%rbp)
   movq $0, -3328(%rbp)
-  leaq .LC_str_476(%rip), %rcx
-  movq .LC_str_476_len(%rip), %rdx
+  leaq .LC_str_478(%rip), %rcx
+  movq .LC_str_478_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -109339,15 +109645,15 @@
   addq $32, %rsp
   movq %rax, %rdi
   movq %rdi, -3352(%rbp)
-  leaq .LC_str_650(%rip), %rcx
-  movq .LC_str_650_len(%rip), %rdx
+  leaq .LC_str_652(%rip), %rcx
+  movq .LC_str_652_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %r12
   movq %r12, -3360(%rbp)
-  leaq .LC_str_645(%rip), %rcx
-  movq .LC_str_645_len(%rip), %rdx
+  leaq .LC_str_647(%rip), %rcx
+  movq .LC_str_647_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -109412,8 +109718,8 @@
 .L_उत्_निर्देश__wh_शर्त_121:
   movq %rbx, -3608(%rbp)
   movq %rsi, -3616(%rbp)
-  leaq .LC_str_405(%rip), %rcx
-  movq .LC_str_405_len(%rip), %rdx
+  leaq .LC_str_407(%rip), %rcx
+  movq .LC_str_407_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -109443,8 +109749,8 @@
 .L_किनारा_उत्_निर्देश_32:
   jmp .L_उत्_निर्देश__wh_अंत_123
 .L_उत्_निर्देश__wh_अंत_123:
-  leaq .LC_str_406(%rip), %rcx
-  movq .LC_str_406_len(%rip), %rdx
+  leaq .LC_str_408(%rip), %rcx
+  movq .LC_str_408_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -109458,8 +109764,8 @@
   movq %rax, %r12
   movq %r12, -3448(%rbp)
   movq $0, -3440(%rbp)
-  leaq .LC_str_477(%rip), %rcx
-  movq .LC_str_477_len(%rip), %rdx
+  leaq .LC_str_479(%rip), %rcx
+  movq .LC_str_479_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -109495,8 +109801,8 @@
   movq %rdi, %rax
   jmp .L_epilogue_उत्_निर्देश
 .L_उत्_निर्देश__wh_देह_122:
-  leaq .LC_str_405(%rip), %rcx
-  movq .LC_str_405_len(%rip), %rdx
+  leaq .LC_str_407(%rip), %rcx
+  movq .LC_str_407_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -109544,8 +109850,8 @@
   jmp .L_उत्_निर्देश__wh_शर्त_121
 .L_उत्_निर्देश__if_सत्य_113:
   movq $0, %rbx
-  leaq .LC_str_406(%rip), %rcx
-  movq .LC_str_406_len(%rip), %rdx
+  leaq .LC_str_408(%rip), %rcx
+  movq .LC_str_408_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -109559,8 +109865,8 @@
   movq %rax, %rdi
   movq %rdi, -3072(%rbp)
   movq $0, -3064(%rbp)
-  leaq .LC_str_474(%rip), %rcx
-  movq .LC_str_474_len(%rip), %rdx
+  leaq .LC_str_476(%rip), %rcx
+  movq .LC_str_476_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -109597,8 +109903,8 @@
 .L_किनारा_उत्_निर्देश_33:
   jmp .L_उत्_निर्देश__if_अंत_116
 .L_उत्_निर्देश__if_सत्य_115:
-  leaq .LC_str_406(%rip), %rcx
-  movq .LC_str_406_len(%rip), %rdx
+  leaq .LC_str_408(%rip), %rcx
+  movq .LC_str_408_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -109612,8 +109918,8 @@
   movq %rax, %rsi
   movq %rsi, -3112(%rbp)
   movq $0, -3104(%rbp)
-  leaq .LC_str_474(%rip), %rcx
-  movq .LC_str_474_len(%rip), %rdx
+  leaq .LC_str_476(%rip), %rcx
+  movq .LC_str_476_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -109631,15 +109937,15 @@
   jmp .L_उत्_निर्देश__if_अंत_116
 .L_उत्_निर्देश__if_अंत_116:
   movq %rbx, -3624(%rbp)
-  leaq .LC_str_604(%rip), %rcx
-  movq .LC_str_604_len(%rip), %rdx
+  leaq .LC_str_606(%rip), %rcx
+  movq .LC_str_606_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %rsi
   movq %rsi, -3128(%rbp)
-  leaq .LC_str_405(%rip), %rcx
-  movq .LC_str_405_len(%rip), %rdx
+  leaq .LC_str_407(%rip), %rcx
+  movq .LC_str_407_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -109679,8 +109985,8 @@
   movq %r12, -3168(%rbp)
   movq $0, -3128(%rbp)
   movq $0, -3160(%rbp)
-  leaq .LC_str_618(%rip), %rcx
-  movq .LC_str_618_len(%rip), %rdx
+  leaq .LC_str_620(%rip), %rcx
+  movq .LC_str_620_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -109702,15 +110008,15 @@
   addq $32, %rsp
   movq %rax, %rsi
   movq $0, -3184(%rbp)
-  leaq .LC_str_604(%rip), %rcx
-  movq .LC_str_604_len(%rip), %rdx
+  leaq .LC_str_606(%rip), %rcx
+  movq .LC_str_606_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %rsi
   movq %rsi, -3192(%rbp)
-  leaq .LC_str_405(%rip), %rcx
-  movq .LC_str_405_len(%rip), %rdx
+  leaq .LC_str_407(%rip), %rcx
+  movq .LC_str_407_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -109750,8 +110056,8 @@
   movq %r12, -3232(%rbp)
   movq $0, -3192(%rbp)
   movq $0, -3224(%rbp)
-  leaq .LC_str_605(%rip), %rcx
-  movq .LC_str_605_len(%rip), %rdx
+  leaq .LC_str_607(%rip), %rcx
+  movq .LC_str_607_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -109773,8 +110079,8 @@
   addq $32, %rsp
   movq %rax, %rsi
   movq $0, -3248(%rbp)
-  leaq .LC_str_606(%rip), %rcx
-  movq .LC_str_606_len(%rip), %rdx
+  leaq .LC_str_608(%rip), %rcx
+  movq .LC_str_608_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -109797,8 +110103,8 @@
   movq %rax, %rdi
   movq %rdi, -3264(%rbp)
   movq $0, -3256(%rbp)
-  leaq .LC_str_649(%rip), %rcx
-  movq .LC_str_649_len(%rip), %rdx
+  leaq .LC_str_651(%rip), %rcx
+  movq .LC_str_651_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -109825,8 +110131,8 @@
   jmp .L_epilogue_उत्_निर्देश
 .L_उत्_निर्देश__if_सत्य_109:
   movq $0, %rbx
-  leaq .LC_str_406(%rip), %rcx
-  movq .LC_str_406_len(%rip), %rdx
+  leaq .LC_str_408(%rip), %rcx
+  movq .LC_str_408_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -109840,8 +110146,8 @@
   movq %rax, %rdi
   movq %rdi, -2888(%rbp)
   movq $0, -2880(%rbp)
-  leaq .LC_str_474(%rip), %rcx
-  movq .LC_str_474_len(%rip), %rdx
+  leaq .LC_str_476(%rip), %rcx
+  movq .LC_str_476_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -109878,8 +110184,8 @@
 .L_किनारा_उत्_निर्देश_34:
   jmp .L_उत्_निर्देश__if_अंत_112
 .L_उत्_निर्देश__if_सत्य_111:
-  leaq .LC_str_406(%rip), %rcx
-  movq .LC_str_406_len(%rip), %rdx
+  leaq .LC_str_408(%rip), %rcx
+  movq .LC_str_408_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -109893,8 +110199,8 @@
   movq %rax, %rsi
   movq %rsi, -2928(%rbp)
   movq $0, -2920(%rbp)
-  leaq .LC_str_474(%rip), %rcx
-  movq .LC_str_474_len(%rip), %rdx
+  leaq .LC_str_476(%rip), %rcx
+  movq .LC_str_476_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -109912,15 +110218,15 @@
   jmp .L_उत्_निर्देश__if_अंत_112
 .L_उत्_निर्देश__if_अंत_112:
   movq %rbx, -3632(%rbp)
-  leaq .LC_str_604(%rip), %rcx
-  movq .LC_str_604_len(%rip), %rdx
+  leaq .LC_str_606(%rip), %rcx
+  movq .LC_str_606_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %rsi
   movq %rsi, -2944(%rbp)
-  leaq .LC_str_405(%rip), %rcx
-  movq .LC_str_405_len(%rip), %rdx
+  leaq .LC_str_407(%rip), %rcx
+  movq .LC_str_407_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -109960,8 +110266,8 @@
   movq %r12, -2984(%rbp)
   movq $0, -2944(%rbp)
   movq $0, -2976(%rbp)
-  leaq .LC_str_618(%rip), %rcx
-  movq .LC_str_618_len(%rip), %rdx
+  leaq .LC_str_620(%rip), %rcx
+  movq .LC_str_620_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -109983,8 +110289,8 @@
   addq $32, %rsp
   movq %rax, %rsi
   movq $0, -3000(%rbp)
-  leaq .LC_str_604(%rip), %rcx
-  movq .LC_str_604_len(%rip), %rdx
+  leaq .LC_str_606(%rip), %rcx
+  movq .LC_str_606_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -110007,8 +110313,8 @@
   movq %rax, %rdi
   movq %rdi, -3016(%rbp)
   movq $0, -3008(%rbp)
-  leaq .LC_str_648(%rip), %rcx
-  movq .LC_str_648_len(%rip), %rdx
+  leaq .LC_str_650(%rip), %rcx
+  movq .LC_str_650_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -110030,8 +110336,8 @@
   addq $32, %rsp
   movq %rax, %rbx
   movq $0, -3032(%rbp)
-  leaq .LC_str_619(%rip), %rcx
-  movq .LC_str_619_len(%rip), %rdx
+  leaq .LC_str_621(%rip), %rcx
+  movq .LC_str_621_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -110064,8 +110370,8 @@
   movq %rbx, %rax
   jmp .L_epilogue_उत्_निर्देश
 .L_उत्_निर्देश__if_सत्य_104:
-  leaq .LC_str_405(%rip), %rcx
-  movq .LC_str_405_len(%rip), %rdx
+  leaq .LC_str_407(%rip), %rcx
+  movq .LC_str_407_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -110079,8 +110385,8 @@
   movq %rax, %rsi
   movq %rsi, -2784(%rbp)
   movq $0, -2776(%rbp)
-  leaq .LC_str_646(%rip), %rcx
-  movq .LC_str_646_len(%rip), %rdx
+  leaq .LC_str_648(%rip), %rcx
+  movq .LC_str_648_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -110147,8 +110453,8 @@
   movq %rdi, %rax
   jmp .L_epilogue_उत्_निर्देश
 .L_उत्_निर्देश__wh_देह_107:
-  leaq .LC_str_647(%rip), %rcx
-  movq .LC_str_647_len(%rip), %rdx
+  leaq .LC_str_649(%rip), %rcx
+  movq .LC_str_649_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -110249,8 +110555,8 @@
   movq %r12, %rbx
   jmp .L_उत्_निर्देश__wh_शर्त_106
 .L_उत्_निर्देश__if_सत्य_99:
-  leaq .LC_str_405(%rip), %rcx
-  movq .LC_str_405_len(%rip), %rdx
+  leaq .LC_str_407(%rip), %rcx
+  movq .LC_str_407_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -110264,15 +110570,15 @@
   movq %rax, %rsi
   movq %rsi, -2664(%rbp)
   movq $0, -2656(%rbp)
-  leaq .LC_str_644(%rip), %rcx
-  movq .LC_str_644_len(%rip), %rdx
+  leaq .LC_str_646(%rip), %rcx
+  movq .LC_str_646_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %rbx
   movq %rbx, -2672(%rbp)
-  leaq .LC_str_645(%rip), %rcx
-  movq .LC_str_645_len(%rip), %rdx
+  leaq .LC_str_647(%rip), %rcx
+  movq .LC_str_647_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -110355,8 +110661,8 @@
   movq %rdi, %rax
   jmp .L_epilogue_उत्_निर्देश
 .L_उत्_निर्देश__wh_देह_102:
-  leaq .LC_str_643(%rip), %rcx
-  movq .LC_str_643_len(%rip), %rdx
+  leaq .LC_str_645(%rip), %rcx
+  movq .LC_str_645_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -110369,8 +110675,8 @@
   addq $32, %rsp
   movq %rax, %r12
   movq %r12, -2720(%rbp)
-  leaq .LC_str_645(%rip), %rcx
-  movq .LC_str_645_len(%rip), %rdx
+  leaq .LC_str_647(%rip), %rcx
+  movq .LC_str_647_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -110453,15 +110759,15 @@
   movq %r12, %rbx
   jmp .L_उत्_निर्देश__wh_शर्त_101
 .L_उत्_निर्देश__if_सत्य_97:
-  leaq .LC_str_643(%rip), %rcx
-  movq .LC_str_643_len(%rip), %rdx
+  leaq .LC_str_645(%rip), %rcx
+  movq .LC_str_645_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %rbx
   movq %rbx, -2536(%rbp)
-  leaq .LC_str_405(%rip), %rcx
-  movq .LC_str_405_len(%rip), %rdx
+  leaq .LC_str_407(%rip), %rcx
+  movq .LC_str_407_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -110492,8 +110798,8 @@
   movq %rax, %rsi
   movq %rsi, -2568(%rbp)
   movq $0, -2560(%rbp)
-  leaq .LC_str_405(%rip), %rcx
-  movq .LC_str_405_len(%rip), %rdx
+  leaq .LC_str_407(%rip), %rcx
+  movq .LC_str_407_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -110524,8 +110830,8 @@
   movq %rax, %rdi
   movq %rdi, -2600(%rbp)
   movq $0, -2592(%rbp)
-  leaq .LC_str_405(%rip), %rcx
-  movq .LC_str_405_len(%rip), %rdx
+  leaq .LC_str_407(%rip), %rcx
+  movq .LC_str_407_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -110613,8 +110919,8 @@
   addq $32, %rsp
   movq %rax, %rbx
   movq %rbx, -2376(%rbp)
-  leaq .LC_str_406(%rip), %rcx
-  movq .LC_str_406_len(%rip), %rdx
+  leaq .LC_str_408(%rip), %rcx
+  movq .LC_str_408_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -110628,8 +110934,8 @@
   movq %rax, %rdi
   movq %rdi, -2392(%rbp)
   movq $0, -2384(%rbp)
-  leaq .LC_str_473(%rip), %rcx
-  movq .LC_str_473_len(%rip), %rdx
+  leaq .LC_str_475(%rip), %rcx
+  movq .LC_str_475_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -110666,8 +110972,8 @@
 .L_किनारा_उत्_निर्देश_37:
   jmp .L_उत्_निर्देश__if_अंत_94
 .L_उत्_निर्देश__if_सत्य_93:
-  leaq .LC_str_406(%rip), %rcx
-  movq .LC_str_406_len(%rip), %rdx
+  leaq .LC_str_408(%rip), %rcx
+  movq .LC_str_408_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -110681,8 +110987,8 @@
   movq %rax, %rsi
   movq %rsi, -2432(%rbp)
   movq $0, -2424(%rbp)
-  leaq .LC_str_473(%rip), %rcx
-  movq .LC_str_473_len(%rip), %rdx
+  leaq .LC_str_475(%rip), %rcx
+  movq .LC_str_475_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -110700,8 +111006,8 @@
   jmp .L_उत्_निर्देश__if_अंत_94
 .L_उत्_निर्देश__if_अंत_94:
   movq %rbx, -3656(%rbp)
-  leaq .LC_str_641(%rip), %rcx
-  movq .LC_str_641_len(%rip), %rdx
+  leaq .LC_str_643(%rip), %rcx
+  movq .LC_str_643_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -110728,8 +111034,8 @@
   movq %rsi, %rbx
   jmp .L_उत्_निर्देश__if_अंत_96
 .L_उत्_निर्देश__if_सत्य_95:
-  leaq .LC_str_642(%rip), %rcx
-  movq .LC_str_642_len(%rip), %rdx
+  leaq .LC_str_644(%rip), %rcx
+  movq .LC_str_644_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -110737,8 +111043,8 @@
   jmp .L_उत्_निर्देश__if_अंत_96
 .L_उत्_निर्देश__if_अंत_96:
   movq %rbx, -3664(%rbp)
-  leaq .LC_str_405(%rip), %rcx
-  movq .LC_str_405_len(%rip), %rdx
+  leaq .LC_str_407(%rip), %rcx
+  movq .LC_str_407_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -110769,8 +111075,8 @@
   movq %rax, %rsi
   movq %rsi, -2480(%rbp)
   movq $0, -2472(%rbp)
-  leaq .LC_str_405(%rip), %rcx
-  movq .LC_str_405_len(%rip), %rdx
+  leaq .LC_str_407(%rip), %rcx
+  movq .LC_str_407_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -110844,15 +111150,15 @@
   movq %rbx, %rax
   jmp .L_epilogue_उत्_निर्देश
 .L_उत्_निर्देश__if_सत्य_89:
-  leaq .LC_str_640(%rip), %rcx
-  movq .LC_str_640_len(%rip), %rdx
+  leaq .LC_str_642(%rip), %rcx
+  movq .LC_str_642_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %rbx
   movq %rbx, -2320(%rbp)
-  leaq .LC_str_405(%rip), %rcx
-  movq .LC_str_405_len(%rip), %rdx
+  leaq .LC_str_407(%rip), %rcx
+  movq .LC_str_407_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -110930,8 +111236,8 @@
   movq %rbx, %rax
   jmp .L_epilogue_उत्_निर्देश
 .L_उत्_निर्देश__if_सत्य_85:
-  leaq .LC_str_406(%rip), %rcx
-  movq .LC_str_406_len(%rip), %rdx
+  leaq .LC_str_408(%rip), %rcx
+  movq .LC_str_408_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -110945,8 +111251,8 @@
   movq %rax, %rsi
   movq %rsi, -2280(%rbp)
   movq $0, -2272(%rbp)
-  leaq .LC_str_409(%rip), %rcx
-  movq .LC_str_409_len(%rip), %rdx
+  leaq .LC_str_411(%rip), %rcx
+  movq .LC_str_411_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -110961,8 +111267,8 @@
   movq %rdi, -2296(%rbp)
   movq $0, -2280(%rbp)
   movq $0, -2288(%rbp)
-  leaq .LC_str_405(%rip), %rcx
-  movq .LC_str_405_len(%rip), %rdx
+  leaq .LC_str_407(%rip), %rcx
+  movq .LC_str_407_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -110993,15 +111299,15 @@
   movq %rbx, %rax
   jmp .L_epilogue_उत्_निर्देश
 .L_उत्_निर्देश__if_सत्य_83:
-  leaq .LC_str_604(%rip), %rcx
-  movq .LC_str_604_len(%rip), %rdx
+  leaq .LC_str_606(%rip), %rcx
+  movq .LC_str_606_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %rbx
   movq %rbx, -2144(%rbp)
-  leaq .LC_str_405(%rip), %rcx
-  movq .LC_str_405_len(%rip), %rdx
+  leaq .LC_str_407(%rip), %rcx
+  movq .LC_str_407_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -111041,8 +111347,8 @@
   movq %rdi, -2184(%rbp)
   movq $0, -2144(%rbp)
   movq $0, -2176(%rbp)
-  leaq .LC_str_618(%rip), %rcx
-  movq .LC_str_618_len(%rip), %rdx
+  leaq .LC_str_620(%rip), %rcx
+  movq .LC_str_620_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -111064,15 +111370,15 @@
   addq $32, %rsp
   movq %rax, %rbx
   movq $0, -2200(%rbp)
-  leaq .LC_str_638(%rip), %rcx
-  movq .LC_str_638_len(%rip), %rdx
+  leaq .LC_str_640(%rip), %rcx
+  movq .LC_str_640_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %rbx
   movq %rbx, -2208(%rbp)
-  leaq .LC_str_406(%rip), %rcx
-  movq .LC_str_406_len(%rip), %rdx
+  leaq .LC_str_408(%rip), %rcx
+  movq .LC_str_408_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -111111,8 +111417,8 @@
   movq %rsi, -2248(%rbp)
   movq $0, -2208(%rbp)
   movq $0, -2240(%rbp)
-  leaq .LC_str_639(%rip), %rcx
-  movq .LC_str_639_len(%rip), %rdx
+  leaq .LC_str_641(%rip), %rcx
+  movq .LC_str_641_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -111138,15 +111444,15 @@
   movq %rbx, %rax
   jmp .L_epilogue_उत्_निर्देश
 .L_उत्_निर्देश__if_सत्य_81:
-  leaq .LC_str_636(%rip), %rcx
-  movq .LC_str_636_len(%rip), %rdx
+  leaq .LC_str_638(%rip), %rcx
+  movq .LC_str_638_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %rbx
   movq %rbx, -2056(%rbp)
-  leaq .LC_str_406(%rip), %rcx
-  movq .LC_str_406_len(%rip), %rdx
+  leaq .LC_str_408(%rip), %rcx
+  movq .LC_str_408_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -111185,8 +111491,8 @@
   movq %rsi, -2096(%rbp)
   movq $0, -2056(%rbp)
   movq $0, -2088(%rbp)
-  leaq .LC_str_637(%rip), %rcx
-  movq .LC_str_637_len(%rip), %rdx
+  leaq .LC_str_639(%rip), %rcx
+  movq .LC_str_639_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -111208,8 +111514,8 @@
   addq $32, %rsp
   movq %rax, %rbx
   movq $0, -2112(%rbp)
-  leaq .LC_str_619(%rip), %rcx
-  movq .LC_str_619_len(%rip), %rdx
+  leaq .LC_str_621(%rip), %rcx
+  movq .LC_str_621_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -111242,15 +111548,15 @@
   movq %rbx, %rax
   jmp .L_epilogue_उत्_निर्देश
 .L_उत्_निर्देश__if_सत्य_76:
-  leaq .LC_str_604(%rip), %rcx
-  movq .LC_str_604_len(%rip), %rdx
+  leaq .LC_str_606(%rip), %rcx
+  movq .LC_str_606_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %rbx
   movq %rbx, -1928(%rbp)
-  leaq .LC_str_405(%rip), %rcx
-  movq .LC_str_405_len(%rip), %rdx
+  leaq .LC_str_407(%rip), %rcx
+  movq .LC_str_407_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -111290,8 +111596,8 @@
   movq %rdi, -1968(%rbp)
   movq $0, -1928(%rbp)
   movq $0, -1960(%rbp)
-  leaq .LC_str_618(%rip), %rcx
-  movq .LC_str_618_len(%rip), %rdx
+  leaq .LC_str_620(%rip), %rcx
+  movq .LC_str_620_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -111350,8 +111656,8 @@
 .L_किनारा_उत्_निर्देश_39:
   jmp .L_उत्_निर्देश__if_असत्य_80
 .L_उत्_निर्देश__if_असत्य_80:
-  leaq .LC_str_635(%rip), %rcx
-  movq .LC_str_635_len(%rip), %rdx
+  leaq .LC_str_637(%rip), %rcx
+  movq .LC_str_637_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -111366,8 +111672,8 @@
   movq $0, -2024(%rbp)
   jmp .L_उत्_निर्देश__if_अंत_79
 .L_उत्_निर्देश__if_सत्य_78:
-  leaq .LC_str_634(%rip), %rcx
-  movq .LC_str_634_len(%rip), %rdx
+  leaq .LC_str_636(%rip), %rcx
+  movq .LC_str_636_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -111382,8 +111688,8 @@
   movq $0, -2016(%rbp)
   jmp .L_उत्_निर्देश__if_अंत_79
 .L_उत्_निर्देश__if_अंत_79:
-  leaq .LC_str_619(%rip), %rcx
-  movq .LC_str_619_len(%rip), %rdx
+  leaq .LC_str_621(%rip), %rcx
+  movq .LC_str_621_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -111416,15 +111722,15 @@
   movq %rbx, %rax
   jmp .L_epilogue_उत्_निर्देश
 .L_उत्_निर्देश__if_सत्य_74:
-  leaq .LC_str_604(%rip), %rcx
-  movq .LC_str_604_len(%rip), %rdx
+  leaq .LC_str_606(%rip), %rcx
+  movq .LC_str_606_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %rbx
   movq %rbx, -1816(%rbp)
-  leaq .LC_str_405(%rip), %rcx
-  movq .LC_str_405_len(%rip), %rdx
+  leaq .LC_str_407(%rip), %rcx
+  movq .LC_str_407_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -111464,8 +111770,8 @@
   movq %rdi, -1856(%rbp)
   movq $0, -1816(%rbp)
   movq $0, -1848(%rbp)
-  leaq .LC_str_618(%rip), %rcx
-  movq .LC_str_618_len(%rip), %rdx
+  leaq .LC_str_620(%rip), %rcx
+  movq .LC_str_620_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -111487,8 +111793,8 @@
   addq $32, %rsp
   movq %rax, %rbx
   movq $0, -1872(%rbp)
-  leaq .LC_str_626(%rip), %rcx
-  movq .LC_str_626_len(%rip), %rdx
+  leaq .LC_str_628(%rip), %rcx
+  movq .LC_str_628_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -111501,8 +111807,8 @@
   addq $32, %rsp
   movq %rax, %rsi
   movq $0, -1880(%rbp)
-  leaq .LC_str_627(%rip), %rcx
-  movq .LC_str_627_len(%rip), %rdx
+  leaq .LC_str_629(%rip), %rcx
+  movq .LC_str_629_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -111515,8 +111821,8 @@
   addq $32, %rsp
   movq %rax, %rsi
   movq $0, -1888(%rbp)
-  leaq .LC_str_628(%rip), %rcx
-  movq .LC_str_628_len(%rip), %rdx
+  leaq .LC_str_630(%rip), %rcx
+  movq .LC_str_630_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -111529,8 +111835,8 @@
   addq $32, %rsp
   movq %rax, %rsi
   movq $0, -1896(%rbp)
-  leaq .LC_str_619(%rip), %rcx
-  movq .LC_str_619_len(%rip), %rdx
+  leaq .LC_str_621(%rip), %rcx
+  movq .LC_str_621_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -111563,15 +111869,15 @@
   movq %rbx, %rax
   jmp .L_epilogue_उत्_निर्देश
 .L_उत्_निर्देश__if_सत्य_70:
-  leaq .LC_str_631(%rip), %rcx
-  movq .LC_str_631_len(%rip), %rdx
+  leaq .LC_str_633(%rip), %rcx
+  movq .LC_str_633_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %rbx
   movq %rbx, -1608(%rbp)
-  leaq .LC_str_568(%rip), %rcx
-  movq .LC_str_568_len(%rip), %rdx
+  leaq .LC_str_570(%rip), %rcx
+  movq .LC_str_570_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -111589,8 +111895,8 @@
 .L_किनारा_उत्_निर्देश_40:
   jmp .L_उत्_निर्देश__if_अंत_73
 .L_उत्_निर्देश__if_सत्य_72:
-  leaq .LC_str_632(%rip), %rcx
-  movq .LC_str_632_len(%rip), %rdx
+  leaq .LC_str_634(%rip), %rcx
+  movq .LC_str_634_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -111598,15 +111904,15 @@
   jmp .L_उत्_निर्देश__if_अंत_73
 .L_उत्_निर्देश__if_अंत_73:
   movq %rbx, -3672(%rbp)
-  leaq .LC_str_604(%rip), %rcx
-  movq .LC_str_604_len(%rip), %rdx
+  leaq .LC_str_606(%rip), %rcx
+  movq .LC_str_606_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %rsi
   movq %rsi, -1616(%rbp)
-  leaq .LC_str_405(%rip), %rcx
-  movq .LC_str_405_len(%rip), %rdx
+  leaq .LC_str_407(%rip), %rcx
+  movq .LC_str_407_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -111646,8 +111952,8 @@
   movq %r12, -1656(%rbp)
   movq $0, -1616(%rbp)
   movq $0, -1648(%rbp)
-  leaq .LC_str_618(%rip), %rcx
-  movq .LC_str_618_len(%rip), %rdx
+  leaq .LC_str_620(%rip), %rcx
+  movq .LC_str_620_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -111701,8 +112007,8 @@
   movq %rsi, -1704(%rbp)
   movq $0, -1688(%rbp)
   movq $0, -1696(%rbp)
-  leaq .LC_str_405(%rip), %rcx
-  movq .LC_str_405_len(%rip), %rdx
+  leaq .LC_str_407(%rip), %rcx
+  movq .LC_str_407_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -111742,8 +112048,8 @@
   movq %rdi, -1744(%rbp)
   movq $0, -1704(%rbp)
   movq $0, -1736(%rbp)
-  leaq .LC_str_618(%rip), %rcx
-  movq .LC_str_618_len(%rip), %rdx
+  leaq .LC_str_620(%rip), %rcx
+  movq .LC_str_620_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -111765,8 +112071,8 @@
   addq $32, %rsp
   movq %rax, %rbx
   movq $0, -1760(%rbp)
-  leaq .LC_str_626(%rip), %rcx
-  movq .LC_str_626_len(%rip), %rdx
+  leaq .LC_str_628(%rip), %rcx
+  movq .LC_str_628_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -111779,8 +112085,8 @@
   addq $32, %rsp
   movq %rax, %rsi
   movq $0, -1768(%rbp)
-  leaq .LC_str_633(%rip), %rcx
-  movq .LC_str_633_len(%rip), %rdx
+  leaq .LC_str_635(%rip), %rcx
+  movq .LC_str_635_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -111793,8 +112099,8 @@
   addq $32, %rsp
   movq %rax, %rsi
   movq $0, -1776(%rbp)
-  leaq .LC_str_628(%rip), %rcx
-  movq .LC_str_628_len(%rip), %rdx
+  leaq .LC_str_630(%rip), %rcx
+  movq .LC_str_630_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -111807,8 +112113,8 @@
   addq $32, %rsp
   movq %rax, %rsi
   movq $0, -1784(%rbp)
-  leaq .LC_str_619(%rip), %rcx
-  movq .LC_str_619_len(%rip), %rdx
+  leaq .LC_str_621(%rip), %rcx
+  movq .LC_str_621_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -111841,15 +112147,15 @@
   movq %rbx, %rax
   jmp .L_epilogue_उत्_निर्देश
 .L_उत्_निर्देश__if_सत्य_49:
-  leaq .LC_str_414(%rip), %rcx
-  movq .LC_str_414_len(%rip), %rdx
+  leaq .LC_str_416(%rip), %rcx
+  movq .LC_str_416_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %rbx
   movq %rbx, -1072(%rbp)
-  leaq .LC_str_406(%rip), %rcx
-  movq .LC_str_406_len(%rip), %rdx
+  leaq .LC_str_408(%rip), %rcx
+  movq .LC_str_408_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -111863,8 +112169,8 @@
   movq %rax, %rdi
   movq %rdi, -1088(%rbp)
   movq $0, -1080(%rbp)
-  leaq .LC_str_427(%rip), %rcx
-  movq .LC_str_427_len(%rip), %rdx
+  leaq .LC_str_429(%rip), %rcx
+  movq .LC_str_429_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -111901,8 +112207,8 @@
 .L_किनारा_उत्_निर्देश_41:
   jmp .L_उत्_निर्देश__if_अंत_52
 .L_उत्_निर्देश__if_सत्य_51:
-  leaq .LC_str_406(%rip), %rcx
-  movq .LC_str_406_len(%rip), %rdx
+  leaq .LC_str_408(%rip), %rcx
+  movq .LC_str_408_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -111916,8 +112222,8 @@
   movq %rax, %rsi
   movq %rsi, -1128(%rbp)
   movq $0, -1120(%rbp)
-  leaq .LC_str_427(%rip), %rcx
-  movq .LC_str_427_len(%rip), %rdx
+  leaq .LC_str_429(%rip), %rcx
+  movq .LC_str_429_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -111976,8 +112282,8 @@
   movq $0, %rsi
   jmp .L_उत्_निर्देश__sc_अंत_57
 .L_उत्_निर्देश__sc_दायाँ_55:
-  leaq .LC_str_463(%rip), %rcx
-  movq .LC_str_463_len(%rip), %rdx
+  leaq .LC_str_465(%rip), %rcx
+  movq .LC_str_465_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -111995,8 +112301,8 @@
 .L_किनारा_उत्_निर्देश_44:
   jmp .L_उत्_निर्देश__sc_दायाँ_58
 .L_उत्_निर्देश__sc_दायाँ_58:
-  leaq .LC_str_464(%rip), %rcx
-  movq .LC_str_464_len(%rip), %rdx
+  leaq .LC_str_466(%rip), %rcx
+  movq .LC_str_466_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -112051,15 +112357,15 @@
 .L_किनारा_उत्_निर्देश_46:
   jmp .L_उत्_निर्देश__if_अंत_64
 .L_उत्_निर्देश__if_अंत_64:
-  leaq .LC_str_604(%rip), %rcx
-  movq .LC_str_604_len(%rip), %rdx
+  leaq .LC_str_606(%rip), %rcx
+  movq .LC_str_606_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %rbx
   movq %rbx, -1408(%rbp)
-  leaq .LC_str_405(%rip), %rcx
-  movq .LC_str_405_len(%rip), %rdx
+  leaq .LC_str_407(%rip), %rcx
+  movq .LC_str_407_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -112099,8 +112405,8 @@
   movq %rdi, -1448(%rbp)
   movq $0, -1408(%rbp)
   movq $0, -1440(%rbp)
-  leaq .LC_str_618(%rip), %rcx
-  movq .LC_str_618_len(%rip), %rdx
+  leaq .LC_str_620(%rip), %rcx
+  movq .LC_str_620_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -112122,15 +112428,15 @@
   addq $32, %rsp
   movq %rax, %rbx
   movq $0, -1464(%rbp)
-  leaq .LC_str_629(%rip), %rcx
-  movq .LC_str_629_len(%rip), %rdx
+  leaq .LC_str_631(%rip), %rcx
+  movq .LC_str_631_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %rbx
   movq %rbx, -1472(%rbp)
-  leaq .LC_str_405(%rip), %rcx
-  movq .LC_str_405_len(%rip), %rdx
+  leaq .LC_str_407(%rip), %rcx
+  movq .LC_str_407_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -112170,8 +112476,8 @@
   movq %rdi, -1512(%rbp)
   movq $0, -1472(%rbp)
   movq $0, -1504(%rbp)
-  leaq .LC_str_618(%rip), %rcx
-  movq .LC_str_618_len(%rip), %rdx
+  leaq .LC_str_620(%rip), %rcx
+  movq .LC_str_620_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -112215,8 +112521,8 @@
   movq %rdi, -1552(%rbp)
   movq $0, -1536(%rbp)
   movq $0, -1544(%rbp)
-  leaq .LC_str_630(%rip), %rcx
-  movq .LC_str_630_len(%rip), %rdx
+  leaq .LC_str_632(%rip), %rcx
+  movq .LC_str_632_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -112238,8 +112544,8 @@
   addq $32, %rsp
   movq %rax, %rbx
   movq $0, -1568(%rbp)
-  leaq .LC_str_628(%rip), %rcx
-  movq .LC_str_628_len(%rip), %rdx
+  leaq .LC_str_630(%rip), %rcx
+  movq .LC_str_630_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -112252,8 +112558,8 @@
   addq $32, %rsp
   movq %rax, %rsi
   movq $0, -1576(%rbp)
-  leaq .LC_str_619(%rip), %rcx
-  movq .LC_str_619_len(%rip), %rdx
+  leaq .LC_str_621(%rip), %rcx
+  movq .LC_str_621_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -112292,8 +112598,8 @@
   addq $32, %rsp
   movq %rax, %rbx
   movq %rbx, -1232(%rbp)
-  leaq .LC_str_405(%rip), %rcx
-  movq .LC_str_405_len(%rip), %rdx
+  leaq .LC_str_407(%rip), %rcx
+  movq .LC_str_407_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -112324,8 +112630,8 @@
   movq %rax, %rsi
   movq %rsi, -1264(%rbp)
   movq $0, -1256(%rbp)
-  leaq .LC_str_405(%rip), %rcx
-  movq .LC_str_405_len(%rip), %rdx
+  leaq .LC_str_407(%rip), %rcx
+  movq .LC_str_407_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -112395,8 +112701,8 @@
   movq $0, -1232(%rbp)
   movq $0, -1304(%rbp)
   movq $0, -1312(%rbp)
-  leaq .LC_str_464(%rip), %rcx
-  movq .LC_str_464_len(%rip), %rdx
+  leaq .LC_str_466(%rip), %rcx
+  movq .LC_str_466_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -112414,8 +112720,8 @@
 .L_किनारा_उत्_निर्देश_47:
   jmp .L_उत्_निर्देश__if_अंत_66
 .L_उत्_निर्देश__if_सत्य_65:
-  leaq .LC_str_604(%rip), %rcx
-  movq .LC_str_604_len(%rip), %rdx
+  leaq .LC_str_606(%rip), %rcx
+  movq .LC_str_606_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -112437,8 +112743,8 @@
   movq %rdi, -1336(%rbp)
   movq $0, -1320(%rbp)
   movq $0, -1328(%rbp)
-  leaq .LC_str_618(%rip), %rcx
-  movq .LC_str_618_len(%rip), %rdx
+  leaq .LC_str_620(%rip), %rcx
+  movq .LC_str_620_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -112460,8 +112766,8 @@
   addq $32, %rsp
   movq %rax, %rbx
   movq $0, -1352(%rbp)
-  leaq .LC_str_626(%rip), %rcx
-  movq .LC_str_626_len(%rip), %rdx
+  leaq .LC_str_628(%rip), %rcx
+  movq .LC_str_628_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -112474,8 +112780,8 @@
   addq $32, %rsp
   movq %rax, %rsi
   movq $0, -1360(%rbp)
-  leaq .LC_str_627(%rip), %rcx
-  movq .LC_str_627_len(%rip), %rdx
+  leaq .LC_str_629(%rip), %rcx
+  movq .LC_str_629_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -112488,8 +112794,8 @@
   addq $32, %rsp
   movq %rax, %rsi
   movq $0, -1368(%rbp)
-  leaq .LC_str_628(%rip), %rcx
-  movq .LC_str_628_len(%rip), %rdx
+  leaq .LC_str_630(%rip), %rcx
+  movq .LC_str_630_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -112502,8 +112808,8 @@
   addq $32, %rsp
   movq %rax, %rsi
   movq $0, -1376(%rbp)
-  leaq .LC_str_619(%rip), %rcx
-  movq .LC_str_619_len(%rip), %rdx
+  leaq .LC_str_621(%rip), %rcx
+  movq .LC_str_621_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -112544,8 +112850,8 @@
   addq $32, %rsp
   movq %rax, %rbx
   movq %rbx, -1144(%rbp)
-  leaq .LC_str_405(%rip), %rcx
-  movq .LC_str_405_len(%rip), %rdx
+  leaq .LC_str_407(%rip), %rcx
+  movq .LC_str_407_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -112576,8 +112882,8 @@
   movq %rax, %rsi
   movq %rsi, -1176(%rbp)
   movq $0, -1168(%rbp)
-  leaq .LC_str_405(%rip), %rcx
-  movq .LC_str_405_len(%rip), %rdx
+  leaq .LC_str_407(%rip), %rcx
+  movq .LC_str_407_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -112651,15 +112957,15 @@
   movq %rbx, %rax
   jmp .L_epilogue_उत्_निर्देश
 .L_उत्_निर्देश__if_सत्य_44:
-  leaq .LC_str_604(%rip), %rcx
-  movq .LC_str_604_len(%rip), %rdx
+  leaq .LC_str_606(%rip), %rcx
+  movq .LC_str_606_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %rbx
   movq %rbx, -880(%rbp)
-  leaq .LC_str_405(%rip), %rcx
-  movq .LC_str_405_len(%rip), %rdx
+  leaq .LC_str_407(%rip), %rcx
+  movq .LC_str_407_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -112699,8 +113005,8 @@
   movq %rdi, -920(%rbp)
   movq $0, -880(%rbp)
   movq $0, -912(%rbp)
-  leaq .LC_str_621(%rip), %rcx
-  movq .LC_str_621_len(%rip), %rdx
+  leaq .LC_str_623(%rip), %rcx
+  movq .LC_str_623_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -112722,15 +113028,15 @@
   addq $32, %rsp
   movq %rax, %rbx
   movq $0, -936(%rbp)
-  leaq .LC_str_604(%rip), %rcx
-  movq .LC_str_604_len(%rip), %rdx
+  leaq .LC_str_606(%rip), %rcx
+  movq .LC_str_606_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %rbx
   movq %rbx, -944(%rbp)
-  leaq .LC_str_405(%rip), %rcx
-  movq .LC_str_405_len(%rip), %rdx
+  leaq .LC_str_407(%rip), %rcx
+  movq .LC_str_407_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -112770,8 +113076,8 @@
   movq %rdi, -984(%rbp)
   movq $0, -944(%rbp)
   movq $0, -976(%rbp)
-  leaq .LC_str_618(%rip), %rcx
-  movq .LC_str_618_len(%rip), %rdx
+  leaq .LC_str_620(%rip), %rcx
+  movq .LC_str_620_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -112793,8 +113099,8 @@
   addq $32, %rsp
   movq %rax, %rbx
   movq $0, -1000(%rbp)
-  leaq .LC_str_622(%rip), %rcx
-  movq .LC_str_622_len(%rip), %rdx
+  leaq .LC_str_624(%rip), %rcx
+  movq .LC_str_624_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -112807,8 +113113,8 @@
   addq $32, %rsp
   movq %rax, %rsi
   movq $0, -1008(%rbp)
-  leaq .LC_str_623(%rip), %rcx
-  movq .LC_str_623_len(%rip), %rdx
+  leaq .LC_str_625(%rip), %rcx
+  movq .LC_str_625_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -112821,8 +113127,8 @@
   addq $32, %rsp
   movq %rax, %rsi
   movq $0, -1016(%rbp)
-  leaq .LC_str_461(%rip), %rcx
-  movq .LC_str_461_len(%rip), %rdx
+  leaq .LC_str_463(%rip), %rcx
+  movq .LC_str_463_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -112840,8 +113146,8 @@
 .L_किनारा_उत्_निर्देश_48:
   jmp .L_उत्_निर्देश__if_असत्य_48
 .L_उत्_निर्देश__if_असत्य_48:
-  leaq .LC_str_625(%rip), %rcx
-  movq .LC_str_625_len(%rip), %rdx
+  leaq .LC_str_627(%rip), %rcx
+  movq .LC_str_627_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -112872,8 +113178,8 @@
   movq $0, -1064(%rbp)
   jmp .L_उत्_निर्देश__if_अंत_47
 .L_उत्_निर्देश__if_सत्य_46:
-  leaq .LC_str_624(%rip), %rcx
-  movq .LC_str_624_len(%rip), %rdx
+  leaq .LC_str_626(%rip), %rcx
+  movq .LC_str_626_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -112908,15 +113214,15 @@
   movq %rbx, %rax
   jmp .L_epilogue_उत्_निर्देश
 .L_उत्_निर्देश__if_सत्य_39:
-  leaq .LC_str_620(%rip), %rcx
-  movq .LC_str_620_len(%rip), %rdx
+  leaq .LC_str_622(%rip), %rcx
+  movq .LC_str_622_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %rbx
   movq %rbx, -792(%rbp)
-  leaq .LC_str_405(%rip), %rcx
-  movq .LC_str_405_len(%rip), %rdx
+  leaq .LC_str_407(%rip), %rcx
+  movq .LC_str_407_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -112947,8 +113253,8 @@
   movq %rax, %rsi
   movq %rsi, -824(%rbp)
   movq $0, -816(%rbp)
-  leaq .LC_str_405(%rip), %rcx
-  movq .LC_str_405_len(%rip), %rdx
+  leaq .LC_str_407(%rip), %rcx
+  movq .LC_str_407_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -113022,15 +113328,15 @@
   movq %rbx, %rax
   jmp .L_epilogue_उत्_निर्देश
 .L_उत्_निर्देश__if_सत्य_9:
-  leaq .LC_str_414(%rip), %rcx
-  movq .LC_str_414_len(%rip), %rdx
+  leaq .LC_str_416(%rip), %rcx
+  movq .LC_str_416_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %rbx
   movq %rbx, -232(%rbp)
-  leaq .LC_str_406(%rip), %rcx
-  movq .LC_str_406_len(%rip), %rdx
+  leaq .LC_str_408(%rip), %rcx
+  movq .LC_str_408_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -113044,8 +113350,8 @@
   movq %rax, %rdi
   movq %rdi, -248(%rbp)
   movq $0, -240(%rbp)
-  leaq .LC_str_427(%rip), %rcx
-  movq .LC_str_427_len(%rip), %rdx
+  leaq .LC_str_429(%rip), %rcx
+  movq .LC_str_429_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -113082,8 +113388,8 @@
 .L_किनारा_उत्_निर्देश_49:
   jmp .L_उत्_निर्देश__if_अंत_12
 .L_उत्_निर्देश__if_सत्य_11:
-  leaq .LC_str_406(%rip), %rcx
-  movq .LC_str_406_len(%rip), %rdx
+  leaq .LC_str_408(%rip), %rcx
+  movq .LC_str_408_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -113097,8 +113403,8 @@
   movq %rax, %rsi
   movq %rsi, -288(%rbp)
   movq $0, -280(%rbp)
-  leaq .LC_str_427(%rip), %rcx
-  movq .LC_str_427_len(%rip), %rdx
+  leaq .LC_str_429(%rip), %rcx
+  movq .LC_str_429_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -113116,8 +113422,8 @@
   jmp .L_उत्_निर्देश__if_अंत_12
 .L_उत्_निर्देश__if_अंत_12:
   movq %rbx, -3696(%rbp)
-  leaq .LC_str_458(%rip), %rcx
-  movq .LC_str_458_len(%rip), %rdx
+  leaq .LC_str_460(%rip), %rcx
+  movq .LC_str_460_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -113160,8 +113466,8 @@
 .L_किनारा_उत्_निर्देश_51:
   jmp .L_उत्_निर्देश__if_अंत_17
 .L_उत्_निर्देश__if_अंत_17:
-  leaq .LC_str_458(%rip), %rcx
-  movq .LC_str_458_len(%rip), %rdx
+  leaq .LC_str_460(%rip), %rcx
+  movq .LC_str_460_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -113224,15 +113530,15 @@
 .L_किनारा_उत्_निर्देश_54:
   jmp .L_उत्_निर्देश__if_अंत_24
 .L_उत्_निर्देश__if_अंत_24:
-  leaq .LC_str_615(%rip), %rcx
-  movq .LC_str_615_len(%rip), %rdx
+  leaq .LC_str_617(%rip), %rcx
+  movq .LC_str_617_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %rbx
   movq %rbx, -568(%rbp)
-  leaq .LC_str_459(%rip), %rcx
-  movq .LC_str_459_len(%rip), %rdx
+  leaq .LC_str_461(%rip), %rcx
+  movq .LC_str_461_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -113250,8 +113556,8 @@
 .L_किनारा_उत्_निर्देश_55:
   jmp .L_उत्_निर्देश__if_अंत_30
 .L_उत्_निर्देश__if_सत्य_29:
-  leaq .LC_str_616(%rip), %rcx
-  movq .LC_str_616_len(%rip), %rdx
+  leaq .LC_str_618(%rip), %rcx
+  movq .LC_str_618_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -113259,8 +113565,8 @@
   jmp .L_उत्_निर्देश__if_अंत_30
 .L_उत्_निर्देश__if_अंत_30:
   movq %rbx, -3704(%rbp)
-  leaq .LC_str_460(%rip), %rcx
-  movq .LC_str_460_len(%rip), %rdx
+  leaq .LC_str_462(%rip), %rcx
+  movq .LC_str_462_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -113278,8 +113584,8 @@
 .L_किनारा_उत्_निर्देश_56:
   jmp .L_उत्_निर्देश__if_अंत_32
 .L_उत्_निर्देश__if_सत्य_31:
-  leaq .LC_str_617(%rip), %rcx
-  movq .LC_str_617_len(%rip), %rdx
+  leaq .LC_str_619(%rip), %rcx
+  movq .LC_str_619_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -113287,15 +113593,15 @@
   jmp .L_उत्_निर्देश__if_अंत_32
 .L_उत्_निर्देश__if_अंत_32:
   movq %rbx, -3712(%rbp)
-  leaq .LC_str_604(%rip), %rcx
-  movq .LC_str_604_len(%rip), %rdx
+  leaq .LC_str_606(%rip), %rcx
+  movq .LC_str_606_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %rsi
   movq %rsi, -576(%rbp)
-  leaq .LC_str_405(%rip), %rcx
-  movq .LC_str_405_len(%rip), %rdx
+  leaq .LC_str_407(%rip), %rcx
+  movq .LC_str_407_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -113335,8 +113641,8 @@
   movq %r12, -616(%rbp)
   movq $0, -576(%rbp)
   movq $0, -608(%rbp)
-  leaq .LC_str_618(%rip), %rcx
-  movq .LC_str_618_len(%rip), %rdx
+  leaq .LC_str_620(%rip), %rcx
+  movq .LC_str_620_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -113390,8 +113696,8 @@
   movq %rsi, -664(%rbp)
   movq $0, -648(%rbp)
   movq $0, -656(%rbp)
-  leaq .LC_str_405(%rip), %rcx
-  movq .LC_str_405_len(%rip), %rdx
+  leaq .LC_str_407(%rip), %rcx
+  movq .LC_str_407_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -113431,8 +113737,8 @@
   movq %rdi, -704(%rbp)
   movq $0, -664(%rbp)
   movq $0, -696(%rbp)
-  leaq .LC_str_618(%rip), %rcx
-  movq .LC_str_618_len(%rip), %rdx
+  leaq .LC_str_620(%rip), %rcx
+  movq .LC_str_620_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -113454,8 +113760,8 @@
   addq $32, %rsp
   movq %rax, %rbx
   movq $0, -720(%rbp)
-  leaq .LC_str_619(%rip), %rcx
-  movq .LC_str_619_len(%rip), %rdx
+  leaq .LC_str_621(%rip), %rcx
+  movq .LC_str_621_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -113488,15 +113794,15 @@
   movq %rbx, %rax
   jmp .L_epilogue_उत्_निर्देश
 .L_उत्_निर्देश__if_सत्य_23:
-  leaq .LC_str_612(%rip), %rcx
-  movq .LC_str_612_len(%rip), %rdx
+  leaq .LC_str_614(%rip), %rcx
+  movq .LC_str_614_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %rbx
   movq %rbx, -480(%rbp)
-  leaq .LC_str_459(%rip), %rcx
-  movq .LC_str_459_len(%rip), %rdx
+  leaq .LC_str_461(%rip), %rcx
+  movq .LC_str_461_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -113514,8 +113820,8 @@
 .L_किनारा_उत्_निर्देश_57:
   jmp .L_उत्_निर्देश__if_अंत_26
 .L_उत्_निर्देश__if_सत्य_25:
-  leaq .LC_str_613(%rip), %rcx
-  movq .LC_str_613_len(%rip), %rdx
+  leaq .LC_str_615(%rip), %rcx
+  movq .LC_str_615_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -113523,8 +113829,8 @@
   jmp .L_उत्_निर्देश__if_अंत_26
 .L_उत्_निर्देश__if_अंत_26:
   movq %rbx, -3720(%rbp)
-  leaq .LC_str_460(%rip), %rcx
-  movq .LC_str_460_len(%rip), %rdx
+  leaq .LC_str_462(%rip), %rcx
+  movq .LC_str_462_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -113543,8 +113849,8 @@
 .L_किनारा_उत्_निर्देश_58:
   jmp .L_उत्_निर्देश__if_अंत_28
 .L_उत्_निर्देश__if_सत्य_27:
-  leaq .LC_str_614(%rip), %rcx
-  movq .LC_str_614_len(%rip), %rdx
+  leaq .LC_str_616(%rip), %rcx
+  movq .LC_str_616_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -113552,8 +113858,8 @@
   jmp .L_उत्_निर्देश__if_अंत_28
 .L_उत्_निर्देश__if_अंत_28:
   movq %rbx, -3728(%rbp)
-  leaq .LC_str_405(%rip), %rcx
-  movq .LC_str_405_len(%rip), %rdx
+  leaq .LC_str_407(%rip), %rcx
+  movq .LC_str_407_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -113584,8 +113890,8 @@
   movq %rax, %rsi
   movq %rsi, -512(%rbp)
   movq $0, -504(%rbp)
-  leaq .LC_str_405(%rip), %rcx
-  movq .LC_str_405_len(%rip), %rdx
+  leaq .LC_str_407(%rip), %rcx
+  movq .LC_str_407_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -113659,15 +113965,15 @@
   movq %rbx, %rax
   jmp .L_epilogue_उत्_निर्देश
 .L_उत्_निर्देश__if_सत्य_21:
-  leaq .LC_str_611(%rip), %rcx
-  movq .LC_str_611_len(%rip), %rdx
+  leaq .LC_str_613(%rip), %rcx
+  movq .LC_str_613_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %rbx
   movq %rbx, -392(%rbp)
-  leaq .LC_str_405(%rip), %rcx
-  movq .LC_str_405_len(%rip), %rdx
+  leaq .LC_str_407(%rip), %rcx
+  movq .LC_str_407_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -113698,8 +114004,8 @@
   movq %rax, %rsi
   movq %rsi, -424(%rbp)
   movq $0, -416(%rbp)
-  leaq .LC_str_405(%rip), %rcx
-  movq .LC_str_405_len(%rip), %rdx
+  leaq .LC_str_407(%rip), %rcx
+  movq .LC_str_407_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -113773,15 +114079,15 @@
   movq %rbx, %rax
   jmp .L_epilogue_उत्_निर्देश
 .L_उत्_निर्देश__if_सत्य_16:
-  leaq .LC_str_610(%rip), %rcx
-  movq .LC_str_610_len(%rip), %rdx
+  leaq .LC_str_612(%rip), %rcx
+  movq .LC_str_612_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %rbx
   movq %rbx, -304(%rbp)
-  leaq .LC_str_405(%rip), %rcx
-  movq .LC_str_405_len(%rip), %rdx
+  leaq .LC_str_407(%rip), %rcx
+  movq .LC_str_407_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -113812,8 +114118,8 @@
   movq %rax, %rsi
   movq %rsi, -336(%rbp)
   movq $0, -328(%rbp)
-  leaq .LC_str_405(%rip), %rcx
-  movq .LC_str_405_len(%rip), %rdx
+  leaq .LC_str_407(%rip), %rcx
+  movq .LC_str_407_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -114036,29 +114342,29 @@
   movq %r11, -128(%rbp)
 
 .L_उत्_रॉ_कॉल__प्रवेश_0:
-  leaq .LC_str_655(%rip), %rcx
-  movq .LC_str_655_len(%rip), %rdx
-  subq $32, %rsp
-  call sutra_str_alloc
-  addq $32, %rsp
-  movq %rax, %r13
-  movq %r13, -136(%rbp)
-  leaq .LC_str_656(%rip), %rcx
-  movq .LC_str_656_len(%rip), %rdx
-  subq $32, %rsp
-  call sutra_str_alloc
-  addq $32, %rsp
-  movq %rax, %r14
-  movq %r14, -144(%rbp)
   leaq .LC_str_657(%rip), %rcx
   movq .LC_str_657_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
-  movq %rax, %r15
-  movq %r15, -152(%rbp)
+  movq %rax, %r13
+  movq %r13, -136(%rbp)
   leaq .LC_str_658(%rip), %rcx
   movq .LC_str_658_len(%rip), %rdx
+  subq $32, %rsp
+  call sutra_str_alloc
+  addq $32, %rsp
+  movq %rax, %r14
+  movq %r14, -144(%rbp)
+  leaq .LC_str_659(%rip), %rcx
+  movq .LC_str_659_len(%rip), %rdx
+  subq $32, %rsp
+  call sutra_str_alloc
+  addq $32, %rsp
+  movq %rax, %r15
+  movq %r15, -152(%rbp)
+  leaq .LC_str_660(%rip), %rcx
+  movq .LC_str_660_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -114141,8 +114447,8 @@
 .L_किनारा_उत्_रॉ_कॉल_1:
   jmp .L_उत्_रॉ_कॉल__wh_अंत_3
 .L_उत्_रॉ_कॉल__wh_अंत_3:
-  leaq .LC_str_659(%rip), %rcx
-  movq .LC_str_659_len(%rip), %rdx
+  leaq .LC_str_661(%rip), %rcx
+  movq .LC_str_661_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -114155,8 +114461,8 @@
   addq $32, %rsp
   movq %rax, %r14
   movq $0, -232(%rbp)
-  leaq .LC_str_660(%rip), %rcx
-  movq .LC_str_660_len(%rip), %rdx
+  leaq .LC_str_662(%rip), %rcx
+  movq .LC_str_662_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -114177,8 +114483,8 @@
   addq $32, %rsp
   movq %rax, %r13
   movq $0, -248(%rbp)
-  leaq .LC_str_661(%rip), %rcx
-  movq .LC_str_661_len(%rip), %rdx
+  leaq .LC_str_663(%rip), %rcx
+  movq .LC_str_663_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -114215,8 +114521,8 @@
 .L_किनारा_उत्_रॉ_कॉल_2:
   jmp .L_उत्_रॉ_कॉल__if_अंत_8
 .L_उत्_रॉ_कॉल__if_सत्य_7:
-  leaq .LC_str_624(%rip), %rcx
-  movq .LC_str_624_len(%rip), %rdx
+  leaq .LC_str_626(%rip), %rcx
+  movq .LC_str_626_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -114243,8 +114549,8 @@
   movq %r13, %rax
   jmp .L_epilogue_उत्_रॉ_कॉल
 .L_उत्_रॉ_कॉल__wh_देह_2:
-  leaq .LC_str_604(%rip), %rcx
-  movq .LC_str_604_len(%rip), %rdx
+  leaq .LC_str_606(%rip), %rcx
+  movq .LC_str_606_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -114266,8 +114572,8 @@
   movq %r15, -192(%rbp)
   movq $0, -176(%rbp)
   movq $0, -184(%rbp)
-  leaq .LC_str_422(%rip), %rcx
-  movq .LC_str_422_len(%rip), %rdx
+  leaq .LC_str_424(%rip), %rcx
+  movq .LC_str_424_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -114346,8 +114652,8 @@
   movq %rbx, -48(%rbp)
 
 .L_उत्_तुलना_है__प्रवेश_0:
-  leaq .LC_str_463(%rip), %rcx
-  movq .LC_str_463_len(%rip), %rdx
+  leaq .LC_str_465(%rip), %rcx
+  movq .LC_str_465_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -114365,8 +114671,8 @@
 .L_किनारा_उत्_तुलना_है_0:
   jmp .L_उत्_तुलना_है__sc_दायाँ_1
 .L_उत्_तुलना_है__sc_दायाँ_1:
-  leaq .LC_str_464(%rip), %rcx
-  movq .LC_str_464_len(%rip), %rdx
+  leaq .LC_str_466(%rip), %rcx
+  movq .LC_str_466_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -114390,8 +114696,8 @@
 .L_किनारा_उत्_तुलना_है_1:
   jmp .L_उत्_तुलना_है__sc_दायाँ_4
 .L_उत्_तुलना_है__sc_दायाँ_4:
-  leaq .LC_str_465(%rip), %rcx
-  movq .LC_str_465_len(%rip), %rdx
+  leaq .LC_str_467(%rip), %rcx
+  movq .LC_str_467_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -114415,8 +114721,8 @@
 .L_किनारा_उत्_तुलना_है_2:
   jmp .L_उत्_तुलना_है__sc_दायाँ_7
 .L_उत्_तुलना_है__sc_दायाँ_7:
-  leaq .LC_str_466(%rip), %rcx
-  movq .LC_str_466_len(%rip), %rdx
+  leaq .LC_str_468(%rip), %rcx
+  movq .LC_str_468_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -114440,8 +114746,8 @@
 .L_किनारा_उत्_तुलना_है_3:
   jmp .L_उत्_तुलना_है__sc_दायाँ_10
 .L_उत्_तुलना_है__sc_दायाँ_10:
-  leaq .LC_str_467(%rip), %rcx
-  movq .LC_str_467_len(%rip), %rdx
+  leaq .LC_str_469(%rip), %rcx
+  movq .LC_str_469_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -114465,8 +114771,8 @@
 .L_किनारा_उत्_तुलना_है_4:
   jmp .L_उत्_तुलना_है__sc_दायाँ_13
 .L_उत्_तुलना_है__sc_दायाँ_13:
-  leaq .LC_str_468(%rip), %rcx
-  movq .LC_str_468_len(%rip), %rdx
+  leaq .LC_str_470(%rip), %rcx
+  movq .LC_str_470_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -114516,8 +114822,8 @@
   movq %rbx, -48(%rbp)
 
 .L_उत्_फ्लोट_तुलना_सिम__प्रवेश_0:
-  leaq .LC_str_463(%rip), %rcx
-  movq .LC_str_463_len(%rip), %rdx
+  leaq .LC_str_465(%rip), %rcx
+  movq .LC_str_465_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -114535,8 +114841,8 @@
 .L_किनारा_उत्_फ्लोट_तुलना_सिम_0:
   jmp .L_उत्_फ्लोट_तुलना_सिम__if_अंत_2
 .L_उत्_फ्लोट_तुलना_सिम__if_अंत_2:
-  leaq .LC_str_464(%rip), %rcx
-  movq .LC_str_464_len(%rip), %rdx
+  leaq .LC_str_466(%rip), %rcx
+  movq .LC_str_466_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -114554,8 +114860,8 @@
 .L_किनारा_उत्_फ्लोट_तुलना_सिम_1:
   jmp .L_उत्_फ्लोट_तुलना_सिम__if_अंत_4
 .L_उत्_फ्लोट_तुलना_सिम__if_अंत_4:
-  leaq .LC_str_465(%rip), %rcx
-  movq .LC_str_465_len(%rip), %rdx
+  leaq .LC_str_467(%rip), %rcx
+  movq .LC_str_467_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -114573,8 +114879,8 @@
 .L_किनारा_उत्_फ्लोट_तुलना_सिम_2:
   jmp .L_उत्_फ्लोट_तुलना_सिम__if_अंत_6
 .L_उत्_फ्लोट_तुलना_सिम__if_अंत_6:
-  leaq .LC_str_466(%rip), %rcx
-  movq .LC_str_466_len(%rip), %rdx
+  leaq .LC_str_468(%rip), %rcx
+  movq .LC_str_468_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -114592,8 +114898,8 @@
 .L_किनारा_उत्_फ्लोट_तुलना_सिम_3:
   jmp .L_उत्_फ्लोट_तुलना_सिम__if_अंत_8
 .L_उत्_फ्लोट_तुलना_सिम__if_अंत_8:
-  leaq .LC_str_467(%rip), %rcx
-  movq .LC_str_467_len(%rip), %rdx
+  leaq .LC_str_469(%rip), %rcx
+  movq .LC_str_469_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -114612,6 +114918,24 @@
 .L_किनारा_उत्_फ्लोट_तुलना_सिम_4:
   jmp .L_उत्_फ्लोट_तुलना_सिम__if_अंत_10
 .L_उत्_फ्लोट_तुलना_सिम__if_अंत_10:
+  leaq .LC_str_669(%rip), %rcx
+  movq .LC_str_669_len(%rip), %rdx
+  subq $32, %rsp
+  call sutra_str_alloc
+  addq $32, %rsp
+  movq %rax, %rbx
+  movq %rbx, %rax
+  jmp .L_epilogue_उत्_फ्लोट_तुलना_सिम
+.L_उत्_फ्लोट_तुलना_सिम__if_सत्य_9:
+  leaq .LC_str_668(%rip), %rcx
+  movq .LC_str_668_len(%rip), %rdx
+  subq $32, %rsp
+  call sutra_str_alloc
+  addq $32, %rsp
+  movq %rax, %rbx
+  movq %rbx, %rax
+  jmp .L_epilogue_उत्_फ्लोट_तुलना_सिम
+.L_उत्_फ्लोट_तुलना_सिम__if_सत्य_7:
   leaq .LC_str_667(%rip), %rcx
   movq .LC_str_667_len(%rip), %rdx
   subq $32, %rsp
@@ -114620,7 +114944,7 @@
   movq %rax, %rbx
   movq %rbx, %rax
   jmp .L_epilogue_उत्_फ्लोट_तुलना_सिम
-.L_उत्_फ्लोट_तुलना_सिम__if_सत्य_9:
+.L_उत्_फ्लोट_तुलना_सिम__if_सत्य_5:
   leaq .LC_str_666(%rip), %rcx
   movq .LC_str_666_len(%rip), %rdx
   subq $32, %rsp
@@ -114629,7 +114953,7 @@
   movq %rax, %rbx
   movq %rbx, %rax
   jmp .L_epilogue_उत्_फ्लोट_तुलना_सिम
-.L_उत्_फ्लोट_तुलना_सिम__if_सत्य_7:
+.L_उत्_फ्लोट_तुलना_सिम__if_सत्य_3:
   leaq .LC_str_665(%rip), %rcx
   movq .LC_str_665_len(%rip), %rdx
   subq $32, %rsp
@@ -114638,27 +114962,9 @@
   movq %rax, %rbx
   movq %rbx, %rax
   jmp .L_epilogue_उत्_फ्लोट_तुलना_सिम
-.L_उत्_फ्लोट_तुलना_सिम__if_सत्य_5:
+.L_उत्_फ्लोट_तुलना_सिम__if_सत्य_1:
   leaq .LC_str_664(%rip), %rcx
   movq .LC_str_664_len(%rip), %rdx
-  subq $32, %rsp
-  call sutra_str_alloc
-  addq $32, %rsp
-  movq %rax, %rbx
-  movq %rbx, %rax
-  jmp .L_epilogue_उत्_फ्लोट_तुलना_सिम
-.L_उत्_फ्लोट_तुलना_सिम__if_सत्य_3:
-  leaq .LC_str_663(%rip), %rcx
-  movq .LC_str_663_len(%rip), %rdx
-  subq $32, %rsp
-  call sutra_str_alloc
-  addq $32, %rsp
-  movq %rax, %rbx
-  movq %rbx, %rax
-  jmp .L_epilogue_उत्_फ्लोट_तुलना_सिम
-.L_उत्_फ्लोट_तुलना_सिम__if_सत्य_1:
-  leaq .LC_str_662(%rip), %rcx
-  movq .LC_str_662_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -114695,8 +115001,8 @@
   movq %rbx, -48(%rbp)
 
 .L_उत्_पाठ_तुलना_सिम__प्रवेश_0:
-  leaq .LC_str_463(%rip), %rcx
-  movq .LC_str_463_len(%rip), %rdx
+  leaq .LC_str_465(%rip), %rcx
+  movq .LC_str_465_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -114714,8 +115020,8 @@
 .L_किनारा_उत्_पाठ_तुलना_सिम_0:
   jmp .L_उत्_पाठ_तुलना_सिम__sc_दायाँ_1
 .L_उत्_पाठ_तुलना_सिम__sc_दायाँ_1:
-  leaq .LC_str_464(%rip), %rcx
-  movq .LC_str_464_len(%rip), %rdx
+  leaq .LC_str_466(%rip), %rcx
+  movq .LC_str_466_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -114739,8 +115045,8 @@
 .L_किनारा_उत्_पाठ_तुलना_सिम_1:
   jmp .L_उत्_पाठ_तुलना_सिम__if_अंत_5
 .L_उत्_पाठ_तुलना_सिम__if_अंत_5:
-  leaq .LC_str_465(%rip), %rcx
-  movq .LC_str_465_len(%rip), %rdx
+  leaq .LC_str_467(%rip), %rcx
+  movq .LC_str_467_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -114758,8 +115064,8 @@
 .L_किनारा_उत्_पाठ_तुलना_सिम_2:
   jmp .L_उत्_पाठ_तुलना_सिम__if_अंत_7
 .L_उत्_पाठ_तुलना_सिम__if_अंत_7:
-  leaq .LC_str_466(%rip), %rcx
-  movq .LC_str_466_len(%rip), %rdx
+  leaq .LC_str_468(%rip), %rcx
+  movq .LC_str_468_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -114777,8 +115083,8 @@
 .L_किनारा_उत्_पाठ_तुलना_सिम_3:
   jmp .L_उत्_पाठ_तुलना_सिम__if_अंत_9
 .L_उत्_पाठ_तुलना_सिम__if_अंत_9:
-  leaq .LC_str_467(%rip), %rcx
-  movq .LC_str_467_len(%rip), %rdx
+  leaq .LC_str_469(%rip), %rcx
+  movq .LC_str_469_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -114797,6 +115103,24 @@
 .L_किनारा_उत्_पाठ_तुलना_सिम_4:
   jmp .L_उत्_पाठ_तुलना_सिम__if_अंत_11
 .L_उत्_पाठ_तुलना_सिम__if_अंत_11:
+  leaq .LC_str_674(%rip), %rcx
+  movq .LC_str_674_len(%rip), %rdx
+  subq $32, %rsp
+  call sutra_str_alloc
+  addq $32, %rsp
+  movq %rax, %rbx
+  movq %rbx, %rax
+  jmp .L_epilogue_उत्_पाठ_तुलना_सिम
+.L_उत्_पाठ_तुलना_सिम__if_सत्य_10:
+  leaq .LC_str_673(%rip), %rcx
+  movq .LC_str_673_len(%rip), %rdx
+  subq $32, %rsp
+  call sutra_str_alloc
+  addq $32, %rsp
+  movq %rax, %rbx
+  movq %rbx, %rax
+  jmp .L_epilogue_उत्_पाठ_तुलना_सिम
+.L_उत्_पाठ_तुलना_सिम__if_सत्य_8:
   leaq .LC_str_672(%rip), %rcx
   movq .LC_str_672_len(%rip), %rdx
   subq $32, %rsp
@@ -114805,7 +115129,7 @@
   movq %rax, %rbx
   movq %rbx, %rax
   jmp .L_epilogue_उत्_पाठ_तुलना_सिम
-.L_उत्_पाठ_तुलना_सिम__if_सत्य_10:
+.L_उत्_पाठ_तुलना_सिम__if_सत्य_6:
   leaq .LC_str_671(%rip), %rcx
   movq .LC_str_671_len(%rip), %rdx
   subq $32, %rsp
@@ -114814,27 +115138,9 @@
   movq %rax, %rbx
   movq %rbx, %rax
   jmp .L_epilogue_उत्_पाठ_तुलना_सिम
-.L_उत्_पाठ_तुलना_सिम__if_सत्य_8:
+.L_उत्_पाठ_तुलना_सिम__if_सत्य_4:
   leaq .LC_str_670(%rip), %rcx
   movq .LC_str_670_len(%rip), %rdx
-  subq $32, %rsp
-  call sutra_str_alloc
-  addq $32, %rsp
-  movq %rax, %rbx
-  movq %rbx, %rax
-  jmp .L_epilogue_उत्_पाठ_तुलना_सिम
-.L_उत्_पाठ_तुलना_सिम__if_सत्य_6:
-  leaq .LC_str_669(%rip), %rcx
-  movq .LC_str_669_len(%rip), %rdx
-  subq $32, %rsp
-  call sutra_str_alloc
-  addq $32, %rsp
-  movq %rax, %rbx
-  movq %rbx, %rax
-  jmp .L_epilogue_उत्_पाठ_तुलना_सिम
-.L_उत्_पाठ_तुलना_सिम__if_सत्य_4:
-  leaq .LC_str_668(%rip), %rcx
-  movq .LC_str_668_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -114871,8 +115177,8 @@
   movq %rbx, -48(%rbp)
 
 .L_उत्_सेट_यंत्र__प्रवेश_0:
-  leaq .LC_str_463(%rip), %rcx
-  movq .LC_str_463_len(%rip), %rdx
+  leaq .LC_str_465(%rip), %rcx
+  movq .LC_str_465_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -114890,8 +115196,8 @@
 .L_किनारा_उत्_सेट_यंत्र_0:
   jmp .L_उत्_सेट_यंत्र__if_अंत_2
 .L_उत्_सेट_यंत्र__if_अंत_2:
-  leaq .LC_str_464(%rip), %rcx
-  movq .LC_str_464_len(%rip), %rdx
+  leaq .LC_str_466(%rip), %rcx
+  movq .LC_str_466_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -114909,8 +115215,8 @@
 .L_किनारा_उत्_सेट_यंत्र_1:
   jmp .L_उत्_सेट_यंत्र__if_अंत_4
 .L_उत्_सेट_यंत्र__if_अंत_4:
-  leaq .LC_str_465(%rip), %rcx
-  movq .LC_str_465_len(%rip), %rdx
+  leaq .LC_str_467(%rip), %rcx
+  movq .LC_str_467_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -114928,8 +115234,8 @@
 .L_किनारा_उत्_सेट_यंत्र_2:
   jmp .L_उत्_सेट_यंत्र__if_अंत_6
 .L_उत्_सेट_यंत्र__if_अंत_6:
-  leaq .LC_str_466(%rip), %rcx
-  movq .LC_str_466_len(%rip), %rdx
+  leaq .LC_str_468(%rip), %rcx
+  movq .LC_str_468_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -114947,8 +115253,8 @@
 .L_किनारा_उत्_सेट_यंत्र_3:
   jmp .L_उत्_सेट_यंत्र__if_अंत_8
 .L_उत्_सेट_यंत्र__if_अंत_8:
-  leaq .LC_str_467(%rip), %rcx
-  movq .LC_str_467_len(%rip), %rdx
+  leaq .LC_str_469(%rip), %rcx
+  movq .LC_str_469_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -114967,6 +115273,24 @@
 .L_किनारा_उत्_सेट_यंत्र_4:
   jmp .L_उत्_सेट_यंत्र__if_अंत_10
 .L_उत्_सेट_यंत्र__if_अंत_10:
+  leaq .LC_str_680(%rip), %rcx
+  movq .LC_str_680_len(%rip), %rdx
+  subq $32, %rsp
+  call sutra_str_alloc
+  addq $32, %rsp
+  movq %rax, %rbx
+  movq %rbx, %rax
+  jmp .L_epilogue_उत्_सेट_यंत्र
+.L_उत्_सेट_यंत्र__if_सत्य_9:
+  leaq .LC_str_679(%rip), %rcx
+  movq .LC_str_679_len(%rip), %rdx
+  subq $32, %rsp
+  call sutra_str_alloc
+  addq $32, %rsp
+  movq %rax, %rbx
+  movq %rbx, %rax
+  jmp .L_epilogue_उत्_सेट_यंत्र
+.L_उत्_सेट_यंत्र__if_सत्य_7:
   leaq .LC_str_678(%rip), %rcx
   movq .LC_str_678_len(%rip), %rdx
   subq $32, %rsp
@@ -114975,7 +115299,7 @@
   movq %rax, %rbx
   movq %rbx, %rax
   jmp .L_epilogue_उत्_सेट_यंत्र
-.L_उत्_सेट_यंत्र__if_सत्य_9:
+.L_उत्_सेट_यंत्र__if_सत्य_5:
   leaq .LC_str_677(%rip), %rcx
   movq .LC_str_677_len(%rip), %rdx
   subq $32, %rsp
@@ -114984,7 +115308,7 @@
   movq %rax, %rbx
   movq %rbx, %rax
   jmp .L_epilogue_उत्_सेट_यंत्र
-.L_उत्_सेट_यंत्र__if_सत्य_7:
+.L_उत्_सेट_यंत्र__if_सत्य_3:
   leaq .LC_str_676(%rip), %rcx
   movq .LC_str_676_len(%rip), %rdx
   subq $32, %rsp
@@ -114993,27 +115317,9 @@
   movq %rax, %rbx
   movq %rbx, %rax
   jmp .L_epilogue_उत्_सेट_यंत्र
-.L_उत्_सेट_यंत्र__if_सत्य_5:
+.L_उत्_सेट_यंत्र__if_सत्य_1:
   leaq .LC_str_675(%rip), %rcx
   movq .LC_str_675_len(%rip), %rdx
-  subq $32, %rsp
-  call sutra_str_alloc
-  addq $32, %rsp
-  movq %rax, %rbx
-  movq %rbx, %rax
-  jmp .L_epilogue_उत्_सेट_यंत्र
-.L_उत्_सेट_यंत्र__if_सत्य_3:
-  leaq .LC_str_674(%rip), %rcx
-  movq .LC_str_674_len(%rip), %rdx
-  subq $32, %rsp
-  call sutra_str_alloc
-  addq $32, %rsp
-  movq %rax, %rbx
-  movq %rbx, %rax
-  jmp .L_epilogue_उत्_सेट_यंत्र
-.L_उत्_सेट_यंत्र__if_सत्य_1:
-  leaq .LC_str_673(%rip), %rcx
-  movq .LC_str_673_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -115297,8 +115603,8 @@
   movq %r12, -112(%rbp)
 
 .L_उत्_स्थिर__प्रवेश_0:
-  leaq .LC_str_406(%rip), %rcx
-  movq .LC_str_406_len(%rip), %rdx
+  leaq .LC_str_408(%rip), %rcx
+  movq .LC_str_408_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -115312,8 +115618,8 @@
   movq %rax, %r14
   movq %r14, -128(%rbp)
   movq $0, -120(%rbp)
-  leaq .LC_str_413(%rip), %rcx
-  movq .LC_str_413_len(%rip), %rdx
+  leaq .LC_str_415(%rip), %rcx
+  movq .LC_str_415_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -115328,8 +115634,8 @@
   movq %r15, -144(%rbp)
   movq $0, -128(%rbp)
   movq $0, -136(%rbp)
-  leaq .LC_str_398(%rip), %rcx
-  movq .LC_str_398_len(%rip), %rdx
+  leaq .LC_str_400(%rip), %rcx
+  movq .LC_str_400_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -115352,8 +115658,8 @@
   movq %r13, -168(%rbp)
   movq $0, -96(%rbp)
   movq $0, -160(%rbp)
-  leaq .LC_str_414(%rip), %rcx
-  movq .LC_str_414_len(%rip), %rdx
+  leaq .LC_str_416(%rip), %rcx
+  movq .LC_str_416_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -115448,8 +115754,8 @@
 .L_किनारा_उत्_स्थिर_4:
   jmp .L_उत्_स्थिर__if_अंत_16
 .L_उत्_स्थिर__if_अंत_16:
-  leaq .LC_str_603(%rip), %rcx
-  movq .LC_str_603_len(%rip), %rdx
+  leaq .LC_str_605(%rip), %rcx
+  movq .LC_str_605_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -115474,8 +115780,8 @@
   movq %rsi, %rax
   jmp .L_epilogue_उत्_स्थिर
 .L_उत्_स्थिर__if_सत्य_15:
-  leaq .LC_str_406(%rip), %rcx
-  movq .LC_str_406_len(%rip), %rdx
+  leaq .LC_str_408(%rip), %rcx
+  movq .LC_str_408_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -115505,8 +115811,8 @@
   movq %r15, -440(%rbp)
   movq $0, -424(%rbp)
   movq $0, -432(%rbp)
-  leaq .LC_str_682(%rip), %rcx
-  movq .LC_str_682_len(%rip), %rdx
+  leaq .LC_str_684(%rip), %rcx
+  movq .LC_str_684_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -115520,8 +115826,8 @@
   movq %rax, %r14
   movq %r14, -456(%rbp)
   movq $0, -448(%rbp)
-  leaq .LC_str_683(%rip), %rcx
-  movq .LC_str_683_len(%rip), %rdx
+  leaq .LC_str_685(%rip), %rcx
+  movq .LC_str_685_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -115543,8 +115849,8 @@
   addq $32, %rsp
   movq %rax, %rsi
   movq $0, -472(%rbp)
-  leaq .LC_str_684(%rip), %rcx
-  movq .LC_str_684_len(%rip), %rdx
+  leaq .LC_str_686(%rip), %rcx
+  movq .LC_str_686_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -115559,8 +115865,8 @@
   movq %rsi, -488(%rbp)
   movq $0, -440(%rbp)
   movq $0, -480(%rbp)
-  leaq .LC_str_685(%rip), %rcx
-  movq .LC_str_685_len(%rip), %rdx
+  leaq .LC_str_687(%rip), %rcx
+  movq .LC_str_687_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -115582,8 +115888,8 @@
   addq $32, %rsp
   movq %rax, %rbx
   movq $0, -504(%rbp)
-  leaq .LC_str_659(%rip), %rcx
-  movq .LC_str_659_len(%rip), %rdx
+  leaq .LC_str_661(%rip), %rcx
+  movq .LC_str_661_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -115596,8 +115902,8 @@
   addq $32, %rsp
   movq %rax, %rsi
   movq $0, -512(%rbp)
-  leaq .LC_str_686(%rip), %rcx
-  movq .LC_str_686_len(%rip), %rdx
+  leaq .LC_str_688(%rip), %rcx
+  movq .LC_str_688_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -115610,8 +115916,8 @@
   addq $32, %rsp
   movq %rax, %rsi
   movq $0, -520(%rbp)
-  leaq .LC_str_661(%rip), %rcx
-  movq .LC_str_661_len(%rip), %rdx
+  leaq .LC_str_663(%rip), %rcx
+  movq .LC_str_663_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -115624,8 +115930,8 @@
   addq $32, %rsp
   movq %rax, %rsi
   movq $0, -528(%rbp)
-  leaq .LC_str_624(%rip), %rcx
-  movq .LC_str_624_len(%rip), %rdx
+  leaq .LC_str_626(%rip), %rcx
+  movq .LC_str_626_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -115650,8 +115956,8 @@
   movq %rbx, %rax
   jmp .L_epilogue_उत्_स्थिर
 .L_उत्_स्थिर__if_सत्य_13:
-  leaq .LC_str_603(%rip), %rcx
-  movq .LC_str_603_len(%rip), %rdx
+  leaq .LC_str_605(%rip), %rcx
+  movq .LC_str_605_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -115676,8 +115982,8 @@
   movq %rbx, %rax
   jmp .L_epilogue_उत्_स्थिर
 .L_उत्_स्थिर__if_सत्य_5:
-  leaq .LC_str_406(%rip), %rcx
-  movq .LC_str_406_len(%rip), %rdx
+  leaq .LC_str_408(%rip), %rcx
+  movq .LC_str_408_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -115742,8 +116048,8 @@
 .L_किनारा_उत्_स्थिर_6:
   jmp .L_उत्_स्थिर__if_असत्य_12
 .L_उत्_स्थिर__if_असत्य_12:
-  leaq .LC_str_603(%rip), %rcx
-  movq .LC_str_603_len(%rip), %rdx
+  leaq .LC_str_605(%rip), %rcx
+  movq .LC_str_605_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -115766,8 +116072,8 @@
   movq $0, -392(%rbp)
   jmp .L_उत्_स्थिर__if_अंत_11
 .L_उत्_स्थिर__if_सत्य_10:
-  leaq .LC_str_681(%rip), %rcx
-  movq .LC_str_681_len(%rip), %rdx
+  leaq .LC_str_683(%rip), %rcx
+  movq .LC_str_683_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -115794,8 +116100,8 @@
   movq %rbx, %rax
   jmp .L_epilogue_उत्_स्थिर
 .L_उत्_स्थिर__if_सत्य_3:
-  leaq .LC_str_406(%rip), %rcx
-  movq .LC_str_406_len(%rip), %rdx
+  leaq .LC_str_408(%rip), %rcx
+  movq .LC_str_408_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -115834,8 +116140,8 @@
   movq %rbx, -280(%rbp)
   movq $0, -104(%rbp)
   movq $0, -272(%rbp)
-  leaq .LC_str_680(%rip), %rcx
-  movq .LC_str_680_len(%rip), %rdx
+  leaq .LC_str_682(%rip), %rcx
+  movq .LC_str_682_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -115850,8 +116156,8 @@
   movq %rdi, -296(%rbp)
   movq $0, -280(%rbp)
   movq $0, -288(%rbp)
-  leaq .LC_str_637(%rip), %rcx
-  movq .LC_str_637_len(%rip), %rdx
+  leaq .LC_str_639(%rip), %rcx
+  movq .LC_str_639_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -115873,8 +116179,8 @@
   addq $32, %rsp
   movq %rax, %rbx
   movq $0, -312(%rbp)
-  leaq .LC_str_619(%rip), %rcx
-  movq .LC_str_619_len(%rip), %rdx
+  leaq .LC_str_621(%rip), %rcx
+  movq .LC_str_621_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -115899,15 +116205,15 @@
   movq %rbx, %rax
   jmp .L_epilogue_उत्_स्थिर
 .L_उत्_स्थिर__if_सत्य_1:
-  leaq .LC_str_679(%rip), %rcx
-  movq .LC_str_679_len(%rip), %rdx
+  leaq .LC_str_681(%rip), %rcx
+  movq .LC_str_681_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %rbx
   movq %rbx, -176(%rbp)
-  leaq .LC_str_406(%rip), %rcx
-  movq .LC_str_406_len(%rip), %rdx
+  leaq .LC_str_408(%rip), %rcx
+  movq .LC_str_408_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -115947,8 +116253,8 @@
   movq %rsi, -216(%rbp)
   movq $0, -176(%rbp)
   movq $0, -208(%rbp)
-  leaq .LC_str_422(%rip), %rcx
-  movq .LC_str_422_len(%rip), %rdx
+  leaq .LC_str_424(%rip), %rcx
+  movq .LC_str_424_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -116207,8 +116513,8 @@
   movq %rdi, -72(%rbp)
   jmp .L_उत्_कॉल__if_अंत_2
 .L_उत्_कॉल__if_सत्य_1:
-  leaq .LC_str_687(%rip), %rcx
-  movq .LC_str_687_len(%rip), %rdx
+  leaq .LC_str_689(%rip), %rcx
+  movq .LC_str_689_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -116218,29 +116524,29 @@
 .L_उत्_कॉल__if_अंत_2:
   movq -72(%rbp), %r11
   movq %r11, -464(%rbp)
-  leaq .LC_str_655(%rip), %rcx
-  movq .LC_str_655_len(%rip), %rdx
-  subq $32, %rsp
-  call sutra_str_alloc
-  addq $32, %rsp
-  movq %rax, %r14
-  movq %r14, -216(%rbp)
-  leaq .LC_str_656(%rip), %rcx
-  movq .LC_str_656_len(%rip), %rdx
-  subq $32, %rsp
-  call sutra_str_alloc
-  addq $32, %rsp
-  movq %rax, %r15
-  movq %r15, -224(%rbp)
   leaq .LC_str_657(%rip), %rcx
   movq .LC_str_657_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
-  movq %rax, %rdi
-  movq %rdi, -232(%rbp)
+  movq %rax, %r14
+  movq %r14, -216(%rbp)
   leaq .LC_str_658(%rip), %rcx
   movq .LC_str_658_len(%rip), %rdx
+  subq $32, %rsp
+  call sutra_str_alloc
+  addq $32, %rsp
+  movq %rax, %r15
+  movq %r15, -224(%rbp)
+  leaq .LC_str_659(%rip), %rcx
+  movq .LC_str_659_len(%rip), %rdx
+  subq $32, %rsp
+  call sutra_str_alloc
+  addq $32, %rsp
+  movq %rax, %rdi
+  movq %rdi, -232(%rbp)
+  leaq .LC_str_660(%rip), %rcx
+  movq .LC_str_660_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -116357,8 +116663,8 @@
 .L_किनारा_उत्_कॉल_3:
   jmp .L_उत्_कॉल__if_अंत_8
 .L_उत्_कॉल__if_सत्य_7:
-  leaq .LC_str_688(%rip), %rcx
-  movq .LC_str_688_len(%rip), %rdx
+  leaq .LC_str_690(%rip), %rcx
+  movq .LC_str_690_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -116439,8 +116745,8 @@
 .L_किनारा_उत्_कॉल_6:
   jmp .L_उत्_कॉल__wh_अंत_14
 .L_उत्_कॉल__wh_अंत_14:
-  leaq .LC_str_659(%rip), %rcx
-  movq .LC_str_659_len(%rip), %rdx
+  leaq .LC_str_661(%rip), %rcx
+  movq .LC_str_661_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -116453,8 +116759,8 @@
   addq $32, %rsp
   movq %rax, %r15
   movq $0, -384(%rbp)
-  leaq .LC_str_660(%rip), %rcx
-  movq .LC_str_660_len(%rip), %rdx
+  leaq .LC_str_662(%rip), %rcx
+  movq .LC_str_662_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -116475,8 +116781,8 @@
   addq $32, %rsp
   movq %rax, %rdi
   movq $0, -400(%rbp)
-  leaq .LC_str_690(%rip), %rcx
-  movq .LC_str_690_len(%rip), %rdx
+  leaq .LC_str_692(%rip), %rcx
+  movq .LC_str_692_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -116501,8 +116807,8 @@
   movq %rax, %r12
   movq %r12, -416(%rbp)
   movq $0, -408(%rbp)
-  leaq .LC_str_691(%rip), %rcx
-  movq .LC_str_691_len(%rip), %rdx
+  leaq .LC_str_693(%rip), %rcx
+  movq .LC_str_693_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -116537,8 +116843,8 @@
 .L_किनारा_उत्_कॉल_7:
   jmp .L_उत्_कॉल__if_अंत_19
 .L_उत्_कॉल__if_सत्य_18:
-  leaq .LC_str_624(%rip), %rcx
-  movq .LC_str_624_len(%rip), %rdx
+  leaq .LC_str_626(%rip), %rcx
+  movq .LC_str_626_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -116573,8 +116879,8 @@
   movq %rsi, %rax
   jmp .L_epilogue_उत्_कॉल
 .L_उत्_कॉल__wh_देह_13:
-  leaq .LC_str_604(%rip), %rcx
-  movq .LC_str_604_len(%rip), %rdx
+  leaq .LC_str_606(%rip), %rcx
+  movq .LC_str_606_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -116604,8 +116910,8 @@
   movq %rdi, -344(%rbp)
   movq $0, -320(%rbp)
   movq $0, -336(%rbp)
-  leaq .LC_str_422(%rip), %rcx
-  movq .LC_str_422_len(%rip), %rdx
+  leaq .LC_str_424(%rip), %rcx
+  movq .LC_str_424_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -116651,8 +116957,8 @@
   movq %rdi, %r14
   jmp .L_उत्_कॉल__wh_शर्त_12
 .L_उत्_कॉल__wh_देह_10:
-  leaq .LC_str_604(%rip), %rcx
-  movq .LC_str_604_len(%rip), %rdx
+  leaq .LC_str_606(%rip), %rcx
+  movq .LC_str_606_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -116682,8 +116988,8 @@
   movq %rdi, -288(%rbp)
   movq $0, -264(%rbp)
   movq $0, -280(%rbp)
-  leaq .LC_str_605(%rip), %rcx
-  movq .LC_str_605_len(%rip), %rdx
+  leaq .LC_str_607(%rip), %rcx
+  movq .LC_str_607_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -116705,8 +117011,8 @@
   addq $32, %rsp
   movq %rax, %rsi
   movq $0, -304(%rbp)
-  leaq .LC_str_689(%rip), %rcx
-  movq .LC_str_689_len(%rip), %rdx
+  leaq .LC_str_691(%rip), %rcx
+  movq .LC_str_691_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -117050,8 +117356,8 @@
   movq %rdi, -136(%rbp)
 
 .L_उत्_अंतर्__प्रवेश_0:
-  leaq .LC_str_406(%rip), %rcx
-  movq .LC_str_406_len(%rip), %rdx
+  leaq .LC_str_408(%rip), %rcx
+  movq .LC_str_408_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -117081,8 +117387,8 @@
   movq %r14, -168(%rbp)
   movq $0, -152(%rbp)
   movq $0, -160(%rbp)
-  leaq .LC_str_405(%rip), %rcx
-  movq .LC_str_405_len(%rip), %rdx
+  leaq .LC_str_407(%rip), %rcx
+  movq .LC_str_407_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -117096,8 +117402,8 @@
   movq %rax, %r13
   movq %r13, -184(%rbp)
   movq $0, -176(%rbp)
-  leaq .LC_str_398(%rip), %rcx
-  movq .LC_str_398_len(%rip), %rdx
+  leaq .LC_str_400(%rip), %rcx
+  movq .LC_str_400_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -117223,15 +117529,15 @@
   movq %rdi, %rax
   jmp .L_epilogue_उत्_अंतर्
 .L_उत्_अंतर्__if_सत्य_11:
-  leaq .LC_str_657(%rip), %rcx
-  movq .LC_str_657_len(%rip), %rdx
+  leaq .LC_str_659(%rip), %rcx
+  movq .LC_str_659_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %rdi
   movq %rdi, -368(%rbp)
-  leaq .LC_str_692(%rip), %rcx
-  movq .LC_str_692_len(%rip), %rdx
+  leaq .LC_str_694(%rip), %rcx
+  movq .LC_str_694_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -117258,15 +117564,15 @@
   movq %r12, %rdi
   jmp .L_उत्_अंतर्__if_अंत_14
 .L_उत्_अंतर्__if_सत्य_13:
-  leaq .LC_str_695(%rip), %rcx
-  movq .LC_str_695_len(%rip), %rdx
+  leaq .LC_str_697(%rip), %rcx
+  movq .LC_str_697_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %rbx
   movq %rbx, -384(%rbp)
-  leaq .LC_str_696(%rip), %rcx
-  movq .LC_str_696_len(%rip), %rdx
+  leaq .LC_str_698(%rip), %rcx
+  movq .LC_str_698_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -117278,8 +117584,8 @@
 .L_उत्_अंतर्__if_अंत_14:
   movq %rbx, -664(%rbp)
   movq %rdi, -672(%rbp)
-  leaq .LC_str_604(%rip), %rcx
-  movq .LC_str_604_len(%rip), %rdx
+  leaq .LC_str_606(%rip), %rcx
+  movq .LC_str_606_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -117310,8 +117616,8 @@
   movq %rsi, -416(%rbp)
   movq $0, -392(%rbp)
   movq $0, -408(%rbp)
-  leaq .LC_str_618(%rip), %rcx
-  movq .LC_str_618_len(%rip), %rdx
+  leaq .LC_str_620(%rip), %rcx
+  movq .LC_str_620_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -117333,8 +117639,8 @@
   addq $32, %rsp
   movq %rax, %rsi
   movq $0, -432(%rbp)
-  leaq .LC_str_604(%rip), %rcx
-  movq .LC_str_604_len(%rip), %rdx
+  leaq .LC_str_606(%rip), %rcx
+  movq .LC_str_606_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -117365,8 +117671,8 @@
   movq %r15, -464(%rbp)
   movq $0, -440(%rbp)
   movq $0, -456(%rbp)
-  leaq .LC_str_605(%rip), %rcx
-  movq .LC_str_605_len(%rip), %rdx
+  leaq .LC_str_607(%rip), %rcx
+  movq .LC_str_607_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -117388,8 +117694,8 @@
   addq $32, %rsp
   movq %rax, %rsi
   movq $0, -480(%rbp)
-  leaq .LC_str_604(%rip), %rcx
-  movq .LC_str_604_len(%rip), %rdx
+  leaq .LC_str_606(%rip), %rcx
+  movq .LC_str_606_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -117420,8 +117726,8 @@
   movq %r15, -512(%rbp)
   movq $0, -488(%rbp)
   movq $0, -504(%rbp)
-  leaq .LC_str_697(%rip), %rcx
-  movq .LC_str_697_len(%rip), %rdx
+  leaq .LC_str_699(%rip), %rcx
+  movq .LC_str_699_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -117484,8 +117790,8 @@
   movq %rsi, -568(%rbp)
   movq $0, -560(%rbp)
   movq $0, -664(%rbp)
-  leaq .LC_str_698(%rip), %rcx
-  movq .LC_str_698_len(%rip), %rdx
+  leaq .LC_str_700(%rip), %rcx
+  movq .LC_str_700_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -117520,8 +117826,8 @@
 .L_किनारा_उत्_अंतर्_5:
   jmp .L_उत्_अंतर्__if_अंत_16
 .L_उत्_अंतर्__if_सत्य_15:
-  leaq .LC_str_604(%rip), %rcx
-  movq .LC_str_604_len(%rip), %rdx
+  leaq .LC_str_606(%rip), %rcx
+  movq .LC_str_606_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -117552,8 +117858,8 @@
   movq %rdi, -616(%rbp)
   movq $0, -592(%rbp)
   movq $0, -608(%rbp)
-  leaq .LC_str_422(%rip), %rcx
-  movq .LC_str_422_len(%rip), %rdx
+  leaq .LC_str_424(%rip), %rcx
+  movq .LC_str_424_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -117597,8 +117903,8 @@
   movq %rbx, %rax
   jmp .L_epilogue_उत्_अंतर्
 .L_उत्_अंतर्__if_सत्य_4:
-  leaq .LC_str_692(%rip), %rcx
-  movq .LC_str_692_len(%rip), %rdx
+  leaq .LC_str_694(%rip), %rcx
+  movq .LC_str_694_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -117624,8 +117930,8 @@
 .L_किनारा_उत्_अंतर्_6:
   jmp .L_उत्_अंतर्__if_अंत_7
 .L_उत्_अंतर्__if_सत्य_6:
-  leaq .LC_str_693(%rip), %rcx
-  movq .LC_str_693_len(%rip), %rdx
+  leaq .LC_str_695(%rip), %rcx
+  movq .LC_str_695_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -117633,8 +117939,8 @@
   jmp .L_उत्_अंतर्__if_अंत_7
 .L_उत्_अंतर्__if_अंत_7:
   movq %rbx, -680(%rbp)
-  leaq .LC_str_604(%rip), %rcx
-  movq .LC_str_604_len(%rip), %rdx
+  leaq .LC_str_606(%rip), %rcx
+  movq .LC_str_606_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -117665,8 +117971,8 @@
   movq %r12, -240(%rbp)
   movq $0, -216(%rbp)
   movq $0, -232(%rbp)
-  leaq .LC_str_618(%rip), %rcx
-  movq .LC_str_618_len(%rip), %rdx
+  leaq .LC_str_620(%rip), %rcx
+  movq .LC_str_620_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -117688,8 +117994,8 @@
   addq $32, %rsp
   movq %rax, %rsi
   movq $0, -256(%rbp)
-  leaq .LC_str_604(%rip), %rcx
-  movq .LC_str_604_len(%rip), %rdx
+  leaq .LC_str_606(%rip), %rcx
+  movq .LC_str_606_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -117721,8 +118027,8 @@
   movq %r12, -288(%rbp)
   movq $0, -264(%rbp)
   movq $0, -280(%rbp)
-  leaq .LC_str_605(%rip), %rcx
-  movq .LC_str_605_len(%rip), %rdx
+  leaq .LC_str_607(%rip), %rcx
+  movq .LC_str_607_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -117760,8 +118066,8 @@
   movq %rdi, -320(%rbp)
   movq $0, -312(%rbp)
   movq $0, -680(%rbp)
-  leaq .LC_str_694(%rip), %rcx
-  movq .LC_str_694_len(%rip), %rdx
+  leaq .LC_str_696(%rip), %rcx
+  movq .LC_str_696_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -117783,8 +118089,8 @@
   addq $32, %rsp
   movq %rax, %rbx
   movq $0, -336(%rbp)
-  leaq .LC_str_619(%rip), %rcx
-  movq .LC_str_619_len(%rip), %rdx
+  leaq .LC_str_621(%rip), %rcx
+  movq .LC_str_621_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -117948,11 +118254,95 @@
 .L_किनारा_उत्_अंतर्_प्रतीक_4:
   jmp .L_उत्_अंतर्_प्रतीक__if_अंत_10
 .L_उत्_अंतर्_प्रतीक__if_अंत_10:
+  leaq .LC_str_380(%rip), %rcx
+  movq .LC_str_380_len(%rip), %rdx
+  subq $32, %rsp
+  call sutra_str_alloc
+  addq $32, %rsp
+  movq %rax, %rsi
+  movq %rbx, %rcx
+  movq %rsi, %rdx
+  subq $32, %rsp
+  call पाठ_तुल्य
+  addq $32, %rsp
+  movq %rax, %rdi
+  movq %rdi, %r10
+  cmpq $0, %r10
+  je .L_किनारा_उत्_अंतर्_प्रतीक_5
+  jmp .L_उत्_अंतर्_प्रतीक__if_सत्य_11
+.L_किनारा_उत्_अंतर्_प्रतीक_5:
+  jmp .L_उत्_अंतर्_प्रतीक__if_अंत_12
+.L_उत्_अंतर्_प्रतीक__if_अंत_12:
+  leaq .LC_str_381(%rip), %rcx
+  movq .LC_str_381_len(%rip), %rdx
+  subq $32, %rsp
+  call sutra_str_alloc
+  addq $32, %rsp
+  movq %rax, %rsi
+  movq %rbx, %rcx
+  movq %rsi, %rdx
+  subq $32, %rsp
+  call पाठ_तुल्य
+  addq $32, %rsp
+  movq %rax, %rdi
+  movq %rdi, %r10
+  cmpq $0, %r10
+  je .L_किनारा_उत्_अंतर्_प्रतीक_6
+  jmp .L_उत्_अंतर्_प्रतीक__if_सत्य_13
+.L_किनारा_उत्_अंतर्_प्रतीक_6:
+  jmp .L_उत्_अंतर्_प्रतीक__if_अंत_14
+.L_उत्_अंतर्_प्रतीक__if_अंत_14:
+  leaq .LC_str_382(%rip), %rcx
+  movq .LC_str_382_len(%rip), %rdx
+  subq $32, %rsp
+  call sutra_str_alloc
+  addq $32, %rsp
+  movq %rax, %rsi
+  movq %rbx, %rcx
+  movq %rsi, %rdx
+  subq $32, %rsp
+  call पाठ_तुल्य
+  addq $32, %rsp
+  movq %rax, %rdi
+  movq %rdi, %r10
+  cmpq $0, %r10
+  je .L_किनारा_उत्_अंतर्_प्रतीक_7
+  jmp .L_उत्_अंतर्_प्रतीक__if_सत्य_15
+.L_किनारा_उत्_अंतर्_प्रतीक_7:
+  jmp .L_उत्_अंतर्_प्रतीक__if_अंत_16
+.L_उत्_अंतर्_प्रतीक__if_अंत_16:
+  movq %rbx, %rax
+  jmp .L_epilogue_उत्_अंतर्_प्रतीक
+.L_उत्_अंतर्_प्रतीक__if_सत्य_15:
+  leaq .LC_str_706(%rip), %rcx
+  movq .LC_str_706_len(%rip), %rdx
+  subq $32, %rsp
+  call sutra_str_alloc
+  addq $32, %rsp
+  movq %rax, %rbx
+  movq %rbx, %rax
+  jmp .L_epilogue_उत्_अंतर्_प्रतीक
+.L_उत्_अंतर्_प्रतीक__if_सत्य_13:
+  leaq .LC_str_705(%rip), %rcx
+  movq .LC_str_705_len(%rip), %rdx
+  subq $32, %rsp
+  call sutra_str_alloc
+  addq $32, %rsp
+  movq %rax, %rbx
+  movq %rbx, %rax
+  jmp .L_epilogue_उत्_अंतर्_प्रतीक
+.L_उत्_अंतर्_प्रतीक__if_सत्य_11:
+  leaq .LC_str_704(%rip), %rcx
+  movq .LC_str_704_len(%rip), %rdx
+  subq $32, %rsp
+  call sutra_str_alloc
+  addq $32, %rsp
+  movq %rax, %rbx
   movq %rbx, %rax
   jmp .L_epilogue_उत्_अंतर्_प्रतीक
 .L_उत्_अंतर्_प्रतीक__if_सत्य_9:
-  leaq .LC_str_652(%rip), %rcx
-  movq .LC_str_652_len(%rip), %rdx
+  leaq .LC_str_654(%rip), %rcx
+  movq .LC_str_654_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -117960,8 +118350,8 @@
   movq %rbx, %rax
   jmp .L_epilogue_उत्_अंतर्_प्रतीक
 .L_उत्_अंतर्_प्रतीक__if_सत्य_7:
-  leaq .LC_str_651(%rip), %rcx
-  movq .LC_str_651_len(%rip), %rdx
+  leaq .LC_str_653(%rip), %rcx
+  movq .LC_str_653_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -117969,8 +118359,8 @@
   movq %rbx, %rax
   jmp .L_epilogue_उत्_अंतर्_प्रतीक
 .L_उत्_अंतर्_प्रतीक__if_सत्य_5:
-  leaq .LC_str_701(%rip), %rcx
-  movq .LC_str_701_len(%rip), %rdx
+  leaq .LC_str_703(%rip), %rcx
+  movq .LC_str_703_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -117978,8 +118368,8 @@
   movq %rbx, %rax
   jmp .L_epilogue_उत्_अंतर्_प्रतीक
 .L_उत्_अंतर्_प्रतीक__if_सत्य_3:
-  leaq .LC_str_700(%rip), %rcx
-  movq .LC_str_700_len(%rip), %rdx
+  leaq .LC_str_702(%rip), %rcx
+  movq .LC_str_702_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -117987,8 +118377,8 @@
   movq %rbx, %rax
   jmp .L_epilogue_उत्_अंतर्_प्रतीक
 .L_उत्_अंतर्_प्रतीक__if_सत्य_1:
-  leaq .LC_str_699(%rip), %rcx
-  movq .LC_str_699_len(%rip), %rdx
+  leaq .LC_str_701(%rip), %rcx
+  movq .LC_str_701_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -118418,8 +118808,8 @@
   movq %rax, %rdi
   movq %rdi, -344(%rbp)
   movq $0, -336(%rbp)
-  leaq .LC_str_604(%rip), %rcx
-  movq .LC_str_604_len(%rip), %rdx
+  leaq .LC_str_606(%rip), %rcx
+  movq .LC_str_606_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -118433,8 +118823,8 @@
   movq %rax, %r13
   movq %r13, -360(%rbp)
   movq $0, -352(%rbp)
-  leaq .LC_str_422(%rip), %rcx
-  movq .LC_str_422_len(%rip), %rdx
+  leaq .LC_str_424(%rip), %rcx
+  movq .LC_str_424_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -118945,8 +119335,8 @@
 .L_किनारा_उत्_एक_चाल_2:
   jmp .L_उत्_एक_चाल__if_असत्य_8
 .L_उत्_एक_चाल__if_असत्य_8:
-  leaq .LC_str_604(%rip), %rcx
-  movq .LC_str_604_len(%rip), %rdx
+  leaq .LC_str_606(%rip), %rcx
+  movq .LC_str_606_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -118960,8 +119350,8 @@
   movq %rax, %r14
   movq %r14, -200(%rbp)
   movq $0, -192(%rbp)
-  leaq .LC_str_422(%rip), %rcx
-  movq .LC_str_422_len(%rip), %rdx
+  leaq .LC_str_424(%rip), %rcx
+  movq .LC_str_424_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -118993,8 +119383,8 @@
   movq $0, -224(%rbp)
   jmp .L_उत्_एक_चाल__if_अंत_7
 .L_उत्_एक_चाल__if_सत्य_6:
-  leaq .LC_str_604(%rip), %rcx
-  movq .LC_str_604_len(%rip), %rdx
+  leaq .LC_str_606(%rip), %rcx
+  movq .LC_str_606_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -119009,8 +119399,8 @@
   movq %r14, -120(%rbp)
   movq $0, -88(%rbp)
   movq $0, -112(%rbp)
-  leaq .LC_str_422(%rip), %rcx
-  movq .LC_str_422_len(%rip), %rdx
+  leaq .LC_str_424(%rip), %rcx
+  movq .LC_str_424_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -119040,8 +119430,8 @@
   addq $32, %rsp
   movq %rax, %r13
   movq $0, -144(%rbp)
-  leaq .LC_str_604(%rip), %rcx
-  movq .LC_str_604_len(%rip), %rdx
+  leaq .LC_str_606(%rip), %rcx
+  movq .LC_str_606_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -119056,8 +119446,8 @@
   movq %r13, -160(%rbp)
   movq $0, -104(%rbp)
   movq $0, -152(%rbp)
-  leaq .LC_str_422(%rip), %rcx
-  movq .LC_str_422_len(%rip), %rdx
+  leaq .LC_str_424(%rip), %rcx
+  movq .LC_str_424_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -119523,8 +119913,8 @@
   movq %r12, -192(%rbp)
 
 .L_उत्_फाई_चालें__प्रवेश_0:
-  leaq .LC_str_401(%rip), %rcx
-  movq .LC_str_401_len(%rip), %rdx
+  leaq .LC_str_403(%rip), %rcx
+  movq .LC_str_403_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -119611,8 +120001,8 @@
 .L_किनारा_उत्_फाई_चालें_1:
   jmp .L_उत्_फाई_चालें__wh_अंत_13
 .L_उत्_फाई_चालें__wh_अंत_13:
-  leaq .LC_str_702(%rip), %rcx
-  movq .LC_str_702_len(%rip), %rdx
+  leaq .LC_str_707(%rip), %rcx
+  movq .LC_str_707_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -119689,8 +120079,8 @@
   addq $32, %rsp
   movq %rax, %rbx
   movq %rbx, -232(%rbp)
-  leaq .LC_str_406(%rip), %rcx
-  movq .LC_str_406_len(%rip), %rdx
+  leaq .LC_str_408(%rip), %rcx
+  movq .LC_str_408_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -119833,8 +120223,8 @@
   movq %r14, -312(%rbp)
   movq $0, -304(%rbp)
   movq $0, -424(%rbp)
-  leaq .LC_str_398(%rip), %rcx
-  movq .LC_str_398_len(%rip), %rdx
+  leaq .LC_str_400(%rip), %rcx
+  movq .LC_str_400_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -120271,8 +120661,8 @@
   movq %r13, -184(%rbp)
 
 .L_उत्_टर्मिनेटर__प्रवेश_0:
-  leaq .LC_str_403(%rip), %rcx
-  movq .LC_str_403_len(%rip), %rdx
+  leaq .LC_str_405(%rip), %rcx
+  movq .LC_str_405_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -120303,8 +120693,8 @@
 .L_किनारा_उत्_टर्मिनेटर_0:
   jmp .L_उत्_टर्मिनेटर__if_अंत_2
 .L_उत्_टर्मिनेटर__if_अंत_2:
-  leaq .LC_str_404(%rip), %rcx
-  movq .LC_str_404_len(%rip), %rdx
+  leaq .LC_str_406(%rip), %rcx
+  movq .LC_str_406_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -120318,8 +120708,8 @@
   movq %rax, %r14
   movq %r14, -248(%rbp)
   movq $0, -240(%rbp)
-  leaq .LC_str_399(%rip), %rcx
-  movq .LC_str_399_len(%rip), %rdx
+  leaq .LC_str_401(%rip), %rcx
+  movq .LC_str_401_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -120335,8 +120725,8 @@
   movq %r11, -264(%rbp)
   movq $0, -176(%rbp)
   movq $0, -256(%rbp)
-  leaq .LC_str_408(%rip), %rcx
-  movq .LC_str_408_len(%rip), %rdx
+  leaq .LC_str_410(%rip), %rcx
+  movq .LC_str_410_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -120354,8 +120744,8 @@
 .L_किनारा_उत्_टर्मिनेटर_1:
   jmp .L_उत्_टर्मिनेटर__if_अंत_4
 .L_उत्_टर्मिनेटर__if_अंत_4:
-  leaq .LC_str_410(%rip), %rcx
-  movq .LC_str_410_len(%rip), %rdx
+  leaq .LC_str_412(%rip), %rcx
+  movq .LC_str_412_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -120373,8 +120763,8 @@
 .L_किनारा_उत्_टर्मिनेटर_2:
   jmp .L_उत्_टर्मिनेटर__if_अंत_9
 .L_उत्_टर्मिनेटर__if_अंत_9:
-  leaq .LC_str_411(%rip), %rcx
-  movq .LC_str_411_len(%rip), %rdx
+  leaq .LC_str_413(%rip), %rcx
+  movq .LC_str_413_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -120392,8 +120782,8 @@
 .L_किनारा_उत्_टर्मिनेटर_3:
   jmp .L_उत्_टर्मिनेटर__if_अंत_11
 .L_उत्_टर्मिनेटर__if_अंत_11:
-  leaq .LC_str_412(%rip), %rcx
-  movq .LC_str_412_len(%rip), %rdx
+  leaq .LC_str_414(%rip), %rcx
+  movq .LC_str_414_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -120412,8 +120802,8 @@
 .L_किनारा_उत्_टर्मिनेटर_4:
   jmp .L_उत्_टर्मिनेटर__if_अंत_13
 .L_उत्_टर्मिनेटर__if_अंत_13:
-  leaq .LC_str_703(%rip), %rcx
-  movq .LC_str_703_len(%rip), %rdx
+  leaq .LC_str_708(%rip), %rcx
+  movq .LC_str_708_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -120445,15 +120835,15 @@
   movq %rbx, %rax
   jmp .L_epilogue_उत्_टर्मिनेटर
 .L_उत्_टर्मिनेटर__if_सत्य_12:
-  leaq .LC_str_604(%rip), %rcx
-  movq .LC_str_604_len(%rip), %rdx
+  leaq .LC_str_606(%rip), %rcx
+  movq .LC_str_606_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %rbx
   movq %rbx, -736(%rbp)
-  leaq .LC_str_405(%rip), %rcx
-  movq .LC_str_405_len(%rip), %rdx
+  leaq .LC_str_407(%rip), %rcx
+  movq .LC_str_407_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -120493,8 +120883,8 @@
   movq %rsi, -776(%rbp)
   movq $0, -736(%rbp)
   movq $0, -768(%rbp)
-  leaq .LC_str_708(%rip), %rcx
-  movq .LC_str_708_len(%rip), %rdx
+  leaq .LC_str_713(%rip), %rcx
+  movq .LC_str_713_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -120516,8 +120906,8 @@
   addq $32, %rsp
   movq %rax, %rbx
   movq $0, -792(%rbp)
-  leaq .LC_str_659(%rip), %rcx
-  movq .LC_str_659_len(%rip), %rdx
+  leaq .LC_str_661(%rip), %rcx
+  movq .LC_str_661_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -120530,8 +120920,8 @@
   addq $32, %rsp
   movq %rax, %rsi
   movq $0, -800(%rbp)
-  leaq .LC_str_709(%rip), %rcx
-  movq .LC_str_709_len(%rip), %rdx
+  leaq .LC_str_714(%rip), %rcx
+  movq .LC_str_714_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -120544,8 +120934,8 @@
   addq $32, %rsp
   movq %rax, %rsi
   movq $0, -808(%rbp)
-  leaq .LC_str_661(%rip), %rcx
-  movq .LC_str_661_len(%rip), %rdx
+  leaq .LC_str_663(%rip), %rcx
+  movq .LC_str_663_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -120562,8 +120952,8 @@
   movq %rbx, %rax
   jmp .L_epilogue_उत्_टर्मिनेटर
 .L_उत्_टर्मिनेटर__if_सत्य_10:
-  leaq .LC_str_406(%rip), %rcx
-  movq .LC_str_406_len(%rip), %rdx
+  leaq .LC_str_408(%rip), %rcx
+  movq .LC_str_408_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -120593,8 +120983,8 @@
   movq %r12, -464(%rbp)
   movq $0, -448(%rbp)
   movq $0, -456(%rbp)
-  leaq .LC_str_406(%rip), %rcx
-  movq .LC_str_406_len(%rip), %rdx
+  leaq .LC_str_408(%rip), %rcx
+  movq .LC_str_408_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -120624,8 +121014,8 @@
   movq %r14, -496(%rbp)
   movq $0, -480(%rbp)
   movq $0, -488(%rbp)
-  leaq .LC_str_705(%rip), %rcx
-  movq .LC_str_705_len(%rip), %rdx
+  leaq .LC_str_710(%rip), %rcx
+  movq .LC_str_710_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -120639,8 +121029,8 @@
   movq %rax, %rsi
   movq %rsi, -512(%rbp)
   movq $0, -504(%rbp)
-  leaq .LC_str_705(%rip), %rcx
-  movq .LC_str_705_len(%rip), %rdx
+  leaq .LC_str_710(%rip), %rcx
+  movq .LC_str_710_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -120658,8 +121048,8 @@
   addq $32, %rsp
   movq $0, -184(%rbp)
   movq $0, -520(%rbp)
-  leaq .LC_str_706(%rip), %rcx
-  movq .LC_str_706_len(%rip), %rdx
+  leaq .LC_str_711(%rip), %rcx
+  movq .LC_str_711_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -120673,8 +121063,8 @@
   movq %rax, %rdi
   movq %rdi, -536(%rbp)
   movq $0, -528(%rbp)
-  leaq .LC_str_400(%rip), %rcx
-  movq .LC_str_400_len(%rip), %rdx
+  leaq .LC_str_402(%rip), %rcx
+  movq .LC_str_402_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -120698,15 +121088,15 @@
   movq %rbx, -560(%rbp)
   movq $0, -512(%rbp)
   movq $0, -552(%rbp)
-  leaq .LC_str_604(%rip), %rcx
-  movq .LC_str_604_len(%rip), %rdx
+  leaq .LC_str_606(%rip), %rcx
+  movq .LC_str_606_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %rsi
   movq %rsi, -568(%rbp)
-  leaq .LC_str_405(%rip), %rcx
-  movq .LC_str_405_len(%rip), %rdx
+  leaq .LC_str_407(%rip), %rcx
+  movq .LC_str_407_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -120746,8 +121136,8 @@
   movq %r13, -608(%rbp)
   movq $0, -568(%rbp)
   movq $0, -600(%rbp)
-  leaq .LC_str_618(%rip), %rcx
-  movq .LC_str_618_len(%rip), %rdx
+  leaq .LC_str_620(%rip), %rcx
+  movq .LC_str_620_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -120769,8 +121159,8 @@
   addq $32, %rsp
   movq %rax, %rsi
   movq $0, -624(%rbp)
-  leaq .LC_str_626(%rip), %rcx
-  movq .LC_str_626_len(%rip), %rdx
+  leaq .LC_str_628(%rip), %rcx
+  movq .LC_str_628_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -120783,8 +121173,8 @@
   addq $32, %rsp
   movq %rax, %rdi
   movq $0, -632(%rbp)
-  leaq .LC_str_707(%rip), %rcx
-  movq .LC_str_707_len(%rip), %rdx
+  leaq .LC_str_712(%rip), %rcx
+  movq .LC_str_712_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -120821,8 +121211,8 @@
   addq $32, %rsp
   movq %rax, %rdi
   movq $0, -656(%rbp)
-  leaq .LC_str_703(%rip), %rcx
-  movq .LC_str_703_len(%rip), %rdx
+  leaq .LC_str_708(%rip), %rcx
+  movq .LC_str_708_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -120891,8 +121281,8 @@
   addq $32, %rsp
   movq %rax, %rsi
   movq $0, -704(%rbp)
-  leaq .LC_str_703(%rip), %rcx
-  movq .LC_str_703_len(%rip), %rdx
+  leaq .LC_str_708(%rip), %rcx
+  movq .LC_str_708_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -120926,8 +121316,8 @@
   movq %rbx, %rax
   jmp .L_epilogue_उत्_टर्मिनेटर
 .L_उत्_टर्मिनेटर__if_सत्य_8:
-  leaq .LC_str_406(%rip), %rcx
-  movq .LC_str_406_len(%rip), %rdx
+  leaq .LC_str_408(%rip), %rcx
+  movq .LC_str_408_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -120941,8 +121331,8 @@
   movq %rax, %rsi
   movq %rsi, -384(%rbp)
   movq $0, -376(%rbp)
-  leaq .LC_str_409(%rip), %rcx
-  movq .LC_str_409_len(%rip), %rdx
+  leaq .LC_str_411(%rip), %rcx
+  movq .LC_str_411_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -120974,8 +121364,8 @@
   movq %rax, %rsi
   movq $0, -264(%rbp)
   movq $0, -408(%rbp)
-  leaq .LC_str_703(%rip), %rcx
-  movq .LC_str_703_len(%rip), %rdx
+  leaq .LC_str_708(%rip), %rcx
+  movq .LC_str_708_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -121009,8 +121399,8 @@
   movq %rbx, %rax
   jmp .L_epilogue_उत्_टर्मिनेटर
 .L_उत्_टर्मिनेटर__if_सत्य_3:
-  leaq .LC_str_405(%rip), %rcx
-  movq .LC_str_405_len(%rip), %rdx
+  leaq .LC_str_407(%rip), %rcx
+  movq .LC_str_407_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -121041,8 +121431,8 @@
 .L_किनारा_उत्_टर्मिनेटर_5:
   jmp .L_उत्_टर्मिनेटर__if_असत्य_7
 .L_उत्_टर्मिनेटर__if_असत्य_7:
-  leaq .LC_str_704(%rip), %rcx
-  movq .LC_str_704_len(%rip), %rdx
+  leaq .LC_str_709(%rip), %rcx
+  movq .LC_str_709_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -121057,15 +121447,15 @@
   movq $0, -344(%rbp)
   jmp .L_उत्_टर्मिनेटर__if_अंत_6
 .L_उत्_टर्मिनेटर__if_सत्य_5:
-  leaq .LC_str_604(%rip), %rcx
-  movq .LC_str_604_len(%rip), %rdx
+  leaq .LC_str_606(%rip), %rcx
+  movq .LC_str_606_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %rbx
   movq %rbx, -280(%rbp)
-  leaq .LC_str_405(%rip), %rcx
-  movq .LC_str_405_len(%rip), %rdx
+  leaq .LC_str_407(%rip), %rcx
+  movq .LC_str_407_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -121107,8 +121497,8 @@
   movq %rdi, -320(%rbp)
   movq $0, -280(%rbp)
   movq $0, -312(%rbp)
-  leaq .LC_str_621(%rip), %rcx
-  movq .LC_str_621_len(%rip), %rdx
+  leaq .LC_str_623(%rip), %rcx
+  movq .LC_str_623_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -121132,8 +121522,8 @@
   movq $0, -336(%rbp)
   jmp .L_उत्_टर्मिनेटर__if_अंत_6
 .L_उत्_टर्मिनेटर__if_अंत_6:
-  leaq .LC_str_703(%rip), %rcx
-  movq .LC_str_703_len(%rip), %rdx
+  leaq .LC_str_708(%rip), %rcx
+  movq .LC_str_708_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -121165,8 +121555,8 @@
   movq %rbx, %rax
   jmp .L_epilogue_उत्_टर्मिनेटर
 .L_उत्_टर्मिनेटर__if_सत्य_1:
-  leaq .LC_str_703(%rip), %rcx
-  movq .LC_str_703_len(%rip), %rdx
+  leaq .LC_str_708(%rip), %rcx
+  movq .LC_str_708_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -121859,8 +122249,8 @@
   movq %r13, -88(%rbp)
   jmp .L_उत्_कार्य__if_अंत_2
 .L_उत्_कार्य__if_सत्य_1:
-  leaq .LC_str_687(%rip), %rcx
-  movq .LC_str_687_len(%rip), %rdx
+  leaq .LC_str_689(%rip), %rcx
+  movq .LC_str_689_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -121876,8 +122266,8 @@
   addq $32, %rsp
   movq %rax, %r13
   movq %r13, -384(%rbp)
-  leaq .LC_str_590(%rip), %rcx
-  movq .LC_str_590_len(%rip), %rdx
+  leaq .LC_str_592(%rip), %rcx
+  movq .LC_str_592_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -121892,8 +122282,8 @@
   movq -72(%rbp), %r11
   movq %r11, -400(%rbp)
   movq $0, -392(%rbp)
-  leaq .LC_str_710(%rip), %rcx
-  movq .LC_str_710_len(%rip), %rdx
+  leaq .LC_str_715(%rip), %rcx
+  movq .LC_str_715_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -121906,8 +122296,8 @@
   addq $32, %rsp
   movq %rax, %r15
   movq $0, -408(%rbp)
-  leaq .LC_str_711(%rip), %rcx
-  movq .LC_str_711_len(%rip), %rdx
+  leaq .LC_str_716(%rip), %rcx
+  movq .LC_str_716_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -121928,8 +122318,8 @@
   addq $32, %rsp
   movq %rax, %r14
   movq $0, -424(%rbp)
-  leaq .LC_str_712(%rip), %rcx
-  movq .LC_str_712_len(%rip), %rdx
+  leaq .LC_str_717(%rip), %rcx
+  movq .LC_str_717_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -121943,8 +122333,8 @@
   movq %rax, %r15
   movq %r15, -440(%rbp)
   movq $0, -432(%rbp)
-  leaq .LC_str_713(%rip), %rcx
-  movq .LC_str_713_len(%rip), %rdx
+  leaq .LC_str_718(%rip), %rcx
+  movq .LC_str_718_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -121988,8 +122378,8 @@
   addq $32, %rsp
   movq %rax, %r12
   movq $0, -472(%rbp)
-  leaq .LC_str_714(%rip), %rcx
-  movq .LC_str_714_len(%rip), %rdx
+  leaq .LC_str_719(%rip), %rcx
+  movq .LC_str_719_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -122002,8 +122392,8 @@
   addq $32, %rsp
   movq %rax, %r14
   movq $0, -480(%rbp)
-  leaq .LC_str_715(%rip), %rcx
-  movq .LC_str_715_len(%rip), %rdx
+  leaq .LC_str_720(%rip), %rcx
+  movq .LC_str_720_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -122016,8 +122406,8 @@
   addq $32, %rsp
   movq %rax, %r14
   movq $0, -488(%rbp)
-  leaq .LC_str_716(%rip), %rcx
-  movq .LC_str_716_len(%rip), %rdx
+  leaq .LC_str_721(%rip), %rcx
+  movq .LC_str_721_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -122032,8 +122422,8 @@
   movq %r14, -504(%rbp)
   movq $0, -384(%rbp)
   movq $0, -496(%rbp)
-  leaq .LC_str_691(%rip), %rcx
-  movq .LC_str_691_len(%rip), %rdx
+  leaq .LC_str_693(%rip), %rcx
+  movq .LC_str_693_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -122078,29 +122468,29 @@
 .L_किनारा_उत्_कार्य_1:
   jmp .L_उत्_कार्य__wh_अंत_5
 .L_उत्_कार्य__wh_अंत_5:
-  leaq .LC_str_655(%rip), %rcx
-  movq .LC_str_655_len(%rip), %rdx
-  subq $32, %rsp
-  call sutra_str_alloc
-  addq $32, %rsp
-  movq %rax, %r13
-  movq %r13, -584(%rbp)
-  leaq .LC_str_656(%rip), %rcx
-  movq .LC_str_656_len(%rip), %rdx
-  subq $32, %rsp
-  call sutra_str_alloc
-  addq $32, %rsp
-  movq %rax, %r14
-  movq %r14, -592(%rbp)
   leaq .LC_str_657(%rip), %rcx
   movq .LC_str_657_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
-  movq %rax, %r15
-  movq %r15, -600(%rbp)
+  movq %rax, %r13
+  movq %r13, -584(%rbp)
   leaq .LC_str_658(%rip), %rcx
   movq .LC_str_658_len(%rip), %rdx
+  subq $32, %rsp
+  call sutra_str_alloc
+  addq $32, %rsp
+  movq %rax, %r14
+  movq %r14, -592(%rbp)
+  leaq .LC_str_659(%rip), %rcx
+  movq .LC_str_659_len(%rip), %rdx
+  subq $32, %rsp
+  call sutra_str_alloc
+  addq $32, %rsp
+  movq %rax, %r15
+  movq %r15, -600(%rbp)
+  leaq .LC_str_660(%rip), %rcx
+  movq .LC_str_660_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -122143,8 +122533,8 @@
   movq $0, -592(%rbp)
   movq $0, -600(%rbp)
   movq $0, -608(%rbp)
-  leaq .LC_str_394(%rip), %rcx
-  movq .LC_str_394_len(%rip), %rdx
+  leaq .LC_str_396(%rip), %rcx
+  movq .LC_str_396_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -122182,8 +122572,8 @@
 .L_किनारा_उत्_कार्य_2:
   jmp .L_उत्_कार्य__wh_अंत_8
 .L_उत्_कार्य__wh_अंत_8:
-  leaq .LC_str_591(%rip), %rcx
-  movq .LC_str_591_len(%rip), %rdx
+  leaq .LC_str_593(%rip), %rcx
+  movq .LC_str_593_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -122244,8 +122634,8 @@
 .L_किनारा_उत्_कार्य_4:
   jmp .L_उत्_कार्य__if_अंत_20
 .L_उत्_कार्य__if_सत्य_19:
-  leaq .LC_str_592(%rip), %rcx
-  movq .LC_str_592_len(%rip), %rdx
+  leaq .LC_str_594(%rip), %rcx
+  movq .LC_str_594_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -122278,8 +122668,8 @@
 .L_किनारा_उत्_कार्य_5:
   jmp .L_उत्_कार्य__wh_अंत_23
 .L_उत्_कार्य__wh_अंत_23:
-  leaq .LC_str_719(%rip), %rcx
-  movq .LC_str_719_len(%rip), %rdx
+  leaq .LC_str_724(%rip), %rcx
+  movq .LC_str_724_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -122292,8 +122682,8 @@
   addq $32, %rsp
   movq %rax, %rsi
   movq $0, -880(%rbp)
-  leaq .LC_str_720(%rip), %rcx
-  movq .LC_str_720_len(%rip), %rdx
+  leaq .LC_str_725(%rip), %rcx
+  movq .LC_str_725_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -122324,8 +122714,8 @@
 .L_किनारा_उत्_कार्य_6:
   jmp .L_उत्_कार्य__wh_अंत_26
 .L_उत्_कार्य__wh_अंत_26:
-  leaq .LC_str_724(%rip), %rcx
-  movq .LC_str_724_len(%rip), %rdx
+  leaq .LC_str_729(%rip), %rcx
+  movq .LC_str_729_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -122389,8 +122779,8 @@
   movq %rax, %r14
   movq %r14, -1016(%rbp)
   movq %r14, -1016(%rbp)
-  leaq .LC_str_705(%rip), %rcx
-  movq .LC_str_705_len(%rip), %rdx
+  leaq .LC_str_710(%rip), %rcx
+  movq .LC_str_710_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -122469,8 +122859,8 @@
 .L_किनारा_उत्_कार्य_9:
   jmp .L_उत्_कार्य__if_अंत_42
 .L_उत्_कार्य__if_सत्य_41:
-  leaq .LC_str_725(%rip), %rcx
-  movq .LC_str_725_len(%rip), %rdx
+  leaq .LC_str_730(%rip), %rcx
+  movq .LC_str_730_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -122484,8 +122874,8 @@
   movq %rax, %r12
   movq %r12, -1312(%rbp)
   movq $0, -1304(%rbp)
-  leaq .LC_str_726(%rip), %rcx
-  movq .LC_str_726_len(%rip), %rdx
+  leaq .LC_str_731(%rip), %rcx
+  movq .LC_str_731_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -122530,8 +122920,8 @@
 .L_किनारा_उत्_कार्य_10:
   jmp .L_उत्_कार्य__wh_अंत_45
 .L_उत्_कार्य__wh_अंत_45:
-  leaq .LC_str_728(%rip), %rcx
-  movq .LC_str_728_len(%rip), %rdx
+  leaq .LC_str_733(%rip), %rcx
+  movq .LC_str_733_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -122544,8 +122934,8 @@
   addq $32, %rsp
   movq %rax, %r15
   movq $0, -1392(%rbp)
-  leaq .LC_str_729(%rip), %rcx
-  movq .LC_str_729_len(%rip), %rdx
+  leaq .LC_str_734(%rip), %rcx
+  movq .LC_str_734_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -122558,8 +122948,8 @@
   addq $32, %rsp
   movq %rax, %r15
   movq $0, -1400(%rbp)
-  leaq .LC_str_730(%rip), %rcx
-  movq .LC_str_730_len(%rip), %rdx
+  leaq .LC_str_735(%rip), %rcx
+  movq .LC_str_735_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -122590,8 +122980,8 @@
   movq %r12, %rax
   jmp .L_epilogue_उत्_कार्य
 .L_उत्_कार्य__wh_देह_44:
-  leaq .LC_str_604(%rip), %rcx
-  movq .LC_str_604_len(%rip), %rdx
+  leaq .LC_str_606(%rip), %rcx
+  movq .LC_str_606_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -122612,8 +123002,8 @@
   movq %rdi, -1352(%rbp)
   movq $0, -1336(%rbp)
   movq $0, -1344(%rbp)
-  leaq .LC_str_727(%rip), %rcx
-  movq .LC_str_727_len(%rip), %rdx
+  leaq .LC_str_732(%rip), %rcx
+  movq .LC_str_732_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -122717,8 +123107,8 @@
   jmp .L_उत्_कार्य__wh_शर्त_33
 .L_उत्_कार्य__wh_शर्त_33:
   movq %rsi, -1496(%rbp)
-  leaq .LC_str_401(%rip), %rcx
-  movq .LC_str_401_len(%rip), %rdx
+  leaq .LC_str_403(%rip), %rcx
+  movq .LC_str_403_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -122752,8 +123142,8 @@
   jmp .L_उत्_कार्य__wh_शर्त_36
 .L_उत्_कार्य__wh_शर्त_36:
   movq %r12, -1504(%rbp)
-  leaq .LC_str_402(%rip), %rcx
-  movq .LC_str_402_len(%rip), %rdx
+  leaq .LC_str_404(%rip), %rcx
+  movq .LC_str_404_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -122801,8 +123191,8 @@
   movq %r15, -328(%rbp)
   jmp .L_उत्_कार्य__wh_शर्त_30
 .L_उत्_कार्य__wh_देह_37:
-  leaq .LC_str_402(%rip), %rcx
-  movq .LC_str_402_len(%rip), %rdx
+  leaq .LC_str_404(%rip), %rcx
+  movq .LC_str_404_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -122833,8 +123223,8 @@
   addq $32, %rsp
   movq %rax, %r15
   movq $0, -1152(%rbp)
-  leaq .LC_str_402(%rip), %rcx
-  movq .LC_str_402_len(%rip), %rdx
+  leaq .LC_str_404(%rip), %rcx
+  movq .LC_str_404_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -122856,8 +123246,8 @@
   movq %rax, %rdi
   movq %rdi, -1176(%rbp)
   movq $0, -1168(%rbp)
-  leaq .LC_str_398(%rip), %rcx
-  movq .LC_str_398_len(%rip), %rdx
+  leaq .LC_str_400(%rip), %rcx
+  movq .LC_str_400_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -122886,8 +123276,8 @@
 .L_किनारा_उत्_कार्य_13:
   jmp .L_उत्_कार्य__if_अंत_40
 .L_उत्_कार्य__if_सत्य_39:
-  leaq .LC_str_402(%rip), %rcx
-  movq .LC_str_402_len(%rip), %rdx
+  leaq .LC_str_404(%rip), %rcx
+  movq .LC_str_404_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -122909,8 +123299,8 @@
   movq %rax, %rbx
   movq %rbx, -1216(%rbp)
   movq $0, -1208(%rbp)
-  leaq .LC_str_398(%rip), %rcx
-  movq .LC_str_398_len(%rip), %rdx
+  leaq .LC_str_400(%rip), %rcx
+  movq .LC_str_400_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -122935,8 +123325,8 @@
   movq $0, -1232(%rbp)
   jmp .L_उत्_कार्य__if_अंत_40
 .L_उत्_कार्य__if_अंत_40:
-  leaq .LC_str_402(%rip), %rcx
-  movq .LC_str_402_len(%rip), %rdx
+  leaq .LC_str_404(%rip), %rcx
+  movq .LC_str_404_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -122958,8 +123348,8 @@
   movq %rax, %rbx
   movq %rbx, -1256(%rbp)
   movq $0, -1248(%rbp)
-  leaq .LC_str_576(%rip), %rcx
-  movq .LC_str_576_len(%rip), %rdx
+  leaq .LC_str_578(%rip), %rcx
+  movq .LC_str_578_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -122990,8 +123380,8 @@
   movq %rdi, %r12
   jmp .L_उत्_कार्य__wh_शर्त_36
 .L_उत्_कार्य__wh_देह_34:
-  leaq .LC_str_401(%rip), %rcx
-  movq .LC_str_401_len(%rip), %rdx
+  leaq .LC_str_403(%rip), %rcx
+  movq .LC_str_403_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -123013,8 +123403,8 @@
   movq %rax, %rbx
   movq %rbx, -1104(%rbp)
   movq $0, -1096(%rbp)
-  leaq .LC_str_398(%rip), %rcx
-  movq .LC_str_398_len(%rip), %rdx
+  leaq .LC_str_400(%rip), %rcx
+  movq .LC_str_400_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -123052,8 +123442,8 @@
   addq $32, %rsp
   movq %rax, %rbx
   movq %rbx, -976(%rbp)
-  leaq .LC_str_398(%rip), %rcx
-  movq .LC_str_398_len(%rip), %rdx
+  leaq .LC_str_400(%rip), %rcx
+  movq .LC_str_400_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -123084,8 +123474,8 @@
   movq %rsi, -296(%rbp)
   jmp .L_उत्_कार्य__wh_शर्त_27
 .L_उत्_कार्य__wh_देह_25:
-  leaq .LC_str_721(%rip), %rcx
-  movq .LC_str_721_len(%rip), %rdx
+  leaq .LC_str_726(%rip), %rcx
+  movq .LC_str_726_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -123123,8 +123513,8 @@
   movq %rdi, -928(%rbp)
   movq $0, -896(%rbp)
   movq $0, -920(%rbp)
-  leaq .LC_str_605(%rip), %rcx
-  movq .LC_str_605_len(%rip), %rdx
+  leaq .LC_str_607(%rip), %rcx
+  movq .LC_str_607_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -123146,8 +123536,8 @@
   addq $32, %rsp
   movq %rax, %rbx
   movq $0, -944(%rbp)
-  leaq .LC_str_722(%rip), %rcx
-  movq .LC_str_722_len(%rip), %rdx
+  leaq .LC_str_727(%rip), %rcx
+  movq .LC_str_727_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -123160,8 +123550,8 @@
   addq $32, %rsp
   movq %rax, %rsi
   movq $0, -952(%rbp)
-  leaq .LC_str_723(%rip), %rcx
-  movq .LC_str_723_len(%rip), %rdx
+  leaq .LC_str_728(%rip), %rcx
+  movq .LC_str_728_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -123182,8 +123572,8 @@
   movq %rsi, -280(%rbp)
   jmp .L_उत्_कार्य__wh_शर्त_24
 .L_उत्_कार्य__wh_देह_22:
-  leaq .LC_str_603(%rip), %rcx
-  movq .LC_str_603_len(%rip), %rdx
+  leaq .LC_str_605(%rip), %rcx
+  movq .LC_str_605_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -123243,8 +123633,8 @@
   addq $32, %rsp
   movq %rax, %rbx
   movq %rbx, -640(%rbp)
-  leaq .LC_str_398(%rip), %rcx
-  movq .LC_str_398_len(%rip), %rdx
+  leaq .LC_str_400(%rip), %rcx
+  movq .LC_str_400_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -123280,8 +123670,8 @@
 .L_किनारा_उत्_कार्य_14:
   jmp .L_उत्_कार्य__if_असत्य_11
 .L_उत्_कार्य__if_असत्य_11:
-  leaq .LC_str_604(%rip), %rcx
-  movq .LC_str_604_len(%rip), %rdx
+  leaq .LC_str_606(%rip), %rcx
+  movq .LC_str_606_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -123303,8 +123693,8 @@
   movq %rax, %rdi
   movq %rdi, -760(%rbp)
   movq $0, -752(%rbp)
-  leaq .LC_str_718(%rip), %rcx
-  movq .LC_str_718_len(%rip), %rdx
+  leaq .LC_str_723(%rip), %rcx
+  movq .LC_str_723_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -123326,8 +123716,8 @@
   addq $32, %rsp
   movq %rax, %rsi
   movq $0, -776(%rbp)
-  leaq .LC_str_619(%rip), %rcx
-  movq .LC_str_619_len(%rip), %rdx
+  leaq .LC_str_621(%rip), %rcx
+  movq .LC_str_621_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -123424,8 +123814,8 @@
 .L_किनारा_उत्_कार्य_16:
   jmp .L_उत्_कार्य__if_अंत_16
 .L_उत्_कार्य__if_सत्य_15:
-  leaq .LC_str_604(%rip), %rcx
-  movq .LC_str_604_len(%rip), %rdx
+  leaq .LC_str_606(%rip), %rcx
+  movq .LC_str_606_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -123447,8 +123837,8 @@
   movq %r12, -720(%rbp)
   movq $0, -704(%rbp)
   movq $0, -712(%rbp)
-  leaq .LC_str_422(%rip), %rcx
-  movq .LC_str_422_len(%rip), %rdx
+  leaq .LC_str_424(%rip), %rcx
+  movq .LC_str_424_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -123491,8 +123881,8 @@
   movq %rsi, -200(%rbp)
   jmp .L_उत्_कार्य__wh_शर्त_6
 .L_उत्_कार्य__wh_देह_4:
-  leaq .LC_str_717(%rip), %rcx
-  movq .LC_str_717_len(%rip), %rdx
+  leaq .LC_str_722(%rip), %rcx
+  movq .LC_str_722_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -123514,8 +123904,8 @@
   movq %rdi, -544(%rbp)
   movq $0, -528(%rbp)
   movq $0, -536(%rbp)
-  leaq .LC_str_422(%rip), %rcx
-  movq .LC_str_422_len(%rip), %rdx
+  leaq .LC_str_424(%rip), %rcx
+  movq .LC_str_424_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -123578,7 +123968,7 @@
 उत्सर्जक_एकक:
   pushq %rbp
   movq %rsp, %rbp
-  subq $1024, %rsp
+  subq $1056, %rsp
   movq %rbx, -8(%rbp)
   movq %rsi, -16(%rbp)
   movq %rdi, -24(%rbp)
@@ -123690,6 +124080,10 @@
   movq $0, -1000(%rbp)
   movq $0, -1008(%rbp)
   movq $0, -1016(%rbp)
+  movq $0, -1024(%rbp)
+  movq $0, -1032(%rbp)
+  movq $0, -1040(%rbp)
+  movq $0, -1048(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -200(%rbp), %r11
@@ -124001,6 +124395,18 @@
   leaq -1016(%rbp), %r11
   movq %r11, (%r10,%rax,8)
   incl %eax
+  leaq -1024(%rbp), %r11
+  movq %r11, (%r10,%rax,8)
+  incl %eax
+  leaq -1032(%rbp), %r11
+  movq %r11, (%r10,%rax,8)
+  incl %eax
+  leaq -1040(%rbp), %r11
+  movq %r11, (%r10,%rax,8)
+  incl %eax
+  leaq -1048(%rbp), %r11
+  movq %r11, (%r10,%rax,8)
+  incl %eax
   movl %eax, gc_roots_count(%rip)
   movq -104(%rbp), %r11
   movq %r11, -200(%rbp)
@@ -124033,7 +124439,7 @@
   jmp .L_उत्सर्जक_एकक__wh_शर्त_1
 .L_उत्सर्जक_एकक__wh_शर्त_1:
   movq -120(%rbp), %r11
-  movq %r11, -952(%rbp)
+  movq %r11, -984(%rbp)
   movq -72(%rbp), %rcx
   subq $32, %rsp
   call दैशिक_लंबाई
@@ -124051,8 +124457,8 @@
 .L_किनारा_उत्सर्जक_एकक_0:
   jmp .L_उत्सर्जक_एकक__wh_अंत_3
 .L_उत्सर्जक_एकक__wh_अंत_3:
-  leaq .LC_str_391(%rip), %rcx
-  movq .LC_str_391_len(%rip), %rdx
+  leaq .LC_str_393(%rip), %rcx
+  movq .LC_str_393_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -124067,390 +124473,331 @@
   movq -136(%rbp), %r11
   movq %r11, -288(%rbp)
   movq $0, -280(%rbp)
-  leaq .LC_str_710(%rip), %rcx
-  movq .LC_str_710_len(%rip), %rdx
+  leaq .LC_str_560(%rip), %rcx
+  movq .LC_str_560_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %r13
   movq %r13, -296(%rbp)
-  movq -88(%rbp), %rcx
+  movq -104(%rbp), %rcx
   movq %r13, %rdx
   subq $32, %rsp
-  call उगपं
+  call sutra_arr_get
   addq $32, %rsp
   movq %rax, %r15
+  movq %r15, -304(%rbp)
   movq $0, -296(%rbp)
-  leaq .LC_str_731(%rip), %rcx
-  movq .LC_str_731_len(%rip), %rdx
-  subq $32, %rsp
-  call sutra_str_alloc
-  addq $32, %rsp
-  movq %rax, %r13
-  movq %r13, -304(%rbp)
-  movq -88(%rbp), %rcx
+  movq $1, %r13
+  movq %r15, %rcx
   movq %r13, %rdx
   subq $32, %rsp
-  call उगपं
+  call पाठ_तुल्य
   addq $32, %rsp
-  movq %rax, %r15
+  movq %rax, %r12
   movq $0, -304(%rbp)
-  leaq .LC_str_732(%rip), %rcx
-  movq .LC_str_732_len(%rip), %rdx
-  subq $32, %rsp
-  call sutra_str_alloc
-  addq $32, %rsp
-  movq %rax, %r13
-  movq %r13, -312(%rbp)
-  movq -88(%rbp), %rcx
-  movq %r13, %rdx
-  subq $32, %rsp
-  call उगपं
-  addq $32, %rsp
-  movq %rax, %r15
-  movq $0, -312(%rbp)
-  leaq .LC_str_733(%rip), %rcx
-  movq .LC_str_733_len(%rip), %rdx
-  subq $32, %rsp
-  call sutra_str_alloc
-  addq $32, %rsp
-  movq %rax, %r13
-  movq %r13, -320(%rbp)
-  movq -88(%rbp), %rcx
-  movq %r13, %rdx
-  subq $32, %rsp
-  call उगपं
-  addq $32, %rsp
-  movq %rax, %r15
-  movq $0, -320(%rbp)
-  leaq .LC_str_714(%rip), %rcx
-  movq .LC_str_714_len(%rip), %rdx
-  subq $32, %rsp
-  call sutra_str_alloc
-  addq $32, %rsp
-  movq %rax, %r13
-  movq %r13, -328(%rbp)
-  movq -88(%rbp), %rcx
-  movq %r13, %rdx
-  subq $32, %rsp
-  call उगपं
-  addq $32, %rsp
-  movq %rax, %r15
-  movq $0, -328(%rbp)
-  leaq .LC_str_715(%rip), %rcx
-  movq .LC_str_715_len(%rip), %rdx
-  subq $32, %rsp
-  call sutra_str_alloc
-  addq $32, %rsp
-  movq %rax, %r13
-  movq %r13, -336(%rbp)
-  movq -88(%rbp), %rcx
-  movq %r13, %rdx
-  subq $32, %rsp
-  call उगपं
-  addq $32, %rsp
-  movq %rax, %r15
-  movq $0, -336(%rbp)
-  leaq .LC_str_659(%rip), %rcx
-  movq .LC_str_659_len(%rip), %rdx
-  subq $32, %rsp
-  call sutra_str_alloc
-  addq $32, %rsp
-  movq %rax, %r13
-  movq %r13, -344(%rbp)
-  movq -88(%rbp), %rcx
-  movq %r13, %rdx
-  subq $32, %rsp
-  call उगपं
-  addq $32, %rsp
-  movq %rax, %r15
-  movq $0, -344(%rbp)
-  leaq .LC_str_734(%rip), %rcx
-  movq .LC_str_734_len(%rip), %rdx
-  subq $32, %rsp
-  call sutra_str_alloc
-  addq $32, %rsp
-  movq %rax, %r13
-  movq %r13, -352(%rbp)
-  movq -88(%rbp), %rcx
-  movq %r13, %rdx
-  subq $32, %rsp
-  call उगपं
-  addq $32, %rsp
-  movq %rax, %r15
-  movq $0, -352(%rbp)
-  movq $0, %r13
-  movq %r13, -152(%rbp)
-  jmp .L_उत्सर्जक_एकक__wh_शर्त_6
-.L_उत्सर्जक_एकक__wh_शर्त_6:
-  movq -152(%rbp), %r11
-  movq %r11, -960(%rbp)
-  movq -136(%rbp), %rcx
-  subq $32, %rsp
-  call दैशिक_लंबाई
-  addq $32, %rsp
-  movq %rax, %r15
-  movq -152(%rbp), %r10
-  cmpq %r15, %r10
-  setl %al
-  movzbq %al, %r10
-  movq %r10, %r12
   movq %r12, %r10
   cmpq $0, %r10
   je .L_किनारा_उत्सर्जक_एकक_1
-  jmp .L_उत्सर्जक_एकक__wh_देह_7
+  jmp .L_उत्सर्जक_एकक__sc_लघु_7
 .L_किनारा_उत्सर्जक_एकक_1:
-  jmp .L_उत्सर्जक_एकक__wh_अंत_8
-.L_उत्सर्जक_एकक__wh_अंत_8:
-  leaq .LC_str_737(%rip), %rcx
-  movq .LC_str_737_len(%rip), %rdx
+  jmp .L_उत्सर्जक_एकक__sc_दायाँ_6
+.L_उत्सर्जक_एकक__sc_दायाँ_6:
+  leaq .LC_str_561(%rip), %rcx
+  movq .LC_str_561_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %r12
-  movq %r12, -424(%rbp)
-  movq -88(%rbp), %rcx
-  movq %r12, %rdx
-  subq $32, %rsp
-  call उगपं
-  addq $32, %rsp
-  movq %rax, %r15
-  movq $0, -424(%rbp)
-  leaq .LC_str_559(%rip), %rcx
-  movq .LC_str_559_len(%rip), %rdx
-  subq $32, %rsp
-  call sutra_str_alloc
-  addq $32, %rsp
-  movq %rax, %r12
-  movq %r12, -432(%rbp)
+  movq %r12, -312(%rbp)
   movq -104(%rbp), %rcx
   movq %r12, %rdx
   subq $32, %rsp
   call sutra_arr_get
   addq $32, %rsp
-  movq %rax, %r15
-  movq %r15, -440(%rbp)
-  movq $0, -432(%rbp)
+  movq %rax, %r13
+  movq %r13, -320(%rbp)
+  movq $0, -312(%rbp)
   movq $1, %r12
-  movq %r15, %rcx
+  movq %r13, %rcx
   movq %r12, %rdx
   subq $32, %rsp
   call पाठ_तुल्य
   addq $32, %rsp
-  movq %rax, %rsi
-  movq $0, -440(%rbp)
-  movq %rsi, %r10
+  movq %rax, %r15
+  movq $0, -320(%rbp)
+  movq %r15, %r12
+  jmp .L_उत्सर्जक_एकक__sc_अंत_8
+.L_उत्सर्जक_एकक__sc_लघु_7:
+  movq $1, %r12
+  jmp .L_उत्सर्जक_एकक__sc_अंत_8
+.L_उत्सर्जक_एकक__sc_अंत_8:
+  movq %r12, %r10
   cmpq $0, %r10
   je .L_किनारा_उत्सर्जक_एकक_2
   jmp .L_उत्सर्जक_एकक__if_सत्य_9
 .L_किनारा_उत्सर्जक_एकक_2:
   jmp .L_उत्सर्जक_एकक__if_अंत_10
 .L_उत्सर्जक_एकक__if_सत्य_9:
+  leaq .LC_str_715(%rip), %rcx
+  movq .LC_str_715_len(%rip), %rdx
+  subq $32, %rsp
+  call sutra_str_alloc
+  addq $32, %rsp
+  movq %rax, %r12
+  movq %r12, -328(%rbp)
+  movq -88(%rbp), %rcx
+  movq %r12, %rdx
+  subq $32, %rsp
+  call उगपं
+  addq $32, %rsp
+  movq %rax, %r13
+  movq $0, -328(%rbp)
+  leaq .LC_str_736(%rip), %rcx
+  movq .LC_str_736_len(%rip), %rdx
+  subq $32, %rsp
+  call sutra_str_alloc
+  addq $32, %rsp
+  movq %rax, %r12
+  movq %r12, -336(%rbp)
+  movq -88(%rbp), %rcx
+  movq %r12, %rdx
+  subq $32, %rsp
+  call उगपं
+  addq $32, %rsp
+  movq %rax, %r13
+  movq $0, -336(%rbp)
+  leaq .LC_str_737(%rip), %rcx
+  movq .LC_str_737_len(%rip), %rdx
+  subq $32, %rsp
+  call sutra_str_alloc
+  addq $32, %rsp
+  movq %rax, %r12
+  movq %r12, -344(%rbp)
+  movq -88(%rbp), %rcx
+  movq %r12, %rdx
+  subq $32, %rsp
+  call उगपं
+  addq $32, %rsp
+  movq %rax, %r13
+  movq $0, -344(%rbp)
   leaq .LC_str_738(%rip), %rcx
   movq .LC_str_738_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
-  movq %rax, %rsi
-  movq %rsi, -448(%rbp)
+  movq %rax, %r12
+  movq %r12, -352(%rbp)
   movq -88(%rbp), %rcx
-  movq %rsi, %rdx
+  movq %r12, %rdx
   subq $32, %rsp
   call उगपं
   addq $32, %rsp
-  movq %rax, %r12
-  movq $0, -448(%rbp)
-  jmp .L_उत्सर्जक_एकक__if_अंत_10
-.L_उत्सर्जक_एकक__if_अंत_10:
-  leaq .LC_str_558(%rip), %rcx
-  movq .LC_str_558_len(%rip), %rdx
+  movq %rax, %r13
+  movq $0, -352(%rbp)
+  leaq .LC_str_719(%rip), %rcx
+  movq .LC_str_719_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
-  movq %rax, %rsi
-  movq %rsi, -456(%rbp)
-  movq -104(%rbp), %rcx
-  movq %rsi, %rdx
+  movq %rax, %r12
+  movq %r12, -360(%rbp)
+  movq -88(%rbp), %rcx
+  movq %r12, %rdx
   subq $32, %rsp
-  call sutra_arr_get
+  call उगपं
+  addq $32, %rsp
+  movq %rax, %r13
+  movq $0, -360(%rbp)
+  leaq .LC_str_720(%rip), %rcx
+  movq .LC_str_720_len(%rip), %rdx
+  subq $32, %rsp
+  call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %r12
-  movq %r12, -464(%rbp)
-  movq $0, -456(%rbp)
-  movq $1, %rsi
-  movq %r12, %rcx
-  movq %rsi, %rdx
+  movq %r12, -368(%rbp)
+  movq -88(%rbp), %rcx
+  movq %r12, %rdx
   subq $32, %rsp
-  call पाठ_तुल्य
+  call उगपं
   addq $32, %rsp
-  movq %rax, %r15
-  movq $0, -464(%rbp)
-  movq %r15, %r10
-  cmpq $0, %r10
-  je .L_किनारा_उत्सर्जक_एकक_3
-  jmp .L_उत्सर्जक_एकक__if_सत्य_11
-.L_किनारा_उत्सर्जक_एकक_3:
-  jmp .L_उत्सर्जक_एकक__if_अंत_12
-.L_उत्सर्जक_एकक__if_सत्य_11:
+  movq %rax, %r13
+  movq $0, -368(%rbp)
+  leaq .LC_str_661(%rip), %rcx
+  movq .LC_str_661_len(%rip), %rdx
+  subq $32, %rsp
+  call sutra_str_alloc
+  addq $32, %rsp
+  movq %rax, %r12
+  movq %r12, -376(%rbp)
+  movq -88(%rbp), %rcx
+  movq %r12, %rdx
+  subq $32, %rsp
+  call उगपं
+  addq $32, %rsp
+  movq %rax, %r13
+  movq $0, -376(%rbp)
   leaq .LC_str_739(%rip), %rcx
   movq .LC_str_739_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
+  movq %rax, %r12
+  movq %r12, -384(%rbp)
+  movq -88(%rbp), %rcx
+  movq %r12, %rdx
+  subq $32, %rsp
+  call उगपं
+  addq $32, %rsp
+  movq %rax, %r13
+  movq $0, -384(%rbp)
+  movq $0, %r12
+  movq %r12, -152(%rbp)
+  jmp .L_उत्सर्जक_एकक__wh_शर्त_11
+.L_उत्सर्जक_एकक__wh_शर्त_11:
+  movq -152(%rbp), %r11
+  movq %r11, -992(%rbp)
+  movq -136(%rbp), %rcx
+  subq $32, %rsp
+  call दैशिक_लंबाई
+  addq $32, %rsp
+  movq %rax, %r13
+  movq -152(%rbp), %r10
+  cmpq %r13, %r10
+  setl %al
+  movzbq %al, %r10
+  movq %r10, %r15
+  movq %r15, %r10
+  cmpq $0, %r10
+  je .L_किनारा_उत्सर्जक_एकक_3
+  jmp .L_उत्सर्जक_एकक__wh_देह_12
+.L_किनारा_उत्सर्जक_एकक_3:
+  jmp .L_उत्सर्जक_एकक__wh_अंत_13
+.L_उत्सर्जक_एकक__wh_अंत_13:
+  leaq .LC_str_742(%rip), %rcx
+  movq .LC_str_742_len(%rip), %rdx
+  subq $32, %rsp
+  call sutra_str_alloc
+  addq $32, %rsp
+  movq %rax, %r13
+  movq %r13, -456(%rbp)
+  movq -88(%rbp), %rcx
+  movq %r13, %rdx
+  subq $32, %rsp
+  call उगपं
+  addq $32, %rsp
+  movq %rax, %r15
+  movq $0, -456(%rbp)
+  leaq .LC_str_561(%rip), %rcx
+  movq .LC_str_561_len(%rip), %rdx
+  subq $32, %rsp
+  call sutra_str_alloc
+  addq $32, %rsp
+  movq %rax, %r13
+  movq %r13, -464(%rbp)
+  movq -104(%rbp), %rcx
+  movq %r13, %rdx
+  subq $32, %rsp
+  call sutra_arr_get
+  addq $32, %rsp
+  movq %rax, %r15
+  movq %r15, -472(%rbp)
+  movq $0, -464(%rbp)
+  movq $1, %r13
+  movq %r15, %rcx
+  movq %r13, %rdx
+  subq $32, %rsp
+  call पाठ_तुल्य
+  addq $32, %rsp
   movq %rax, %rsi
-  movq %rsi, -472(%rbp)
+  movq $0, -472(%rbp)
+  movq %rsi, %r10
+  cmpq $0, %r10
+  je .L_किनारा_उत्सर्जक_एकक_4
+  jmp .L_उत्सर्जक_एकक__if_सत्य_14
+.L_किनारा_उत्सर्जक_एकक_4:
+  jmp .L_उत्सर्जक_एकक__if_अंत_15
+.L_उत्सर्जक_एकक__if_सत्य_14:
+  leaq .LC_str_743(%rip), %rcx
+  movq .LC_str_743_len(%rip), %rdx
+  subq $32, %rsp
+  call sutra_str_alloc
+  addq $32, %rsp
+  movq %rax, %rsi
+  movq %rsi, -480(%rbp)
   movq -88(%rbp), %rcx
   movq %rsi, %rdx
   subq $32, %rsp
   call उगपं
   addq $32, %rsp
-  movq %rax, %r12
-  movq $0, -472(%rbp)
-  jmp .L_उत्सर्जक_एकक__if_अंत_12
-.L_उत्सर्जक_एकक__if_अंत_12:
-  movq -136(%rbp), %rcx
+  movq %rax, %r13
+  movq $0, -480(%rbp)
+  jmp .L_उत्सर्जक_एकक__if_अंत_15
+.L_उत्सर्जक_एकक__if_अंत_15:
+  leaq .LC_str_560(%rip), %rcx
+  movq .LC_str_560_len(%rip), %rdx
   subq $32, %rsp
-  call दैशिक_लंबाई
+  call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %rsi
-  movq $1, %r12
-  movq %rsi, %r10
-  subq %r12, %r10
-  movq %r10, %r15
-  movq %r15, -168(%rbp)
-  jmp .L_उत्सर्जक_एकक__wh_शर्त_13
-.L_उत्सर्जक_एकक__wh_शर्त_13:
-  movq -168(%rbp), %r11
-  movq %r11, -968(%rbp)
-  movq $0, %r12
-  movq -168(%rbp), %r10
-  cmpq %r12, %r10
-  setge %al
-  movzbq %al, %r10
-  movq %r10, %r15
+  movq %rsi, -488(%rbp)
+  movq -104(%rbp), %rcx
+  movq %rsi, %rdx
+  subq $32, %rsp
+  call sutra_arr_get
+  addq $32, %rsp
+  movq %rax, %r13
+  movq %r13, -496(%rbp)
+  movq $0, -488(%rbp)
+  movq $1, %rsi
+  movq %r13, %rcx
+  movq %rsi, %rdx
+  subq $32, %rsp
+  call पाठ_तुल्य
+  addq $32, %rsp
+  movq %rax, %r15
+  movq $0, -496(%rbp)
   movq %r15, %r10
-  cmpq $0, %r10
-  je .L_किनारा_उत्सर्जक_एकक_4
-  jmp .L_उत्सर्जक_एकक__wh_देह_14
-.L_किनारा_उत्सर्जक_एकक_4:
-  jmp .L_उत्सर्जक_एकक__wh_अंत_15
-.L_उत्सर्जक_एकक__wh_अंत_15:
-  leaq .LC_str_741(%rip), %rcx
-  movq .LC_str_741_len(%rip), %rdx
-  subq $32, %rsp
-  call sutra_str_alloc
-  addq $32, %rsp
-  movq %rax, %r12
-  movq %r12, -544(%rbp)
-  movq -88(%rbp), %rcx
-  movq %r12, %rdx
-  subq $32, %rsp
-  call उगपं
-  addq $32, %rsp
-  movq %rax, %r15
-  movq $0, -544(%rbp)
-  leaq .LC_str_728(%rip), %rcx
-  movq .LC_str_728_len(%rip), %rdx
-  subq $32, %rsp
-  call sutra_str_alloc
-  addq $32, %rsp
-  movq %rax, %r12
-  movq %r12, -552(%rbp)
-  movq -88(%rbp), %rcx
-  movq %r12, %rdx
-  subq $32, %rsp
-  call उगपं
-  addq $32, %rsp
-  movq %rax, %r15
-  movq $0, -552(%rbp)
-  leaq .LC_str_729(%rip), %rcx
-  movq .LC_str_729_len(%rip), %rdx
-  subq $32, %rsp
-  call sutra_str_alloc
-  addq $32, %rsp
-  movq %rax, %r12
-  movq %r12, -560(%rbp)
-  movq -88(%rbp), %rcx
-  movq %r12, %rdx
-  subq $32, %rsp
-  call उगपं
-  addq $32, %rsp
-  movq %rax, %r15
-  movq $0, -560(%rbp)
-  leaq .LC_str_730(%rip), %rcx
-  movq .LC_str_730_len(%rip), %rdx
-  subq $32, %rsp
-  call sutra_str_alloc
-  addq $32, %rsp
-  movq %rax, %r12
-  movq %r12, -568(%rbp)
-  movq -88(%rbp), %rcx
-  movq %r12, %rdx
-  subq $32, %rsp
-  call उगपं
-  addq $32, %rsp
-  movq %rax, %r15
-  movq $0, -568(%rbp)
-  leaq .LC_str_92(%rip), %rcx
-  movq .LC_str_92_len(%rip), %rdx
-  subq $32, %rsp
-  call sutra_str_alloc
-  addq $32, %rsp
-  movq %rax, %r12
-  movq %r12, -576(%rbp)
-  movq -88(%rbp), %rcx
-  movq %r12, %rdx
-  subq $32, %rsp
-  call उगपं
-  addq $32, %rsp
-  movq %rax, %r15
-  movq $0, -576(%rbp)
-  movq -136(%rbp), %rcx
-  subq $32, %rsp
-  call दैशिक_लंबाई
-  addq $32, %rsp
-  movq %rax, %r12
-  movq $0, %r15
-  movq %r12, %r10
-  cmpq %r15, %r10
-  setg %al
-  movzbq %al, %r10
-  movq %r10, %rbx
-  movq %rbx, %r10
   cmpq $0, %r10
   je .L_किनारा_उत्सर्जक_एकक_5
   jmp .L_उत्सर्जक_एकक__if_सत्य_16
 .L_किनारा_उत्सर्जक_एकक_5:
   jmp .L_उत्सर्जक_एकक__if_अंत_17
 .L_उत्सर्जक_एकक__if_सत्य_16:
-  leaq .LC_str_742(%rip), %rcx
-  movq .LC_str_742_len(%rip), %rdx
+  leaq .LC_str_744(%rip), %rcx
+  movq .LC_str_744_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
-  movq %rax, %rbx
-  movq %rbx, -584(%rbp)
+  movq %rax, %rsi
+  movq %rsi, -504(%rbp)
   movq -88(%rbp), %rcx
-  movq %rbx, %rdx
+  movq %rsi, %rdx
   subq $32, %rsp
   call उगपं
   addq $32, %rsp
-  movq %rax, %r12
-  movq $0, -584(%rbp)
-  movq $0, %rbx
-  movq %rbx, -184(%rbp)
-  jmp .L_उत्सर्जक_एकक__wh_शर्त_18
-.L_उत्सर्जक_एकक__wh_शर्त_18:
-  movq -184(%rbp), %r11
-  movq %r11, -976(%rbp)
+  movq %rax, %r13
+  movq $0, -504(%rbp)
+  jmp .L_उत्सर्जक_एकक__if_अंत_17
+.L_उत्सर्जक_एकक__if_अंत_17:
   movq -136(%rbp), %rcx
   subq $32, %rsp
   call दैशिक_लंबाई
   addq $32, %rsp
-  movq %rax, %r12
-  movq -184(%rbp), %r10
-  cmpq %r12, %r10
-  setl %al
+  movq %rax, %rsi
+  movq $1, %r13
+  movq %rsi, %r10
+  subq %r13, %r10
+  movq %r10, %r15
+  movq %r15, -168(%rbp)
+  jmp .L_उत्सर्जक_एकक__wh_शर्त_18
+.L_उत्सर्जक_एकक__wh_शर्त_18:
+  movq -168(%rbp), %r11
+  movq %r11, -1000(%rbp)
+  movq $0, %r13
+  movq -168(%rbp), %r10
+  cmpq %r13, %r10
+  setge %al
   movzbq %al, %r10
   movq %r10, %r15
   movq %r15, %r10
@@ -124460,108 +124807,235 @@
 .L_किनारा_उत्सर्जक_एकक_6:
   jmp .L_उत्सर्जक_एकक__wh_अंत_20
 .L_उत्सर्जक_एकक__wh_अंत_20:
-  jmp .L_उत्सर्जक_एकक__if_अंत_17
-.L_उत्सर्जक_एकक__if_अंत_17:
   leaq .LC_str_746(%rip), %rcx
   movq .LC_str_746_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
-  movq %rax, %r12
-  movq %r12, -696(%rbp)
+  movq %rax, %r13
+  movq %r13, -576(%rbp)
   movq -88(%rbp), %rcx
-  movq %r12, %rdx
+  movq %r13, %rdx
   subq $32, %rsp
   call उगपं
   addq $32, %rsp
   movq %rax, %r15
-  movq $0, -696(%rbp)
-  leaq .LC_str_393(%rip), %rcx
-  movq .LC_str_393_len(%rip), %rdx
+  movq $0, -576(%rbp)
+  leaq .LC_str_733(%rip), %rcx
+  movq .LC_str_733_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
-  movq %rax, %r12
-  movq %r12, -704(%rbp)
+  movq %rax, %r13
+  movq %r13, -584(%rbp)
+  movq -88(%rbp), %rcx
+  movq %r13, %rdx
+  subq $32, %rsp
+  call उगपं
+  addq $32, %rsp
+  movq %rax, %r15
+  movq $0, -584(%rbp)
+  leaq .LC_str_734(%rip), %rcx
+  movq .LC_str_734_len(%rip), %rdx
+  subq $32, %rsp
+  call sutra_str_alloc
+  addq $32, %rsp
+  movq %rax, %r13
+  movq %r13, -592(%rbp)
+  movq -88(%rbp), %rcx
+  movq %r13, %rdx
+  subq $32, %rsp
+  call उगपं
+  addq $32, %rsp
+  movq %rax, %r15
+  movq $0, -592(%rbp)
+  leaq .LC_str_735(%rip), %rcx
+  movq .LC_str_735_len(%rip), %rdx
+  subq $32, %rsp
+  call sutra_str_alloc
+  addq $32, %rsp
+  movq %rax, %r13
+  movq %r13, -600(%rbp)
+  movq -88(%rbp), %rcx
+  movq %r13, %rdx
+  subq $32, %rsp
+  call उगपं
+  addq $32, %rsp
+  movq %rax, %r15
+  movq $0, -600(%rbp)
+  leaq .LC_str_92(%rip), %rcx
+  movq .LC_str_92_len(%rip), %rdx
+  subq $32, %rsp
+  call sutra_str_alloc
+  addq $32, %rsp
+  movq %rax, %r13
+  movq %r13, -608(%rbp)
+  movq -88(%rbp), %rcx
+  movq %r13, %rdx
+  subq $32, %rsp
+  call उगपं
+  addq $32, %rsp
+  movq %rax, %r15
+  movq $0, -608(%rbp)
+  jmp .L_उत्सर्जक_एकक__if_अंत_10
+.L_उत्सर्जक_एकक__if_अंत_10:
+  movq -136(%rbp), %rcx
+  subq $32, %rsp
+  call दैशिक_लंबाई
+  addq $32, %rsp
+  movq %rax, %r13
+  movq $0, %r15
+  movq %r13, %r10
+  cmpq %r15, %r10
+  setg %al
+  movzbq %al, %r10
+  movq %r10, %rbx
+  movq %rbx, %r10
+  cmpq $0, %r10
+  je .L_किनारा_उत्सर्जक_एकक_7
+  jmp .L_उत्सर्जक_एकक__if_सत्य_21
+.L_किनारा_उत्सर्जक_एकक_7:
+  jmp .L_उत्सर्जक_एकक__if_अंत_22
+.L_उत्सर्जक_एकक__if_सत्य_21:
+  leaq .LC_str_747(%rip), %rcx
+  movq .LC_str_747_len(%rip), %rdx
+  subq $32, %rsp
+  call sutra_str_alloc
+  addq $32, %rsp
+  movq %rax, %rbx
+  movq %rbx, -616(%rbp)
+  movq -88(%rbp), %rcx
+  movq %rbx, %rdx
+  subq $32, %rsp
+  call उगपं
+  addq $32, %rsp
+  movq %rax, %r13
+  movq $0, -616(%rbp)
+  movq $0, %rbx
+  movq %rbx, -184(%rbp)
+  jmp .L_उत्सर्जक_एकक__wh_शर्त_23
+.L_उत्सर्जक_एकक__wh_शर्त_23:
+  movq -184(%rbp), %r11
+  movq %r11, -1008(%rbp)
+  movq -136(%rbp), %rcx
+  subq $32, %rsp
+  call दैशिक_लंबाई
+  addq $32, %rsp
+  movq %rax, %r13
+  movq -184(%rbp), %r10
+  cmpq %r13, %r10
+  setl %al
+  movzbq %al, %r10
+  movq %r10, %r15
+  movq %r15, %r10
+  cmpq $0, %r10
+  je .L_किनारा_उत्सर्जक_एकक_8
+  jmp .L_उत्सर्जक_एकक__wh_देह_24
+.L_किनारा_उत्सर्जक_एकक_8:
+  jmp .L_उत्सर्जक_एकक__wh_अंत_25
+.L_उत्सर्जक_एकक__wh_अंत_25:
+  jmp .L_उत्सर्जक_एकक__if_अंत_22
+.L_उत्सर्जक_एकक__if_अंत_22:
+  leaq .LC_str_751(%rip), %rcx
+  movq .LC_str_751_len(%rip), %rdx
+  subq $32, %rsp
+  call sutra_str_alloc
+  addq $32, %rsp
+  movq %rax, %r13
+  movq %r13, -728(%rbp)
+  movq -88(%rbp), %rcx
+  movq %r13, %rdx
+  subq $32, %rsp
+  call उगपं
+  addq $32, %rsp
+  movq %rax, %r15
+  movq $0, -728(%rbp)
+  leaq .LC_str_395(%rip), %rcx
+  movq .LC_str_395_len(%rip), %rdx
+  subq $32, %rsp
+  call sutra_str_alloc
+  addq $32, %rsp
+  movq %rax, %r13
+  movq %r13, -736(%rbp)
   movq -104(%rbp), %rcx
-  movq %r12, %rdx
+  movq %r13, %rdx
   subq $32, %rsp
   call sutra_arr_get
   addq $32, %rsp
   movq %rax, %r15
-  movq %r15, -712(%rbp)
-  movq $0, -704(%rbp)
-  movq $0, %r12
-  jmp .L_उत्सर्जक_एकक__wh_शर्त_21
-.L_उत्सर्जक_एकक__wh_शर्त_21:
-  movq %r12, -984(%rbp)
+  movq %r15, -744(%rbp)
+  movq $0, -736(%rbp)
+  movq $0, %r13
+  jmp .L_उत्सर्जक_एकक__wh_शर्त_26
+.L_उत्सर्जक_एकक__wh_शर्त_26:
+  movq %r13, -1016(%rbp)
   movq %r15, %rcx
   subq $32, %rsp
   call दैशिक_लंबाई
   addq $32, %rsp
   movq %rax, %rdi
-  movq %r12, %r10
+  movq %r13, %r10
   cmpq %rdi, %r10
   setl %al
   movzbq %al, %r10
   movq %r10, %r14
   movq %r14, %r10
   cmpq $0, %r10
-  je .L_किनारा_उत्सर्जक_एकक_7
-  jmp .L_उत्सर्जक_एकक__wh_देह_22
-.L_किनारा_उत्सर्जक_एकक_7:
-  jmp .L_उत्सर्जक_एकक__wh_अंत_23
-.L_उत्सर्जक_एकक__wh_अंत_23:
-  leaq .LC_str_392(%rip), %rcx
-  movq .LC_str_392_len(%rip), %rdx
+  je .L_किनारा_उत्सर्जक_एकक_9
+  jmp .L_उत्सर्जक_एकक__wh_देह_27
+.L_किनारा_उत्सर्जक_एकक_9:
+  jmp .L_उत्सर्जक_एकक__wh_अंत_28
+.L_उत्सर्जक_एकक__wh_अंत_28:
+  leaq .LC_str_394(%rip), %rcx
+  movq .LC_str_394_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %rdi
-  movq %rdi, -784(%rbp)
+  movq %rdi, -816(%rbp)
   movq -104(%rbp), %rcx
   movq %rdi, %rdx
   subq $32, %rsp
   call sutra_arr_get
   addq $32, %rsp
   movq %rax, %r14
-  movq %r14, -792(%rbp)
-  movq $0, -784(%rbp)
+  movq %r14, -824(%rbp)
+  movq $0, -816(%rbp)
   movq $0, %rdi
-  jmp .L_उत्सर्जक_एकक__wh_शर्त_24
-.L_उत्सर्जक_एकक__wh_शर्त_24:
-  movq %rdi, -992(%rbp)
+  jmp .L_उत्सर्जक_एकक__wh_शर्त_29
+.L_उत्सर्जक_एकक__wh_शर्त_29:
+  movq %rdi, -1024(%rbp)
   movq %r14, %rcx
   subq $32, %rsp
   call दैशिक_लंबाई
   addq $32, %rsp
-  movq %rax, %r13
+  movq %rax, %r12
   movq %rdi, %r10
-  cmpq %r13, %r10
+  cmpq %r12, %r10
   setl %al
   movzbq %al, %r10
   movq %r10, %rsi
   movq %rsi, %r10
   cmpq $0, %r10
-  je .L_किनारा_उत्सर्जक_एकक_8
-  jmp .L_उत्सर्जक_एकक__wh_देह_25
-.L_किनारा_उत्सर्जक_एकक_8:
-  jmp .L_उत्सर्जक_एकक__wh_अंत_26
-.L_उत्सर्जक_एकक__wh_अंत_26:
+  je .L_किनारा_उत्सर्जक_एकक_10
+  jmp .L_उत्सर्जक_एकक__wh_देह_30
+.L_किनारा_उत्सर्जक_एकक_10:
+  jmp .L_उत्सर्जक_एकक__wh_अंत_31
+.L_उत्सर्जक_एकक__wh_अंत_31:
   leaq .LC_str_92(%rip), %rcx
   movq .LC_str_92_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %rsi
-  movq %rsi, -944(%rbp)
+  movq %rsi, -976(%rbp)
   movq -88(%rbp), %rcx
   movq %rsi, %rdx
   subq $32, %rsp
   call उगपं
   addq $32, %rsp
-  movq %rax, %r13
-  movq $0, -944(%rbp)
+  movq %rax, %r12
+  movq $0, -976(%rbp)
   movq -88(%rbp), %rcx
   subq $32, %rsp
   call उब_पाठ
@@ -124569,115 +125043,77 @@
   movq %rax, %rsi
   movq %rsi, %rax
   jmp .L_epilogue_उत्सर्जक_एकक
-.L_उत्सर्जक_एकक__wh_देह_25:
-  leaq .LC_str_750(%rip), %rcx
-  movq .LC_str_750_len(%rip), %rdx
+.L_उत्सर्जक_एकक__wh_देह_30:
+  leaq .LC_str_755(%rip), %rcx
+  movq .LC_str_755_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %rsi
-  movq %rsi, -800(%rbp)
+  movq %rsi, -832(%rbp)
   movq %rsi, %rcx
   movq %rdi, %rdx
   subq $32, %rsp
   call sutra_add_dynamic
   addq $32, %rsp
-  movq %rax, %r13
-  movq %r13, -808(%rbp)
-  movq $0, -800(%rbp)
+  movq %rax, %r12
+  movq %r12, -840(%rbp)
+  movq $0, -832(%rbp)
   leaq .LC_str_136(%rip), %rcx
   movq .LC_str_136_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %rsi
-  movq %rsi, -816(%rbp)
-  movq %r13, %rcx
+  movq %rsi, -848(%rbp)
+  movq %r12, %rcx
   movq %rsi, %rdx
   subq $32, %rsp
   call sutra_str_concat
   addq $32, %rsp
   movq %rax, %rbx
-  movq %rbx, -824(%rbp)
-  movq $0, -808(%rbp)
-  movq $0, -816(%rbp)
+  movq %rbx, -856(%rbp)
+  movq $0, -840(%rbp)
+  movq $0, -848(%rbp)
   movq -88(%rbp), %rcx
   movq %rbx, %rdx
   subq $32, %rsp
   call उगपं
   addq $32, %rsp
   movq %rax, %rsi
-  movq $0, -824(%rbp)
-  leaq .LC_str_751(%rip), %rcx
-  movq .LC_str_751_len(%rip), %rdx
+  movq $0, -856(%rbp)
+  leaq .LC_str_756(%rip), %rcx
+  movq .LC_str_756_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %rbx
-  movq %rbx, -832(%rbp)
+  movq %rbx, -864(%rbp)
   movq %r14, %rcx
   movq %rdi, %rdx
   subq $32, %rsp
   call sutra_arr_get
   addq $32, %rsp
   movq %rax, %rsi
-  movq %rsi, -840(%rbp)
+  movq %rsi, -872(%rbp)
   movq %rsi, %rcx
   subq $32, %rsp
   call उत्_एस्केप
   addq $32, %rsp
-  movq %rax, %r13
-  movq %r13, -848(%rbp)
-  movq $0, -840(%rbp)
-  movq %rbx, %rcx
-  movq %r13, %rdx
-  subq $32, %rsp
-  call sutra_add_dynamic
-  addq $32, %rsp
-  movq %rax, %rsi
-  movq %rsi, -856(%rbp)
-  movq $0, -832(%rbp)
-  movq $0, -848(%rbp)
-  leaq .LC_str_752(%rip), %rcx
-  movq .LC_str_752_len(%rip), %rdx
-  subq $32, %rsp
-  call sutra_str_alloc
-  addq $32, %rsp
-  movq %rax, %rbx
-  movq %rbx, -864(%rbp)
-  movq %rsi, %rcx
-  movq %rbx, %rdx
-  subq $32, %rsp
-  call sutra_str_concat
-  addq $32, %rsp
-  movq %rax, %r13
-  movq %r13, -872(%rbp)
-  movq $0, -856(%rbp)
-  movq $0, -864(%rbp)
-  movq -88(%rbp), %rcx
-  movq %r13, %rdx
-  subq $32, %rsp
-  call उगपं
-  addq $32, %rsp
-  movq %rax, %rbx
+  movq %rax, %r12
+  movq %r12, -880(%rbp)
   movq $0, -872(%rbp)
-  leaq .LC_str_750(%rip), %rcx
-  movq .LC_str_750_len(%rip), %rdx
-  subq $32, %rsp
-  call sutra_str_alloc
-  addq $32, %rsp
-  movq %rax, %rbx
-  movq %rbx, -880(%rbp)
   movq %rbx, %rcx
-  movq %rdi, %rdx
+  movq %r12, %rdx
   subq $32, %rsp
   call sutra_add_dynamic
   addq $32, %rsp
   movq %rax, %rsi
   movq %rsi, -888(%rbp)
+  movq $0, -864(%rbp)
   movq $0, -880(%rbp)
-  leaq .LC_str_753(%rip), %rcx
-  movq .LC_str_753_len(%rip), %rdx
+  leaq .LC_str_757(%rip), %rcx
+  movq .LC_str_757_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -124688,64 +125124,300 @@
   subq $32, %rsp
   call sutra_str_concat
   addq $32, %rsp
-  movq %rax, %r13
-  movq %r13, -904(%rbp)
+  movq %rax, %r12
+  movq %r12, -904(%rbp)
   movq $0, -888(%rbp)
   movq $0, -896(%rbp)
   movq -88(%rbp), %rcx
-  movq %r13, %rdx
+  movq %r12, %rdx
   subq $32, %rsp
   call उगपं
   addq $32, %rsp
   movq %rax, %rbx
   movq $0, -904(%rbp)
-  leaq .LC_str_754(%rip), %rcx
-  movq .LC_str_754_len(%rip), %rdx
+  leaq .LC_str_755(%rip), %rcx
+  movq .LC_str_755_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %rbx
   movq %rbx, -912(%rbp)
+  movq %rbx, %rcx
+  movq %rdi, %rdx
+  subq $32, %rsp
+  call sutra_add_dynamic
+  addq $32, %rsp
+  movq %rax, %rsi
+  movq %rsi, -920(%rbp)
+  movq $0, -912(%rbp)
+  leaq .LC_str_758(%rip), %rcx
+  movq .LC_str_758_len(%rip), %rdx
+  subq $32, %rsp
+  call sutra_str_alloc
+  addq $32, %rsp
+  movq %rax, %rbx
+  movq %rbx, -928(%rbp)
+  movq %rsi, %rcx
+  movq %rbx, %rdx
+  subq $32, %rsp
+  call sutra_str_concat
+  addq $32, %rsp
+  movq %rax, %r12
+  movq %r12, -936(%rbp)
+  movq $0, -920(%rbp)
+  movq $0, -928(%rbp)
+  movq -88(%rbp), %rcx
+  movq %r12, %rdx
+  subq $32, %rsp
+  call उगपं
+  addq $32, %rsp
+  movq %rax, %rbx
+  movq $0, -936(%rbp)
+  leaq .LC_str_759(%rip), %rcx
+  movq .LC_str_759_len(%rip), %rdx
+  subq $32, %rsp
+  call sutra_str_alloc
+  addq $32, %rsp
+  movq %rax, %rbx
+  movq %rbx, -944(%rbp)
   movq %r14, %rcx
   movq %rdi, %rdx
   subq $32, %rsp
   call sutra_arr_get
   addq $32, %rsp
   movq %rax, %rsi
-  movq %rsi, -920(%rbp)
+  movq %rsi, -952(%rbp)
   movq %rsi, %rcx
   subq $32, %rsp
   call उत्_बाइट_लंबाई
   addq $32, %rsp
-  movq %rax, %r13
-  movq %r13, -928(%rbp)
-  movq $0, -920(%rbp)
+  movq %rax, %r12
+  movq %r12, -960(%rbp)
+  movq $0, -952(%rbp)
   movq %rbx, %rcx
-  movq %r13, %rdx
+  movq %r12, %rdx
   subq $32, %rsp
   call sutra_add_dynamic
   addq $32, %rsp
   movq %rax, %rsi
-  movq %rsi, -936(%rbp)
-  movq $0, -912(%rbp)
-  movq $0, -928(%rbp)
+  movq %rsi, -968(%rbp)
+  movq $0, -944(%rbp)
+  movq $0, -960(%rbp)
   movq -88(%rbp), %rcx
   movq %rsi, %rdx
   subq $32, %rsp
   call उगपं
   addq $32, %rsp
   movq %rax, %rbx
-  movq $0, -936(%rbp)
+  movq $0, -968(%rbp)
   movq $1, %rbx
   movq %rdi, %r10
   addq %rbx, %r10
   movq %r10, %rsi
-  movq $0, -992(%rbp)
+  movq $0, -1024(%rbp)
   movq %rsi, %rdi
-  jmp .L_उत्सर्जक_एकक__wh_शर्त_24
-.L_उत्सर्जक_एकक__wh_देह_22:
-  leaq .LC_str_747(%rip), %rcx
-  movq .LC_str_747_len(%rip), %rdx
+  jmp .L_उत्सर्जक_एकक__wh_शर्त_29
+.L_उत्सर्जक_एकक__wh_देह_27:
+  leaq .LC_str_752(%rip), %rcx
+  movq .LC_str_752_len(%rip), %rdx
+  subq $32, %rsp
+  call sutra_str_alloc
+  addq $32, %rsp
+  movq %rax, %rbx
+  movq %rbx, -752(%rbp)
+  movq -88(%rbp), %rcx
+  movq %rbx, %rdx
+  subq $32, %rsp
+  call उगपं
+  addq $32, %rsp
+  movq %rax, %rsi
+  movq $0, -752(%rbp)
+  leaq .LC_str_753(%rip), %rcx
+  movq .LC_str_753_len(%rip), %rdx
+  subq $32, %rsp
+  call sutra_str_alloc
+  addq $32, %rsp
+  movq %rax, %rbx
+  movq %rbx, -760(%rbp)
+  movq %rbx, %rcx
+  movq %r13, %rdx
+  subq $32, %rsp
+  call sutra_add_dynamic
+  addq $32, %rsp
+  movq %rax, %rsi
+  movq %rsi, -768(%rbp)
+  movq $0, -760(%rbp)
+  leaq .LC_str_136(%rip), %rcx
+  movq .LC_str_136_len(%rip), %rdx
+  subq $32, %rsp
+  call sutra_str_alloc
+  addq $32, %rsp
+  movq %rax, %rbx
+  movq %rbx, -776(%rbp)
+  movq %rsi, %rcx
+  movq %rbx, %rdx
+  subq $32, %rsp
+  call sutra_str_concat
+  addq $32, %rsp
+  movq %rax, %rdi
+  movq %rdi, -784(%rbp)
+  movq $0, -768(%rbp)
+  movq $0, -776(%rbp)
+  movq -88(%rbp), %rcx
+  movq %rdi, %rdx
+  subq $32, %rsp
+  call उगपं
+  addq $32, %rsp
+  movq %rax, %rbx
+  movq $0, -784(%rbp)
+  leaq .LC_str_754(%rip), %rcx
+  movq .LC_str_754_len(%rip), %rdx
+  subq $32, %rsp
+  call sutra_str_alloc
+  addq $32, %rsp
+  movq %rax, %rbx
+  movq %rbx, -792(%rbp)
+  movq %r15, %rcx
+  movq %r13, %rdx
+  subq $32, %rsp
+  call sutra_arr_get
+  addq $32, %rsp
+  movq %rax, %rsi
+  movq %rsi, -800(%rbp)
+  movq %rbx, %rcx
+  movq %rsi, %rdx
+  subq $32, %rsp
+  call sutra_add_dynamic
+  addq $32, %rsp
+  movq %rax, %rdi
+  movq %rdi, -808(%rbp)
+  movq $0, -792(%rbp)
+  movq $0, -800(%rbp)
+  movq -88(%rbp), %rcx
+  movq %rdi, %rdx
+  subq $32, %rsp
+  call उगपं
+  addq $32, %rsp
+  movq %rax, %rbx
+  movq $0, -808(%rbp)
+  movq $1, %rbx
+  movq %r13, %r10
+  addq %rbx, %r10
+  movq %r10, %rsi
+  movq $0, -1016(%rbp)
+  movq %rsi, %r13
+  jmp .L_उत्सर्जक_एकक__wh_शर्त_26
+.L_उत्सर्जक_एकक__wh_देह_24:
+  leaq .LC_str_748(%rip), %rcx
+  movq .LC_str_748_len(%rip), %rdx
+  subq $32, %rsp
+  call sutra_str_alloc
+  addq $32, %rsp
+  movq %rax, %rbx
+  movq %rbx, -624(%rbp)
+  movq -136(%rbp), %rcx
+  movq -184(%rbp), %rdx
+  subq $32, %rsp
+  call sutra_arr_get
+  addq $32, %rsp
+  movq %rax, %rsi
+  movq %rsi, -632(%rbp)
+  leaq .LC_str_166(%rip), %rcx
+  movq .LC_str_166_len(%rip), %rdx
+  subq $32, %rsp
+  call sutra_str_alloc
+  addq $32, %rsp
+  movq %rax, %rdi
+  movq %rdi, -640(%rbp)
+  movq %rsi, %rcx
+  movq %rdi, %rdx
+  subq $32, %rsp
+  call sutra_arr_get
+  addq $32, %rsp
+  movq %rax, %r12
+  movq %r12, -648(%rbp)
+  movq $0, -632(%rbp)
+  movq $0, -640(%rbp)
+  movq %rbx, %rcx
+  movq %r12, %rdx
+  subq $32, %rsp
+  call sutra_add_dynamic
+  addq $32, %rsp
+  movq %rax, %rsi
+  movq %rsi, -656(%rbp)
+  movq $0, -624(%rbp)
+  movq $0, -648(%rbp)
+  movq -88(%rbp), %rcx
+  movq %rsi, %rdx
+  subq $32, %rsp
+  call उगपं
+  addq $32, %rsp
+  movq %rax, %rbx
+  movq $0, -656(%rbp)
+  leaq .LC_str_749(%rip), %rcx
+  movq .LC_str_749_len(%rip), %rdx
+  subq $32, %rsp
+  call sutra_str_alloc
+  addq $32, %rsp
+  movq %rax, %rbx
+  movq %rbx, -664(%rbp)
+  movq -136(%rbp), %rcx
+  movq -184(%rbp), %rdx
+  subq $32, %rsp
+  call sutra_arr_get
+  addq $32, %rsp
+  movq %rax, %rsi
+  movq %rsi, -672(%rbp)
+  leaq .LC_str_166(%rip), %rcx
+  movq .LC_str_166_len(%rip), %rdx
+  subq $32, %rsp
+  call sutra_str_alloc
+  addq $32, %rsp
+  movq %rax, %rdi
+  movq %rdi, -680(%rbp)
+  movq %rsi, %rcx
+  movq %rdi, %rdx
+  subq $32, %rsp
+  call sutra_arr_get
+  addq $32, %rsp
+  movq %rax, %r12
+  movq %r12, -688(%rbp)
+  movq $0, -672(%rbp)
+  movq $0, -680(%rbp)
+  movq %rbx, %rcx
+  movq %r12, %rdx
+  subq $32, %rsp
+  call sutra_add_dynamic
+  addq $32, %rsp
+  movq %rax, %rsi
+  movq %rsi, -696(%rbp)
+  movq $0, -664(%rbp)
+  movq $0, -688(%rbp)
+  leaq .LC_str_136(%rip), %rcx
+  movq .LC_str_136_len(%rip), %rdx
+  subq $32, %rsp
+  call sutra_str_alloc
+  addq $32, %rsp
+  movq %rax, %rbx
+  movq %rbx, -704(%rbp)
+  movq %rsi, %rcx
+  movq %rbx, %rdx
+  subq $32, %rsp
+  call sutra_str_concat
+  addq $32, %rsp
+  movq %rax, %rdi
+  movq %rdi, -712(%rbp)
+  movq $0, -696(%rbp)
+  movq $0, -704(%rbp)
+  movq -88(%rbp), %rcx
+  movq %rdi, %rdx
+  subq $32, %rsp
+  call उगपं
+  addq $32, %rsp
+  movq %rax, %rbx
+  movq $0, -712(%rbp)
+  leaq .LC_str_750(%rip), %rcx
+  movq .LC_str_750_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -124758,379 +125430,181 @@
   addq $32, %rsp
   movq %rax, %rsi
   movq $0, -720(%rbp)
-  leaq .LC_str_748(%rip), %rcx
-  movq .LC_str_748_len(%rip), %rdx
-  subq $32, %rsp
-  call sutra_str_alloc
-  addq $32, %rsp
-  movq %rax, %rbx
-  movq %rbx, -728(%rbp)
-  movq %rbx, %rcx
-  movq %r12, %rdx
-  subq $32, %rsp
-  call sutra_add_dynamic
-  addq $32, %rsp
-  movq %rax, %rsi
-  movq %rsi, -736(%rbp)
-  movq $0, -728(%rbp)
-  leaq .LC_str_136(%rip), %rcx
-  movq .LC_str_136_len(%rip), %rdx
-  subq $32, %rsp
-  call sutra_str_alloc
-  addq $32, %rsp
-  movq %rax, %rbx
-  movq %rbx, -744(%rbp)
-  movq %rsi, %rcx
-  movq %rbx, %rdx
-  subq $32, %rsp
-  call sutra_str_concat
-  addq $32, %rsp
-  movq %rax, %rdi
-  movq %rdi, -752(%rbp)
-  movq $0, -736(%rbp)
-  movq $0, -744(%rbp)
-  movq -88(%rbp), %rcx
-  movq %rdi, %rdx
-  subq $32, %rsp
-  call उगपं
-  addq $32, %rsp
-  movq %rax, %rbx
-  movq $0, -752(%rbp)
-  leaq .LC_str_749(%rip), %rcx
-  movq .LC_str_749_len(%rip), %rdx
-  subq $32, %rsp
-  call sutra_str_alloc
-  addq $32, %rsp
-  movq %rax, %rbx
-  movq %rbx, -760(%rbp)
-  movq %r15, %rcx
-  movq %r12, %rdx
-  subq $32, %rsp
-  call sutra_arr_get
-  addq $32, %rsp
-  movq %rax, %rsi
-  movq %rsi, -768(%rbp)
-  movq %rbx, %rcx
-  movq %rsi, %rdx
-  subq $32, %rsp
-  call sutra_add_dynamic
-  addq $32, %rsp
-  movq %rax, %rdi
-  movq %rdi, -776(%rbp)
-  movq $0, -760(%rbp)
-  movq $0, -768(%rbp)
-  movq -88(%rbp), %rcx
-  movq %rdi, %rdx
-  subq $32, %rsp
-  call उगपं
-  addq $32, %rsp
-  movq %rax, %rbx
-  movq $0, -776(%rbp)
-  movq $1, %rbx
-  movq %r12, %r10
-  addq %rbx, %r10
-  movq %r10, %rsi
-  movq $0, -984(%rbp)
-  movq %rsi, %r12
-  jmp .L_उत्सर्जक_एकक__wh_शर्त_21
-.L_उत्सर्जक_एकक__wh_देह_19:
-  leaq .LC_str_743(%rip), %rcx
-  movq .LC_str_743_len(%rip), %rdx
-  subq $32, %rsp
-  call sutra_str_alloc
-  addq $32, %rsp
-  movq %rax, %rbx
-  movq %rbx, -592(%rbp)
-  movq -136(%rbp), %rcx
-  movq -184(%rbp), %rdx
-  subq $32, %rsp
-  call sutra_arr_get
-  addq $32, %rsp
-  movq %rax, %rsi
-  movq %rsi, -600(%rbp)
-  leaq .LC_str_166(%rip), %rcx
-  movq .LC_str_166_len(%rip), %rdx
-  subq $32, %rsp
-  call sutra_str_alloc
-  addq $32, %rsp
-  movq %rax, %rdi
-  movq %rdi, -608(%rbp)
-  movq %rsi, %rcx
-  movq %rdi, %rdx
-  subq $32, %rsp
-  call sutra_arr_get
-  addq $32, %rsp
-  movq %rax, %r12
-  movq %r12, -616(%rbp)
-  movq $0, -600(%rbp)
-  movq $0, -608(%rbp)
-  movq %rbx, %rcx
-  movq %r12, %rdx
-  subq $32, %rsp
-  call sutra_add_dynamic
-  addq $32, %rsp
-  movq %rax, %rsi
-  movq %rsi, -624(%rbp)
-  movq $0, -592(%rbp)
-  movq $0, -616(%rbp)
-  movq -88(%rbp), %rcx
-  movq %rsi, %rdx
-  subq $32, %rsp
-  call उगपं
-  addq $32, %rsp
-  movq %rax, %rbx
-  movq $0, -624(%rbp)
-  leaq .LC_str_744(%rip), %rcx
-  movq .LC_str_744_len(%rip), %rdx
-  subq $32, %rsp
-  call sutra_str_alloc
-  addq $32, %rsp
-  movq %rax, %rbx
-  movq %rbx, -632(%rbp)
-  movq -136(%rbp), %rcx
-  movq -184(%rbp), %rdx
-  subq $32, %rsp
-  call sutra_arr_get
-  addq $32, %rsp
-  movq %rax, %rsi
-  movq %rsi, -640(%rbp)
-  leaq .LC_str_166(%rip), %rcx
-  movq .LC_str_166_len(%rip), %rdx
-  subq $32, %rsp
-  call sutra_str_alloc
-  addq $32, %rsp
-  movq %rax, %rdi
-  movq %rdi, -648(%rbp)
-  movq %rsi, %rcx
-  movq %rdi, %rdx
-  subq $32, %rsp
-  call sutra_arr_get
-  addq $32, %rsp
-  movq %rax, %r12
-  movq %r12, -656(%rbp)
-  movq $0, -640(%rbp)
-  movq $0, -648(%rbp)
-  movq %rbx, %rcx
-  movq %r12, %rdx
-  subq $32, %rsp
-  call sutra_add_dynamic
-  addq $32, %rsp
-  movq %rax, %rsi
-  movq %rsi, -664(%rbp)
-  movq $0, -632(%rbp)
-  movq $0, -656(%rbp)
-  leaq .LC_str_136(%rip), %rcx
-  movq .LC_str_136_len(%rip), %rdx
-  subq $32, %rsp
-  call sutra_str_alloc
-  addq $32, %rsp
-  movq %rax, %rbx
-  movq %rbx, -672(%rbp)
-  movq %rsi, %rcx
-  movq %rbx, %rdx
-  subq $32, %rsp
-  call sutra_str_concat
-  addq $32, %rsp
-  movq %rax, %rdi
-  movq %rdi, -680(%rbp)
-  movq $0, -664(%rbp)
-  movq $0, -672(%rbp)
-  movq -88(%rbp), %rcx
-  movq %rdi, %rdx
-  subq $32, %rsp
-  call उगपं
-  addq $32, %rsp
-  movq %rax, %rbx
-  movq $0, -680(%rbp)
-  leaq .LC_str_745(%rip), %rcx
-  movq .LC_str_745_len(%rip), %rdx
-  subq $32, %rsp
-  call sutra_str_alloc
-  addq $32, %rsp
-  movq %rax, %rbx
-  movq %rbx, -688(%rbp)
-  movq -88(%rbp), %rcx
-  movq %rbx, %rdx
-  subq $32, %rsp
-  call उगपं
-  addq $32, %rsp
-  movq %rax, %rsi
-  movq $0, -688(%rbp)
   movq $1, %rbx
   movq -184(%rbp), %r10
   addq %rbx, %r10
   movq %r10, %rsi
-  movq $0, -976(%rbp)
+  movq $0, -1008(%rbp)
   movq %rsi, -184(%rbp)
-  jmp .L_उत्सर्जक_एकक__wh_शर्त_18
-.L_उत्सर्जक_एकक__wh_देह_14:
-  leaq .LC_str_735(%rip), %rcx
-  movq .LC_str_735_len(%rip), %rdx
-  subq $32, %rsp
-  call sutra_str_alloc
-  addq $32, %rsp
-  movq %rax, %rbx
-  movq %rbx, -480(%rbp)
-  movq -136(%rbp), %rcx
-  movq -168(%rbp), %rdx
-  subq $32, %rsp
-  call sutra_arr_get
-  addq $32, %rsp
-  movq %rax, %rsi
-  movq %rsi, -488(%rbp)
-  leaq .LC_str_166(%rip), %rcx
-  movq .LC_str_166_len(%rip), %rdx
-  subq $32, %rsp
-  call sutra_str_alloc
-  addq $32, %rsp
-  movq %rax, %rdi
-  movq %rdi, -496(%rbp)
-  movq %rsi, %rcx
-  movq %rdi, %rdx
-  subq $32, %rsp
-  call sutra_arr_get
-  addq $32, %rsp
-  movq %rax, %r12
-  movq %r12, -504(%rbp)
-  movq $0, -488(%rbp)
-  movq $0, -496(%rbp)
-  movq %rbx, %rcx
-  movq %r12, %rdx
-  subq $32, %rsp
-  call sutra_add_dynamic
-  addq $32, %rsp
-  movq %rax, %rsi
-  movq %rsi, -512(%rbp)
-  movq $0, -480(%rbp)
-  movq $0, -504(%rbp)
-  leaq .LC_str_683(%rip), %rcx
-  movq .LC_str_683_len(%rip), %rdx
-  subq $32, %rsp
-  call sutra_str_alloc
-  addq $32, %rsp
-  movq %rax, %rbx
-  movq %rbx, -520(%rbp)
-  movq %rsi, %rcx
-  movq %rbx, %rdx
-  subq $32, %rsp
-  call sutra_str_concat
-  addq $32, %rsp
-  movq %rax, %rdi
-  movq %rdi, -528(%rbp)
-  movq $0, -512(%rbp)
-  movq $0, -520(%rbp)
-  movq -88(%rbp), %rcx
-  movq %rdi, %rdx
-  subq $32, %rsp
-  call उगपं
-  addq $32, %rsp
-  movq %rax, %rbx
-  movq $0, -528(%rbp)
+  jmp .L_उत्सर्जक_एकक__wh_शर्त_23
+.L_उत्सर्जक_एकक__wh_देह_19:
   leaq .LC_str_740(%rip), %rcx
   movq .LC_str_740_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %rbx
-  movq %rbx, -536(%rbp)
-  movq -88(%rbp), %rcx
-  movq %rbx, %rdx
-  subq $32, %rsp
-  call उगपं
-  addq $32, %rsp
-  movq %rax, %rsi
-  movq $0, -536(%rbp)
-  movq $1, %rbx
-  movq -168(%rbp), %r10
-  subq %rbx, %r10
-  movq %r10, %rsi
-  movq $0, -968(%rbp)
-  movq %rsi, -168(%rbp)
-  jmp .L_उत्सर्जक_एकक__wh_शर्त_13
-.L_उत्सर्जक_एकक__wh_देह_7:
-  leaq .LC_str_735(%rip), %rcx
-  movq .LC_str_735_len(%rip), %rdx
-  subq $32, %rsp
-  call sutra_str_alloc
-  addq $32, %rsp
-  movq %rax, %rbx
-  movq %rbx, -360(%rbp)
+  movq %rbx, -512(%rbp)
   movq -136(%rbp), %rcx
-  movq -152(%rbp), %rdx
+  movq -168(%rbp), %rdx
   subq $32, %rsp
   call sutra_arr_get
   addq $32, %rsp
   movq %rax, %rsi
-  movq %rsi, -368(%rbp)
+  movq %rsi, -520(%rbp)
   leaq .LC_str_166(%rip), %rcx
   movq .LC_str_166_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %rdi
-  movq %rdi, -376(%rbp)
+  movq %rdi, -528(%rbp)
   movq %rsi, %rcx
   movq %rdi, %rdx
   subq $32, %rsp
   call sutra_arr_get
   addq $32, %rsp
   movq %rax, %r12
-  movq %r12, -384(%rbp)
-  movq $0, -368(%rbp)
-  movq $0, -376(%rbp)
+  movq %r12, -536(%rbp)
+  movq $0, -520(%rbp)
+  movq $0, -528(%rbp)
   movq %rbx, %rcx
   movq %r12, %rdx
   subq $32, %rsp
   call sutra_add_dynamic
   addq $32, %rsp
   movq %rax, %rsi
-  movq %rsi, -392(%rbp)
-  movq $0, -360(%rbp)
-  movq $0, -384(%rbp)
-  leaq .LC_str_683(%rip), %rcx
-  movq .LC_str_683_len(%rip), %rdx
+  movq %rsi, -544(%rbp)
+  movq $0, -512(%rbp)
+  movq $0, -536(%rbp)
+  leaq .LC_str_685(%rip), %rcx
+  movq .LC_str_685_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %rbx
-  movq %rbx, -400(%rbp)
+  movq %rbx, -552(%rbp)
   movq %rsi, %rcx
   movq %rbx, %rdx
   subq $32, %rsp
   call sutra_str_concat
   addq $32, %rsp
   movq %rax, %rdi
-  movq %rdi, -408(%rbp)
-  movq $0, -392(%rbp)
-  movq $0, -400(%rbp)
+  movq %rdi, -560(%rbp)
+  movq $0, -544(%rbp)
+  movq $0, -552(%rbp)
   movq -88(%rbp), %rcx
   movq %rdi, %rdx
   subq $32, %rsp
   call उगपं
   addq $32, %rsp
   movq %rax, %rbx
-  movq $0, -408(%rbp)
-  leaq .LC_str_736(%rip), %rcx
-  movq .LC_str_736_len(%rip), %rdx
+  movq $0, -560(%rbp)
+  leaq .LC_str_745(%rip), %rcx
+  movq .LC_str_745_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %rbx
-  movq %rbx, -416(%rbp)
+  movq %rbx, -568(%rbp)
   movq -88(%rbp), %rcx
   movq %rbx, %rdx
   subq $32, %rsp
   call उगपं
   addq $32, %rsp
   movq %rax, %rsi
+  movq $0, -568(%rbp)
+  movq $1, %rbx
+  movq -168(%rbp), %r10
+  subq %rbx, %r10
+  movq %r10, %rsi
+  movq $0, -1000(%rbp)
+  movq %rsi, -168(%rbp)
+  jmp .L_उत्सर्जक_एकक__wh_शर्त_18
+.L_उत्सर्जक_एकक__wh_देह_12:
+  leaq .LC_str_740(%rip), %rcx
+  movq .LC_str_740_len(%rip), %rdx
+  subq $32, %rsp
+  call sutra_str_alloc
+  addq $32, %rsp
+  movq %rax, %rbx
+  movq %rbx, -392(%rbp)
+  movq -136(%rbp), %rcx
+  movq -152(%rbp), %rdx
+  subq $32, %rsp
+  call sutra_arr_get
+  addq $32, %rsp
+  movq %rax, %rsi
+  movq %rsi, -400(%rbp)
+  leaq .LC_str_166(%rip), %rcx
+  movq .LC_str_166_len(%rip), %rdx
+  subq $32, %rsp
+  call sutra_str_alloc
+  addq $32, %rsp
+  movq %rax, %rdi
+  movq %rdi, -408(%rbp)
+  movq %rsi, %rcx
+  movq %rdi, %rdx
+  subq $32, %rsp
+  call sutra_arr_get
+  addq $32, %rsp
+  movq %rax, %r12
+  movq %r12, -416(%rbp)
+  movq $0, -400(%rbp)
+  movq $0, -408(%rbp)
+  movq %rbx, %rcx
+  movq %r12, %rdx
+  subq $32, %rsp
+  call sutra_add_dynamic
+  addq $32, %rsp
+  movq %rax, %rsi
+  movq %rsi, -424(%rbp)
+  movq $0, -392(%rbp)
   movq $0, -416(%rbp)
+  leaq .LC_str_685(%rip), %rcx
+  movq .LC_str_685_len(%rip), %rdx
+  subq $32, %rsp
+  call sutra_str_alloc
+  addq $32, %rsp
+  movq %rax, %rbx
+  movq %rbx, -432(%rbp)
+  movq %rsi, %rcx
+  movq %rbx, %rdx
+  subq $32, %rsp
+  call sutra_str_concat
+  addq $32, %rsp
+  movq %rax, %rdi
+  movq %rdi, -440(%rbp)
+  movq $0, -424(%rbp)
+  movq $0, -432(%rbp)
+  movq -88(%rbp), %rcx
+  movq %rdi, %rdx
+  subq $32, %rsp
+  call उगपं
+  addq $32, %rsp
+  movq %rax, %rbx
+  movq $0, -440(%rbp)
+  leaq .LC_str_741(%rip), %rcx
+  movq .LC_str_741_len(%rip), %rdx
+  subq $32, %rsp
+  call sutra_str_alloc
+  addq $32, %rsp
+  movq %rax, %rbx
+  movq %rbx, -448(%rbp)
+  movq -88(%rbp), %rcx
+  movq %rbx, %rdx
+  subq $32, %rsp
+  call उगपं
+  addq $32, %rsp
+  movq %rax, %rsi
+  movq $0, -448(%rbp)
   movq $1, %rbx
   movq -152(%rbp), %r10
   addq %rbx, %r10
   movq %r10, %rsi
-  movq $0, -960(%rbp)
+  movq $0, -992(%rbp)
   movq %rsi, -152(%rbp)
-  jmp .L_उत्सर्जक_एकक__wh_शर्त_6
+  jmp .L_उत्सर्जक_एकक__wh_शर्त_11
 .L_उत्सर्जक_एकक__wh_देह_2:
   movq -72(%rbp), %rcx
   movq -120(%rbp), %rdx
@@ -125139,8 +125613,8 @@
   addq $32, %rsp
   movq %rax, %rbx
   movq %rbx, -232(%rbp)
-  leaq .LC_str_588(%rip), %rcx
-  movq .LC_str_588_len(%rip), %rdx
+  leaq .LC_str_590(%rip), %rcx
+  movq .LC_str_590_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -125167,9 +125641,9 @@
   movq $0, -256(%rbp)
   movq %rsi, %r10
   cmpq $0, %r10
-  je .L_किनारा_उत्सर्जक_एकक_9
+  je .L_किनारा_उत्सर्जक_एकक_11
   jmp .L_उत्सर्जक_एकक__if_सत्य_4
-.L_किनारा_उत्सर्जक_एकक_9:
+.L_किनारा_उत्सर्जक_एकक_11:
   jmp .L_उत्सर्जक_एकक__if_अंत_5
 .L_उत्सर्जक_एकक__if_सत्य_4:
   movq -72(%rbp), %rcx
@@ -125187,9 +125661,9 @@
   movq $0, -264(%rbp)
   jmp .L_उत्सर्जक_एकक__if_अंत_5
 .L_उत्सर्जक_एकक__if_अंत_5:
-  movq %rbx, -1000(%rbp)
-  movq %rsi, -1008(%rbp)
-  movq %rdi, -1016(%rbp)
+  movq %rbx, -1032(%rbp)
+  movq %rsi, -1040(%rbp)
+  movq %rdi, -1048(%rbp)
   movq -72(%rbp), %rcx
   movq -120(%rbp), %rdx
   subq $32, %rsp
@@ -125209,11 +125683,11 @@
   movq -120(%rbp), %r10
   addq %r12, %r10
   movq %r10, %r13
-  movq $0, -952(%rbp)
+  movq $0, -984(%rbp)
   movq %r13, -120(%rbp)
   jmp .L_उत्सर्जक_एकक__wh_शर्त_1
 .L_epilogue_उत्सर्जक_एकक:
-  subl $103, gc_roots_count(%rip)
+  subl $107, gc_roots_count(%rip)
   movq -8(%rbp), %rbx
   movq -16(%rbp), %rsi
   movq -24(%rbp), %rdi
@@ -125814,8 +126288,8 @@ sutra_main:
 .L_किनारा_sutra_main_0:
   jmp .L_sutra_main__if_असत्य_3
 .L_sutra_main__if_असत्य_3:
-  leaq .LC_str_755(%rip), %rcx
-  movq .LC_str_755_len(%rip), %rdx
+  leaq .LC_str_760(%rip), %rcx
+  movq .LC_str_760_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -125872,8 +126346,8 @@ sutra_main:
   addq $32, %rsp
   movq %rax, %rbx
   movq %rbx, -5072(%rbp)
-  leaq .LC_str_757(%rip), %rcx
-  movq .LC_str_757_len(%rip), %rdx
+  leaq .LC_str_762(%rip), %rcx
+  movq .LC_str_762_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -125884,8 +126358,8 @@ sutra_main:
   call sutra_print_dynamic
   addq $32, %rsp
   movq $0, -5080(%rbp)
-  leaq .LC_str_758(%rip), %rcx
-  movq .LC_str_758_len(%rip), %rdx
+  leaq .LC_str_763(%rip), %rcx
+  movq .LC_str_763_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -125904,8 +126378,8 @@ sutra_main:
   call sutra_print_dynamic
   addq $32, %rsp
   movq $0, -5096(%rbp)
-  leaq .LC_str_759(%rip), %rcx
-  movq .LC_str_759_len(%rip), %rdx
+  leaq .LC_str_764(%rip), %rcx
+  movq .LC_str_764_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -125923,8 +126397,8 @@ sutra_main:
   movq %rax, %rdi
   movq %rdi, -5112(%rbp)
   movq $0, -5072(%rbp)
-  leaq .LC_str_760(%rip), %rcx
-  movq .LC_str_760_len(%rip), %rdx
+  leaq .LC_str_765(%rip), %rcx
+  movq .LC_str_765_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -125948,8 +126422,8 @@ sutra_main:
   call sutra_print_dynamic
   addq $32, %rsp
   movq $0, -5128(%rbp)
-  leaq .LC_str_761(%rip), %rcx
-  movq .LC_str_761_len(%rip), %rdx
+  leaq .LC_str_766(%rip), %rcx
+  movq .LC_str_766_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -126031,8 +126505,8 @@ sutra_main:
   movq %r12, -5184(%rbp)
   movq $0, -5144(%rbp)
   movq $0, -5176(%rbp)
-  leaq .LC_str_762(%rip), %rcx
-  movq .LC_str_762_len(%rip), %rdx
+  leaq .LC_str_767(%rip), %rcx
+  movq .LC_str_767_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -126043,8 +126517,8 @@ sutra_main:
   call sutra_print_dynamic
   addq $32, %rsp
   movq $0, -5192(%rbp)
-  leaq .LC_str_763(%rip), %rcx
-  movq .LC_str_763_len(%rip), %rdx
+  leaq .LC_str_768(%rip), %rcx
+  movq .LC_str_768_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -126060,8 +126534,8 @@ sutra_main:
   call मूल_सार्थक_विश्लेषण
   addq $32, %rsp
   movq %rax, %rbx
-  leaq .LC_str_764(%rip), %rcx
-  movq .LC_str_764_len(%rip), %rdx
+  leaq .LC_str_769(%rip), %rcx
+  movq .LC_str_769_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -126072,8 +126546,8 @@ sutra_main:
   call sutra_print_dynamic
   addq $32, %rsp
   movq $0, -5208(%rbp)
-  leaq .LC_str_765(%rip), %rcx
-  movq .LC_str_765_len(%rip), %rdx
+  leaq .LC_str_770(%rip), %rcx
+  movq .LC_str_770_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -126261,8 +126735,8 @@ sutra_main:
   addq $32, %rsp
   movq %rax, %rsi
   movq $0, -5232(%rbp)
-  leaq .LC_str_766(%rip), %rcx
-  movq .LC_str_766_len(%rip), %rdx
+  leaq .LC_str_771(%rip), %rcx
+  movq .LC_str_771_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -126281,8 +126755,8 @@ sutra_main:
   call sutra_print_dynamic
   addq $32, %rsp
   movq $0, -5264(%rbp)
-  leaq .LC_str_767(%rip), %rcx
-  movq .LC_str_767_len(%rip), %rdx
+  leaq .LC_str_772(%rip), %rcx
+  movq .LC_str_772_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -126732,8 +127206,8 @@ sutra_main:
 .L_किनारा_sutra_main_2:
   jmp .L_sutra_main__if_अंत_7
 .L_sutra_main__if_अंत_7:
-  leaq .LC_str_769(%rip), %rcx
-  movq .LC_str_769_len(%rip), %rdx
+  leaq .LC_str_774(%rip), %rcx
+  movq .LC_str_774_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -126744,8 +127218,8 @@ sutra_main:
   call sutra_print_dynamic
   addq $32, %rsp
   movq $0, -5344(%rbp)
-  leaq .LC_str_770(%rip), %rcx
-  movq .LC_str_770_len(%rip), %rdx
+  leaq .LC_str_775(%rip), %rcx
+  movq .LC_str_775_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -126768,8 +127242,8 @@ sutra_main:
 .L_किनारा_sutra_main_3:
   jmp .L_sutra_main__if_अंत_9
 .L_sutra_main__if_सत्य_8:
-  leaq .LC_str_771(%rip), %rcx
-  movq .LC_str_771_len(%rip), %rdx
+  leaq .LC_str_776(%rip), %rcx
+  movq .LC_str_776_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -127260,8 +127734,8 @@ sutra_main:
   movq $0, -5400(%rbp)
   jmp .L_sutra_main__if_अंत_11
 .L_sutra_main__if_अंत_11:
-  leaq .LC_str_772(%rip), %rcx
-  movq .LC_str_772_len(%rip), %rdx
+  leaq .LC_str_777(%rip), %rcx
+  movq .LC_str_777_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -127284,8 +127758,8 @@ sutra_main:
 .L_किनारा_sutra_main_5:
   jmp .L_sutra_main__if_अंत_13
 .L_sutra_main__if_सत्य_12:
-  leaq .LC_str_773(%rip), %rcx
-  movq .LC_str_773_len(%rip), %rdx
+  leaq .LC_str_778(%rip), %rcx
+  movq .LC_str_778_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -127741,8 +128215,8 @@ sutra_main:
   movq $0, -5456(%rbp)
   jmp .L_sutra_main__if_अंत_15
 .L_sutra_main__if_अंत_15:
-  leaq .LC_str_774(%rip), %rcx
-  movq .LC_str_774_len(%rip), %rdx
+  leaq .LC_str_779(%rip), %rcx
+  movq .LC_str_779_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -127765,8 +128239,8 @@ sutra_main:
 .L_किनारा_sutra_main_7:
   jmp .L_sutra_main__if_अंत_17
 .L_sutra_main__if_सत्य_16:
-  leaq .LC_str_775(%rip), %rcx
-  movq .LC_str_775_len(%rip), %rdx
+  leaq .LC_str_780(%rip), %rcx
+  movq .LC_str_780_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -128250,8 +128724,8 @@ sutra_main:
   movq $0, -5512(%rbp)
   jmp .L_sutra_main__if_अंत_19
 .L_sutra_main__if_अंत_19:
-  leaq .LC_str_776(%rip), %rcx
-  movq .LC_str_776_len(%rip), %rdx
+  leaq .LC_str_781(%rip), %rcx
+  movq .LC_str_781_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -128433,8 +128907,8 @@ sutra_main:
   addq $32, %rsp
   movq %rax, %rsi
   movq %rsi, -5544(%rbp)
-  leaq .LC_str_777(%rip), %rcx
-  movq .LC_str_777_len(%rip), %rdx
+  leaq .LC_str_782(%rip), %rcx
+  movq .LC_str_782_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -128579,8 +129053,8 @@ sutra_main:
   addq $32, %rsp
   movq %rax, %rsi
   movq %rsi, -5568(%rbp)
-  leaq .LC_str_778(%rip), %rcx
-  movq .LC_str_778_len(%rip), %rdx
+  leaq .LC_str_783(%rip), %rcx
+  movq .LC_str_783_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -128711,8 +129185,8 @@ sutra_main:
   addq $32, %rsp
   movq %rax, %rsi
   movq %rsi, -5592(%rbp)
-  leaq .LC_str_779(%rip), %rcx
-  movq .LC_str_779_len(%rip), %rdx
+  leaq .LC_str_784(%rip), %rcx
+  movq .LC_str_784_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -129524,8 +129998,8 @@ sutra_main:
 .L_किनारा_sutra_main_12:
   jmp .L_sutra_main__if_अंत_27
 .L_sutra_main__if_अंत_27:
-  leaq .LC_str_781(%rip), %rcx
-  movq .LC_str_781_len(%rip), %rdx
+  leaq .LC_str_786(%rip), %rcx
+  movq .LC_str_786_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -129830,8 +130304,8 @@ sutra_main:
   addq $32, %rsp
   movq %rax, %rsi
   movq $0, -5824(%rbp)
-  leaq .LC_str_782(%rip), %rcx
-  movq .LC_str_782_len(%rip), %rdx
+  leaq .LC_str_787(%rip), %rcx
+  movq .LC_str_787_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -129851,8 +130325,8 @@ sutra_main:
   call sutra_print_dynamic
   addq $32, %rsp
   movq $0, -5840(%rbp)
-  leaq .LC_str_783(%rip), %rcx
-  movq .LC_str_783_len(%rip), %rdx
+  leaq .LC_str_788(%rip), %rcx
+  movq .LC_str_788_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -129866,8 +130340,8 @@ sutra_main:
   movq $0, %rax
   jmp .L_epilogue_sutra_main
 .L_sutra_main__if_सत्य_26:
-  leaq .LC_str_780(%rip), %rcx
-  movq .LC_str_780_len(%rip), %rdx
+  leaq .LC_str_785(%rip), %rcx
+  movq .LC_str_785_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -129877,8 +130351,8 @@ sutra_main:
   call sutra_throw
   addq $32, %rsp
 .L_sutra_main__if_सत्य_6:
-  leaq .LC_str_768(%rip), %rcx
-  movq .LC_str_768_len(%rip), %rdx
+  leaq .LC_str_773(%rip), %rcx
+  movq .LC_str_773_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -129888,8 +130362,8 @@ sutra_main:
   call sutra_throw
   addq $32, %rsp
 .L_sutra_main__if_सत्य_4:
-  leaq .LC_str_756(%rip), %rcx
-  movq .LC_str_756_len(%rip), %rdx
+  leaq .LC_str_761(%rip), %rcx
+  movq .LC_str_761_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -131493,1587 +131967,1607 @@ main:
 .LC_str_387_len:
   .quad 34
 .LC_str_388:
-  .ascii "\340\244\205\340\244\202\340\244\244\340\244\260\340\245\215\340\244\250\340\244\277\340\244\271\340\244\277\340\244\244\0"
+  .ascii "\340\244\270\340\245\202\340\244\244\340\245\215\340\244\260_\340\244\234\340\245\200\340\244\270\340\245\200_\340\244\246\340\244\254\340\244\276\340\244\223\0"
 .LC_str_388_len:
-  .quad 30
+  .quad 41
 .LC_str_389:
-  .ascii "' \340\244\250\340\244\276\340\244\256\340\244\225\340\244\203 \340\244\265\340\244\260\340\245\215\340\244\227\340\244\203 \340\244\252\340\245\202\340\244\260\340\245\215\340\244\265\340\244\256\340\245\207\340\244\265 \340\244\252\340\244\260\340\244\277\340\244\255\340\244\276\340\244\267\340\244\277\340\244\244\340\244\203 \340\244\205\340\244\270\340\245\215\340\244\244\340\244\277\340\245\244\0"
+  .ascii "\340\244\270\340\245\202\340\244\244\340\245\215\340\244\260_\340\244\234\340\245\200\340\244\270\340\245\200_\340\244\233\340\245\213\340\244\241\340\244\274\340\245\213\0"
 .LC_str_389_len:
-  .quad 105
+  .quad 44
 .LC_str_390:
-  .ascii "' \340\244\250\340\244\276\340\244\256\340\244\225\340\244\202 \340\244\225\340\244\276\340\244\260\340\245\215\340\244\257\340\244\202 \340\244\252\340\245\202\340\244\260\340\245\215\340\244\265\340\244\256\340\245\207\340\244\265 \340\244\252\340\244\260\340\244\277\340\244\255\340\244\276\340\244\267\340\244\277\340\244\244\340\244\256\340\245\215 \340\244\205\340\244\270\340\245\215\340\244\244\340\244\277\340\245\244\0"
+  .ascii "\340\244\205\340\244\202\340\244\244\340\244\260\340\245\215\340\244\250\340\244\277\340\244\271\340\244\277\340\244\244\0"
 .LC_str_390_len:
-  .quad 111
+  .quad 30
 .LC_str_391:
-  .ascii "\340\244\265\340\245\210\340\244\266\340\245\215\340\244\265\340\244\277\340\244\225_\340\244\270\340\245\202\340\244\232\340\245\200\0"
+  .ascii "' \340\244\250\340\244\276\340\244\256\340\244\225\340\244\203 \340\244\265\340\244\260\340\245\215\340\244\227\340\244\203 \340\244\252\340\245\202\340\244\260\340\245\215\340\244\265\340\244\256\340\245\207\340\244\265 \340\244\252\340\244\260\340\244\277\340\244\255\340\244\276\340\244\267\340\244\277\340\244\244\340\244\203 \340\244\205\340\244\270\340\245\215\340\244\244\340\244\277\340\245\244\0"
 .LC_str_391_len:
-  .quad 34
+  .quad 105
 .LC_str_392:
-  .ascii "\340\244\252\340\244\276\340\244\240_\340\244\270\340\245\215\340\244\245\340\244\277\340\244\260\340\244\276\340\244\202\340\244\225\0"
+  .ascii "' \340\244\250\340\244\276\340\244\256\340\244\225\340\244\202 \340\244\225\340\244\276\340\244\260\340\245\215\340\244\257\340\244\202 \340\244\252\340\245\202\340\244\260\340\245\215\340\244\265\340\244\256\340\245\207\340\244\265 \340\244\252\340\244\260\340\244\277\340\244\255\340\244\276\340\244\267\340\244\277\340\244\244\340\244\256\340\245\215 \340\244\205\340\244\270\340\245\215\340\244\244\340\244\277\340\245\244\0"
 .LC_str_392_len:
-  .quad 34
+  .quad 111
 .LC_str_393:
-  .ascii "\340\244\246\340\244\266\340\244\256\340\244\262\340\244\265_\340\244\270\340\245\215\340\244\245\340\244\277\340\244\260\340\244\276\340\244\202\340\244\225\0"
+  .ascii "\340\244\265\340\245\210\340\244\266\340\245\215\340\244\265\340\244\277\340\244\225_\340\244\270\340\245\202\340\244\232\340\245\200\0"
 .LC_str_393_len:
-  .quad 40
+  .quad 34
 .LC_str_394:
-  .ascii "\340\244\252\340\245\210\340\244\260\340\244\276\340\244\256\340\245\200\340\244\237\340\244\260\0"
+  .ascii "\340\244\252\340\244\276\340\244\240_\340\244\270\340\245\215\340\244\245\340\244\277\340\244\260\340\244\276\340\244\202\340\244\225\0"
 .LC_str_394_len:
-  .quad 24
+  .quad 34
 .LC_str_395:
-  .ascii "\340\244\226\340\244\202\340\244\241_\340\244\270\340\245\202\340\244\232\340\245\200\0"
+  .ascii "\340\244\246\340\244\266\340\244\256\340\244\262\340\244\265_\340\244\270\340\245\215\340\244\245\340\244\277\340\244\260\340\244\276\340\244\202\340\244\225\0"
 .LC_str_395_len:
-  .quad 22
+  .quad 40
 .LC_str_396:
-  .ascii "\340\244\205\340\244\227\340\244\262\340\244\276_\340\244\206\340\244\210\340\244\241\340\245\200\0"
+  .ascii "\340\244\252\340\245\210\340\244\260\340\244\276\340\244\256\340\245\200\340\244\237\340\244\260\0"
 .LC_str_396_len:
-  .quad 25
+  .quad 24
 .LC_str_397:
-  .ascii "\340\244\205\340\244\227\340\244\262\340\244\276_\340\244\262\340\245\207\340\244\254\340\244\262\0"
+  .ascii "\340\244\226\340\244\202\340\244\241_\340\244\270\340\245\202\340\244\232\340\245\200\0"
 .LC_str_397_len:
-  .quad 25
+  .quad 22
 .LC_str_398:
-  .ascii "\340\244\206\340\244\210\340\244\241\340\245\200\0"
+  .ascii "\340\244\205\340\244\227\340\244\262\340\244\276_\340\244\206\340\244\210\340\244\241\340\245\200\0"
 .LC_str_398_len:
-  .quad 12
+  .quad 25
 .LC_str_399:
-  .ascii "\340\244\262\340\245\207\340\244\254\340\244\262\0"
+  .ascii "\340\244\205\340\244\227\340\244\262\340\244\276_\340\244\262\340\245\207\340\244\254\340\244\262\0"
 .LC_str_399_len:
-  .quad 12
+  .quad 25
 .LC_str_400:
-  .ascii "_\0"
+  .ascii "\340\244\206\340\244\210\340\244\241\340\245\200\0"
 .LC_str_400_len:
-  .quad 1
+  .quad 12
 .LC_str_401:
-  .ascii "\340\244\253\340\244\276\340\244\210\0"
+  .ascii "\340\244\262\340\245\207\340\244\254\340\244\262\0"
 .LC_str_401_len:
-  .quad 9
+  .quad 12
 .LC_str_402:
-  .ascii "\340\244\250\340\244\277\340\244\260\340\245\215\340\244\246\340\245\207\340\244\266\0"
+  .ascii "_\0"
 .LC_str_402_len:
-  .quad 21
+  .quad 1
 .LC_str_403:
-  .ascii "\340\244\205\340\244\202\340\244\244\0"
+  .ascii "\340\244\253\340\244\276\340\244\210\0"
 .LC_str_403_len:
   .quad 9
 .LC_str_404:
-  .ascii "\340\244\225\340\245\213\340\244\241\0"
+  .ascii "\340\244\250\340\244\277\340\244\260\340\245\215\340\244\246\340\245\207\340\244\266\0"
 .LC_str_404_len:
-  .quad 9
+  .quad 21
 .LC_str_405:
-  .ascii "\340\244\270\340\244\202\340\244\232\340\244\276\340\244\262\340\244\225\0"
+  .ascii "\340\244\205\340\244\202\340\244\244\0"
 .LC_str_405_len:
-  .quad 18
+  .quad 9
 .LC_str_406:
-  .ascii "\340\244\205\340\244\202\340\244\266\0"
+  .ascii "\340\244\225\340\245\213\340\244\241\0"
 .LC_str_406_len:
   .quad 9
 .LC_str_407:
-  .ascii "\340\244\266\340\245\202\340\244\250\340\245\215\340\244\257\0"
+  .ascii "\340\244\270\340\244\202\340\244\232\340\244\276\340\244\262\340\244\225\0"
 .LC_str_407_len:
-  .quad 15
-.LC_str_408:
-  .ascii "\340\244\265\340\244\276\340\244\252\340\244\270\0"
-.LC_str_408_len:
-  .quad 12
-.LC_str_409:
-  .ascii "\340\244\262\340\244\225\340\245\215\340\244\267\340\245\215\340\244\257\0"
-.LC_str_409_len:
   .quad 18
-.LC_str_410:
-  .ascii "\340\244\234\340\244\276\340\244\223\0"
-.LC_str_410_len:
+.LC_str_408:
+  .ascii "\340\244\205\340\244\202\340\244\266\0"
+.LC_str_408_len:
   .quad 9
-.LC_str_411:
-  .ascii "\340\244\257\340\244\246\340\244\277_\340\244\234\340\244\276\340\244\223\0"
-.LC_str_411_len:
-  .quad 19
-.LC_str_412:
-  .ascii "\340\244\253\340\245\207\340\244\202\340\244\225\340\245\213\0"
-.LC_str_412_len:
+.LC_str_409:
+  .ascii "\340\244\266\340\245\202\340\244\250\340\245\215\340\244\257\0"
+.LC_str_409_len:
   .quad 15
+.LC_str_410:
+  .ascii "\340\244\265\340\244\276\340\244\252\340\244\270\0"
+.LC_str_410_len:
+  .quad 12
+.LC_str_411:
+  .ascii "\340\244\262\340\244\225\340\245\215\340\244\267\340\245\215\340\244\257\0"
+.LC_str_411_len:
+  .quad 18
+.LC_str_412:
+  .ascii "\340\244\234\340\244\276\340\244\223\0"
+.LC_str_412_len:
+  .quad 9
 .LC_str_413:
-  .ascii "\340\244\256\340\244\276\340\244\250_\340\244\252\340\245\215\340\244\260\340\244\225\340\244\276\340\244\260\0"
+  .ascii "\340\244\257\340\244\246\340\244\277_\340\244\234\340\244\276\340\244\223\0"
 .LC_str_413_len:
-  .quad 28
+  .quad 19
 .LC_str_414:
-  .ascii "\340\244\252\340\245\202\340\244\260\340\245\215\340\244\243\0"
+  .ascii "\340\244\253\340\245\207\340\244\202\340\244\225\340\245\213\0"
 .LC_str_414_len:
   .quad 15
 .LC_str_415:
-  .ascii "\340\244\270\340\245\215\340\244\245\340\244\277\340\244\260\0"
+  .ascii "\340\244\256\340\244\276\340\244\250_\340\244\252\340\245\215\340\244\260\340\244\225\340\244\276\340\244\260\0"
 .LC_str_415_len:
-  .quad 15
+  .quad 28
 .LC_str_416:
-  .ascii "\340\244\270\340\245\215\340\244\262\340\245\211\340\244\237\0"
+  .ascii "\340\244\252\340\245\202\340\244\260\340\245\215\340\244\243\0"
 .LC_str_416_len:
   .quad 15
 .LC_str_417:
-  .ascii "\340\244\252\340\244\242\340\244\274_\340\244\270\340\245\215\340\244\262\340\245\211\340\244\237\0"
+  .ascii "\340\244\270\340\245\215\340\244\245\340\244\277\340\244\260\0"
 .LC_str_417_len:
-  .quad 25
+  .quad 15
 .LC_str_418:
-  .ascii "\340\244\262\340\244\277\340\244\226_\340\244\270\340\245\215\340\244\262\340\245\211\340\244\237\0"
+  .ascii "\340\244\270\340\245\215\340\244\262\340\245\211\340\244\237\0"
 .LC_str_418_len:
-  .quad 25
+  .quad 15
 .LC_str_419:
-  .ascii "\340\244\254\340\245\201\340\244\262\340\244\276\340\244\223\0"
+  .ascii "\340\244\252\340\244\242\340\244\274_\340\244\270\340\245\215\340\244\262\340\245\211\340\244\237\0"
 .LC_str_419_len:
-  .quad 15
+  .quad 25
 .LC_str_420:
-  .ascii "\340\244\205\340\244\202\340\244\244\340\244\260\340\245\215\0"
+  .ascii "\340\244\262\340\244\277\340\244\226_\340\244\270\340\245\215\340\244\262\340\245\211\340\244\237\0"
 .LC_str_420_len:
-  .quad 15
+  .quad 25
 .LC_str_421:
-  .ascii "v\0"
+  .ascii "\340\244\254\340\245\201\340\244\262\340\244\276\340\244\223\0"
 .LC_str_421_len:
-  .quad 1
+  .quad 15
 .LC_str_422:
-  .ascii ", \0"
+  .ascii "\340\244\205\340\244\202\340\244\244\340\244\260\340\245\215\0"
 .LC_str_422_len:
-  .quad 2
+  .quad 15
 .LC_str_423:
-  .ascii " \340\244\266\340\245\202\340\244\250\340\245\215\340\244\257\340\244\256\340\245\215\0"
+  .ascii "v\0"
 .LC_str_423_len:
-  .quad 22
+  .quad 1
 .LC_str_424:
-  .ascii " @\0"
+  .ascii ", \0"
 .LC_str_424_len:
   .quad 2
 .LC_str_425:
-  .ascii " #\0"
+  .ascii " \340\244\266\340\245\202\340\244\250\340\245\215\340\244\257\340\244\256\340\245\215\0"
 .LC_str_425_len:
-  .quad 2
+  .quad 22
 .LC_str_426:
-  .ascii "\340\244\265\340\244\277\340\244\247\340\244\277_\340\244\254\340\245\201\340\244\262\340\244\276\340\244\223\0"
+  .ascii " @\0"
 .LC_str_426_len:
-  .quad 28
+  .quad 2
 .LC_str_427:
-  .ascii "\340\244\265\340\244\277\340\244\247\340\244\277\0"
+  .ascii " #\0"
 .LC_str_427_len:
-  .quad 12
+  .quad 2
 .LC_str_428:
-  .ascii "\340\244\252\340\244\242\340\244\274_\340\244\265\340\245\210\340\244\266\340\245\215\340\244\265\340\244\277\340\244\225\0"
+  .ascii "\340\244\265\340\244\277\340\244\247\340\244\277_\340\244\254\340\245\201\340\244\262\340\244\276\340\244\223\0"
 .LC_str_428_len:
-  .quad 31
+  .quad 28
 .LC_str_429:
-  .ascii "\340\244\262\340\244\277\340\244\226_\340\244\265\340\245\210\340\244\266\340\245\215\340\244\265\340\244\277\340\244\225\0"
+  .ascii "\340\244\265\340\244\277\340\244\247\340\244\277\0"
 .LC_str_429_len:
-  .quad 31
+  .quad 12
 .LC_str_430:
-  .ascii "\340\244\252\340\244\242\340\244\274_\340\244\225\340\245\215\340\244\267\340\245\207\340\244\244\340\245\215\340\244\260\0"
+  .ascii "\340\244\252\340\244\242\340\244\274_\340\244\265\340\245\210\340\244\266\340\245\215\340\244\265\340\244\277\340\244\225\0"
 .LC_str_430_len:
   .quad 31
 .LC_str_431:
-  .ascii "\340\244\262\340\244\277\340\244\226_\340\244\225\340\245\215\340\244\267\340\245\207\340\244\244\340\245\215\340\244\260\0"
+  .ascii "\340\244\262\340\244\277\340\244\226_\340\244\265\340\245\210\340\244\266\340\245\215\340\244\265\340\244\277\340\244\225\0"
 .LC_str_431_len:
   .quad 31
 .LC_str_432:
-  .ascii " .\0"
+  .ascii "\340\244\252\340\244\242\340\244\274_\340\244\225\340\245\215\340\244\267\340\245\207\340\244\244\340\245\215\340\244\260\0"
 .LC_str_432_len:
-  .quad 2
+  .quad 31
 .LC_str_433:
-  .ascii "\340\244\225\340\245\215\340\244\267\340\245\207\340\244\244\340\245\215\340\244\260\0"
+  .ascii "\340\244\262\340\244\277\340\244\226_\340\244\225\340\245\215\340\244\267\340\245\207\340\244\244\340\245\215\340\244\260\0"
 .LC_str_433_len:
-  .quad 21
+  .quad 31
 .LC_str_434:
-  .ascii "\340\244\250\340\244\265_\340\244\265\340\244\270\340\245\215\340\244\244\340\245\201\0"
+  .ascii " .\0"
 .LC_str_434_len:
-  .quad 22
-.LC_str_435:
-  .ascii "\340\244\252\340\245\215\340\244\260\340\244\225\340\244\276\340\244\260_\340\244\271\340\245\210\0"
-.LC_str_435_len:
-  .quad 25
-.LC_str_436:
-  .ascii "\340\244\234\340\244\276\340\244\201\340\244\232\0"
-.LC_str_436_len:
-  .quad 12
-.LC_str_437:
-  .ascii "\340\244\252\340\244\260\340\244\277\340\244\265\340\244\260\340\245\215\340\244\244\340\244\250\0"
-.LC_str_437_len:
-  .quad 24
-.LC_str_438:
-  .ascii "\340\244\270\340\245\207\0"
-.LC_str_438_len:
-  .quad 6
-.LC_str_439:
-  .ascii "->\0"
-.LC_str_439_len:
   .quad 2
+.LC_str_435:
+  .ascii "\340\244\225\340\245\215\340\244\267\340\245\207\340\244\244\340\245\215\340\244\260\0"
+.LC_str_435_len:
+  .quad 21
+.LC_str_436:
+  .ascii "\340\244\250\340\244\265_\340\244\265\340\244\270\340\245\215\340\244\244\340\245\201\0"
+.LC_str_436_len:
+  .quad 22
+.LC_str_437:
+  .ascii "\340\244\252\340\245\215\340\244\260\340\244\225\340\244\276\340\244\260_\340\244\271\340\245\210\0"
+.LC_str_437_len:
+  .quad 25
+.LC_str_438:
+  .ascii "\340\244\234\340\244\276\340\244\201\340\244\232\0"
+.LC_str_438_len:
+  .quad 12
+.LC_str_439:
+  .ascii "\340\244\252\340\244\260\340\244\277\340\244\265\340\244\260\340\245\215\340\244\244\340\244\250\0"
+.LC_str_439_len:
+  .quad 24
 .LC_str_440:
-  .ascii "\340\244\225\340\245\213\0"
+  .ascii "\340\244\270\340\245\207\0"
 .LC_str_440_len:
   .quad 6
 .LC_str_441:
-  .ascii " ? \0"
+  .ascii "->\0"
 .LC_str_441_len:
-  .quad 3
+  .quad 2
 .LC_str_442:
-  .ascii " : \0"
+  .ascii "\340\244\225\340\245\213\0"
 .LC_str_442_len:
-  .quad 3
+  .quad 6
 .LC_str_443:
-  .ascii "    \0"
+  .ascii " ? \0"
 .LC_str_443_len:
-  .quad 4
+  .quad 3
 .LC_str_444:
-  .ascii " = \0"
+  .ascii " : \0"
 .LC_str_444_len:
   .quad 3
 .LC_str_445:
-  .ascii "  : \0"
+  .ascii "    \0"
 .LC_str_445_len:
   .quad 4
 .LC_str_446:
-  .ascii " = \340\244\253\340\244\276\340\244\210\0"
+  .ascii " = \0"
 .LC_str_446_len:
-  .quad 12
+  .quad 3
 .LC_str_447:
-  .ascii " [\0"
+  .ascii "  : \0"
 .LC_str_447_len:
-  .quad 2
+  .quad 4
 .LC_str_448:
-  .ascii ": \0"
+  .ascii " = \340\244\253\340\244\276\340\244\210\0"
 .LC_str_448_len:
-  .quad 2
+  .quad 12
 .LC_str_449:
-  .ascii "\340\244\253\340\244\262\340\244\250 \0"
+  .ascii " [\0"
 .LC_str_449_len:
-  .quad 10
-.LC_str_450:
-  .ascii ") -> \0"
-.LC_str_450_len:
-  .quad 5
-.LC_str_451:
-  .ascii " {\0"
-.LC_str_451_len:
   .quad 2
+.LC_str_450:
+  .ascii ": \0"
+.LC_str_450_len:
+  .quad 2
+.LC_str_451:
+  .ascii "\340\244\253\340\244\262\340\244\250 \0"
+.LC_str_451_len:
+  .quad 10
 .LC_str_452:
-  .ascii "    ; <\340\244\225\340\245\213\340\244\210 terminator \340\244\250\340\244\271\340\245\200\340\244\202>\0"
+  .ascii ") -> \0"
 .LC_str_452_len:
-  .quad 41
+  .quad 5
 .LC_str_453:
-  .ascii "\340\244\250\340\244\265_\340\244\270\340\245\202\340\244\232\340\245\200\0"
+  .ascii " {\0"
 .LC_str_453_len:
-  .quad 19
+  .quad 2
 .LC_str_454:
-  .ascii "\340\244\250\340\244\265_\340\244\266\340\244\254\340\245\215\340\244\246\340\244\225\340\245\213\340\244\266\0"
+  .ascii "    ; <\340\244\225\340\245\213\340\244\210 terminator \340\244\250\340\244\271\340\245\200\340\244\202>\0"
 .LC_str_454_len:
-  .quad 28
+  .quad 41
 .LC_str_455:
-  .ascii "\340\244\250\340\244\265_\340\244\252\340\244\276\340\244\240\0"
+  .ascii "\340\244\250\340\244\265_\340\244\270\340\245\202\340\244\232\340\245\200\0"
 .LC_str_455_len:
-  .quad 16
+  .quad 19
 .LC_str_456:
-  .ascii "\340\244\252\340\244\242\340\244\274_\340\244\205\340\244\250\340\245\201\340\244\225\340\245\215\340\244\260\340\244\256\0"
+  .ascii "\340\244\250\340\244\265_\340\244\266\340\244\254\340\245\215\340\244\246\340\244\225\340\245\213\340\244\266\0"
 .LC_str_456_len:
-  .quad 31
+  .quad 28
 .LC_str_457:
-  .ascii "\340\244\262\340\244\277\340\244\226_\340\244\205\340\244\250\340\245\201\340\244\225\340\245\215\340\244\260\340\244\256\0"
+  .ascii "\340\244\250\340\244\265_\340\244\252\340\244\276\340\244\240\0"
 .LC_str_457_len:
-  .quad 31
+  .quad 16
 .LC_str_458:
-  .ascii "\340\244\257\340\245\213\340\244\227\0"
+  .ascii "\340\244\252\340\244\242\340\244\274_\340\244\205\340\244\250\340\245\201\340\244\225\340\245\215\340\244\260\340\244\256\0"
 .LC_str_458_len:
-  .quad 9
+  .quad 31
 .LC_str_459:
-  .ascii "\340\244\205\340\244\202\340\244\244\340\244\260\0"
+  .ascii "\340\244\262\340\244\277\340\244\226_\340\244\205\340\244\250\340\245\201\340\244\225\340\245\215\340\244\260\340\244\256\0"
 .LC_str_459_len:
-  .quad 12
+  .quad 31
 .LC_str_460:
-  .ascii "\340\244\227\340\245\201\340\244\243\340\244\276\0"
+  .ascii "\340\244\257\340\245\213\340\244\227\0"
 .LC_str_460_len:
-  .quad 12
+  .quad 9
 .LC_str_461:
-  .ascii "\340\244\255\340\244\276\340\244\227\0"
+  .ascii "\340\244\205\340\244\202\340\244\244\340\244\260\0"
 .LC_str_461_len:
-  .quad 9
+  .quad 12
 .LC_str_462:
-  .ascii "\340\244\266\340\245\207\340\244\267\0"
+  .ascii "\340\244\227\340\245\201\340\244\243\340\244\276\0"
 .LC_str_462_len:
-  .quad 9
+  .quad 12
 .LC_str_463:
-  .ascii "\340\244\270\340\244\256\0"
+  .ascii "\340\244\255\340\244\276\340\244\227\0"
 .LC_str_463_len:
-  .quad 6
+  .quad 9
 .LC_str_464:
-  .ascii "\340\244\205\340\244\270\340\244\256\0"
+  .ascii "\340\244\266\340\245\207\340\244\267\0"
 .LC_str_464_len:
   .quad 9
 .LC_str_465:
-  .ascii "\340\244\262\340\244\230\340\245\201\0"
+  .ascii "\340\244\270\340\244\256\0"
 .LC_str_465_len:
-  .quad 9
+  .quad 6
 .LC_str_466:
-  .ascii "\340\244\227\340\245\201\340\244\260\340\245\201\0"
+  .ascii "\340\244\205\340\244\270\340\244\256\0"
 .LC_str_466_len:
-  .quad 12
+  .quad 9
 .LC_str_467:
-  .ascii "\340\244\262\340\244\230\340\245\201\340\244\270\340\244\256\0"
+  .ascii "\340\244\262\340\244\230\340\245\201\0"
 .LC_str_467_len:
-  .quad 15
+  .quad 9
 .LC_str_468:
-  .ascii "\340\244\227\340\245\201\340\244\260\340\245\201\340\244\270\340\244\256\0"
+  .ascii "\340\244\227\340\245\201\340\244\260\340\245\201\0"
 .LC_str_468_len:
-  .quad 18
-.LC_str_469:
-  .ascii "\340\244\252\340\244\276\340\244\240_\340\244\270\340\245\215\340\244\245\340\244\277\340\244\260\340\244\276\340\244\202\340\244\225[\0"
-.LC_str_469_len:
-  .quad 35
-.LC_str_470:
-  .ascii "] = \"\0"
-.LC_str_470_len:
-  .quad 5
-.LC_str_471:
-  .ascii "\340\244\253\340\244\262\340\244\250\0"
-.LC_str_471_len:
-  .quad 9
-.LC_str_472:
-  .ascii "\340\244\265\340\244\260\340\245\215\340\244\244\340\244\256\340\244\276\340\244\250_\340\244\226\340\244\202\340\244\241\0"
-.LC_str_472_len:
-  .quad 31
-.LC_str_473:
-  .ascii "\340\244\206\340\244\247\340\244\276\340\244\260_\340\244\252\340\245\215\340\244\260\340\244\225\340\244\276\340\244\260\0"
-.LC_str_473_len:
-  .quad 31
-.LC_str_474:
-  .ascii "\340\244\270\340\245\202\340\244\232\340\244\225\340\244\276\340\244\202\340\244\225\0"
-.LC_str_474_len:
-  .quad 21
-.LC_str_475:
-  .ascii "\340\244\265\340\244\260\340\245\215\340\244\227_\340\244\225\340\245\215\340\244\267\340\245\207\340\244\244\340\245\215\340\244\260\0"
-.LC_str_475_len:
-  .quad 34
-.LC_str_476:
-  .ascii "\340\244\225\340\245\215\340\244\267\340\245\207\340\244\244\340\245\215\340\244\260_\340\244\227\340\244\243\0"
-.LC_str_476_len:
-  .quad 28
-.LC_str_477:
-  .ascii "\340\244\260\340\244\232\340\244\250\340\244\276\0"
-.LC_str_477_len:
   .quad 12
-.LC_str_478:
-  .ascii "_\340\244\260\340\244\232\340\244\250\340\244\276\0"
-.LC_str_478_len:
-  .quad 13
-.LC_str_479:
-  .ascii "\340\244\265\340\244\260\340\245\215\340\244\227_\0"
-.LC_str_479_len:
-  .quad 13
-.LC_str_480:
-  .ascii "\340\244\217\340\244\225\340\244\225\0"
-.LC_str_480_len:
+.LC_str_469:
+  .ascii "\340\244\262\340\244\230\340\245\201\340\244\270\340\244\256\0"
+.LC_str_469_len:
+  .quad 15
+.LC_str_470:
+  .ascii "\340\244\227\340\245\201\340\244\260\340\245\201\340\244\270\340\244\256\0"
+.LC_str_470_len:
+  .quad 18
+.LC_str_471:
+  .ascii "\340\244\252\340\244\276\340\244\240_\340\244\270\340\245\215\340\244\245\340\244\277\340\244\260\340\244\276\340\244\202\340\244\225[\0"
+.LC_str_471_len:
+  .quad 35
+.LC_str_472:
+  .ascii "] = \"\0"
+.LC_str_472_len:
+  .quad 5
+.LC_str_473:
+  .ascii "\340\244\253\340\244\262\340\244\250\0"
+.LC_str_473_len:
   .quad 9
-.LC_str_481:
-  .ascii "\340\244\232\340\244\276\340\244\262\340\245\202_\340\244\265\340\244\260\340\245\215\340\244\227\0"
-.LC_str_481_len:
-  .quad 25
-.LC_str_482:
-  .ascii "\340\244\232\340\244\260_\340\244\270\340\245\215\340\244\262\340\245\211\340\244\237\0"
-.LC_str_482_len:
-  .quad 22
-.LC_str_483:
-  .ascii "\340\244\265\340\245\210\340\244\266\340\245\215\340\244\265\340\244\277\340\244\225\0"
-.LC_str_483_len:
+.LC_str_474:
+  .ascii "\340\244\265\340\244\260\340\245\215\340\244\244\340\244\256\340\244\276\340\244\250_\340\244\226\340\244\202\340\244\241\0"
+.LC_str_474_len:
+  .quad 31
+.LC_str_475:
+  .ascii "\340\244\206\340\244\247\340\244\276\340\244\260_\340\244\252\340\245\215\340\244\260\340\244\225\340\244\276\340\244\260\0"
+.LC_str_475_len:
+  .quad 31
+.LC_str_476:
+  .ascii "\340\244\270\340\245\202\340\244\232\340\244\225\340\244\276\340\244\202\340\244\225\0"
+.LC_str_476_len:
   .quad 21
+.LC_str_477:
+  .ascii "\340\244\265\340\244\260\340\245\215\340\244\227_\340\244\225\340\245\215\340\244\267\340\245\207\340\244\244\340\245\215\340\244\260\0"
+.LC_str_477_len:
+  .quad 34
+.LC_str_478:
+  .ascii "\340\244\225\340\245\215\340\244\267\340\245\207\340\244\244\340\245\215\340\244\260_\340\244\227\340\244\243\0"
+.LC_str_478_len:
+  .quad 28
+.LC_str_479:
+  .ascii "\340\244\260\340\244\232\340\244\250\340\244\276\0"
+.LC_str_479_len:
+  .quad 12
+.LC_str_480:
+  .ascii "_\340\244\260\340\244\232\340\244\250\340\244\276\0"
+.LC_str_480_len:
+  .quad 13
+.LC_str_481:
+  .ascii "\340\244\265\340\244\260\340\245\215\340\244\227_\0"
+.LC_str_481_len:
+  .quad 13
+.LC_str_482:
+  .ascii "\340\244\217\340\244\225\340\244\225\0"
+.LC_str_482_len:
+  .quad 9
+.LC_str_483:
+  .ascii "\340\244\232\340\244\276\340\244\262\340\245\202_\340\244\265\340\244\260\340\245\215\340\244\227\0"
+.LC_str_483_len:
+  .quad 25
 .LC_str_484:
-  .ascii "\340\244\254\340\245\202\340\244\262_\340\244\270\340\245\207_\340\244\252\340\244\276\340\244\240\0"
+  .ascii "\340\244\232\340\244\260_\340\244\270\340\245\215\340\244\262\340\245\211\340\244\237\0"
 .LC_str_484_len:
-  .quad 26
+  .quad 22
 .LC_str_485:
-  .ascii "\340\244\266\340\245\202\340\244\250\340\245\215\340\244\257_\340\244\270\340\245\207_\340\244\252\340\244\276\340\244\240\0"
+  .ascii "\340\244\265\340\245\210\340\244\266\340\245\215\340\244\265\340\244\277\340\244\225\0"
 .LC_str_485_len:
-  .quad 32
+  .quad 21
 .LC_str_486:
-  .ascii "sutra_float_to_str\0"
+  .ascii "\340\244\254\340\245\202\340\244\262_\340\244\270\340\245\207_\340\244\252\340\244\276\340\244\240\0"
 .LC_str_486_len:
-  .quad 18
+  .quad 26
 .LC_str_487:
-  .ascii "sutra_int_to_float\0"
+  .ascii "\340\244\266\340\245\202\340\244\250\340\245\215\340\244\257_\340\244\270\340\245\207_\340\244\252\340\244\276\340\244\240\0"
 .LC_str_487_len:
-  .quad 18
+  .quad 32
 .LC_str_488:
-  .ascii "sc_\340\244\246\340\244\276\340\244\257\340\244\276\340\244\201\0"
+  .ascii "sutra_float_to_str\0"
 .LC_str_488_len:
   .quad 18
 .LC_str_489:
-  .ascii "sc_\340\244\262\340\244\230\340\245\201\0"
+  .ascii "sutra_int_to_float\0"
 .LC_str_489_len:
-  .quad 12
+  .quad 18
 .LC_str_490:
-  .ascii "sc_\340\244\205\340\244\202\340\244\244\0"
+  .ascii "sc_\340\244\246\340\244\276\340\244\257\340\244\276\340\244\201\0"
 .LC_str_490_len:
-  .quad 12
+  .quad 18
 .LC_str_491:
-  .ascii "\340\244\213\340\244\243\340\244\276\340\244\244\340\245\215\340\244\256\340\244\225\0"
+  .ascii "sc_\340\244\262\340\244\230\340\245\201\0"
 .LC_str_491_len:
-  .quad 21
+  .quad 12
 .LC_str_492:
-  .ascii "\340\244\250\340\244\225\340\244\276\340\244\260\0"
+  .ascii "sc_\340\244\205\340\244\202\340\244\244\0"
 .LC_str_492_len:
   .quad 12
 .LC_str_493:
-  .ascii "\340\244\205\340\244\202\340\244\244\340\244\260\340\245\215_\0"
+  .ascii "\340\244\213\340\244\243\340\244\276\340\244\244\340\245\215\340\244\256\340\244\225\0"
 .LC_str_493_len:
-  .quad 16
-.LC_str_494:
-  .ascii "sutra_dynamic_type\0"
-.LC_str_494_len:
-  .quad 18
-.LC_str_495:
-  .ascii "\340\244\225\340\244\276\340\244\260\340\245\215\340\244\257_\340\244\252\340\244\260\340\244\244\340\245\215\0"
-.LC_str_495_len:
-  .quad 28
-.LC_str_496:
-  .ascii "sutra_print_dynamic\0"
-.LC_str_496_len:
-  .quad 19
-.LC_str_497:
-  .ascii "sutra_args_get\0"
-.LC_str_497_len:
-  .quad 14
-.LC_str_498:
-  .ascii "sutra_file_read\0"
-.LC_str_498_len:
-  .quad 15
-.LC_str_499:
-  .ascii "sutra_file_write\0"
-.LC_str_499_len:
-  .quad 16
-.LC_str_500:
-  .ascii "sutra_file_exists\0"
-.LC_str_500_len:
-  .quad 17
-.LC_str_501:
-  .ascii "sutra_command_run\0"
-.LC_str_501_len:
-  .quad 17
-.LC_str_502:
-  .ascii "sutra_find\0"
-.LC_str_502_len:
-  .quad 10
-.LC_str_503:
-  .ascii "sutra_trim\0"
-.LC_str_503_len:
-  .quad 10
-.LC_str_504:
-  .ascii "sutra_starts_with\0"
-.LC_str_504_len:
-  .quad 17
-.LC_str_505:
-  .ascii "sutra_ends_with\0"
-.LC_str_505_len:
-  .quad 15
-.LC_str_506:
-  .ascii "sutra_replace\0"
-.LC_str_506_len:
-  .quad 13
-.LC_str_507:
-  .ascii "sutra_split\0"
-.LC_str_507_len:
-  .quad 11
-.LC_str_508:
-  .ascii "sutra_join\0"
-.LC_str_508_len:
-  .quad 10
-.LC_str_509:
-  .ascii "sutra_substr\0"
-.LC_str_509_len:
-  .quad 12
-.LC_str_510:
-  .ascii "\340\244\205\340\244\225\340\245\215\340\244\267\340\244\260\340\244\256\340\245\215\0"
-.LC_str_510_len:
   .quad 21
-.LC_str_511:
-  .ascii "\340\244\205\340\244\225\340\245\215\340\244\267\340\244\260_\340\244\225\340\245\213\340\244\241\340\244\254\340\244\277\340\244\202\340\244\246\340\245\201\0"
-.LC_str_511_len:
-  .quad 40
-.LC_str_512:
-  .ascii "\340\244\252\340\245\215\340\244\260\340\244\244\340\245\200\340\244\225\340\244\256\340\245\215\0"
-.LC_str_512_len:
-  .quad 24
-.LC_str_513:
-  .ascii "sutra_char_chr\0"
-.LC_str_513_len:
+.LC_str_494:
+  .ascii "\340\244\250\340\244\225\340\244\276\340\244\260\0"
+.LC_str_494_len:
+  .quad 12
+.LC_str_495:
+  .ascii "\340\244\205\340\244\202\340\244\244\340\244\260\340\245\215_\0"
+.LC_str_495_len:
+  .quad 16
+.LC_str_496:
+  .ascii "sutra_dynamic_type\0"
+.LC_str_496_len:
+  .quad 18
+.LC_str_497:
+  .ascii "\340\244\225\340\244\276\340\244\260\340\245\215\340\244\257_\340\244\252\340\244\260\340\244\244\340\245\215\0"
+.LC_str_497_len:
+  .quad 28
+.LC_str_498:
+  .ascii "sutra_print_dynamic\0"
+.LC_str_498_len:
+  .quad 19
+.LC_str_499:
+  .ascii "sutra_args_get\0"
+.LC_str_499_len:
   .quad 14
+.LC_str_500:
+  .ascii "sutra_file_read\0"
+.LC_str_500_len:
+  .quad 15
+.LC_str_501:
+  .ascii "sutra_file_write\0"
+.LC_str_501_len:
+  .quad 16
+.LC_str_502:
+  .ascii "sutra_file_exists\0"
+.LC_str_502_len:
+  .quad 17
+.LC_str_503:
+  .ascii "sutra_command_run\0"
+.LC_str_503_len:
+  .quad 17
+.LC_str_504:
+  .ascii "sutra_find\0"
+.LC_str_504_len:
+  .quad 10
+.LC_str_505:
+  .ascii "sutra_trim\0"
+.LC_str_505_len:
+  .quad 10
+.LC_str_506:
+  .ascii "sutra_starts_with\0"
+.LC_str_506_len:
+  .quad 17
+.LC_str_507:
+  .ascii "sutra_ends_with\0"
+.LC_str_507_len:
+  .quad 15
+.LC_str_508:
+  .ascii "sutra_replace\0"
+.LC_str_508_len:
+  .quad 13
+.LC_str_509:
+  .ascii "sutra_split\0"
+.LC_str_509_len:
+  .quad 11
+.LC_str_510:
+  .ascii "sutra_join\0"
+.LC_str_510_len:
+  .quad 10
+.LC_str_511:
+  .ascii "sutra_substr\0"
+.LC_str_511_len:
+  .quad 12
+.LC_str_512:
+  .ascii "\340\244\205\340\244\225\340\245\215\340\244\267\340\244\260\340\244\256\340\245\215\0"
+.LC_str_512_len:
+  .quad 21
+.LC_str_513:
+  .ascii "\340\244\205\340\244\225\340\245\215\340\244\267\340\244\260_\340\244\225\340\245\213\340\244\241\340\244\254\340\244\277\340\244\202\340\244\246\340\245\201\0"
+.LC_str_513_len:
+  .quad 40
 .LC_str_514:
-  .ascii "sutra_list_append\0"
+  .ascii "\340\244\252\340\245\215\340\244\260\340\244\244\340\245\200\340\244\225\340\244\256\340\245\215\0"
 .LC_str_514_len:
-  .quad 17
+  .quad 24
 .LC_str_515:
-  .ascii "sutra_list_insert\0"
+  .ascii "sutra_char_chr\0"
 .LC_str_515_len:
-  .quad 17
+  .quad 14
 .LC_str_516:
-  .ascii "sutra_list_concat\0"
+  .ascii "sutra_list_append\0"
 .LC_str_516_len:
   .quad 17
 .LC_str_517:
-  .ascii "sutra_list_pop\0"
+  .ascii "sutra_list_insert\0"
 .LC_str_517_len:
-  .quad 14
+  .quad 17
 .LC_str_518:
-  .ascii "sutra_list_remove\0"
+  .ascii "sutra_list_concat\0"
 .LC_str_518_len:
   .quad 17
 .LC_str_519:
-  .ascii "sutra_gc_collect\0"
+  .ascii "sutra_list_pop\0"
 .LC_str_519_len:
-  .quad 16
+  .quad 14
 .LC_str_520:
-  .ascii "sutra_gc_status\0"
+  .ascii "sutra_list_remove\0"
 .LC_str_520_len:
-  .quad 15
+  .quad 17
 .LC_str_521:
-  .ascii "sutra_dict_has_key\0"
+  .ascii "sutra_gc_collect\0"
 .LC_str_521_len:
-  .quad 18
+  .quad 16
 .LC_str_522:
-  .ascii "sutra_dict_keys\0"
+  .ascii "sutra_gc_status\0"
 .LC_str_522_len:
   .quad 15
 .LC_str_523:
-  .ascii "sutra_math_sqrt_f\0"
+  .ascii "sutra_dict_has_key\0"
 .LC_str_523_len:
-  .quad 17
+  .quad 18
 .LC_str_524:
-  .ascii "sutra_math_pow_f\0"
+  .ascii "sutra_dict_keys\0"
 .LC_str_524_len:
-  .quad 16
+  .quad 15
 .LC_str_525:
-  .ascii "sutra_math_abs_f\0"
+  .ascii "sutra_math_sqrt_f\0"
 .LC_str_525_len:
-  .quad 16
+  .quad 17
 .LC_str_526:
-  .ascii "sutra_math_min_f\0"
+  .ascii "sutra_math_pow_f\0"
 .LC_str_526_len:
   .quad 16
 .LC_str_527:
-  .ascii "sutra_math_max_f\0"
+  .ascii "sutra_math_abs_f\0"
 .LC_str_527_len:
   .quad 16
 .LC_str_528:
-  .ascii "sutra_math_round_f\0"
+  .ascii "sutra_math_min_f\0"
 .LC_str_528_len:
-  .quad 18
+  .quad 16
 .LC_str_529:
-  .ascii "sutra_str_upper\0"
+  .ascii "sutra_math_max_f\0"
 .LC_str_529_len:
-  .quad 15
+  .quad 16
 .LC_str_530:
-  .ascii "sutra_str_lower\0"
+  .ascii "sutra_math_round_f\0"
 .LC_str_530_len:
-  .quad 15
+  .quad 18
 .LC_str_531:
-  .ascii "sutra_read_line\0"
+  .ascii "sutra_str_upper\0"
 .LC_str_531_len:
   .quad 15
 .LC_str_532:
-  .ascii "\340\244\266\340\245\200\340\244\260\340\245\215\340\244\267_\340\244\270\340\245\215\340\244\244\340\244\260\0"
+  .ascii "sutra_str_lower\0"
 .LC_str_532_len:
-  .quad 28
+  .quad 15
 .LC_str_533:
-  .ascii "\340\244\265\340\244\277\340\244\260\340\244\276\340\244\256_\340\244\242\340\245\207\340\244\260\0"
+  .ascii "sutra_read_line\0"
 .LC_str_533_len:
-  .quad 25
+  .quad 15
 .LC_str_534:
-  .ascii "\340\244\234\340\244\276\340\244\260\340\245\200_\340\244\242\340\245\207\340\244\260\0"
+  .ascii "\340\244\266\340\245\200\340\244\260\340\245\215\340\244\267_\340\244\270\340\245\215\340\244\244\340\244\260\0"
 .LC_str_534_len:
-  .quad 22
+  .quad 28
 .LC_str_535:
-  .ascii "\340\244\225\340\244\240\340\244\250_\340\244\252\340\245\215\340\244\260\340\244\225\340\245\215\340\244\267\340\245\207\340\244\252\340\244\203\0"
+  .ascii "\340\244\265\340\244\277\340\244\260\340\244\276\340\244\256_\340\244\242\340\245\207\340\244\260\0"
 .LC_str_535_len:
-  .quad 37
+  .quad 25
 .LC_str_536:
-  .ascii "sutra_exception_get_jmp_buf\0"
+  .ascii "\340\244\234\340\244\276\340\244\260\340\245\200_\340\244\242\340\245\207\340\244\260\0"
 .LC_str_536_len:
-  .quad 27
+  .quad 22
 .LC_str_537:
-  .ascii "_setjmp\0"
+  .ascii "\340\244\225\340\244\240\340\244\250_\340\244\252\340\245\215\340\244\260\340\244\225\340\245\215\340\244\267\340\245\207\340\244\252\340\244\203\0"
 .LC_str_537_len:
-  .quad 7
+  .quad 37
 .LC_str_538:
-  .ascii "try_\340\244\246\340\245\207\340\244\271\0"
+  .ascii "sutra_exception_get_jmp_buf\0"
 .LC_str_538_len:
-  .quad 13
+  .quad 27
 .LC_str_539:
-  .ascii "try_\340\244\252\340\244\225\340\244\241\340\244\274\340\245\213\0"
+  .ascii "_setjmp\0"
 .LC_str_539_len:
-  .quad 19
+  .quad 7
 .LC_str_540:
-  .ascii "try_\340\244\205\340\244\202\340\244\244\0"
+  .ascii "try_\340\244\246\340\245\207\340\244\271\0"
 .LC_str_540_len:
   .quad 13
 .LC_str_541:
-  .ascii "sutra_exception_pop\0"
+  .ascii "try_\340\244\252\340\244\225\340\244\241\340\244\274\340\245\213\0"
 .LC_str_541_len:
   .quad 19
 .LC_str_542:
-  .ascii "sutra_get_exception_value\0"
+  .ascii "try_\340\244\205\340\244\202\340\244\244\0"
 .LC_str_542_len:
-  .quad 25
+  .quad 13
 .LC_str_543:
-  .ascii "sutra_print_bool\0"
+  .ascii "sutra_exception_pop\0"
 .LC_str_543_len:
-  .quad 16
+  .quad 19
 .LC_str_544:
-  .ascii "sutra_print_float\0"
+  .ascii "sutra_get_exception_value\0"
 .LC_str_544_len:
-  .quad 17
+  .quad 25
 .LC_str_545:
-  .ascii "sutra_print_null\0"
+  .ascii "sutra_print_bool\0"
 .LC_str_545_len:
   .quad 16
 .LC_str_546:
-  .ascii "if_\340\244\270\340\244\244\340\245\215\340\244\257\0"
+  .ascii "sutra_print_float\0"
 .LC_str_546_len:
-  .quad 15
+  .quad 17
 .LC_str_547:
-  .ascii "if_\340\244\205\340\244\202\340\244\244\0"
+  .ascii "sutra_print_null\0"
 .LC_str_547_len:
-  .quad 12
-.LC_str_548:
-  .ascii "if_\340\244\205\340\244\270\340\244\244\340\245\215\340\244\257\0"
-.LC_str_548_len:
-  .quad 18
-.LC_str_549:
-  .ascii "wh_\340\244\266\340\244\260\340\245\215\340\244\244\0"
-.LC_str_549_len:
-  .quad 15
-.LC_str_550:
-  .ascii "wh_\340\244\246\340\245\207\340\244\271\0"
-.LC_str_550_len:
-  .quad 12
-.LC_str_551:
-  .ascii "wh_\340\244\205\340\244\202\340\244\244\0"
-.LC_str_551_len:
-  .quad 12
-.LC_str_552:
-  .ascii "for_\340\244\266\340\244\260\340\245\215\340\244\244\0"
-.LC_str_552_len:
   .quad 16
+.LC_str_548:
+  .ascii "if_\340\244\270\340\244\244\340\245\215\340\244\257\0"
+.LC_str_548_len:
+  .quad 15
+.LC_str_549:
+  .ascii "if_\340\244\205\340\244\202\340\244\244\0"
+.LC_str_549_len:
+  .quad 12
+.LC_str_550:
+  .ascii "if_\340\244\205\340\244\270\340\244\244\340\245\215\340\244\257\0"
+.LC_str_550_len:
+  .quad 18
+.LC_str_551:
+  .ascii "wh_\340\244\266\340\244\260\340\245\215\340\244\244\0"
+.LC_str_551_len:
+  .quad 15
+.LC_str_552:
+  .ascii "wh_\340\244\246\340\245\207\340\244\271\0"
+.LC_str_552_len:
+  .quad 12
 .LC_str_553:
-  .ascii "for_\340\244\246\340\245\207\340\244\271\0"
+  .ascii "wh_\340\244\205\340\244\202\340\244\244\0"
 .LC_str_553_len:
-  .quad 13
+  .quad 12
 .LC_str_554:
-  .ascii "for_\340\244\205\340\244\246\340\245\215\340\244\257\340\244\244\340\244\250\0"
+  .ascii "for_\340\244\266\340\244\260\340\245\215\340\244\244\0"
 .LC_str_554_len:
-  .quad 22
+  .quad 16
 .LC_str_555:
-  .ascii "for_\340\244\205\340\244\202\340\244\244\0"
+  .ascii "for_\340\244\246\340\245\207\340\244\271\0"
 .LC_str_555_len:
   .quad 13
 .LC_str_556:
-  .ascii "__\340\244\266\340\245\200\340\244\260\340\245\215\340\244\267\0"
+  .ascii "for_\340\244\205\340\244\246\340\245\215\340\244\257\340\244\244\340\244\250\0"
 .LC_str_556_len:
-  .quad 17
+  .quad 22
 .LC_str_557:
-  .ascii "\340\244\252\340\245\215\340\244\260\340\244\265\340\245\207\340\244\266\0"
+  .ascii "for_\340\244\205\340\244\202\340\244\244\0"
 .LC_str_557_len:
-  .quad 18
+  .quad 13
 .LC_str_558:
-  .ascii "\340\244\256\340\245\201\340\244\226\340\245\215\340\244\257_\340\244\271\340\245\210\0"
+  .ascii "__\340\244\266\340\245\200\340\244\260\340\245\215\340\244\267\0"
 .LC_str_558_len:
-  .quad 22
+  .quad 17
 .LC_str_559:
-  .ascii "\340\244\266\340\245\200\340\244\260\340\245\215\340\244\267_\340\244\271\340\245\210\0"
+  .ascii "\340\244\252\340\245\215\340\244\260\340\244\265\340\245\207\340\244\266\0"
 .LC_str_559_len:
-  .quad 22
+  .quad 18
 .LC_str_560:
-  .ascii "_\340\244\226_\340\244\250\340\244\225\340\245\215\340\244\266\340\244\276\0"
+  .ascii "\340\244\256\340\245\201\340\244\226\340\245\215\340\244\257_\340\244\271\340\245\210\0"
 .LC_str_560_len:
-  .quad 20
+  .quad 22
 .LC_str_561:
-  .ascii "_\340\244\226_\340\244\227\340\244\243\0"
+  .ascii "\340\244\266\340\245\200\340\244\260\340\245\215\340\244\267_\340\244\271\340\245\210\0"
 .LC_str_561_len:
-  .quad 11
+  .quad 22
 .LC_str_562:
-  .ascii "\340\244\237\340\244\276\340\244\262\340\245\207\0"
+  .ascii "_\340\244\226_\340\244\250\340\244\225\340\245\215\340\244\266\340\244\276\0"
 .LC_str_562_len:
-  .quad 12
+  .quad 20
 .LC_str_563:
-  .ascii "\340\244\254\340\244\250\340\245\207_\340\244\253\340\244\276\340\244\210\0"
+  .ascii "_\340\244\226_\340\244\227\340\244\243\0"
 .LC_str_563_len:
-  .quad 19
+  .quad 11
 .LC_str_564:
-  .ascii "|\0"
+  .ascii "\340\244\237\340\244\276\340\244\262\340\245\207\0"
 .LC_str_564_len:
-  .quad 1
-.LC_str_565:
-  .ascii "\340\244\271\340\244\237\340\244\276\340\244\257\340\244\276\0"
-.LC_str_565_len:
-  .quad 15
-.LC_str_566:
-  .ascii "\340\244\205\340\244\256\340\245\203\340\244\244\0"
-.LC_str_566_len:
   .quad 12
+.LC_str_565:
+  .ascii "\340\244\254\340\244\250\340\245\207_\340\244\253\340\244\276\340\244\210\0"
+.LC_str_565_len:
+  .quad 19
+.LC_str_566:
+  .ascii "|\0"
+.LC_str_566_len:
+  .quad 1
 .LC_str_567:
-  .ascii "\340\244\224\340\244\260\0"
+  .ascii "\340\244\271\340\244\237\340\244\276\340\244\257\340\244\276\0"
 .LC_str_567_len:
-  .quad 6
+  .quad 15
 .LC_str_568:
-  .ascii "\340\244\257\340\244\276\0"
+  .ascii "\340\244\205\340\244\256\340\245\203\340\244\244\0"
 .LC_str_568_len:
-  .quad 6
+  .quad 12
 .LC_str_569:
-  .ascii "rbx\0"
+  .ascii "\340\244\224\340\244\260\0"
 .LC_str_569_len:
-  .quad 3
+  .quad 6
 .LC_str_570:
-  .ascii "rsi\0"
+  .ascii "\340\244\257\340\244\276\0"
 .LC_str_570_len:
-  .quad 3
+  .quad 6
 .LC_str_571:
-  .ascii "rdi\0"
+  .ascii "rbx\0"
 .LC_str_571_len:
   .quad 3
 .LC_str_572:
-  .ascii "r12\0"
+  .ascii "rsi\0"
 .LC_str_572_len:
   .quad 3
 .LC_str_573:
-  .ascii "r13\0"
+  .ascii "rdi\0"
 .LC_str_573_len:
   .quad 3
 .LC_str_574:
-  .ascii "r14\0"
+  .ascii "r12\0"
 .LC_str_574_len:
   .quad 3
 .LC_str_575:
-  .ascii "r15\0"
+  .ascii "r13\0"
 .LC_str_575_len:
   .quad 3
 .LC_str_576:
-  .ascii "_pos\0"
+  .ascii "r14\0"
 .LC_str_576_len:
-  .quad 4
+  .quad 3
 .LC_str_577:
-  .ascii "\340\244\270\340\245\215\340\244\245\340\244\276\340\244\250\0"
+  .ascii "r15\0"
 .LC_str_577_len:
-  .quad 15
+  .quad 3
 .LC_str_578:
-  .ascii "\340\244\226\340\244\202\340\244\241_\340\244\206\340\244\260\340\244\202\340\244\255\0"
+  .ascii "_pos\0"
 .LC_str_578_len:
-  .quad 22
-.LC_str_579:
-  .ascii "\340\244\226\340\244\202\340\244\241_\340\244\205\340\244\202\340\244\244\0"
-.LC_str_579_len:
-  .quad 19
-.LC_str_580:
-  .ascii "\340\244\225\340\245\215\340\244\260\340\244\256\0"
-.LC_str_580_len:
-  .quad 12
-.LC_str_581:
-  .ascii "in\0"
-.LC_str_581_len:
-  .quad 2
-.LC_str_582:
-  .ascii "out\0"
-.LC_str_582_len:
-  .quad 3
-.LC_str_583:
-  .ascii "\340\244\211\340\244\252\340\244\257\340\245\213\340\244\227\0"
-.LC_str_583_len:
-  .quad 15
-.LC_str_584:
-  .ascii "\340\244\206\340\244\260\340\244\202\340\244\255\0"
-.LC_str_584_len:
-  .quad 12
-.LC_str_585:
-  .ascii "\340\244\260\340\244\234\340\244\277\0"
-.LC_str_585_len:
-  .quad 9
-.LC_str_586:
-  .ascii "\340\244\242\340\245\207\340\244\260\0"
-.LC_str_586_len:
-  .quad 9
-.LC_str_587:
-  .ascii "\340\244\221\340\244\253\340\244\270\340\245\207\340\244\237\0"
-.LC_str_587_len:
-  .quad 15
-.LC_str_588:
-  .ascii "\340\244\260\340\244\234\340\244\277_\340\244\250\340\244\277\340\244\257\340\244\244\340\244\250\0"
-.LC_str_588_len:
-  .quad 25
-.LC_str_589:
-  .ascii "\340\244\242\340\245\207\340\244\260_\340\244\206\340\244\225\340\244\276\340\244\260\0"
-.LC_str_589_len:
-  .quad 22
-.LC_str_590:
-  .ascii "\340\244\252\340\245\215\340\244\260\340\244\257\340\245\201\340\244\225\340\245\215\340\244\244_\340\244\270\340\245\201\340\244\260\340\244\225\340\245\215\340\244\267\340\244\277\340\244\244\0"
-.LC_str_590_len:
-  .quad 49
-.LC_str_591:
-  .ascii "\340\244\234\340\245\200\340\244\270\340\245\200_\340\244\234\340\244\241\340\244\274\340\245\207\340\244\202\0"
-.LC_str_591_len:
-  .quad 28
-.LC_str_592:
-  .ascii "\340\244\234\340\245\200\340\244\270\340\245\200_\340\244\234\340\244\241\340\244\274_\340\244\250\340\244\225\340\245\215\340\244\266\340\244\276\0"
-.LC_str_592_len:
-  .quad 38
-.LC_str_593:
-  .ascii "\340\244\234\340\245\200\340\244\270\340\245\200_\340\244\256\340\245\203\340\244\244\340\245\215\340\244\257\340\245\201_\340\244\252\340\244\246\0"
-.LC_str_593_len:
-  .quad 38
-.LC_str_594:
-  .ascii "\340\244\260\340\244\234\340\244\277-\340\244\250\340\244\277\340\244\257\340\244\244\340\244\250: \0"
-.LC_str_594_len:
-  .quad 27
-.LC_str_595:
-  .ascii "  v\0"
-.LC_str_595_len:
-  .quad 3
-.LC_str_596:
-  .ascii " -> %\0"
-.LC_str_596_len:
-  .quad 5
-.LC_str_597:
-  .ascii " -> [\340\244\242\340\245\207\340\244\260+\0"
-.LC_str_597_len:
-  .quad 15
-.LC_str_598:
-  .ascii "  \340\244\242\340\245\207\340\244\260_\340\244\206\340\244\225\340\244\276\340\244\260=\0"
-.LC_str_598_len:
-  .quad 25
-.LC_str_599:
-  .ascii "  \340\244\270\340\245\201\340\244\260\340\244\225\340\245\215\340\244\267\340\244\277\340\244\244=\0"
-.LC_str_599_len:
-  .quad 27
-.LC_str_600:
-  .ascii "\340\244\237\0"
-.LC_str_600_len:
-  .quad 3
-.LC_str_601:
-  .ascii "(%rbp)\0"
-.LC_str_601_len:
-  .quad 6
-.LC_str_602:
-  .ascii "%r15\0"
-.LC_str_602_len:
   .quad 4
-.LC_str_603:
-  .ascii "  movq $0, \0"
-.LC_str_603_len:
-  .quad 11
-.LC_str_604:
-  .ascii "  movq \0"
-.LC_str_604_len:
-  .quad 7
-.LC_str_605:
-  .ascii ", %r11\0"
-.LC_str_605_len:
-  .quad 6
-.LC_str_606:
-  .ascii "  movq %r11, \0"
-.LC_str_606_len:
-  .quad 13
-.LC_str_607:
-  .ascii ".L_\0"
-.LC_str_607_len:
-  .quad 3
-.LC_str_608:
-  .ascii "__\0"
-.LC_str_608_len:
-  .quad 2
-.LC_str_609:
-  .ascii ".L_epilogue_\0"
-.LC_str_609_len:
+.LC_str_579:
+  .ascii "\340\244\270\340\245\215\340\244\245\340\244\276\340\244\250\0"
+.LC_str_579_len:
+  .quad 15
+.LC_str_580:
+  .ascii "\340\244\226\340\244\202\340\244\241_\340\244\206\340\244\260\340\244\202\340\244\255\0"
+.LC_str_580_len:
+  .quad 22
+.LC_str_581:
+  .ascii "\340\244\226\340\244\202\340\244\241_\340\244\205\340\244\202\340\244\244\0"
+.LC_str_581_len:
+  .quad 19
+.LC_str_582:
+  .ascii "\340\244\225\340\245\215\340\244\260\340\244\256\0"
+.LC_str_582_len:
   .quad 12
+.LC_str_583:
+  .ascii "in\0"
+.LC_str_583_len:
+  .quad 2
+.LC_str_584:
+  .ascii "out\0"
+.LC_str_584_len:
+  .quad 3
+.LC_str_585:
+  .ascii "\340\244\211\340\244\252\340\244\257\340\245\213\340\244\227\0"
+.LC_str_585_len:
+  .quad 15
+.LC_str_586:
+  .ascii "\340\244\206\340\244\260\340\244\202\340\244\255\0"
+.LC_str_586_len:
+  .quad 12
+.LC_str_587:
+  .ascii "\340\244\260\340\244\234\340\244\277\0"
+.LC_str_587_len:
+  .quad 9
+.LC_str_588:
+  .ascii "\340\244\242\340\245\207\340\244\260\0"
+.LC_str_588_len:
+  .quad 9
+.LC_str_589:
+  .ascii "\340\244\221\340\244\253\340\244\270\340\245\207\340\244\237\0"
+.LC_str_589_len:
+  .quad 15
+.LC_str_590:
+  .ascii "\340\244\260\340\244\234\340\244\277_\340\244\250\340\244\277\340\244\257\340\244\244\340\244\250\0"
+.LC_str_590_len:
+  .quad 25
+.LC_str_591:
+  .ascii "\340\244\242\340\245\207\340\244\260_\340\244\206\340\244\225\340\244\276\340\244\260\0"
+.LC_str_591_len:
+  .quad 22
+.LC_str_592:
+  .ascii "\340\244\252\340\245\215\340\244\260\340\244\257\340\245\201\340\244\225\340\245\215\340\244\244_\340\244\270\340\245\201\340\244\260\340\244\225\340\245\215\340\244\267\340\244\277\340\244\244\0"
+.LC_str_592_len:
+  .quad 49
+.LC_str_593:
+  .ascii "\340\244\234\340\245\200\340\244\270\340\245\200_\340\244\234\340\244\241\340\244\274\340\245\207\340\244\202\0"
+.LC_str_593_len:
+  .quad 28
+.LC_str_594:
+  .ascii "\340\244\234\340\245\200\340\244\270\340\245\200_\340\244\234\340\244\241\340\244\274_\340\244\250\340\244\225\340\245\215\340\244\266\340\244\276\0"
+.LC_str_594_len:
+  .quad 38
+.LC_str_595:
+  .ascii "\340\244\234\340\245\200\340\244\270\340\245\200_\340\244\256\340\245\203\340\244\244\340\245\215\340\244\257\340\245\201_\340\244\252\340\244\246\0"
+.LC_str_595_len:
+  .quad 38
+.LC_str_596:
+  .ascii "\340\244\260\340\244\234\340\244\277-\340\244\250\340\244\277\340\244\257\340\244\244\340\244\250: \0"
+.LC_str_596_len:
+  .quad 27
+.LC_str_597:
+  .ascii "  v\0"
+.LC_str_597_len:
+  .quad 3
+.LC_str_598:
+  .ascii " -> %\0"
+.LC_str_598_len:
+  .quad 5
+.LC_str_599:
+  .ascii " -> [\340\244\242\340\245\207\340\244\260+\0"
+.LC_str_599_len:
+  .quad 15
+.LC_str_600:
+  .ascii "  \340\244\242\340\245\207\340\244\260_\340\244\206\340\244\225\340\244\276\340\244\260=\0"
+.LC_str_600_len:
+  .quad 25
+.LC_str_601:
+  .ascii "  \340\244\270\340\245\201\340\244\260\340\244\225\340\245\215\340\244\267\340\244\277\340\244\244=\0"
+.LC_str_601_len:
+  .quad 27
+.LC_str_602:
+  .ascii "\340\244\237\0"
+.LC_str_602_len:
+  .quad 3
+.LC_str_603:
+  .ascii "(%rbp)\0"
+.LC_str_603_len:
+  .quad 6
+.LC_str_604:
+  .ascii "%r15\0"
+.LC_str_604_len:
+  .quad 4
+.LC_str_605:
+  .ascii "  movq $0, \0"
+.LC_str_605_len:
+  .quad 11
+.LC_str_606:
+  .ascii "  movq \0"
+.LC_str_606_len:
+  .quad 7
+.LC_str_607:
+  .ascii ", %r11\0"
+.LC_str_607_len:
+  .quad 6
+.LC_str_608:
+  .ascii "  movq %r11, \0"
+.LC_str_608_len:
+  .quad 13
+.LC_str_609:
+  .ascii ".L_\0"
+.LC_str_609_len:
+  .quad 3
 .LC_str_610:
-  .ascii "sutra_str_concat\0"
+  .ascii "__\0"
 .LC_str_610_len:
-  .quad 16
+  .quad 2
 .LC_str_611:
-  .ascii "sutra_add_dynamic\0"
+  .ascii ".L_epilogue_\0"
 .LC_str_611_len:
-  .quad 17
+  .quad 12
 .LC_str_612:
-  .ascii "sutra_float_add\0"
+  .ascii "sutra_str_concat\0"
 .LC_str_612_len:
-  .quad 15
+  .quad 16
 .LC_str_613:
-  .ascii "sutra_float_sub\0"
+  .ascii "sutra_add_dynamic\0"
 .LC_str_613_len:
-  .quad 15
+  .quad 17
 .LC_str_614:
-  .ascii "sutra_float_mul\0"
+  .ascii "sutra_float_add\0"
 .LC_str_614_len:
   .quad 15
 .LC_str_615:
-  .ascii "addq\0"
+  .ascii "sutra_float_sub\0"
 .LC_str_615_len:
-  .quad 4
+  .quad 15
 .LC_str_616:
-  .ascii "subq\0"
+  .ascii "sutra_float_mul\0"
 .LC_str_616_len:
-  .quad 4
+  .quad 15
 .LC_str_617:
-  .ascii "imulq\0"
+  .ascii "addq\0"
 .LC_str_617_len:
-  .quad 5
+  .quad 4
 .LC_str_618:
-  .ascii ", %r10\0"
+  .ascii "subq\0"
 .LC_str_618_len:
-  .quad 6
+  .quad 4
 .LC_str_619:
-  .ascii "  movq %r10, \0"
+  .ascii "imulq\0"
 .LC_str_619_len:
-  .quad 13
+  .quad 5
 .LC_str_620:
-  .ascii "sutra_float_div\0"
+  .ascii ", %r10\0"
 .LC_str_620_len:
-  .quad 15
+  .quad 6
 .LC_str_621:
-  .ascii ", %rax\0"
+  .ascii "  movq %r10, \0"
 .LC_str_621_len:
-  .quad 6
+  .quad 13
 .LC_str_622:
-  .ascii "  cqto\0"
+  .ascii "sutra_float_div\0"
 .LC_str_622_len:
-  .quad 6
-.LC_str_623:
-  .ascii "  idivq %r10\0"
-.LC_str_623_len:
-  .quad 12
-.LC_str_624:
-  .ascii "  movq %rax, \0"
-.LC_str_624_len:
-  .quad 13
-.LC_str_625:
-  .ascii "  movq %rdx, \0"
-.LC_str_625_len:
-  .quad 13
-.LC_str_626:
-  .ascii "  cmpq $0, %r10\0"
-.LC_str_626_len:
   .quad 15
+.LC_str_623:
+  .ascii ", %rax\0"
+.LC_str_623_len:
+  .quad 6
+.LC_str_624:
+  .ascii "  cqto\0"
+.LC_str_624_len:
+  .quad 6
+.LC_str_625:
+  .ascii "  idivq %r10\0"
+.LC_str_625_len:
+  .quad 12
+.LC_str_626:
+  .ascii "  movq %rax, \0"
+.LC_str_626_len:
+  .quad 13
 .LC_str_627:
-  .ascii "  sete %al\0"
+  .ascii "  movq %rdx, \0"
 .LC_str_627_len:
-  .quad 10
+  .quad 13
 .LC_str_628:
-  .ascii "  movzbq %al, %r10\0"
+  .ascii "  cmpq $0, %r10\0"
 .LC_str_628_len:
-  .quad 18
+  .quad 15
 .LC_str_629:
-  .ascii "  cmpq \0"
+  .ascii "  sete %al\0"
 .LC_str_629_len:
-  .quad 7
+  .quad 10
 .LC_str_630:
-  .ascii " %al\0"
+  .ascii "  movzbq %al, %r10\0"
 .LC_str_630_len:
-  .quad 4
+  .quad 18
 .LC_str_631:
-  .ascii "andq\0"
+  .ascii "  cmpq \0"
 .LC_str_631_len:
-  .quad 4
+  .quad 7
 .LC_str_632:
-  .ascii "orq\0"
+  .ascii " %al\0"
 .LC_str_632_len:
-  .quad 3
+  .quad 4
 .LC_str_633:
-  .ascii "  setne %al\0"
+  .ascii "andq\0"
 .LC_str_633_len:
-  .quad 11
+  .quad 4
 .LC_str_634:
-  .ascii "  btcq $63, %r10\0"
+  .ascii "orq\0"
 .LC_str_634_len:
-  .quad 16
+  .quad 3
 .LC_str_635:
-  .ascii "  negq %r10\0"
+  .ascii "  setne %al\0"
 .LC_str_635_len:
   .quad 11
 .LC_str_636:
-  .ascii "  movq sutra_glob_\0"
+  .ascii "  btcq $63, %r10\0"
 .LC_str_636_len:
-  .quad 18
+  .quad 16
 .LC_str_637:
-  .ascii "(%rip), %r10\0"
+  .ascii "  negq %r10\0"
 .LC_str_637_len:
-  .quad 12
+  .quad 11
 .LC_str_638:
-  .ascii "  movq %r10, sutra_glob_\0"
+  .ascii "  movq sutra_glob_\0"
 .LC_str_638_len:
-  .quad 24
+  .quad 18
 .LC_str_639:
-  .ascii "(%rip)\0"
+  .ascii "(%rip), %r10\0"
 .LC_str_639_len:
-  .quad 6
+  .quad 12
 .LC_str_640:
-  .ascii "\340\244\246\340\245\210\340\244\266\340\244\277\340\244\225_\340\244\262\340\244\202\340\244\254\340\244\276\340\244\210\0"
+  .ascii "  movq %r10, sutra_glob_\0"
 .LC_str_640_len:
-  .quad 31
+  .quad 24
 .LC_str_641:
-  .ascii "sutra_arr_get\0"
+  .ascii "(%rip)\0"
 .LC_str_641_len:
-  .quad 13
+  .quad 6
 .LC_str_642:
-  .ascii "sutra_str_get\0"
+  .ascii "\340\244\246\340\245\210\340\244\266\340\244\277\340\244\225_\340\244\262\340\244\202\340\244\254\340\244\276\340\244\210\0"
 .LC_str_642_len:
-  .quad 13
+  .quad 31
 .LC_str_643:
-  .ascii "sutra_arr_set\0"
+  .ascii "sutra_arr_get\0"
 .LC_str_643_len:
   .quad 13
 .LC_str_644:
-  .ascii "sutra_arr_create\0"
+  .ascii "sutra_str_get\0"
 .LC_str_644_len:
-  .quad 16
-.LC_str_645:
-  .ascii "$\0"
-.LC_str_645_len:
-  .quad 1
-.LC_str_646:
-  .ascii "sutra_dict_create\0"
-.LC_str_646_len:
-  .quad 17
-.LC_str_647:
-  .ascii "sutra_dict_set\0"
-.LC_str_647_len:
-  .quad 14
-.LC_str_648:
-  .ascii "(%r10), %r10\0"
-.LC_str_648_len:
-  .quad 12
-.LC_str_649:
-  .ascii "(%r10)\0"
-.LC_str_649_len:
-  .quad 6
-.LC_str_650:
-  .ascii "sutra_obj_alloc\0"
-.LC_str_650_len:
-  .quad 15
-.LC_str_651:
-  .ascii "sutra_native_is_string\0"
-.LC_str_651_len:
-  .quad 22
-.LC_str_652:
-  .ascii "sutra_is_dict\0"
-.LC_str_652_len:
   .quad 13
-.LC_str_653:
-  .ascii "sutra_native_is_array\0"
-.LC_str_653_len:
-  .quad 21
-.LC_str_654:
-  .ascii "  # \340\244\270\340\245\215\340\244\245\340\244\227\340\244\277\340\244\244: \0"
-.LC_str_654_len:
-  .quad 24
-.LC_str_655:
-  .ascii "%rcx\0"
-.LC_str_655_len:
-  .quad 4
-.LC_str_656:
-  .ascii "%rdx\0"
-.LC_str_656_len:
-  .quad 4
-.LC_str_657:
-  .ascii "%r8\0"
-.LC_str_657_len:
-  .quad 3
-.LC_str_658:
-  .ascii "%r9\0"
-.LC_str_658_len:
-  .quad 3
-.LC_str_659:
-  .ascii "  subq $32, %rsp\0"
-.LC_str_659_len:
+.LC_str_645:
+  .ascii "sutra_arr_set\0"
+.LC_str_645_len:
+  .quad 13
+.LC_str_646:
+  .ascii "sutra_arr_create\0"
+.LC_str_646_len:
   .quad 16
+.LC_str_647:
+  .ascii "$\0"
+.LC_str_647_len:
+  .quad 1
+.LC_str_648:
+  .ascii "sutra_dict_create\0"
+.LC_str_648_len:
+  .quad 17
+.LC_str_649:
+  .ascii "sutra_dict_set\0"
+.LC_str_649_len:
+  .quad 14
+.LC_str_650:
+  .ascii "(%r10), %r10\0"
+.LC_str_650_len:
+  .quad 12
+.LC_str_651:
+  .ascii "(%r10)\0"
+.LC_str_651_len:
+  .quad 6
+.LC_str_652:
+  .ascii "sutra_obj_alloc\0"
+.LC_str_652_len:
+  .quad 15
+.LC_str_653:
+  .ascii "sutra_native_is_string\0"
+.LC_str_653_len:
+  .quad 22
+.LC_str_654:
+  .ascii "sutra_is_dict\0"
+.LC_str_654_len:
+  .quad 13
+.LC_str_655:
+  .ascii "sutra_native_is_array\0"
+.LC_str_655_len:
+  .quad 21
+.LC_str_656:
+  .ascii "  # \340\244\270\340\245\215\340\244\245\340\244\227\340\244\277\340\244\244: \0"
+.LC_str_656_len:
+  .quad 24
+.LC_str_657:
+  .ascii "%rcx\0"
+.LC_str_657_len:
+  .quad 4
+.LC_str_658:
+  .ascii "%rdx\0"
+.LC_str_658_len:
+  .quad 4
+.LC_str_659:
+  .ascii "%r8\0"
+.LC_str_659_len:
+  .quad 3
 .LC_str_660:
-  .ascii "  call \0"
+  .ascii "%r9\0"
 .LC_str_660_len:
-  .quad 7
+  .quad 3
 .LC_str_661:
-  .ascii "  addq $32, %rsp\0"
+  .ascii "  subq $32, %rsp\0"
 .LC_str_661_len:
   .quad 16
 .LC_str_662:
-  .ascii "sutra_float_eq\0"
+  .ascii "  call \0"
 .LC_str_662_len:
-  .quad 14
+  .quad 7
 .LC_str_663:
-  .ascii "sutra_float_ne\0"
+  .ascii "  addq $32, %rsp\0"
 .LC_str_663_len:
-  .quad 14
+  .quad 16
 .LC_str_664:
-  .ascii "sutra_float_lt\0"
+  .ascii "sutra_float_eq\0"
 .LC_str_664_len:
   .quad 14
 .LC_str_665:
-  .ascii "sutra_float_gt\0"
+  .ascii "sutra_float_ne\0"
 .LC_str_665_len:
   .quad 14
 .LC_str_666:
-  .ascii "sutra_float_le\0"
+  .ascii "sutra_float_lt\0"
 .LC_str_666_len:
   .quad 14
 .LC_str_667:
-  .ascii "sutra_float_ge\0"
+  .ascii "sutra_float_gt\0"
 .LC_str_667_len:
   .quad 14
 .LC_str_668:
-  .ascii "\340\244\252\340\244\276\340\244\240_\340\244\244\340\245\201\340\244\262\340\245\215\340\244\257\0"
+  .ascii "sutra_float_le\0"
 .LC_str_668_len:
-  .quad 25
+  .quad 14
 .LC_str_669:
-  .ascii "\340\244\252\340\244\276\340\244\240_\340\244\250\340\245\215\340\244\257\340\245\202\340\244\250\0"
+  .ascii "sutra_float_ge\0"
 .LC_str_669_len:
-  .quad 25
+  .quad 14
 .LC_str_670:
-  .ascii "\340\244\252\340\244\276\340\244\240_\340\244\205\340\244\247\340\244\277\340\244\225\0"
+  .ascii "\340\244\252\340\244\276\340\244\240_\340\244\244\340\245\201\340\244\262\340\245\215\340\244\257\0"
 .LC_str_670_len:
-  .quad 22
+  .quad 25
 .LC_str_671:
-  .ascii "\340\244\252\340\244\276\340\244\240_\340\244\250\340\245\215\340\244\257\340\245\202\340\244\250_\340\244\270\340\244\256\0"
+  .ascii "\340\244\252\340\244\276\340\244\240_\340\244\250\340\245\215\340\244\257\340\245\202\340\244\250\0"
 .LC_str_671_len:
-  .quad 32
+  .quad 25
 .LC_str_672:
-  .ascii "\340\244\252\340\244\276\340\244\240_\340\244\205\340\244\247\340\244\277\340\244\225_\340\244\270\340\244\256\0"
+  .ascii "\340\244\252\340\244\276\340\244\240_\340\244\205\340\244\247\340\244\277\340\244\225\0"
 .LC_str_672_len:
-  .quad 29
+  .quad 22
 .LC_str_673:
-  .ascii "sete\0"
+  .ascii "\340\244\252\340\244\276\340\244\240_\340\244\250\340\245\215\340\244\257\340\245\202\340\244\250_\340\244\270\340\244\256\0"
 .LC_str_673_len:
-  .quad 4
+  .quad 32
 .LC_str_674:
-  .ascii "setne\0"
+  .ascii "\340\244\252\340\244\276\340\244\240_\340\244\205\340\244\247\340\244\277\340\244\225_\340\244\270\340\244\256\0"
 .LC_str_674_len:
-  .quad 5
+  .quad 29
 .LC_str_675:
-  .ascii "setl\0"
+  .ascii "sete\0"
 .LC_str_675_len:
   .quad 4
 .LC_str_676:
-  .ascii "setg\0"
+  .ascii "setne\0"
 .LC_str_676_len:
-  .quad 4
+  .quad 5
 .LC_str_677:
-  .ascii "setle\0"
+  .ascii "setl\0"
 .LC_str_677_len:
-  .quad 5
+  .quad 4
 .LC_str_678:
-  .ascii "setge\0"
+  .ascii "setg\0"
 .LC_str_678_len:
-  .quad 5
+  .quad 4
 .LC_str_679:
-  .ascii "  movq $\0"
+  .ascii "setle\0"
 .LC_str_679_len:
-  .quad 8
+  .quad 5
 .LC_str_680:
-  .ascii "  movq .LC_dbl_\0"
+  .ascii "setge\0"
 .LC_str_680_len:
-  .quad 15
+  .quad 5
 .LC_str_681:
-  .ascii "  movq $1, \0"
+  .ascii "  movq $\0"
 .LC_str_681_len:
-  .quad 11
+  .quad 8
 .LC_str_682:
-  .ascii "  leaq .LC_str_\0"
+  .ascii "  movq .LC_dbl_\0"
 .LC_str_682_len:
   .quad 15
 .LC_str_683:
-  .ascii "(%rip), %rcx\0"
+  .ascii "  movq $1, \0"
 .LC_str_683_len:
-  .quad 12
+  .quad 11
 .LC_str_684:
-  .ascii "  movq .LC_str_\0"
+  .ascii "  leaq .LC_str_\0"
 .LC_str_684_len:
   .quad 15
 .LC_str_685:
-  .ascii "_len(%rip), %rdx\0"
+  .ascii "(%rip), %rcx\0"
 .LC_str_685_len:
-  .quad 16
-.LC_str_686:
-  .ascii "  call sutra_str_alloc\0"
-.LC_str_686_len:
-  .quad 22
-.LC_str_687:
-  .ascii "sutra_main\0"
-.LC_str_687_len:
-  .quad 10
-.LC_str_688:
-  .ascii "  subq $8, %rsp\0"
-.LC_str_688_len:
-  .quad 15
-.LC_str_689:
-  .ascii "  pushq %r11\0"
-.LC_str_689_len:
   .quad 12
+.LC_str_686:
+  .ascii "  movq .LC_str_\0"
+.LC_str_686_len:
+  .quad 15
+.LC_str_687:
+  .ascii "_len(%rip), %rdx\0"
+.LC_str_687_len:
+  .quad 16
+.LC_str_688:
+  .ascii "  call sutra_str_alloc\0"
+.LC_str_688_len:
+  .quad 22
+.LC_str_689:
+  .ascii "sutra_main\0"
+.LC_str_689_len:
+  .quad 10
 .LC_str_690:
-  .ascii "  addq $\0"
+  .ascii "  subq $8, %rsp\0"
 .LC_str_690_len:
-  .quad 8
+  .quad 15
 .LC_str_691:
-  .ascii ", %rsp\0"
+  .ascii "  pushq %r11\0"
 .LC_str_691_len:
-  .quad 6
+  .quad 12
 .LC_str_692:
-  .ascii "movq\0"
+  .ascii "  addq $\0"
 .LC_str_692_len:
-  .quad 4
+  .quad 8
 .LC_str_693:
-  .ascii "movzbq\0"
+  .ascii ", %rsp\0"
 .LC_str_693_len:
   .quad 6
 .LC_str_694:
-  .ascii " (%r10,%r11), %r10\0"
+  .ascii "movq\0"
 .LC_str_694_len:
-  .quad 18
+  .quad 4
 .LC_str_695:
-  .ascii "movb\0"
+  .ascii "movzbq\0"
 .LC_str_695_len:
-  .quad 4
+  .quad 6
 .LC_str_696:
-  .ascii "%r8b\0"
+  .ascii " (%r10,%r11), %r10\0"
 .LC_str_696_len:
-  .quad 4
+  .quad 18
 .LC_str_697:
-  .ascii ", %r8\0"
+  .ascii "movb\0"
 .LC_str_697_len:
-  .quad 5
+  .quad 4
 .LC_str_698:
-  .ascii ", (%r10,%r11)\0"
+  .ascii "%r8b\0"
 .LC_str_698_len:
-  .quad 13
+  .quad 4
 .LC_str_699:
-  .ascii "\340\244\270\340\245\202\340\244\244\340\245\215\340\244\260_\340\244\244\340\244\262_\340\244\206\340\244\265\340\244\202\340\244\237\340\244\250\0"
+  .ascii ", %r8\0"
 .LC_str_699_len:
-  .quad 38
+  .quad 5
 .LC_str_700:
-  .ascii "\340\244\270\340\245\202\340\244\244\340\245\215\340\244\260_\340\244\244\340\244\262_\340\244\256\340\245\201\340\244\225\340\245\215\340\244\244\0"
+  .ascii ", (%r10,%r11)\0"
 .LC_str_700_len:
-  .quad 38
+  .quad 13
 .LC_str_701:
-  .ascii "\340\244\270\340\245\202\340\244\244\340\245\215\340\244\260_\340\244\244\340\244\262_\340\244\250\340\244\277\340\244\225\340\244\276\340\244\270\0"
+  .ascii "\340\244\270\340\245\202\340\244\244\340\245\215\340\244\260_\340\244\244\340\244\262_\340\244\206\340\244\265\340\244\202\340\244\237\340\244\250\0"
 .LC_str_701_len:
   .quad 38
 .LC_str_702:
-  .ascii "%r11\0"
+  .ascii "\340\244\270\340\245\202\340\244\244\340\245\215\340\244\260_\340\244\244\340\244\262_\340\244\256\340\245\201\340\244\225\340\245\215\340\244\244\0"
 .LC_str_702_len:
-  .quad 4
+  .quad 38
 .LC_str_703:
-  .ascii "  jmp \0"
+  .ascii "\340\244\270\340\245\202\340\244\244\340\245\215\340\244\260_\340\244\244\340\244\262_\340\244\250\340\244\277\340\244\225\340\244\276\340\244\270\0"
 .LC_str_703_len:
-  .quad 6
+  .quad 38
 .LC_str_704:
-  .ascii "  movq $0, %rax\0"
+  .ascii "sutra_gc_root_count\0"
 .LC_str_704_len:
-  .quad 15
+  .quad 19
 .LC_str_705:
-  .ascii "\340\244\225\340\244\277\340\244\250\340\244\276\340\244\260\340\244\276\0"
+  .ascii "sutra_gc_root_deref\0"
 .LC_str_705_len:
-  .quad 18
+  .quad 19
 .LC_str_706:
-  .ascii ".L_\340\244\225\340\244\277\340\244\250\340\244\276\340\244\260\340\244\276_\0"
+  .ascii "sutra_gc_active_exc\0"
 .LC_str_706_len:
-  .quad 22
+  .quad 19
 .LC_str_707:
-  .ascii "  je \0"
+  .ascii "%r11\0"
 .LC_str_707_len:
-  .quad 5
+  .quad 4
 .LC_str_708:
-  .ascii ", %rcx\0"
+  .ascii "  jmp \0"
 .LC_str_708_len:
   .quad 6
 .LC_str_709:
-  .ascii "  call sutra_throw\0"
+  .ascii "  movq $0, %rax\0"
 .LC_str_709_len:
-  .quad 18
+  .quad 15
 .LC_str_710:
-  .ascii "  .text\0"
+  .ascii "\340\244\225\340\244\277\340\244\250\340\244\276\340\244\260\340\244\276\0"
 .LC_str_710_len:
-  .quad 7
+  .quad 18
 .LC_str_711:
-  .ascii "  .globl \0"
+  .ascii ".L_\340\244\225\340\244\277\340\244\250\340\244\276\340\244\260\340\244\276_\0"
 .LC_str_711_len:
-  .quad 9
+  .quad 22
 .LC_str_712:
-  .ascii "  .def \0"
+  .ascii "  je \0"
 .LC_str_712_len:
-  .quad 7
+  .quad 5
 .LC_str_713:
-  .ascii "; .scl 2; .type 32; .endef\0"
+  .ascii ", %rcx\0"
 .LC_str_713_len:
-  .quad 26
+  .quad 6
 .LC_str_714:
-  .ascii "  pushq %rbp\0"
+  .ascii "  call sutra_throw\0"
 .LC_str_714_len:
-  .quad 12
+  .quad 18
 .LC_str_715:
-  .ascii "  movq %rsp, %rbp\0"
+  .ascii "  .text\0"
 .LC_str_715_len:
-  .quad 17
-.LC_str_716:
-  .ascii "  subq $\0"
-.LC_str_716_len:
-  .quad 8
-.LC_str_717:
-  .ascii "  movq %\0"
-.LC_str_717_len:
-  .quad 8
-.LC_str_718:
-  .ascii "(%rbp), %r10\0"
-.LC_str_718_len:
-  .quad 12
-.LC_str_719:
-  .ascii "  movl gc_roots_count(%rip), %eax\0"
-.LC_str_719_len:
-  .quad 33
-.LC_str_720:
-  .ascii "  leaq gc_roots(%rip), %r10\0"
-.LC_str_720_len:
-  .quad 27
-.LC_str_721:
-  .ascii "  leaq \0"
-.LC_str_721_len:
   .quad 7
-.LC_str_722:
-  .ascii "  movq %r11, (%r10,%rax,8)\0"
-.LC_str_722_len:
+.LC_str_716:
+  .ascii "  .globl \0"
+.LC_str_716_len:
+  .quad 9
+.LC_str_717:
+  .ascii "  .def \0"
+.LC_str_717_len:
+  .quad 7
+.LC_str_718:
+  .ascii "; .scl 2; .type 32; .endef\0"
+.LC_str_718_len:
   .quad 26
+.LC_str_719:
+  .ascii "  pushq %rbp\0"
+.LC_str_719_len:
+  .quad 12
+.LC_str_720:
+  .ascii "  movq %rsp, %rbp\0"
+.LC_str_720_len:
+  .quad 17
+.LC_str_721:
+  .ascii "  subq $\0"
+.LC_str_721_len:
+  .quad 8
+.LC_str_722:
+  .ascii "  movq %\0"
+.LC_str_722_len:
+  .quad 8
 .LC_str_723:
-  .ascii "  incl %eax\0"
+  .ascii "(%rbp), %r10\0"
 .LC_str_723_len:
-  .quad 11
+  .quad 12
 .LC_str_724:
-  .ascii "  movl %eax, gc_roots_count(%rip)\0"
+  .ascii "  movl gc_roots_count(%rip), %eax\0"
 .LC_str_724_len:
   .quad 33
 .LC_str_725:
-  .ascii "  subl $\0"
+  .ascii "  leaq gc_roots(%rip), %r10\0"
 .LC_str_725_len:
-  .quad 8
+  .quad 27
 .LC_str_726:
-  .ascii ", gc_roots_count(%rip)\0"
+  .ascii "  leaq \0"
 .LC_str_726_len:
-  .quad 22
-.LC_str_727:
-  .ascii ", %\0"
-.LC_str_727_len:
-  .quad 3
-.LC_str_728:
-  .ascii "  movq %rbp, %rsp\0"
-.LC_str_728_len:
-  .quad 17
-.LC_str_729:
-  .ascii "  popq %rbp\0"
-.LC_str_729_len:
-  .quad 11
-.LC_str_730:
-  .ascii "  ret\0"
-.LC_str_730_len:
-  .quad 5
-.LC_str_731:
-  .ascii "  .globl main\0"
-.LC_str_731_len:
-  .quad 13
-.LC_str_732:
-  .ascii "  .def main; .scl 2; .type 32; .endef\0"
-.LC_str_732_len:
-  .quad 37
-.LC_str_733:
-  .ascii "main:\0"
-.LC_str_733_len:
-  .quad 5
-.LC_str_734:
-  .ascii "  call sutra_init_args\0"
-.LC_str_734_len:
-  .quad 22
-.LC_str_735:
-  .ascii "  leaq sutra_glob_\0"
-.LC_str_735_len:
-  .quad 18
-.LC_str_736:
-  .ascii "  call sutra_gc_push_root\0"
-.LC_str_736_len:
-  .quad 25
-.LC_str_737:
-  .ascii "  call \340\244\270\340\245\202\340\244\244\340\245\215\340\244\260_\340\244\270\340\245\215\340\244\265\340\244\234\340\245\200\340\244\270\340\245\200_\340\244\206\340\244\260\340\244\202\340\244\255\0"
-.LC_str_737_len:
-  .quad 57
-.LC_str_738:
-  .ascii "  call __\340\244\266\340\245\200\340\244\260\340\245\215\340\244\267\0"
-.LC_str_738_len:
-  .quad 24
-.LC_str_739:
-  .ascii "  call sutra_main\0"
-.LC_str_739_len:
-  .quad 17
-.LC_str_740:
-  .ascii "  call sutra_gc_pop_root\0"
-.LC_str_740_len:
-  .quad 24
-.LC_str_741:
-  .ascii "  xorl %eax, %eax\0"
-.LC_str_741_len:
-  .quad 17
-.LC_str_742:
-  .ascii "  .data\0"
-.LC_str_742_len:
   .quad 7
-.LC_str_743:
-  .ascii "  .globl sutra_glob_\0"
-.LC_str_743_len:
-  .quad 20
-.LC_str_744:
-  .ascii "sutra_glob_\0"
-.LC_str_744_len:
-  .quad 11
-.LC_str_745:
-  .ascii "  .quad 0\0"
-.LC_str_745_len:
-  .quad 9
-.LC_str_746:
-  .ascii "  .section .rdata,\"dr\"\0"
-.LC_str_746_len:
-  .quad 22
-.LC_str_747:
-  .ascii "  .align 8\0"
-.LC_str_747_len:
-  .quad 10
-.LC_str_748:
-  .ascii ".LC_dbl_\0"
-.LC_str_748_len:
-  .quad 8
-.LC_str_749:
-  .ascii "  .double \0"
-.LC_str_749_len:
-  .quad 10
-.LC_str_750:
-  .ascii ".LC_str_\0"
-.LC_str_750_len:
-  .quad 8
-.LC_str_751:
-  .ascii "  .ascii \"\0"
-.LC_str_751_len:
-  .quad 10
-.LC_str_752:
-  .ascii "\\0\"\0"
-.LC_str_752_len:
-  .quad 3
-.LC_str_753:
-  .ascii "_len:\0"
-.LC_str_753_len:
-  .quad 5
-.LC_str_754:
-  .ascii "  .quad \0"
-.LC_str_754_len:
-  .quad 8
-.LC_str_755:
-  .ascii "\340\244\244\340\245\215\340\244\260\340\245\201\340\244\237\340\244\277\340\244\203 \342\200\224 \340\244\270\340\244\236\340\245\215\340\244\232\340\244\277\340\244\225\340\244\276 \340\244\256\340\244\276\340\244\260\340\245\215\340\244\227\340\244\203 \340\244\250 \340\244\250\340\244\277\340\244\260\340\245\215\340\244\246\340\244\277\340\244\267\340\245\215\340\244\237\340\244\203\340\245\244\0"
-.LC_str_755_len:
-  .quad 104
-.LC_str_756:
-  .ascii "\340\244\244\340\245\215\340\244\260\340\245\201\340\244\237\340\244\277\340\244\203 \342\200\224 \340\244\270\340\244\236\340\245\215\340\244\232\340\244\277\340\244\225\340\244\276 \340\244\250 \340\244\252\340\245\215\340\244\260\340\244\276\340\244\252\340\245\215\340\244\244\340\244\276: \0"
-.LC_str_756_len:
-  .quad 78
-.LC_str_757:
-  .ascii "=== \340\244\256\340\245\202\340\244\262 \340\244\270\340\244\202\340\244\225\340\244\262\340\244\250 ===\0"
-.LC_str_757_len:
-  .quad 33
-.LC_str_758:
-  .ascii "\340\244\270\340\244\236\340\245\215\340\244\232\340\244\277\340\244\225\340\244\276: \0"
-.LC_str_758_len:
-  .quad 23
-.LC_str_759:
-  .ascii "1. \340\244\252\340\244\246_\340\244\265\340\244\277\340\244\232\340\245\215\340\244\233\340\245\207\340\244\246\340\244\250...\0"
-.LC_str_759_len:
-  .quad 37
-.LC_str_760:
-  .ascii "   \340\244\252\340\244\246\340\245\213\340\244\202 \340\244\225\340\245\200 \340\244\270\340\244\202\340\244\226\340\245\215\340\244\257\340\244\276: \0"
-.LC_str_760_len:
-  .quad 43
-.LC_str_761:
-  .ascii "2. \340\244\265\340\244\277\340\244\266\340\245\215\340\244\262\340\245\207\340\244\267\340\244\243...\0"
-.LC_str_761_len:
-  .quad 30
-.LC_str_762:
-  .ascii "   \340\244\265\340\244\277\340\244\266\340\245\215\340\244\262\340\245\207\340\244\267\340\244\243 \340\244\270\340\244\202\340\244\252\340\244\250\340\245\215\340\244\250\340\244\256\340\245\215\340\245\244\0"
-.LC_str_762_len:
-  .quad 55
-.LC_str_763:
-  .ascii "2.5 \340\244\270\340\244\276\340\244\260\340\245\215\340\244\245\340\244\225_\340\244\265\340\244\277\340\244\266\340\245\215\340\244\262\340\245\207\340\244\267\340\244\243...\0"
-.LC_str_763_len:
-  .quad 50
-.LC_str_764:
-  .ascii "    \340\244\270\340\244\276\340\244\260\340\245\215\340\244\245\340\244\225_\340\244\265\340\244\277\340\244\266\340\245\215\340\244\262\340\245\207\340\244\267\340\244\243 \340\244\270\340\244\202\340\244\252\340\244\250\340\245\215\340\244\250\340\244\256\340\245\215\340\245\244\0"
-.LC_str_764_len:
-  .quad 75
-.LC_str_765:
-  .ascii "3. IR \340\244\211\340\244\244\340\245\215\340\244\252\340\244\250\340\245\215\340\244\250 (\340\244\250\340\244\277\340\244\256\340\245\215\340\244\250\340\244\225 \342\206\222 \340\244\205\340\244\250\340\245\201\340\244\225\340\245\202\340\244\262\340\244\225 \342\206\222 \340\244\260\340\244\234\340\244\277_\340\244\250\340\244\277\340\244\257\340\244\244\340\244\225 \342\206\222 \340\244\211\340\244\244\340\245\215\340\244\270\340\244\260\340\245\215\340\244\234\340\244\225)...\0"
-.LC_str_765_len:
-  .quad 136
-.LC_str_766:
-  .ascii "4. \340\244\270\340\244\236\340\245\215\340\244\232\340\244\277\340\244\225\340\244\276: \0"
-.LC_str_766_len:
+.LC_str_727:
+  .ascii "  movq %r11, (%r10,%rax,8)\0"
+.LC_str_727_len:
   .quad 26
-.LC_str_767:
-  .ascii "5. \340\244\270\340\244\202\340\244\257\340\245\213\340\244\234\340\244\250...\0"
-.LC_str_767_len:
-  .quad 24
-.LC_str_768:
-  .ascii "\340\244\244\340\245\215\340\244\260\340\245\201\340\244\237\340\244\277\340\244\203 \342\200\224 \340\244\270\340\244\202\340\244\257\340\245\213\340\244\234\340\244\250 \340\244\265\340\244\277\340\244\253\340\244\262\340\245\244\0"
-.LC_str_768_len:
-  .quad 60
-.LC_str_769:
-  .ascii "   \340\244\270\340\244\202\340\244\257\340\245\213\340\244\234\340\244\250 \340\244\270\340\244\202\340\244\252\340\244\250\340\245\215\340\244\250\340\244\256\340\245\215\340\245\244\0"
-.LC_str_769_len:
-  .quad 49
-.LC_str_770:
-  .ascii "\340\244\270\340\245\215\340\244\265\340\244\270\340\244\202\340\244\225\340\244\262\340\244\225/\340\244\250\340\244\277\340\244\260\340\245\215\340\244\256\340\244\276\340\244\243/\340\244\244\340\244\262.s\0"
-.LC_str_770_len:
-  .quad 55
-.LC_str_771:
-  .ascii "\340\244\250\340\244\277\340\244\260\340\245\215\340\244\256\340\244\276\340\244\243/\340\244\244\340\244\262.s\0"
-.LC_str_771_len:
-  .quad 30
-.LC_str_772:
-  .ascii "\340\244\270\340\245\215\340\244\265\340\244\270\340\244\202\340\244\225\340\244\262\340\244\225/\340\244\250\340\244\277\340\244\260\340\245\215\340\244\256\340\244\276\340\244\243/\340\244\256\340\245\202\340\244\262_\340\244\260\340\244\250\340\244\237\340\244\276\340\244\207\340\244\256.s\0"
-.LC_str_772_len:
-  .quad 77
-.LC_str_773:
-  .ascii "\340\244\250\340\244\277\340\244\260\340\245\215\340\244\256\340\244\276\340\244\243/\340\244\256\340\245\202\340\244\262_\340\244\260\340\244\250\340\244\237\340\244\276\340\244\207\340\244\256.s\0"
-.LC_str_773_len:
-  .quad 52
-.LC_str_774:
-  .ascii "\340\244\270\340\245\215\340\244\265\340\244\270\340\244\202\340\244\225\340\244\262\340\244\225/\340\244\250\340\244\277\340\244\260\340\245\215\340\244\256\340\244\276\340\244\243/\340\244\256\340\245\202\340\244\262_\340\244\206\340\244\265\340\244\202\340\244\237\340\244\225.s\0"
-.LC_str_774_len:
-  .quad 74
-.LC_str_775:
-  .ascii "\340\244\250\340\244\277\340\244\260\340\245\215\340\244\256\340\244\276\340\244\243/\340\244\256\340\245\202\340\244\262_\340\244\206\340\244\265\340\244\202\340\244\237\340\244\225.s\0"
-.LC_str_775_len:
-  .quad 49
-.LC_str_776:
-  .ascii "6. \340\244\262\340\244\277\340\244\202\340\244\225...\0"
-.LC_str_776_len:
-  .quad 18
-.LC_str_777:
-  .ascii "sutra_floor.o\0"
-.LC_str_777_len:
-  .quad 13
-.LC_str_778:
-  .ascii "sutra_srt.o\0"
-.LC_str_778_len:
+.LC_str_728:
+  .ascii "  incl %eax\0"
+.LC_str_728_len:
   .quad 11
-.LC_str_779:
-  .ascii "sutra_alloc.o\0"
-.LC_str_779_len:
+.LC_str_729:
+  .ascii "  movl %eax, gc_roots_count(%rip)\0"
+.LC_str_729_len:
+  .quad 33
+.LC_str_730:
+  .ascii "  subl $\0"
+.LC_str_730_len:
+  .quad 8
+.LC_str_731:
+  .ascii ", gc_roots_count(%rip)\0"
+.LC_str_731_len:
+  .quad 22
+.LC_str_732:
+  .ascii ", %\0"
+.LC_str_732_len:
+  .quad 3
+.LC_str_733:
+  .ascii "  movq %rbp, %rsp\0"
+.LC_str_733_len:
+  .quad 17
+.LC_str_734:
+  .ascii "  popq %rbp\0"
+.LC_str_734_len:
+  .quad 11
+.LC_str_735:
+  .ascii "  ret\0"
+.LC_str_735_len:
+  .quad 5
+.LC_str_736:
+  .ascii "  .globl main\0"
+.LC_str_736_len:
   .quad 13
-.LC_str_780:
-  .ascii "\340\244\244\340\245\215\340\244\260\340\245\201\340\244\237\340\244\277\340\244\203 \342\200\224 \340\244\262\340\244\277\340\244\202\340\244\225 \340\244\265\340\244\277\340\244\253\340\244\262\340\245\244\0"
-.LC_str_780_len:
-  .quad 54
-.LC_str_781:
-  .ascii "   \340\244\262\340\244\277\340\244\202\340\244\225 \340\244\270\340\244\202\340\244\252\340\244\250\340\245\215\340\244\250\340\244\256\340\245\215\340\245\244\0"
-.LC_str_781_len:
-  .quad 43
-.LC_str_782:
-  .ascii "7. \340\244\205\340\244\202\340\244\244\340\244\277\340\244\256: \0"
-.LC_str_782_len:
+.LC_str_737:
+  .ascii "  .def main; .scl 2; .type 32; .endef\0"
+.LC_str_737_len:
+  .quad 37
+.LC_str_738:
+  .ascii "main:\0"
+.LC_str_738_len:
+  .quad 5
+.LC_str_739:
+  .ascii "  call sutra_init_args\0"
+.LC_str_739_len:
+  .quad 22
+.LC_str_740:
+  .ascii "  leaq sutra_glob_\0"
+.LC_str_740_len:
+  .quad 18
+.LC_str_741:
+  .ascii "  call sutra_gc_push_root\0"
+.LC_str_741_len:
+  .quad 25
+.LC_str_742:
+  .ascii "  call \340\244\270\340\245\202\340\244\244\340\245\215\340\244\260_\340\244\270\340\245\215\340\244\265\340\244\234\340\245\200\340\244\270\340\245\200_\340\244\206\340\244\260\340\244\202\340\244\255\0"
+.LC_str_742_len:
+  .quad 57
+.LC_str_743:
+  .ascii "  call __\340\244\266\340\245\200\340\244\260\340\245\215\340\244\267\0"
+.LC_str_743_len:
+  .quad 24
+.LC_str_744:
+  .ascii "  call sutra_main\0"
+.LC_str_744_len:
+  .quad 17
+.LC_str_745:
+  .ascii "  call sutra_gc_pop_root\0"
+.LC_str_745_len:
+  .quad 24
+.LC_str_746:
+  .ascii "  xorl %eax, %eax\0"
+.LC_str_746_len:
+  .quad 17
+.LC_str_747:
+  .ascii "  .data\0"
+.LC_str_747_len:
+  .quad 7
+.LC_str_748:
+  .ascii "  .globl sutra_glob_\0"
+.LC_str_748_len:
   .quad 20
+.LC_str_749:
+  .ascii "sutra_glob_\0"
+.LC_str_749_len:
+  .quad 11
+.LC_str_750:
+  .ascii "  .quad 0\0"
+.LC_str_750_len:
+  .quad 9
+.LC_str_751:
+  .ascii "  .section .rdata,\"dr\"\0"
+.LC_str_751_len:
+  .quad 22
+.LC_str_752:
+  .ascii "  .align 8\0"
+.LC_str_752_len:
+  .quad 10
+.LC_str_753:
+  .ascii ".LC_dbl_\0"
+.LC_str_753_len:
+  .quad 8
+.LC_str_754:
+  .ascii "  .double \0"
+.LC_str_754_len:
+  .quad 10
+.LC_str_755:
+  .ascii ".LC_str_\0"
+.LC_str_755_len:
+  .quad 8
+.LC_str_756:
+  .ascii "  .ascii \"\0"
+.LC_str_756_len:
+  .quad 10
+.LC_str_757:
+  .ascii "\\0\"\0"
+.LC_str_757_len:
+  .quad 3
+.LC_str_758:
+  .ascii "_len:\0"
+.LC_str_758_len:
+  .quad 5
+.LC_str_759:
+  .ascii "  .quad \0"
+.LC_str_759_len:
+  .quad 8
+.LC_str_760:
+  .ascii "\340\244\244\340\245\215\340\244\260\340\245\201\340\244\237\340\244\277\340\244\203 \342\200\224 \340\244\270\340\244\236\340\245\215\340\244\232\340\244\277\340\244\225\340\244\276 \340\244\256\340\244\276\340\244\260\340\245\215\340\244\227\340\244\203 \340\244\250 \340\244\250\340\244\277\340\244\260\340\245\215\340\244\246\340\244\277\340\244\267\340\245\215\340\244\237\340\244\203\340\245\244\0"
+.LC_str_760_len:
+  .quad 104
+.LC_str_761:
+  .ascii "\340\244\244\340\245\215\340\244\260\340\245\201\340\244\237\340\244\277\340\244\203 \342\200\224 \340\244\270\340\244\236\340\245\215\340\244\232\340\244\277\340\244\225\340\244\276 \340\244\250 \340\244\252\340\245\215\340\244\260\340\244\276\340\244\252\340\245\215\340\244\244\340\244\276: \0"
+.LC_str_761_len:
+  .quad 78
+.LC_str_762:
+  .ascii "=== \340\244\256\340\245\202\340\244\262 \340\244\270\340\244\202\340\244\225\340\244\262\340\244\250 ===\0"
+.LC_str_762_len:
+  .quad 33
+.LC_str_763:
+  .ascii "\340\244\270\340\244\236\340\245\215\340\244\232\340\244\277\340\244\225\340\244\276: \0"
+.LC_str_763_len:
+  .quad 23
+.LC_str_764:
+  .ascii "1. \340\244\252\340\244\246_\340\244\265\340\244\277\340\244\232\340\245\215\340\244\233\340\245\207\340\244\246\340\244\250...\0"
+.LC_str_764_len:
+  .quad 37
+.LC_str_765:
+  .ascii "   \340\244\252\340\244\246\340\245\213\340\244\202 \340\244\225\340\245\200 \340\244\270\340\244\202\340\244\226\340\245\215\340\244\257\340\244\276: \0"
+.LC_str_765_len:
+  .quad 43
+.LC_str_766:
+  .ascii "2. \340\244\265\340\244\277\340\244\266\340\245\215\340\244\262\340\245\207\340\244\267\340\244\243...\0"
+.LC_str_766_len:
+  .quad 30
+.LC_str_767:
+  .ascii "   \340\244\265\340\244\277\340\244\266\340\245\215\340\244\262\340\245\207\340\244\267\340\244\243 \340\244\270\340\244\202\340\244\252\340\244\250\340\245\215\340\244\250\340\244\256\340\245\215\340\245\244\0"
+.LC_str_767_len:
+  .quad 55
+.LC_str_768:
+  .ascii "2.5 \340\244\270\340\244\276\340\244\260\340\245\215\340\244\245\340\244\225_\340\244\265\340\244\277\340\244\266\340\245\215\340\244\262\340\245\207\340\244\267\340\244\243...\0"
+.LC_str_768_len:
+  .quad 50
+.LC_str_769:
+  .ascii "    \340\244\270\340\244\276\340\244\260\340\245\215\340\244\245\340\244\225_\340\244\265\340\244\277\340\244\266\340\245\215\340\244\262\340\245\207\340\244\267\340\244\243 \340\244\270\340\244\202\340\244\252\340\244\250\340\245\215\340\244\250\340\244\256\340\245\215\340\245\244\0"
+.LC_str_769_len:
+  .quad 75
+.LC_str_770:
+  .ascii "3. IR \340\244\211\340\244\244\340\245\215\340\244\252\340\244\250\340\245\215\340\244\250 (\340\244\250\340\244\277\340\244\256\340\245\215\340\244\250\340\244\225 \342\206\222 \340\244\205\340\244\250\340\245\201\340\244\225\340\245\202\340\244\262\340\244\225 \342\206\222 \340\244\260\340\244\234\340\244\277_\340\244\250\340\244\277\340\244\257\340\244\244\340\244\225 \342\206\222 \340\244\211\340\244\244\340\245\215\340\244\270\340\244\260\340\245\215\340\244\234\340\244\225)...\0"
+.LC_str_770_len:
+  .quad 136
+.LC_str_771:
+  .ascii "4. \340\244\270\340\244\236\340\245\215\340\244\232\340\244\277\340\244\225\340\244\276: \0"
+.LC_str_771_len:
+  .quad 26
+.LC_str_772:
+  .ascii "5. \340\244\270\340\244\202\340\244\257\340\245\213\340\244\234\340\244\250...\0"
+.LC_str_772_len:
+  .quad 24
+.LC_str_773:
+  .ascii "\340\244\244\340\245\215\340\244\260\340\245\201\340\244\237\340\244\277\340\244\203 \342\200\224 \340\244\270\340\244\202\340\244\257\340\245\213\340\244\234\340\244\250 \340\244\265\340\244\277\340\244\253\340\244\262\340\245\244\0"
+.LC_str_773_len:
+  .quad 60
+.LC_str_774:
+  .ascii "   \340\244\270\340\244\202\340\244\257\340\245\213\340\244\234\340\244\250 \340\244\270\340\244\202\340\244\252\340\244\250\340\245\215\340\244\250\340\244\256\340\245\215\340\245\244\0"
+.LC_str_774_len:
+  .quad 49
+.LC_str_775:
+  .ascii "\340\244\270\340\245\215\340\244\265\340\244\270\340\244\202\340\244\225\340\244\262\340\244\225/\340\244\250\340\244\277\340\244\260\340\245\215\340\244\256\340\244\276\340\244\243/\340\244\244\340\244\262.s\0"
+.LC_str_775_len:
+  .quad 55
+.LC_str_776:
+  .ascii "\340\244\250\340\244\277\340\244\260\340\245\215\340\244\256\340\244\276\340\244\243/\340\244\244\340\244\262.s\0"
+.LC_str_776_len:
+  .quad 30
+.LC_str_777:
+  .ascii "\340\244\270\340\245\215\340\244\265\340\244\270\340\244\202\340\244\225\340\244\262\340\244\225/\340\244\250\340\244\277\340\244\260\340\245\215\340\244\256\340\244\276\340\244\243/\340\244\256\340\245\202\340\244\262_\340\244\260\340\244\250\340\244\237\340\244\276\340\244\207\340\244\256.s\0"
+.LC_str_777_len:
+  .quad 77
+.LC_str_778:
+  .ascii "\340\244\250\340\244\277\340\244\260\340\245\215\340\244\256\340\244\276\340\244\243/\340\244\256\340\245\202\340\244\262_\340\244\260\340\244\250\340\244\237\340\244\276\340\244\207\340\244\256.s\0"
+.LC_str_778_len:
+  .quad 52
+.LC_str_779:
+  .ascii "\340\244\270\340\245\215\340\244\265\340\244\270\340\244\202\340\244\225\340\244\262\340\244\225/\340\244\250\340\244\277\340\244\260\340\245\215\340\244\256\340\244\276\340\244\243/\340\244\256\340\245\202\340\244\262_\340\244\206\340\244\265\340\244\202\340\244\237\340\244\225.s\0"
+.LC_str_779_len:
+  .quad 74
+.LC_str_780:
+  .ascii "\340\244\250\340\244\277\340\244\260\340\245\215\340\244\256\340\244\276\340\244\243/\340\244\256\340\245\202\340\244\262_\340\244\206\340\244\265\340\244\202\340\244\237\340\244\225.s\0"
+.LC_str_780_len:
+  .quad 49
+.LC_str_781:
+  .ascii "6. \340\244\262\340\244\277\340\244\202\340\244\225...\0"
+.LC_str_781_len:
+  .quad 18
+.LC_str_782:
+  .ascii "sutra_floor.o\0"
+.LC_str_782_len:
+  .quad 13
 .LC_str_783:
-  .ascii "=== \340\244\256\340\245\202\340\244\262 \340\244\270\340\244\202\340\244\225\340\244\262\340\244\250 \340\244\270\340\244\253\340\244\262! ===\0"
+  .ascii "sutra_srt.o\0"
 .LC_str_783_len:
+  .quad 11
+.LC_str_784:
+  .ascii "sutra_alloc.o\0"
+.LC_str_784_len:
+  .quad 13
+.LC_str_785:
+  .ascii "\340\244\244\340\245\215\340\244\260\340\245\201\340\244\237\340\244\277\340\244\203 \342\200\224 \340\244\262\340\244\277\340\244\202\340\244\225 \340\244\265\340\244\277\340\244\253\340\244\262\340\245\244\0"
+.LC_str_785_len:
+  .quad 54
+.LC_str_786:
+  .ascii "   \340\244\262\340\244\277\340\244\202\340\244\225 \340\244\270\340\244\202\340\244\252\340\244\250\340\245\215\340\244\250\340\244\256\340\245\215\340\245\244\0"
+.LC_str_786_len:
+  .quad 43
+.LC_str_787:
+  .ascii "7. \340\244\205\340\244\202\340\244\244\340\244\277\340\244\256: \0"
+.LC_str_787_len:
+  .quad 20
+.LC_str_788:
+  .ascii "=== \340\244\256\340\245\202\340\244\262 \340\244\270\340\244\202\340\244\225\340\244\262\340\244\250 \340\244\270\340\244\253\340\244\262! ===\0"
+.LC_str_788_len:
   .quad 44
 
