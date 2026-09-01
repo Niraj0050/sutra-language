@@ -275,18 +275,40 @@ optimiser के बिना runtime port regression है — इसलिए
    `स्मृति_स्थिति()` गिनती interpreter-conservative बनाम IR-precise;
    optimiser/GC-model बदले बिना unwinnable)।
 
-अगला: **runtime C→Sutra port** (Phase 2) — dict = open-addressing hash,
-`sutra_runtime.c` को टुकड़े-टुकड़े हटाना।
-
 - **Milestone: compiled सूत्र ~1.5-2× of C (scalar)। self-compile seconds।
   push/pop 13,670 → ~कुछ सौ। अब hot code C→सूत्र move करना safe है।**
 
-### Phase 2 — Runtime port complete, BUILT properly। ~1 महीना (optimiser के बाद)
+### Phase 2 — Runtime port complete, BUILT properly। ~1 महीना
 list / dict (open-addressing hash) / print / float / exceptions /
-fileIO — हर एक designed, अब बिना regression। dead C GC hash delete।
-अभी सिर्फ़ cold paths (error formatting वग़ैरह) move हो सकते हैं।
+fileIO — हर एक designed, अब बिना regression।
 - **Milestone: `sutra_runtime.c` DELETED. हर binary = सूत्र + तल.s
   (76 लाइन)। शून्य C, शून्य libc। → Level 1 independence**
+
+**2a. शब्दकोश → open-addressing हैश (सूत्र) — ✅ DONE** (commit `d047b15`, 2026-09-01)।
+   `sutra_dict_*` C में linear-scan सरणी था (हर lookup O(n))। अब
+   `मूल_रनटाइम.सूत्र` में — packed insertion-order प्रविष्टि-सरणी के ऊपर
+   एक हैश सूचकांक (open addressing, linear probe, load ≤ 0.75)। C प्रतीक
+   अब पतले shim; `sutra_dict_keys` अभी भी packed सरणी सीधे पढ़ता →
+   `कुंजियाँ()` क्रम अपरिवर्तित। block 24→40 बाइट (+24 सूचकांक*, +32
+   हैश_क्षमता); GC का `चिह्नित` एक line जोड़ता (सूचकांक बफर → चिह्नित_कच्चा)।
+   **self-compile ~48s → ~24s** (compiler के बड़े context शब्दकोश hot path थे)।
+   fixed point कायम, tests 50/52 (वही 41/44 accounting)।
+   रास्ते के fixes (runtime modules अब तक सिर्फ़ पुराने `मूल_सर्जक` से बने थे —
+   IR backend ने इन्हें कभी compile नहीं किया था):
+   - **पाठ_तुल्य अनंत recursion** — params `मान`-typed थे → IR backend ने
+     `अ == ब` identity-fast-path को `sutra_str_equal(अ,ब)` = `पाठ_तुल्य` में
+     बदला → खुद को call। हल: तुलना-भारी runtime fns के params `संख्या`
+     (वे pointer रखते हैं, `मूल_आवंटक.सूत्र` की शैली)।
+   - **library-mode** — IR उत्सर्जक हमेशा `main` wrapper देता → `मूल_रनटाइम`/
+     `मूल_आवंटक` (सिर्फ़ कार्य + globals, कोई मुख्य) `multiple definition of
+     main`। `निम्नक_एकक` अब __शीर्ष छोड़ता जब हर top-level node घोषणा हो और
+     कोई मुख्य न हो; उत्सर्जक main-block को `मुख्य_है || शीर्ष_है` पर gate करता।
+   - **अनुपलब्ध intrinsic maps** — `उत्_अंतर्_प्रतीक` में `अंतर्_जड़_संख्या`/
+     `अंतर्_जड़_मान`/`अंतर्_सक्रिय_अपवाद` जोड़े; सार्थक whitelist में
+     `सूत्र_जीसी_दबाओ`/`सूत्र_जीसी_छोड़ो`।
+
+अगला (Phase 2 शेष): list ops / split / join / trim / find → सूत्र;
+`sutra_runtime.c` को और छोटा करना; फिर print / float / fileIO।
 
 ### Phase 3 — अपना assembler + linker। **स्थगित** (deferred)
 अभी `as` / `ld` (GNU) इस्तेमाल होते रहेंगे। बाद में: x86-64 encoder +
