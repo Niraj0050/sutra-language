@@ -307,8 +307,18 @@ fileIO — हर एक designed, अब बिना regression।
      `अंतर्_जड़_मान`/`अंतर्_सक्रिय_अपवाद` जोड़े; सार्थक whitelist में
      `सूत्र_जीसी_दबाओ`/`सूत्र_जीसी_छोड़ो`।
 
-अगला (Phase 2 शेष): list ops / split / join / trim / find → सूत्र;
-`sutra_runtime.c` को और छोटा करना; फिर print / float / fileIO।
+**2c. सूची (list) ops → सूत्र** (commit `5b23b64`, 2026-09-01)।
+   `sutra_list_append`/`pop`/`insert`/`remove`/`concat`/`find` + `sutra_arr_create`
+   → `मूल_रनटाइम.सूत्र` (`सूची_जोड़`/`निकाल`/`डाल`/`हटा`/`जोड़ो_दो`/`खोज`/`रचना`)।
+   वही `[क्षमता:8][गणना:8][तत्व:8×क्षमता]` विन्यास, arena via
+   `सूत्र_पुनः_आवंटन` — हर grow/shrink पर GC दबाकर। C प्रतीक अब पतले shim
+   (~150 line C हटी)। `sutra_arr_get`/`set`/`length` का string/dict dispatch
+   C में ही (sutra_str_get का C-side sequential cache)। कोई compiler बदलाव
+   नहीं — fixed point कायम (Gen2==Gen3, seed अछूता), 51/52, **self-compile
+   ~24s → ~16s**।
+
+अगला (Phase 2 शेष): string search/transform (split/join/trim/find/replace/
+upper/lower) → सूत्र; फिर print (via तल.s WriteFile) / float / fileIO।
 
 **2b. मानक पुस्तकालय (`पुस्तकालय/`) — सूत्र में** (commits `07205ac` + `c07ba45`, 2026-09-01)।
    Phase 2 रोककर पहले लाइब्रेरी (Niraj का निर्णय)। **12 मॉड्यूल**, कोई C
