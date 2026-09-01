@@ -317,8 +317,32 @@ fileIO — हर एक designed, अब बिना regression।
    नहीं — fixed point कायम (Gen2==Gen3, seed अछूता), 51/52, **self-compile
    ~24s → ~16s**।
 
-अगला (Phase 2 शेष): string search/transform (split/join/trim/find/replace/
-upper/lower) → सूत्र; फिर print (via तल.s WriteFile) / float / fileIO।
+**2d. string search/transform → सूत्र** (commit `34e5557`, 2026-09-01)।
+   `sutra_find`/`replace`/`split`/`join`/`trim`/`starts_with`/`ends_with` →
+   `मूल_रनटाइम.सूत्र` (`पाठ_कोडबिंदु_खोज`/`पाठ_बदल`/`पाठ_विभाजन`/`पाठ_संयोग`/
+   `पाठ_छाँट`/`पाठ_आरंभ_में`/`पाठ_अंत_में`)। बाइट-स्तर मिलान (UTF-8
+   self-synchronising)। `sutra_substr` C में ही (lexer hot path)। कोई
+   compiler बदलाव नहीं, fixed point कायम।
+
+**2e. print → सूत्र (तल.s WriteFile)** (commit `e55ab00`, 2026-09-01)।
+   `sutra_print_dynamic`/`str_print`/`print_null`/`print_bool` अब पतले C shim
+   → `गतिशील_छापो`/`पाठ_छापो`/`शून्य_छापो`/`बूल_छापो` (`मूल_रनटाइम.सूत्र`)।
+   कोई `printf`/`fwrite`/`fflush` नहीं — सीधे `तल.s` `सूत्र_तल_मुद्रण`
+   (GetStdHandle+WriteFile)। नया IR-intrinsic `अंतर्_मुद्रण(आधार, ऑफसेट,
+   लंबाई)` उत्सर्जक में। `sutra_print_float` अभी C (float पथ, स्थगित)।
+   रास्ते में एक **पूर्व-मौजूद latent GC bug मिला+fix**: `रजि_जीसी_जड़ें`
+   allocator/collector के *अपने* कार्यों के लिए GC-जड़ें पंजी करता था
+   (`सूत्र_संग्रह` अकेले 26)। उनके स्थानीय चर कच्ची स्मृति रखते हैं
+   (block-आधार/टैग/आकार/अंतर-सूचक) — तो step-2 "जड़ों से चिह्नित" खुद
+   `सूत्र_संग्रह` के temps scan करता, `जड़_गण` फुलता, कच्चे मान वस्तु समझे
+   जाते। भाग्य से अब तक निर्दोष; print-पथ ने एक अंतर-सूचक (`नल+16`, क्षमता-बाइट
+   dict-टैग जैसा) सही stale slot में छोड़ा → `चिह्नित` भाग निकला, segfault।
+   `रजि_जीसी_तल_कार्य` अब पूरे GC-तल (`मूल_आवंटक.सूत्र`) की root-पंजी छोड़ता
+   (26→0)। `46_gc_repeated` regression fix। ज्ञात cosmetic: split-driver
+   Gen1 एक अतिरिक्त अप्रयुक्त `""` `.rdata` const देता (`पश्च_चालक` dedup)।
+
+अगला (Phase 2 शेष): float (`sutra_print_float` + अंकगणित + libm) → सूत्र;
+फिर fileIO / args → **`sutra_runtime.c` DELETE**, Level 1 independence।
 
 **2b. मानक पुस्तकालय (`पुस्तकालय/`) — सूत्र में** (commits `07205ac` + `c07ba45`, 2026-09-01)।
    Phase 2 रोककर पहले लाइब्रेरी (Niraj का निर्णय)। **12 मॉड्यूल**, कोई C
