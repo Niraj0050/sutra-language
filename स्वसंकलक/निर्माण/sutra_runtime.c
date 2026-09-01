@@ -949,179 +949,29 @@ int64_t sutra_math_round(int64_t v) {
     return v;
 }
 
-void* sutra_list_append(void* arr, int64_t val) {
-    if (!arr) {
-        sutra_throw_str("त्रुटिः — शून्य सूची पर जोड़ना असंभव");
-    }
+/* ============================================================
+ * LIST RUNTIME  —  now in स्वसंकलक/निर्माण/मूल_रनटाइम.सूत्र
+ * ============================================================
+ * dynamic array [capacity:8][count:8][elements:8×cap], type 2.
+ * These C symbols are thin shims; the real logic is in Sutra.
+ * (sutra_arr_get / sutra_arr_set / sutra_arr_length keep their
+ *  C string/dict dispatch — sutra_str_get has a C-side cache.)
+ */
+extern void*   सूची_रचना(int64_t n);
+extern void*   सूची_जोड़(void* arr, int64_t val);
+extern void*   सूची_निकाल(void* arr);
+extern void*   सूची_डाल(void* arr, int64_t idx, int64_t val);
+extern void*   सूची_हटा(void* arr, int64_t idx);
+extern void*   सूची_जोड़ो_दो(void* a, void* b);
+extern int64_t सूची_खोज(void* arr, int64_t val);
 
-    int64_t capacity = *((int64_t*)arr);
-    int64_t count = *((int64_t*)((char*)arr + 8));
+void* sutra_list_append(void* arr, int64_t val) { return सूची_जोड़(arr, val); }
+void* sutra_list_pop(void* arr) { return सूची_निकाल(arr); }
+void* sutra_list_insert(void* arr, int64_t idx, int64_t val) { return सूची_डाल(arr, idx, val); }
+void* sutra_list_remove(void* arr, int64_t idx) { return सूची_हटा(arr, idx); }
+void* sutra_list_concat(void* a, void* b) { return सूची_जोड़ो_दो(a, b); }
+int64_t sutra_list_find(void* arr, int64_t val) { return सूची_खोज(arr, val); }
 
-    if (count < capacity) {
-        int64_t* elements = (int64_t*)((char*)arr + 16);
-        elements[count] = val;
-        *((int64_t*)((char*)arr + 8)) = count + 1;
-        return arr;
-    } else {
-        int64_t new_cap = capacity == 0 ? 4 : capacity * 2;
-#ifdef USE_LEGACY_RUNTIME
-        void* new_block = सूत्र_पुनः_आवंटन(arr, 16 + new_cap * 8);
-        if (!new_block) {
-            sutra_throw_str("त्रुटिः — स्मृति आवंटन विफल (list append)");
-        }
-#else
-        void* new_block = sutra_native_realloc(arr, 16 + new_cap * 8);
-#endif
-        arr = new_block;
-        *((int64_t*)arr) = new_cap;
-        *((int64_t*)((char*)arr + 8)) = count + 1;
-
-        int64_t* elements = (int64_t*)((char*)arr + 16);
-        elements[count] = val;
-        return arr;
-    }
-}
-
-void* sutra_list_pop(void* arr) {
-    if (!arr) {
-        sutra_throw_str("त्रुटिः — शून्य सूची से तत्व नहीं निकाला जा सकता।");
-    }
-    int64_t capacity = *((int64_t*)arr);
-    int64_t count = *((int64_t*)((char*)arr + 8));
-    if (count <= 0) {
-        sutra_throw_str("त्रुटिः — शून्य सूची से तत्व नहीं निकाला जा सकता।");
-    }
-
-    int64_t* elements = (int64_t*)((char*)arr + 16);
-    elements[count - 1] = 0;
-    count--;
-    *((int64_t*)((char*)arr + 8)) = count;
-
-    // Check shrink
-    if (count <= capacity / 4 && capacity > 4) {
-        int64_t new_cap = capacity / 2;
-        if (new_cap < 4) new_cap = 4;
-#ifdef USE_LEGACY_RUNTIME
-        void* new_block = सूत्र_पुनः_आवंटन(arr, 16 + new_cap * 8);
-        if (new_block) {
-                arr = new_block;
-            *((int64_t*)arr) = new_cap;
-        }
-#else
-        void* new_block = sutra_native_realloc(arr, 16 + new_cap * 8);
-        if (new_block) {
-            arr = new_block;
-            *((int64_t*)arr) = new_cap;
-        }
-#endif
-    }
-    return arr;
-}
-
-void* sutra_list_insert(void* arr, int64_t idx, int64_t val) {
-    if (!arr) {
-        sutra_throw_str("त्रुटिः — शून्य सूची पर डालना असंभव");
-    }
-    int64_t capacity = *((int64_t*)arr);
-    int64_t count = *((int64_t*)((char*)arr + 8));
-    if (idx < 0 || idx > count) {
-        sutra_throw_str("त्रुटिः — डालें: सूचकांक सीमा से बाहर");
-    }
-
-    if (count < capacity) {
-        int64_t* elements = (int64_t*)((char*)arr + 16);
-        for (int64_t i = count; i > idx; --i) {
-            elements[i] = elements[i - 1];
-        }
-        elements[idx] = val;
-        *((int64_t*)((char*)arr + 8)) = count + 1;
-        return arr;
-    } else {
-        int64_t new_cap = capacity == 0 ? 4 : capacity * 2;
-#ifdef USE_LEGACY_RUNTIME
-        void* new_block = सूत्र_पुनः_आवंटन(arr, 16 + new_cap * 8);
-        if (!new_block) {
-            sutra_throw_str("त्रुटिः — स्मृति आवंटन विफल (list insert)");
-        }
-#else
-        void* new_block = sutra_native_realloc(arr, 16 + new_cap * 8);
-#endif
-        arr = new_block;
-        *((int64_t*)arr) = new_cap;
-        *((int64_t*)((char*)arr + 8)) = count + 1;
-
-        int64_t* elements = (int64_t*)((char*)arr + 16);
-        for (int64_t i = count; i > idx; --i) {
-            elements[i] = elements[i - 1];
-        }
-        elements[idx] = val;
-        return arr;
-    }
-}
-
-void* sutra_list_remove(void* arr, int64_t idx) {
-    if (!arr) {
-        sutra_throw_str("त्रुटिः — शून्य सूची से तत्व हटाना असंभव");
-    }
-    int64_t capacity = *((int64_t*)arr);
-    int64_t count = *((int64_t*)((char*)arr + 8));
-    if (idx < 0 || idx >= count) {
-        sutra_throw_str("त्रुटिः — हटाएं: सूचकांक सीमा से बाहर");
-    }
-
-    int64_t* elements = (int64_t*)((char*)arr + 16);
-    for (int64_t i = idx; i < count - 1; ++i) {
-        elements[i] = elements[i + 1];
-    }
-    elements[count - 1] = 0;
-    count--;
-    *((int64_t*)((char*)arr + 8)) = count;
-
-    // Check shrink
-    if (count <= capacity / 4 && capacity > 4) {
-        int64_t new_cap = capacity / 2;
-        if (new_cap < 4) new_cap = 4;
-#ifdef USE_LEGACY_RUNTIME
-        void* new_block = सूत्र_पुनः_आवंटन(arr, 16 + new_cap * 8);
-        if (new_block) {
-                arr = new_block;
-            *((int64_t*)arr) = new_cap;
-        }
-#else
-        void* new_block = sutra_native_realloc(arr, 16 + new_cap * 8);
-        if (new_block) {
-            arr = new_block;
-            *((int64_t*)arr) = new_cap;
-        }
-#endif
-    }
-    return arr;
-}
-
-void* sutra_list_concat(void* arr1, void* arr2) {
-    int64_t count1 = arr1 ? *((int64_t*)((char*)arr1 + 8)) : 0;
-    int64_t count2 = arr2 ? *((int64_t*)((char*)arr2 + 8)) : 0;
-    void* new_arr = sutra_arr_create(count1 + count2);
-    if (count1 > 0) {
-        memcpy((char*)new_arr + 16, (char*)arr1 + 16, count1 * 8);
-    }
-    if (count2 > 0) {
-        memcpy((char*)new_arr + 16 + count1 * 8, (char*)arr2 + 16, count2 * 8);
-    }
-    return new_arr;
-}
-
-int64_t sutra_list_find(void* arr, int64_t val) {
-    if (!arr) return -1;
-    int64_t count = *((int64_t*)((char*)arr + 8));
-    int64_t* elements = (int64_t*)((char*)arr + 16);
-    for (int64_t i = 0; i < count; ++i) {
-        if (elements[i] == val) {
-            return i;
-        }
-    }
-    return -1;
-}
 
 
 static void* sutra_str_map_case(void* s, int upper) {
@@ -1347,23 +1197,7 @@ void sutra_str_print(void* s) {
  * ============================================================ */
 
 /* Allocate an array of n int64 elements (initialized to 0) */
-void* sutra_arr_create(int64_t n) {
-#ifdef USE_LEGACY_RUNTIME
-    char* block = (char*)सूत्र_आवंटन(16 + n * 8, SR_ARR);
-    *((int64_t*)block) = n; // capacity
-    *((int64_t*)(block + 8)) = n; // count
-    /* Zero-initialize elements */
-    memset(block + 16, 0, n * 8);
-    return block;
-#else
-    void* block = sutra_native_alloc(16 + n * 8, GC_TYPE_ARRAY);
-    *((int64_t*)block) = n; // capacity
-    *((int64_t*)((char*)block + 8)) = n; // count
-    /* Zero-initialize elements */
-    memset((char*)block + 16, 0, n * 8);
-    return block;
-#endif
-}
+void* sutra_arr_create(int64_t n) { return सूची_रचना(n); }  /* -> मूल_रनटाइम.सूत्र */
 
 int64_t sutra_dict_get(void* dict, void* key);
 void sutra_dict_set(void* dict, void* key, int64_t val);
