@@ -1731,6 +1731,242 @@
   ret
 
   .text
+  .globl सामान्य_न्यून
+  .def सामान्य_न्यून; .scl 2; .type 32; .endef
+सामान्य_न्यून:
+  pushq %rbp
+  movq %rsp, %rbp
+  subq $48, %rsp
+  movq %rbx, -8(%rbp)
+  movq %rsi, -16(%rbp)
+  movq %rdi, -24(%rbp)
+  movq %rcx, %rbx
+  movq %rdx, %rsi
+
+.L_सामान्य_न्यून__प्रवेश_0:
+  movq %rbx, %rcx
+  subq $32, %rsp
+  call sutra_native_is_string
+  addq $32, %rsp
+  movq %rax, %rdi
+  movq %rdi, %r10
+  cmpq $0, %r10
+  je .L_किनारा_सामान्य_न्यून_0
+  jmp .L_सामान्य_न्यून__if_सत्य_1
+.L_किनारा_सामान्य_न्यून_0:
+  jmp .L_सामान्य_न्यून__if_अंत_2
+.L_सामान्य_न्यून__if_सत्य_1:
+  movq %rsi, %rcx
+  subq $32, %rsp
+  call sutra_native_is_string
+  addq $32, %rsp
+  movq %rax, %rdi
+  movq %rdi, %r10
+  cmpq $0, %r10
+  je .L_किनारा_सामान्य_न्यून_1
+  jmp .L_सामान्य_न्यून__if_सत्य_3
+.L_किनारा_सामान्य_न्यून_1:
+  jmp .L_सामान्य_न्यून__if_अंत_4
+.L_सामान्य_न्यून__if_अंत_4:
+  jmp .L_सामान्य_न्यून__if_अंत_2
+.L_सामान्य_न्यून__if_अंत_2:
+  movq %rbx, %r10
+  cmpq %rsi, %r10
+  setl %al
+  movzbq %al, %r10
+  movq %r10, %rdi
+  movq %rdi, %r10
+  cmpq $0, %r10
+  je .L_किनारा_सामान्य_न्यून_2
+  jmp .L_सामान्य_न्यून__if_सत्य_5
+.L_किनारा_सामान्य_न्यून_2:
+  jmp .L_सामान्य_न्यून__if_अंत_6
+.L_सामान्य_न्यून__if_अंत_6:
+  movq $0, %rdi
+  movq %rdi, %rax
+  jmp .L_epilogue_सामान्य_न्यून
+.L_सामान्य_न्यून__if_सत्य_5:
+  movq $1, %rdi
+  movq %rdi, %rax
+  jmp .L_epilogue_सामान्य_न्यून
+.L_सामान्य_न्यून__if_सत्य_3:
+  movq %rbx, %rcx
+  movq %rsi, %rdx
+  subq $32, %rsp
+  call पाठ_न्यून
+  addq $32, %rsp
+  movq %rax, %rdi
+  movq %rdi, %rax
+  jmp .L_epilogue_सामान्य_न्यून
+.L_epilogue_सामान्य_न्यून:
+  movq -8(%rbp), %rbx
+  movq -16(%rbp), %rsi
+  movq -24(%rbp), %rdi
+  movq %rbp, %rsp
+  popq %rbp
+  ret
+
+  .text
+  .globl सामान्य_अधिक
+  .def सामान्य_अधिक; .scl 2; .type 32; .endef
+सामान्य_अधिक:
+  pushq %rbp
+  movq %rsp, %rbp
+  subq $48, %rsp
+  movq %rbx, -8(%rbp)
+  movq %rsi, -16(%rbp)
+  movq %rdi, -24(%rbp)
+  movq %rcx, %rbx
+  movq %rdx, %rsi
+
+.L_सामान्य_अधिक__प्रवेश_0:
+  movq %rbx, %rcx
+  subq $32, %rsp
+  call sutra_native_is_string
+  addq $32, %rsp
+  movq %rax, %rdi
+  movq %rdi, %r10
+  cmpq $0, %r10
+  je .L_किनारा_सामान्य_अधिक_0
+  jmp .L_सामान्य_अधिक__if_सत्य_1
+.L_किनारा_सामान्य_अधिक_0:
+  jmp .L_सामान्य_अधिक__if_अंत_2
+.L_सामान्य_अधिक__if_सत्य_1:
+  movq %rsi, %rcx
+  subq $32, %rsp
+  call sutra_native_is_string
+  addq $32, %rsp
+  movq %rax, %rdi
+  movq %rdi, %r10
+  cmpq $0, %r10
+  je .L_किनारा_सामान्य_अधिक_1
+  jmp .L_सामान्य_अधिक__if_सत्य_3
+.L_किनारा_सामान्य_अधिक_1:
+  jmp .L_सामान्य_अधिक__if_अंत_4
+.L_सामान्य_अधिक__if_अंत_4:
+  jmp .L_सामान्य_अधिक__if_अंत_2
+.L_सामान्य_अधिक__if_अंत_2:
+  movq %rbx, %r10
+  cmpq %rsi, %r10
+  setg %al
+  movzbq %al, %r10
+  movq %r10, %rdi
+  movq %rdi, %r10
+  cmpq $0, %r10
+  je .L_किनारा_सामान्य_अधिक_2
+  jmp .L_सामान्य_अधिक__if_सत्य_5
+.L_किनारा_सामान्य_अधिक_2:
+  jmp .L_सामान्य_अधिक__if_अंत_6
+.L_सामान्य_अधिक__if_अंत_6:
+  movq $0, %rdi
+  movq %rdi, %rax
+  jmp .L_epilogue_सामान्य_अधिक
+.L_सामान्य_अधिक__if_सत्य_5:
+  movq $1, %rdi
+  movq %rdi, %rax
+  jmp .L_epilogue_सामान्य_अधिक
+.L_सामान्य_अधिक__if_सत्य_3:
+  movq %rbx, %rcx
+  movq %rsi, %rdx
+  subq $32, %rsp
+  call पाठ_अधिक
+  addq $32, %rsp
+  movq %rax, %rdi
+  movq %rdi, %rax
+  jmp .L_epilogue_सामान्य_अधिक
+.L_epilogue_सामान्य_अधिक:
+  movq -8(%rbp), %rbx
+  movq -16(%rbp), %rsi
+  movq -24(%rbp), %rdi
+  movq %rbp, %rsp
+  popq %rbp
+  ret
+
+  .text
+  .globl सामान्य_न्यून_सम
+  .def सामान्य_न्यून_सम; .scl 2; .type 32; .endef
+सामान्य_न्यून_सम:
+  pushq %rbp
+  movq %rsp, %rbp
+  subq $48, %rsp
+  movq %rbx, -8(%rbp)
+  movq %rsi, -16(%rbp)
+  movq %rdi, -24(%rbp)
+  movq %rcx, %rbx
+  movq %rdx, %rsi
+
+.L_सामान्य_न्यून_सम__प्रवेश_0:
+  movq %rbx, %rcx
+  movq %rsi, %rdx
+  subq $32, %rsp
+  call सामान्य_अधिक
+  addq $32, %rsp
+  movq %rax, %rdi
+  movq %rdi, %r10
+  cmpq $0, %r10
+  je .L_किनारा_सामान्य_न्यून_सम_0
+  jmp .L_सामान्य_न्यून_सम__if_सत्य_1
+.L_किनारा_सामान्य_न्यून_सम_0:
+  jmp .L_सामान्य_न्यून_सम__if_अंत_2
+.L_सामान्य_न्यून_सम__if_अंत_2:
+  movq $1, %rbx
+  movq %rbx, %rax
+  jmp .L_epilogue_सामान्य_न्यून_सम
+.L_सामान्य_न्यून_सम__if_सत्य_1:
+  movq $0, %rbx
+  movq %rbx, %rax
+  jmp .L_epilogue_सामान्य_न्यून_सम
+.L_epilogue_सामान्य_न्यून_सम:
+  movq -8(%rbp), %rbx
+  movq -16(%rbp), %rsi
+  movq -24(%rbp), %rdi
+  movq %rbp, %rsp
+  popq %rbp
+  ret
+
+  .text
+  .globl सामान्य_अधिक_सम
+  .def सामान्य_अधिक_सम; .scl 2; .type 32; .endef
+सामान्य_अधिक_सम:
+  pushq %rbp
+  movq %rsp, %rbp
+  subq $48, %rsp
+  movq %rbx, -8(%rbp)
+  movq %rsi, -16(%rbp)
+  movq %rdi, -24(%rbp)
+  movq %rcx, %rbx
+  movq %rdx, %rsi
+
+.L_सामान्य_अधिक_सम__प्रवेश_0:
+  movq %rbx, %rcx
+  movq %rsi, %rdx
+  subq $32, %rsp
+  call सामान्य_न्यून
+  addq $32, %rsp
+  movq %rax, %rdi
+  movq %rdi, %r10
+  cmpq $0, %r10
+  je .L_किनारा_सामान्य_अधिक_सम_0
+  jmp .L_सामान्य_अधिक_सम__if_सत्य_1
+.L_किनारा_सामान्य_अधिक_सम_0:
+  jmp .L_सामान्य_अधिक_सम__if_अंत_2
+.L_सामान्य_अधिक_सम__if_अंत_2:
+  movq $1, %rbx
+  movq %rbx, %rax
+  jmp .L_epilogue_सामान्य_अधिक_सम
+.L_सामान्य_अधिक_सम__if_सत्य_1:
+  movq $0, %rbx
+  movq %rbx, %rax
+  jmp .L_epilogue_सामान्य_अधिक_सम
+.L_epilogue_सामान्य_अधिक_सम:
+  movq -8(%rbp), %rbx
+  movq -16(%rbp), %rsi
+  movq -24(%rbp), %rdi
+  movq %rbp, %rsp
+  popq %rbp
+  ret
+
+  .text
   .globl पाठ_न्यून
   .def पाठ_न्यून; .scl 2; .type 32; .endef
 पाठ_न्यून:
@@ -1759,11 +1995,12 @@
   movq %rax, %rdi
   movq %rdi, -48(%rbp)
   movq $0, %rbx
-  movq %rdi, %r10
-  cmpq %rbx, %r10
-  setl %al
-  movzbq %al, %r10
-  movq %r10, %rsi
+  movq %rdi, %rcx
+  movq %rbx, %rdx
+  subq $32, %rsp
+  call सामान्य_न्यून
+  addq $32, %rsp
+  movq %rax, %rsi
   movq $0, -48(%rbp)
   movq %rsi, %r10
   cmpq $0, %r10
@@ -1817,11 +2054,12 @@
   movq %rax, %rdi
   movq %rdi, -48(%rbp)
   movq $0, %rbx
-  movq %rdi, %r10
-  cmpq %rbx, %r10
-  setg %al
-  movzbq %al, %r10
-  movq %r10, %rsi
+  movq %rdi, %rcx
+  movq %rbx, %rdx
+  subq $32, %rsp
+  call सामान्य_अधिक
+  addq $32, %rsp
+  movq %rax, %rsi
   movq $0, -48(%rbp)
   movq %rsi, %r10
   cmpq $0, %r10
@@ -1875,11 +2113,12 @@
   movq %rax, %rdi
   movq %rdi, -48(%rbp)
   movq $0, %rbx
-  movq %rdi, %r10
-  cmpq %rbx, %r10
-  setle %al
-  movzbq %al, %r10
-  movq %r10, %rsi
+  movq %rdi, %rcx
+  movq %rbx, %rdx
+  subq $32, %rsp
+  call सामान्य_न्यून_सम
+  addq $32, %rsp
+  movq %rax, %rsi
   movq $0, -48(%rbp)
   movq %rsi, %r10
   cmpq $0, %r10
@@ -1933,11 +2172,12 @@
   movq %rax, %rdi
   movq %rdi, -48(%rbp)
   movq $0, %rbx
-  movq %rdi, %r10
-  cmpq %rbx, %r10
-  setge %al
-  movzbq %al, %r10
-  movq %r10, %rsi
+  movq %rdi, %rcx
+  movq %rbx, %rdx
+  subq $32, %rsp
+  call सामान्य_अधिक_सम
+  addq $32, %rsp
+  movq %rax, %rsi
   movq $0, -48(%rbp)
   movq %rsi, %r10
   cmpq $0, %r10
