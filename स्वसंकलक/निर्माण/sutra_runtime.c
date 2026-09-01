@@ -159,6 +159,12 @@ extern void* शून्य_से_पाठ(void);
 extern void* अक्षर_बना(int64_t cp);
 extern void* पाठ_उपखंड(void* text, int64_t start, int64_t end);
 
+/* print — now in मूल_रनटाइम.सूत्र (via तल.s WriteFile; no printf/fwrite/fflush) */
+extern int64_t पाठ_छापो(void* s);
+extern int64_t शून्य_छापो(void);
+extern int64_t बूल_छापो(int64_t v);
+extern int64_t गतिशील_छापो(int64_t val);
+
 /* GC roots — the Sutra collector reads them through these */
 int64_t sutra_gc_root_count(void) { return gc_roots_count; }
 int64_t sutra_gc_root_deref(int64_t i) {
@@ -470,31 +476,7 @@ void* sutra_dynamic_type(void* ptr) {
     return sutra_str_alloc("संख्या", strlen("संख्या"));
 }
 
-void sutra_print_dynamic(int64_t val) {
-    if (val == 0) {
-        printf("0\n");
-        return;
-    }
-    GCAllocation* alloc = find_gc_allocation((void*)val);
-    if (alloc) {
-        if (alloc->type == GC_TYPE_STRING) {
-            char* s = (char*)val;
-            int64_t len = *((int64_t*)(s + 8));
-            char* data = s + 16;
-            fwrite(data, 1, len, stdout);
-            printf("\n");
-        } else if (alloc->type == GC_TYPE_DICTIONARY) {
-            printf("[शब्दकोश]\n");
-        } else if (alloc->type == GC_TYPE_ARRAY) {
-            printf("[सूची]\n");
-        } else {
-            printf("%lld\n", (long long)val);
-        }
-    } else {
-        printf("%lld\n", (long long)val);
-    }
-    fflush(stdout);
-}
+void sutra_print_dynamic(int64_t val) { गतिशील_छापो(val); }  /* -> मूल_रनटाइम.सूत्र */
 
 /* Forward declarations for runtime helpers used by string helpers before their definitions. */
 void* sutra_arr_create(int64_t n);
@@ -950,18 +932,8 @@ void* sutra_str_get(void* s, int64_t idx) {
     return sutra_str_alloc("", 0);
 }
 
-/* Print a string (UTF-8 safe via fwrite) */
-void sutra_str_print(void* s) {
-    if (!s) {
-        printf("शून्यम्\n");
-        return;
-    }
-    int64_t len = *((int64_t*)((char*)s + 8));
-    char* data = (char*)s + 16;
-    fwrite(data, 1, len, stdout);
-    printf("\n");
-    fflush(stdout);
-}
+/* Print a string + '\n' — now in मूल_रनटाइम.सूत्र (तल.s WriteFile) */
+void sutra_str_print(void* s) { पाठ_छापो(s); }
 
 /* ============================================================
  * ARRAY RUNTIME
@@ -1064,19 +1036,8 @@ void* sutra_obj_alloc(int64_t field_count) {
  * NULL RUNTIME
  * ============================================================ */
 
-void sutra_print_null(void) {
-    printf("शून्यम्\n");
-    fflush(stdout);
-}
-
-void sutra_print_bool(int64_t v) {
-    if (v) {
-        printf("सत्य\n");
-    } else {
-        printf("असत्य\n");
-    }
-    fflush(stdout);
-}
+void sutra_print_null(void) { शून्य_छापो(); }        /* -> मूल_रनटाइम.सूत्र */
+void sutra_print_bool(int64_t v) { बूल_छापो(v); }    /* -> मूल_रनटाइम.सूत्र */
 
 /* ============================================================
  * DICTIONARY RUNTIME  —  now in स्वसंकलक/निर्माण/मूल_रनटाइम.सूत्र
