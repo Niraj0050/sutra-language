@@ -606,56 +606,6 @@ static int64_t sutra_utf8_codepoint_count_bytes(const unsigned char* data, int64
     return count;
 }
 
-static int64_t sutra_utf8_codepoints_before_byte(const unsigned char* data, int64_t len, int64_t byte_pos) {
-    int64_t count = 0;
-    int64_t i = 0;
-    while (i < len && i < byte_pos) {
-        unsigned char c = data[i];
-        if (c < 0x80) i += 1;
-        else if ((c & 0xE0) == 0xC0) i += 2;
-        else if ((c & 0xF0) == 0xE0) i += 3;
-        else if ((c & 0xF8) == 0xF0) i += 4;
-        else i += 1;
-        ++count;
-    }
-    return count;
-}
-
-static int64_t sutra_utf8_byte_index_for_codepoint(const unsigned char* data, int64_t len, int64_t cp_index) {
-    int64_t count = 0;
-    int64_t i = 0;
-    while (i < len) {
-        int64_t start = i;
-        unsigned char c = data[i];
-        if (c < 0x80) i += 1;
-        else if ((c & 0xE0) == 0xC0) i += 2;
-        else if ((c & 0xF0) == 0xE0) i += 3;
-        else if ((c & 0xF8) == 0xF0) i += 4;
-        else i += 1;
-        if (count == cp_index) return start;
-        ++count;
-    }
-    return len;
-}
-
-static int64_t sutra_utf8_codepoint_at_byte(const unsigned char* data, int64_t len, int64_t byte_index) {
-    int64_t i = 0;
-    while (i < len && i < byte_index) {
-        unsigned char c = data[i];
-        if (c < 0x80) i += 1;
-        else if ((c & 0xE0) == 0xC0) i += 2;
-        else if ((c & 0xF0) == 0xE0) i += 3;
-        else if ((c & 0xF8) == 0xF0) i += 4;
-        else i += 1;
-    }
-    return i;
-}
-
-static int sutra_is_unicode_whitespace(uint32_t cp) {
-    return cp == ' ' || cp == '\t' || cp == '\n' || cp == '\r' || cp == 0x00A0 || cp == 0x1680 ||
-           (cp >= 0x2000 && cp <= 0x200A) || cp == 0x2028 || cp == 0x2029 || cp == 0x202F ||
-           cp == 0x205F || cp == 0x3000;
-}
 
 static void* sutra_utf8_substr_raw(const unsigned char* data, int64_t len, int64_t start, int64_t end) {
     if (start < 0 || end < 0) {
@@ -704,215 +654,38 @@ void* sutra_substr(void* text, int64_t start, int64_t end) {
     return sutra_utf8_substr_raw(data, len, start, end);
 }
 
+/* ============================================================
+ * STRING SEARCH / TRANSFORM  —  now in मूल_रनटाइम.सूत्र
+ * ============================================================
+ * find / replace / split / join / trim / starts_with / ends_with →
+ * पाठ_कोडबिंदु_खोज / पाठ_बदल / पाठ_विभाजन / पाठ_संयोग / पाठ_छाँट /
+ * पाठ_आरंभ_में / पाठ_अंत_में. Byte-level match (UTF-8 self-synchronising).
+ * sutra_substr stays in C (lexer hot path).
+ */
+extern int64_t पाठ_कोडबिंदु_खोज(void* hay, void* needle);
+extern void*   पाठ_बदल(void* hay, void* needle, void* repl);
+extern void*   पाठ_विभाजन(void* hay, void* delim);
+extern void*   पाठ_संयोग(void* list, void* sep);
+extern void*   पाठ_छाँट(void* text);
+extern int64_t पाठ_आरंभ_में(void* text, void* prefix);
+extern int64_t पाठ_अंत_में(void* text, void* suffix);
+
 int64_t sutra_find(void* text, void* needle) {
     int sutra_native_is_string(void* ptr);
-    int64_t sutra_list_find(void* arr, int64_t val);
+    int64_t सूची_खोज(void* arr, int64_t val);
     if (!text) return -1;
     if (sutra_native_is_string(text)) {
         if (!needle) return -1;
-        int64_t hay_len = *((int64_t*)((char*)text + 8));
-        int64_t needle_len = *((int64_t*)((char*)needle + 8));
-        const unsigned char* hay = (const unsigned char*)text + 16;
-        const unsigned char* need = (const unsigned char*)needle + 16;
-        if (needle_len == 0) {
-            sutra_throw_str("त्रुटिः — खोजें: रिक्त खोज पाठ मान्य न अस्ति।");
-        }
-        for (int64_t pos = 0; pos + needle_len <= hay_len; ++pos) {
-            if (memcmp(hay + pos, need, (size_t)needle_len) == 0) {
-                return sutra_utf8_codepoints_before_byte(hay, hay_len, pos);
-            }
-        }
-        return -1;
-    } else {
-        return sutra_list_find(text, (int64_t)needle);
+        return पाठ_कोडबिंदु_खोज(text, needle);
     }
+    return सूची_खोज(text, (int64_t)needle);
 }
-
-void* sutra_replace(void* text, void* needle, void* replacement) {
-    if (!text || !needle || !replacement) {
-        sutra_throw_str("त्रुटिः — बदलें में शून्य पाठ मान्य नहीं है");
-    }
-    int64_t hay_len = *((int64_t*)((char*)text + 8));
-    int64_t needle_len = *((int64_t*)((char*)needle + 8));
-    const unsigned char* hay = (const unsigned char*)text + 16;
-    const unsigned char* need = (const unsigned char*)needle + 16;
-    const unsigned char* repl = (const unsigned char*)replacement + 16;
-    int64_t repl_len = *((int64_t*)((char*)replacement + 8));
-
-    if (needle_len == 0) {
-        sutra_throw_str("त्रुटिः — बदलें: रिक्त खोज पाठ मान्य न अस्ति।");
-    }
-
-    for (int64_t pos = 0; pos + needle_len <= hay_len; ++pos) {
-        if (memcmp(hay + pos, need, (size_t)needle_len) == 0) {
-            int64_t prefix_len = pos;
-            int64_t suffix_len = hay_len - (pos + needle_len);
-            int64_t out_len = prefix_len + repl_len + suffix_len;
-            void* out = sutra_str_alloc(NULL, out_len);
-            char* out_data = (char*)out + 16;
-            if (prefix_len > 0) memcpy(out_data, hay, (size_t)prefix_len);
-            if (repl_len > 0) memcpy(out_data + prefix_len, repl, (size_t)repl_len);
-            if (suffix_len > 0) memcpy(out_data + prefix_len + repl_len, hay + pos + needle_len, (size_t)suffix_len);
-            return out;
-        }
-    }
-    return text;
-}
-
-void* sutra_split(void* text, void* delim) {
-    if (!text || !delim) {
-        sutra_throw_str("त्रुटिः — विभाजित के तर्क शून्य नहीं हो सकते");
-    }
-    int64_t hay_len = *((int64_t*)((char*)text + 8));
-    int64_t delim_len = *((int64_t*)((char*)delim + 8));
-    const unsigned char* hay = (const unsigned char*)text + 16;
-    const unsigned char* d = (const unsigned char*)delim + 16;
-    if (delim_len == 0) {
-        sutra_throw_str("त्रुटिः — विभाजित: रिक्त विभाजक मान्य न अस्ति।");
-    }
-
-    int64_t count = 1;
-    int64_t pos = 0;
-    while (pos + delim_len <= hay_len) {
-        if (memcmp(hay + pos, d, (size_t)delim_len) == 0) {
-            ++count;
-            pos += delim_len;
-        } else {
-            ++pos;
-        }
-    }
-
-    /* arr + N part-strings; arr is un-rooted from C → suppress auto-GC */
-    सूत्र_जीसी_दबाओ();
-    void* arr = sutra_arr_create(count);
-    int64_t idx = 0;
-    int64_t start = 0;
-    while (start <= hay_len) {
-        int64_t next = start;
-        while (next + delim_len <= hay_len && memcmp(hay + next, d, (size_t)delim_len) != 0) {
-            ++next;
-        }
-        if (next + delim_len > hay_len) {
-            next = hay_len;
-        }
-        void* part = sutra_str_alloc((const char*)hay + start, next - start);
-        sutra_arr_set(arr, idx, (int64_t)part);
-        ++idx;
-        if (next + delim_len > hay_len) break;
-        start = next + delim_len;
-    }
-    सूत्र_जीसी_छोड़ो();
-    return arr;
-}
-
-void* sutra_join(void* list, void* sep) {
-    if (!list) return sutra_str_alloc("", 0);
-    int64_t count = *((int64_t*)((char*)list + 8));
-    const unsigned char* delim = sep ? ((const unsigned char*)sep + 16) : (const unsigned char*)"";
-    int64_t delim_len = sep ? *((int64_t*)((char*)sep + 8)) : 0;
-
-    int64_t total = 0;
-    for (int64_t i = 0; i < count; ++i) {
-        int64_t elem_ptr = *((int64_t*)((char*)list + 16 + i * 8));
-        if ((uint64_t)elem_ptr < 65536) {
-            sutra_throw_str("त्रुटिः — संयोजित में सूची के सभी तत्व पाठ होने चाहिए।");
-        }
-        int64_t elem_len = *((int64_t*)((char*)(void*)elem_ptr + 8));
-        total += elem_len;
-        if (i + 1 < count) total += delim_len;
-    }
-
-    void* out = sutra_str_alloc(NULL, total);
-    char* out_data = (char*)out + 16;
-    int64_t pos = 0;
-    for (int64_t i = 0; i < count; ++i) {
-        int64_t elem_ptr = *((int64_t*)((char*)list + 16 + i * 8));
-        int64_t elem_len = *((int64_t*)((char*)(void*)elem_ptr + 8));
-        const unsigned char* elem_data = (const unsigned char*)(void*)elem_ptr + 16;
-        if (elem_len > 0) memcpy(out_data + pos, elem_data, (size_t)elem_len), pos += elem_len;
-        if (i + 1 < count && delim_len > 0) memcpy(out_data + pos, delim, (size_t)delim_len), pos += delim_len;
-    }
-    return out;
-}
-
-void* sutra_trim(void* text) {
-    if (!text) return sutra_str_alloc("", 0);
-    int64_t len = *((int64_t*)((char*)text + 8));
-    const unsigned char* data = (const unsigned char*)text + 16;
-
-    typedef struct { int64_t start; int64_t end; uint32_t cp; } Span;
-    int64_t cp_count = 0;
-    int64_t i = 0;
-    while (i < len) {
-        int64_t start = i;
-        uint32_t cp = 0;
-        unsigned char c = data[i];
-        if (c < 0x80) { cp = c; i += 1; }
-        else if ((c & 0xE0) == 0xC0 && i + 1 < len) { cp = ((uint32_t)(c & 0x1F) << 6) | (data[i + 1] & 0x3F); i += 2; }
-        else if ((c & 0xF0) == 0xE0 && i + 2 < len) { cp = ((uint32_t)(c & 0x0F) << 12) | ((uint32_t)(data[i + 1] & 0x3F) << 6) | (data[i + 2] & 0x3F); i += 3; }
-        else if ((c & 0xF8) == 0xF0 && i + 3 < len) { cp = ((uint32_t)(c & 0x07) << 18) | ((uint32_t)(data[i + 1] & 0x3F) << 12) | ((uint32_t)(data[i + 2] & 0x3F) << 6) | (data[i + 3] & 0x3F); i += 4; }
-        else { cp = c; i += 1; }
-        ++cp_count;
-    }
-
-    Span* spans = (Span*)malloc((size_t)cp_count * sizeof(Span));
-    if (!spans) { sutra_throw_str("त्रुटिः — स्मृति आवंटन विफल (trim)"); }
-
-    int64_t j = 0;
-    i = 0;
-    while (i < len) {
-        int64_t start = i;
-        uint32_t cp = 0;
-        unsigned char c = data[i];
-        if (c < 0x80) { cp = c; i += 1; }
-        else if ((c & 0xE0) == 0xC0 && i + 1 < len) { cp = ((uint32_t)(c & 0x1F) << 6) | (data[i + 1] & 0x3F); i += 2; }
-        else if ((c & 0xF0) == 0xE0 && i + 2 < len) { cp = ((uint32_t)(c & 0x0F) << 12) | ((uint32_t)(data[i+1] & 0x3F) << 6) | (data[i + 2] & 0x3F); i += 3; }
-        else if ((c & 0xF8) == 0xF0 && i + 3 < len) { cp = ((uint32_t)(c & 0x07) << 18) | ((uint32_t)(data[i+1] & 0x3F) << 12) | ((uint32_t)(data[i+2] & 0x3F) << 6) | (data[i + 3] & 0x3F); i += 4; }
-        else { cp = c; i += 1; }
-        spans[j].start = start;
-        spans[j].end = i;
-        spans[j].cp = cp;
-        ++j;
-    }
-
-    int64_t first = 0;
-    while (first < cp_count && sutra_is_unicode_whitespace(spans[first].cp)) ++first;
-    int64_t last = cp_count;
-    while (last > first && sutra_is_unicode_whitespace(spans[last - 1].cp)) --last;
-
-    if (first == last) {
-        free(spans);
-        return sutra_str_alloc("", 0);
-    }
-
-    int64_t start_byte = spans[first].start;
-    int64_t end_byte = spans[last - 1].end;
-    int64_t trimmed_len = end_byte - start_byte;
-    free(spans);
-    return sutra_str_alloc((const char*)data + start_byte, trimmed_len);
-}
-
-int64_t sutra_starts_with(void* text, void* prefix) {
-    if (!text || !prefix) return 1;
-    int64_t text_len = *((int64_t*)((char*)text + 8));
-    int64_t prefix_len = *((int64_t*)((char*)prefix + 8));
-    const unsigned char* text_data = (const unsigned char*)text + 16;
-    const unsigned char* prefix_data = (const unsigned char*)prefix + 16;
-    if (prefix_len == 0) return 1;
-    if (text_len < prefix_len) return 0;
-    return memcmp(text_data, prefix_data, (size_t)prefix_len) == 0 ? 1 : 0;
-}
-
-int64_t sutra_ends_with(void* text, void* suffix) {
-    if (!text || !suffix) return 1;
-    int64_t text_len = *((int64_t*)((char*)text + 8));
-    int64_t suffix_len = *((int64_t*)((char*)suffix + 8));
-    const unsigned char* text_data = (const unsigned char*)text + 16;
-    const unsigned char* suffix_data = (const unsigned char*)suffix + 16;
-    if (suffix_len == 0) return 1;
-    if (text_len < suffix_len) return 0;
-    return memcmp(text_data + text_len - suffix_len, suffix_data, (size_t)suffix_len) == 0 ? 1 : 0;
-}
+void* sutra_replace(void* t, void* n, void* r) { return पाठ_बदल(t, n, r); }
+void* sutra_split(void* t, void* d) { return पाठ_विभाजन(t, d); }
+void* sutra_join(void* l, void* s) { return पाठ_संयोग(l, s); }
+void* sutra_trim(void* t) { return पाठ_छाँट(t); }
+int64_t sutra_starts_with(void* t, void* p) { return पाठ_आरंभ_में(t, p); }
+int64_t sutra_ends_with(void* t, void* s) { return पाठ_अंत_में(t, s); }
 
 int64_t sutra_math_sqrt(int64_t v) {
     return (int64_t)llround(sqrt((double)v));
