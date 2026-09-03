@@ -19,8 +19,7 @@ extern int    memcmp(const void* a, const void* b, size_t n);
 extern size_t strlen(const char* s);
 
 #ifdef _WIN32
-#include <windows.h>
-#include <shellapi.h>
+#include <windows.h>   /* stderr WriteFile + sutra_gc_status stdout; file/args अब तल.s */
 #endif
 
 #define USE_LEGACY_RUNTIME
@@ -621,140 +620,13 @@ void* sutra_dict_keys(void* dict) {
 }
 
 /* ============================================================
- * FILE I/O RUNTIME
+ * FILE I/O + तर्क + समादेश  —  अब मूल_रनटाइम.सूत्र + तल.s में।
+ * kernel32/shell32 पतले wrappers तल.s (सूत्र_तल_सञ्चिका_* / _पढ़ो /
+ * _लिखो / _समादेश / _समादेश_विभाजन / …); loop + बफ़र + UTF-8↔UTF-16
+ * रचना मूल_रनटाइम.सूत्र (सञ्चिका_पढ़ो_रन / _लिखो_रन / _है_रन /
+ * समादेश_चलाओ_रन / तर्क_सूची_रन)। निम्नक वहाँ भेजता; तर्क अब आलसी
+ * (main से sutra_init_args कॉल हटी)।
  * ============================================================ */
-
-/* ============================================================
- * File I/O + args — Win32 सीधे (कोई libc: _wfopen/fread/fwrite/malloc)।
- * kernel32 (CreateFileW/ReadFile/WriteFile/CloseHandle/…) + shell32
- * (CommandLineToArgvW) — यही OS-तल है, जैसे तल.s।
- * ============================================================ */
-
-/* UTF-8 → UTF-16, stack बफ़र में (मार्ग/कमांड छोटे होते)। सफल? */
-static int sr_u8_to_w(const char* s, wchar_t* out, int cap) {
-    return MultiByteToWideChar(CP_UTF8, 0, s, -1, out, cap) > 0;
-}
-
-int64_t sutra_file_exists(void* path_ptr) {
-    if (!path_ptr) return 0;
-    wchar_t wp[2048];
-    if (!sr_u8_to_w((const char*)path_ptr + 16, wp, 2048)) return 0;
-    DWORD a = GetFileAttributesW(wp);
-    return (a != INVALID_FILE_ATTRIBUTES && !(a & FILE_ATTRIBUTE_DIRECTORY)) ? 1 : 0;
-}
-
-int64_t sutra_command_run(void* cmd_ptr) {
-    if (!cmd_ptr) return -1;
-    wchar_t wcmd[8192];
-    static const wchar_t pfx[] = L"cmd.exe /c ";
-    int pn = (int)(sizeof(pfx) / sizeof(wchar_t)) - 1;
-    for (int i = 0; i < pn; i++) wcmd[i] = pfx[i];
-    if (MultiByteToWideChar(CP_UTF8, 0, (const char*)cmd_ptr + 16, -1, wcmd + pn, 8192 - pn) <= 0)
-        return -1;
-    STARTUPINFOW si = {0};
-    PROCESS_INFORMATION pi = {0};
-    si.cb = sizeof(si);
-    if (!CreateProcessW(NULL, wcmd, NULL, NULL, TRUE, 0, NULL, NULL, &si, &pi))
-        return -1;
-    WaitForSingleObject(pi.hProcess, INFINITE);
-    DWORD code = 0;
-    GetExitCodeProcess(pi.hProcess, &code);
-    CloseHandle(pi.hProcess);
-    CloseHandle(pi.hThread);
-    return (int64_t)(int)code;
-}
-
-void* sutra_file_read(void* path_ptr) {
-    if (!path_ptr) return sutra_str_alloc("", 0);
-    wchar_t wp[2048];
-    if (!sr_u8_to_w((const char*)path_ptr + 16, wp, 2048)) return sutra_str_alloc("", 0);
-    HANDLE h = CreateFileW(wp, GENERIC_READ, FILE_SHARE_READ, NULL,
-                           OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL);
-    if (h == INVALID_HANDLE_VALUE) return sutra_str_alloc("", 0);
-    LARGE_INTEGER sz;
-    if (!GetFileSizeEx(h, &sz) || sz.QuadPart < 0 || sz.QuadPart > 0x7FFFFFFF) {
-        CloseHandle(h);
-        return sutra_str_alloc("", 0);
-    }
-    int64_t n = (int64_t)sz.QuadPart;
-    /* सीधे Sutra-string में पढ़ो — कोई malloc, कोई copy */
-    char* block = (char*)sutra_str_alloc(NULL, n);
-    int64_t got = 0;
-    while (got < n) {
-        DWORD chunk = 0;
-        if (!ReadFile(h, block + 16 + got, (DWORD)(n - got), &chunk, NULL) || chunk == 0) break;
-        got += chunk;
-    }
-    *((int64_t*)(block + 8)) = got;      /* वास्तविक लंबाई (CRLF-रूपांतरण नहीं — binary) */
-    block[16 + got] = '\0';
-    CloseHandle(h);
-    return block;
-}
-
-int64_t sutra_file_write(void* path_ptr, void* content_ptr) {
-    if (!path_ptr || !content_ptr) return 0;
-    wchar_t wp[2048];
-    if (!sr_u8_to_w((const char*)path_ptr + 16, wp, 2048)) return 0;
-    const char* content = (const char*)content_ptr + 16;
-    int64_t len = *((int64_t*)((char*)content_ptr + 8));
-    HANDLE h = CreateFileW(wp, GENERIC_WRITE, 0, NULL,
-                           CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL, NULL);
-    if (h == INVALID_HANDLE_VALUE) return 0;
-    int64_t put = 0;
-    int ok = 1;
-    while (put < len) {
-        DWORD chunk = 0;
-        if (!WriteFile(h, content + put, (DWORD)(len - put), &chunk, NULL) || chunk == 0) { ok = 0; break; }
-        put += chunk;
-    }
-    CloseHandle(h);
-    return (ok && put == len) ? 1 : 0;
-}
-
-int sutra_argc = 0;
-char** sutra_argv = NULL;
-
-void sutra_init_args(int argc, char** argv) {
-    (void)argc; (void)argv;
-    int wargc = 0;
-    wchar_t** wargv = CommandLineToArgvW(GetCommandLineW(), &wargc);
-    if (!wargv) { sutra_argc = 0; sutra_argv = NULL; return; }
-    /* एक बार, कभी मुक्त नहीं — VirtualAlloc (तल), libc heap नहीं */
-    int64_t need = (int64_t)wargc * (int64_t)sizeof(char*);
-    for (int i = 0; i < wargc; i++)
-        need += WideCharToMultiByte(CP_UTF8, 0, wargv[i], -1, NULL, 0, NULL, NULL);
-    char* pool = (char*)VirtualAlloc(NULL, (SIZE_T)need + 16, MEM_COMMIT | MEM_RESERVE, PAGE_READWRITE);
-    if (!pool) { LocalFree(wargv); sutra_argc = 0; sutra_argv = NULL; return; }
-    sutra_argv = (char**)pool;
-    char* strs = pool + (int64_t)wargc * (int64_t)sizeof(char*);
-    for (int i = 0; i < wargc; i++) {
-        int need_i = WideCharToMultiByte(CP_UTF8, 0, wargv[i], -1, NULL, 0, NULL, NULL);
-        if (need_i > 0) {
-            WideCharToMultiByte(CP_UTF8, 0, wargv[i], -1, strs, need_i, NULL, NULL);
-            sutra_argv[i] = strs;
-            strs += need_i;
-        } else {
-            sutra_argv[i] = strs;
-            *strs++ = '\0';
-        }
-    }
-    sutra_argc = wargc;
-    LocalFree(wargv);
-}
-
-void* sutra_args_get() {
-    सूत्र_जीसी_दबाओ();
-    void* arr = sutra_arr_create(sutra_argc);
-    for (int i = 0; i < sutra_argc; i++) {
-        const char* a = sutra_argv[i];
-        int64_t n = 0;
-        while (a[n]) n++;
-        void* s = sutra_str_alloc(a, n);
-        sutra_arr_set(arr, i, (int64_t)s);
-    }
-    सूत्र_जीसी_छोड़ो();
-    return arr;
-}
 
 void* sutra_char_chr(int64_t cp) { return अक्षर_बना(cp); }  /* -> मूल_रनटाइम.सूत्र */
 

@@ -10226,6 +10226,1263 @@
   popq %rbp
   ret
 
+  .text
+  .globl सञ्चिका_कोष_तैयार
+  .def सञ्चिका_कोष_तैयार; .scl 2; .type 32; .endef
+सञ्चिका_कोष_तैयार:
+  pushq %rbp
+  movq %rsp, %rbp
+  subq $48, %rsp
+  movq %rbx, -8(%rbp)
+  movq %rsi, -16(%rbp)
+  movq %rdi, -24(%rbp)
+
+.L_सञ्चिका_कोष_तैयार__प्रवेश_0:
+  movq sutra_glob_सञ्चिका_पथ_बफ(%rip), %r10
+  movq %r10, %rbx
+  movq $0, %rsi
+  movq %rbx, %r10
+  cmpq %rsi, %r10
+  sete %al
+  movzbq %al, %r10
+  movq %r10, %rdi
+  movq %rdi, %r10
+  cmpq $0, %r10
+  je .L_किनारा_सञ्चिका_कोष_तैयार_0
+  jmp .L_सञ्चिका_कोष_तैयार__if_सत्य_1
+.L_किनारा_सञ्चिका_कोष_तैयार_0:
+  jmp .L_सञ्चिका_कोष_तैयार__if_अंत_2
+.L_सञ्चिका_कोष_तैयार__if_सत्य_1:
+  movq $8192, %rbx
+  movq %rbx, %rcx
+  subq $32, %rsp
+  call सूत्र_तल_आवंटन
+  addq $32, %rsp
+  movq %rax, %rsi
+  movq %rsi, %r10
+  movq %r10, sutra_glob_सञ्चिका_पथ_बफ(%rip)
+  movq $262144, %rbx
+  movq %rbx, %rcx
+  subq $32, %rsp
+  call सूत्र_तल_आवंटन
+  addq $32, %rsp
+  movq %rax, %rsi
+  movq %rsi, %r10
+  movq %r10, sutra_glob_सञ्चिका_समादेश_बफ(%rip)
+  movq $65536, %rbx
+  movq %rbx, %rcx
+  subq $32, %rsp
+  call सूत्र_तल_आवंटन
+  addq $32, %rsp
+  movq %rax, %rsi
+  movq %rsi, %r10
+  movq %r10, sutra_glob_सञ्चिका_तर्क_बफ(%rip)
+  jmp .L_सञ्चिका_कोष_तैयार__if_अंत_2
+.L_सञ्चिका_कोष_तैयार__if_अंत_2:
+  movq $0, %rbx
+  movq %rbx, %rax
+  jmp .L_epilogue_सञ्चिका_कोष_तैयार
+.L_epilogue_सञ्चिका_कोष_तैयार:
+  movq -8(%rbp), %rbx
+  movq -16(%rbp), %rsi
+  movq -24(%rbp), %rdi
+  movq %rbp, %rsp
+  popq %rbp
+  ret
+
+  .text
+  .globl पाठ_कच्चे_से
+  .def पाठ_कच्चे_से; .scl 2; .type 32; .endef
+पाठ_कच्चे_से:
+  pushq %rbp
+  movq %rsp, %rbp
+  subq $80, %rsp
+  movq %rbx, -8(%rbp)
+  movq %rsi, -16(%rbp)
+  movq %rdi, -24(%rbp)
+  movq %r12, -32(%rbp)
+  movq %r13, -40(%rbp)
+  movq %r14, -48(%rbp)
+  movq %rcx, %rbx
+  movq %rdx, %rsi
+  movq $0, -72(%rbp)
+  movl gc_roots_count(%rip), %eax
+  leaq gc_roots(%rip), %r10
+  leaq -72(%rbp), %r11
+  movq %r11, (%r10,%rax,8)
+  incl %eax
+  movl %eax, gc_roots_count(%rip)
+
+.L_पाठ_कच्चे_से__प्रवेश_0:
+  movq %rsi, %rcx
+  subq $32, %rsp
+  call पाठ_आवंटित
+  addq $32, %rsp
+  movq %rax, %rdi
+  movq %rdi, -72(%rbp)
+  movq $16, %r12
+  movq $16, %r13
+  movq %rbx, %r10
+  subq %r13, %r10
+  movq %r10, %r14
+  movq $16, %rbx
+  subq $8, %rsp
+  movq %rsi, %r11
+  pushq %r11
+  movq %rdi, %rcx
+  movq %r12, %rdx
+  movq %r14, %r8
+  movq %rbx, %r9
+  subq $32, %rsp
+  call खंड_प्रतिलिपि
+  addq $48, %rsp
+  movq %rax, %r13
+  movq %rdi, %rax
+  jmp .L_epilogue_पाठ_कच्चे_से
+.L_epilogue_पाठ_कच्चे_से:
+  subl $1, gc_roots_count(%rip)
+  movq -8(%rbp), %rbx
+  movq -16(%rbp), %rsi
+  movq -24(%rbp), %rdi
+  movq -32(%rbp), %r12
+  movq -40(%rbp), %r13
+  movq -48(%rbp), %r14
+  movq %rbp, %rsp
+  popq %rbp
+  ret
+
+  .text
+  .globl सञ्चिका_है_रन
+  .def सञ्चिका_है_रन; .scl 2; .type 32; .endef
+सञ्चिका_है_रन:
+  pushq %rbp
+  movq %rsp, %rbp
+  subq $64, %rsp
+  movq %rbx, -8(%rbp)
+  movq %rsi, -16(%rbp)
+  movq %rdi, -24(%rbp)
+  movq %r12, -32(%rbp)
+  movq %rcx, %rbx
+  movq $0, -56(%rbp)
+  movl gc_roots_count(%rip), %eax
+  leaq gc_roots(%rip), %r10
+  leaq -56(%rbp), %r11
+  movq %r11, (%r10,%rax,8)
+  incl %eax
+  movl %eax, gc_roots_count(%rip)
+
+.L_सञ्चिका_है_रन__प्रवेश_0:
+  movq $0, %rsi
+  movq %rbx, %r10
+  cmpq %rsi, %r10
+  sete %al
+  movzbq %al, %r10
+  movq %r10, %rdi
+  movq %rdi, %r10
+  cmpq $0, %r10
+  je .L_किनारा_सञ्चिका_है_रन_0
+  jmp .L_सञ्चिका_है_रन__if_सत्य_1
+.L_किनारा_सञ्चिका_है_रन_0:
+  jmp .L_सञ्चिका_है_रन__if_अंत_2
+.L_सञ्चिका_है_रन__if_अंत_2:
+  subq $32, %rsp
+  call सञ्चिका_कोष_तैयार
+  addq $32, %rsp
+  movq %rax, %rsi
+  movq $16, %rsi
+  movq %rbx, %r10
+  addq %rsi, %r10
+  movq %r10, %rdi
+  movq sutra_glob_सञ्चिका_पथ_बफ(%rip), %r10
+  movq %r10, %rbx
+  movq $4096, %rsi
+  movq %rdi, %rcx
+  movq %rbx, %rdx
+  movq %rsi, %r8
+  subq $32, %rsp
+  call सूत्र_तल_यूटीएफ_चौड़ा
+  addq $32, %rsp
+  movq %rax, %r12
+  movq %r12, -56(%rbp)
+  movq $0, %rbx
+  movq %r12, %rcx
+  movq %rbx, %rdx
+  subq $32, %rsp
+  call पाठ_तुल्य
+  addq $32, %rsp
+  movq %rax, %rsi
+  movq $0, -56(%rbp)
+  movq %rsi, %r10
+  cmpq $0, %r10
+  je .L_किनारा_सञ्चिका_है_रन_1
+  jmp .L_सञ्चिका_है_रन__if_सत्य_3
+.L_किनारा_सञ्चिका_है_रन_1:
+  jmp .L_सञ्चिका_है_रन__if_अंत_4
+.L_सञ्चिका_है_रन__if_अंत_4:
+  movq sutra_glob_सञ्चिका_पथ_बफ(%rip), %r10
+  movq %r10, %rbx
+  movq %rbx, %rcx
+  subq $32, %rsp
+  call सूत्र_तल_सञ्चिका_गुण
+  addq $32, %rsp
+  movq %rax, %rsi
+  movq $4294967295, %rbx
+  movq %rsi, %r10
+  cmpq %rbx, %r10
+  sete %al
+  movzbq %al, %r10
+  movq %r10, %rdi
+  movq %rdi, %r10
+  cmpq $0, %r10
+  je .L_किनारा_सञ्चिका_है_रन_2
+  jmp .L_सञ्चिका_है_रन__if_सत्य_5
+.L_किनारा_सञ्चिका_है_रन_2:
+  jmp .L_सञ्चिका_है_रन__if_अंत_6
+.L_सञ्चिका_है_रन__if_अंत_6:
+  movq $16, %rbx
+  movq %rsi, %rax
+  movq %rbx, %r10
+  cqto
+  idivq %r10
+  movq %rax, %rdi
+  movq $2, %rbx
+  movq %rdi, %rax
+  movq %rbx, %r10
+  cqto
+  idivq %r10
+  movq %rdx, %rsi
+  movq $1, %rbx
+  movq %rsi, %r10
+  cmpq %rbx, %r10
+  sete %al
+  movzbq %al, %r10
+  movq %r10, %rdi
+  movq %rdi, %r10
+  cmpq $0, %r10
+  je .L_किनारा_सञ्चिका_है_रन_3
+  jmp .L_सञ्चिका_है_रन__if_सत्य_7
+.L_किनारा_सञ्चिका_है_रन_3:
+  jmp .L_सञ्चिका_है_रन__if_अंत_8
+.L_सञ्चिका_है_रन__if_अंत_8:
+  movq $1, %rbx
+  movq %rbx, %rax
+  jmp .L_epilogue_सञ्चिका_है_रन
+.L_सञ्चिका_है_रन__if_सत्य_7:
+  movq $0, %rbx
+  movq %rbx, %rax
+  jmp .L_epilogue_सञ्चिका_है_रन
+.L_सञ्चिका_है_रन__if_सत्य_5:
+  movq $0, %rbx
+  movq %rbx, %rax
+  jmp .L_epilogue_सञ्चिका_है_रन
+.L_सञ्चिका_है_रन__if_सत्य_3:
+  movq $0, %rbx
+  movq %rbx, %rax
+  jmp .L_epilogue_सञ्चिका_है_रन
+.L_सञ्चिका_है_रन__if_सत्य_1:
+  movq $0, %rbx
+  movq %rbx, %rax
+  jmp .L_epilogue_सञ्चिका_है_रन
+.L_epilogue_सञ्चिका_है_रन:
+  subl $1, gc_roots_count(%rip)
+  movq -8(%rbp), %rbx
+  movq -16(%rbp), %rsi
+  movq -24(%rbp), %rdi
+  movq -32(%rbp), %r12
+  movq %rbp, %rsp
+  popq %rbp
+  ret
+
+  .text
+  .globl सञ्चिका_पढ़ो_रन
+  .def सञ्चिका_पढ़ो_रन; .scl 2; .type 32; .endef
+सञ्चिका_पढ़ो_रन:
+  pushq %rbp
+  movq %rsp, %rbp
+  subq $128, %rsp
+  movq %rbx, -8(%rbp)
+  movq %rsi, -16(%rbp)
+  movq %rdi, -24(%rbp)
+  movq %r12, -32(%rbp)
+  movq %r13, -40(%rbp)
+  movq %r14, -48(%rbp)
+  movq %r15, -56(%rbp)
+  movq %rcx, %rbx
+  movq $0, -80(%rbp)
+  movq $0, -88(%rbp)
+  movq $0, -96(%rbp)
+  movq $0, -104(%rbp)
+  movq $0, -112(%rbp)
+  movl gc_roots_count(%rip), %eax
+  leaq gc_roots(%rip), %r10
+  leaq -80(%rbp), %r11
+  movq %r11, (%r10,%rax,8)
+  incl %eax
+  leaq -88(%rbp), %r11
+  movq %r11, (%r10,%rax,8)
+  incl %eax
+  leaq -96(%rbp), %r11
+  movq %r11, (%r10,%rax,8)
+  incl %eax
+  leaq -104(%rbp), %r11
+  movq %r11, (%r10,%rax,8)
+  incl %eax
+  leaq -112(%rbp), %r11
+  movq %r11, (%r10,%rax,8)
+  incl %eax
+  movl %eax, gc_roots_count(%rip)
+
+.L_सञ्चिका_पढ़ो_रन__प्रवेश_0:
+  movq $0, %rsi
+  movq %rbx, %r10
+  cmpq %rsi, %r10
+  sete %al
+  movzbq %al, %r10
+  movq %r10, %rdi
+  movq %rdi, %r10
+  cmpq $0, %r10
+  je .L_किनारा_सञ्चिका_पढ़ो_रन_0
+  jmp .L_सञ्चिका_पढ़ो_रन__if_सत्य_1
+.L_किनारा_सञ्चिका_पढ़ो_रन_0:
+  jmp .L_सञ्चिका_पढ़ो_रन__if_अंत_2
+.L_सञ्चिका_पढ़ो_रन__if_अंत_2:
+  subq $32, %rsp
+  call सञ्चिका_कोष_तैयार
+  addq $32, %rsp
+  movq %rax, %rsi
+  movq $16, %rsi
+  movq %rbx, %r10
+  addq %rsi, %r10
+  movq %r10, %rdi
+  movq sutra_glob_सञ्चिका_पथ_बफ(%rip), %r10
+  movq %r10, %rbx
+  movq $4096, %rsi
+  movq %rdi, %rcx
+  movq %rbx, %rdx
+  movq %rsi, %r8
+  subq $32, %rsp
+  call सूत्र_तल_यूटीएफ_चौड़ा
+  addq $32, %rsp
+  movq %rax, %r12
+  movq %r12, -80(%rbp)
+  movq $0, %rbx
+  movq %r12, %rcx
+  movq %rbx, %rdx
+  subq $32, %rsp
+  call पाठ_तुल्य
+  addq $32, %rsp
+  movq %rax, %rsi
+  movq $0, -80(%rbp)
+  movq %rsi, %r10
+  cmpq $0, %r10
+  je .L_किनारा_सञ्चिका_पढ़ो_रन_1
+  jmp .L_सञ्चिका_पढ़ो_रन__if_सत्य_3
+.L_किनारा_सञ्चिका_पढ़ो_रन_1:
+  jmp .L_सञ्चिका_पढ़ो_रन__if_अंत_4
+.L_सञ्चिका_पढ़ो_रन__if_अंत_4:
+  movq sutra_glob_सञ्चिका_पथ_बफ(%rip), %r10
+  movq %r10, %rbx
+  movq %rbx, %rcx
+  subq $32, %rsp
+  call सूत्र_तल_सञ्चिका_खोलो_प
+  addq $32, %rsp
+  movq %rax, %rsi
+  movq %rsi, -88(%rbp)
+  movq $1, %rbx
+  movq %rbx, %r10
+  negq %r10
+  movq %r10, %rdi
+  movq %rsi, %r10
+  cmpq %rdi, %r10
+  sete %al
+  movzbq %al, %r10
+  movq %r10, %rbx
+  movq %rbx, %r10
+  cmpq $0, %r10
+  je .L_किनारा_सञ्चिका_पढ़ो_रन_2
+  jmp .L_सञ्चिका_पढ़ो_रन__if_सत्य_5
+.L_किनारा_सञ्चिका_पढ़ो_रन_2:
+  jmp .L_सञ्चिका_पढ़ो_रन__if_अंत_6
+.L_सञ्चिका_पढ़ो_रन__if_अंत_6:
+  movq %rsi, %rcx
+  subq $32, %rsp
+  call सूत्र_तल_सञ्चिका_आकार
+  addq $32, %rsp
+  movq %rax, %rbx
+  movq %rbx, -96(%rbp)
+  movq $0, %rdi
+  movq %rbx, %r10
+  cmpq %rdi, %r10
+  setl %al
+  movzbq %al, %r10
+  movq %r10, %r12
+  movq %r12, %r10
+  cmpq $0, %r10
+  je .L_किनारा_सञ्चिका_पढ़ो_रन_3
+  jmp .L_सञ्चिका_पढ़ो_रन__sc_लघु_8
+.L_किनारा_सञ्चिका_पढ़ो_रन_3:
+  jmp .L_सञ्चिका_पढ़ो_रन__sc_दायाँ_7
+.L_सञ्चिका_पढ़ो_रन__sc_दायाँ_7:
+  movq $2147483647, %rdi
+  movq %rbx, %r10
+  cmpq %rdi, %r10
+  setg %al
+  movzbq %al, %r10
+  movq %r10, %r12
+  movq %r12, %rdi
+  jmp .L_सञ्चिका_पढ़ो_रन__sc_अंत_9
+.L_सञ्चिका_पढ़ो_रन__sc_लघु_8:
+  movq $1, %rdi
+  jmp .L_सञ्चिका_पढ़ो_रन__sc_अंत_9
+.L_सञ्चिका_पढ़ो_रन__sc_अंत_9:
+  movq %rdi, %r10
+  cmpq $0, %r10
+  je .L_किनारा_सञ्चिका_पढ़ो_रन_4
+  jmp .L_सञ्चिका_पढ़ो_रन__if_सत्य_10
+.L_किनारा_सञ्चिका_पढ़ो_रन_4:
+  jmp .L_सञ्चिका_पढ़ो_रन__if_अंत_11
+.L_सञ्चिका_पढ़ो_रन__if_अंत_11:
+  movq %rbx, %rcx
+  subq $32, %rsp
+  call पाठ_आवंटित
+  addq $32, %rsp
+  movq %rax, %rdi
+  movq %rdi, -104(%rbp)
+  movq $0, %r12
+  jmp .L_सञ्चिका_पढ़ो_रन__wh_शर्त_12
+.L_सञ्चिका_पढ़ो_रन__wh_शर्त_12:
+  movq %r12, -112(%rbp)
+  movq %r12, %r10
+  cmpq %rbx, %r10
+  setl %al
+  movzbq %al, %r10
+  movq %r10, %r13
+  movq %r13, %r10
+  cmpq $0, %r10
+  je .L_किनारा_सञ्चिका_पढ़ो_रन_5
+  jmp .L_सञ्चिका_पढ़ो_रन__wh_देह_13
+.L_किनारा_सञ्चिका_पढ़ो_रन_5:
+  jmp .L_सञ्चिका_पढ़ो_रन__wh_अंत_14
+.L_सञ्चिका_पढ़ो_रन__wh_देह_13:
+  movq $16, %r13
+  movq %rdi, %r10
+  addq %r13, %r10
+  movq %r10, %r14
+  movq %r14, %r10
+  addq %r12, %r10
+  movq %r10, %r13
+  movq %rbx, %r10
+  subq %r12, %r10
+  movq %r10, %r14
+  movq %rsi, %rcx
+  movq %r13, %rdx
+  movq %r14, %r8
+  subq $32, %rsp
+  call सूत्र_तल_पढ़ो
+  addq $32, %rsp
+  movq %rax, %r15
+  movq $0, %r13
+  movq %r15, %r10
+  cmpq %r13, %r10
+  sete %al
+  movzbq %al, %r10
+  movq %r10, %r14
+  movq %r14, %r10
+  cmpq $0, %r10
+  je .L_किनारा_सञ्चिका_पढ़ो_रन_6
+  jmp .L_सञ्चिका_पढ़ो_रन__if_सत्य_15
+.L_किनारा_सञ्चिका_पढ़ो_रन_6:
+  jmp .L_सञ्चिका_पढ़ो_रन__if_अंत_16
+.L_सञ्चिका_पढ़ो_रन__if_अंत_16:
+  movq %r12, %r10
+  addq %r15, %r10
+  movq %r10, %r13
+  movq %r13, %r12
+  jmp .L_सञ्चिका_पढ़ो_रन__wh_शर्त_12
+.L_सञ्चिका_पढ़ो_रन__if_सत्य_15:
+  jmp .L_सञ्चिका_पढ़ो_रन__wh_अंत_14
+.L_सञ्चिका_पढ़ो_रन__wh_अंत_14:
+  movq $8, %rbx
+  movq %rdi, %r10
+  movq %rbx, %r11
+  movq %r12, %r8
+  movq %r8, (%r10,%r11)
+  movq %r12, %r13
+  movq $16, %rbx
+  movq %rbx, %r10
+  addq %r12, %r10
+  movq %r10, %r13
+  movq $0, -112(%rbp)
+  movq $0, %rbx
+  movq %rdi, %r10
+  movq %r13, %r11
+  movq %rbx, %r8
+  movb %r8b, (%r10,%r11)
+  movq %rbx, %r12
+  movq %rsi, %rcx
+  subq $32, %rsp
+  call सूत्र_तल_हैंडल_बंद
+  addq $32, %rsp
+  movq %rax, %rbx
+  movq %rdi, %rax
+  jmp .L_epilogue_सञ्चिका_पढ़ो_रन
+.L_सञ्चिका_पढ़ो_रन__if_सत्य_10:
+  movq %rsi, %rcx
+  subq $32, %rsp
+  call सूत्र_तल_हैंडल_बंद
+  addq $32, %rsp
+  movq %rax, %rbx
+  movq $0, -88(%rbp)
+  movq $0, %rbx
+  movq %rbx, %rcx
+  subq $32, %rsp
+  call पाठ_आवंटित
+  addq $32, %rsp
+  movq %rax, %rsi
+  movq %rsi, %rax
+  jmp .L_epilogue_सञ्चिका_पढ़ो_रन
+.L_सञ्चिका_पढ़ो_रन__if_सत्य_5:
+  movq $0, %rbx
+  movq %rbx, %rcx
+  subq $32, %rsp
+  call पाठ_आवंटित
+  addq $32, %rsp
+  movq %rax, %rsi
+  movq %rsi, %rax
+  jmp .L_epilogue_सञ्चिका_पढ़ो_रन
+.L_सञ्चिका_पढ़ो_रन__if_सत्य_3:
+  movq $0, %rbx
+  movq %rbx, %rcx
+  subq $32, %rsp
+  call पाठ_आवंटित
+  addq $32, %rsp
+  movq %rax, %rsi
+  movq %rsi, %rax
+  jmp .L_epilogue_सञ्चिका_पढ़ो_रन
+.L_सञ्चिका_पढ़ो_रन__if_सत्य_1:
+  movq $0, %rbx
+  movq %rbx, %rcx
+  subq $32, %rsp
+  call पाठ_आवंटित
+  addq $32, %rsp
+  movq %rax, %rsi
+  movq %rsi, %rax
+  jmp .L_epilogue_सञ्चिका_पढ़ो_रन
+.L_epilogue_सञ्चिका_पढ़ो_रन:
+  subl $5, gc_roots_count(%rip)
+  movq -8(%rbp), %rbx
+  movq -16(%rbp), %rsi
+  movq -24(%rbp), %rdi
+  movq -32(%rbp), %r12
+  movq -40(%rbp), %r13
+  movq -48(%rbp), %r14
+  movq -56(%rbp), %r15
+  movq %rbp, %rsp
+  popq %rbp
+  ret
+
+  .text
+  .globl सञ्चिका_लिखो_रन
+  .def सञ्चिका_लिखो_रन; .scl 2; .type 32; .endef
+सञ्चिका_लिखो_रन:
+  pushq %rbp
+  movq %rsp, %rbp
+  subq $128, %rsp
+  movq %rbx, -8(%rbp)
+  movq %rsi, -16(%rbp)
+  movq %rdi, -24(%rbp)
+  movq %r12, -32(%rbp)
+  movq %r13, -40(%rbp)
+  movq %r14, -48(%rbp)
+  movq %r15, -56(%rbp)
+  movq %rcx, %rbx
+  movq %rdx, %rsi
+  movq $0, -88(%rbp)
+  movq $0, -96(%rbp)
+  movq $0, -104(%rbp)
+  movq $0, -112(%rbp)
+  movl gc_roots_count(%rip), %eax
+  leaq gc_roots(%rip), %r10
+  leaq -88(%rbp), %r11
+  movq %r11, (%r10,%rax,8)
+  incl %eax
+  leaq -96(%rbp), %r11
+  movq %r11, (%r10,%rax,8)
+  incl %eax
+  leaq -104(%rbp), %r11
+  movq %r11, (%r10,%rax,8)
+  incl %eax
+  leaq -112(%rbp), %r11
+  movq %r11, (%r10,%rax,8)
+  incl %eax
+  movl %eax, gc_roots_count(%rip)
+
+.L_सञ्चिका_लिखो_रन__प्रवेश_0:
+  movq $0, %rdi
+  movq %rbx, %r10
+  cmpq %rdi, %r10
+  sete %al
+  movzbq %al, %r10
+  movq %r10, %r12
+  movq %r12, %r10
+  cmpq $0, %r10
+  je .L_किनारा_सञ्चिका_लिखो_रन_0
+  jmp .L_सञ्चिका_लिखो_रन__sc_लघु_2
+.L_किनारा_सञ्चिका_लिखो_रन_0:
+  jmp .L_सञ्चिका_लिखो_रन__sc_दायाँ_1
+.L_सञ्चिका_लिखो_रन__sc_दायाँ_1:
+  movq $0, %rdi
+  movq %rsi, %r10
+  cmpq %rdi, %r10
+  sete %al
+  movzbq %al, %r10
+  movq %r10, %r12
+  movq %r12, %rdi
+  jmp .L_सञ्चिका_लिखो_रन__sc_अंत_3
+.L_सञ्चिका_लिखो_रन__sc_लघु_2:
+  movq $1, %rdi
+  jmp .L_सञ्चिका_लिखो_रन__sc_अंत_3
+.L_सञ्चिका_लिखो_रन__sc_अंत_3:
+  movq %rdi, %r10
+  cmpq $0, %r10
+  je .L_किनारा_सञ्चिका_लिखो_रन_1
+  jmp .L_सञ्चिका_लिखो_रन__if_सत्य_4
+.L_किनारा_सञ्चिका_लिखो_रन_1:
+  jmp .L_सञ्चिका_लिखो_रन__if_अंत_5
+.L_सञ्चिका_लिखो_रन__if_अंत_5:
+  subq $32, %rsp
+  call सञ्चिका_कोष_तैयार
+  addq $32, %rsp
+  movq %rax, %rdi
+  movq $16, %rdi
+  movq %rbx, %r10
+  addq %rdi, %r10
+  movq %r10, %r12
+  movq sutra_glob_सञ्चिका_पथ_बफ(%rip), %r10
+  movq %r10, %rbx
+  movq $4096, %rdi
+  movq %r12, %rcx
+  movq %rbx, %rdx
+  movq %rdi, %r8
+  subq $32, %rsp
+  call सूत्र_तल_यूटीएफ_चौड़ा
+  addq $32, %rsp
+  movq %rax, %r13
+  movq %r13, -88(%rbp)
+  movq $0, %rbx
+  movq %r13, %rcx
+  movq %rbx, %rdx
+  subq $32, %rsp
+  call पाठ_तुल्य
+  addq $32, %rsp
+  movq %rax, %rdi
+  movq $0, -88(%rbp)
+  movq %rdi, %r10
+  cmpq $0, %r10
+  je .L_किनारा_सञ्चिका_लिखो_रन_2
+  jmp .L_सञ्चिका_लिखो_रन__if_सत्य_6
+.L_किनारा_सञ्चिका_लिखो_रन_2:
+  jmp .L_सञ्चिका_लिखो_रन__if_अंत_7
+.L_सञ्चिका_लिखो_रन__if_अंत_7:
+  movq sutra_glob_सञ्चिका_पथ_बफ(%rip), %r10
+  movq %r10, %rbx
+  movq %rbx, %rcx
+  subq $32, %rsp
+  call सूत्र_तल_सञ्चिका_खोलो_ल
+  addq $32, %rsp
+  movq %rax, %rdi
+  movq %rdi, -96(%rbp)
+  movq $1, %rbx
+  movq %rbx, %r10
+  negq %r10
+  movq %r10, %r12
+  movq %rdi, %r10
+  cmpq %r12, %r10
+  sete %al
+  movzbq %al, %r10
+  movq %r10, %rbx
+  movq %rbx, %r10
+  cmpq $0, %r10
+  je .L_किनारा_सञ्चिका_लिखो_रन_3
+  jmp .L_सञ्चिका_लिखो_रन__if_सत्य_8
+.L_किनारा_सञ्चिका_लिखो_रन_3:
+  jmp .L_सञ्चिका_लिखो_रन__if_अंत_9
+.L_सञ्चिका_लिखो_रन__if_अंत_9:
+  movq $8, %rbx
+  movq %rsi, %r10
+  movq %rbx, %r11
+  movq (%r10,%r11), %r10
+  movq %r10, %r12
+  movq $0, %rbx
+  movq $1, %r13
+  movq %rbx, -72(%rbp)
+  jmp .L_सञ्चिका_लिखो_रन__wh_शर्त_10
+.L_सञ्चिका_लिखो_रन__wh_शर्त_10:
+  movq -72(%rbp), %r11
+  movq %r11, -104(%rbp)
+  movq -72(%rbp), %r10
+  cmpq %r12, %r10
+  setl %al
+  movzbq %al, %r10
+  movq %r10, %r14
+  movq %r14, %r10
+  cmpq $0, %r10
+  je .L_किनारा_सञ्चिका_लिखो_रन_4
+  jmp .L_सञ्चिका_लिखो_रन__wh_देह_11
+.L_किनारा_सञ्चिका_लिखो_रन_4:
+  movq %r13, %rbx
+  jmp .L_सञ्चिका_लिखो_रन__wh_अंत_12
+.L_सञ्चिका_लिखो_रन__wh_देह_11:
+  movq $16, %r14
+  movq %rsi, %r10
+  addq %r14, %r10
+  movq %r10, %r15
+  movq %r15, %r10
+  addq -72(%rbp), %r10
+  movq %r10, %r14
+  movq %r12, %r10
+  subq -72(%rbp), %r10
+  movq %r10, %r15
+  movq %rdi, %rcx
+  movq %r14, %rdx
+  movq %r15, %r8
+  subq $32, %rsp
+  call सूत्र_तल_लिखो
+  addq $32, %rsp
+  movq %rax, %rbx
+  movq $0, %r14
+  movq %rbx, %r10
+  cmpq %r14, %r10
+  sete %al
+  movzbq %al, %r10
+  movq %r10, %r15
+  movq %r15, %r10
+  cmpq $0, %r10
+  je .L_किनारा_सञ्चिका_लिखो_रन_5
+  jmp .L_सञ्चिका_लिखो_रन__if_सत्य_13
+.L_किनारा_सञ्चिका_लिखो_रन_5:
+  jmp .L_सञ्चिका_लिखो_रन__if_अंत_14
+.L_सञ्चिका_लिखो_रन__if_अंत_14:
+  movq -72(%rbp), %r10
+  addq %rbx, %r10
+  movq %r10, %r14
+  movq %r14, -72(%rbp)
+  jmp .L_सञ्चिका_लिखो_रन__wh_शर्त_10
+.L_सञ्चिका_लिखो_रन__if_सत्य_13:
+  movq $0, %rbx
+  jmp .L_सञ्चिका_लिखो_रन__wh_अंत_12
+.L_सञ्चिका_लिखो_रन__wh_अंत_12:
+  movq %rbx, -112(%rbp)
+  movq %rdi, %rcx
+  subq $32, %rsp
+  call सूत्र_तल_हैंडल_बंद
+  addq $32, %rsp
+  movq %rax, %rsi
+  movq $0, -96(%rbp)
+  movq $1, %rsi
+  movq %rbx, %r10
+  cmpq %rsi, %r10
+  sete %al
+  movzbq %al, %r10
+  movq %r10, %rdi
+  movq $0, -112(%rbp)
+  movq %rdi, %r10
+  cmpq $0, %r10
+  je .L_किनारा_सञ्चिका_लिखो_रन_6
+  jmp .L_सञ्चिका_लिखो_रन__if_सत्य_15
+.L_किनारा_सञ्चिका_लिखो_रन_6:
+  jmp .L_सञ्चिका_लिखो_रन__if_अंत_16
+.L_सञ्चिका_लिखो_रन__if_सत्य_15:
+  movq -72(%rbp), %r10
+  cmpq %r12, %r10
+  sete %al
+  movzbq %al, %r10
+  movq %r10, %rbx
+  movq $0, -104(%rbp)
+  movq %rbx, %r10
+  cmpq $0, %r10
+  je .L_किनारा_सञ्चिका_लिखो_रन_7
+  jmp .L_सञ्चिका_लिखो_रन__if_सत्य_17
+.L_किनारा_सञ्चिका_लिखो_रन_7:
+  jmp .L_सञ्चिका_लिखो_रन__if_अंत_18
+.L_सञ्चिका_लिखो_रन__if_अंत_18:
+  jmp .L_सञ्चिका_लिखो_रन__if_अंत_16
+.L_सञ्चिका_लिखो_रन__if_अंत_16:
+  movq $0, %rbx
+  movq %rbx, %rax
+  jmp .L_epilogue_सञ्चिका_लिखो_रन
+.L_सञ्चिका_लिखो_रन__if_सत्य_17:
+  movq $1, %rbx
+  movq %rbx, %rax
+  jmp .L_epilogue_सञ्चिका_लिखो_रन
+.L_सञ्चिका_लिखो_रन__if_सत्य_8:
+  movq $0, %rbx
+  movq %rbx, %rax
+  jmp .L_epilogue_सञ्चिका_लिखो_रन
+.L_सञ्चिका_लिखो_रन__if_सत्य_6:
+  movq $0, %rbx
+  movq %rbx, %rax
+  jmp .L_epilogue_सञ्चिका_लिखो_रन
+.L_सञ्चिका_लिखो_रन__if_सत्य_4:
+  movq $0, %rbx
+  movq %rbx, %rax
+  jmp .L_epilogue_सञ्चिका_लिखो_रन
+.L_epilogue_सञ्चिका_लिखो_रन:
+  subl $4, gc_roots_count(%rip)
+  movq -8(%rbp), %rbx
+  movq -16(%rbp), %rsi
+  movq -24(%rbp), %rdi
+  movq -32(%rbp), %r12
+  movq -40(%rbp), %r13
+  movq -48(%rbp), %r14
+  movq -56(%rbp), %r15
+  movq %rbp, %rsp
+  popq %rbp
+  ret
+
+  .text
+  .globl समादेश_उपसर्ग
+  .def समादेश_उपसर्ग; .scl 2; .type 32; .endef
+समादेश_उपसर्ग:
+  pushq %rbp
+  movq %rsp, %rbp
+  subq $32, %rsp
+  movq %rbx, -8(%rbp)
+
+.L_समादेश_उपसर्ग__प्रवेश_0:
+  leaq .LC_str_23(%rip), %rcx
+  movq .LC_str_23_len(%rip), %rdx
+  subq $32, %rsp
+  call sutra_str_alloc
+  addq $32, %rsp
+  movq %rax, %rbx
+  movq %rbx, %rax
+  jmp .L_epilogue_समादेश_उपसर्ग
+.L_epilogue_समादेश_उपसर्ग:
+  movq -8(%rbp), %rbx
+  movq %rbp, %rsp
+  popq %rbp
+  ret
+
+  .text
+  .globl समादेश_चलाओ_रन
+  .def समादेश_चलाओ_रन; .scl 2; .type 32; .endef
+समादेश_चलाओ_रन:
+  pushq %rbp
+  movq %rsp, %rbp
+  subq $80, %rsp
+  movq %rbx, -8(%rbp)
+  movq %rsi, -16(%rbp)
+  movq %rdi, -24(%rbp)
+  movq %r12, -32(%rbp)
+  movq %rcx, %rbx
+  movq $0, -56(%rbp)
+  movq $0, -64(%rbp)
+  movq $0, -72(%rbp)
+  movl gc_roots_count(%rip), %eax
+  leaq gc_roots(%rip), %r10
+  leaq -56(%rbp), %r11
+  movq %r11, (%r10,%rax,8)
+  incl %eax
+  leaq -64(%rbp), %r11
+  movq %r11, (%r10,%rax,8)
+  incl %eax
+  leaq -72(%rbp), %r11
+  movq %r11, (%r10,%rax,8)
+  incl %eax
+  movl %eax, gc_roots_count(%rip)
+
+.L_समादेश_चलाओ_रन__प्रवेश_0:
+  movq $0, %rsi
+  movq %rbx, %r10
+  cmpq %rsi, %r10
+  sete %al
+  movzbq %al, %r10
+  movq %r10, %rdi
+  movq %rdi, %r10
+  cmpq $0, %r10
+  je .L_किनारा_समादेश_चलाओ_रन_0
+  jmp .L_समादेश_चलाओ_रन__if_सत्य_1
+.L_किनारा_समादेश_चलाओ_रन_0:
+  jmp .L_समादेश_चलाओ_रन__if_अंत_2
+.L_समादेश_चलाओ_रन__if_अंत_2:
+  subq $32, %rsp
+  call सञ्चिका_कोष_तैयार
+  addq $32, %rsp
+  movq %rax, %rsi
+  subq $32, %rsp
+  call सूत्र_जीसी_दबाओ
+  addq $32, %rsp
+  movq %rax, %rsi
+  subq $32, %rsp
+  call समादेश_उपसर्ग
+  addq $32, %rsp
+  movq %rax, %rsi
+  movq %rsi, -56(%rbp)
+  movq %rsi, %rcx
+  movq %rbx, %rdx
+  subq $32, %rsp
+  call पाठ_जोड़
+  addq $32, %rsp
+  movq %rax, %rdi
+  movq %rdi, -64(%rbp)
+  movq $0, -56(%rbp)
+  subq $32, %rsp
+  call सूत्र_जीसी_छोड़ो
+  addq $32, %rsp
+  movq %rax, %rbx
+  movq $16, %rbx
+  movq %rdi, %r10
+  addq %rbx, %r10
+  movq %r10, %rsi
+  movq $0, -64(%rbp)
+  movq sutra_glob_सञ्चिका_समादेश_बफ(%rip), %r10
+  movq %r10, %rbx
+  movq $131072, %rdi
+  movq %rsi, %rcx
+  movq %rbx, %rdx
+  movq %rdi, %r8
+  subq $32, %rsp
+  call सूत्र_तल_यूटीएफ_चौड़ा
+  addq $32, %rsp
+  movq %rax, %r12
+  movq %r12, -72(%rbp)
+  movq $0, %rbx
+  movq %r12, %rcx
+  movq %rbx, %rdx
+  subq $32, %rsp
+  call पाठ_तुल्य
+  addq $32, %rsp
+  movq %rax, %rsi
+  movq $0, -72(%rbp)
+  movq %rsi, %r10
+  cmpq $0, %r10
+  je .L_किनारा_समादेश_चलाओ_रन_1
+  jmp .L_समादेश_चलाओ_रन__if_सत्य_3
+.L_किनारा_समादेश_चलाओ_रन_1:
+  jmp .L_समादेश_चलाओ_रन__if_अंत_4
+.L_समादेश_चलाओ_रन__if_अंत_4:
+  movq sutra_glob_सञ्चिका_समादेश_बफ(%rip), %r10
+  movq %r10, %rbx
+  movq %rbx, %rcx
+  subq $32, %rsp
+  call सूत्र_तल_समादेश
+  addq $32, %rsp
+  movq %rax, %rsi
+  movq %rsi, %rax
+  jmp .L_epilogue_समादेश_चलाओ_रन
+.L_समादेश_चलाओ_रन__if_सत्य_3:
+  movq $1, %rbx
+  movq %rbx, %r10
+  negq %r10
+  movq %r10, %rsi
+  movq %rsi, %rax
+  jmp .L_epilogue_समादेश_चलाओ_रन
+.L_समादेश_चलाओ_रन__if_सत्य_1:
+  movq $1, %rbx
+  movq %rbx, %r10
+  negq %r10
+  movq %r10, %rsi
+  movq %rsi, %rax
+  jmp .L_epilogue_समादेश_चलाओ_रन
+.L_epilogue_समादेश_चलाओ_रन:
+  subl $3, gc_roots_count(%rip)
+  movq -8(%rbp), %rbx
+  movq -16(%rbp), %rsi
+  movq -24(%rbp), %rdi
+  movq -32(%rbp), %r12
+  movq %rbp, %rsp
+  popq %rbp
+  ret
+
+  .text
+  .globl तर्क_आरंभ_रन
+  .def तर्क_आरंभ_रन; .scl 2; .type 32; .endef
+तर्क_आरंभ_रन:
+  pushq %rbp
+  movq %rsp, %rbp
+  subq $80, %rsp
+  movq %rbx, -8(%rbp)
+  movq %rsi, -16(%rbp)
+  movq %rdi, -24(%rbp)
+  movq %r12, -32(%rbp)
+  movq %r13, -40(%rbp)
+  movq $0, -64(%rbp)
+  movl gc_roots_count(%rip), %eax
+  leaq gc_roots(%rip), %r10
+  leaq -64(%rbp), %r11
+  movq %r11, (%r10,%rax,8)
+  incl %eax
+  movl %eax, gc_roots_count(%rip)
+
+.L_तर्क_आरंभ_रन__प्रवेश_0:
+  movq sutra_glob_तर्क_तैयार(%rip), %r10
+  movq %r10, %rbx
+  movq $1, %rsi
+  movq %rbx, %r10
+  cmpq %rsi, %r10
+  sete %al
+  movzbq %al, %r10
+  movq %r10, %rdi
+  movq %rdi, %r10
+  cmpq $0, %r10
+  je .L_किनारा_तर्क_आरंभ_रन_0
+  jmp .L_तर्क_आरंभ_रन__if_सत्य_1
+.L_किनारा_तर्क_आरंभ_रन_0:
+  jmp .L_तर्क_आरंभ_रन__if_अंत_2
+.L_तर्क_आरंभ_रन__if_अंत_2:
+  subq $32, %rsp
+  call सञ्चिका_कोष_तैयार
+  addq $32, %rsp
+  movq %rax, %rbx
+  subq $32, %rsp
+  call सूत्र_तल_समादेश_रेखा
+  addq $32, %rsp
+  movq %rax, %rbx
+  movq %rbx, -64(%rbp)
+  movq $8, %rsi
+  movq %rsi, %rcx
+  subq $32, %rsp
+  call सूत्र_तल_आवंटन
+  addq $32, %rsp
+  movq %rax, %rdi
+  movq $0, %rsi
+  movq $0, %r12
+  movq %rdi, %r10
+  movq %rsi, %r11
+  movq %r12, %r8
+  movq %r8, (%r10,%r11)
+  movq %r12, %r13
+  movq %rbx, %rcx
+  movq %rdi, %rdx
+  subq $32, %rsp
+  call सूत्र_तल_समादेश_विभाजन
+  addq $32, %rsp
+  movq %rax, %rsi
+  movq $0, -64(%rbp)
+  movq %rsi, %r10
+  movq %r10, sutra_glob_तर्क_डब्ल्यू(%rip)
+  movq sutra_glob_तर्क_डब्ल्यू(%rip), %r10
+  movq %r10, %rbx
+  movq $0, %rsi
+  movq %rbx, %r10
+  cmpq %rsi, %r10
+  sete %al
+  movzbq %al, %r10
+  movq %r10, %r12
+  movq %r12, %r10
+  cmpq $0, %r10
+  je .L_किनारा_तर्क_आरंभ_रन_1
+  jmp .L_तर्क_आरंभ_रन__if_सत्य_3
+.L_किनारा_तर्क_आरंभ_रन_1:
+  jmp .L_तर्क_आरंभ_रन__if_असत्य_5
+.L_तर्क_आरंभ_रन__if_असत्य_5:
+  movq $0, %rbx
+  movq %rdi, %r10
+  movq %rbx, %r11
+  movq (%r10,%r11), %r10
+  movq %r10, %rsi
+  movq $4294967296, %rbx
+  movq %rsi, %rax
+  movq %rbx, %r10
+  cqto
+  idivq %r10
+  movq %rdx, %r12
+  movq %r12, %r10
+  movq %r10, sutra_glob_तर्क_गण(%rip)
+  jmp .L_तर्क_आरंभ_रन__if_अंत_4
+.L_तर्क_आरंभ_रन__if_सत्य_3:
+  movq $0, %rbx
+  movq %rbx, %r10
+  movq %r10, sutra_glob_तर्क_गण(%rip)
+  jmp .L_तर्क_आरंभ_रन__if_अंत_4
+.L_तर्क_आरंभ_रन__if_अंत_4:
+  movq %rdi, %rcx
+  subq $32, %rsp
+  call सूत्र_तल_मुक्त
+  addq $32, %rsp
+  movq %rax, %rbx
+  movq $1, %rbx
+  movq %rbx, %r10
+  movq %r10, sutra_glob_तर्क_तैयार(%rip)
+  movq $0, %rbx
+  movq %rbx, %rax
+  jmp .L_epilogue_तर्क_आरंभ_रन
+.L_तर्क_आरंभ_रन__if_सत्य_1:
+  movq $0, %rbx
+  movq %rbx, %rax
+  jmp .L_epilogue_तर्क_आरंभ_रन
+.L_epilogue_तर्क_आरंभ_रन:
+  subl $1, gc_roots_count(%rip)
+  movq -8(%rbp), %rbx
+  movq -16(%rbp), %rsi
+  movq -24(%rbp), %rdi
+  movq -32(%rbp), %r12
+  movq -40(%rbp), %r13
+  movq %rbp, %rsp
+  popq %rbp
+  ret
+
+  .text
+  .globl तर्क_सूची_रन
+  .def तर्क_सूची_रन; .scl 2; .type 32; .endef
+तर्क_सूची_रन:
+  pushq %rbp
+  movq %rsp, %rbp
+  subq $112, %rsp
+  movq %rbx, -8(%rbp)
+  movq %rsi, -16(%rbp)
+  movq %rdi, -24(%rbp)
+  movq %r12, -32(%rbp)
+  movq %r13, -40(%rbp)
+  movq %r14, -48(%rbp)
+  movq $0, -72(%rbp)
+  movq $0, -80(%rbp)
+  movq $0, -88(%rbp)
+  movq $0, -96(%rbp)
+  movl gc_roots_count(%rip), %eax
+  leaq gc_roots(%rip), %r10
+  leaq -72(%rbp), %r11
+  movq %r11, (%r10,%rax,8)
+  incl %eax
+  leaq -80(%rbp), %r11
+  movq %r11, (%r10,%rax,8)
+  incl %eax
+  leaq -88(%rbp), %r11
+  movq %r11, (%r10,%rax,8)
+  incl %eax
+  leaq -96(%rbp), %r11
+  movq %r11, (%r10,%rax,8)
+  incl %eax
+  movl %eax, gc_roots_count(%rip)
+
+.L_तर्क_सूची_रन__प्रवेश_0:
+  subq $32, %rsp
+  call तर्क_आरंभ_रन
+  addq $32, %rsp
+  movq %rax, %rbx
+  subq $32, %rsp
+  call सूत्र_जीसी_दबाओ
+  addq $32, %rsp
+  movq %rax, %rbx
+  movq sutra_glob_तर्क_गण(%rip), %r10
+  movq %r10, %rbx
+  movq %rbx, %rcx
+  subq $32, %rsp
+  call सूची_रचना
+  addq $32, %rsp
+  movq %rax, %rsi
+  movq %rsi, -72(%rbp)
+  movq $0, %rbx
+  jmp .L_तर्क_सूची_रन__wh_शर्त_1
+.L_तर्क_सूची_रन__wh_शर्त_1:
+  movq %rbx, -88(%rbp)
+  movq sutra_glob_तर्क_गण(%rip), %r10
+  movq %r10, %rdi
+  movq %rbx, %r10
+  cmpq %rdi, %r10
+  setl %al
+  movzbq %al, %r10
+  movq %r10, %r12
+  movq %r12, %r10
+  cmpq $0, %r10
+  je .L_किनारा_तर्क_सूची_रन_0
+  jmp .L_तर्क_सूची_रन__wh_देह_2
+.L_किनारा_तर्क_सूची_रन_0:
+  jmp .L_तर्क_सूची_रन__wh_अंत_3
+.L_तर्क_सूची_रन__wh_अंत_3:
+  subq $32, %rsp
+  call सूत्र_जीसी_छोड़ो
+  addq $32, %rsp
+  movq %rax, %rdi
+  movq %rsi, %rax
+  jmp .L_epilogue_तर्क_सूची_रन
+.L_तर्क_सूची_रन__wh_देह_2:
+  movq sutra_glob_तर्क_डब्ल्यू(%rip), %r10
+  movq %r10, %rdi
+  movq $8, %r12
+  movq %rbx, %r10
+  imulq %r12, %r10
+  movq %r10, %r13
+  movq %rdi, %r10
+  movq %r13, %r11
+  movq (%r10,%r11), %r10
+  movq %r10, %r12
+  movq sutra_glob_सञ्चिका_तर्क_बफ(%rip), %r10
+  movq %r10, %rdi
+  movq $65536, %r13
+  movq %r12, %rcx
+  movq %rdi, %rdx
+  movq %r13, %r8
+  subq $32, %rsp
+  call सूत्र_तल_चौड़ा_यूटीएफ
+  addq $32, %rsp
+  movq %rax, %r14
+  movq $1, %rdi
+  movq %r14, %r10
+  subq %rdi, %r10
+  movq %r10, %r12
+  movq $0, %rdi
+  movq %r12, %r10
+  cmpq %rdi, %r10
+  setl %al
+  movzbq %al, %r10
+  movq %r10, %r13
+  movq %r13, %r10
+  cmpq $0, %r10
+  je .L_किनारा_तर्क_सूची_रन_1
+  jmp .L_तर्क_सूची_रन__if_सत्य_4
+.L_किनारा_तर्क_सूची_रन_1:
+  movq %r12, %rdi
+  jmp .L_तर्क_सूची_रन__if_अंत_5
+.L_तर्क_सूची_रन__if_सत्य_4:
+  movq $0, %rdi
+  jmp .L_तर्क_सूची_रन__if_अंत_5
+.L_तर्क_सूची_रन__if_अंत_5:
+  movq %rdi, -96(%rbp)
+  movq $16, %r12
+  movq $8, %r13
+  movq %rbx, %r10
+  imulq %r13, %r10
+  movq %r10, %r14
+  movq %r12, %r10
+  addq %r14, %r10
+  movq %r10, %r13
+  movq sutra_glob_सञ्चिका_तर्क_बफ(%rip), %r10
+  movq %r10, %r12
+  movq %r12, %rcx
+  movq %rdi, %rdx
+  subq $32, %rsp
+  call पाठ_कच्चे_से
+  addq $32, %rsp
+  movq %rax, %r14
+  movq %r14, -80(%rbp)
+  movq $0, -96(%rbp)
+  movq %rsi, %r10
+  movq %r13, %r11
+  movq %r14, %r8
+  movq %r8, (%r10,%r11)
+  movq %r14, %rdi
+  movq $0, -80(%rbp)
+  movq $1, %rdi
+  movq %rbx, %r10
+  addq %rdi, %r10
+  movq %r10, %r12
+  movq $0, -88(%rbp)
+  movq %r12, %rbx
+  jmp .L_तर्क_सूची_रन__wh_शर्त_1
+.L_epilogue_तर्क_सूची_रन:
+  subl $4, gc_roots_count(%rip)
+  movq -8(%rbp), %rbx
+  movq -16(%rbp), %rsi
+  movq -24(%rbp), %rdi
+  movq -32(%rbp), %r12
+  movq -40(%rbp), %r13
+  movq -48(%rbp), %r14
+  movq %rbp, %rsp
+  popq %rbp
+  ret
+
   .data
   .globl sutra_glob_प्रयत्न_गहराई
 sutra_glob_प्रयत्न_गहराई:
@@ -10238,6 +11495,24 @@ sutra_glob_प्रयत्न_जड़_गण:
   .quad 0
   .globl sutra_glob_सक्रिय_अपवाद
 sutra_glob_सक्रिय_अपवाद:
+  .quad 0
+  .globl sutra_glob_सञ्चिका_पथ_बफ
+sutra_glob_सञ्चिका_पथ_बफ:
+  .quad 0
+  .globl sutra_glob_सञ्चिका_समादेश_बफ
+sutra_glob_सञ्चिका_समादेश_बफ:
+  .quad 0
+  .globl sutra_glob_सञ्चिका_तर्क_बफ
+sutra_glob_सञ्चिका_तर्क_बफ:
+  .quad 0
+  .globl sutra_glob_तर्क_तैयार
+sutra_glob_तर्क_तैयार:
+  .quad 0
+  .globl sutra_glob_तर्क_गण
+sutra_glob_तर्क_गण:
+  .quad 0
+  .globl sutra_glob_तर्क_डब्ल्यू
+sutra_glob_तर्क_डब्ल्यू:
   .quad 0
   .section .rdata,"dr"
 .LC_str_0:
@@ -10332,4 +11607,8 @@ sutra_glob_सक्रिय_अपवाद:
   .ascii "\340\244\244\340\245\215\340\244\260\340\245\201\340\244\237\340\244\277\340\244\203 \342\200\224 \340\244\270\340\244\202\340\244\257\340\245\213\340\244\234\340\244\277\340\244\244 \340\244\256\340\245\207\340\244\202 \340\244\270\340\245\202\340\244\232\340\245\200 \340\244\225\340\245\207 \340\244\270\340\244\255\340\245\200 \340\244\244\340\244\244\340\245\215\340\244\265 \340\244\252\340\244\276\340\244\240 \340\244\271\340\245\213\340\244\250\340\245\207 \340\244\232\340\244\276\340\244\271\340\244\277\340\244\217\340\245\244\0"
 .LC_str_22_len:
   .quad 142
+.LC_str_23:
+  .ascii "cmd.exe /c \0"
+.LC_str_23_len:
+  .quad 11
 

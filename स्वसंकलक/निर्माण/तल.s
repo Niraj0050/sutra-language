@@ -9,8 +9,11 @@
  *   सूत्र_तल_निकास(rcx = कोड)              -> कभी नहीं लौटता  [ExitProcess]
  *   memcpy / memmove / memset / memcmp / strlen — हाथ से (libc-मुक्त)
  *   _setjmp(rcx=env,rdx=frame) / सूत्र_दीर्घकूद(rcx=env,rdx=roots) — न्यूनतम, no-SEH
- *   gc_roots[] + gc_roots_count (.comm) + sutra_gc_push_root/pop_root/
+ *   gc_roots[] + gc_roots_count (.bss) + sutra_gc_push_root/pop_root/
  *     root_count/root_deref — GC रूट-स्टैक (Sutra संग्राहक इन्हें पढ़ता)
+ *   सूत्र_तल_{यूटीएफ_चौड़ा,चौड़ा_यूटीएफ,सञ्चिका_*,पढ़ो,लिखो,हैंडल_बंद,
+ *     समादेश_रेखा,समादेश_विभाजन,स्थानीय_मुक्त,समादेश} — सञ्चिका I/O + तर्क
+ *     + प्रक्रिया (kernel32/shell32; रचना मूल_रनटाइम.सूत्र में)
  *
  * Windows x64 ABI: तर्क rcx,rdx,r8,r9; 32-बाइट shadow; call पर rsp 16-संरेखित।
  * callee-preserved: rbx rbp rdi rsi rsp r12-r15.
@@ -510,4 +513,235 @@ sutra_gc_root_deref:
   ret
 .Lgrd_zero:
   xorl %eax, %eax
+  ret
+
+/* ============================================================
+ * सञ्चिका I/O + तर्क + समादेश — kernel32 / shell32 पतले wrappers।
+ * OS-तल का सञ्चिका-भाग (जैसे ऊपर VirtualAlloc / WriteFile)। सब ≤3
+ * तर्क लेते → Sutra से सीधे call, struct-मार्शलिंग यहीं बंद।
+ * रचना-तर्क (loop / बफ़र / UTF-8↔UTF-16) मूल_रनटाइम.सूत्र में।
+ * ऊपरी 32 बिट DWORD-वापसी पर movl %eax,%eax से शून्य-विस्तारित।
+ * ============================================================ */
+
+/* सूत्र_तल_यूटीएफ_चौड़ा(rcx=u8ptr, rdx=wdst, r8=wcap) -> rax = wchar गणना (0=विफल)
+ * MultiByteToWideChar(CP_UTF8, 0, u8ptr, -1, wdst, wcap) */
+  .globl सूत्र_तल_यूटीएफ_चौड़ा
+  .def सूत्र_तल_यूटीएफ_चौड़ा; .scl 2; .type 32; .endef
+सूत्र_तल_यूटीएफ_चौड़ा:
+  subq $56, %rsp
+  movq %rdx, 32(%rsp)        /* lpWideCharStr = wdst */
+  movq %r8, 40(%rsp)         /* cchWideChar   = wcap */
+  movq %rcx, %r8             /* lpMultiByteStr = u8ptr */
+  movl $65001, %ecx          /* CP_UTF8 */
+  xorl %edx, %edx            /* dwFlags = 0 */
+  movq $-1, %r9              /* cbMultiByte = -1 (null-सहित) */
+  call MultiByteToWideChar
+  movl %eax, %eax
+  addq $56, %rsp
+  ret
+
+/* सूत्र_तल_चौड़ा_यूटीएफ(rcx=wptr, rdx=u8dst, r8=u8cap) -> rax = बाइट गणना (null सहित; 0=विफल)
+ * WideCharToMultiByte(CP_UTF8, 0, wptr, -1, u8dst, u8cap, NULL, NULL) */
+  .globl सूत्र_तल_चौड़ा_यूटीएफ
+  .def सूत्र_तल_चौड़ा_यूटीएफ; .scl 2; .type 32; .endef
+सूत्र_तल_चौड़ा_यूटीएफ:
+  subq $72, %rsp
+  movq %rdx, 32(%rsp)        /* lpMultiByteStr    = u8dst */
+  movq %r8, 40(%rsp)         /* cbMultiByte       = u8cap */
+  movq $0, 48(%rsp)          /* lpDefaultChar     = NULL */
+  movq $0, 56(%rsp)          /* lpUsedDefaultChar = NULL */
+  movq %rcx, %r8             /* lpWideCharStr     = wptr */
+  movl $65001, %ecx
+  xorl %edx, %edx
+  movq $-1, %r9              /* cchWideChar = -1 */
+  call WideCharToMultiByte
+  movl %eax, %eax
+  addq $72, %rsp
+  ret
+
+/* सूत्र_तल_सञ्चिका_गुण(rcx=wpath) -> rax = GetFileAttributesW (0xFFFFFFFF = विफल) */
+  .globl सूत्र_तल_सञ्चिका_गुण
+  .def सूत्र_तल_सञ्चिका_गुण; .scl 2; .type 32; .endef
+सूत्र_तल_सञ्चिका_गुण:
+  subq $40, %rsp
+  call GetFileAttributesW
+  movl %eax, %eax
+  addq $40, %rsp
+  ret
+
+/* सूत्र_तल_सञ्चिका_खोलो_प(rcx=wpath) -> rax = handle (पढ़ने; -1 = विफल)
+ * CreateFileW(wpath, GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL) */
+  .globl सूत्र_तल_सञ्चिका_खोलो_प
+  .def सूत्र_तल_सञ्चिका_खोलो_प; .scl 2; .type 32; .endef
+सूत्र_तल_सञ्चिका_खोलो_प:
+  subq $72, %rsp
+  movl $0x80000000, %edx     /* GENERIC_READ (zero-ext) */
+  movl $1, %r8d              /* FILE_SHARE_READ */
+  xorl %r9d, %r9d            /* lpSecurityAttributes = NULL */
+  movq $3, 32(%rsp)          /* OPEN_EXISTING */
+  movq $0x80, 40(%rsp)       /* FILE_ATTRIBUTE_NORMAL */
+  movq $0, 48(%rsp)          /* hTemplateFile = NULL */
+  call CreateFileW
+  addq $72, %rsp
+  ret
+
+/* सूत्र_तल_सञ्चिका_खोलो_ल(rcx=wpath) -> rax = handle (लिखने; CREATE_ALWAYS; -1 = विफल) */
+  .globl सूत्र_तल_सञ्चिका_खोलो_ल
+  .def सूत्र_तल_सञ्चिका_खोलो_ल; .scl 2; .type 32; .endef
+सूत्र_तल_सञ्चिका_खोलो_ल:
+  subq $72, %rsp
+  movl $0x40000000, %edx     /* GENERIC_WRITE */
+  xorl %r8d, %r8d            /* dwShareMode = 0 */
+  xorl %r9d, %r9d
+  movq $2, 32(%rsp)          /* CREATE_ALWAYS */
+  movq $0x80, 40(%rsp)
+  movq $0, 48(%rsp)
+  call CreateFileW
+  addq $72, %rsp
+  ret
+
+/* सूत्र_तल_सञ्चिका_आकार(rcx=handle) -> rax = बाइट्स (-1 = विफल) */
+  .globl सूत्र_तल_सञ्चिका_आकार
+  .def सूत्र_तल_सञ्चिका_आकार; .scl 2; .type 32; .endef
+सूत्र_तल_सञ्चिका_आकार:
+  subq $40, %rsp
+  leaq 32(%rsp), %rdx        /* &LARGE_INTEGER (pad slot = scratch) */
+  call GetFileSizeEx
+  testl %eax, %eax
+  jz .Lfsz_fail
+  movq 32(%rsp), %rax
+  addq $40, %rsp
+  ret
+.Lfsz_fail:
+  movq $-1, %rax
+  addq $40, %rsp
+  ret
+
+/* सूत्र_तल_पढ़ो(rcx=handle, rdx=buf, r8=n) -> rax = बाइट्स पढ़े (0 = EOF/विफल) */
+  .globl सूत्र_तल_पढ़ो
+  .def सूत्र_तल_पढ़ो; .scl 2; .type 32; .endef
+सूत्र_तल_पढ़ो:
+  subq $56, %rsp
+  movq $0, 32(%rsp)          /* lpOverlapped = NULL */
+  movl $0, 40(%rsp)          /* bytesRead scratch */
+  leaq 40(%rsp), %r9
+  call ReadFile
+  testl %eax, %eax
+  jz .Lrd_fail
+  movl 40(%rsp), %eax
+  addq $56, %rsp
+  ret
+.Lrd_fail:
+  xorl %eax, %eax
+  addq $56, %rsp
+  ret
+
+/* सूत्र_तल_लिखो(rcx=handle, rdx=buf, r8=n) -> rax = बाइट्स लिखे (0 = विफल) */
+  .globl सूत्र_तल_लिखो
+  .def सूत्र_तल_लिखो; .scl 2; .type 32; .endef
+सूत्र_तल_लिखो:
+  subq $56, %rsp
+  movq $0, 32(%rsp)
+  movl $0, 40(%rsp)
+  leaq 40(%rsp), %r9
+  call WriteFile
+  testl %eax, %eax
+  jz .Lwr_fail
+  movl 40(%rsp), %eax
+  addq $56, %rsp
+  ret
+.Lwr_fail:
+  xorl %eax, %eax
+  addq $56, %rsp
+  ret
+
+/* सूत्र_तल_हैंडल_बंद(rcx=handle) -> CloseHandle */
+  .globl सूत्र_तल_हैंडल_बंद
+  .def सूत्र_तल_हैंडल_बंद; .scl 2; .type 32; .endef
+सूत्र_तल_हैंडल_बंद:
+  subq $40, %rsp
+  call CloseHandle
+  addq $40, %rsp
+  ret
+
+/* सूत्र_तल_समादेश_रेखा() -> rax = GetCommandLineW (स्थिर — मुक्त मत करो) */
+  .globl सूत्र_तल_समादेश_रेखा
+  .def सूत्र_तल_समादेश_रेखा; .scl 2; .type 32; .endef
+सूत्र_तल_समादेश_रेखा:
+  subq $40, %rsp
+  call GetCommandLineW
+  addq $40, %rsp
+  ret
+
+/* सूत्र_तल_समादेश_विभाजन(rcx=wcmdline, rdx=&count) -> rax = LPWSTR* (सूत्र_तल_स्थानीय_मुक्त करो) */
+  .globl सूत्र_तल_समादेश_विभाजन
+  .def सूत्र_तल_समादेश_विभाजन; .scl 2; .type 32; .endef
+सूत्र_तल_समादेश_विभाजन:
+  subq $40, %rsp
+  call CommandLineToArgvW
+  addq $40, %rsp
+  ret
+
+/* सूत्र_तल_स्थानीय_मुक्त(rcx=ptr) -> LocalFree */
+  .globl सूत्र_तल_स्थानीय_मुक्त
+  .def सूत्र_तल_स्थानीय_मुक्त; .scl 2; .type 32; .endef
+सूत्र_तल_स्थानीय_मुक्त:
+  subq $40, %rsp
+  call LocalFree
+  addq $40, %rsp
+  ret
+
+/* सूत्र_तल_समादेश(rcx = wide "cmd.exe /c …") -> rax = प्रक्रिया exit-कोड (-1 = विफल)
+ * CreateProcessW + WaitForSingleObject + GetExitCodeProcess + CloseHandle×2 */
+  .globl सूत्र_तल_समादेश
+  .def सूत्र_तल_समादेश; .scl 2; .type 32; .endef
+सूत्र_तल_समादेश:
+  pushq %rbp
+  movq %rsp, %rbp
+  pushq %rbx
+  pushq %rdi                 /* entry≡8 → rbp≡0 → rbx≡8 → rdi≡0 */
+  movq %rcx, %rbx            /* wcmd बचाओ (rep stosq rcx/rdi/rax मिटाता) */
+  subq $208, %rsp            /* 32 shadow + 48 (6 stack args) + 104 si + 24 pi ; ≡0 */
+  leaq 80(%rsp), %rdi        /* si @ +80 (104B), pi @ +184 (24B) — शून्य: 128B */
+  xorl %eax, %eax
+  movl $16, %ecx
+  rep stosq
+  movl $104, 80(%rsp)        /* si.cb = sizeof(STARTUPINFOW) */
+  xorq %rcx, %rcx            /* lpApplicationName   = NULL */
+  movq %rbx, %rdx            /* lpCommandLine       = wcmd */
+  xorq %r8, %r8             /* lpProcessAttributes = NULL */
+  xorq %r9, %r9             /* lpThreadAttributes  = NULL */
+  movq $1, 32(%rsp)          /* bInheritHandles     = TRUE */
+  movq $0, 40(%rsp)          /* dwCreationFlags     = 0 */
+  movq $0, 48(%rsp)          /* lpEnvironment       = NULL */
+  movq $0, 56(%rsp)          /* lpCurrentDirectory  = NULL */
+  leaq 80(%rsp), %rax
+  movq %rax, 64(%rsp)        /* lpStartupInfo       = &si */
+  leaq 184(%rsp), %rax
+  movq %rax, 72(%rsp)        /* lpProcessInformation = &pi */
+  call CreateProcessW
+  testl %eax, %eax
+  jz .Lcmd_fail
+  movq 184(%rsp), %rdi       /* pi.hProcess (rdi callee-saved, pushed) */
+  movq %rdi, %rcx
+  movq $-1, %rdx             /* INFINITE */
+  call WaitForSingleObject
+  movq %rdi, %rcx
+  leaq 32(%rsp), %rdx        /* &exitCode (shadow reuse post-CreateProcessW) */
+  movl $0, 32(%rsp)
+  call GetExitCodeProcess
+  movl 32(%rsp), %ebx        /* exit code -> rbx (CloseHandle के पार) */
+  movq %rdi, %rcx
+  call CloseHandle
+  movq 192(%rsp), %rcx       /* pi.hThread */
+  call CloseHandle
+  movl %ebx, %eax
+  jmp .Lcmd_done
+.Lcmd_fail:
+  movq $-1, %rax
+.Lcmd_done:
+  addq $208, %rsp
+  popq %rdi
+  popq %rbx
+  popq %rbp
   ret
