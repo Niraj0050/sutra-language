@@ -442,7 +442,7 @@ fileIO — हर एक designed, अब बिना regression।
    link साफ़ (कोई undefined ref)। `.c` **1122→894 line**। fixed point 135213,
    `प्रकार()`/`उच्च`/`निम्न` interp==native।
 
-**§2m — exception state-machine → Sutra** (commit `TBD`, 2026-09-01)।
+**§2m — exception state-machine → Sutra** (commit `e0727e4`, 2026-09-01)।
    अपवाद-अवस्था (`प्रयत्न_गहराई` / `प्रयत्न_ढेर` [VirtualAlloc 256×256] /
    `प्रयत्न_जड़_गण` / `सक्रिय_अपवाद`) + `अपवाद_बफ_लो` / `अपवाद_पॉप` /
    `सक्रिय_अपवाद_लो` / `फेंको` अब `मूल_रनटाइम.सूत्र` में। `तल.s`: `sr_longjmp` →
@@ -454,8 +454,25 @@ fileIO — हर एक designed, अब बिना regression।
    ExitProcess, ~12 line) असली C। `.c` **894→870 line**। fixed point 135298,
    49_exceptions + nested/loop/rethrow + GC-inside-try सब interp==native।
 
-बचा (Level 1 = `sutra_runtime.c` DELETE, ~3-4 chunks):
-   - GC C-bridge (`sutra_gc_root_*`/`gc_status`/`find_gc_allocation`/`native_is_*`) — ~1
+**§2n — GC रूट-सरणी + एक्सेसर → तल.s** (commit `8792aac`, 2026-09-03)।
+   `gc_roots[]` (8MB) + `gc_roots_count` — `sutra_runtime.c` से `तल.s` की
+   स्पष्ट `.bss` में (`.comm` नहीं — 8MB COMMON ब्लॉक इमेज-लेआउट बिगाड़ता →
+   लिंक पर `REL32` overflow; C पक्ष को `.bss` सिर्फ़ gcc के `-fno-common`
+   default से मिलता था)। रूट-वॉक कॉलबैक `sutra_gc_root_count` /
+   `sutra_gc_root_deref` → `तल.s` leaf हाथ-asm। `sutra_gc_active_exc` C
+   shim हटा — उत्सर्जक अब `अंतर्_सक्रिय_अपवाद` → सीधे `सक्रिय_अपवाद_लो`
+   (`मूल_रनटाइम.सूत्र`, §2m); `मूल_आवंटक.s` नए call-लक्ष्य के लिए पुनर्जनित।
+   `sutra_gc_status` जानबूझकर C में रखा: Sutra port आवंटन करता (लेबल +
+   `संख्या_से_पाठ` + `पाठ_जोड़`) → उन्हीं गणकों को बिगाड़ता जो छापता है
+   (`44_gc_status` 3→33) — diagnostic को वह नहीं बदलना चाहिए जो वह मापता;
+   print/format चंक के साथ non-allocating रूप में जाएगा। `.c` **870→865 line**।
+   fixed point 135298; 46_gc_repeated + 49_exceptions interp==native;
+   41/44/18_stdlib ज्ञात-mismatch अपरिवर्तित।
+
+बचा (Level 1 = `sutra_runtime.c` DELETE, ~3 chunks):
+   - GC C-bridge शेष: `sutra_gc_status` (print चंक के साथ) +
+     `find_gc_allocation`/`native_is_*` (substr/`add_dynamic` के साथ — साझा
+     internal C callers) — स्वतंत्र चंक नहीं, ऊपर वालों के साथ जाएँगे
    - Win32 file/args wrappers → Sutra intrinsics या `.s` — ~1 chunk
    - float formatting (`sr_fmt_float`/`sr_ln`/`sr_exp`/`float_to_str`/`math_pow_f`) → Sutra — ~1
    - **RISKY**: `substr`/`str_get`/`str_alloc`/`arr_get` — lexer hot path (Sutra पहले
