@@ -360,10 +360,31 @@ fileIO — हर एक designed, अब बिना regression।
    `प्रारूप`/`जेसन`/`गणित` परीक्षण + edge cases (`0.9999999`→"1", `1.0/3.0`,
    `-0.25`) सब interp==native। C-only बदलाव, seed अछूता।
 
-अभी C (stdio): `fprintf(stderr,…)` त्रुटि-पथ (५×, बग पर ही), `printf` in
-`sutra_gc_status` (स्मृति_स्थिति), `fwrite` in `sutra_file_write`.
-अगला: fileIO / args → **`sutra_runtime.c` DELETE**, Level 1 independence।
-(Stage 3 = float SSE `__asm__` blob → hand-asm `.s`, तभी `.c` का float खंड मिटे।)
+**§2g — file I/O + args + command_run → Win32 सीधे** (2026-09-01)।
+   `_wfopen`/`fread`/`fwrite`/`fseek`/`ftell`/`fclose`/`_wsystem`/`malloc`/`free`
+   हटे। अब kernel32/shell32:
+   - `sutra_file_read` → `CreateFileW` + `GetFileSizeEx` + `ReadFile` **सीधे
+     Sutra-string में** (`sutra_str_alloc(NULL,n)` फिर `block+16` में पढ़ो — कोई
+     malloc, कोई copy) + `CloseHandle`।
+   - `sutra_file_write` → `CreateFileW`(CREATE_ALWAYS) + `WriteFile` loop।
+   - `sutra_file_exists` → `GetFileAttributesW` (डायरेक्टरी छोड़)।
+   - `sutra_command_run` (`कमांड_चलाओ` — यह `as`/`gcc` चलाता, self-host critical
+     path) → `cmd.exe /c …` via `CreateProcessW` + `WaitForSingleObject` +
+     `GetExitCodeProcess` (handles inherit → child output दिखे)।
+   - `sutra_init_args` → `CommandLineToArgvW` + `WideCharToMultiByte`, argv pool
+     एक `VirtualAlloc` (कभी मुक्त नहीं), libc heap नहीं। `sutra_args_get` का
+     `strlen` → inline लूप।
+   path UTF-8→UTF-16 stack बफ़र में (`MultiByteToWideChar`)। bootstrap.ps1 [OK]
+   fixed point (seed compiler अपना स्रोत `CreateFileW` से पढ़ता, `as`/`gcc`
+   `CreateProcessW` से चलाता); `तर्क_परीक्षण` + `cli_शब्द_गणना` (argv+file) +
+   file round-trip सब काम।
+
+अभी C (stdio, अगला छोटा pass): `fprintf(stderr,…)` त्रुटि-पथ (३× live — exception
+uncaught/max-depth), `printf` in `sutra_gc_status`; फिर मृत `gc_hash`/`gc_allocs`
+(~130 line, कभी नहीं बुलाया) हटाओ → `malloc`/`free`/`calloc`/`realloc` जाएँ।
+बचा: `memcpy`/`memset`/`strlen`(कुछ), `setjmp`/`longjmp` (exception ABI),
+float SSE `__asm__` blob → hand-`.s` (Stage 3)। फिर **`sutra_runtime.c` DELETE**
+= Level 1 independence।
 
 **2b. मानक पुस्तकालय (`पुस्तकालय/`) — सूत्र में** (commits `07205ac` + `c07ba45`, 2026-09-01)।
    Phase 2 रोककर पहले लाइब्रेरी (Niraj का निर्णय)। **12 मॉड्यूल**, कोई C
