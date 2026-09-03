@@ -429,17 +429,29 @@ fileIO — हर एक designed, अब बिना regression।
    line**। कोई build-plumbing नहीं (`तल.s` पहले से everywhere)। fixed point 135213,
    40_native_floats/49_exceptions/गणित/प्रारूप interp==native।
 
-बचा (Level 1 = `sutra_runtime.c` DELETE, ~5-6 chunks):
-   - आसान Sutra ports: `dynamic_type` / `str_map_case`+`upper`/`lower` / `char_ord` /
-     पूर्णांक `math_pow`/`abs`/`min`/`max`/`round` / `utf8_cmp_codepoints`+`str_less/…` /
-     `str_length` / `dict_keys` / thin shims — ~1-2 chunk
+**§2l — dynamic_type + str-case → Sutra ; ~180 line मृत C हटाओ** (commit `TBD`, 2026-09-01)।
+   `sutra_dynamic_type` → `गतिशील_प्रकार` (`सूत्र_ब्लॉक_प्रकार` + नाम-साहित्य);
+   `sutra_str_map_case`/`upper`/`lower` → `पाठ_अक्षर_रूप(स, बड़ा)` (ASCII case,
+   byte-loop) — दोनों `मूल_रनटाइम.सूत्र` में, C पतले shim। **हटाया (~180 line,
+   native path में मृत — compiler Sutra equivalents emit करता, C copies सिर्फ़
+   अब-अनुपलब्ध C++ host के लिए थे):** `sutra_str_equal`/`compare` भी नहीं — रखे
+   (छोटे); हटाए: `sutra_utf8_cmp_codepoints`+`str_less`/`greater`/`less_equal`/
+   `greater_equal` (compiler `पाठ_न्यून` आदि emit करता), `sutra_str_length`/
+   `arr_length`/`dynamic_length` (`दैशिक_लंबाई`), `sutra_char_ord` (`अक्षर_कोडबिंदु`),
+   पूर्णांक `sutra_math_pow`/`abs`/`min`/`max`/`round` (`_f` संस्करण emit होते)।
+   link साफ़ (कोई undefined ref)। `.c` **1122→894 line**। fixed point 135213,
+   `प्रकार()`/`उच्च`/`निम्न` interp==native।
+
+बचा (Level 1 = `sutra_runtime.c` DELETE, ~4-5 chunks):
    - exception state-machine (`sutra_throw`/`throw_str`/`get_jmp_buf` + globals) → Sutra
      (`sr_longjmp` call + WriteFile uncaught-msg) — ~1 chunk
+   - GC C-bridge (`sutra_gc_root_*`/`gc_status`/`find_gc_allocation`/`native_is_*`) — ~1
    - Win32 file/args wrappers → Sutra intrinsics या `.s` — ~1 chunk
-   - float formatting (`sr_fmt_float`/`float_to_str`/`print_float`/`sr_ln`/`sr_exp`/
-     `math_pow_f`) → Sutra — ~1 chunk
-   - **RISKY**: `substr`/`str_get`/`str_alloc` — lexer hot path (Sutra version पहले
-     40× slow) — नए तेज़ intrinsics या थोड़ा slowdown स्वीकार — ~1 chunk
+   - float formatting (`sr_fmt_float`/`sr_ln`/`sr_exp`/`float_to_str`/`math_pow_f`) → Sutra — ~1
+   - **RISKY**: `substr`/`str_get`/`str_alloc`/`arr_get` — lexer hot path (Sutra पहले
+     40× slow) — नए तेज़ intrinsics या थोड़ा slowdown — ~1 chunk
+   - ~30 thin shims (`sutra_int_to_str`→`संख्या_से_पाठ` आदि): compiler Sutra-नाम सीधे
+     emit करे (compiler बदलाव) या रहने दें (~1 line प्रत्येक)।
    अंतिम कदम = **Level 2: custom `_start` / `-nostdlib`** (binary अभी gcc की crt2.o से
    `api-ms-win-crt-*` link करता — हमारे code से नहीं) — ~1-2 chunk।
 

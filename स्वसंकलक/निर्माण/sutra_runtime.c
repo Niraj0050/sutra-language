@@ -185,6 +185,8 @@ extern void* अक्षर_बना(int64_t cp);
 extern void* पाठ_उपखंड(void* text, int64_t start, int64_t end);
 extern int64_t पाठ_तुल्य(int64_t a, int64_t b);
 extern int64_t पाठ_कोडबिंदु_तुलना(int64_t a, int64_t b);
+extern void*   गतिशील_प्रकार(int64_t p);
+extern void*   पाठ_अक्षर_रूप(int64_t s, int64_t upper);
 
 /* print — now in मूल_रनटाइम.सूत्र (via तल.s WriteFile; no printf/fwrite/fflush) */
 extern int64_t पाठ_छापो(void* s);
@@ -267,21 +269,7 @@ int sutra_native_is_dict(void* ptr) {
     return (alloc && alloc->type == GC_TYPE_DICTIONARY) ? 1 : 0;
 }
 
-void* sutra_dynamic_type(void* ptr) {
-    if (!ptr) {
-        return sutra_str_alloc("शून्यम्", strlen("शून्यम्"));
-    }
-    if (sutra_native_is_string(ptr)) {
-        return sutra_str_alloc("पाठ", strlen("पाठ"));
-    }
-    if (sutra_native_is_dict(ptr)) {
-        return sutra_str_alloc("शब्दकोश", strlen("शब्दकोश"));
-    }
-    if (sutra_native_is_array(ptr)) {
-        return sutra_str_alloc("सूची", strlen("सूची"));
-    }
-    return sutra_str_alloc("संख्या", strlen("संख्या"));
-}
+void* sutra_dynamic_type(void* ptr) { return गतिशील_प्रकार((int64_t)ptr); }  /* -> मूल_रनटाइम.सूत्र */
 
 void sutra_print_dynamic(int64_t val) { गतिशील_छापो(val); }  /* -> मूल_रनटाइम.सूत्र */
 
@@ -453,39 +441,6 @@ void* sutra_trim(void* t) { return पाठ_छाँट(t); }
 int64_t sutra_starts_with(void* t, void* p) { return पाठ_आरंभ_में(t, p); }
 int64_t sutra_ends_with(void* t, void* s) { return पाठ_अंत_में(t, s); }
 
-/* sutra_math_sqrt (int) — अब SSE asm blob में (sqrtsd)। */
-
-int64_t sutra_math_pow(int64_t base, int64_t exp) {
-    int64_t result = 1;
-    int64_t e = exp;
-    int64_t b = base;
-    if (e < 0) {
-        return 0;
-    }
-    while (e > 0) {
-        if (e & 1) result *= b;
-        b *= b;
-        e >>= 1;
-    }
-    return result;
-}
-
-int64_t sutra_math_abs(int64_t v) {
-    return v < 0 ? -v : v;
-}
-
-int64_t sutra_math_min(int64_t a, int64_t b) {
-    return a < b ? a : b;
-}
-
-int64_t sutra_math_max(int64_t a, int64_t b) {
-    return a > b ? a : b;
-}
-
-int64_t sutra_math_round(int64_t v) {
-    return v;
-}
-
 /* ============================================================
  * LIST RUNTIME  —  now in स्वसंकलक/निर्माण/मूल_रनटाइम.सूत्र
  * ============================================================
@@ -511,156 +466,8 @@ int64_t sutra_list_find(void* arr, int64_t val) { return सूची_खोज(
 
 
 
-static void* sutra_str_map_case(void* s, int upper) {
-    if (!s) return sutra_str_alloc("", 0);
-
-    int64_t len = *((int64_t*)((char*)s + 8));
-    const unsigned char* data = (const unsigned char*)s + 16;
-    void* out = sutra_str_alloc(NULL, len);
-    char* out_data = (char*)out + 16;
-
-    for (int64_t i = 0; i < len; ++i) {
-        unsigned char c = data[i];
-        if (c >= 'a' && c <= 'z') {
-            out_data[i] = upper ? (char)(c - 'a' + 'A') : (char)c;
-        } else if (c >= 'A' && c <= 'Z') {
-            out_data[i] = upper ? (char)c : (char)(c - 'A' + 'a');
-        } else {
-            out_data[i] = (char)c;
-        }
-    }
-    return out;
-}
-
-int64_t sutra_str_upper(void* s) {
-    return (int64_t)sutra_str_map_case(s, 1);
-}
-
-int64_t sutra_str_lower(void* s) {
-    return (int64_t)sutra_str_map_case(s, 0);
-}
-
-/* NOTE: sutra_utf8_cmp_codepoints + sutra_str_less/_greater/_less_equal/
- * _greater_equal are now in Sutra (मूल_रनटाइम.सूत्र :: पाठ_कोडबिंदु_तुलना /
- * पाठ_न्यून / पाठ_अधिक / पाठ_न्यून_सम / पाठ_अधिक_सम). C copies stay for the
- * C++ host path. */
-static int64_t sutra_utf8_cmp_codepoints(void* a, void* b) {
-    if (!a || !b) {
-        if (!a && !b) return 0;
-        return a ? 1 : -1;
-    }
-
-    const unsigned char* data_a = (const unsigned char*)a + 16;
-    const unsigned char* data_b = (const unsigned char*)b + 16;
-    int64_t len_a = *((int64_t*)((char*)a + 8));
-    int64_t len_b = *((int64_t*)((char*)b + 8));
-    int64_t i = 0;
-    int64_t j = 0;
-
-    while (i < len_a && j < len_b) {
-        int64_t ai = i;
-        int64_t bj = j;
-        uint32_t ca = 0;
-        uint32_t cb = 0;
-
-        if (data_a[i] < 0x80) {
-            ca = data_a[i++];
-        } else if ((data_a[i] & 0xE0) == 0xC0 && i + 1 < len_a) {
-            ca = ((uint32_t)(data_a[i] & 0x1F) << 6) |
-                 (uint32_t)(data_a[i + 1] & 0x3F);
-            i += 2;
-        } else if ((data_a[i] & 0xF0) == 0xE0 && i + 2 < len_a) {
-            ca = ((uint32_t)(data_a[i] & 0x0F) << 12) |
-                 ((uint32_t)(data_a[i + 1] & 0x3F) << 6) |
-                 (uint32_t)(data_a[i + 2] & 0x3F);
-            i += 3;
-        } else if ((data_a[i] & 0xF8) == 0xF0 && i + 3 < len_a) {
-            ca = ((uint32_t)(data_a[i] & 0x07) << 18) |
-                 ((uint32_t)(data_a[i + 1] & 0x3F) << 12) |
-                 ((uint32_t)(data_a[i + 2] & 0x3F) << 6) |
-                 (uint32_t)(data_a[i + 3] & 0x3F);
-            i += 4;
-        } else {
-            ca = data_a[i++];
-        }
-
-        if (data_b[j] < 0x80) {
-            cb = data_b[j++];
-        } else if ((data_b[j] & 0xE0) == 0xC0 && j + 1 < len_b) {
-            cb = ((uint32_t)(data_b[j] & 0x1F) << 6) |
-                 (uint32_t)(data_b[j + 1] & 0x3F);
-            j += 2;
-        } else if ((data_b[j] & 0xF0) == 0xE0 && j + 2 < len_b) {
-            cb = ((uint32_t)(data_b[j] & 0x0F) << 12) |
-                 ((uint32_t)(data_b[j + 1] & 0x3F) << 6) |
-                 (uint32_t)(data_b[j + 2] & 0x3F);
-            j += 3;
-        } else if ((data_b[j] & 0xF8) == 0xF0 && j + 3 < len_b) {
-            cb = ((uint32_t)(data_b[j] & 0x07) << 18) |
-                 ((uint32_t)(data_b[j + 1] & 0x3F) << 12) |
-                 ((uint32_t)(data_b[j + 2] & 0x3F) << 6) |
-                 (uint32_t)(data_b[j + 3] & 0x3F);
-            j += 4;
-        } else {
-            cb = data_b[j++];
-        }
-
-        if (ca != cb) return (ca < cb) ? -1 : 1;
-    }
-
-    if (i == len_a && j == len_b) return 0;
-    return (i == len_a) ? -1 : 1;
-}
-
-int64_t sutra_str_less(void* a, void* b) {
-    return sutra_utf8_cmp_codepoints(a, b) < 0 ? 1 : 0;
-}
-
-int64_t sutra_str_greater(void* a, void* b) {
-    return sutra_utf8_cmp_codepoints(a, b) > 0 ? 1 : 0;
-}
-
-int64_t sutra_str_less_equal(void* a, void* b) {
-    return sutra_utf8_cmp_codepoints(a, b) <= 0 ? 1 : 0;
-}
-
-int64_t sutra_str_greater_equal(void* a, void* b) {
-    return sutra_utf8_cmp_codepoints(a, b) >= 0 ? 1 : 0;
-}
-
-/* NOTE: sutra_str_length / sutra_arr_length / sutra_dynamic_length /
- * sutra_char_ord are now implemented in Sutra
- * (स्वसंकलक/निर्माण/मूल_रनटाइम.सूत्र :: पाठ_कोडबिंदु_गणना / सञ्चय_गणना /
- * दैशिक_लंबाई / अक्षर_कोडबिंदु). The self-hosted native-asm compiler emits
- * calls to those. The C copies below stay only for the C++ host path and
- * go away when the C++ host is removed. */
-
-/* Return UTF-8 character count (number of Unicode codepoints) */
-int64_t sutra_str_length(void* s) {
-    if (!s) return 0;
-
-    const unsigned char* data = (const unsigned char*)s + 16;
-    int64_t len = *((int64_t*)((char*)s + 8));
-    int64_t count = 0;
-
-    for (int64_t i = 0; i < len; ) {
-        unsigned char c = data[i];
-        if (c < 0x80) {
-            i += 1;
-        } else if ((c & 0xE0) == 0xC0) {
-            i += 2;
-        } else if ((c & 0xF0) == 0xE0) {
-            i += 3;
-        } else if ((c & 0xF8) == 0xF0) {
-            i += 4;
-        } else {
-            i += 1;
-        }
-        ++count;
-    }
-
-    return count;
-}
+int64_t sutra_str_upper(void* s) { return (int64_t)पाठ_अक्षर_रूप((int64_t)s, 1); }  /* -> मूल_रनटाइम.सूत्र */
+int64_t sutra_str_lower(void* s) { return (int64_t)पाठ_अक्षर_रूप((int64_t)s, 0); }
 
 /* Return the UTF-8 codepoint at position index as a new Sutra string. */
 void* sutra_str_get(void* s, int64_t idx) {
@@ -776,22 +583,6 @@ int sutra_is_dict(void* ptr) {
 #else
     return sutra_native_is_dict(ptr);
 #endif
-}
-
-int64_t sutra_arr_length(void* arr) {
-    if (!arr) return 0;
-    if (sutra_is_dict(arr)) {
-        return *((int64_t*)arr);
-    }
-    return *((int64_t*)((char*)arr + 8));
-}
-
-int64_t sutra_dynamic_length(void* obj) {
-    if (!obj) return 0;
-    if (sutra_native_is_string(obj)) {
-        return sutra_str_length(obj);
-    }
-    return sutra_arr_length(obj);
 }
 
 /* ============================================================
@@ -992,25 +783,6 @@ void* sutra_args_get() {
     }
     सूत्र_जीसी_छोड़ो();
     return arr;
-}
-
-// Self-hosting support - Unicode codepoint operations
-int64_t sutra_char_ord(void* str) {
-    if (!str) return -1;
-    int64_t len = *((int64_t*)((char*)str + 8));
-    if (len <= 0) return -1;
-    const unsigned char* data = (const unsigned char*)((char*)str + 16);
-    unsigned char c1 = data[0];
-    if (c1 < 0x80) {
-        return (int64_t)c1;
-    } else if ((c1 & 0xE0) == 0xC0 && len >= 2) {
-        return (int64_t)(((c1 & 0x1F) << 6) | (data[1] & 0x3F));
-    } else if ((c1 & 0xF0) == 0xE0 && len >= 3) {
-        return (int64_t)(((c1 & 0x0F) << 12) | ((data[1] & 0x3F) << 6) | (data[2] & 0x3F));
-    } else if ((c1 & 0xF8) == 0xF0 && len >= 4) {
-        return (int64_t)(((c1 & 0x07) << 18) | ((data[1] & 0x3F) << 12) | ((data[2] & 0x3F) << 6) | (data[3] & 0x3F));
-    }
-    return 0xFFFD;
 }
 
 void* sutra_char_chr(int64_t cp) { return अक्षर_बना(cp); }  /* -> मूल_रनटाइम.सूत्र */
