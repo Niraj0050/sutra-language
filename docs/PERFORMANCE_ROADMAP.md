@@ -350,10 +350,20 @@ fileIO — हर एक designed, अब बिना regression।
    हटाया; हर build script + compiler linker command से **`-lm` हटाया**
    (`bootstrap.ps1`, `verify_*`, `मूल_संकलन.सूत्र` char-array)। fixed point कायम
    (135213 lines), 40_native_floats interp==native।
-   अभी C: `sutra_float_to_str` / `sutra_print_float` (`snprintf %f`) — Stage 2।
 
-अगला: Stage 2 = `sutra_float_to_str`/`print_float` → सूत्र (`snprintf`/`printf` हटे);
-फिर fileIO / args → **`sutra_runtime.c` DELETE**, Level 1 independence।
+   **§2f Stage 2 — `sutra_float_to_str` / `sutra_print_float` से libc हटा** (2026-09-01)।
+   `snprintf("%f")` + `strchr` + `strlen` की जगह `sr_fmt_float()` — SSE अंकगणित
+   (`d*1e6+0.5` → `cvttsd2si`) + पूर्णांक अंक-लूप: `total/1e6` = पूर्ण भाग,
+   `total%1e6` = 6-अंक अंश (trailing zeros छँटे, कैरी अपने-आप संभला)। NaN/Inf/
+   `≥2^53` guard। `sutra_print_float` अब सिर्फ़ `पाठ_छापो(sutra_float_to_str(v))`
+   — कोई `printf`/`fflush`। float पथ अब पूर्णतः libc-मुक्त। `40_native_floats` +
+   `प्रारूप`/`जेसन`/`गणित` परीक्षण + edge cases (`0.9999999`→"1", `1.0/3.0`,
+   `-0.25`) सब interp==native। C-only बदलाव, seed अछूता।
+
+अभी C (stdio): `fprintf(stderr,…)` त्रुटि-पथ (५×, बग पर ही), `printf` in
+`sutra_gc_status` (स्मृति_स्थिति), `fwrite` in `sutra_file_write`.
+अगला: fileIO / args → **`sutra_runtime.c` DELETE**, Level 1 independence।
+(Stage 3 = float SSE `__asm__` blob → hand-asm `.s`, तभी `.c` का float खंड मिटे।)
 
 **2b. मानक पुस्तकालय (`पुस्तकालय/`) — सूत्र में** (commits `07205ac` + `c07ba45`, 2026-09-01)।
    Phase 2 रोककर पहले लाइब्रेरी (Niraj का निर्णय)। **12 मॉड्यूल**, कोई C

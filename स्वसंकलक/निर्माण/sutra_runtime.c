@@ -1236,43 +1236,52 @@ int64_t sutra_float_to_int(int64_t v_bits) {
 }
 #endif
 
+/* "%f"-जैसा दशमलव प्रारूप (6 अंश-अंक, trailing zeros छँटे) — कोई libc नहीं
+ * (SSE अंकगणित + पूर्णांक लूप)। buf ≥ 40 बाइट। लौटाता: लिखे गए बाइट। */
+static int sr_fmt_float(double d, char* buf) {
+    int p = 0;
+    if (d != d) { buf[0] = 'n'; buf[1] = 'a'; buf[2] = 'n'; buf[3] = '\0'; return 3; }
+    if (d < 0.0) { buf[p++] = '-'; d = -d; }
+    if (d > 1.7976931348623157e308) { buf[p++]='i'; buf[p++]='n'; buf[p++]='f'; buf[p]='\0'; return p; }
+    char tmp[24];
+    int tp = 0;
+    if (d >= 9.007199254740992e15) {
+        /* ≥ 2^53 : अंश प्रस्तुत नहीं हो सकता → पूर्ण भाग ही */
+        int64_t ip = (int64_t)d;
+        if (ip == 0) tmp[tp++] = '0';
+        while (ip > 0) { tmp[tp++] = (char)('0' + ip % 10); ip /= 10; }
+        while (tp > 0) buf[p++] = tmp[--tp];
+        buf[p] = '\0';
+        return p;
+    }
+    int64_t total = (int64_t)(d * 1000000.0 + 0.5);
+    int64_t ip = total / 1000000;
+    int64_t fp = total % 1000000;
+    if (ip == 0) tmp[tp++] = '0';
+    while (ip > 0) { tmp[tp++] = (char)('0' + ip % 10); ip /= 10; }
+    while (tp > 0) buf[p++] = tmp[--tp];
+    int fd[6];
+    for (int i = 5; i >= 0; i--) { fd[i] = (int)(fp % 10); fp /= 10; }
+    int last = 5;
+    while (last >= 0 && fd[last] == 0) last--;
+    if (last >= 0) {
+        buf[p++] = '.';
+        for (int i = 0; i <= last; i++) buf[p++] = (char)('0' + fd[i]);
+    }
+    buf[p] = '\0';
+    return p;
+}
+
 void* sutra_float_to_str(int64_t v_bits) {
     double d;
     memcpy(&d, &v_bits, 8);
-    char buf[64];
-    snprintf(buf, sizeof(buf), "%f", d);
-    char* dot = strchr(buf, '.');
-    if (dot) {
-        char* end = buf + strlen(buf) - 1;
-        while (end > dot && *end == '0') {
-            *end = '\0';
-            end--;
-        }
-        if (*end == '.') {
-            *end = '\0';
-        }
-    }
-    return sutra_str_alloc(buf, strlen(buf));
+    char buf[48];
+    int n = sr_fmt_float(d, buf);
+    return sutra_str_alloc(buf, n);
 }
 
 void sutra_print_float(int64_t v_bits) {
-    double d;
-    memcpy(&d, &v_bits, 8);
-    char buf[64];
-    snprintf(buf, sizeof(buf), "%f", d);
-    char* dot = strchr(buf, '.');
-    if (dot) {
-        char* end = buf + strlen(buf) - 1;
-        while (end > dot && *end == '0') {
-            *end = '\0';
-            end--;
-        }
-        if (*end == '.') {
-            *end = '\0';
-        }
-    }
-    printf("%s\n", buf);
-    fflush(stdout);
+    पाठ_छापो(sutra_float_to_str(v_bits));   /* → मूल_रनटाइम.सूत्र (तल.s WriteFile) */
 }
 
 #if 0
