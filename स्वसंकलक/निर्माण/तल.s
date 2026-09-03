@@ -8,7 +8,7 @@
  *   सूत्र_तल_मुद्रण(rcx = पता, rdx = लंबाई) -> void          [GetStdHandle + WriteFile]
  *   सूत्र_तल_निकास(rcx = कोड)              -> कभी नहीं लौटता  [ExitProcess]
  *   memcpy / memmove / memset / memcmp / strlen — हाथ से (libc-मुक्त)
- *   _setjmp(rcx=env,rdx=frame) / sr_longjmp(rcx=env,rdx=val) — न्यूनतम, no-SEH
+ *   _setjmp(rcx=env,rdx=frame) / सूत्र_दीर्घकूद(rcx=env,rdx=roots) — न्यूनतम, no-SEH
  *
  * Windows x64 ABI: तर्क rcx,rdx,r8,r9; 32-बाइट shadow; call पर rsp 16-संरेखित।
  * callee-preserved: rbx rbp rdi rsi rsp r12-r15.
@@ -174,7 +174,7 @@ strlen:
   ret
 
 /* ============================================================
- * _setjmp / sr_longjmp — न्यूनतम (कोई SEH unwind)। jmp_buf विन्यास:
+ * _setjmp / सूत्र_दीर्घकूद — न्यूनतम (कोई SEH unwind)। jmp_buf विन्यास:
  *   0  ret-addr   8  rsp(post-ret)
  *   16 rbx  24 rbp  32 rsi  40 rdi  48 r12  56 r13  64 r14  72 r15
  *   80..224  xmm6..xmm15  (16 बाइट प्रत्येक)
@@ -210,14 +210,14 @@ _setjmp:
   xorl %eax, %eax
   ret
 
-  .globl sr_longjmp
-  .def sr_longjmp; .scl 2; .type 32; .endef
-sr_longjmp:
-  movl %edx, %eax
-  testl %eax, %eax
-  jnz .Llj_v
+/* सूत्र_दीर्घकूद(rcx = env, rdx = gc_roots snapshot) — फेंको से बुलाया।
+ * gc_roots_count बहाल करता (longjmp reg-restore नहीं करता), setjmp को 1
+ * लौटाता, फिर regs/rsp/ret-addr बहाल कर catch-बिंदु पर कूदता। val सदा 1। */
+  .globl सूत्र_दीर्घकूद
+  .def सूत्र_दीर्घकूद; .scl 2; .type 32; .endef
+सूत्र_दीर्घकूद:
+  movl %edx, gc_roots_count(%rip)
   movl $1, %eax
-.Llj_v:
   movq 16(%rcx), %rbx
   movq 24(%rcx), %rbp
   movq 32(%rcx), %rsi
@@ -465,19 +465,5 @@ sutra_gc_pop_root:
   subq $40, %rsp
   call सूत्र_तल_निकास
 
-  .globl sutra_exception_pop
-  .def sutra_exception_pop; .scl 2; .type 32; .endef
-sutra_exception_pop:
-  movl sutra_try_depth(%rip), %eax
-  testl %eax, %eax
-  jle .Lexcpop_done
-  decl %eax
-  movl %eax, sutra_try_depth(%rip)
-.Lexcpop_done:
-  ret
-
-  .globl sutra_get_exception_value
-  .def sutra_get_exception_value; .scl 2; .type 32; .endef
-sutra_get_exception_value:
-  movq sutra_active_exception(%rip), %rax
-  ret
+/* sutra_exception_pop / sutra_get_exception_value अब C shim → मूल_रनटाइम.सूत्र
+ * (अपवाद_पॉप / सक्रिय_अपवाद_लो) — प्रयत्न-गहराई/सक्रिय-अपवाद Sutra global हैं। */

@@ -442,9 +442,19 @@ fileIO — हर एक designed, अब बिना regression।
    link साफ़ (कोई undefined ref)। `.c` **1122→894 line**। fixed point 135213,
    `प्रकार()`/`उच्च`/`निम्न` interp==native।
 
-बचा (Level 1 = `sutra_runtime.c` DELETE, ~4-5 chunks):
-   - exception state-machine (`sutra_throw`/`throw_str`/`get_jmp_buf` + globals) → Sutra
-     (`sr_longjmp` call + WriteFile uncaught-msg) — ~1 chunk
+**§2m — exception state-machine → Sutra** (commit `TBD`, 2026-09-01)।
+   अपवाद-अवस्था (`प्रयत्न_गहराई` / `प्रयत्न_ढेर` [VirtualAlloc 256×256] /
+   `प्रयत्न_जड़_गण` / `सक्रिय_अपवाद`) + `अपवाद_बफ_लो` / `अपवाद_पॉप` /
+   `सक्रिय_अपवाद_लो` / `फेंको` अब `मूल_रनटाइम.सूत्र` में। `तल.s`: `sr_longjmp` →
+   `सूत्र_दीर्घकूद(env, roots_snap)` — यह `gc_roots_count` भी बहाल करता (longjmp
+   नहीं करता); `sutra_exception_pop`/`get_exception_value` हटाए। `सार्थक`:
+   whitelist `सूत्र_दीर्घकूद`(2) + `सूत्र_अपवाद_निकास`(1) → seed refresh (135213→
+   135298)। C: `sutra_throw`/`get_jmp_buf`/`exception_pop`/`get_exception_value`/
+   `gc_active_exc` → 1-line shim; सिर्फ़ `सूत्र_अपवाद_निकास` (uncaught → stderr +
+   ExitProcess, ~12 line) असली C। `.c` **894→870 line**। fixed point 135298,
+   49_exceptions + nested/loop/rethrow + GC-inside-try सब interp==native।
+
+बचा (Level 1 = `sutra_runtime.c` DELETE, ~3-4 chunks):
    - GC C-bridge (`sutra_gc_root_*`/`gc_status`/`find_gc_allocation`/`native_is_*`) — ~1
    - Win32 file/args wrappers → Sutra intrinsics या `.s` — ~1 chunk
    - float formatting (`sr_fmt_float`/`sr_ln`/`sr_exp`/`float_to_str`/`math_pow_f`) → Sutra — ~1

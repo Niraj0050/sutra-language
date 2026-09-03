@@ -42,14 +42,13 @@ extern int64_t native_gc_bytes_reclaimed;
 #endif
 #endif
 
-/* setjmp/longjmp — अब तल.s में हाथ-asm (_setjmp / sr_longjmp)।
- * jmp_buf = अपना 256-बाइट बफ़र (हम layout नियंत्रित करते: ret-addr, rsp,
- * rbx/rbp/rsi/rdi/r12-15, xmm6-15)। कोई SEH unwind — हमारे compiled code में
- * destructors/handlers नहीं (GC explicit)। */
-#define SR_JMPBUF_SIZE 256
-typedef unsigned char sr_jmp_buf[SR_JMPBUF_SIZE];
-extern int  _setjmp(sr_jmp_buf env, void* frame);
-extern void sr_longjmp(sr_jmp_buf env, int val) __attribute__((noreturn));
+/* अपवाद-अवस्था + setjmp/longjmp — अब मूल_रनटाइम.सूत्र + तल.s में।
+ * compiler `call _setjmp` (तल.s, 256-बाइट बफ़र) emit करता; try_stack /
+ * try_depth / active_exception अब Sutra module global। */
+extern void* अपवाद_बफ_लो(void);
+extern int64_t अपवाद_पॉप(void);
+extern int64_t सक्रिय_अपवाद_लो(void);
+extern int64_t फेंको(int64_t ex);
 
 /* stdout/stderr — कोई stdio, सीधे kernel32 WriteFile */
 static void sr_fdw(DWORD which, const char* s, int n) {
@@ -84,60 +83,38 @@ void* sutra_dynamic_type(void* ptr);
 void sutra_print_dynamic(int64_t val);
 
 /* ============================================================
- * EXCEPTION HANDLING RUNTIME
+ * EXCEPTION HANDLING RUNTIME  —  state + logic in मूल_रनटाइम.सूत्र
  * ============================================================ */
-#define MAX_TRY_DEPTH 256
-sr_jmp_buf sutra_try_stack[MAX_TRY_DEPTH];
-int sutra_try_gc_roots_count[MAX_TRY_DEPTH];
-volatile int sutra_try_depth = 0;
-void* volatile sutra_active_exception = NULL;
-
 extern volatile int gc_roots_count;
 
-void* sutra_exception_get_jmp_buf() {
-    if (sutra_try_depth >= MAX_TRY_DEPTH) {
-        sr_err("त्रुटिः — अधिकतम प्रयत्न सीमा पार हो गई (Max try depth exceeded)\n");
-        ExitProcess(1);
-    }
-    sutra_try_gc_roots_count[sutra_try_depth] = gc_roots_count;
-    return &sutra_try_stack[sutra_try_depth++];
-}
-
+/* compiler-emitted entry points → thin shims over Sutra */
+void* sutra_exception_get_jmp_buf() { return अपवाद_बफ_लो(); }
+void  sutra_exception_pop()         { अपवाद_पॉप(); }
+void* sutra_get_exception_value()   { return (void*)(intptr_t)सक्रिय_अपवाद_लो(); }
+void* sutra_exception_get_active()  { return (void*)(intptr_t)सक्रिय_अपवाद_लो(); }
+void  sutra_throw(void* ex)         { फेंको((int64_t)ex); }
 
 void sutra_str_print(void* s);
-
-void* sutra_exception_get_active() {
-    return sutra_active_exception;
-}
-
-void sutra_throw(void* ex) {
-    sutra_active_exception = ex;
-
-    if (sutra_try_depth == 0) {
-        if (ex) {
-            /* ex is a Sutra string: [capacity: 8 bytes][length: 8 bytes][data: N bytes] */
-            int64_t len = *((int64_t*)((char*)ex + 8));
-            const char* msg = (const char*)ex + 16;
-            DWORD w;
-            sr_err("त्रुटिः: ");
-            WriteFile(GetStdHandle(STD_ERROR_HANDLE), msg, (DWORD)len, &w, NULL);
-            sr_err("\n");
-        } else {
-            sr_err("त्रुटिः — अनियंत्रित अपवाद (Uncaught exception)\n");
-        }
-        ExitProcess(1);
-    }
-    sutra_try_depth--;
-    gc_roots_count = sutra_try_gc_roots_count[sutra_try_depth];
-    sr_longjmp(sutra_try_stack[sutra_try_depth], 1);
-}
-
-
 void* sutra_str_alloc(const char* data, int64_t len);
 
+/* uncaught (try_depth == 0) — stderr + terminate। Sutra `फेंको` से बुलाया।
+ * यही एकमात्र C में बचा exception-भाग (टर्मिनल error-पथ)। */
+void सूत्र_अपवाद_निकास(void* ex) {
+    if (ex) {
+        int64_t len = *((int64_t*)((char*)ex + 8));
+        const char* msg = (const char*)ex + 16;
+        DWORD w;
+        sr_err("त्रुटिः: ");
+        WriteFile(GetStdHandle(STD_ERROR_HANDLE), msg, (DWORD)len, &w, NULL);
+        sr_err("\n");
+    } else {
+        sr_err("त्रुटिः — अनियंत्रित अपवाद (Uncaught exception)\n");
+    }
+    ExitProcess(1);
+}
+
 void sutra_throw_str(const char* msg) {
-    void* err_str = sutra_str_alloc(msg, strlen(msg));
-    sutra_throw(err_str);
+    फेंको((int64_t)sutra_str_alloc(msg, strlen(msg)));
 }
 
 void sutra_throw_div_by_zero() {
@@ -201,8 +178,7 @@ int64_t sutra_gc_root_deref(int64_t i) {
     void** r = gc_roots[i];
     return r ? (int64_t)(intptr_t)*r : 0;
 }
-extern void* volatile sutra_active_exception;
-int64_t sutra_gc_active_exc(void) { return (int64_t)(intptr_t)sutra_active_exception; }
+int64_t sutra_gc_active_exc(void) { return सक्रिय_अपवाद_लो(); }  /* -> मूल_रनटाइम.सूत्र */
 
 
 typedef enum {

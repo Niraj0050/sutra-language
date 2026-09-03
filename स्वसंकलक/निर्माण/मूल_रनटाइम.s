@@ -4936,6 +4936,306 @@
   ret
 
   .text
+  .globl प्रयत्न_ढेर_तैयार
+  .def प्रयत्न_ढेर_तैयार; .scl 2; .type 32; .endef
+प्रयत्न_ढेर_तैयार:
+  pushq %rbp
+  movq %rsp, %rbp
+  subq $48, %rsp
+  movq %rbx, -8(%rbp)
+  movq %rsi, -16(%rbp)
+  movq %rdi, -24(%rbp)
+
+.L_प्रयत्न_ढेर_तैयार__प्रवेश_0:
+  movq sutra_glob_प्रयत्न_ढेर(%rip), %r10
+  movq %r10, %rbx
+  movq $0, %rsi
+  movq %rbx, %r10
+  cmpq %rsi, %r10
+  sete %al
+  movzbq %al, %r10
+  movq %r10, %rdi
+  movq %rdi, %r10
+  cmpq $0, %r10
+  je .L_किनारा_प्रयत्न_ढेर_तैयार_0
+  jmp .L_प्रयत्न_ढेर_तैयार__if_सत्य_1
+.L_किनारा_प्रयत्न_ढेर_तैयार_0:
+  jmp .L_प्रयत्न_ढेर_तैयार__if_अंत_2
+.L_प्रयत्न_ढेर_तैयार__if_सत्य_1:
+  movq $65536, %rbx
+  movq %rbx, %rcx
+  subq $32, %rsp
+  call सूत्र_तल_आवंटन
+  addq $32, %rsp
+  movq %rax, %rsi
+  movq %rsi, %r10
+  movq %r10, sutra_glob_प्रयत्न_ढेर(%rip)
+  movq $2048, %rbx
+  movq %rbx, %rcx
+  subq $32, %rsp
+  call सूत्र_तल_आवंटन
+  addq $32, %rsp
+  movq %rax, %rsi
+  movq %rsi, %r10
+  movq %r10, sutra_glob_प्रयत्न_जड़_गण(%rip)
+  jmp .L_प्रयत्न_ढेर_तैयार__if_अंत_2
+.L_प्रयत्न_ढेर_तैयार__if_अंत_2:
+  movq $0, %rbx
+  movq %rbx, %rax
+  jmp .L_epilogue_प्रयत्न_ढेर_तैयार
+.L_epilogue_प्रयत्न_ढेर_तैयार:
+  movq -8(%rbp), %rbx
+  movq -16(%rbp), %rsi
+  movq -24(%rbp), %rdi
+  movq %rbp, %rsp
+  popq %rbp
+  ret
+
+  .text
+  .globl अपवाद_बफ_लो
+  .def अपवाद_बफ_लो; .scl 2; .type 32; .endef
+अपवाद_बफ_लो:
+  pushq %rbp
+  movq %rsp, %rbp
+  subq $48, %rsp
+  movq %rbx, -8(%rbp)
+  movq %rsi, -16(%rbp)
+  movq %rdi, -24(%rbp)
+  movq %r12, -32(%rbp)
+
+.L_अपवाद_बफ_लो__प्रवेश_0:
+  subq $32, %rsp
+  call प्रयत्न_ढेर_तैयार
+  addq $32, %rsp
+  movq %rax, %rbx
+  movq sutra_glob_प्रयत्न_गहराई(%rip), %r10
+  movq %r10, %rbx
+  movq $256, %rsi
+  movq %rbx, %r10
+  cmpq %rsi, %r10
+  setge %al
+  movzbq %al, %r10
+  movq %r10, %rdi
+  movq %rdi, %r10
+  cmpq $0, %r10
+  je .L_किनारा_अपवाद_बफ_लो_0
+  jmp .L_अपवाद_बफ_लो__if_सत्य_1
+.L_किनारा_अपवाद_बफ_लो_0:
+  jmp .L_अपवाद_बफ_लो__if_अंत_2
+.L_अपवाद_बफ_लो__if_सत्य_1:
+  movq $0, %rbx
+  movq %rbx, %rcx
+  subq $32, %rsp
+  call सूत्र_अपवाद_निकास
+  addq $32, %rsp
+  movq %rax, %rsi
+  jmp .L_अपवाद_बफ_लो__if_अंत_2
+.L_अपवाद_बफ_लो__if_अंत_2:
+  movq sutra_glob_प्रयत्न_जड़_गण(%rip), %r10
+  movq %r10, %rbx
+  movq sutra_glob_प्रयत्न_गहराई(%rip), %r10
+  movq %r10, %rsi
+  movq $8, %rdi
+  movq %rsi, %r10
+  imulq %rdi, %r10
+  movq %r10, %r12
+  subq $32, %rsp
+  call sutra_gc_root_count
+  addq $32, %rsp
+  movq %rax, %rsi
+  movq %rbx, %r10
+  movq %r12, %r11
+  movq %rsi, %r8
+  movq %r8, (%r10,%r11)
+  movq %rsi, %rdi
+  movq sutra_glob_प्रयत्न_ढेर(%rip), %r10
+  movq %r10, %rbx
+  movq sutra_glob_प्रयत्न_गहराई(%rip), %r10
+  movq %r10, %rsi
+  movq $256, %rdi
+  movq %rsi, %r10
+  imulq %rdi, %r10
+  movq %r10, %r12
+  movq %rbx, %r10
+  addq %r12, %r10
+  movq %r10, %rsi
+  movq sutra_glob_प्रयत्न_गहराई(%rip), %r10
+  movq %r10, %rbx
+  movq $1, %rdi
+  movq %rbx, %r10
+  addq %rdi, %r10
+  movq %r10, %r12
+  movq %r12, %r10
+  movq %r10, sutra_glob_प्रयत्न_गहराई(%rip)
+  movq %rsi, %rax
+  jmp .L_epilogue_अपवाद_बफ_लो
+.L_epilogue_अपवाद_बफ_लो:
+  movq -8(%rbp), %rbx
+  movq -16(%rbp), %rsi
+  movq -24(%rbp), %rdi
+  movq -32(%rbp), %r12
+  movq %rbp, %rsp
+  popq %rbp
+  ret
+
+  .text
+  .globl अपवाद_पॉप
+  .def अपवाद_पॉप; .scl 2; .type 32; .endef
+अपवाद_पॉप:
+  pushq %rbp
+  movq %rsp, %rbp
+  subq $48, %rsp
+  movq %rbx, -8(%rbp)
+  movq %rsi, -16(%rbp)
+  movq %rdi, -24(%rbp)
+
+.L_अपवाद_पॉप__प्रवेश_0:
+  movq sutra_glob_प्रयत्न_गहराई(%rip), %r10
+  movq %r10, %rbx
+  movq $0, %rsi
+  movq %rbx, %r10
+  cmpq %rsi, %r10
+  setg %al
+  movzbq %al, %r10
+  movq %r10, %rdi
+  movq %rdi, %r10
+  cmpq $0, %r10
+  je .L_किनारा_अपवाद_पॉप_0
+  jmp .L_अपवाद_पॉप__if_सत्य_1
+.L_किनारा_अपवाद_पॉप_0:
+  jmp .L_अपवाद_पॉप__if_अंत_2
+.L_अपवाद_पॉप__if_सत्य_1:
+  movq sutra_glob_प्रयत्न_गहराई(%rip), %r10
+  movq %r10, %rbx
+  movq $1, %rsi
+  movq %rbx, %r10
+  subq %rsi, %r10
+  movq %r10, %rdi
+  movq %rdi, %r10
+  movq %r10, sutra_glob_प्रयत्न_गहराई(%rip)
+  jmp .L_अपवाद_पॉप__if_अंत_2
+.L_अपवाद_पॉप__if_अंत_2:
+  movq $0, %rbx
+  movq %rbx, %rax
+  jmp .L_epilogue_अपवाद_पॉप
+.L_epilogue_अपवाद_पॉप:
+  movq -8(%rbp), %rbx
+  movq -16(%rbp), %rsi
+  movq -24(%rbp), %rdi
+  movq %rbp, %rsp
+  popq %rbp
+  ret
+
+  .text
+  .globl सक्रिय_अपवाद_लो
+  .def सक्रिय_अपवाद_लो; .scl 2; .type 32; .endef
+सक्रिय_अपवाद_लो:
+  pushq %rbp
+  movq %rsp, %rbp
+  subq $32, %rsp
+  movq %rbx, -8(%rbp)
+
+.L_सक्रिय_अपवाद_लो__प्रवेश_0:
+  movq sutra_glob_सक्रिय_अपवाद(%rip), %r10
+  movq %r10, %rbx
+  movq %rbx, %rax
+  jmp .L_epilogue_सक्रिय_अपवाद_लो
+.L_epilogue_सक्रिय_अपवाद_लो:
+  movq -8(%rbp), %rbx
+  movq %rbp, %rsp
+  popq %rbp
+  ret
+
+  .text
+  .globl फेंको
+  .def फेंको; .scl 2; .type 32; .endef
+फेंको:
+  pushq %rbp
+  movq %rsp, %rbp
+  subq $64, %rsp
+  movq %rbx, -8(%rbp)
+  movq %rsi, -16(%rbp)
+  movq %rdi, -24(%rbp)
+  movq %r12, -32(%rbp)
+  movq %r13, -40(%rbp)
+  movq %rcx, %rbx
+
+.L_फेंको__प्रवेश_0:
+  movq %rbx, %r10
+  movq %r10, sutra_glob_सक्रिय_अपवाद(%rip)
+  movq sutra_glob_प्रयत्न_गहराई(%rip), %r10
+  movq %r10, %rsi
+  movq $0, %rdi
+  movq %rsi, %r10
+  cmpq %rdi, %r10
+  sete %al
+  movzbq %al, %r10
+  movq %r10, %r12
+  movq %r12, %r10
+  cmpq $0, %r10
+  je .L_किनारा_फेंको_0
+  jmp .L_फेंको__if_सत्य_1
+.L_किनारा_फेंको_0:
+  jmp .L_फेंको__if_अंत_2
+.L_फेंको__if_सत्य_1:
+  movq %rbx, %rcx
+  subq $32, %rsp
+  call सूत्र_अपवाद_निकास
+  addq $32, %rsp
+  movq %rax, %rsi
+  jmp .L_फेंको__if_अंत_2
+.L_फेंको__if_अंत_2:
+  movq sutra_glob_प्रयत्न_गहराई(%rip), %r10
+  movq %r10, %rbx
+  movq $1, %rsi
+  movq %rbx, %r10
+  subq %rsi, %r10
+  movq %r10, %rdi
+  movq %rdi, %r10
+  movq %r10, sutra_glob_प्रयत्न_गहराई(%rip)
+  movq sutra_glob_प्रयत्न_जड़_गण(%rip), %r10
+  movq %r10, %rbx
+  movq sutra_glob_प्रयत्न_गहराई(%rip), %r10
+  movq %r10, %rsi
+  movq $8, %rdi
+  movq %rsi, %r10
+  imulq %rdi, %r10
+  movq %r10, %r12
+  movq %rbx, %r10
+  movq %r12, %r11
+  movq (%r10,%r11), %r10
+  movq %r10, %rsi
+  movq sutra_glob_प्रयत्न_ढेर(%rip), %r10
+  movq %r10, %rbx
+  movq sutra_glob_प्रयत्न_गहराई(%rip), %r10
+  movq %r10, %rdi
+  movq $256, %r12
+  movq %rdi, %r10
+  imulq %r12, %r10
+  movq %r10, %r13
+  movq %rbx, %r10
+  addq %r13, %r10
+  movq %r10, %rdi
+  movq %rdi, %rcx
+  movq %rsi, %rdx
+  subq $32, %rsp
+  call सूत्र_दीर्घकूद
+  addq $32, %rsp
+  movq %rax, %rbx
+  movq $0, %rbx
+  movq %rbx, %rax
+  jmp .L_epilogue_फेंको
+.L_epilogue_फेंको:
+  movq -8(%rbp), %rbx
+  movq -16(%rbp), %rsi
+  movq -24(%rbp), %rdi
+  movq -32(%rbp), %r12
+  movq -40(%rbp), %r13
+  movq %rbp, %rsp
+  popq %rbp
+  ret
+
+  .text
   .globl कोष_हैश
   .def कोष_हैश; .scl 2; .type 32; .endef
 कोष_हैश:
@@ -9926,6 +10226,19 @@
   popq %rbp
   ret
 
+  .data
+  .globl sutra_glob_प्रयत्न_गहराई
+sutra_glob_प्रयत्न_गहराई:
+  .quad 0
+  .globl sutra_glob_प्रयत्न_ढेर
+sutra_glob_प्रयत्न_ढेर:
+  .quad 0
+  .globl sutra_glob_प्रयत्न_जड़_गण
+sutra_glob_प्रयत्न_जड़_गण:
+  .quad 0
+  .globl sutra_glob_सक्रिय_अपवाद
+sutra_glob_सक्रिय_अपवाद:
+  .quad 0
   .section .rdata,"dr"
 .LC_str_0:
   .ascii "\340\244\244\340\245\215\340\244\260\340\245\201\340\244\237\340\244\277\340\244\203 \342\200\224 \340\244\205\340\244\256\340\244\276\340\244\250\340\245\215\340\244\257 \340\244\270\340\245\202\340\244\232\340\244\225\340\244\276\340\244\202\340\244\225 \340\244\256\340\244\276\340\244\250 (Index cannot be negative)\0"
