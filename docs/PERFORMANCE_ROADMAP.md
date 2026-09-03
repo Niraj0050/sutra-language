@@ -469,11 +469,26 @@ fileIO — हर एक designed, अब बिना regression।
    fixed point 135298; 46_gc_repeated + 49_exceptions interp==native;
    41/44/18_stdlib ज्ञात-mismatch अपरिवर्तित।
 
-बचा (Level 1 = `sutra_runtime.c` DELETE, ~3 chunks):
+**§2o — Win32 file I/O + तर्क + समादेश → Sutra + तल.s** (commit `407adfa`, 2026-09-03)।
+   पूरा file/args/process भाग `sutra_runtime.c` से निकला। `तल.s`: 13 पतले
+   kernel32/shell32 wrappers, सब ≤3 तर्क → Sutra सीधे call करता, struct-
+   मार्शलिंग asm से बाहर नहीं (`सूत्र_तल_यूटीएफ_चौड़ा`/`_चौड़ा_यूटीएफ`/`_सञ्चिका_*`/
+   `_पढ़ो`/`_लिखो`/`_हैंडल_बंद`/`_समादेश_रेखा`/`_समादेश_विभाजन`/`_स्थानीय_मुक्त`/
+   `_समादेश`)। `सूत्र_तल_समादेश` = पूरा CreateProcessW + Wait + GetExitCode +
+   CloseHandle×2 (STARTUPINFOW/PROCESS_INFO अपने frame पर, हाथ-asm)।
+   `मूल_रनटाइम.सूत्र`: `सञ्चिका_पढ़ो_रन`/`_लिखो_रन`/`_है_रन`/`समादेश_चलाओ_रन`/
+   `तर्क_सूची_रन` (loop, lazy VirtualAlloc बफ़र, UTF-8↔UTF-16)। **तर्क अब
+   आलसी** → `main:` से `sutra_init_args` कॉल हटी। `निम्नक` builtins retarget;
+   `सार्थक` whitelist `सूत्र_तल_*` → seed **135298→135832**। `.c` **865→737**;
+   `<shellapi.h>` गया (सिर्फ़ `<windows.h>` — stderr + gc_status)। संकलक खुद
+   इसके पार self-compile करता (source पढ़ता, `.s` लिखता, as/gcc चलाता)।
+   fixed point + Gen1(split)==Gen2 + Gen2==Gen3 (135832); 51/2 + 10/1;
+   file round-trip + command exit-code + args प्रोग्राम interp==native।
+
+बचा (Level 1 = `sutra_runtime.c` DELETE, ~2 chunks):
    - GC C-bridge शेष: `sutra_gc_status` (print चंक के साथ) +
      `find_gc_allocation`/`native_is_*` (substr/`add_dynamic` के साथ — साझा
-     internal C callers) — स्वतंत्र चंक नहीं, ऊपर वालों के साथ जाएँगे
-   - Win32 file/args wrappers → Sutra intrinsics या `.s` — ~1 chunk
+     internal C callers) — स्वतंत्र चंक नहीं, नीचे वालों के साथ जाएँगे
    - float formatting (`sr_fmt_float`/`sr_ln`/`sr_exp`/`float_to_str`/`math_pow_f`) → Sutra — ~1
    - **RISKY**: `substr`/`str_get`/`str_alloc`/`arr_get` — lexer hot path (Sutra पहले
      40× slow) — नए तेज़ intrinsics या थोड़ा slowdown — ~1 chunk
