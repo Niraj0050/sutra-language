@@ -2105,7 +2105,7 @@
   jmp .L_सूत्र_संग्रह__wh_अंत_9
 .L_सूत्र_संग्रह__wh_अंत_9:
   subq $32, %rsp
-  call sutra_gc_active_exc
+  call सक्रिय_अपवाद_लो
   addq $32, %rsp
   movq %rax, %r13
   movq %r13, %rcx

@@ -9,6 +9,8 @@
  *   सूत्र_तल_निकास(rcx = कोड)              -> कभी नहीं लौटता  [ExitProcess]
  *   memcpy / memmove / memset / memcmp / strlen — हाथ से (libc-मुक्त)
  *   _setjmp(rcx=env,rdx=frame) / सूत्र_दीर्घकूद(rcx=env,rdx=roots) — न्यूनतम, no-SEH
+ *   gc_roots[] + gc_roots_count (.comm) + sutra_gc_push_root/pop_root/
+ *     root_count/root_deref — GC रूट-स्टैक (Sutra संग्राहक इन्हें पढ़ता)
  *
  * Windows x64 ABI: तर्क rcx,rdx,r8,r9; 32-बाइट shadow; call पर rsp 16-संरेखित।
  * callee-preserved: rbx rbp rdi rsi rsp r12-r15.
@@ -243,8 +245,7 @@ _setjmp:
 /* ============================================================
  * float (दशमलव) SSE प्रचालन — पूर्व sutra_runtime.c के __asm__ blob में।
  * bits int64 में आते-जाते (rcx,rdx → xmm ; rax ← xmm)। कोई libm।
- * बाहरी: sutra_throw_div_by_zero (C), gc_roots/gc_roots_count/
- * sutra_try_depth/sutra_active_exception (C globals) — link पर resolve।
+ * बाहरी: sutra_throw_div_by_zero (C) — link पर resolve।
  * ============================================================ */
   .text
 
@@ -467,3 +468,46 @@ sutra_gc_pop_root:
 
 /* sutra_exception_pop / sutra_get_exception_value अब C shim → मूल_रनटाइम.सूत्र
  * (अपवाद_पॉप / सक्रिय_अपवाद_लो) — प्रयत्न-गहराई/सक्रिय-अपवाद Sutra global हैं। */
+
+/* ============================================================
+ * GC रूट-सरणी + गणक — पूर्व sutra_runtime.c में (void** gc_roots[1e6],
+ * volatile int gc_roots_count)। हर संकलित मॉड्यूल inline
+ * gc_roots(%rip) / gc_roots_count(%rip) छूता है (उत्सर्जक की रूट-
+ * रजिस्ट्रेशन, तथा नीचे push/pop/root_count/root_deref, तथा
+ * सूत्र_दीर्घकूद)। स्पष्ट .bss (COMMON नहीं — 8MB COMMON ब्लॉक इमेज-
+ * लेआउट बिगाड़ता → REL32 overflow; C पक्ष -fno-common से .bss में जाता था)।
+ * ============================================================ */
+  .bss
+  .align 32
+  .globl gc_roots
+gc_roots:
+  .space 8000000
+  .align 8
+  .globl gc_roots_count
+gc_roots_count:
+  .space 8
+  .text
+
+/* sutra_gc_root_count() -> rax = gc_roots_count   (Sutra संग्राहक बुलाता) */
+  .globl sutra_gc_root_count
+  .def sutra_gc_root_count; .scl 2; .type 32; .endef
+sutra_gc_root_count:
+  movl gc_roots_count(%rip), %eax   /* 32-बिट लोड rax को शून्य-विस्तारित; गणक ≥ 0 */
+  ret
+
+/* sutra_gc_root_deref(rcx = i) -> rax = *gc_roots[i]  (सीमा-बाहर / NULL → 0) */
+  .globl sutra_gc_root_deref
+  .def sutra_gc_root_deref; .scl 2; .type 32; .endef
+sutra_gc_root_deref:
+  movl gc_roots_count(%rip), %eax
+  cmpq %rax, %rcx
+  jae .Lgrd_zero                    /* अचिह्नित: i<0 (विशाल) तथा i>=गणक दोनों पकड़े */
+  leaq gc_roots(%rip), %rdx
+  movq (%rdx,%rcx,8), %rax          /* rax = gc_roots[i]  (void**) */
+  testq %rax, %rax
+  jz .Lgrd_zero
+  movq (%rax), %rax                 /* rax = *slot */
+  ret
+.Lgrd_zero:
+  xorl %eax, %eax
+  ret

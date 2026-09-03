@@ -50,7 +50,10 @@ extern int64_t अपवाद_पॉप(void);
 extern int64_t सक्रिय_अपवाद_लो(void);
 extern int64_t फेंको(int64_t ex);
 
-/* stdout/stderr — कोई stdio, सीधे kernel32 WriteFile */
+/* stdout/stderr — कोई stdio, सीधे kernel32 WriteFile।
+ * stdout: सिर्फ़ sutra_gc_status (स्मृति_स्थिति diagnostic — non-allocating,
+ *   इसलिए अभी भी C; print/format चंक के साथ Sutra जाएगा)।
+ * stderr: uncaught-अपवाद पथ। */
 static void sr_fdw(DWORD which, const char* s, int n) {
     DWORD w;
     WriteFile(GetStdHandle(which), s, (DWORD)n, &w, NULL);
@@ -85,7 +88,6 @@ void sutra_print_dynamic(int64_t val);
 /* ============================================================
  * EXCEPTION HANDLING RUNTIME  —  state + logic in मूल_रनटाइम.सूत्र
  * ============================================================ */
-extern volatile int gc_roots_count;
 
 /* compiler-emitted entry points → thin shims over Sutra */
 void* sutra_exception_get_jmp_buf() { return अपवाद_बफ_लो(); }
@@ -124,11 +126,9 @@ void sutra_throw_div_by_zero() {
 
 /* ============================================================
  * GARBAGE COLLECTOR RUNTIME
+ * gc_roots[] + gc_roots_count अब तल.s (.bss) में; रूट-एक्सेसर
+ * sutra_gc_root_count / sutra_gc_root_deref भी तल.s (हाथ-asm)।
  * ============================================================ */
-
-#define GC_MAX_ROOTS 1000000
-void** gc_roots[GC_MAX_ROOTS];
-volatile int gc_roots_count = 0;
 
 /* ============================================================
  * Sutra allocator + GC  (स्वसंकलक/निर्माण/मूल_आवंटक.सूत्र)
@@ -146,7 +146,6 @@ extern void    सूत्र_जीसी_छोड़ो(void);
 extern int64_t सूत्र_गण_चक्र(void);
 extern int64_t सूत्र_गण_सक्रिय(void);
 extern int64_t सूत्र_गण_संग्रहित(void);
-extern int64_t सूत्र_गण_पुनःप्राप्त(void);
 
 #define SR_STR  1
 #define SR_ARR  2
@@ -171,15 +170,9 @@ extern int64_t शून्य_छापो(void);
 extern int64_t बूल_छापो(int64_t v);
 extern int64_t गतिशील_छापो(int64_t val);
 
-/* GC roots — the Sutra collector reads them through these */
-int64_t sutra_gc_root_count(void) { return gc_roots_count; }
-int64_t sutra_gc_root_deref(int64_t i) {
-    if (i < 0 || i >= gc_roots_count) return 0;
-    void** r = gc_roots[i];
-    return r ? (int64_t)(intptr_t)*r : 0;
-}
-int64_t sutra_gc_active_exc(void) { return सक्रिय_अपवाद_लो(); }  /* -> मूल_रनटाइम.सूत्र */
-
+/* GC roots — sutra_gc_root_count / sutra_gc_root_deref अब तल.s (asm)।
+ * sutra_gc_active_exc हटा — उत्सर्जक अब अंतर्_सक्रिय_अपवाद को सीधे
+ * सक्रिय_अपवाद_लो (मूल_रनटाइम.सूत्र) पर भेजता। */
 
 typedef enum {
     GC_TYPE_STRING,
@@ -210,6 +203,8 @@ void sutra_gc_collect() {
     सूत्र_संग्रह();
 }
 
+/* स्मृति_स्थिति diagnostic — non-allocating (sr_out, कोई पाठ-आवंटन) ताकि
+ * यह उन्हीं गणकों को न बिगाड़े जो यह छापता है। print/format चंक के साथ जाएगा। */
 void sutra_gc_status() {
     sr_out("चक्र: ");     sr_out_i64(सूत्र_गण_चक्र());     sr_out("\n");
     sr_out("सक्रिय: ");   sr_out_i64(सूत्र_गण_सक्रिय());   sr_out("\n");
