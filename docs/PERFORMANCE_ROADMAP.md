@@ -420,12 +420,28 @@ fileIO — हर एक designed, अब बिना regression।
      = सिर्फ़ `memcpy`/`strlen` → तल.s। 49_exceptions + nested/loop try-catch +
      rethrow + uncaught→stderr सब interp==native, fixed point कायम।
 
-बचा (Level 1 = `sutra_runtime.c` DELETE): float SSE `__asm__` blob → hand-`.s`;
-Win32 file/args wrappers + exception state-machine (`sutra_throw` आदि) + छोटे C
-string helpers (`str_map_case`/`dynamic_type`/`char_ord`/`sr_fmt_float`/
-`arr_get`-dispatch/`str_get`-cache/`substr`) → Sutra या `.s`।
-अंतिम कदम = **custom `_start` / `-nostdlib`** (binary अभी gcc की crt2.o से
-`api-ms-win-crt-*` link करता — हमारे code से नहीं; Level 2)।
+**§2k — float SSE `__asm__` blob → तल.s** (commit `TBD`, 2026-09-01)।
+   `sutra_runtime.c` के 242-line inline `__asm__(R"(…)")` (`sutra_float_*` अंकगणित/
+   तुलना, `int↔float`, `math_*_f` SSE, `sutra_gc_push/pop_root`, `sutra_exception_pop`,
+   `sutra_get_exception_value`) → `तल.s` में। बाहरी सूचक (`sutra_throw_div_by_zero` C,
+   `gc_roots`/`gc_roots_count`/`sutra_try_depth`/`sutra_active_exception` C globals)
+   link पर cross-resolve। साथ में 5 मृत `#if 0` C-दुहराव हटाए। `.c` **1496→1122
+   line**। कोई build-plumbing नहीं (`तल.s` पहले से everywhere)। fixed point 135213,
+   40_native_floats/49_exceptions/गणित/प्रारूप interp==native।
+
+बचा (Level 1 = `sutra_runtime.c` DELETE, ~5-6 chunks):
+   - आसान Sutra ports: `dynamic_type` / `str_map_case`+`upper`/`lower` / `char_ord` /
+     पूर्णांक `math_pow`/`abs`/`min`/`max`/`round` / `utf8_cmp_codepoints`+`str_less/…` /
+     `str_length` / `dict_keys` / thin shims — ~1-2 chunk
+   - exception state-machine (`sutra_throw`/`throw_str`/`get_jmp_buf` + globals) → Sutra
+     (`sr_longjmp` call + WriteFile uncaught-msg) — ~1 chunk
+   - Win32 file/args wrappers → Sutra intrinsics या `.s` — ~1 chunk
+   - float formatting (`sr_fmt_float`/`float_to_str`/`print_float`/`sr_ln`/`sr_exp`/
+     `math_pow_f`) → Sutra — ~1 chunk
+   - **RISKY**: `substr`/`str_get`/`str_alloc` — lexer hot path (Sutra version पहले
+     40× slow) — नए तेज़ intrinsics या थोड़ा slowdown स्वीकार — ~1 chunk
+   अंतिम कदम = **Level 2: custom `_start` / `-nostdlib`** (binary अभी gcc की crt2.o से
+   `api-ms-win-crt-*` link करता — हमारे code से नहीं) — ~1-2 chunk।
 
 **2b. मानक पुस्तकालय (`पुस्तकालय/`) — सूत्र में** (commits `07205ac` + `c07ba45`, 2026-09-01)।
    Phase 2 रोककर पहले लाइब्रेरी (Niraj का निर्णय)। **12 मॉड्यूल**, कोई C

@@ -103,11 +103,6 @@ void* sutra_exception_get_jmp_buf() {
     return &sutra_try_stack[sutra_try_depth++];
 }
 
-#if 0
-void sutra_exception_pop() {
-    if (sutra_try_depth > 0) sutra_try_depth--;
-}
-#endif
 
 void sutra_str_print(void* s);
 
@@ -137,11 +132,6 @@ void sutra_throw(void* ex) {
     sr_longjmp(sutra_try_stack[sutra_try_depth], 1);
 }
 
-#if 0
-void* sutra_get_exception_value() {
-    return sutra_active_exception;
-}
-#endif
 
 void* sutra_str_alloc(const char* data, int64_t len);
 
@@ -212,26 +202,6 @@ int64_t sutra_gc_root_deref(int64_t i) {
 extern void* volatile sutra_active_exception;
 int64_t sutra_gc_active_exc(void) { return (int64_t)(intptr_t)sutra_active_exception; }
 
-#if 0
-void sutra_gc_push_root(void* addr) {
-    if (gc_roots_count < GC_MAX_ROOTS) {
-        gc_roots[gc_roots_count++] = (void**)addr;
-    } else {
-        fprintf(stderr, "त्रुटिः — GC root stack overflow\n");
-        exit(1);
-    }
-}
-
-void sutra_gc_pop_root(void* addr) {
-    if (gc_roots_count > 0) {
-        if (gc_roots[gc_roots_count - 1] != (void**)addr) {
-            fprintf(stderr, "त्रुटिः — GC root mismatch on pop: expected %p, got %p\n", (void*)gc_roots[gc_roots_count - 1], addr);
-            exit(1);
-        }
-        gc_roots_count--;
-    }
-}
-#endif
 
 typedef enum {
     GC_TYPE_STRING,
@@ -1046,20 +1016,6 @@ int64_t sutra_char_ord(void* str) {
 void* sutra_char_chr(int64_t cp) { return अक्षर_बना(cp); }  /* -> मूल_रनटाइम.सूत्र */
 
 // Float support runtime helper functions
-#if 0
-int64_t sutra_int_to_float(int64_t v) {
-    double d = (double)v;
-    int64_t res;
-    memcpy(&res, &d, 8);
-    return res;
-}
-
-int64_t sutra_float_to_int(int64_t v_bits) {
-    double d;
-    memcpy(&d, &v_bits, 8);
-    return (int64_t)d;
-}
-#endif
 
 /* "%f"-जैसा दशमलव प्रारूप (6 अंश-अंक, trailing zeros छँटे) — कोई libc नहीं
  * (SSE अंकगणित + पूर्णांक लूप)। buf ≥ 40 बाइट। लौटाता: लिखे गए बाइट। */
@@ -1109,92 +1065,6 @@ void sutra_print_float(int64_t v_bits) {
     पाठ_छापो(sutra_float_to_str(v_bits));   /* → मूल_रनटाइम.सूत्र (तल.s WriteFile) */
 }
 
-#if 0
-int64_t sutra_float_add(int64_t a_bits, int64_t b_bits) {
-    double a, b;
-    memcpy(&a, &a_bits, 8);
-    memcpy(&b, &b_bits, 8);
-    double res = a + b;
-    int64_t res_bits;
-    memcpy(&res_bits, &res, 8);
-    return res_bits;
-}
-
-int64_t sutra_float_sub(int64_t a_bits, int64_t b_bits) {
-    double a, b;
-    memcpy(&a, &a_bits, 8);
-    memcpy(&b, &b_bits, 8);
-    double res = a - b;
-    int64_t res_bits;
-    memcpy(&res_bits, &res, 8);
-    return res_bits;
-}
-
-int64_t sutra_float_mul(int64_t a_bits, int64_t b_bits) {
-    double a, b;
-    memcpy(&a, &a_bits, 8);
-    memcpy(&b, &b_bits, 8);
-    double res = a * b;
-    int64_t res_bits;
-    memcpy(&res_bits, &res, 8);
-    return res_bits;
-}
-
-int64_t sutra_float_div(int64_t a_bits, int64_t b_bits) {
-    double a, b;
-    memcpy(&a, &a_bits, 8);
-    memcpy(&b, &b_bits, 8);
-    if (b == 0.0) {
-        sutra_throw_div_by_zero();
-    }
-    double res = a / b;
-    int64_t res_bits;
-    memcpy(&res_bits, &res, 8);
-    return res_bits;
-}
-
-int64_t sutra_float_eq(int64_t a_bits, int64_t b_bits) {
-    double a, b;
-    memcpy(&a, &a_bits, 8);
-    memcpy(&b, &b_bits, 8);
-    return a == b ? 1 : 0;
-}
-
-int64_t sutra_float_ne(int64_t a_bits, int64_t b_bits) {
-    double a, b;
-    memcpy(&a, &a_bits, 8);
-    memcpy(&b, &b_bits, 8);
-    return a != b ? 1 : 0;
-}
-
-int64_t sutra_float_lt(int64_t a_bits, int64_t b_bits) {
-    double a, b;
-    memcpy(&a, &a_bits, 8);
-    memcpy(&b, &b_bits, 8);
-    return a < b ? 1 : 0;
-}
-
-int64_t sutra_float_gt(int64_t a_bits, int64_t b_bits) {
-    double a, b;
-    memcpy(&a, &a_bits, 8);
-    memcpy(&b, &b_bits, 8);
-    return a > b ? 1 : 0;
-}
-
-int64_t sutra_float_le(int64_t a_bits, int64_t b_bits) {
-    double a, b;
-    memcpy(&a, &a_bits, 8);
-    memcpy(&b, &b_bits, 8);
-    return a <= b ? 1 : 0;
-}
-
-int64_t sutra_float_ge(int64_t a_bits, int64_t b_bits) {
-    double a, b;
-    memcpy(&a, &a_bits, 8);
-    memcpy(&b, &b_bits, 8);
-    return a >= b ? 1 : 0;
-}
-#endif
 
 /* sutra_math_sqrt_f / abs_f / min_f / max_f / round_f — अब SSE asm blob में
  * (sqrtsd / btrq $63 / minsd / maxsd / cvtsd2si)। कोई libm नहीं। */
@@ -1246,250 +1116,6 @@ int64_t sutra_math_pow_f(int64_t b_bits, int64_t e_bits) {
     return res_bits;
 }
 
-#if defined(__x86_64__) || defined(_M_X64)
-__asm__(
-R"(
-  .text
-
-  .globl sutra_float_add
-  .def sutra_float_add; .scl 2; .type 32; .endef
-sutra_float_add:
-  movq %rcx, %xmm0
-  movq %rdx, %xmm1
-  addsd %xmm1, %xmm0
-  movq %xmm0, %rax
-  ret
-
-  .globl sutra_float_sub
-  .def sutra_float_sub; .scl 2; .type 32; .endef
-sutra_float_sub:
-  movq %rcx, %xmm0
-  movq %rdx, %xmm1
-  subsd %xmm1, %xmm0
-  movq %xmm0, %rax
-  ret
-
-  .globl sutra_float_mul
-  .def sutra_float_mul; .scl 2; .type 32; .endef
-sutra_float_mul:
-  movq %rcx, %xmm0
-  movq %rdx, %xmm1
-  mulsd %xmm1, %xmm0
-  movq %xmm0, %rax
-  ret
-
-  .globl sutra_float_div
-  .def sutra_float_div; .scl 2; .type 32; .endef
-sutra_float_div:
-  movq %rdx, %xmm1
-  xorpd %xmm2, %xmm2
-  ucomisd %xmm2, %xmm1
-  jne .Lfdiv_ok_inline
-  jp .Lfdiv_ok_inline
-  # b == 0.0, throw division by zero
-  subq $40, %rsp
-  call sutra_throw_div_by_zero
-  addq $40, %rsp
-.Lfdiv_ok_inline:
-  movq %rcx, %xmm0
-  divsd %xmm1, %xmm0
-  movq %xmm0, %rax
-  ret
-
-  .globl sutra_float_eq
-  .def sutra_float_eq; .scl 2; .type 32; .endef
-sutra_float_eq:
-  movq %rcx, %xmm0
-  movq %rdx, %xmm1
-  ucomisd %xmm1, %xmm0
-  sete %al
-  setnp %cl
-  andb %cl, %al
-  movzbq %al, %rax
-  ret
-
-  .globl sutra_float_ne
-  .def sutra_float_ne; .scl 2; .type 32; .endef
-sutra_float_ne:
-  movq %rcx, %xmm0
-  movq %rdx, %xmm1
-  ucomisd %xmm1, %xmm0
-  setne %al
-  setp %cl
-  orb %cl, %al
-  movzbq %al, %rax
-  ret
-
-  .globl sutra_float_lt
-  .def sutra_float_lt; .scl 2; .type 32; .endef
-sutra_float_lt:
-  movq %rcx, %xmm0
-  movq %rdx, %xmm1
-  ucomisd %xmm0, %xmm1
-  seta %al
-  movzbq %al, %rax
-  ret
-
-  .globl sutra_float_gt
-  .def sutra_float_gt; .scl 2; .type 32; .endef
-sutra_float_gt:
-  movq %rcx, %xmm0
-  movq %rdx, %xmm1
-  ucomisd %xmm1, %xmm0
-  seta %al
-  movzbq %al, %rax
-  ret
-
-  .globl sutra_float_le
-  .def sutra_float_le; .scl 2; .type 32; .endef
-sutra_float_le:
-  movq %rcx, %xmm0
-  movq %rdx, %xmm1
-  ucomisd %xmm0, %xmm1
-  setae %al
-  movzbq %al, %rax
-  ret
-
-  .globl sutra_float_ge
-  .def sutra_float_ge; .scl 2; .type 32; .endef
-sutra_float_ge:
-  movq %rcx, %xmm0
-  movq %rdx, %xmm1
-  ucomisd %xmm1, %xmm0
-  setae %al
-  movzbq %al, %rax
-  ret
-
-  .globl sutra_int_to_float
-  .def sutra_int_to_float; .scl 2; .type 32; .endef
-sutra_int_to_float:
-  cvtsi2sdq %rcx, %xmm0
-  movq %xmm0, %rax
-  ret
-
-  # ---- गणित (float) : SSE, कोई libm नहीं ----
-
-  .globl sutra_math_sqrt_f
-  .def sutra_math_sqrt_f; .scl 2; .type 32; .endef
-sutra_math_sqrt_f:
-  movq %rcx, %xmm0
-  sqrtsd %xmm0, %xmm0
-  movq %xmm0, %rax
-  ret
-
-  .globl sutra_math_abs_f
-  .def sutra_math_abs_f; .scl 2; .type 32; .endef
-sutra_math_abs_f:
-  movq %rcx, %rax
-  btrq $63, %rax
-  ret
-
-  .globl sutra_math_min_f
-  .def sutra_math_min_f; .scl 2; .type 32; .endef
-sutra_math_min_f:
-  movq %rcx, %xmm0
-  movq %rdx, %xmm1
-  minsd %xmm1, %xmm0
-  movq %xmm0, %rax
-  ret
-
-  .globl sutra_math_max_f
-  .def sutra_math_max_f; .scl 2; .type 32; .endef
-sutra_math_max_f:
-  movq %rcx, %xmm0
-  movq %rdx, %xmm1
-  maxsd %xmm1, %xmm0
-  movq %xmm0, %rax
-  ret
-
-  # गोल: half-away-from-zero (llround जैसा) = trunc(x + copysign(0.5, x))
-  .globl sutra_math_round_f
-  .def sutra_math_round_f; .scl 2; .type 32; .endef
-sutra_math_round_f:
-  movq %rcx, %xmm0
-  movq %rcx, %rax
-  movabsq $0x8000000000000000, %rdx
-  andq %rdx, %rax
-  movabsq $0x3FE0000000000000, %rdx
-  orq %rdx, %rax
-  movq %rax, %xmm1
-  addsd %xmm1, %xmm0
-  cvttsd2siq %xmm0, %rax
-  ret
-
-  .globl sutra_math_sqrt
-  .def sutra_math_sqrt; .scl 2; .type 32; .endef
-sutra_math_sqrt:
-  cvtsi2sdq %rcx, %xmm0
-  sqrtsd %xmm0, %xmm0
-  movabsq $0x3FE0000000000000, %rax
-  movq %rax, %xmm1
-  addsd %xmm1, %xmm0
-  cvttsd2siq %xmm0, %rax
-  ret
-
-  .globl sutra_float_to_int
-  .def sutra_float_to_int; .scl 2; .type 32; .endef
-sutra_float_to_int:
-  movq %rcx, %xmm0
-  cvttsd2siq %xmm0, %rax
-  ret
-
-  .globl sutra_gc_push_root
-  .def sutra_gc_push_root; .scl 2; .type 32; .endef
-sutra_gc_push_root:
-  movl gc_roots_count(%rip), %eax
-  cmpl $1000000, %eax
-  jge .Lgc_push_overflow_inline
-  leaq gc_roots(%rip), %rdx
-  movslq %eax, %r8
-  movq %rcx, (%rdx,%r8,8)
-  incl %eax
-  movl %eax, gc_roots_count(%rip)
-  ret
-.Lgc_push_overflow_inline:
-  movl $1, %ecx
-  subq $40, %rsp
-  call सूत्र_तल_निकास
-
-  .globl sutra_gc_pop_root
-  .def sutra_gc_pop_root; .scl 2; .type 32; .endef
-sutra_gc_pop_root:
-  movl gc_roots_count(%rip), %eax
-  testl %eax, %eax
-  jle .Lgc_pop_done_inline
-  decl %eax
-  leaq gc_roots(%rip), %rdx
-  movslq %eax, %r8
-  cmpq %rcx, (%rdx,%r8,8)
-  jne .Lgc_pop_mismatch_inline
-  movl %eax, gc_roots_count(%rip)
-.Lgc_pop_done_inline:
-  ret
-.Lgc_pop_mismatch_inline:
-  movl $1, %ecx
-  subq $40, %rsp
-  call सूत्र_तल_निकास
-
-  .globl sutra_exception_pop
-  .def sutra_exception_pop; .scl 2; .type 32; .endef
-sutra_exception_pop:
-  movl sutra_try_depth(%rip), %eax
-  testl %eax, %eax
-  jle .Lexcpop_done_inline
-  decl %eax
-  movl %eax, sutra_try_depth(%rip)
-.Lexcpop_done_inline:
-  ret
-
-  .globl sutra_get_exception_value
-  .def sutra_get_exception_value; .scl 2; .type 32; .endef
-sutra_get_exception_value:
-  movq sutra_active_exception(%rip), %rax
-  ret
-)"
-);
-#endif
 
 #ifdef __cplusplus
 }

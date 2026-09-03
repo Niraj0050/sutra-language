@@ -239,3 +239,245 @@ sr_longjmp:
   movq 0(%rcx), %r10
   movq 8(%rcx), %rsp
   jmp *%r10
+
+/* ============================================================
+ * float (दशमलव) SSE प्रचालन — पूर्व sutra_runtime.c के __asm__ blob में।
+ * bits int64 में आते-जाते (rcx,rdx → xmm ; rax ← xmm)। कोई libm।
+ * बाहरी: sutra_throw_div_by_zero (C), gc_roots/gc_roots_count/
+ * sutra_try_depth/sutra_active_exception (C globals) — link पर resolve।
+ * ============================================================ */
+  .text
+
+  .globl sutra_float_add
+  .def sutra_float_add; .scl 2; .type 32; .endef
+sutra_float_add:
+  movq %rcx, %xmm0
+  movq %rdx, %xmm1
+  addsd %xmm1, %xmm0
+  movq %xmm0, %rax
+  ret
+
+  .globl sutra_float_sub
+  .def sutra_float_sub; .scl 2; .type 32; .endef
+sutra_float_sub:
+  movq %rcx, %xmm0
+  movq %rdx, %xmm1
+  subsd %xmm1, %xmm0
+  movq %xmm0, %rax
+  ret
+
+  .globl sutra_float_mul
+  .def sutra_float_mul; .scl 2; .type 32; .endef
+sutra_float_mul:
+  movq %rcx, %xmm0
+  movq %rdx, %xmm1
+  mulsd %xmm1, %xmm0
+  movq %xmm0, %rax
+  ret
+
+  .globl sutra_float_div
+  .def sutra_float_div; .scl 2; .type 32; .endef
+sutra_float_div:
+  movq %rdx, %xmm1
+  xorpd %xmm2, %xmm2
+  ucomisd %xmm2, %xmm1
+  jne .Lfdiv_ok
+  jp .Lfdiv_ok
+  subq $40, %rsp
+  call sutra_throw_div_by_zero
+  addq $40, %rsp
+.Lfdiv_ok:
+  movq %rcx, %xmm0
+  divsd %xmm1, %xmm0
+  movq %xmm0, %rax
+  ret
+
+  .globl sutra_float_eq
+  .def sutra_float_eq; .scl 2; .type 32; .endef
+sutra_float_eq:
+  movq %rcx, %xmm0
+  movq %rdx, %xmm1
+  ucomisd %xmm1, %xmm0
+  sete %al
+  setnp %cl
+  andb %cl, %al
+  movzbq %al, %rax
+  ret
+
+  .globl sutra_float_ne
+  .def sutra_float_ne; .scl 2; .type 32; .endef
+sutra_float_ne:
+  movq %rcx, %xmm0
+  movq %rdx, %xmm1
+  ucomisd %xmm1, %xmm0
+  setne %al
+  setp %cl
+  orb %cl, %al
+  movzbq %al, %rax
+  ret
+
+  .globl sutra_float_lt
+  .def sutra_float_lt; .scl 2; .type 32; .endef
+sutra_float_lt:
+  movq %rcx, %xmm0
+  movq %rdx, %xmm1
+  ucomisd %xmm0, %xmm1
+  seta %al
+  movzbq %al, %rax
+  ret
+
+  .globl sutra_float_gt
+  .def sutra_float_gt; .scl 2; .type 32; .endef
+sutra_float_gt:
+  movq %rcx, %xmm0
+  movq %rdx, %xmm1
+  ucomisd %xmm1, %xmm0
+  seta %al
+  movzbq %al, %rax
+  ret
+
+  .globl sutra_float_le
+  .def sutra_float_le; .scl 2; .type 32; .endef
+sutra_float_le:
+  movq %rcx, %xmm0
+  movq %rdx, %xmm1
+  ucomisd %xmm0, %xmm1
+  setae %al
+  movzbq %al, %rax
+  ret
+
+  .globl sutra_float_ge
+  .def sutra_float_ge; .scl 2; .type 32; .endef
+sutra_float_ge:
+  movq %rcx, %xmm0
+  movq %rdx, %xmm1
+  ucomisd %xmm1, %xmm0
+  setae %al
+  movzbq %al, %rax
+  ret
+
+  .globl sutra_int_to_float
+  .def sutra_int_to_float; .scl 2; .type 32; .endef
+sutra_int_to_float:
+  cvtsi2sdq %rcx, %xmm0
+  movq %xmm0, %rax
+  ret
+
+  .globl sutra_float_to_int
+  .def sutra_float_to_int; .scl 2; .type 32; .endef
+sutra_float_to_int:
+  movq %rcx, %xmm0
+  cvttsd2siq %xmm0, %rax
+  ret
+
+  .globl sutra_math_sqrt_f
+  .def sutra_math_sqrt_f; .scl 2; .type 32; .endef
+sutra_math_sqrt_f:
+  movq %rcx, %xmm0
+  sqrtsd %xmm0, %xmm0
+  movq %xmm0, %rax
+  ret
+
+  .globl sutra_math_abs_f
+  .def sutra_math_abs_f; .scl 2; .type 32; .endef
+sutra_math_abs_f:
+  movq %rcx, %rax
+  btrq $63, %rax
+  ret
+
+  .globl sutra_math_min_f
+  .def sutra_math_min_f; .scl 2; .type 32; .endef
+sutra_math_min_f:
+  movq %rcx, %xmm0
+  movq %rdx, %xmm1
+  minsd %xmm1, %xmm0
+  movq %xmm0, %rax
+  ret
+
+  .globl sutra_math_max_f
+  .def sutra_math_max_f; .scl 2; .type 32; .endef
+sutra_math_max_f:
+  movq %rcx, %xmm0
+  movq %rdx, %xmm1
+  maxsd %xmm1, %xmm0
+  movq %xmm0, %rax
+  ret
+
+  /* गोल: half-away-from-zero (llround जैसा) = trunc(x + copysign(0.5,x)) */
+  .globl sutra_math_round_f
+  .def sutra_math_round_f; .scl 2; .type 32; .endef
+sutra_math_round_f:
+  movq %rcx, %xmm0
+  movq %rcx, %rax
+  movabsq $0x8000000000000000, %rdx
+  andq %rdx, %rax
+  movabsq $0x3FE0000000000000, %rdx
+  orq %rdx, %rax
+  movq %rax, %xmm1
+  addsd %xmm1, %xmm0
+  cvttsd2siq %xmm0, %rax
+  ret
+
+  .globl sutra_math_sqrt
+  .def sutra_math_sqrt; .scl 2; .type 32; .endef
+sutra_math_sqrt:
+  cvtsi2sdq %rcx, %xmm0
+  sqrtsd %xmm0, %xmm0
+  movabsq $0x3FE0000000000000, %rax
+  movq %rax, %xmm1
+  addsd %xmm1, %xmm0
+  cvttsd2siq %xmm0, %rax
+  ret
+
+  .globl sutra_gc_push_root
+  .def sutra_gc_push_root; .scl 2; .type 32; .endef
+sutra_gc_push_root:
+  movl gc_roots_count(%rip), %eax
+  cmpl $1000000, %eax
+  jge .Lgc_push_overflow
+  leaq gc_roots(%rip), %rdx
+  movslq %eax, %r8
+  movq %rcx, (%rdx,%r8,8)
+  incl %eax
+  movl %eax, gc_roots_count(%rip)
+  ret
+.Lgc_push_overflow:
+  movl $1, %ecx
+  subq $40, %rsp
+  call सूत्र_तल_निकास
+
+  .globl sutra_gc_pop_root
+  .def sutra_gc_pop_root; .scl 2; .type 32; .endef
+sutra_gc_pop_root:
+  movl gc_roots_count(%rip), %eax
+  testl %eax, %eax
+  jle .Lgc_pop_done
+  decl %eax
+  leaq gc_roots(%rip), %rdx
+  movslq %eax, %r8
+  cmpq %rcx, (%rdx,%r8,8)
+  jne .Lgc_pop_mismatch
+  movl %eax, gc_roots_count(%rip)
+.Lgc_pop_done:
+  ret
+.Lgc_pop_mismatch:
+  movl $1, %ecx
+  subq $40, %rsp
+  call सूत्र_तल_निकास
+
+  .globl sutra_exception_pop
+  .def sutra_exception_pop; .scl 2; .type 32; .endef
+sutra_exception_pop:
+  movl sutra_try_depth(%rip), %eax
+  testl %eax, %eax
+  jle .Lexcpop_done
+  decl %eax
+  movl %eax, sutra_try_depth(%rip)
+.Lexcpop_done:
+  ret
+
+  .globl sutra_get_exception_value
+  .def sutra_get_exception_value; .scl 2; .type 32; .endef
+sutra_get_exception_value:
+  movq sutra_active_exception(%rip), %rax
+  ret
