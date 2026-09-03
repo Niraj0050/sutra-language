@@ -379,12 +379,27 @@ fileIO — हर एक designed, अब बिना regression।
    `CreateProcessW` से चलाता); `तर्क_परीक्षण` + `cli_शब्द_गणना` (argv+file) +
    file round-trip सब काम।
 
-अभी C (stdio, अगला छोटा pass): `fprintf(stderr,…)` त्रुटि-पथ (३× live — exception
-uncaught/max-depth), `printf` in `sutra_gc_status`; फिर मृत `gc_hash`/`gc_allocs`
-(~130 line, कभी नहीं बुलाया) हटाओ → `malloc`/`free`/`calloc`/`realloc` जाएँ।
-बचा: `memcpy`/`memset`/`strlen`(कुछ), `setjmp`/`longjmp` (exception ABI),
-float SSE `__asm__` blob → hand-`.s` (Stage 3)। फिर **`sutra_runtime.c` DELETE**
-= Level 1 independence।
+**§2h — stdio हटाओ + मृत GC-registry हटाओ** (2026-09-01)।
+   - `fprintf(stderr,…)` (exception uncaught / max-depth) → `sr_err()` =
+     `WriteFile(GetStdHandle(STD_ERROR_HANDLE),…)`। `exit(1)` → `ExitProcess(1)`
+     (asm blob के 2 `call exit` → `call सूत्र_तल_निकास`)।
+   - `printf` in `sutra_gc_status` (`स्मृति_स्थिति`) → `sr_out` + `sr_out_i64`
+     (हाथ का पूर्णांक-प्रारूप)।
+   - मृत कोड हटाया (~190 line): `gc_allocs` सरणी + सूचक→अनुक्रमणिका hash +
+     `gc_register_alloc`/`unregister`/`update`/`mark_allocation` — Route-C में
+     कभी नहीं बुलाया (`find_gc_allocation` सीधे `सूत्र_ब्लॉक_प्रकार`, `चिह्नित`
+     `मूल_आवंटक.सूत्र` में)। साथ में `malloc`/`free`/`calloc`/`realloc` गए।
+   - `#include` अब सिर्फ़: `<string.h>` (`memcpy`/`memset`/`strlen`/`memcmp`),
+     `<stdint.h>`/`<stddef.h>` (types), `<windows.h>`/`<shellapi.h>` (OS-तल),
+     `<setjmp.h>` (exception ABI)। **`<stdio.h>` / `<stdlib.h>` / `<inttypes.h>`
+     हटे।** `sutra_runtime.c` 1685→1505 line। `44_gc_status`/`46` output अब
+     WriteFile से; exception message stderr पर।
+
+बचा (Level 1 के लिए): `memcpy`/`memset`/`strlen`/`memcmp` → Sutra byte-loop या
+intrinsic; `setjmp`/`longjmp` (exception ABI — छोटा asm shim या Sutra unwinder);
+float SSE `__asm__` blob → hand-`.s` (Stage 3); `sutra_str_equal`/`compare`
+(memcmp), `sutra_str_upper`/`lower`, `sutra_dynamic_type` → Sutra। फिर
+**`sutra_runtime.c` DELETE** = Level 1 independence।
 
 **2b. मानक पुस्तकालय (`पुस्तकालय/`) — सूत्र में** (commits `07205ac` + `c07ba45`, 2026-09-01)।
    Phase 2 रोककर पहले लाइब्रेरी (Niraj का निर्णय)। **12 मॉड्यूल**, कोई C

@@ -6,10 +6,12 @@
  * This runtime will eventually be replaced by a pure Sutra implementation.
  */
 
-#include <stdio.h>
-#include <stdlib.h>
+/* stdio / stdlib / inttypes हटे — कोई printf/fprintf/FILE/malloc/exit/atoi।
+ * string.h अभी बचा: memcpy / memset / strlen / memcmp (अगला inline pass)।
+ * stdint/stddef सिर्फ़ types देते (int64_t / size_t) — कोई फलन नहीं। */
 #include <string.h>
-#include <inttypes.h>
+#include <stdint.h>
+#include <stddef.h>
 
 #ifdef _WIN32
 #include <windows.h>
@@ -37,6 +39,25 @@ extern int64_t native_gc_bytes_reclaimed;
 
 #include <setjmp.h>
 
+/* stdout/stderr — कोई stdio, सीधे kernel32 WriteFile */
+static void sr_fdw(DWORD which, const char* s, int n) {
+    DWORD w;
+    WriteFile(GetStdHandle(which), s, (DWORD)n, &w, NULL);
+}
+static int sr_slen(const char* s) { int n = 0; while (s[n]) n++; return n; }
+static void sr_err(const char* s) { sr_fdw(STD_ERROR_HANDLE, s, sr_slen(s)); }
+static void sr_out(const char* s) { sr_fdw(STD_OUTPUT_HANDLE, s, sr_slen(s)); }
+static void sr_out_i64(int64_t v) {
+    char b[24], t[24];
+    int p = 0, tp = 0, neg = v < 0;
+    if (neg) v = -v;
+    if (v == 0) t[tp++] = '0';
+    while (v > 0) { t[tp++] = (char)('0' + v % 10); v /= 10; }
+    if (neg) b[p++] = '-';
+    while (tp > 0) b[p++] = t[--tp];
+    sr_fdw(STD_OUTPUT_HANDLE, b, p);
+}
+
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -63,8 +84,8 @@ extern volatile int gc_roots_count;
 
 void* sutra_exception_get_jmp_buf() {
     if (sutra_try_depth >= MAX_TRY_DEPTH) {
-        fprintf(stderr, "त्रुटिः — अधिकतम प्रयत्न सीमा पार हो गई (Max try depth exceeded)\n");
-        exit(1);
+        sr_err("त्रुटिः — अधिकतम प्रयत्न सीमा पार हो गई (Max try depth exceeded)\n");
+        ExitProcess(1);
     }
     sutra_try_gc_roots_count[sutra_try_depth] = gc_roots_count;
     return &sutra_try_stack[sutra_try_depth++];
@@ -90,11 +111,14 @@ void sutra_throw(void* ex) {
             /* ex is a Sutra string: [capacity: 8 bytes][length: 8 bytes][data: N bytes] */
             int64_t len = *((int64_t*)((char*)ex + 8));
             const char* msg = (const char*)ex + 16;
-            fprintf(stderr, "त्रुटिः: %.*s\n", (int)len, msg);
+            DWORD w;
+            sr_err("त्रुटिः: ");
+            WriteFile(GetStdHandle(STD_ERROR_HANDLE), msg, (DWORD)len, &w, NULL);
+            sr_err("\n");
         } else {
-            fprintf(stderr, "त्रुटिः — अनियंत्रित अपवाद (Uncaught exception)\n");
+            sr_err("त्रुटिः — अनियंत्रित अपवाद (Uncaught exception)\n");
         }
-        exit(1);
+        ExitProcess(1);
     }
     sutra_try_depth--;
     gc_roots_count = sutra_try_gc_roots_count[sutra_try_depth];
@@ -209,214 +233,15 @@ typedef struct {
     int marked;
 } GCAllocation;
 
-#define INITIAL_GC_DB_CAPACITY 1024
-GCAllocation* gc_allocs = NULL;
-size_t gc_allocs_count = 0;
-size_t gc_allocs_capacity = 0;
-
-// Stats
-int64_t gc_collection_count = 0;
-int64_t gc_live_allocs_count = 0;
-int64_t gc_bytes_allocated = 0;
-int64_t gc_bytes_reclaimed = 0;
-int64_t gc_collected_objects_count = 0;
-
-/* ============================================================
- * सूचक -> gc_allocs अनुक्रमणिका hash (खुला-पता, रैखिक-probe)
- * इससे gc_register_alloc / find_gc_allocation / sutra_is_dict
- * O(heap) के बजाय O(1) हो जाते हैं — यही स्व-संकलन की गति का
- * असली अवरोध था (O(n^2))।
- * ========================================================== */
-static void**  gc_hash_keys = NULL;   /* NULL स्लॉट = खाली */
-static size_t* gc_hash_vals = NULL;    /* gc_allocs में अनुक्रमणिका */
-static size_t  gc_hash_cap  = 0;       /* सदैव 2 की घात */
-static size_t  gc_hash_used = 0;
-#define GC_HASH_NONE ((size_t)-1)
-
-static size_t gc_hash_mix(void* p) {
-    uintptr_t h = (uintptr_t)p;
-    h ^= h >> 33; h *= (uintptr_t)0xff51afd7ed558ccdULL; h ^= h >> 33;
-    return (size_t)h;
-}
-
-static void gc_hash_put_raw(void* key, size_t val) {
-    size_t mask = gc_hash_cap - 1;
-    size_t i = gc_hash_mix(key) & mask;
-    while (gc_hash_keys[i] != NULL) i = (i + 1) & mask;
-    gc_hash_keys[i] = key;
-    gc_hash_vals[i] = val;
-    gc_hash_used++;
-}
-
-static void gc_hash_rebuild(size_t new_cap) {
-    if (new_cap < 2048) new_cap = 2048;
-    free(gc_hash_keys);
-    free(gc_hash_vals);
-    gc_hash_cap  = new_cap;
-    gc_hash_keys = (void**)calloc(gc_hash_cap, sizeof(void*));
-    gc_hash_vals = (size_t*)malloc(gc_hash_cap * sizeof(size_t));
-    gc_hash_used = 0;
-    if (!gc_hash_keys || !gc_hash_vals) {
-        sutra_throw_str("त्रुटिः — स्मृति आवंटन विफल (gc hash rebuild)");
-    }
-    for (size_t i = 0; i < gc_allocs_count; i++) {
-        gc_hash_put_raw(gc_allocs[i].ptr, i);
-    }
-}
-
-static size_t gc_hash_get(void* key) {
-    if (!gc_hash_cap) return GC_HASH_NONE;
-    size_t mask = gc_hash_cap - 1;
-    size_t i = gc_hash_mix(key) & mask;
-    while (gc_hash_keys[i] != NULL) {
-        if (gc_hash_keys[i] == key) return gc_hash_vals[i];
-        i = (i + 1) & mask;
-    }
-    return GC_HASH_NONE;
-}
-
-/* किसी मौजूद key का संग्रहित मान (gc_allocs अनुक्रमणिका) बदलो */
-static void gc_hash_setval(void* key, size_t val) {
-    if (!gc_hash_cap) return;
-    size_t mask = gc_hash_cap - 1;
-    size_t i = gc_hash_mix(key) & mask;
-    while (gc_hash_keys[i] != NULL) {
-        if (gc_hash_keys[i] == key) { gc_hash_vals[i] = val; return; }
-        i = (i + 1) & mask;
-    }
-}
-
-/* रैखिक-probe से key हटाओ — पिछे-खिसकाव विलोपन (Knuth Alg. R) */
-static void gc_hash_del(void* key) {
-    if (!gc_hash_cap) return;
-    size_t mask = gc_hash_cap - 1;
-    size_t i = gc_hash_mix(key) & mask;
-    while (gc_hash_keys[i] != NULL && gc_hash_keys[i] != key) i = (i + 1) & mask;
-    if (gc_hash_keys[i] == NULL) return;
-    size_t j = i;
-    for (;;) {
-        gc_hash_keys[i] = NULL;
-        size_t k;
-        do {
-            j = (j + 1) & mask;
-            if (gc_hash_keys[j] == NULL) { gc_hash_used--; return; }
-            k = gc_hash_mix(gc_hash_keys[j]) & mask;
-        } while ((i <= j) ? (i < k && k <= j) : (i < k || k <= j));
-        gc_hash_keys[i] = gc_hash_keys[j];
-        gc_hash_vals[i] = gc_hash_vals[j];
-        i = j;
-    }
-}
-
 /* अनुक्रमिक पाठ-सूचकांक पहुँच के लिए 1-प्रविष्टि cache (लेक्सर का O(n^2) निवारण) */
 static void*   sg_cache_str      = NULL;
 static int64_t sg_cache_char_idx = 0;
 static int64_t sg_cache_byte_off = 0;
 
-void gc_register_alloc(void* ptr, size_t size, GCType type) {
-    if (!ptr) return;
-    if (ptr == sg_cache_str) sg_cache_str = NULL; /* पुनः-प्रयुक्त पता → cache अमान्य */
-    // Detect duplicate allocation registration – this indicates a logic error (double allocation of same address)
-    if (gc_hash_get(ptr) != GC_HASH_NONE) {
-        fprintf(stderr, "त्रुटिः — डुप्लिकेट आवंटन पंजीकरण (duplicate allocation registration) for %p\n", ptr);
-        exit(1);
-    }
-    if (!gc_allocs) {
-        gc_allocs_capacity = INITIAL_GC_DB_CAPACITY;
-        gc_allocs = (GCAllocation*)malloc(gc_allocs_capacity * sizeof(GCAllocation));
-        if (!gc_allocs) {
-            sutra_throw_str("त्रुटिः — स्मृति आवंटन विफल (gc registry init)");
-        }
-    }
-    if (gc_allocs_count >= gc_allocs_capacity) {
-        size_t new_capacity = gc_allocs_capacity * 2;
-        GCAllocation* new_allocs = (GCAllocation*)realloc(gc_allocs, new_capacity * sizeof(GCAllocation));
-        if (!new_allocs) {
-            sutra_throw_str("त्रुटिः — स्मृति आवंटन विफल (gc registry grow)");
-        }
-        gc_allocs = new_allocs;
-        gc_allocs_capacity = new_capacity;
-    }
-    size_t new_idx = gc_allocs_count;
-    gc_allocs[new_idx].ptr = ptr;
-    gc_allocs[new_idx].size = size;
-    gc_allocs[new_idx].type = type;
-    gc_allocs[new_idx].marked = 0;
-    gc_allocs_count++;
-
-    /* hash में जोड़ो — load factor 75% पार हो तो पुनर्निर्माण (नई प्रविष्टि सहित) */
-    if (gc_hash_cap == 0 || (gc_hash_used + 1) * 4 >= gc_hash_cap * 3) {
-        gc_hash_rebuild(gc_hash_cap ? gc_hash_cap * 2 : 2048);
-    } else {
-        gc_hash_put_raw(ptr, new_idx);
-    }
-
-    gc_bytes_allocated += size;
-}
-
-void gc_unregister_alloc(void* ptr) {
-    if (!ptr) return;
-    size_t idx = gc_hash_get(ptr);
-    if (idx == GC_HASH_NONE) return;
-    if (ptr == sg_cache_str) sg_cache_str = NULL;
-    gc_hash_del(ptr);
-    size_t last = gc_allocs_count - 1;
-    if (idx != last) {
-        gc_allocs[idx] = gc_allocs[last];
-        gc_hash_setval(gc_allocs[idx].ptr, idx); /* खिसकाया गया तत्व अब idx पर */
-    }
-    gc_allocs_count--;
-}
-
-void gc_update_alloc(void* old_ptr, void* new_ptr, size_t new_size) {
-    if (!old_ptr || !new_ptr) return;
-    size_t idx = gc_hash_get(old_ptr);
-    if (idx == GC_HASH_NONE) return;
-    if (old_ptr == sg_cache_str) sg_cache_str = NULL;
-    gc_allocs[idx].ptr = new_ptr;
-    gc_bytes_allocated += (new_size - gc_allocs[idx].size);
-    gc_allocs[idx].size = new_size;
-    gc_hash_del(old_ptr);              /* O(1) एकल-key अद्यतन (पूर्ण rebuild नहीं) */
-    gc_hash_put_raw(new_ptr, idx);
-}
-
-void gc_mark_allocation(void* ptr) {
-    if (!ptr) return;
-    if ((uintptr_t)ptr < 65536) return; // Ignore null and small integers
-
-    // Find in registry (O(1) hash)
-    size_t idx = gc_hash_get(ptr);
-    if (idx == GC_HASH_NONE) return; // Not a tracked GC pointer
-    if (gc_allocs[idx].marked) return; // Already marked
-
-    gc_allocs[idx].marked = 1;
-
-    // Recursively mark children
-    if (gc_allocs[idx].type == GC_TYPE_ARRAY) {
-        int64_t count = *((int64_t*)((char*)ptr + 8));
-        int64_t* elements = (int64_t*)((char*)ptr + 16);
-        for (int64_t i = 0; i < count; i++) {
-            gc_mark_allocation((void*)elements[i]);
-        }
-    } else if (gc_allocs[idx].type == GC_TYPE_OBJECT) {
-        int64_t count = *((int64_t*)((char*)ptr + 8));
-        int64_t* fields = (int64_t*)((char*)ptr + 16);
-        for (int64_t i = 0; i < count; i++) {
-            gc_mark_allocation((void*)fields[i]);
-        }
-    } else if (gc_allocs[idx].type == GC_TYPE_DICTIONARY) {
-        int64_t count = *((int64_t*)ptr);
-        char* entries = (char*)(*((void**)((char*)ptr + 16)));
-        if (entries) {
-            for (int64_t i = 0; i < count; i++) {
-                void* key = *((void**)(entries + i * 16));
-                int64_t val = *((int64_t*)(entries + i * 16 + 8));
-                gc_mark_allocation(key);
-                gc_mark_allocation((void*)val);
-            }
-        }
-    }
-}
+/* पूर्व यहाँ: gc_allocs सरणी + सूचक→अनुक्रमणिका hash + gc_register/unregister/
+ * update/mark_allocation (~190 line, malloc/free/calloc/realloc सहित)।
+ * Route-C (Sutra arena, USE_LEGACY_RUNTIME) से सब मृत — find_gc_allocation अब
+ * सीधे सूत्र_ब्लॉक_प्रकार पूछता, चिह्नित मूल_आवंटक.सूत्र में। */
 
 void sutra_gc_collect() {
     sg_cache_str = NULL;
@@ -424,10 +249,9 @@ void sutra_gc_collect() {
 }
 
 void sutra_gc_status() {
-    printf("चक्र: %lld\nसक्रिय: %lld\nसंग्रहित: %lld\n",
-           (long long)सूत्र_गण_चक्र(),
-           (long long)सूत्र_गण_सक्रिय(),
-           (long long)सूत्र_गण_संग्रहित());
+    sr_out("चक्र: ");     sr_out_i64(सूत्र_गण_चक्र());     sr_out("\n");
+    sr_out("सक्रिय: ");   sr_out_i64(सूत्र_गण_सक्रिय());   sr_out("\n");
+    sr_out("संग्रहित: "); sr_out_i64(सूत्र_गण_संग्रहित()); sr_out("\n");
 }
 
 /* adapter over the Sutra allocator's hidden [tm][size] prefix.
@@ -1634,10 +1458,8 @@ sutra_gc_push_root:
   ret
 .Lgc_push_overflow_inline:
   movl $1, %ecx
-  subq $32, %rsp
-  call exit
-  addq $32, %rsp
-  ret
+  subq $40, %rsp
+  call सूत्र_तल_निकास
 
   .globl sutra_gc_pop_root
   .def sutra_gc_pop_root; .scl 2; .type 32; .endef
@@ -1655,10 +1477,8 @@ sutra_gc_pop_root:
   ret
 .Lgc_pop_mismatch_inline:
   movl $1, %ecx
-  subq $32, %rsp
-  call exit
-  addq $32, %rsp
-  ret
+  subq $40, %rsp
+  call सूत्र_तल_निकास
 
   .globl sutra_exception_pop
   .def sutra_exception_pop; .scl 2; .type 32; .endef
