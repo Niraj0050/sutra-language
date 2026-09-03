@@ -630,59 +630,11 @@ void* sutra_dict_keys(void* dict) {
 
 void* sutra_char_chr(int64_t cp) { return अक्षर_बना(cp); }  /* -> मूल_रनटाइम.सूत्र */
 
-// Float support runtime helper functions
-
-/* "%f"-जैसा दशमलव प्रारूप (6 अंश-अंक, trailing zeros छँटे) — कोई libc नहीं
- * (SSE अंकगणित + पूर्णांक लूप)। buf ≥ 40 बाइट। लौटाता: लिखे गए बाइट। */
-static int sr_fmt_float(double d, char* buf) {
-    int p = 0;
-    if (d != d) { buf[0] = 'n'; buf[1] = 'a'; buf[2] = 'n'; buf[3] = '\0'; return 3; }
-    if (d < 0.0) { buf[p++] = '-'; d = -d; }
-    if (d > 1.7976931348623157e308) { buf[p++]='i'; buf[p++]='n'; buf[p++]='f'; buf[p]='\0'; return p; }
-    char tmp[24];
-    int tp = 0;
-    if (d >= 9.007199254740992e15) {
-        /* ≥ 2^53 : अंश प्रस्तुत नहीं हो सकता → पूर्ण भाग ही */
-        int64_t ip = (int64_t)d;
-        if (ip == 0) tmp[tp++] = '0';
-        while (ip > 0) { tmp[tp++] = (char)('0' + ip % 10); ip /= 10; }
-        while (tp > 0) buf[p++] = tmp[--tp];
-        buf[p] = '\0';
-        return p;
-    }
-    int64_t total = (int64_t)(d * 1000000.0 + 0.5);
-    int64_t ip = total / 1000000;
-    int64_t fp = total % 1000000;
-    if (ip == 0) tmp[tp++] = '0';
-    while (ip > 0) { tmp[tp++] = (char)('0' + ip % 10); ip /= 10; }
-    while (tp > 0) buf[p++] = tmp[--tp];
-    int fd[6];
-    for (int i = 5; i >= 0; i--) { fd[i] = (int)(fp % 10); fp /= 10; }
-    int last = 5;
-    while (last >= 0 && fd[last] == 0) last--;
-    if (last >= 0) {
-        buf[p++] = '.';
-        for (int i = 0; i <= last; i++) buf[p++] = (char)('0' + fd[i]);
-    }
-    buf[p] = '\0';
-    return p;
-}
-
-void* sutra_float_to_str(int64_t v_bits) {
-    double d;
-    memcpy(&d, &v_bits, 8);
-    char buf[48];
-    int n = sr_fmt_float(d, buf);
-    return sutra_str_alloc(buf, n);
-}
-
-void sutra_print_float(int64_t v_bits) {
-    पाठ_छापो(sutra_float_to_str(v_bits));   /* → मूल_रनटाइम.सूत्र (तल.s WriteFile) */
-}
-
-
-/* sutra_math_sqrt_f / abs_f / min_f / max_f / round_f — अब SSE asm blob में
- * (sqrtsd / btrq $63 / minsd / maxsd / cvtsd2si)। कोई libm नहीं। */
+/* sr_fmt_float / sutra_float_to_str / sutra_print_float → अब मूल_रनटाइम.सूत्र
+ * (दशमलव_प्रारूप / दशमलव_से_पाठ / दशमलव_छापो) — निम्नक वहाँ भेजता।
+ *
+ * sutra_math_sqrt_f / abs_f / min_f / max_f / round_f — तल.s SSE asm
+ * (sqrtsd / btrq $63 / minsd / maxsd / cvtsd2si)। कोई libm। */
 
 /* pow(b,e) — पूर्णांक घातांक = सटीक repeated-multiply; भिन्नात्मक = exp(e·ln b)
  * pure-C series से (कोई libm)। कोडबेस में केवल पूर्णांक घातांक इस्तेमाल होता। */

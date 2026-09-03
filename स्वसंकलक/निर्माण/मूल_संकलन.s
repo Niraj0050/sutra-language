@@ -134534,9 +134534,9 @@ main:
 .LC_str_501_len:
   .quad 32
 .LC_str_502:
-  .ascii "sutra_float_to_str\0"
+  .ascii "\340\244\246\340\244\266\340\244\256\340\244\262\340\244\265_\340\244\270\340\245\207_\340\244\252\340\244\276\340\244\240\0"
 .LC_str_502_len:
-  .quad 18
+  .quad 32
 .LC_str_503:
   .ascii "sutra_int_to_float\0"
 .LC_str_503_len:
@@ -134766,9 +134766,9 @@ main:
 .LC_str_559_len:
   .quad 16
 .LC_str_560:
-  .ascii "sutra_print_float\0"
+  .ascii "\340\244\246\340\244\266\340\244\256\340\244\262\340\244\265_\340\244\233\340\244\276\340\244\252\340\245\213\0"
 .LC_str_560_len:
-  .quad 17
+  .quad 28
 .LC_str_561:
   .ascii "sutra_print_null\0"
 .LC_str_561_len:
