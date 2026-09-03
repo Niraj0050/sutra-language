@@ -7,6 +7,7 @@
  *   सूत्र_तल_मुक्त(rcx = पता)              -> void          [VirtualFree]
  *   सूत्र_तल_मुद्रण(rcx = पता, rdx = लंबाई) -> void          [GetStdHandle + WriteFile]
  *   सूत्र_तल_निकास(rcx = कोड)              -> कभी नहीं लौटता  [ExitProcess]
+ *   memcpy / memmove / memset / memcmp / strlen — हाथ से (libc-मुक्त)
  *
  * Windows x64 ABI: तर्क rcx,rdx,r8,r9; 32-बाइट shadow; call पर rsp 16-संरेखित।
  * callee-preserved: rbx rbp rdi rsi rsp r12-r15.
@@ -73,4 +74,100 @@
   subq $40, %rsp            /* entry≡8 → -40 ≡0 for call */
   call ExitProcess          /* नहीं लौटता */
   addq $40, %rsp
+  ret
+
+/* ============================================================
+ * स्मृति-प्रचालन — हाथ से (gcc का loop-idiom-recognition asm को नहीं छूता)
+ * Win64 ABI: तर्क rcx,rdx,r8 ; rdi/rsi callee-saved → push/pop
+ * यही libc का memcpy/memset/memcmp/strlen replace करते।
+ * ============================================================ */
+
+  .globl memcpy
+  .def memcpy; .scl 2; .type 32; .endef
+memcpy:
+  movq %rcx, %rax          /* लौटाओ = गंतव्य */
+  pushq %rdi
+  pushq %rsi
+  movq %rcx, %rdi
+  movq %rdx, %rsi
+  movq %r8, %rcx
+  cld
+  rep movsb
+  popq %rsi
+  popq %rdi
+  ret
+
+  .globl memmove
+  .def memmove; .scl 2; .type 32; .endef
+memmove:
+  movq %rcx, %rax
+  pushq %rdi
+  pushq %rsi
+  movq %rcx, %rdi
+  movq %rdx, %rsi
+  movq %r8, %rcx
+  cmpq %rsi, %rdi
+  jbe .Lmm_fwd
+  /* गंतव्य > स्रोत → पीछे से copy (overlap-सुरक्षित) */
+  leaq -1(%rdi,%rcx), %rdi
+  leaq -1(%rsi,%rcx), %rsi
+  std
+  rep movsb
+  cld
+  jmp .Lmm_done
+.Lmm_fwd:
+  cld
+  rep movsb
+.Lmm_done:
+  popq %rsi
+  popq %rdi
+  ret
+
+  .globl memset
+  .def memset; .scl 2; .type 32; .endef
+memset:
+  movq %rcx, %r9           /* गंतव्य सहेजो (लौटाना है) */
+  pushq %rdi
+  movq %rcx, %rdi
+  movl %edx, %eax          /* भरण-बाइट al में */
+  movq %r8, %rcx
+  cld
+  rep stosb
+  movq %r9, %rax
+  popq %rdi
+  ret
+
+  .globl memcmp
+  .def memcmp; .scl 2; .type 32; .endef
+memcmp:
+  pushq %rdi
+  pushq %rsi
+  movq %rcx, %rsi
+  movq %rdx, %rdi
+  movq %r8, %rcx
+  xorl %eax, %eax
+  testq %rcx, %rcx
+  jz .Lmemcmp_done
+  cld
+  repe cmpsb
+  je .Lmemcmp_done
+  movzbl -1(%rsi), %eax
+  movzbl -1(%rdi), %edx
+  subl %edx, %eax
+.Lmemcmp_done:
+  popq %rsi
+  popq %rdi
+  ret
+
+  .globl strlen
+  .def strlen; .scl 2; .type 32; .endef
+strlen:
+  movq %rcx, %rax
+.Lstrlen_loop:
+  cmpb $0, (%rax)
+  je .Lstrlen_done
+  incq %rax
+  jmp .Lstrlen_loop
+.Lstrlen_done:
+  subq %rcx, %rax
   ret

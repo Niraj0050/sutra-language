@@ -395,11 +395,26 @@ fileIO — हर एक designed, अब बिना regression।
      हटे।** `sutra_runtime.c` 1685→1505 line। `44_gc_status`/`46` output अब
      WriteFile से; exception message stderr पर।
 
-बचा (Level 1 के लिए): `memcpy`/`memset`/`strlen`/`memcmp` → Sutra byte-loop या
-intrinsic; `setjmp`/`longjmp` (exception ABI — छोटा asm shim या Sutra unwinder);
-float SSE `__asm__` blob → hand-`.s` (Stage 3); `sutra_str_equal`/`compare`
-(memcmp), `sutra_str_upper`/`lower`, `sutra_dynamic_type` → Sutra। फिर
-**`sutra_runtime.c` DELETE** = Level 1 independence।
+**§2i — mem/str primitives → तल.s ; str-compare → Sutra** (2026-09-01)।
+   - `memcpy` / `memmove` / `memset` / `memcmp` / `strlen` अब **तल.s में हाथ-asm**
+     (`rep movsb`/`stosb`/`repe cmpsb`/scan; Win64 rcx,rdx,r8; rdi/rsi push/pop)।
+     gcc का loop-idiom-recognition asm को नहीं छूता; `.c` के `memcpy(&d,&bits,8)`
+     bit-reinterpret gcc `movq` में fold करता, बाक़ी link पर तल.s को resolve।
+   - `sutra_str_equal` → `पाठ_तुल्य`, `sutra_str_compare` → `पाठ_कोडबिंदु_तुलना`
+     (Sutra; codepoint-order = UTF-8 byte-order)। `memcmp` call site गया।
+   - `sutra_obj_alloc` का redundant `memset` हटाया (`सूत्र_आवंटन` शून्य-भरा देता)।
+   - `#include` अब सिर्फ़: `<stdint.h>`/`<stddef.h>` (types), `<windows.h>`/
+     `<shellapi.h>`, `<setjmp.h>`। **`<string.h>` भी गया।**
+   - **runtime के चारों `.o` (sutra_runtime/srt/alloc/floor) में शून्य libc symbol**
+     — सब kernel32/shell32 + आपस में resolve। fixed point कायम (135213),
+     `पाठ_परीक्षण`/`सूची_परीक्षण` interp==native।
+
+बचा (Level 1): `setjmp`/`longjmp` (exception ABI — asm shim या Sutra unwinder);
+float SSE `__asm__` blob → hand-`.s` (Stage 3); `sutra_str_upper`/`lower`,
+`sutra_dynamic_type` → Sutra (छोटे, libc-मुक्त — कम प्राथमिकता); फिर
+**`sutra_runtime.c` DELETE**। अंतिम कदम = **custom `_start` / `-nostdlib`**
+(अभी binary CRT startup link करता — `api-ms-win-crt-*` — यह हमारे code से नहीं,
+gcc की crt2.o से; Level 2)।
 
 **2b. मानक पुस्तकालय (`पुस्तकालय/`) — सूत्र में** (commits `07205ac` + `c07ba45`, 2026-09-01)।
    Phase 2 रोककर पहले लाइब्रेरी (Niraj का निर्णय)। **12 मॉड्यूल**, कोई C

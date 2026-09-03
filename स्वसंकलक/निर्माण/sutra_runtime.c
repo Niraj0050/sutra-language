@@ -6,12 +6,17 @@
  * This runtime will eventually be replaced by a pure Sutra implementation.
  */
 
-/* stdio / stdlib / inttypes हटे — कोई printf/fprintf/FILE/malloc/exit/atoi।
- * string.h अभी बचा: memcpy / memset / strlen / memcmp (अगला inline pass)।
- * stdint/stddef सिर्फ़ types देते (int64_t / size_t) — कोई फलन नहीं। */
-#include <string.h>
+/* stdio / stdlib / inttypes / string हटे — कोई libc फलन।
+ * stdint/stddef सिर्फ़ types (int64_t / size_t)। memcpy/memmove/memset/
+ * memcmp/strlen अब तल.s में (हाथ-asm, libc-मुक्त)। */
 #include <stdint.h>
 #include <stddef.h>
+
+extern void*  memcpy(void* d, const void* s, size_t n);
+extern void*  memmove(void* d, const void* s, size_t n);
+extern void*  memset(void* d, int c, size_t n);
+extern int    memcmp(const void* a, const void* b, size_t n);
+extern size_t strlen(const char* s);
 
 #ifdef _WIN32
 #include <windows.h>
@@ -181,6 +186,8 @@ extern void* बूल_से_पाठ(int64_t v);
 extern void* शून्य_से_पाठ(void);
 extern void* अक्षर_बना(int64_t cp);
 extern void* पाठ_उपखंड(void* text, int64_t start, int64_t end);
+extern int64_t पाठ_तुल्य(int64_t a, int64_t b);
+extern int64_t पाठ_कोडबिंदु_तुलना(int64_t a, int64_t b);
 
 /* print — now in मूल_रनटाइम.सूत्र (via तल.s WriteFile; no printf/fwrite/fflush) */
 extern int64_t पाठ_छापो(void* s);
@@ -360,40 +367,17 @@ void* sutra_null_to_str() { return शून्य_से_पाठ(); }        
 /* Concatenate two strings -> मूल_रनटाइम.सूत्र :: पाठ_जोड़ */
 void* sutra_str_concat(void* a, void* b) { return पाठ_जोड़(a, b); }
 
-/* Compare two strings for equality. Returns 1 if equal, 0 otherwise. */
+/* समानता / lexicographic तुलना — अब मूल_रनटाइम.सूत्र में
+ * (पाठ_तुल्य = byte-loop; पाठ_कोडबिंदु_तुलना = codepoint order = UTF-8 byte order)। */
 int64_t sutra_str_equal(void* a, void* b) {
-    if (a == b) return 1;
-    if (!a || !b) return 0;
-
-    extern int sutra_native_is_string(void* ptr);
-    if (!sutra_native_is_string(a) || !sutra_native_is_string(b)) {
-        return 0;
-    }
-
-    int64_t len_a = *((int64_t*)((char*)a + 8));
-    int64_t len_b = *((int64_t*)((char*)b + 8));
-    if (len_a != len_b) return 0;
-    return memcmp((char*)a + 16, (char*)b + 16, len_a) == 0 ? 1 : 0;
+    return पाठ_तुल्य((int64_t)a, (int64_t)b);
 }
 
 int64_t sutra_str_compare(void* a, void* b) {
-    if (a == b) return 0;
-    if (!a) return -1;
-    if (!b) return 1;
-
     extern int sutra_native_is_string(void* ptr);
-    if (!sutra_native_is_string(a) || !sutra_native_is_string(b)) {
+    if (a != b && a && b && (!sutra_native_is_string(a) || !sutra_native_is_string(b)))
         return (intptr_t)a - (intptr_t)b;
-    }
-
-    int64_t len_a = *((int64_t*)((char*)a + 8));
-    int64_t len_b = *((int64_t*)((char*)b + 8));
-    int64_t min_len = len_a < len_b ? len_a : len_b;
-    int cmp = memcmp((char*)a + 16, (char*)b + 16, min_len);
-    if (cmp != 0) return cmp;
-    if (len_a < len_b) return -1;
-    if (len_a > len_b) return 1;
-    return 0;
+    return पाठ_कोडबिंदु_तुलना((int64_t)a, (int64_t)b);
 }
 
 static int64_t sutra_utf8_codepoint_count_bytes(const unsigned char* data, int64_t len) {
@@ -839,10 +823,10 @@ int64_t sutra_dynamic_length(void* obj) {
 
 void* sutra_obj_alloc(int64_t field_count) {
 #ifdef USE_LEGACY_RUNTIME
+    /* सूत्र_आवंटन शून्य-भरा देता → अलग memset की ज़रूरत नहीं */
     char* block = (char*)सूत्र_आवंटन(16 + field_count * 8, SR_OBJ);
     *((int64_t*)block) = field_count; // capacity
     *((int64_t*)(block + 8)) = field_count; // count
-    memset(block + 16, 0, field_count * 8);
     return block;
 #else
     void* block = sutra_native_alloc(16 + field_count * 8, GC_TYPE_OBJECT);
