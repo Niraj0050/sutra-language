@@ -485,15 +485,26 @@ fileIO — हर एक designed, अब बिना regression।
    fixed point + Gen1(split)==Gen2 + Gen2==Gen3 (135832); 51/2 + 10/1;
    file round-trip + command exit-code + args प्रोग्राम interp==native।
 
-बचा (Level 1 = `sutra_runtime.c` DELETE, ~2 chunks):
-   - GC C-bridge शेष: `sutra_gc_status` (print चंक के साथ) +
-     `find_gc_allocation`/`native_is_*` (substr/`add_dynamic` के साथ — साझा
-     internal C callers) — स्वतंत्र चंक नहीं, नीचे वालों के साथ जाएँगे
-   - float formatting (`sr_fmt_float`/`sr_ln`/`sr_exp`/`float_to_str`/`math_pow_f`) → Sutra — ~1
-   - **RISKY**: `substr`/`str_get`/`str_alloc`/`arr_get` — lexer hot path (Sutra पहले
-     40× slow) — नए तेज़ intrinsics या थोड़ा slowdown — ~1 chunk
-   - ~30 thin shims (`sutra_int_to_str`→`संख्या_से_पाठ` आदि): compiler Sutra-नाम सीधे
-     emit करे (compiler बदलाव) या रहने दें (~1 line प्रत्येक)।
+**§2p — दशमलव प्रारूपण → Sutra** (commit `25476b3`, 2026-09-03)।
+   `sr_fmt_float` / `sutra_float_to_str` / `sutra_print_float` → `मूल_रनटाइम.सूत्र`
+   (`दशमलव_प्रारूप` / `दशमलव_से_पाठ` / `दशमलव_छापो`)। "%f"-जैसा: 6 अंश-अंक,
+   `गोल()`-गोल, trailing 0 छँटे — व्याख्याता के `std::to_string(double)`+trim
+   से मेल। शुद्ध SSE (`सूत्र_float_*` तल.s) + पूर्णांक-लूप। e-नोटेशन स्थिरांक
+   (DBL_MAX, 2^53) सूत्र-साहित्य में नहीं लिख सकते → inf = `(धन-धन) != 0`
+   (inf-inf = NaN), >2^63 = `गोल()` का INT64_MIN sentinel; `गोल(धन*1e6)` ≡
+   `trunc(धन*1e6 + 0.5)` (धन ≥ 0) — पुराने C सूत्र से bit-identical। `निम्नक`
+   "दशमलव" print/concat टैग retarget (कोई whitelist बदलाव — कोई नया symbol
+   नहीं)। seed 135832 अपरिवर्तित। `sr_ln`/`sr_exp`/`sutra_math_pow_f` C में ही
+   (pow का भिन्नात्मक पथ bit-reinterpret चाहिए जो सूत्र नहीं कर सकता; केवल
+   18_stdlib छूता)। `.c` **737→689**। 40_native_floats + 48_type_inquiry +
+   12-केस प्रारूप probe interp==native।
+
+बचा (Level 1 = `sutra_runtime.c` DELETE, ~1 बड़ा चंक):
+   - **RISKY एकल चंक** — `substr`/`str_get`/`str_alloc`/`arr_get` lexer hot-path
+     (Sutra पहले 40× slow) + साथ में entangled cluster: `sr_ln`/`sr_exp`/
+     `sutra_math_pow_f` (या `तल.s` asm), `sutra_gc_status` (non-allocating),
+     `find_gc_allocation`+`native_is_*` (internal C callers `add_dynamic`/
+     `arr_get`), `sg_cache_str` GC-invalidation, ~30 thin shims।
    अंतिम कदम = **Level 2: custom `_start` / `-nostdlib`** (binary अभी gcc की crt2.o से
    `api-ms-win-crt-*` link करता — हमारे code से नहीं) — ~1-2 chunk।
 
