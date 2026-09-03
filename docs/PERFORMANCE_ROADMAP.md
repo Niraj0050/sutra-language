@@ -341,7 +341,18 @@ fileIO — हर एक designed, अब बिना regression।
    (26→0)। `46_gc_repeated` regression fix। ज्ञात cosmetic: split-driver
    Gen1 एक अतिरिक्त अप्रयुक्त `""` `.rdata` const देता (`पश्च_चालक` dedup)।
 
-अगला (Phase 2 शेष): float (`sutra_print_float` + अंकगणित + libm) → सूत्र;
+**2f. float — libm हटाओ (Stage 1)** (2026-09-01)।
+   `sutra_math_sqrt_f`/`abs_f`/`min_f`/`max_f`/`round_f` + पूर्णांक `sutra_math_sqrt`
+   अब SSE asm blob में (`sqrtsd` / `btrq $63` / `minsd` / `maxsd` / `cvtsd2si`)।
+   `sutra_math_pow_f` pure-C: पूर्णांक घातांक = सटीक repeated-multiply (कोडबेस
+   में यही इस्तेमाल), भिन्नात्मक = `exp(e·ln b)` series (कोई libm)। float अंकगणित
+   (`+−×÷`, तुलना, `int↔float`) पहले से asm blob (शून्य libm)। `#include <math.h>`
+   हटाया; हर build script + compiler linker command से **`-lm` हटाया**
+   (`bootstrap.ps1`, `verify_*`, `मूल_संकलन.सूत्र` char-array)। fixed point कायम
+   (135213 lines), 40_native_floats interp==native।
+   अभी C: `sutra_float_to_str` / `sutra_print_float` (`snprintf %f`) — Stage 2।
+
+अगला: Stage 2 = `sutra_float_to_str`/`print_float` → सूत्र (`snprintf`/`printf` हटे);
 फिर fileIO / args → **`sutra_runtime.c` DELETE**, Level 1 independence।
 
 **2b. मानक पुस्तकालय (`पुस्तकालय/`) — सूत्र में** (commits `07205ac` + `c07ba45`, 2026-09-01)।

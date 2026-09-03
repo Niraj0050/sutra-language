@@ -35,7 +35,6 @@ extern int64_t native_gc_bytes_reclaimed;
 #endif
 #endif
 
-#include <math.h>
 #include <setjmp.h>
 
 #ifdef __cplusplus
@@ -669,9 +668,7 @@ void* sutra_trim(void* t) { return पाठ_छाँट(t); }
 int64_t sutra_starts_with(void* t, void* p) { return पाठ_आरंभ_में(t, p); }
 int64_t sutra_ends_with(void* t, void* s) { return पाठ_अंत_में(t, s); }
 
-int64_t sutra_math_sqrt(int64_t v) {
-    return (int64_t)llround(sqrt((double)v));
-}
+/* sutra_math_sqrt (int) — अब SSE asm blob में (sqrtsd)। */
 
 int64_t sutra_math_pow(int64_t base, int64_t exp) {
     int64_t result = 1;
@@ -1365,58 +1362,54 @@ int64_t sutra_float_ge(int64_t a_bits, int64_t b_bits) {
 }
 #endif
 
-int64_t sutra_math_sqrt_f(int64_t v_bits) {
-    double d;
-    memcpy(&d, &v_bits, 8);
-    double res = sqrt(d);
-    int64_t res_bits;
-    memcpy(&res_bits, &res, 8);
-    return res_bits;
-}
+/* sutra_math_sqrt_f / abs_f / min_f / max_f / round_f — अब SSE asm blob में
+ * (sqrtsd / btrq $63 / minsd / maxsd / cvtsd2si)। कोई libm नहीं। */
 
+/* pow(b,e) — पूर्णांक घातांक = सटीक repeated-multiply; भिन्नात्मक = exp(e·ln b)
+ * pure-C series से (कोई libm)। कोडबेस में केवल पूर्णांक घातांक इस्तेमाल होता। */
+static double sr_ln(double x) {
+    if (x <= 0.0) return 0.0;
+    int64_t xb; memcpy(&xb, &x, 8);
+    int k = (int)((xb >> 52) & 0x7FF) - 1023;
+    xb = (xb & 0x000FFFFFFFFFFFFFLL) | (1023LL << 52);
+    double m; memcpy(&m, &xb, 8);
+    if (m > 1.4142135623730951) { m *= 0.5; k += 1; }
+    double s = (m - 1.0) / (m + 1.0);
+    double s2 = s * s, term = s, sum = 0.0;
+    for (int i = 1; i < 40; i += 2) { sum += term / i; term *= s2; }
+    return 2.0 * sum + k * 0.6931471805599453;
+}
+static double sr_exp(double x) {
+    double kf = x * 1.4426950408889634;
+    int64_t k = (int64_t)(kf + (kf >= 0.0 ? 0.5 : -0.5));
+    if (k > 1000) k = 1000; else if (k < -1000) k = -1000;
+    double r = x - (double)k * 0.6931471805599453;
+    double term = 1.0, sum = 1.0;
+    for (int i = 1; i < 20; i++) { term *= r / i; sum += term; }
+    int64_t bits = (k + 1023) << 52;
+    double p2; memcpy(&p2, &bits, 8);
+    return sum * p2;
+}
 int64_t sutra_math_pow_f(int64_t b_bits, int64_t e_bits) {
     double b, e;
     memcpy(&b, &b_bits, 8);
     memcpy(&e, &e_bits, 8);
-    double res = pow(b, e);
+    double res;
+    if ((double)(int64_t)e == e && e >= -1024.0 && e <= 1024.0) {
+        int64_t n = (int64_t)e;
+        int neg = n < 0;
+        if (neg) n = -n;
+        double acc = 1.0, base = b;
+        while (n > 0) { if (n & 1) acc *= base; base *= base; n >>= 1; }
+        res = neg ? 1.0 / acc : acc;
+    } else if (b > 0.0) {
+        res = sr_exp(e * sr_ln(b));
+    } else {
+        res = 0.0;
+    }
     int64_t res_bits;
     memcpy(&res_bits, &res, 8);
     return res_bits;
-}
-
-int64_t sutra_math_abs_f(int64_t v_bits) {
-    double d;
-    memcpy(&d, &v_bits, 8);
-    double res = fabs(d);
-    int64_t res_bits;
-    memcpy(&res_bits, &res, 8);
-    return res_bits;
-}
-
-int64_t sutra_math_min_f(int64_t a_bits, int64_t b_bits) {
-    double a, b;
-    memcpy(&a, &a_bits, 8);
-    memcpy(&b, &b_bits, 8);
-    double res = a < b ? a : b;
-    int64_t res_bits;
-    memcpy(&res_bits, &res, 8);
-    return res_bits;
-}
-
-int64_t sutra_math_max_f(int64_t a_bits, int64_t b_bits) {
-    double a, b;
-    memcpy(&a, &a_bits, 8);
-    memcpy(&b, &b_bits, 8);
-    double res = a > b ? a : b;
-    int64_t res_bits;
-    memcpy(&res_bits, &res, 8);
-    return res_bits;
-}
-
-int64_t sutra_math_round_f(int64_t v_bits) {
-    double d;
-    memcpy(&d, &v_bits, 8);
-    return (int64_t)llround(d);
 }
 
 #if defined(__x86_64__) || defined(_M_X64)
@@ -1538,6 +1531,67 @@ sutra_float_ge:
 sutra_int_to_float:
   cvtsi2sdq %rcx, %xmm0
   movq %xmm0, %rax
+  ret
+
+  # ---- गणित (float) : SSE, कोई libm नहीं ----
+
+  .globl sutra_math_sqrt_f
+  .def sutra_math_sqrt_f; .scl 2; .type 32; .endef
+sutra_math_sqrt_f:
+  movq %rcx, %xmm0
+  sqrtsd %xmm0, %xmm0
+  movq %xmm0, %rax
+  ret
+
+  .globl sutra_math_abs_f
+  .def sutra_math_abs_f; .scl 2; .type 32; .endef
+sutra_math_abs_f:
+  movq %rcx, %rax
+  btrq $63, %rax
+  ret
+
+  .globl sutra_math_min_f
+  .def sutra_math_min_f; .scl 2; .type 32; .endef
+sutra_math_min_f:
+  movq %rcx, %xmm0
+  movq %rdx, %xmm1
+  minsd %xmm1, %xmm0
+  movq %xmm0, %rax
+  ret
+
+  .globl sutra_math_max_f
+  .def sutra_math_max_f; .scl 2; .type 32; .endef
+sutra_math_max_f:
+  movq %rcx, %xmm0
+  movq %rdx, %xmm1
+  maxsd %xmm1, %xmm0
+  movq %xmm0, %rax
+  ret
+
+  # गोल: half-away-from-zero (llround जैसा) = trunc(x + copysign(0.5, x))
+  .globl sutra_math_round_f
+  .def sutra_math_round_f; .scl 2; .type 32; .endef
+sutra_math_round_f:
+  movq %rcx, %xmm0
+  movq %rcx, %rax
+  movabsq $0x8000000000000000, %rdx
+  andq %rdx, %rax
+  movabsq $0x3FE0000000000000, %rdx
+  orq %rdx, %rax
+  movq %rax, %xmm1
+  addsd %xmm1, %xmm0
+  cvttsd2siq %xmm0, %rax
+  ret
+
+  .globl sutra_math_sqrt
+  .def sutra_math_sqrt; .scl 2; .type 32; .endef
+sutra_math_sqrt:
+  cvtsi2sdq %rcx, %xmm0
+  sqrtsd %xmm0, %xmm0
+  movabsq $0x3FE0000000000000, %rax
+  movq %rax, %xmm1
+  addsd %xmm1, %xmm0
+  cvttsd2siq %xmm0, %rax
   ret
 
   .globl sutra_float_to_int

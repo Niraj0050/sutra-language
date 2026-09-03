@@ -32,7 +32,7 @@ check() {
   if ! as -o /tmp/ve.o /tmp/ve.s 2>/tmp/ve.aserr; then
     echo "  [FAIL] $name — as"; head -3 /tmp/ve.aserr | sed 's/^/         /'; fail=$((fail+1)); return
   fi
-  if ! gcc -m64 /tmp/ve.o $RT -lm -lshell32 -o /tmp/ve.exe 2>/tmp/ve.lderr; then
+  if ! gcc -m64 /tmp/ve.o $RT -lshell32 -o /tmp/ve.exe 2>/tmp/ve.lderr; then
     echo "  [FAIL] $name — link"; head -3 /tmp/ve.lderr | sed 's/^/         /'; fail=$((fail+1)); return
   fi
   local got

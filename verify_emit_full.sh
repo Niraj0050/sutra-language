@@ -37,7 +37,7 @@ for f in $(ls tests/compiler/*.सूत्र | sort); do
   if ! as -o "$W/o" "$W/s" 2>"$W/e"; then
     echo "  [FAIL] $name — as: $(head -1 "$W/e")"; fail=$((fail+1)); FAILED+=("$name"); continue
   fi
-  if ! gcc -m64 "$W/o" $RT -lm -lshell32 -o "$W/exe" 2>"$W/e"; then
+  if ! gcc -m64 "$W/o" $RT -lshell32 -o "$W/exe" 2>"$W/e"; then
     echo "  [FAIL] $name — link: $(head -1 "$W/e")"; fail=$((fail+1)); FAILED+=("$name"); continue
   fi
   got="$("$W/exe" 2>&1 | sed 's/\x0d//g')"

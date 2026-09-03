@@ -127388,7 +127388,7 @@
 sutra_main:
   pushq %rbp
   movq %rsp, %rbp
-  subq $5904, %rsp
+  subq $5840, %rsp
   movq %rbx, -8(%rbp)
   movq %rsi, -16(%rbp)
   movq %rdi, -24(%rbp)
@@ -127396,6 +127396,14 @@ sutra_main:
   movq %r13, -40(%rbp)
   movq %r14, -48(%rbp)
   movq %r15, -56(%rbp)
+  movq $0, -4968(%rbp)
+  movq $0, -4976(%rbp)
+  movq $0, -4984(%rbp)
+  movq $0, -4992(%rbp)
+  movq $0, -5000(%rbp)
+  movq $0, -5008(%rbp)
+  movq $0, -5016(%rbp)
+  movq $0, -5024(%rbp)
   movq $0, -5032(%rbp)
   movq $0, -5040(%rbp)
   movq $0, -5048(%rbp)
@@ -127497,16 +127505,32 @@ sutra_main:
   movq $0, -5816(%rbp)
   movq $0, -5824(%rbp)
   movq $0, -5832(%rbp)
-  movq $0, -5840(%rbp)
-  movq $0, -5848(%rbp)
-  movq $0, -5856(%rbp)
-  movq $0, -5864(%rbp)
-  movq $0, -5872(%rbp)
-  movq $0, -5880(%rbp)
-  movq $0, -5888(%rbp)
-  movq $0, -5896(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
+  leaq -4968(%rbp), %r11
+  movq %r11, (%r10,%rax,8)
+  incl %eax
+  leaq -4976(%rbp), %r11
+  movq %r11, (%r10,%rax,8)
+  incl %eax
+  leaq -4984(%rbp), %r11
+  movq %r11, (%r10,%rax,8)
+  incl %eax
+  leaq -4992(%rbp), %r11
+  movq %r11, (%r10,%rax,8)
+  incl %eax
+  leaq -5000(%rbp), %r11
+  movq %r11, (%r10,%rax,8)
+  incl %eax
+  leaq -5008(%rbp), %r11
+  movq %r11, (%r10,%rax,8)
+  incl %eax
+  leaq -5016(%rbp), %r11
+  movq %r11, (%r10,%rax,8)
+  incl %eax
+  leaq -5024(%rbp), %r11
+  movq %r11, (%r10,%rax,8)
+  incl %eax
   leaq -5032(%rbp), %r11
   movq %r11, (%r10,%rax,8)
   incl %eax
@@ -127810,30 +127834,6 @@ sutra_main:
   leaq -5832(%rbp), %r11
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -5840(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -5848(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -5856(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -5864(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -5872(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -5880(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -5888(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -5896(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
   movl %eax, gc_roots_count(%rip)
 
 .L_sutra_main__प्रवेश_0:
@@ -127841,7 +127841,7 @@ sutra_main:
   call sutra_args_get
   addq $32, %rsp
   movq %rax, %rbx
-  movq %rbx, -5032(%rbp)
+  movq %rbx, -4968(%rbp)
   movq %rbx, %rcx
   subq $32, %rsp
   call दैशिक_लंबाई
@@ -127866,12 +127866,12 @@ sutra_main:
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %rsi
-  movq %rsi, -5048(%rbp)
+  movq %rsi, -4984(%rbp)
   movq %rsi, %rcx
   subq $32, %rsp
   call sutra_print_dynamic
   addq $32, %rsp
-  movq $0, -5048(%rbp)
+  movq $0, -4984(%rbp)
   movq $0, %rax
   jmp .L_epilogue_sutra_main
 .L_sutra_main__if_सत्य_1:
@@ -127891,8 +127891,8 @@ sutra_main:
   addq $32, %rsp
   movq %rax, -72(%rbp)
   movq -72(%rbp), %r11
-  movq %r11, -5040(%rbp)
-  movq $0, -5032(%rbp)
+  movq %r11, -4976(%rbp)
+  movq $0, -4968(%rbp)
   jmp .L_sutra_main__if_अंत_2
 .L_sutra_main__if_अंत_2:
   movq -72(%rbp), %rcx
@@ -127917,65 +127917,65 @@ sutra_main:
   call sutra_file_read
   addq $32, %rsp
   movq %rax, %rbx
-  movq %rbx, -5072(%rbp)
+  movq %rbx, -5008(%rbp)
   leaq .LC_str_786(%rip), %rcx
   movq .LC_str_786_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %rdi
-  movq %rdi, -5080(%rbp)
+  movq %rdi, -5016(%rbp)
   movq %rdi, %rcx
   subq $32, %rsp
   call sutra_print_dynamic
   addq $32, %rsp
-  movq $0, -5080(%rbp)
+  movq $0, -5016(%rbp)
   leaq .LC_str_787(%rip), %rcx
   movq .LC_str_787_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %rdi
-  movq %rdi, -5088(%rbp)
+  movq %rdi, -5024(%rbp)
   movq %rdi, %rcx
   movq -72(%rbp), %rdx
   subq $32, %rsp
   call sutra_str_concat
   addq $32, %rsp
   movq %rax, %r12
-  movq %r12, -5096(%rbp)
-  movq $0, -5088(%rbp)
+  movq %r12, -5032(%rbp)
+  movq $0, -5024(%rbp)
   movq %r12, %rcx
   subq $32, %rsp
   call sutra_print_dynamic
   addq $32, %rsp
-  movq $0, -5096(%rbp)
+  movq $0, -5032(%rbp)
   leaq .LC_str_788(%rip), %rcx
   movq .LC_str_788_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %rdi
-  movq %rdi, -5104(%rbp)
+  movq %rdi, -5040(%rbp)
   movq %rdi, %rcx
   subq $32, %rsp
   call sutra_print_dynamic
   addq $32, %rsp
-  movq $0, -5104(%rbp)
+  movq $0, -5040(%rbp)
   movq %rbx, %rcx
   subq $32, %rsp
   call पद_विच्छेदन
   addq $32, %rsp
   movq %rax, %rdi
-  movq %rdi, -5112(%rbp)
-  movq $0, -5072(%rbp)
+  movq %rdi, -5048(%rbp)
+  movq $0, -5008(%rbp)
   leaq .LC_str_789(%rip), %rcx
   movq .LC_str_789_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %rbx
-  movq %rbx, -5120(%rbp)
+  movq %rbx, -5056(%rbp)
   movq %rdi, %rcx
   subq $32, %rsp
   call दैशिक_लंबाई
@@ -127987,15 +127987,110 @@ sutra_main:
   call sutra_add_dynamic
   addq $32, %rsp
   movq %rax, %r13
-  movq %r13, -5128(%rbp)
-  movq $0, -5120(%rbp)
+  movq %r13, -5064(%rbp)
+  movq $0, -5056(%rbp)
   movq %r13, %rcx
   subq $32, %rsp
   call sutra_print_dynamic
   addq $32, %rsp
-  movq $0, -5128(%rbp)
+  movq $0, -5064(%rbp)
   leaq .LC_str_790(%rip), %rcx
   movq .LC_str_790_len(%rip), %rdx
+  subq $32, %rsp
+  call sutra_str_alloc
+  addq $32, %rsp
+  movq %rax, %rbx
+  movq %rbx, -5072(%rbp)
+  movq %rbx, %rcx
+  subq $32, %rsp
+  call sutra_print_dynamic
+  addq $32, %rsp
+  movq $0, -5072(%rbp)
+  subq $32, %rsp
+  call sutra_dict_create
+  addq $32, %rsp
+  movq %rax, %rbx
+  movq %rbx, -5080(%rbp)
+  movq %rbx, -5080(%rbp)
+  leaq .LC_str_226(%rip), %rcx
+  movq .LC_str_226_len(%rip), %rdx
+  subq $32, %rsp
+  call sutra_str_alloc
+  addq $32, %rsp
+  movq %rax, %r12
+  movq %r12, -5088(%rbp)
+  movq %rbx, %rcx
+  movq %r12, %rdx
+  movq %rdi, %r8
+  subq $32, %rsp
+  call sutra_arr_set
+  addq $32, %rsp
+  movq $0, -5088(%rbp)
+  leaq .LC_str_87(%rip), %rcx
+  movq .LC_str_87_len(%rip), %rdx
+  subq $32, %rsp
+  call sutra_str_alloc
+  addq $32, %rsp
+  movq %rax, %r12
+  movq %r12, -5096(%rbp)
+  movq $0, %r13
+  movq %rbx, %rcx
+  movq %r12, %rdx
+  movq %r13, %r8
+  subq $32, %rsp
+  call sutra_arr_set
+  addq $32, %rsp
+  movq $0, -5096(%rbp)
+  leaq .LC_str_225(%rip), %rcx
+  movq .LC_str_225_len(%rip), %rdx
+  subq $32, %rsp
+  call sutra_str_alloc
+  addq $32, %rsp
+  movq %rax, %r12
+  movq %r12, -5104(%rbp)
+  movq %rdi, %rcx
+  subq $32, %rsp
+  call दैशिक_लंबाई
+  addq $32, %rsp
+  movq %rax, %r13
+  movq $0, -5048(%rbp)
+  movq %rbx, %rcx
+  movq %r12, %rdx
+  movq %r13, %r8
+  subq $32, %rsp
+  call sutra_arr_set
+  addq $32, %rsp
+  movq $0, -5104(%rbp)
+  subq $32, %rsp
+  call sutra_dict_create
+  addq $32, %rsp
+  movq %rax, %rdi
+  movq %rdi, -5112(%rbp)
+  movq %rdi, -5112(%rbp)
+  movq %rbx, %rcx
+  movq %rdi, %rdx
+  movq -72(%rbp), %r8
+  subq $32, %rsp
+  call प्रोग्राम_पार्स
+  addq $32, %rsp
+  movq %rax, %r12
+  movq %r12, -5120(%rbp)
+  movq $0, -5080(%rbp)
+  movq $0, -5112(%rbp)
+  leaq .LC_str_791(%rip), %rcx
+  movq .LC_str_791_len(%rip), %rdx
+  subq $32, %rsp
+  call sutra_str_alloc
+  addq $32, %rsp
+  movq %rax, %rbx
+  movq %rbx, -5128(%rbp)
+  movq %rbx, %rcx
+  subq $32, %rsp
+  call sutra_print_dynamic
+  addq $32, %rsp
+  movq $0, -5128(%rbp)
+  leaq .LC_str_792(%rip), %rcx
+  movq .LC_str_792_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
@@ -128006,101 +128101,6 @@ sutra_main:
   call sutra_print_dynamic
   addq $32, %rsp
   movq $0, -5136(%rbp)
-  subq $32, %rsp
-  call sutra_dict_create
-  addq $32, %rsp
-  movq %rax, %rbx
-  movq %rbx, -5144(%rbp)
-  movq %rbx, -5144(%rbp)
-  leaq .LC_str_226(%rip), %rcx
-  movq .LC_str_226_len(%rip), %rdx
-  subq $32, %rsp
-  call sutra_str_alloc
-  addq $32, %rsp
-  movq %rax, %r12
-  movq %r12, -5152(%rbp)
-  movq %rbx, %rcx
-  movq %r12, %rdx
-  movq %rdi, %r8
-  subq $32, %rsp
-  call sutra_arr_set
-  addq $32, %rsp
-  movq $0, -5152(%rbp)
-  leaq .LC_str_87(%rip), %rcx
-  movq .LC_str_87_len(%rip), %rdx
-  subq $32, %rsp
-  call sutra_str_alloc
-  addq $32, %rsp
-  movq %rax, %r12
-  movq %r12, -5160(%rbp)
-  movq $0, %r13
-  movq %rbx, %rcx
-  movq %r12, %rdx
-  movq %r13, %r8
-  subq $32, %rsp
-  call sutra_arr_set
-  addq $32, %rsp
-  movq $0, -5160(%rbp)
-  leaq .LC_str_225(%rip), %rcx
-  movq .LC_str_225_len(%rip), %rdx
-  subq $32, %rsp
-  call sutra_str_alloc
-  addq $32, %rsp
-  movq %rax, %r12
-  movq %r12, -5168(%rbp)
-  movq %rdi, %rcx
-  subq $32, %rsp
-  call दैशिक_लंबाई
-  addq $32, %rsp
-  movq %rax, %r13
-  movq $0, -5112(%rbp)
-  movq %rbx, %rcx
-  movq %r12, %rdx
-  movq %r13, %r8
-  subq $32, %rsp
-  call sutra_arr_set
-  addq $32, %rsp
-  movq $0, -5168(%rbp)
-  subq $32, %rsp
-  call sutra_dict_create
-  addq $32, %rsp
-  movq %rax, %rdi
-  movq %rdi, -5176(%rbp)
-  movq %rdi, -5176(%rbp)
-  movq %rbx, %rcx
-  movq %rdi, %rdx
-  movq -72(%rbp), %r8
-  subq $32, %rsp
-  call प्रोग्राम_पार्स
-  addq $32, %rsp
-  movq %rax, %r12
-  movq %r12, -5184(%rbp)
-  movq $0, -5144(%rbp)
-  movq $0, -5176(%rbp)
-  leaq .LC_str_791(%rip), %rcx
-  movq .LC_str_791_len(%rip), %rdx
-  subq $32, %rsp
-  call sutra_str_alloc
-  addq $32, %rsp
-  movq %rax, %rbx
-  movq %rbx, -5192(%rbp)
-  movq %rbx, %rcx
-  subq $32, %rsp
-  call sutra_print_dynamic
-  addq $32, %rsp
-  movq $0, -5192(%rbp)
-  leaq .LC_str_792(%rip), %rcx
-  movq .LC_str_792_len(%rip), %rdx
-  subq $32, %rsp
-  call sutra_str_alloc
-  addq $32, %rsp
-  movq %rax, %rbx
-  movq %rbx, -5200(%rbp)
-  movq %rbx, %rcx
-  subq $32, %rsp
-  call sutra_print_dynamic
-  addq $32, %rsp
-  movq $0, -5200(%rbp)
   movq %r12, %rcx
   subq $32, %rsp
   call मूल_सार्थक_विश्लेषण
@@ -128112,31 +128112,31 @@ sutra_main:
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %rbx
-  movq %rbx, -5208(%rbp)
+  movq %rbx, -5144(%rbp)
   movq %rbx, %rcx
   subq $32, %rsp
   call sutra_print_dynamic
   addq $32, %rsp
-  movq $0, -5208(%rbp)
+  movq $0, -5144(%rbp)
   leaq .LC_str_794(%rip), %rcx
   movq .LC_str_794_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %rbx
-  movq %rbx, -5216(%rbp)
+  movq %rbx, -5152(%rbp)
   movq %rbx, %rcx
   subq $32, %rsp
   call sutra_print_dynamic
   addq $32, %rsp
-  movq $0, -5216(%rbp)
+  movq $0, -5152(%rbp)
   movq %r12, %rcx
   subq $32, %rsp
   call निम्नक_एकक
   addq $32, %rsp
   movq %rax, %rbx
-  movq %rbx, -5224(%rbp)
-  movq $0, -5184(%rbp)
+  movq %rbx, -5160(%rbp)
+  movq $0, -5120(%rbp)
   movq %rbx, %rcx
   subq $32, %rsp
   call अनुकूलक_एकक
@@ -128148,8 +128148,8 @@ sutra_main:
   addq $32, %rsp
   movq %rax, -88(%rbp)
   movq -88(%rbp), %r11
-  movq %r11, -5232(%rbp)
-  movq $0, -5224(%rbp)
+  movq %r11, -5168(%rbp)
+  movq $0, -5160(%rbp)
   movq $115, %rbx
   movq $117, %r12
   movq $116, %r13
@@ -128175,7 +128175,7 @@ sutra_main:
   addq $32, %rsp
   movq %rax, -296(%rbp)
   movq -296(%rbp), %r11
-  movq %r11, -5240(%rbp)
+  movq %r11, -5176(%rbp)
   movq -296(%rbp), %rcx
   movq $0, %rdx
   movq %rbx, %r8
@@ -128291,54 +128291,54 @@ sutra_main:
   call sutra_arr_set
   addq $32, %rsp
   movq -296(%rbp), %r11
-  movq %r11, -5240(%rbp)
+  movq %r11, -5176(%rbp)
   movq -296(%rbp), %rcx
   subq $32, %rsp
   call अक्षर_सूची_से_पाठ
   addq $32, %rsp
   movq %rax, -312(%rbp)
   movq -312(%rbp), %r11
-  movq %r11, -5248(%rbp)
-  movq $0, -5240(%rbp)
+  movq %r11, -5184(%rbp)
+  movq $0, -5176(%rbp)
   movq -312(%rbp), %rcx
   movq -88(%rbp), %rdx
   subq $32, %rsp
   call sutra_file_write
   addq $32, %rsp
   movq %rax, %rsi
-  movq $0, -5232(%rbp)
+  movq $0, -5168(%rbp)
   leaq .LC_str_795(%rip), %rcx
   movq .LC_str_795_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %rsi
-  movq %rsi, -5256(%rbp)
+  movq %rsi, -5192(%rbp)
   movq %rsi, %rcx
   movq -312(%rbp), %rdx
   subq $32, %rsp
   call sutra_add_dynamic
   addq $32, %rsp
   movq %rax, %rdi
-  movq %rdi, -5264(%rbp)
-  movq $0, -5256(%rbp)
+  movq %rdi, -5200(%rbp)
+  movq $0, -5192(%rbp)
   movq %rdi, %rcx
   subq $32, %rsp
   call sutra_print_dynamic
   addq $32, %rsp
-  movq $0, -5264(%rbp)
+  movq $0, -5200(%rbp)
   leaq .LC_str_796(%rip), %rcx
   movq .LC_str_796_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %rsi
-  movq %rsi, -5272(%rbp)
+  movq %rsi, -5208(%rbp)
   movq %rsi, %rcx
   subq $32, %rsp
   call sutra_print_dynamic
   addq $32, %rsp
-  movq $0, -5272(%rbp)
+  movq $0, -5208(%rbp)
   movq $115, %rsi
   movq $117, %rdi
   movq $116, %r12
@@ -128364,7 +128364,7 @@ sutra_main:
   addq $32, %rsp
   movq %rax, -520(%rbp)
   movq -520(%rbp), %r11
-  movq %r11, -5280(%rbp)
+  movq %r11, -5216(%rbp)
   movq -520(%rbp), %rcx
   movq $0, %rdx
   movq %rsi, %r8
@@ -128480,15 +128480,15 @@ sutra_main:
   call sutra_arr_set
   addq $32, %rsp
   movq -520(%rbp), %r11
-  movq %r11, -5280(%rbp)
+  movq %r11, -5216(%rbp)
   movq -520(%rbp), %rcx
   subq $32, %rsp
   call अक्षर_सूची_से_पाठ
   addq $32, %rsp
   movq %rax, -536(%rbp)
   movq -536(%rbp), %r11
-  movq %r11, -5288(%rbp)
-  movq $0, -5280(%rbp)
+  movq %r11, -5224(%rbp)
+  movq $0, -5216(%rbp)
   movq $67, %rsi
   movq $58, %rdi
   movq $92, %r12
@@ -128526,7 +128526,7 @@ sutra_main:
   addq $32, %rsp
   movq %rax, -936(%rbp)
   movq -936(%rbp), %r11
-  movq %r11, -5296(%rbp)
+  movq %r11, -5232(%rbp)
   movq -936(%rbp), %rcx
   movq $0, %rdx
   movq %rsi, %r8
@@ -128714,53 +128714,53 @@ sutra_main:
   call sutra_arr_set
   addq $32, %rsp
   movq -936(%rbp), %r11
-  movq %r11, -5296(%rbp)
+  movq %r11, -5232(%rbp)
   movq -936(%rbp), %rcx
   subq $32, %rsp
   call अक्षर_सूची_से_पाठ
   addq $32, %rsp
   movq %rax, %rbx
-  movq %rbx, -5304(%rbp)
-  movq $0, -5296(%rbp)
+  movq %rbx, -5240(%rbp)
+  movq $0, -5232(%rbp)
   movq %rbx, %rcx
   movq -536(%rbp), %rdx
   subq $32, %rsp
   call sutra_add_dynamic
   addq $32, %rsp
   movq %rax, %rsi
-  movq %rsi, -5312(%rbp)
-  movq $0, -5304(%rbp)
+  movq %rsi, -5248(%rbp)
+  movq $0, -5240(%rbp)
   leaq .LC_str_298(%rip), %rcx
   movq .LC_str_298_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %rbx
-  movq %rbx, -5320(%rbp)
+  movq %rbx, -5256(%rbp)
   movq %rsi, %rcx
   movq %rbx, %rdx
   subq $32, %rsp
   call sutra_add_dynamic
   addq $32, %rsp
   movq %rax, %rdi
-  movq %rdi, -5328(%rbp)
-  movq $0, -5312(%rbp)
-  movq $0, -5320(%rbp)
+  movq %rdi, -5264(%rbp)
+  movq $0, -5248(%rbp)
+  movq $0, -5256(%rbp)
   movq %rdi, %rcx
   movq -312(%rbp), %rdx
   subq $32, %rsp
   call sutra_add_dynamic
   addq $32, %rsp
   movq %rax, %rbx
-  movq %rbx, -5336(%rbp)
-  movq $0, -5248(%rbp)
-  movq $0, -5328(%rbp)
+  movq %rbx, -5272(%rbp)
+  movq $0, -5184(%rbp)
+  movq $0, -5264(%rbp)
   movq %rbx, %rcx
   subq $32, %rsp
   call sutra_command_run
   addq $32, %rsp
   movq %rax, %rsi
-  movq $0, -5336(%rbp)
+  movq $0, -5272(%rbp)
   movq -536(%rbp), %rcx
   subq $32, %rsp
   call sutra_file_exists
@@ -128784,19 +128784,19 @@ sutra_main:
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %rbx
-  movq %rbx, -5344(%rbp)
+  movq %rbx, -5280(%rbp)
   movq %rbx, %rcx
   subq $32, %rsp
   call sutra_print_dynamic
   addq $32, %rsp
-  movq $0, -5344(%rbp)
+  movq $0, -5280(%rbp)
   leaq .LC_str_799(%rip), %rcx
   movq .LC_str_799_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %rbx
-  movq %rbx, -5352(%rbp)
+  movq %rbx, -5288(%rbp)
   movq %rbx, %rcx
   subq $32, %rsp
   call sutra_file_exists
@@ -128822,7 +128822,7 @@ sutra_main:
   movq %rax, %rbx
   jmp .L_sutra_main__if_अंत_9
 .L_sutra_main__if_अंत_9:
-  movq %rbx, -5856(%rbp)
+  movq %rbx, -5792(%rbp)
   movq %rbx, %rcx
   subq $32, %rsp
   call sutra_file_exists
@@ -128841,8 +128841,8 @@ sutra_main:
   addq $32, %rsp
   movq %rax, -952(%rbp)
   movq -952(%rbp), %r11
-  movq %r11, -5360(%rbp)
-  movq $0, -5856(%rbp)
+  movq %r11, -5296(%rbp)
+  movq $0, -5792(%rbp)
   movq $115, %rbx
   movq $102, %rdi
   movq $108, %r12
@@ -128862,7 +128862,7 @@ sutra_main:
   addq $32, %rsp
   movq %rax, -1064(%rbp)
   movq -1064(%rbp), %r11
-  movq %r11, -5368(%rbp)
+  movq %r11, -5304(%rbp)
   movq -1064(%rbp), %rcx
   movq $0, %rdx
   movq %rbx, %r8
@@ -128942,22 +128942,22 @@ sutra_main:
   call sutra_arr_set
   addq $32, %rsp
   movq -1064(%rbp), %r11
-  movq %r11, -5368(%rbp)
+  movq %r11, -5304(%rbp)
   movq -1064(%rbp), %rcx
   subq $32, %rsp
   call अक्षर_सूची_से_पाठ
   addq $32, %rsp
   movq %rax, -1080(%rbp)
   movq -1080(%rbp), %r11
-  movq %r11, -5376(%rbp)
-  movq $0, -5368(%rbp)
+  movq %r11, -5312(%rbp)
+  movq $0, -5304(%rbp)
   movq -1080(%rbp), %rcx
   movq -952(%rbp), %rdx
   subq $32, %rsp
   call sutra_file_write
   addq $32, %rsp
   movq %rax, %rsi
-  movq $0, -5360(%rbp)
+  movq $0, -5296(%rbp)
   movq $67, %rsi
   movq $58, %rdi
   movq $92, %r12
@@ -129009,7 +129009,7 @@ sutra_main:
   addq $32, %rsp
   movq %rax, -1704(%rbp)
   movq -1704(%rbp), %r11
-  movq %r11, -5384(%rbp)
+  movq %r11, -5320(%rbp)
   movq -1704(%rbp), %rcx
   movq $0, %rdx
   movq %rsi, %r8
@@ -129281,29 +129281,29 @@ sutra_main:
   call sutra_arr_set
   addq $32, %rsp
   movq -1704(%rbp), %r11
-  movq %r11, -5384(%rbp)
+  movq %r11, -5320(%rbp)
   movq -1704(%rbp), %rcx
   subq $32, %rsp
   call अक्षर_सूची_से_पाठ
   addq $32, %rsp
   movq %rax, %rbx
-  movq %rbx, -5392(%rbp)
-  movq $0, -5384(%rbp)
+  movq %rbx, -5328(%rbp)
+  movq $0, -5320(%rbp)
   movq %rbx, %rcx
   movq -1080(%rbp), %rdx
   subq $32, %rsp
   call sutra_add_dynamic
   addq $32, %rsp
   movq %rax, %rsi
-  movq %rsi, -5400(%rbp)
-  movq $0, -5376(%rbp)
-  movq $0, -5392(%rbp)
+  movq %rsi, -5336(%rbp)
+  movq $0, -5312(%rbp)
+  movq $0, -5328(%rbp)
   movq %rsi, %rcx
   subq $32, %rsp
   call sutra_command_run
   addq $32, %rsp
   movq %rax, %rbx
-  movq $0, -5400(%rbp)
+  movq $0, -5336(%rbp)
   jmp .L_sutra_main__if_अंत_11
 .L_sutra_main__if_अंत_11:
   leaq .LC_str_801(%rip), %rcx
@@ -129312,7 +129312,7 @@ sutra_main:
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %rbx
-  movq %rbx, -5408(%rbp)
+  movq %rbx, -5344(%rbp)
   movq %rbx, %rcx
   subq $32, %rsp
   call sutra_file_exists
@@ -129338,7 +129338,7 @@ sutra_main:
   movq %rax, %rbx
   jmp .L_sutra_main__if_अंत_13
 .L_sutra_main__if_अंत_13:
-  movq %rbx, -5864(%rbp)
+  movq %rbx, -5800(%rbp)
   movq %rbx, %rcx
   subq $32, %rsp
   call sutra_file_exists
@@ -129357,8 +129357,8 @@ sutra_main:
   addq $32, %rsp
   movq %rax, -1720(%rbp)
   movq -1720(%rbp), %r11
-  movq %r11, -5416(%rbp)
-  movq $0, -5864(%rbp)
+  movq %r11, -5352(%rbp)
+  movq $0, -5800(%rbp)
   movq $115, %rbx
   movq $114, %rdi
   movq $116, %r12
@@ -129375,7 +129375,7 @@ sutra_main:
   addq $32, %rsp
   movq %rax, -1784(%rbp)
   movq -1784(%rbp), %r11
-  movq %r11, -5424(%rbp)
+  movq %r11, -5360(%rbp)
   movq -1784(%rbp), %rcx
   movq $0, %rdx
   movq %rbx, %r8
@@ -129437,22 +129437,22 @@ sutra_main:
   call sutra_arr_set
   addq $32, %rsp
   movq -1784(%rbp), %r11
-  movq %r11, -5424(%rbp)
+  movq %r11, -5360(%rbp)
   movq -1784(%rbp), %rcx
   subq $32, %rsp
   call अक्षर_सूची_से_पाठ
   addq $32, %rsp
   movq %rax, -1800(%rbp)
   movq -1800(%rbp), %r11
-  movq %r11, -5432(%rbp)
-  movq $0, -5424(%rbp)
+  movq %r11, -5368(%rbp)
+  movq $0, -5360(%rbp)
   movq -1800(%rbp), %rcx
   movq -1720(%rbp), %rdx
   subq $32, %rsp
   call sutra_file_write
   addq $32, %rsp
   movq %rax, %rsi
-  movq $0, -5416(%rbp)
+  movq $0, -5352(%rbp)
   movq $67, %rsi
   movq $58, %rdi
   movq $92, %r12
@@ -129502,7 +129502,7 @@ sutra_main:
   addq $32, %rsp
   movq %rax, -2392(%rbp)
   movq -2392(%rbp), %r11
-  movq %r11, -5440(%rbp)
+  movq %r11, -5376(%rbp)
   movq -2392(%rbp), %rcx
   movq $0, %rdx
   movq %rsi, %r8
@@ -129762,29 +129762,29 @@ sutra_main:
   call sutra_arr_set
   addq $32, %rsp
   movq -2392(%rbp), %r11
-  movq %r11, -5440(%rbp)
+  movq %r11, -5376(%rbp)
   movq -2392(%rbp), %rcx
   subq $32, %rsp
   call अक्षर_सूची_से_पाठ
   addq $32, %rsp
   movq %rax, %rbx
-  movq %rbx, -5448(%rbp)
-  movq $0, -5440(%rbp)
+  movq %rbx, -5384(%rbp)
+  movq $0, -5376(%rbp)
   movq %rbx, %rcx
   movq -1800(%rbp), %rdx
   subq $32, %rsp
   call sutra_add_dynamic
   addq $32, %rsp
   movq %rax, %rsi
-  movq %rsi, -5456(%rbp)
-  movq $0, -5432(%rbp)
-  movq $0, -5448(%rbp)
+  movq %rsi, -5392(%rbp)
+  movq $0, -5368(%rbp)
+  movq $0, -5384(%rbp)
   movq %rsi, %rcx
   subq $32, %rsp
   call sutra_command_run
   addq $32, %rsp
   movq %rax, %rbx
-  movq $0, -5456(%rbp)
+  movq $0, -5392(%rbp)
   jmp .L_sutra_main__if_अंत_15
 .L_sutra_main__if_अंत_15:
   leaq .LC_str_803(%rip), %rcx
@@ -129793,7 +129793,7 @@ sutra_main:
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %rbx
-  movq %rbx, -5464(%rbp)
+  movq %rbx, -5400(%rbp)
   movq %rbx, %rcx
   subq $32, %rsp
   call sutra_file_exists
@@ -129819,7 +129819,7 @@ sutra_main:
   movq %rax, %rbx
   jmp .L_sutra_main__if_अंत_17
 .L_sutra_main__if_अंत_17:
-  movq %rbx, -5872(%rbp)
+  movq %rbx, -5808(%rbp)
   movq %rbx, %rcx
   subq $32, %rsp
   call sutra_file_exists
@@ -129838,8 +129838,8 @@ sutra_main:
   addq $32, %rsp
   movq %rax, -2408(%rbp)
   movq -2408(%rbp), %r11
-  movq %r11, -5472(%rbp)
-  movq $0, -5872(%rbp)
+  movq %r11, -5408(%rbp)
+  movq $0, -5808(%rbp)
   movq $97, %rbx
   movq $108, %rdi
   movq $108, %r12
@@ -129858,7 +129858,7 @@ sutra_main:
   addq $32, %rsp
   movq %rax, -2504(%rbp)
   movq -2504(%rbp), %r11
-  movq %r11, -5480(%rbp)
+  movq %r11, -5416(%rbp)
   movq -2504(%rbp), %rcx
   movq $0, %rdx
   movq %rbx, %r8
@@ -129932,22 +129932,22 @@ sutra_main:
   call sutra_arr_set
   addq $32, %rsp
   movq -2504(%rbp), %r11
-  movq %r11, -5480(%rbp)
+  movq %r11, -5416(%rbp)
   movq -2504(%rbp), %rcx
   subq $32, %rsp
   call अक्षर_सूची_से_पाठ
   addq $32, %rsp
   movq %rax, -2520(%rbp)
   movq -2520(%rbp), %r11
-  movq %r11, -5488(%rbp)
-  movq $0, -5480(%rbp)
+  movq %r11, -5424(%rbp)
+  movq $0, -5416(%rbp)
   movq -2520(%rbp), %rcx
   movq -2408(%rbp), %rdx
   subq $32, %rsp
   call sutra_file_write
   addq $32, %rsp
   movq %rax, %rsi
-  movq $0, -5472(%rbp)
+  movq $0, -5408(%rbp)
   movq $67, %rsi
   movq $58, %rdi
   movq $92, %r12
@@ -129999,7 +129999,7 @@ sutra_main:
   addq $32, %rsp
   movq %rax, -3144(%rbp)
   movq -3144(%rbp), %r11
-  movq %r11, -5496(%rbp)
+  movq %r11, -5432(%rbp)
   movq -3144(%rbp), %rcx
   movq $0, %rdx
   movq %rsi, %r8
@@ -130271,29 +130271,29 @@ sutra_main:
   call sutra_arr_set
   addq $32, %rsp
   movq -3144(%rbp), %r11
-  movq %r11, -5496(%rbp)
+  movq %r11, -5432(%rbp)
   movq -3144(%rbp), %rcx
   subq $32, %rsp
   call अक्षर_सूची_से_पाठ
   addq $32, %rsp
   movq %rax, %rbx
-  movq %rbx, -5504(%rbp)
-  movq $0, -5496(%rbp)
+  movq %rbx, -5440(%rbp)
+  movq $0, -5432(%rbp)
   movq %rbx, %rcx
   movq -2520(%rbp), %rdx
   subq $32, %rsp
   call sutra_add_dynamic
   addq $32, %rsp
   movq %rax, %rsi
-  movq %rsi, -5512(%rbp)
-  movq $0, -5488(%rbp)
-  movq $0, -5504(%rbp)
+  movq %rsi, -5448(%rbp)
+  movq $0, -5424(%rbp)
+  movq $0, -5440(%rbp)
   movq %rsi, %rcx
   subq $32, %rsp
   call sutra_command_run
   addq $32, %rsp
   movq %rax, %rbx
-  movq $0, -5512(%rbp)
+  movq $0, -5448(%rbp)
   jmp .L_sutra_main__if_अंत_19
 .L_sutra_main__if_अंत_19:
   leaq .LC_str_805(%rip), %rcx
@@ -130302,12 +130302,12 @@ sutra_main:
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %rbx
-  movq %rbx, -5520(%rbp)
+  movq %rbx, -5456(%rbp)
   movq %rbx, %rcx
   subq $32, %rsp
   call sutra_print_dynamic
   addq $32, %rsp
-  movq $0, -5520(%rbp)
+  movq $0, -5456(%rbp)
   movq $115, %rbx
   movq $117, %rsi
   movq $116, %rdi
@@ -130335,7 +130335,7 @@ sutra_main:
   addq $32, %rsp
   movq %rax, -3384(%rbp)
   movq -3384(%rbp), %r11
-  movq %r11, -5528(%rbp)
+  movq %r11, -5464(%rbp)
   movq -3384(%rbp), %rcx
   movq $0, %rdx
   movq %rbx, %r8
@@ -130463,35 +130463,35 @@ sutra_main:
   call sutra_arr_set
   addq $32, %rsp
   movq -3384(%rbp), %r11
-  movq %r11, -5528(%rbp)
+  movq %r11, -5464(%rbp)
   movq -3384(%rbp), %rcx
   subq $32, %rsp
   call अक्षर_सूची_से_पाठ
   addq $32, %rsp
   movq %rax, -3400(%rbp)
   movq -3400(%rbp), %r11
-  movq %r11, -5536(%rbp)
-  movq $0, -5528(%rbp)
+  movq %r11, -5472(%rbp)
+  movq $0, -5464(%rbp)
   leaq .LC_str_92(%rip), %rcx
   movq .LC_str_92_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %rsi
-  movq %rsi, -5544(%rbp)
+  movq %rsi, -5480(%rbp)
   leaq .LC_str_806(%rip), %rcx
   movq .LC_str_806_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %rdi
-  movq %rdi, -5552(%rbp)
+  movq %rdi, -5488(%rbp)
   movq %rdi, %rcx
   subq $32, %rsp
   call sutra_file_exists
   addq $32, %rsp
   movq %rax, %r12
-  movq $0, -5552(%rbp)
+  movq $0, -5488(%rbp)
   movq %r12, %r10
   cmpq $0, %r10
   je .L_किनारा_sutra_main_9
@@ -130520,7 +130520,7 @@ sutra_main:
   addq $32, %rsp
   movq %rax, -3528(%rbp)
   movq -3528(%rbp), %r11
-  movq %r11, -5560(%rbp)
+  movq %r11, -5496(%rbp)
   movq -3528(%rbp), %rcx
   movq $0, %rdx
   movq %rsi, %r8
@@ -130606,38 +130606,38 @@ sutra_main:
   call sutra_arr_set
   addq $32, %rsp
   movq -3528(%rbp), %r11
-  movq %r11, -5560(%rbp)
+  movq %r11, -5496(%rbp)
   movq -3528(%rbp), %rcx
   subq $32, %rsp
   call अक्षर_सूची_से_पाठ
   addq $32, %rsp
   movq %rax, %rbx
-  movq $0, -5560(%rbp)
+  movq $0, -5496(%rbp)
   movq %rbx, -3544(%rbp)
   jmp .L_sutra_main__if_अंत_21
 .L_sutra_main__if_अंत_21:
   movq -3544(%rbp), %r11
-  movq %r11, -5880(%rbp)
+  movq %r11, -5816(%rbp)
   leaq .LC_str_92(%rip), %rcx
   movq .LC_str_92_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %rsi
-  movq %rsi, -5568(%rbp)
+  movq %rsi, -5504(%rbp)
   leaq .LC_str_807(%rip), %rcx
   movq .LC_str_807_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %rdi
-  movq %rdi, -5576(%rbp)
+  movq %rdi, -5512(%rbp)
   movq %rdi, %rcx
   subq $32, %rsp
   call sutra_file_exists
   addq $32, %rsp
   movq %rax, %r12
-  movq $0, -5576(%rbp)
+  movq $0, -5512(%rbp)
   movq %r12, %r10
   cmpq $0, %r10
   je .L_किनारा_sutra_main_10
@@ -130664,7 +130664,7 @@ sutra_main:
   addq $32, %rsp
   movq %rax, -3640(%rbp)
   movq -3640(%rbp), %r11
-  movq %r11, -5584(%rbp)
+  movq %r11, -5520(%rbp)
   movq -3640(%rbp), %rcx
   movq $0, %rdx
   movq %rsi, %r8
@@ -130738,38 +130738,38 @@ sutra_main:
   call sutra_arr_set
   addq $32, %rsp
   movq -3640(%rbp), %r11
-  movq %r11, -5584(%rbp)
+  movq %r11, -5520(%rbp)
   movq -3640(%rbp), %rcx
   subq $32, %rsp
   call अक्षर_सूची_से_पाठ
   addq $32, %rsp
   movq %rax, %rbx
-  movq $0, -5584(%rbp)
+  movq $0, -5520(%rbp)
   movq %rbx, -3656(%rbp)
   jmp .L_sutra_main__if_अंत_23
 .L_sutra_main__if_अंत_23:
   movq -3656(%rbp), %r11
-  movq %r11, -5888(%rbp)
+  movq %r11, -5824(%rbp)
   leaq .LC_str_92(%rip), %rcx
   movq .LC_str_92_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %rsi
-  movq %rsi, -5592(%rbp)
+  movq %rsi, -5528(%rbp)
   leaq .LC_str_808(%rip), %rcx
   movq .LC_str_808_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %rdi
-  movq %rdi, -5600(%rbp)
+  movq %rdi, -5536(%rbp)
   movq %rdi, %rcx
   subq $32, %rsp
   call sutra_file_exists
   addq $32, %rsp
   movq %rax, %r12
-  movq $0, -5600(%rbp)
+  movq $0, -5536(%rbp)
   movq %r12, %r10
   cmpq $0, %r10
   je .L_किनारा_sutra_main_11
@@ -130798,7 +130798,7 @@ sutra_main:
   addq $32, %rsp
   movq %rax, -3784(%rbp)
   movq -3784(%rbp), %r11
-  movq %r11, -5608(%rbp)
+  movq %r11, -5544(%rbp)
   movq -3784(%rbp), %rcx
   movq $0, %rdx
   movq %rsi, %r8
@@ -130884,18 +130884,18 @@ sutra_main:
   call sutra_arr_set
   addq $32, %rsp
   movq -3784(%rbp), %r11
-  movq %r11, -5608(%rbp)
+  movq %r11, -5544(%rbp)
   movq -3784(%rbp), %rcx
   subq $32, %rsp
   call अक्षर_सूची_से_पाठ
   addq $32, %rsp
   movq %rax, %rbx
-  movq $0, -5608(%rbp)
+  movq $0, -5544(%rbp)
   movq %rbx, -3800(%rbp)
   jmp .L_sutra_main__if_अंत_25
 .L_sutra_main__if_अंत_25:
   movq -3800(%rbp), %r11
-  movq %r11, -5896(%rbp)
+  movq %r11, -5832(%rbp)
   movq $67, %rsi
   movq $58, %rdi
   movq $92, %r12
@@ -130936,7 +130936,7 @@ sutra_main:
   addq $32, %rsp
   movq %rax, -4248(%rbp)
   movq -4248(%rbp), %r11
-  movq %r11, -5616(%rbp)
+  movq %r11, -5552(%rbp)
   movq -4248(%rbp), %rcx
   movq $0, %rdx
   movq %rsi, %r8
@@ -131142,14 +131142,14 @@ sutra_main:
   call sutra_arr_set
   addq $32, %rsp
   movq -4248(%rbp), %r11
-  movq %r11, -5616(%rbp)
+  movq %r11, -5552(%rbp)
   movq -4248(%rbp), %rcx
   subq $32, %rsp
   call अक्षर_सूची_से_पाठ
   addq $32, %rsp
   movq %rax, %rbx
-  movq %rbx, -5624(%rbp)
-  movq $0, -5616(%rbp)
+  movq %rbx, -5560(%rbp)
+  movq $0, -5552(%rbp)
   movq %rbx, %rcx
   movq -536(%rbp), %rdx
   subq $32, %rsp
@@ -131157,9 +131157,9 @@ sutra_main:
   addq $32, %rsp
   movq %rax, -4264(%rbp)
   movq -4264(%rbp), %r11
-  movq %r11, -5632(%rbp)
-  movq $0, -5288(%rbp)
-  movq $0, -5624(%rbp)
+  movq %r11, -5568(%rbp)
+  movq $0, -5224(%rbp)
+  movq $0, -5560(%rbp)
   movq $32, %rbx
   movq $115, %rdi
   movq $117, %r12
@@ -131192,7 +131192,7 @@ sutra_main:
   addq $32, %rsp
   movq %rax, -4584(%rbp)
   movq -4584(%rbp), %r11
-  movq %r11, -5640(%rbp)
+  movq %r11, -5576(%rbp)
   movq -4584(%rbp), %rcx
   movq $0, %rdx
   movq %rbx, %r8
@@ -131350,41 +131350,41 @@ sutra_main:
   call sutra_arr_set
   addq $32, %rsp
   movq -4584(%rbp), %r11
-  movq %r11, -5640(%rbp)
+  movq %r11, -5576(%rbp)
   movq -4584(%rbp), %rcx
   subq $32, %rsp
   call अक्षर_सूची_से_पाठ
   addq $32, %rsp
   movq %rax, %rbx
-  movq %rbx, -5648(%rbp)
-  movq $0, -5640(%rbp)
+  movq %rbx, -5584(%rbp)
+  movq $0, -5576(%rbp)
   movq -4264(%rbp), %rcx
   movq %rbx, %rdx
   subq $32, %rsp
   call sutra_add_dynamic
   addq $32, %rsp
   movq %rax, %rsi
-  movq %rsi, -5656(%rbp)
-  movq $0, -5632(%rbp)
-  movq $0, -5648(%rbp)
+  movq %rsi, -5592(%rbp)
+  movq $0, -5568(%rbp)
+  movq $0, -5584(%rbp)
   movq %rsi, %rcx
   movq -3800(%rbp), %rdx
   subq $32, %rsp
   call sutra_add_dynamic
   addq $32, %rsp
   movq %rax, %rbx
-  movq %rbx, -5664(%rbp)
-  movq $0, -5656(%rbp)
-  movq $0, -5896(%rbp)
+  movq %rbx, -5600(%rbp)
+  movq $0, -5592(%rbp)
+  movq $0, -5832(%rbp)
   movq %rbx, %rcx
   movq -3656(%rbp), %rdx
   subq $32, %rsp
   call sutra_str_concat
   addq $32, %rsp
   movq %rax, %rsi
-  movq %rsi, -5672(%rbp)
-  movq $0, -5664(%rbp)
-  movq $0, -5888(%rbp)
+  movq %rsi, -5608(%rbp)
+  movq $0, -5600(%rbp)
+  movq $0, -5824(%rbp)
   movq %rsi, %rcx
   movq -3544(%rbp), %rdx
   subq $32, %rsp
@@ -131392,167 +131392,139 @@ sutra_main:
   addq $32, %rsp
   movq %rax, -4600(%rbp)
   movq -4600(%rbp), %r11
-  movq %r11, -5680(%rbp)
-  movq $0, -5672(%rbp)
-  movq $0, -5880(%rbp)
+  movq %r11, -5616(%rbp)
+  movq $0, -5608(%rbp)
+  movq $0, -5816(%rbp)
   movq $45, %rsi
   movq $108, %rdi
-  movq $109, %r12
-  movq $32, %r13
-  movq $45, %r14
+  movq $115, %r12
+  movq $104, %r13
+  movq $101, %r14
   movq $108, %r15
-  movq $115, %rbx
-  movq $104, -4616(%rbp)
-  movq $101, -4632(%rbp)
-  movq $108, -4648(%rbp)
-  movq $108, -4664(%rbp)
-  movq $51, -4680(%rbp)
-  movq $50, -4696(%rbp)
-  movq $32, -4712(%rbp)
-  movq $45, -4728(%rbp)
-  movq $111, -4744(%rbp)
-  movq $32, -4760(%rbp)
-  movq $17, %rcx
+  movq $108, %rbx
+  movq $51, -4616(%rbp)
+  movq $50, -4632(%rbp)
+  movq $32, -4648(%rbp)
+  movq $45, -4664(%rbp)
+  movq $111, -4680(%rbp)
+  movq $32, -4696(%rbp)
+  movq $13, %rcx
   subq $32, %rsp
   call sutra_arr_create
   addq $32, %rsp
-  movq %rax, -4776(%rbp)
-  movq -4776(%rbp), %r11
-  movq %r11, -5688(%rbp)
-  movq -4776(%rbp), %rcx
+  movq %rax, -4712(%rbp)
+  movq -4712(%rbp), %r11
+  movq %r11, -5624(%rbp)
+  movq -4712(%rbp), %rcx
   movq $0, %rdx
   movq %rsi, %r8
   subq $32, %rsp
   call sutra_arr_set
   addq $32, %rsp
-  movq -4776(%rbp), %rcx
+  movq -4712(%rbp), %rcx
   movq $1, %rdx
   movq %rdi, %r8
   subq $32, %rsp
   call sutra_arr_set
   addq $32, %rsp
-  movq -4776(%rbp), %rcx
+  movq -4712(%rbp), %rcx
   movq $2, %rdx
   movq %r12, %r8
   subq $32, %rsp
   call sutra_arr_set
   addq $32, %rsp
-  movq -4776(%rbp), %rcx
+  movq -4712(%rbp), %rcx
   movq $3, %rdx
   movq %r13, %r8
   subq $32, %rsp
   call sutra_arr_set
   addq $32, %rsp
-  movq -4776(%rbp), %rcx
+  movq -4712(%rbp), %rcx
   movq $4, %rdx
   movq %r14, %r8
   subq $32, %rsp
   call sutra_arr_set
   addq $32, %rsp
-  movq -4776(%rbp), %rcx
+  movq -4712(%rbp), %rcx
   movq $5, %rdx
   movq %r15, %r8
   subq $32, %rsp
   call sutra_arr_set
   addq $32, %rsp
-  movq -4776(%rbp), %rcx
+  movq -4712(%rbp), %rcx
   movq $6, %rdx
   movq %rbx, %r8
   subq $32, %rsp
   call sutra_arr_set
   addq $32, %rsp
-  movq -4776(%rbp), %rcx
+  movq -4712(%rbp), %rcx
   movq $7, %rdx
   movq -4616(%rbp), %r8
   subq $32, %rsp
   call sutra_arr_set
   addq $32, %rsp
-  movq -4776(%rbp), %rcx
+  movq -4712(%rbp), %rcx
   movq $8, %rdx
   movq -4632(%rbp), %r8
   subq $32, %rsp
   call sutra_arr_set
   addq $32, %rsp
-  movq -4776(%rbp), %rcx
+  movq -4712(%rbp), %rcx
   movq $9, %rdx
   movq -4648(%rbp), %r8
   subq $32, %rsp
   call sutra_arr_set
   addq $32, %rsp
-  movq -4776(%rbp), %rcx
+  movq -4712(%rbp), %rcx
   movq $10, %rdx
   movq -4664(%rbp), %r8
   subq $32, %rsp
   call sutra_arr_set
   addq $32, %rsp
-  movq -4776(%rbp), %rcx
+  movq -4712(%rbp), %rcx
   movq $11, %rdx
   movq -4680(%rbp), %r8
   subq $32, %rsp
   call sutra_arr_set
   addq $32, %rsp
-  movq -4776(%rbp), %rcx
+  movq -4712(%rbp), %rcx
   movq $12, %rdx
   movq -4696(%rbp), %r8
   subq $32, %rsp
   call sutra_arr_set
   addq $32, %rsp
-  movq -4776(%rbp), %rcx
-  movq $13, %rdx
-  movq -4712(%rbp), %r8
-  subq $32, %rsp
-  call sutra_arr_set
-  addq $32, %rsp
-  movq -4776(%rbp), %rcx
-  movq $14, %rdx
-  movq -4728(%rbp), %r8
-  subq $32, %rsp
-  call sutra_arr_set
-  addq $32, %rsp
-  movq -4776(%rbp), %rcx
-  movq $15, %rdx
-  movq -4744(%rbp), %r8
-  subq $32, %rsp
-  call sutra_arr_set
-  addq $32, %rsp
-  movq -4776(%rbp), %rcx
-  movq $16, %rdx
-  movq -4760(%rbp), %r8
-  subq $32, %rsp
-  call sutra_arr_set
-  addq $32, %rsp
-  movq -4776(%rbp), %r11
-  movq %r11, -5688(%rbp)
-  movq -4776(%rbp), %rcx
+  movq -4712(%rbp), %r11
+  movq %r11, -5624(%rbp)
+  movq -4712(%rbp), %rcx
   subq $32, %rsp
   call अक्षर_सूची_से_पाठ
   addq $32, %rsp
   movq %rax, %rbx
-  movq %rbx, -5696(%rbp)
-  movq $0, -5688(%rbp)
+  movq %rbx, -5632(%rbp)
+  movq $0, -5624(%rbp)
   movq -4600(%rbp), %rcx
   movq %rbx, %rdx
   subq $32, %rsp
   call sutra_add_dynamic
   addq $32, %rsp
   movq %rax, %rsi
-  movq %rsi, -5704(%rbp)
-  movq $0, -5680(%rbp)
-  movq $0, -5696(%rbp)
+  movq %rsi, -5640(%rbp)
+  movq $0, -5616(%rbp)
+  movq $0, -5632(%rbp)
   movq %rsi, %rcx
   movq -3400(%rbp), %rdx
   subq $32, %rsp
   call sutra_add_dynamic
   addq $32, %rsp
   movq %rax, %rbx
-  movq %rbx, -5712(%rbp)
-  movq $0, -5704(%rbp)
+  movq %rbx, -5648(%rbp)
+  movq $0, -5640(%rbp)
   movq %rbx, %rcx
   subq $32, %rsp
   call sutra_command_run
   addq $32, %rsp
   movq %rax, %rsi
-  movq $0, -5712(%rbp)
+  movq $0, -5648(%rbp)
   movq -3400(%rbp), %rcx
   subq $32, %rsp
   call sutra_file_exists
@@ -131576,12 +131548,12 @@ sutra_main:
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %rbx
-  movq %rbx, -5720(%rbp)
+  movq %rbx, -5656(%rbp)
   movq %rbx, %rcx
   subq $32, %rsp
   call sutra_print_dynamic
   addq $32, %rsp
-  movq $0, -5720(%rbp)
+  movq $0, -5656(%rbp)
   movq $95, %rbx
   movq $110, %rsi
   movq $97, %rdi
@@ -131589,101 +131561,101 @@ sutra_main:
   movq $105, %r13
   movq $118, %r14
   movq $101, %r15
-  movq $46, -4792(%rbp)
-  movq $101, -4808(%rbp)
-  movq $120, -4824(%rbp)
-  movq $101, -4840(%rbp)
+  movq $46, -4728(%rbp)
+  movq $101, -4744(%rbp)
+  movq $120, -4760(%rbp)
+  movq $101, -4776(%rbp)
   movq $11, %rcx
   subq $32, %rsp
   call sutra_arr_create
   addq $32, %rsp
-  movq %rax, -4856(%rbp)
-  movq -4856(%rbp), %r11
-  movq %r11, -5728(%rbp)
-  movq -4856(%rbp), %rcx
+  movq %rax, -4792(%rbp)
+  movq -4792(%rbp), %r11
+  movq %r11, -5664(%rbp)
+  movq -4792(%rbp), %rcx
   movq $0, %rdx
   movq %rbx, %r8
   subq $32, %rsp
   call sutra_arr_set
   addq $32, %rsp
-  movq -4856(%rbp), %rcx
+  movq -4792(%rbp), %rcx
   movq $1, %rdx
   movq %rsi, %r8
   subq $32, %rsp
   call sutra_arr_set
   addq $32, %rsp
-  movq -4856(%rbp), %rcx
+  movq -4792(%rbp), %rcx
   movq $2, %rdx
   movq %rdi, %r8
   subq $32, %rsp
   call sutra_arr_set
   addq $32, %rsp
-  movq -4856(%rbp), %rcx
+  movq -4792(%rbp), %rcx
   movq $3, %rdx
   movq %r12, %r8
   subq $32, %rsp
   call sutra_arr_set
   addq $32, %rsp
-  movq -4856(%rbp), %rcx
+  movq -4792(%rbp), %rcx
   movq $4, %rdx
   movq %r13, %r8
   subq $32, %rsp
   call sutra_arr_set
   addq $32, %rsp
-  movq -4856(%rbp), %rcx
+  movq -4792(%rbp), %rcx
   movq $5, %rdx
   movq %r14, %r8
   subq $32, %rsp
   call sutra_arr_set
   addq $32, %rsp
-  movq -4856(%rbp), %rcx
+  movq -4792(%rbp), %rcx
   movq $6, %rdx
   movq %r15, %r8
   subq $32, %rsp
   call sutra_arr_set
   addq $32, %rsp
-  movq -4856(%rbp), %rcx
+  movq -4792(%rbp), %rcx
   movq $7, %rdx
-  movq -4792(%rbp), %r8
+  movq -4728(%rbp), %r8
   subq $32, %rsp
   call sutra_arr_set
   addq $32, %rsp
-  movq -4856(%rbp), %rcx
+  movq -4792(%rbp), %rcx
   movq $8, %rdx
-  movq -4808(%rbp), %r8
+  movq -4744(%rbp), %r8
   subq $32, %rsp
   call sutra_arr_set
   addq $32, %rsp
-  movq -4856(%rbp), %rcx
+  movq -4792(%rbp), %rcx
   movq $9, %rdx
-  movq -4824(%rbp), %r8
+  movq -4760(%rbp), %r8
   subq $32, %rsp
   call sutra_arr_set
   addq $32, %rsp
-  movq -4856(%rbp), %rcx
+  movq -4792(%rbp), %rcx
   movq $10, %rdx
-  movq -4840(%rbp), %r8
+  movq -4776(%rbp), %r8
   subq $32, %rsp
   call sutra_arr_set
   addq $32, %rsp
-  movq -4856(%rbp), %r11
-  movq %r11, -5728(%rbp)
-  movq -4856(%rbp), %rcx
+  movq -4792(%rbp), %r11
+  movq %r11, -5664(%rbp)
+  movq -4792(%rbp), %rcx
   subq $32, %rsp
   call अक्षर_सूची_से_पाठ
   addq $32, %rsp
   movq %rax, %rbx
-  movq %rbx, -5736(%rbp)
-  movq $0, -5728(%rbp)
+  movq %rbx, -5672(%rbp)
+  movq $0, -5664(%rbp)
   movq -72(%rbp), %rcx
   movq %rbx, %rdx
   subq $32, %rsp
   call sutra_add_dynamic
   addq $32, %rsp
-  movq %rax, -4872(%rbp)
-  movq -4872(%rbp), %r11
-  movq %r11, -5744(%rbp)
-  movq $0, -5736(%rbp)
+  movq %rax, -4808(%rbp)
+  movq -4808(%rbp), %r11
+  movq %r11, -5680(%rbp)
+  movq $0, -5672(%rbp)
   movq $99, %rbx
   movq $109, %rdi
   movq $100, %r12
@@ -131691,224 +131663,224 @@ sutra_main:
   movq $47, %r14
   movq $99, %r15
   movq $32, %rsi
-  movq $99, -4888(%rbp)
-  movq $111, -4904(%rbp)
-  movq $112, -4920(%rbp)
-  movq $121, -4936(%rbp)
-  movq $32, -4952(%rbp)
-  movq $47, -4968(%rbp)
-  movq $121, -4984(%rbp)
-  movq $32, -5000(%rbp)
+  movq $99, -4824(%rbp)
+  movq $111, -4840(%rbp)
+  movq $112, -4856(%rbp)
+  movq $121, -4872(%rbp)
+  movq $32, -4888(%rbp)
+  movq $47, -4904(%rbp)
+  movq $121, -4920(%rbp)
+  movq $32, -4936(%rbp)
   movq $15, %rcx
   subq $32, %rsp
   call sutra_arr_create
   addq $32, %rsp
-  movq %rax, -5016(%rbp)
-  movq -5016(%rbp), %r11
-  movq %r11, -5752(%rbp)
-  movq -5016(%rbp), %rcx
+  movq %rax, -4952(%rbp)
+  movq -4952(%rbp), %r11
+  movq %r11, -5688(%rbp)
+  movq -4952(%rbp), %rcx
   movq $0, %rdx
   movq %rbx, %r8
   subq $32, %rsp
   call sutra_arr_set
   addq $32, %rsp
-  movq -5016(%rbp), %rcx
+  movq -4952(%rbp), %rcx
   movq $1, %rdx
   movq %rdi, %r8
   subq $32, %rsp
   call sutra_arr_set
   addq $32, %rsp
-  movq -5016(%rbp), %rcx
+  movq -4952(%rbp), %rcx
   movq $2, %rdx
   movq %r12, %r8
   subq $32, %rsp
   call sutra_arr_set
   addq $32, %rsp
-  movq -5016(%rbp), %rcx
+  movq -4952(%rbp), %rcx
   movq $3, %rdx
   movq %r13, %r8
   subq $32, %rsp
   call sutra_arr_set
   addq $32, %rsp
-  movq -5016(%rbp), %rcx
+  movq -4952(%rbp), %rcx
   movq $4, %rdx
   movq %r14, %r8
   subq $32, %rsp
   call sutra_arr_set
   addq $32, %rsp
-  movq -5016(%rbp), %rcx
+  movq -4952(%rbp), %rcx
   movq $5, %rdx
   movq %r15, %r8
   subq $32, %rsp
   call sutra_arr_set
   addq $32, %rsp
-  movq -5016(%rbp), %rcx
+  movq -4952(%rbp), %rcx
   movq $6, %rdx
   movq %rsi, %r8
   subq $32, %rsp
   call sutra_arr_set
   addq $32, %rsp
-  movq -5016(%rbp), %rcx
+  movq -4952(%rbp), %rcx
   movq $7, %rdx
+  movq -4824(%rbp), %r8
+  subq $32, %rsp
+  call sutra_arr_set
+  addq $32, %rsp
+  movq -4952(%rbp), %rcx
+  movq $8, %rdx
+  movq -4840(%rbp), %r8
+  subq $32, %rsp
+  call sutra_arr_set
+  addq $32, %rsp
+  movq -4952(%rbp), %rcx
+  movq $9, %rdx
+  movq -4856(%rbp), %r8
+  subq $32, %rsp
+  call sutra_arr_set
+  addq $32, %rsp
+  movq -4952(%rbp), %rcx
+  movq $10, %rdx
+  movq -4872(%rbp), %r8
+  subq $32, %rsp
+  call sutra_arr_set
+  addq $32, %rsp
+  movq -4952(%rbp), %rcx
+  movq $11, %rdx
   movq -4888(%rbp), %r8
   subq $32, %rsp
   call sutra_arr_set
   addq $32, %rsp
-  movq -5016(%rbp), %rcx
-  movq $8, %rdx
+  movq -4952(%rbp), %rcx
+  movq $12, %rdx
   movq -4904(%rbp), %r8
   subq $32, %rsp
   call sutra_arr_set
   addq $32, %rsp
-  movq -5016(%rbp), %rcx
-  movq $9, %rdx
+  movq -4952(%rbp), %rcx
+  movq $13, %rdx
   movq -4920(%rbp), %r8
   subq $32, %rsp
   call sutra_arr_set
   addq $32, %rsp
-  movq -5016(%rbp), %rcx
-  movq $10, %rdx
+  movq -4952(%rbp), %rcx
+  movq $14, %rdx
   movq -4936(%rbp), %r8
   subq $32, %rsp
   call sutra_arr_set
   addq $32, %rsp
-  movq -5016(%rbp), %rcx
-  movq $11, %rdx
-  movq -4952(%rbp), %r8
-  subq $32, %rsp
-  call sutra_arr_set
-  addq $32, %rsp
-  movq -5016(%rbp), %rcx
-  movq $12, %rdx
-  movq -4968(%rbp), %r8
-  subq $32, %rsp
-  call sutra_arr_set
-  addq $32, %rsp
-  movq -5016(%rbp), %rcx
-  movq $13, %rdx
-  movq -4984(%rbp), %r8
-  subq $32, %rsp
-  call sutra_arr_set
-  addq $32, %rsp
-  movq -5016(%rbp), %rcx
-  movq $14, %rdx
-  movq -5000(%rbp), %r8
-  subq $32, %rsp
-  call sutra_arr_set
-  addq $32, %rsp
-  movq -5016(%rbp), %r11
-  movq %r11, -5752(%rbp)
-  movq -5016(%rbp), %rcx
+  movq -4952(%rbp), %r11
+  movq %r11, -5688(%rbp)
+  movq -4952(%rbp), %rcx
   subq $32, %rsp
   call अक्षर_सूची_से_पाठ
   addq $32, %rsp
   movq %rax, %rbx
-  movq %rbx, -5760(%rbp)
-  movq $0, -5752(%rbp)
+  movq %rbx, -5696(%rbp)
+  movq $0, -5688(%rbp)
   movq %rbx, %rcx
   movq -3400(%rbp), %rdx
   subq $32, %rsp
   call sutra_add_dynamic
   addq $32, %rsp
   movq %rax, %rsi
-  movq %rsi, -5768(%rbp)
-  movq $0, -5536(%rbp)
-  movq $0, -5760(%rbp)
+  movq %rsi, -5704(%rbp)
+  movq $0, -5472(%rbp)
+  movq $0, -5696(%rbp)
   leaq .LC_str_298(%rip), %rcx
   movq .LC_str_298_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %rbx
-  movq %rbx, -5776(%rbp)
+  movq %rbx, -5712(%rbp)
   movq %rsi, %rcx
   movq %rbx, %rdx
   subq $32, %rsp
   call sutra_add_dynamic
   addq $32, %rsp
   movq %rax, %rdi
-  movq %rdi, -5784(%rbp)
-  movq $0, -5768(%rbp)
-  movq $0, -5776(%rbp)
+  movq %rdi, -5720(%rbp)
+  movq $0, -5704(%rbp)
+  movq $0, -5712(%rbp)
   movq $34, %rbx
   movq %rbx, %rcx
   subq $32, %rsp
   call sutra_char_chr
   addq $32, %rsp
   movq %rax, %rsi
-  movq %rsi, -5792(%rbp)
+  movq %rsi, -5728(%rbp)
   movq %rdi, %rcx
   movq %rsi, %rdx
   subq $32, %rsp
   call sutra_add_dynamic
   addq $32, %rsp
   movq %rax, %rbx
-  movq %rbx, -5800(%rbp)
-  movq $0, -5784(%rbp)
-  movq $0, -5792(%rbp)
+  movq %rbx, -5736(%rbp)
+  movq $0, -5720(%rbp)
+  movq $0, -5728(%rbp)
   movq %rbx, %rcx
-  movq -4872(%rbp), %rdx
+  movq -4808(%rbp), %rdx
   subq $32, %rsp
   call sutra_str_concat
   addq $32, %rsp
   movq %rax, %rsi
-  movq %rsi, -5808(%rbp)
-  movq $0, -5800(%rbp)
+  movq %rsi, -5744(%rbp)
+  movq $0, -5736(%rbp)
   movq $34, %rbx
   movq %rbx, %rcx
   subq $32, %rsp
   call sutra_char_chr
   addq $32, %rsp
   movq %rax, %rdi
-  movq %rdi, -5816(%rbp)
+  movq %rdi, -5752(%rbp)
   movq %rsi, %rcx
   movq %rdi, %rdx
   subq $32, %rsp
   call sutra_add_dynamic
   addq $32, %rsp
   movq %rax, %rbx
-  movq %rbx, -5824(%rbp)
-  movq $0, -5808(%rbp)
-  movq $0, -5816(%rbp)
+  movq %rbx, -5760(%rbp)
+  movq $0, -5744(%rbp)
+  movq $0, -5752(%rbp)
   movq %rbx, %rcx
   subq $32, %rsp
   call sutra_command_run
   addq $32, %rsp
   movq %rax, %rsi
-  movq $0, -5824(%rbp)
+  movq $0, -5760(%rbp)
   leaq .LC_str_811(%rip), %rcx
   movq .LC_str_811_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %rbx
-  movq %rbx, -5832(%rbp)
+  movq %rbx, -5768(%rbp)
   movq %rbx, %rcx
-  movq -4872(%rbp), %rdx
+  movq -4808(%rbp), %rdx
   subq $32, %rsp
   call sutra_str_concat
   addq $32, %rsp
   movq %rax, %rsi
-  movq %rsi, -5840(%rbp)
-  movq $0, -5744(%rbp)
-  movq $0, -5832(%rbp)
+  movq %rsi, -5776(%rbp)
+  movq $0, -5680(%rbp)
+  movq $0, -5768(%rbp)
   movq %rsi, %rcx
   subq $32, %rsp
   call sutra_print_dynamic
   addq $32, %rsp
-  movq $0, -5840(%rbp)
+  movq $0, -5776(%rbp)
   leaq .LC_str_812(%rip), %rcx
   movq .LC_str_812_len(%rip), %rdx
   subq $32, %rsp
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %rbx
-  movq %rbx, -5848(%rbp)
+  movq %rbx, -5784(%rbp)
   movq %rbx, %rcx
   subq $32, %rsp
   call sutra_print_dynamic
   addq $32, %rsp
-  movq $0, -5848(%rbp)
+  movq $0, -5784(%rbp)
   movq $0, %rax
   jmp .L_epilogue_sutra_main
 .L_sutra_main__if_सत्य_26:
@@ -131940,21 +131912,21 @@ sutra_main:
   call sutra_str_alloc
   addq $32, %rsp
   movq %rax, %rbx
-  movq %rbx, -5056(%rbp)
+  movq %rbx, -4992(%rbp)
   movq %rbx, %rcx
   movq -72(%rbp), %rdx
   subq $32, %rsp
   call sutra_str_concat
   addq $32, %rsp
   movq %rax, %rsi
-  movq %rsi, -5064(%rbp)
-  movq $0, -5040(%rbp)
-  movq $0, -5056(%rbp)
+  movq %rsi, -5000(%rbp)
+  movq $0, -4976(%rbp)
+  movq $0, -4992(%rbp)
   movq %rsi, %rcx
   subq $32, %rsp
   call sutra_print_dynamic
   addq $32, %rsp
-  movq $0, -5064(%rbp)
+  movq $0, -5000(%rbp)
   movq $0, %rax
   jmp .L_epilogue_sutra_main
 .L_epilogue_sutra_main:
