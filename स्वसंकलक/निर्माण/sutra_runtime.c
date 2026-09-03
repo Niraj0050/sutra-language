@@ -42,7 +42,14 @@ extern int64_t native_gc_bytes_reclaimed;
 #endif
 #endif
 
-#include <setjmp.h>
+/* setjmp/longjmp — अब तल.s में हाथ-asm (_setjmp / sr_longjmp)।
+ * jmp_buf = अपना 256-बाइट बफ़र (हम layout नियंत्रित करते: ret-addr, rsp,
+ * rbx/rbp/rsi/rdi/r12-15, xmm6-15)। कोई SEH unwind — हमारे compiled code में
+ * destructors/handlers नहीं (GC explicit)। */
+#define SR_JMPBUF_SIZE 256
+typedef unsigned char sr_jmp_buf[SR_JMPBUF_SIZE];
+extern int  _setjmp(sr_jmp_buf env, void* frame);
+extern void sr_longjmp(sr_jmp_buf env, int val) __attribute__((noreturn));
 
 /* stdout/stderr — कोई stdio, सीधे kernel32 WriteFile */
 static void sr_fdw(DWORD which, const char* s, int n) {
@@ -80,7 +87,7 @@ void sutra_print_dynamic(int64_t val);
  * EXCEPTION HANDLING RUNTIME
  * ============================================================ */
 #define MAX_TRY_DEPTH 256
-jmp_buf sutra_try_stack[MAX_TRY_DEPTH];
+sr_jmp_buf sutra_try_stack[MAX_TRY_DEPTH];
 int sutra_try_gc_roots_count[MAX_TRY_DEPTH];
 volatile int sutra_try_depth = 0;
 void* volatile sutra_active_exception = NULL;
@@ -127,7 +134,7 @@ void sutra_throw(void* ex) {
     }
     sutra_try_depth--;
     gc_roots_count = sutra_try_gc_roots_count[sutra_try_depth];
-    longjmp(sutra_try_stack[sutra_try_depth], 1);
+    sr_longjmp(sutra_try_stack[sutra_try_depth], 1);
 }
 
 #if 0

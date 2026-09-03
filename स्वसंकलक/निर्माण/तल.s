@@ -8,6 +8,7 @@
  *   सूत्र_तल_मुद्रण(rcx = पता, rdx = लंबाई) -> void          [GetStdHandle + WriteFile]
  *   सूत्र_तल_निकास(rcx = कोड)              -> कभी नहीं लौटता  [ExitProcess]
  *   memcpy / memmove / memset / memcmp / strlen — हाथ से (libc-मुक्त)
+ *   _setjmp(rcx=env,rdx=frame) / sr_longjmp(rcx=env,rdx=val) — न्यूनतम, no-SEH
  *
  * Windows x64 ABI: तर्क rcx,rdx,r8,r9; 32-बाइट shadow; call पर rsp 16-संरेखित।
  * callee-preserved: rbx rbp rdi rsi rsp r12-r15.
@@ -171,3 +172,70 @@ strlen:
 .Lstrlen_done:
   subq %rcx, %rax
   ret
+
+/* ============================================================
+ * _setjmp / sr_longjmp — न्यूनतम (कोई SEH unwind)। jmp_buf विन्यास:
+ *   0  ret-addr   8  rsp(post-ret)
+ *   16 rbx  24 rbp  32 rsi  40 rdi  48 r12  56 r13  64 r14  72 r15
+ *   80..224  xmm6..xmm15  (16 बाइट प्रत्येक)
+ * rcx = jmp_buf ; _setjmp का rdx (frame) अनदेखा (0 = non-SEH)।
+ * leaf कार्य — कोई shadow/alignment चिंता नहीं। %r10 volatile scratch।
+ * ============================================================ */
+
+  .globl _setjmp
+  .def _setjmp; .scl 2; .type 32; .endef
+_setjmp:
+  movq (%rsp), %r10
+  movq %r10, 0(%rcx)
+  leaq 8(%rsp), %r10
+  movq %r10, 8(%rcx)
+  movq %rbx, 16(%rcx)
+  movq %rbp, 24(%rcx)
+  movq %rsi, 32(%rcx)
+  movq %rdi, 40(%rcx)
+  movq %r12, 48(%rcx)
+  movq %r13, 56(%rcx)
+  movq %r14, 64(%rcx)
+  movq %r15, 72(%rcx)
+  movups %xmm6, 80(%rcx)
+  movups %xmm7, 96(%rcx)
+  movups %xmm8, 112(%rcx)
+  movups %xmm9, 128(%rcx)
+  movups %xmm10, 144(%rcx)
+  movups %xmm11, 160(%rcx)
+  movups %xmm12, 176(%rcx)
+  movups %xmm13, 192(%rcx)
+  movups %xmm14, 208(%rcx)
+  movups %xmm15, 224(%rcx)
+  xorl %eax, %eax
+  ret
+
+  .globl sr_longjmp
+  .def sr_longjmp; .scl 2; .type 32; .endef
+sr_longjmp:
+  movl %edx, %eax
+  testl %eax, %eax
+  jnz .Llj_v
+  movl $1, %eax
+.Llj_v:
+  movq 16(%rcx), %rbx
+  movq 24(%rcx), %rbp
+  movq 32(%rcx), %rsi
+  movq 40(%rcx), %rdi
+  movq 48(%rcx), %r12
+  movq 56(%rcx), %r13
+  movq 64(%rcx), %r14
+  movq 72(%rcx), %r15
+  movups 80(%rcx), %xmm6
+  movups 96(%rcx), %xmm7
+  movups 112(%rcx), %xmm8
+  movups 128(%rcx), %xmm9
+  movups 144(%rcx), %xmm10
+  movups 160(%rcx), %xmm11
+  movups 176(%rcx), %xmm12
+  movups 192(%rcx), %xmm13
+  movups 208(%rcx), %xmm14
+  movups 224(%rcx), %xmm15
+  movq 0(%rcx), %r10
+  movq 8(%rcx), %rsp
+  jmp *%r10

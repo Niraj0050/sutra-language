@@ -403,18 +403,29 @@ fileIO — हर एक designed, अब बिना regression।
    - `sutra_str_equal` → `पाठ_तुल्य`, `sutra_str_compare` → `पाठ_कोडबिंदु_तुलना`
      (Sutra; codepoint-order = UTF-8 byte-order)। `memcmp` call site गया।
    - `sutra_obj_alloc` का redundant `memset` हटाया (`सूत्र_आवंटन` शून्य-भरा देता)।
-   - `#include` अब सिर्फ़: `<stdint.h>`/`<stddef.h>` (types), `<windows.h>`/
-     `<shellapi.h>`, `<setjmp.h>`। **`<string.h>` भी गया।**
-   - **runtime के चारों `.o` (sutra_runtime/srt/alloc/floor) में शून्य libc symbol**
-     — सब kernel32/shell32 + आपस में resolve। fixed point कायम (135213),
-     `पाठ_परीक्षण`/`सूची_परीक्षण` interp==native।
+   - **runtime के चारों `.o` में शून्य libc symbol** — सब kernel32/shell32 +
+     आपस में resolve। fixed point 135213, `पाठ_परीक्षण`/`सूची_परीक्षण` interp==native।
 
-बचा (Level 1): `setjmp`/`longjmp` (exception ABI — asm shim या Sutra unwinder);
-float SSE `__asm__` blob → hand-`.s` (Stage 3); `sutra_str_upper`/`lower`,
-`sutra_dynamic_type` → Sutra (छोटे, libc-मुक्त — कम प्राथमिकता); फिर
-**`sutra_runtime.c` DELETE**। अंतिम कदम = **custom `_start` / `-nostdlib`**
-(अभी binary CRT startup link करता — `api-ms-win-crt-*` — यह हमारे code से नहीं,
-gcc की crt2.o से; Level 2)।
+**§2j — setjmp/longjmp → तल.s asm shim** (commit `TBD`, 2026-09-01)।
+   `<setjmp.h>` का `jmp_buf`/`_setjmp`/`longjmp` की जगह अपना 256-बाइट बफ़र +
+   हाथ-asm `_setjmp` / `sr_longjmp` (तल.s)। बचाता: ret-addr, rsp, rbx/rbp/rsi/
+   rdi/r12-15, xmm6-15। **कोई SEH unwind** — हमारे compiled code में handlers/
+   destructors नहीं (GC explicit, यही डिज़ाइन: catch-खंड का एकमात्र CFG पूर्ववर्ती
+   setjmp-खंड → mem2reg pre-try मान देता, longjmp के reg-restore से मेल)।
+   compiler `call _setjmp` वैसे ही emit करता; `sutra_floor.o` का `_setjmp`
+   linker पहले satisfy करता → CRT का कभी pull नहीं होता (कोई conflict नहीं)।
+   `sutra_throw` अब `sr_longjmp` बुलाता।
+   - **`sutra_runtime.c` में अब कोई libc header नहीं** — सिर्फ़ `<stdint.h>`/
+     `<stddef.h>` (types) + `<windows.h>`/`<shellapi.h>` (OS-तल)। libc undefined
+     = सिर्फ़ `memcpy`/`strlen` → तल.s। 49_exceptions + nested/loop try-catch +
+     rethrow + uncaught→stderr सब interp==native, fixed point कायम।
+
+बचा (Level 1 = `sutra_runtime.c` DELETE): float SSE `__asm__` blob → hand-`.s`;
+Win32 file/args wrappers + exception state-machine (`sutra_throw` आदि) + छोटे C
+string helpers (`str_map_case`/`dynamic_type`/`char_ord`/`sr_fmt_float`/
+`arr_get`-dispatch/`str_get`-cache/`substr`) → Sutra या `.s`।
+अंतिम कदम = **custom `_start` / `-nostdlib`** (binary अभी gcc की crt2.o से
+`api-ms-win-crt-*` link करता — हमारे code से नहीं; Level 2)।
 
 **2b. मानक पुस्तकालय (`पुस्तकालय/`) — सूत्र में** (commits `07205ac` + `c07ba45`, 2026-09-01)।
    Phase 2 रोककर पहले लाइब्रेरी (Niraj का निर्णय)। **12 मॉड्यूल**, कोई C
