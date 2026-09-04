@@ -579,7 +579,7 @@ fileIO — हर एक designed, अब बिना regression।
    (`52_bitwise.सूत्र` interp==native, 11 केस)। **अब xorshift PRNG / FNV
    hashing सूत्र में लिखे जा सकते।**
 
-**§3b — C++ व्याख्याता (`sutra.exe`) build ठीक; bitwise अब interp में भी** (commit `797b958`, 2026-09-04)।
+**§3b — C++ व्याख्याता (`sutra.exe`) build ठीक; bitwise अब interp में भी** (commit `3784030`, 2026-09-04)।
    `sutra.exe` (Aug 26 से frozen था, unbuildable) फिर से बनता है। 2 pre-
    existing rot ठीक किए (दोनों gitignored `संकलक/src/` में — repo "pure Sutra"
    है, C++ host dev-machine scaffold है, इसलिए ये fixes **commit नहीं होते**):
