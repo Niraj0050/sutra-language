@@ -523,14 +523,32 @@ fileIO — हर एक designed, अब बिना regression।
    33_array_ops / 29 / 50_dict_literal / 34_class_param / 40_floats /
    49_exceptions सब interp==native।
 
-बचा (Level 1 = `sutra_runtime.c` DELETE, ~1 सफाई चंक):
-   - stderr floor (`sr_*` + `सूत्र_अपवाद_निकास` + `throw_str`/`throw_div`) →
-     `तल.s` stderr-wrapper + Sutra
-   - `sutra_gc_status` → Sutra (non-allocating: scratch-buf + `अंतर्_मुद्रण`)
-   - `sr_ln`/`sr_exp`/`sutra_math_pow_f` → `तल.s` asm (bit-ops asm में natural)
-   - ~25 पतले shims (`sutra_int_to_str`→`संख्या_से_पाठ` आदि) → उत्सर्जक/निम्नक
-     सीधे सूत्र-नाम emit करें
-   फिर **Level 2: custom `_start` / `-nostdlib`** (binary अभी gcc की crt2.o से
+**§2r — `sutra_runtime.c` DELETED — Level 1 पूर्ण** (commit `TBD`, 2026-09-04)।
+   अंतिम C-भाग हटा:
+   - **stderr-तल** → `तल.s` `सूत्र_तल_त्रुटि` (STD_ERROR_HANDLE WriteFile)।
+     `sutra_float_div` का `call sutra_throw_div_by_zero` → `call भाजन_शून्य_फेंको`।
+   - `सूत्र_अपवाद_निकास` / `भाजन_शून्य_फेंको` / `जीसी_स्थिति_रन` → `मूल_रनटाइम.सूत्र`
+     (uncaught = `पाठ_जोड़` + `सूत्र_तल_त्रुटि` + `अंतर्_निकास(1)`; div0 = `प्रक्षेपः`;
+     gc_status आवंटन-रूप — 44_gc_status वैसे भी GC-accounting mismatch से fail)।
+   - `sr_ln`/`sr_exp`/`sutra_math_pow_f` → `लघुगणक_रन`/`घातांकी_रन`/`रन_घात`
+     (`मूल_रनटाइम.सूत्र`)। double↔int64 bit-cast = **"मान"-param passthrough**
+     कार्य (`दशमलव_बिट`/`बिट_दशमलव` — मशीन-स्तर सिर्फ़ mov, type-tag बदलता); 2^52
+     स्थिरांक रनटाइम-गुणन से (int-lit ≥ 2³¹ सीमा से बचने को)। कोई asm नहीं।
+   - **~25 पतले shims**: उत्सर्जक/निम्नक अब सीधे सूत्र-नाम emit करते —
+     `गतिशील_छापो`/`गतिशील_प्रकार`/`सूची_{जोड़,डाल,निकाल,हटा,जोड़ो_दो}`/
+     `पाठ_{बदल,विभाजन,संयोग,छाँट,आरंभ_में,अंत_में}`/`बूल_छापो`/`शून्य_छापो`/
+     `अक्षर_बना`/`शब्दकोश_{सेट,कुंजी_है}`/`अपवाद_बफ_लो`/`अपवाद_पॉप`/`सक्रिय_अपवाद_लो`।
+   - `सार्थक` whitelist `सूत्र_गण_सक्रिय`/`_संग्रहित`/`सूत्र_तल_त्रुटि` → seed
+     **135894→135884**।
+   - `मूल_संकलन.सूत्र` का linker-कमांड से `sutra_runtime_prebuilt.o` हटा।
+     `bootstrap.ps1` 5→4 चरण (कोई `gcc -c`; लिंक सिर्फ़ `.s`-जनित `.o`)।
+     `verify_ir_selfhost.sh`/`verify_emit*.sh`/`README.md` अद्यतन।
+   **`sutra_runtime.c` DELETED।** हर सूत्र binary = `तल.s` + `मूल_रनटाइम.s` +
+   `मूल_आवंटक.s` + संकलक — **शून्य C, शून्य libc**; gcc केवल as/ld के रूप में।
+   fixed point 135884; Gen1(split)==Gen2 + Gen2==Gen3; 51/2 + 10/1;
+   pow/exception/div0/gc_status/string/list/dict सब interp==native।
+
+बचा — **Level 2: custom `_start` / `-nostdlib`** (binary अभी gcc की crt2.o से
    `api-ms-win-crt-*` link करता — हमारे code से नहीं) — ~1-2 chunk।
 
 **2b. मानक पुस्तकालय (`पुस्तकालय/`) — सूत्र में** (commits `07205ac` + `c07ba45`, 2026-09-01)।

@@ -25,25 +25,19 @@ $root = $PSScriptRoot
 Set-Location $root
 $seedDir  = Join-Path $root "स्वसंकलक\निर्माण"
 $seed     = Join-Path $seedDir "मूल_संकलन.s"
-$rtC      = Join-Path $seedDir "sutra_runtime.c"
 $src      = Join-Path $root "स्वसंकलक\मूल_संकलन.सूत्र"
 
 foreach ($p in @($as, $gcc)) {
     if (-not (Test-Path $p)) { throw "not found: $p  (MSYS2 ucrt64 required)" }
 }
-foreach ($p in @($seed, $rtC, $src)) {
+foreach ($p in @($seed, $src)) {
     if (-not (Test-Path $p)) { throw "not found: $p" }
 }
 
 # ASCII-named working copies (as/gcc choke on Devanagari paths)
 Copy-Item $seed "_seed.s" -Force
-Copy-Item $rtC  "_seed_rt.c" -Force
 
-Write-Host "== 1/5  compile C runtime (sutra_runtime.c -> .o) ==" -ForegroundColor Cyan
-& $gcc -m64 -O2 -finput-charset=UTF-8 -fexec-charset=UTF-8 -c "_seed_rt.c" -o "sutra_runtime_prebuilt.o"
-if ($LASTEXITCODE -ne 0) { throw "runtime compile failed" }
-
-Write-Host "== 2/5  assemble seed + OS floor + Sutra runtime module (.s -> .o) ==" -ForegroundColor Cyan
+Write-Host "== 1/4  assemble seed + OS floor + Sutra runtime modules (.s -> .o) ==" -ForegroundColor Cyan
 & $as -o "_seed.o" "_seed.s"
 if ($LASTEXITCODE -ne 0) { throw "as failed (seed)" }
 Copy-Item (Join-Path $seedDir "तल.s") "_floor.s" -Force
@@ -57,20 +51,20 @@ Copy-Item (Join-Path $seedDir "मूल_आवंटक.s") "_alloc.s" -Force
 if ($LASTEXITCODE -ne 0) { throw "as failed (मूल_आवंटक.s)" }
 Remove-Item "_floor.s", "_srt.s", "_alloc.s" -ErrorAction SilentlyContinue
 
-Write-Host "== 3/5  link seed compiler (gcc as linker) ==" -ForegroundColor Cyan
-& $gcc -m64 "_seed.o" "sutra_runtime_prebuilt.o" "sutra_alloc.o" "sutra_srt.o" "sutra_floor.o" -lshell32 -o "seed_sutrac.exe"
+Write-Host "== 2/4  link seed compiler (gcc as linker) ==" -ForegroundColor Cyan
+& $gcc -m64 "_seed.o" "sutra_alloc.o" "sutra_srt.o" "sutra_floor.o" -lshell32 -o "seed_sutrac.exe"
 if ($LASTEXITCODE -ne 0) { throw "link failed" }
-Remove-Item "_seed.s", "_seed.o", "_seed_rt.c" -ErrorAction SilentlyContinue
-Write-Host "   seed compiler ready: seed_sutrac.exe" -ForegroundColor Green
+Remove-Item "_seed.s", "_seed.o" -ErrorAction SilentlyContinue
+Write-Host "   seed compiler ready: seed_sutrac.exe (zero C — तल.s + मूल_रनटाइम.s + मूल_आवंटक.s)" -ForegroundColor Green
 
-Write-Host "== 4/5  seed compiler builds current source ==" -ForegroundColor Cyan
+Write-Host "== 3/4  seed compiler builds current source ==" -ForegroundColor Cyan
 & ".\seed_sutrac.exe" $src 2>&1 | Select-Object -Last 2
 $fresh = "स्वसंकलक\मूल_संकलन.सूत्र_native.exe"
 if (-not (Test-Path $fresh)) { throw "seed compiler could not compile the source" }
 Copy-Item $fresh "sutrac.exe" -Force
 Write-Host "   fresh compiler: sutrac.exe" -ForegroundColor Green
 
-Write-Host "== 5/5  fixed-point check (fresh compiler recompiles itself) ==" -ForegroundColor Cyan
+Write-Host "== 4/4  fixed-point check (fresh compiler recompiles itself) ==" -ForegroundColor Cyan
 & ".\seed_sutrac.exe" $src 2>&1 | Out-Null
 Copy-Item "sutra_native_temp.s" "_fp_a.s" -Force
 & ".\sutrac.exe" $src 2>&1 | Out-Null

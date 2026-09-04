@@ -8,7 +8,7 @@ cd "$(dirname "$0")"
 COMPILER="${1:-./sutrac.exe}"
 FRONT="स्वसंकलक/अग्र_चालक.सूत्र"; BACK="स्वसंकलक/पश्च_चालक.सूत्र"
 FRONT_EXE="${FRONT}_native.exe"; BACK_EXE="${BACK}_native.exe"
-RT="sutra_runtime_prebuilt.o sutra_alloc.o sutra_srt.o sutra_floor.o"
+RT="sutra_alloc.o sutra_srt.o sutra_floor.o"
 W=/tmp/vef; mkdir -p "$W"
 
 if [ "${SKIP_BUILD:-0}" != "1" ]; then

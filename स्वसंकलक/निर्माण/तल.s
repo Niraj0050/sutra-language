@@ -74,6 +74,32 @@
   popq %rbp
   ret
 
+  .globl सूत्र_तल_त्रुटि
+  .def सूत्र_तल_त्रुटि; .scl 2; .type 32; .endef
+सूत्र_तल_त्रुटि:                /* (rcx=पता, rdx=लंबाई) → stderr WriteFile */
+  pushq %rbp
+  movq %rsp, %rbp
+  pushq %rsi
+  pushq %rdi
+  movq %rcx, %rsi
+  movq %rdx, %rdi
+  movq $-12, %rcx           /* STD_ERROR_HANDLE */
+  subq $32, %rsp
+  call GetStdHandle
+  addq $32, %rsp
+  subq $48, %rsp
+  movq %rax, %rcx
+  movq %rsi, %rdx
+  movq %rdi, %r8
+  leaq 40(%rsp), %r9
+  movq $0, 32(%rsp)
+  call WriteFile
+  addq $48, %rsp
+  popq %rdi
+  popq %rsi
+  popq %rbp
+  ret
+
   .globl सूत्र_तल_निकास
   .def सूत्र_तल_निकास; .scl 2; .type 32; .endef
 सूत्र_तल_निकास:
@@ -248,7 +274,7 @@ _setjmp:
 /* ============================================================
  * float (दशमलव) SSE प्रचालन — पूर्व sutra_runtime.c के __asm__ blob में।
  * bits int64 में आते-जाते (rcx,rdx → xmm ; rax ← xmm)। कोई libm।
- * बाहरी: sutra_throw_div_by_zero (C) — link पर resolve।
+ * बाहरी: भाजन_शून्य_फेंको (मूल_रनटाइम.सूत्र) — link पर resolve।
  * ============================================================ */
   .text
 
@@ -288,7 +314,7 @@ sutra_float_div:
   jne .Lfdiv_ok
   jp .Lfdiv_ok
   subq $40, %rsp
-  call sutra_throw_div_by_zero
+  call भाजन_शून्य_फेंको        /* मूल_रनटाइम.सूत्र (पूर्व C sutra_throw_div_by_zero) */
   addq $40, %rsp
 .Lfdiv_ok:
   movq %rcx, %xmm0

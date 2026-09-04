@@ -13620,6 +13620,2093 @@
   popq %rbp
   ret
 
+  .text
+  .globl भाजन_शून्य_फेंको
+  .def भाजन_शून्य_फेंको; .scl 2; .type 32; .endef
+भाजन_शून्य_फेंको:
+  pushq %rbp
+  movq %rsp, %rbp
+  subq $32, %rsp
+  movq %rbx, -8(%rbp)
+
+.L_भाजन_शून्य_फेंको__प्रवेश_0:
+  leaq .LC_str_27(%rip), %rcx
+  movq .LC_str_27_len(%rip), %rdx
+  subq $32, %rsp
+  call पाठ_रचना
+  addq $32, %rsp
+  movq %rax, %rbx
+  movq %rbx, %rcx
+  subq $32, %rsp
+  call फेंको
+  addq $32, %rsp
+.L_epilogue_भाजन_शून्य_फेंको:
+  movq -8(%rbp), %rbx
+  movq %rbp, %rsp
+  popq %rbp
+  ret
+
+  .text
+  .globl निकास_उपसर्ग
+  .def निकास_उपसर्ग; .scl 2; .type 32; .endef
+निकास_उपसर्ग:
+  pushq %rbp
+  movq %rsp, %rbp
+  subq $32, %rsp
+  movq %rbx, -8(%rbp)
+
+.L_निकास_उपसर्ग__प्रवेश_0:
+  leaq .LC_str_28(%rip), %rcx
+  movq .LC_str_28_len(%rip), %rdx
+  subq $32, %rsp
+  call पाठ_रचना
+  addq $32, %rsp
+  movq %rax, %rbx
+  movq %rbx, %rax
+  jmp .L_epilogue_निकास_उपसर्ग
+.L_epilogue_निकास_उपसर्ग:
+  movq -8(%rbp), %rbx
+  movq %rbp, %rsp
+  popq %rbp
+  ret
+
+  .text
+  .globl निकास_अनियंत्रित
+  .def निकास_अनियंत्रित; .scl 2; .type 32; .endef
+निकास_अनियंत्रित:
+  pushq %rbp
+  movq %rsp, %rbp
+  subq $32, %rsp
+  movq %rbx, -8(%rbp)
+
+.L_निकास_अनियंत्रित__प्रवेश_0:
+  leaq .LC_str_29(%rip), %rcx
+  movq .LC_str_29_len(%rip), %rdx
+  subq $32, %rsp
+  call पाठ_रचना
+  addq $32, %rsp
+  movq %rax, %rbx
+  movq %rbx, %rax
+  jmp .L_epilogue_निकास_अनियंत्रित
+.L_epilogue_निकास_अनियंत्रित:
+  movq -8(%rbp), %rbx
+  movq %rbp, %rsp
+  popq %rbp
+  ret
+
+  .text
+  .globl निकास_न्यूलाइन
+  .def निकास_न्यूलाइन; .scl 2; .type 32; .endef
+निकास_न्यूलाइन:
+  pushq %rbp
+  movq %rsp, %rbp
+  subq $32, %rsp
+  movq %rbx, -8(%rbp)
+
+.L_निकास_न्यूलाइन__प्रवेश_0:
+  leaq .LC_str_30(%rip), %rcx
+  movq .LC_str_30_len(%rip), %rdx
+  subq $32, %rsp
+  call पाठ_रचना
+  addq $32, %rsp
+  movq %rax, %rbx
+  movq %rbx, %rax
+  jmp .L_epilogue_निकास_न्यूलाइन
+.L_epilogue_निकास_न्यूलाइन:
+  movq -8(%rbp), %rbx
+  movq %rbp, %rsp
+  popq %rbp
+  ret
+
+  .text
+  .globl सूत्र_अपवाद_निकास
+  .def सूत्र_अपवाद_निकास; .scl 2; .type 32; .endef
+सूत्र_अपवाद_निकास:
+  pushq %rbp
+  movq %rsp, %rbp
+  subq $112, %rsp
+  movq %rbx, -8(%rbp)
+  movq %rsi, -16(%rbp)
+  movq %rdi, -24(%rbp)
+  movq %r12, -32(%rbp)
+  movq %rcx, %rbx
+  movq $0, -56(%rbp)
+  movq $0, -64(%rbp)
+  movq $0, -72(%rbp)
+  movq $0, -80(%rbp)
+  movq $0, -88(%rbp)
+  movq $0, -96(%rbp)
+  movl gc_roots_count(%rip), %eax
+  leaq gc_roots(%rip), %r10
+  leaq -56(%rbp), %r11
+  movq %r11, (%r10,%rax,8)
+  incl %eax
+  leaq -64(%rbp), %r11
+  movq %r11, (%r10,%rax,8)
+  incl %eax
+  leaq -72(%rbp), %r11
+  movq %r11, (%r10,%rax,8)
+  incl %eax
+  leaq -80(%rbp), %r11
+  movq %r11, (%r10,%rax,8)
+  incl %eax
+  leaq -88(%rbp), %r11
+  movq %r11, (%r10,%rax,8)
+  incl %eax
+  leaq -96(%rbp), %r11
+  movq %r11, (%r10,%rax,8)
+  incl %eax
+  movl %eax, gc_roots_count(%rip)
+
+.L_सूत्र_अपवाद_निकास__प्रवेश_0:
+  subq $32, %rsp
+  call सूत्र_जीसी_दबाओ
+  addq $32, %rsp
+  movq %rax, %rsi
+  movq $0, %rsi
+  movq %rbx, %r10
+  cmpq %rsi, %r10
+  sete %al
+  movzbq %al, %r10
+  movq %r10, %rdi
+  movq %rdi, %r10
+  cmpq $0, %r10
+  je .L_किनारा_सूत्र_अपवाद_निकास_0
+  jmp .L_सूत्र_अपवाद_निकास__if_सत्य_1
+.L_किनारा_सूत्र_अपवाद_निकास_0:
+  jmp .L_सूत्र_अपवाद_निकास__if_असत्य_3
+.L_सूत्र_अपवाद_निकास__if_असत्य_3:
+  movq %rbx, %rcx
+  subq $32, %rsp
+  call रन_क्या_पाठ
+  addq $32, %rsp
+  movq %rax, %rsi
+  movq %rsi, %r10
+  cmpq $0, %r10
+  je .L_किनारा_सूत्र_अपवाद_निकास_1
+  jmp .L_सूत्र_अपवाद_निकास__if_सत्य_4
+.L_किनारा_सूत्र_अपवाद_निकास_1:
+  jmp .L_सूत्र_अपवाद_निकास__if_असत्य_6
+.L_सूत्र_अपवाद_निकास__if_असत्य_6:
+  subq $32, %rsp
+  call निकास_उपसर्ग
+  addq $32, %rsp
+  movq %rax, %rsi
+  movq %rsi, -64(%rbp)
+  movq %rbx, %rcx
+  subq $32, %rsp
+  call संख्या_से_पाठ
+  addq $32, %rsp
+  movq %rax, %rdi
+  movq %rdi, -72(%rbp)
+  movq %rsi, %rcx
+  movq %rdi, %rdx
+  subq $32, %rsp
+  call पाठ_जोड़
+  addq $32, %rsp
+  movq %rax, %r12
+  movq $0, -64(%rbp)
+  movq $0, -72(%rbp)
+  movq %r12, %rbx
+  jmp .L_सूत्र_अपवाद_निकास__if_अंत_5
+.L_सूत्र_अपवाद_निकास__if_सत्य_4:
+  subq $32, %rsp
+  call निकास_उपसर्ग
+  addq $32, %rsp
+  movq %rax, %rsi
+  movq %rsi, -56(%rbp)
+  movq %rsi, %rcx
+  movq %rbx, %rdx
+  subq $32, %rsp
+  call पाठ_जोड़
+  addq $32, %rsp
+  movq %rax, %rdi
+  movq $0, -56(%rbp)
+  movq %rdi, %rbx
+  jmp .L_सूत्र_अपवाद_निकास__if_अंत_5
+.L_सूत्र_अपवाद_निकास__if_अंत_5:
+  jmp .L_सूत्र_अपवाद_निकास__if_अंत_2
+.L_सूत्र_अपवाद_निकास__if_सत्य_1:
+  subq $32, %rsp
+  call निकास_अनियंत्रित
+  addq $32, %rsp
+  movq %rax, %rbx
+  jmp .L_सूत्र_अपवाद_निकास__if_अंत_2
+.L_सूत्र_अपवाद_निकास__if_अंत_2:
+  movq %rbx, -96(%rbp)
+  subq $32, %rsp
+  call निकास_न्यूलाइन
+  addq $32, %rsp
+  movq %rax, %rsi
+  movq %rsi, -80(%rbp)
+  movq %rbx, %rcx
+  movq %rsi, %rdx
+  subq $32, %rsp
+  call पाठ_जोड़
+  addq $32, %rsp
+  movq %rax, %rdi
+  movq %rdi, -88(%rbp)
+  movq $0, -80(%rbp)
+  movq $0, -96(%rbp)
+  movq $16, %rbx
+  movq %rdi, %r10
+  addq %rbx, %r10
+  movq %r10, %rsi
+  movq $8, %rbx
+  movq %rdi, %r10
+  movq %rbx, %r11
+  movq (%r10,%r11), %r10
+  movq %r10, %r12
+  movq $0, -88(%rbp)
+  movq %rsi, %rcx
+  movq %r12, %rdx
+  subq $32, %rsp
+  call सूत्र_तल_त्रुटि
+  addq $32, %rsp
+  movq %rax, %rbx
+  movq $1, %rbx
+  movq %rbx, %rcx
+  subq $32, %rsp
+  call सूत्र_तल_निकास
+  addq $32, %rsp
+  movq %rax, %rsi
+  movq $0, %rbx
+  movq %rbx, %rax
+  jmp .L_epilogue_सूत्र_अपवाद_निकास
+.L_epilogue_सूत्र_अपवाद_निकास:
+  subl $6, gc_roots_count(%rip)
+  movq -8(%rbp), %rbx
+  movq -16(%rbp), %rsi
+  movq -24(%rbp), %rdi
+  movq -32(%rbp), %r12
+  movq %rbp, %rsp
+  popq %rbp
+  ret
+
+  .text
+  .globl जीसी_अंक_बफ
+  .def जीसी_अंक_बफ; .scl 2; .type 32; .endef
+जीसी_अंक_बफ:
+  pushq %rbp
+  movq %rsp, %rbp
+  subq $192, %rsp
+  movq %rbx, -8(%rbp)
+  movq %rsi, -16(%rbp)
+  movq %rdi, -24(%rbp)
+  movq %r12, -32(%rbp)
+  movq %r13, -40(%rbp)
+  movq %r14, -48(%rbp)
+  movq %r15, -56(%rbp)
+  movq %rcx, -72(%rbp)
+  movq %rdx, -104(%rbp)
+  movq $0, -152(%rbp)
+  movq $0, -160(%rbp)
+  movq $0, -168(%rbp)
+  movq $0, -176(%rbp)
+  movq $0, -184(%rbp)
+  movl gc_roots_count(%rip), %eax
+  leaq gc_roots(%rip), %r10
+  leaq -152(%rbp), %r11
+  movq %r11, (%r10,%rax,8)
+  incl %eax
+  leaq -160(%rbp), %r11
+  movq %r11, (%r10,%rax,8)
+  incl %eax
+  leaq -168(%rbp), %r11
+  movq %r11, (%r10,%rax,8)
+  incl %eax
+  leaq -176(%rbp), %r11
+  movq %r11, (%r10,%rax,8)
+  incl %eax
+  leaq -184(%rbp), %r11
+  movq %r11, (%r10,%rax,8)
+  incl %eax
+  movl %eax, gc_roots_count(%rip)
+
+.L_जीसी_अंक_बफ__प्रवेश_0:
+  movq $0, %rdi
+  movq -104(%rbp), %r10
+  cmpq %rdi, %r10
+  sete %al
+  movzbq %al, %r10
+  movq %r10, %r12
+  movq %r12, %r10
+  cmpq $0, %r10
+  je .L_किनारा_जीसी_अंक_बफ_0
+  jmp .L_जीसी_अंक_बफ__if_सत्य_1
+.L_किनारा_जीसी_अंक_बफ_0:
+  jmp .L_जीसी_अंक_बफ__if_अंत_2
+.L_जीसी_अंक_बफ__if_अंत_2:
+  movq $0, %rdi
+  movq -104(%rbp), %r11
+  movq %r11, -120(%rbp)
+  movq %rdi, -136(%rbp)
+  jmp .L_जीसी_अंक_बफ__wh_शर्त_3
+.L_जीसी_अंक_बफ__wh_शर्त_3:
+  movq -136(%rbp), %r11
+  movq %r11, -152(%rbp)
+  movq -120(%rbp), %r11
+  movq %r11, -160(%rbp)
+  movq -88(%rbp), %r11
+  movq %r11, -168(%rbp)
+  movq $0, %r14
+  movq -120(%rbp), %r10
+  cmpq %r14, %r10
+  setg %al
+  movzbq %al, %r10
+  movq %r10, %r15
+  movq %r15, %r10
+  cmpq $0, %r10
+  je .L_किनारा_जीसी_अंक_बफ_1
+  jmp .L_जीसी_अंक_बफ__wh_देह_4
+.L_किनारा_जीसी_अंक_बफ_1:
+  jmp .L_जीसी_अंक_बफ__wh_अंत_5
+.L_जीसी_अंक_बफ__wh_अंत_5:
+  movq -136(%rbp), %r15
+  movq -104(%rbp), %r14
+  jmp .L_जीसी_अंक_बफ__wh_शर्त_6
+.L_जीसी_अंक_बफ__wh_शर्त_6:
+  movq %r14, -176(%rbp)
+  movq %r15, -184(%rbp)
+  movq $0, %rbx
+  movq %r15, %r10
+  cmpq %rbx, %r10
+  setg %al
+  movzbq %al, %r10
+  movq %r10, %r13
+  movq %r13, %r10
+  cmpq $0, %r10
+  je .L_किनारा_जीसी_अंक_बफ_2
+  jmp .L_जीसी_अंक_बफ__wh_देह_7
+.L_किनारा_जीसी_अंक_बफ_2:
+  jmp .L_जीसी_अंक_बफ__wh_अंत_8
+.L_जीसी_अंक_बफ__wh_अंत_8:
+  movq -72(%rbp), %r10
+  addq -136(%rbp), %r10
+  movq %r10, %rbx
+  movq %rbx, %rax
+  jmp .L_epilogue_जीसी_अंक_बफ
+.L_जीसी_अंक_बफ__wh_देह_7:
+  movq sutra_glob_जीसी_बफ(%rip), %r10
+  movq %r10, %rbx
+  movq -72(%rbp), %r10
+  addq %r15, %r10
+  movq %r10, %r13
+  movq $1, %rsi
+  movq %r13, %r10
+  subq %rsi, %r10
+  movq %r10, %r12
+  movq $48, %rsi
+  movq $10, %r13
+  movq %r14, %rax
+  movq %r13, %r10
+  cqto
+  idivq %r10
+  movq %rdx, %rdi
+  movq %rsi, %r10
+  addq %rdi, %r10
+  movq %r10, %r13
+  movq %rbx, %r10
+  movq %r12, %r11
+  movq %r13, %r8
+  movb %r8b, (%r10,%r11)
+  movq %r13, %rsi
+  movq $10, %rbx
+  movq %r14, %rax
+  movq %rbx, %r10
+  cqto
+  idivq %r10
+  movq %rax, %rsi
+  movq $0, -176(%rbp)
+  movq $1, %rbx
+  movq %r15, %r10
+  subq %rbx, %r10
+  movq %r10, %rdi
+  movq $0, -184(%rbp)
+  movq %rdi, %r15
+  movq %rsi, %r14
+  jmp .L_जीसी_अंक_बफ__wh_शर्त_6
+.L_जीसी_अंक_बफ__wh_देह_4:
+  movq $1, %rbx
+  movq -136(%rbp), %r10
+  addq %rbx, %r10
+  movq %r10, %rsi
+  movq $0, -152(%rbp)
+  movq $10, %rbx
+  movq -120(%rbp), %rax
+  movq %rbx, %r10
+  cqto
+  idivq %r10
+  movq %rax, %rdi
+  movq $0, -160(%rbp)
+  movq %rdi, -120(%rbp)
+  movq %rsi, -136(%rbp)
+  jmp .L_जीसी_अंक_बफ__wh_शर्त_3
+.L_जीसी_अंक_बफ__if_सत्य_1:
+  movq sutra_glob_जीसी_बफ(%rip), %r10
+  movq %r10, %rbx
+  movq $48, %rsi
+  movq %rbx, %r10
+  movq -72(%rbp), %r11
+  movq %rsi, %r8
+  movb %r8b, (%r10,%r11)
+  movq %rsi, %rdi
+  movq $1, %rbx
+  movq -72(%rbp), %r10
+  addq %rbx, %r10
+  movq %r10, %rsi
+  movq %rsi, %rax
+  jmp .L_epilogue_जीसी_अंक_बफ
+.L_epilogue_जीसी_अंक_बफ:
+  subl $5, gc_roots_count(%rip)
+  movq -8(%rbp), %rbx
+  movq -16(%rbp), %rsi
+  movq -24(%rbp), %rdi
+  movq -32(%rbp), %r12
+  movq -40(%rbp), %r13
+  movq -48(%rbp), %r14
+  movq -56(%rbp), %r15
+  movq %rbp, %rsp
+  popq %rbp
+  ret
+
+  .text
+  .globl जीसी_ल_चक्र
+  .def जीसी_ल_चक्र; .scl 2; .type 32; .endef
+जीसी_ल_चक्र:
+  pushq %rbp
+  movq %rsp, %rbp
+  subq $48, %rsp
+  movq %rbx, -8(%rbp)
+  movq %rsi, -16(%rbp)
+  movq %rdi, -24(%rbp)
+  movq %r12, -32(%rbp)
+
+.L_जीसी_ल_चक्र__प्रवेश_0:
+  movq sutra_glob_जीसी_बफ(%rip), %r10
+  movq %r10, %rbx
+  movq $0, %rsi
+  movq $224, %rdi
+  movq %rbx, %r10
+  movq %rsi, %r11
+  movq %rdi, %r8
+  movb %r8b, (%r10,%r11)
+  movq %rdi, %r12
+  movq sutra_glob_जीसी_बफ(%rip), %r10
+  movq %r10, %rbx
+  movq $1, %rsi
+  movq $164, %rdi
+  movq %rbx, %r10
+  movq %rsi, %r11
+  movq %rdi, %r8
+  movb %r8b, (%r10,%r11)
+  movq %rdi, %r12
+  movq sutra_glob_जीसी_बफ(%rip), %r10
+  movq %r10, %rbx
+  movq $2, %rsi
+  movq $154, %rdi
+  movq %rbx, %r10
+  movq %rsi, %r11
+  movq %rdi, %r8
+  movb %r8b, (%r10,%r11)
+  movq %rdi, %r12
+  movq sutra_glob_जीसी_बफ(%rip), %r10
+  movq %r10, %rbx
+  movq $3, %rsi
+  movq $224, %rdi
+  movq %rbx, %r10
+  movq %rsi, %r11
+  movq %rdi, %r8
+  movb %r8b, (%r10,%r11)
+  movq %rdi, %r12
+  movq sutra_glob_जीसी_बफ(%rip), %r10
+  movq %r10, %rbx
+  movq $4, %rsi
+  movq $164, %rdi
+  movq %rbx, %r10
+  movq %rsi, %r11
+  movq %rdi, %r8
+  movb %r8b, (%r10,%r11)
+  movq %rdi, %r12
+  movq sutra_glob_जीसी_बफ(%rip), %r10
+  movq %r10, %rbx
+  movq $5, %rsi
+  movq $149, %rdi
+  movq %rbx, %r10
+  movq %rsi, %r11
+  movq %rdi, %r8
+  movb %r8b, (%r10,%r11)
+  movq %rdi, %r12
+  movq sutra_glob_जीसी_बफ(%rip), %r10
+  movq %r10, %rbx
+  movq $6, %rsi
+  movq $224, %rdi
+  movq %rbx, %r10
+  movq %rsi, %r11
+  movq %rdi, %r8
+  movb %r8b, (%r10,%r11)
+  movq %rdi, %r12
+  movq sutra_glob_जीसी_बफ(%rip), %r10
+  movq %r10, %rbx
+  movq $7, %rsi
+  movq $165, %rdi
+  movq %rbx, %r10
+  movq %rsi, %r11
+  movq %rdi, %r8
+  movb %r8b, (%r10,%r11)
+  movq %rdi, %r12
+  movq sutra_glob_जीसी_बफ(%rip), %r10
+  movq %r10, %rbx
+  movq $8, %rsi
+  movq $141, %rdi
+  movq %rbx, %r10
+  movq %rsi, %r11
+  movq %rdi, %r8
+  movb %r8b, (%r10,%r11)
+  movq %rdi, %r12
+  movq sutra_glob_जीसी_बफ(%rip), %r10
+  movq %r10, %rbx
+  movq $9, %rsi
+  movq $224, %rdi
+  movq %rbx, %r10
+  movq %rsi, %r11
+  movq %rdi, %r8
+  movb %r8b, (%r10,%r11)
+  movq %rdi, %r12
+  movq sutra_glob_जीसी_बफ(%rip), %r10
+  movq %r10, %rbx
+  movq $10, %rsi
+  movq $164, %rdi
+  movq %rbx, %r10
+  movq %rsi, %r11
+  movq %rdi, %r8
+  movb %r8b, (%r10,%r11)
+  movq %rdi, %r12
+  movq sutra_glob_जीसी_बफ(%rip), %r10
+  movq %r10, %rbx
+  movq $11, %rsi
+  movq $176, %rdi
+  movq %rbx, %r10
+  movq %rsi, %r11
+  movq %rdi, %r8
+  movb %r8b, (%r10,%r11)
+  movq %rdi, %r12
+  movq sutra_glob_जीसी_बफ(%rip), %r10
+  movq %r10, %rbx
+  movq $12, %rsi
+  movq $58, %rdi
+  movq %rbx, %r10
+  movq %rsi, %r11
+  movq %rdi, %r8
+  movb %r8b, (%r10,%r11)
+  movq %rdi, %r12
+  movq sutra_glob_जीसी_बफ(%rip), %r10
+  movq %r10, %rbx
+  movq $13, %rsi
+  movq $32, %rdi
+  movq %rbx, %r10
+  movq %rsi, %r11
+  movq %rdi, %r8
+  movb %r8b, (%r10,%r11)
+  movq %rdi, %r12
+  movq $14, %rbx
+  movq %rbx, %rax
+  jmp .L_epilogue_जीसी_ल_चक्र
+.L_epilogue_जीसी_ल_चक्र:
+  movq -8(%rbp), %rbx
+  movq -16(%rbp), %rsi
+  movq -24(%rbp), %rdi
+  movq -32(%rbp), %r12
+  movq %rbp, %rsp
+  popq %rbp
+  ret
+
+  .text
+  .globl जीसी_ल_सक्रिय
+  .def जीसी_ल_सक्रिय; .scl 2; .type 32; .endef
+जीसी_ल_सक्रिय:
+  pushq %rbp
+  movq %rsp, %rbp
+  subq $48, %rsp
+  movq %rbx, -8(%rbp)
+  movq %rsi, -16(%rbp)
+  movq %rdi, -24(%rbp)
+  movq %r12, -32(%rbp)
+
+.L_जीसी_ल_सक्रिय__प्रवेश_0:
+  movq sutra_glob_जीसी_बफ(%rip), %r10
+  movq %r10, %rbx
+  movq $0, %rsi
+  movq $224, %rdi
+  movq %rbx, %r10
+  movq %rsi, %r11
+  movq %rdi, %r8
+  movb %r8b, (%r10,%r11)
+  movq %rdi, %r12
+  movq sutra_glob_जीसी_बफ(%rip), %r10
+  movq %r10, %rbx
+  movq $1, %rsi
+  movq $164, %rdi
+  movq %rbx, %r10
+  movq %rsi, %r11
+  movq %rdi, %r8
+  movb %r8b, (%r10,%r11)
+  movq %rdi, %r12
+  movq sutra_glob_जीसी_बफ(%rip), %r10
+  movq %r10, %rbx
+  movq $2, %rsi
+  movq $184, %rdi
+  movq %rbx, %r10
+  movq %rsi, %r11
+  movq %rdi, %r8
+  movb %r8b, (%r10,%r11)
+  movq %rdi, %r12
+  movq sutra_glob_जीसी_बफ(%rip), %r10
+  movq %r10, %rbx
+  movq $3, %rsi
+  movq $224, %rdi
+  movq %rbx, %r10
+  movq %rsi, %r11
+  movq %rdi, %r8
+  movb %r8b, (%r10,%r11)
+  movq %rdi, %r12
+  movq sutra_glob_जीसी_बफ(%rip), %r10
+  movq %r10, %rbx
+  movq $4, %rsi
+  movq $164, %rdi
+  movq %rbx, %r10
+  movq %rsi, %r11
+  movq %rdi, %r8
+  movb %r8b, (%r10,%r11)
+  movq %rdi, %r12
+  movq sutra_glob_जीसी_बफ(%rip), %r10
+  movq %r10, %rbx
+  movq $5, %rsi
+  movq $149, %rdi
+  movq %rbx, %r10
+  movq %rsi, %r11
+  movq %rdi, %r8
+  movb %r8b, (%r10,%r11)
+  movq %rdi, %r12
+  movq sutra_glob_जीसी_बफ(%rip), %r10
+  movq %r10, %rbx
+  movq $6, %rsi
+  movq $224, %rdi
+  movq %rbx, %r10
+  movq %rsi, %r11
+  movq %rdi, %r8
+  movb %r8b, (%r10,%r11)
+  movq %rdi, %r12
+  movq sutra_glob_जीसी_बफ(%rip), %r10
+  movq %r10, %rbx
+  movq $7, %rsi
+  movq $165, %rdi
+  movq %rbx, %r10
+  movq %rsi, %r11
+  movq %rdi, %r8
+  movb %r8b, (%r10,%r11)
+  movq %rdi, %r12
+  movq sutra_glob_जीसी_बफ(%rip), %r10
+  movq %r10, %rbx
+  movq $8, %rsi
+  movq $141, %rdi
+  movq %rbx, %r10
+  movq %rsi, %r11
+  movq %rdi, %r8
+  movb %r8b, (%r10,%r11)
+  movq %rdi, %r12
+  movq sutra_glob_जीसी_बफ(%rip), %r10
+  movq %r10, %rbx
+  movq $9, %rsi
+  movq $224, %rdi
+  movq %rbx, %r10
+  movq %rsi, %r11
+  movq %rdi, %r8
+  movb %r8b, (%r10,%r11)
+  movq %rdi, %r12
+  movq sutra_glob_जीसी_बफ(%rip), %r10
+  movq %r10, %rbx
+  movq $10, %rsi
+  movq $164, %rdi
+  movq %rbx, %r10
+  movq %rsi, %r11
+  movq %rdi, %r8
+  movb %r8b, (%r10,%r11)
+  movq %rdi, %r12
+  movq sutra_glob_जीसी_बफ(%rip), %r10
+  movq %r10, %rbx
+  movq $11, %rsi
+  movq $176, %rdi
+  movq %rbx, %r10
+  movq %rsi, %r11
+  movq %rdi, %r8
+  movb %r8b, (%r10,%r11)
+  movq %rdi, %r12
+  movq sutra_glob_जीसी_बफ(%rip), %r10
+  movq %r10, %rbx
+  movq $12, %rsi
+  movq $224, %rdi
+  movq %rbx, %r10
+  movq %rsi, %r11
+  movq %rdi, %r8
+  movb %r8b, (%r10,%r11)
+  movq %rdi, %r12
+  movq sutra_glob_जीसी_बफ(%rip), %r10
+  movq %r10, %rbx
+  movq $13, %rsi
+  movq $164, %rdi
+  movq %rbx, %r10
+  movq %rsi, %r11
+  movq %rdi, %r8
+  movb %r8b, (%r10,%r11)
+  movq %rdi, %r12
+  movq sutra_glob_जीसी_बफ(%rip), %r10
+  movq %r10, %rbx
+  movq $14, %rsi
+  movq $191, %rdi
+  movq %rbx, %r10
+  movq %rsi, %r11
+  movq %rdi, %r8
+  movb %r8b, (%r10,%r11)
+  movq %rdi, %r12
+  movq sutra_glob_जीसी_बफ(%rip), %r10
+  movq %r10, %rbx
+  movq $15, %rsi
+  movq $224, %rdi
+  movq %rbx, %r10
+  movq %rsi, %r11
+  movq %rdi, %r8
+  movb %r8b, (%r10,%r11)
+  movq %rdi, %r12
+  movq sutra_glob_जीसी_बफ(%rip), %r10
+  movq %r10, %rbx
+  movq $16, %rsi
+  movq $164, %rdi
+  movq %rbx, %r10
+  movq %rsi, %r11
+  movq %rdi, %r8
+  movb %r8b, (%r10,%r11)
+  movq %rdi, %r12
+  movq sutra_glob_जीसी_बफ(%rip), %r10
+  movq %r10, %rbx
+  movq $17, %rsi
+  movq $175, %rdi
+  movq %rbx, %r10
+  movq %rsi, %r11
+  movq %rdi, %r8
+  movb %r8b, (%r10,%r11)
+  movq %rdi, %r12
+  movq sutra_glob_जीसी_बफ(%rip), %r10
+  movq %r10, %rbx
+  movq $18, %rsi
+  movq $58, %rdi
+  movq %rbx, %r10
+  movq %rsi, %r11
+  movq %rdi, %r8
+  movb %r8b, (%r10,%r11)
+  movq %rdi, %r12
+  movq sutra_glob_जीसी_बफ(%rip), %r10
+  movq %r10, %rbx
+  movq $19, %rsi
+  movq $32, %rdi
+  movq %rbx, %r10
+  movq %rsi, %r11
+  movq %rdi, %r8
+  movb %r8b, (%r10,%r11)
+  movq %rdi, %r12
+  movq $20, %rbx
+  movq %rbx, %rax
+  jmp .L_epilogue_जीसी_ल_सक्रिय
+.L_epilogue_जीसी_ल_सक्रिय:
+  movq -8(%rbp), %rbx
+  movq -16(%rbp), %rsi
+  movq -24(%rbp), %rdi
+  movq -32(%rbp), %r12
+  movq %rbp, %rsp
+  popq %rbp
+  ret
+
+  .text
+  .globl जीसी_ल_संग्रहित
+  .def जीसी_ल_संग्रहित; .scl 2; .type 32; .endef
+जीसी_ल_संग्रहित:
+  pushq %rbp
+  movq %rsp, %rbp
+  subq $48, %rsp
+  movq %rbx, -8(%rbp)
+  movq %rsi, -16(%rbp)
+  movq %rdi, -24(%rbp)
+  movq %r12, -32(%rbp)
+
+.L_जीसी_ल_संग्रहित__प्रवेश_0:
+  movq sutra_glob_जीसी_बफ(%rip), %r10
+  movq %r10, %rbx
+  movq $0, %rsi
+  movq $224, %rdi
+  movq %rbx, %r10
+  movq %rsi, %r11
+  movq %rdi, %r8
+  movb %r8b, (%r10,%r11)
+  movq %rdi, %r12
+  movq sutra_glob_जीसी_बफ(%rip), %r10
+  movq %r10, %rbx
+  movq $1, %rsi
+  movq $164, %rdi
+  movq %rbx, %r10
+  movq %rsi, %r11
+  movq %rdi, %r8
+  movb %r8b, (%r10,%r11)
+  movq %rdi, %r12
+  movq sutra_glob_जीसी_बफ(%rip), %r10
+  movq %r10, %rbx
+  movq $2, %rsi
+  movq $184, %rdi
+  movq %rbx, %r10
+  movq %rsi, %r11
+  movq %rdi, %r8
+  movb %r8b, (%r10,%r11)
+  movq %rdi, %r12
+  movq sutra_glob_जीसी_बफ(%rip), %r10
+  movq %r10, %rbx
+  movq $3, %rsi
+  movq $224, %rdi
+  movq %rbx, %r10
+  movq %rsi, %r11
+  movq %rdi, %r8
+  movb %r8b, (%r10,%r11)
+  movq %rdi, %r12
+  movq sutra_glob_जीसी_बफ(%rip), %r10
+  movq %r10, %rbx
+  movq $4, %rsi
+  movq $164, %rdi
+  movq %rbx, %r10
+  movq %rsi, %r11
+  movq %rdi, %r8
+  movb %r8b, (%r10,%r11)
+  movq %rdi, %r12
+  movq sutra_glob_जीसी_बफ(%rip), %r10
+  movq %r10, %rbx
+  movq $5, %rsi
+  movq $130, %rdi
+  movq %rbx, %r10
+  movq %rsi, %r11
+  movq %rdi, %r8
+  movb %r8b, (%r10,%r11)
+  movq %rdi, %r12
+  movq sutra_glob_जीसी_बफ(%rip), %r10
+  movq %r10, %rbx
+  movq $6, %rsi
+  movq $224, %rdi
+  movq %rbx, %r10
+  movq %rsi, %r11
+  movq %rdi, %r8
+  movb %r8b, (%r10,%r11)
+  movq %rdi, %r12
+  movq sutra_glob_जीसी_बफ(%rip), %r10
+  movq %r10, %rbx
+  movq $7, %rsi
+  movq $164, %rdi
+  movq %rbx, %r10
+  movq %rsi, %r11
+  movq %rdi, %r8
+  movb %r8b, (%r10,%r11)
+  movq %rdi, %r12
+  movq sutra_glob_जीसी_बफ(%rip), %r10
+  movq %r10, %rbx
+  movq $8, %rsi
+  movq $151, %rdi
+  movq %rbx, %r10
+  movq %rsi, %r11
+  movq %rdi, %r8
+  movb %r8b, (%r10,%r11)
+  movq %rdi, %r12
+  movq sutra_glob_जीसी_बफ(%rip), %r10
+  movq %r10, %rbx
+  movq $9, %rsi
+  movq $224, %rdi
+  movq %rbx, %r10
+  movq %rsi, %r11
+  movq %rdi, %r8
+  movb %r8b, (%r10,%r11)
+  movq %rdi, %r12
+  movq sutra_glob_जीसी_बफ(%rip), %r10
+  movq %r10, %rbx
+  movq $10, %rsi
+  movq $165, %rdi
+  movq %rbx, %r10
+  movq %rsi, %r11
+  movq %rdi, %r8
+  movb %r8b, (%r10,%r11)
+  movq %rdi, %r12
+  movq sutra_glob_जीसी_बफ(%rip), %r10
+  movq %r10, %rbx
+  movq $11, %rsi
+  movq $141, %rdi
+  movq %rbx, %r10
+  movq %rsi, %r11
+  movq %rdi, %r8
+  movb %r8b, (%r10,%r11)
+  movq %rdi, %r12
+  movq sutra_glob_जीसी_बफ(%rip), %r10
+  movq %r10, %rbx
+  movq $12, %rsi
+  movq $224, %rdi
+  movq %rbx, %r10
+  movq %rsi, %r11
+  movq %rdi, %r8
+  movb %r8b, (%r10,%r11)
+  movq %rdi, %r12
+  movq sutra_glob_जीसी_बफ(%rip), %r10
+  movq %r10, %rbx
+  movq $13, %rsi
+  movq $164, %rdi
+  movq %rbx, %r10
+  movq %rsi, %r11
+  movq %rdi, %r8
+  movb %r8b, (%r10,%r11)
+  movq %rdi, %r12
+  movq sutra_glob_जीसी_बफ(%rip), %r10
+  movq %r10, %rbx
+  movq $14, %rsi
+  movq $176, %rdi
+  movq %rbx, %r10
+  movq %rsi, %r11
+  movq %rdi, %r8
+  movb %r8b, (%r10,%r11)
+  movq %rdi, %r12
+  movq sutra_glob_जीसी_बफ(%rip), %r10
+  movq %r10, %rbx
+  movq $15, %rsi
+  movq $224, %rdi
+  movq %rbx, %r10
+  movq %rsi, %r11
+  movq %rdi, %r8
+  movb %r8b, (%r10,%r11)
+  movq %rdi, %r12
+  movq sutra_glob_जीसी_बफ(%rip), %r10
+  movq %r10, %rbx
+  movq $16, %rsi
+  movq $164, %rdi
+  movq %rbx, %r10
+  movq %rsi, %r11
+  movq %rdi, %r8
+  movb %r8b, (%r10,%r11)
+  movq %rdi, %r12
+  movq sutra_glob_जीसी_बफ(%rip), %r10
+  movq %r10, %rbx
+  movq $17, %rsi
+  movq $185, %rdi
+  movq %rbx, %r10
+  movq %rsi, %r11
+  movq %rdi, %r8
+  movb %r8b, (%r10,%r11)
+  movq %rdi, %r12
+  movq sutra_glob_जीसी_बफ(%rip), %r10
+  movq %r10, %rbx
+  movq $18, %rsi
+  movq $224, %rdi
+  movq %rbx, %r10
+  movq %rsi, %r11
+  movq %rdi, %r8
+  movb %r8b, (%r10,%r11)
+  movq %rdi, %r12
+  movq sutra_glob_जीसी_बफ(%rip), %r10
+  movq %r10, %rbx
+  movq $19, %rsi
+  movq $164, %rdi
+  movq %rbx, %r10
+  movq %rsi, %r11
+  movq %rdi, %r8
+  movb %r8b, (%r10,%r11)
+  movq %rdi, %r12
+  movq sutra_glob_जीसी_बफ(%rip), %r10
+  movq %r10, %rbx
+  movq $20, %rsi
+  movq $191, %rdi
+  movq %rbx, %r10
+  movq %rsi, %r11
+  movq %rdi, %r8
+  movb %r8b, (%r10,%r11)
+  movq %rdi, %r12
+  movq sutra_glob_जीसी_बफ(%rip), %r10
+  movq %r10, %rbx
+  movq $21, %rsi
+  movq $224, %rdi
+  movq %rbx, %r10
+  movq %rsi, %r11
+  movq %rdi, %r8
+  movb %r8b, (%r10,%r11)
+  movq %rdi, %r12
+  movq sutra_glob_जीसी_बफ(%rip), %r10
+  movq %r10, %rbx
+  movq $22, %rsi
+  movq $164, %rdi
+  movq %rbx, %r10
+  movq %rsi, %r11
+  movq %rdi, %r8
+  movb %r8b, (%r10,%r11)
+  movq %rdi, %r12
+  movq sutra_glob_जीसी_बफ(%rip), %r10
+  movq %r10, %rbx
+  movq $23, %rsi
+  movq $164, %rdi
+  movq %rbx, %r10
+  movq %rsi, %r11
+  movq %rdi, %r8
+  movb %r8b, (%r10,%r11)
+  movq %rdi, %r12
+  movq sutra_glob_जीसी_बफ(%rip), %r10
+  movq %r10, %rbx
+  movq $24, %rsi
+  movq $58, %rdi
+  movq %rbx, %r10
+  movq %rsi, %r11
+  movq %rdi, %r8
+  movb %r8b, (%r10,%r11)
+  movq %rdi, %r12
+  movq sutra_glob_जीसी_बफ(%rip), %r10
+  movq %r10, %rbx
+  movq $25, %rsi
+  movq $32, %rdi
+  movq %rbx, %r10
+  movq %rsi, %r11
+  movq %rdi, %r8
+  movb %r8b, (%r10,%r11)
+  movq %rdi, %r12
+  movq $26, %rbx
+  movq %rbx, %rax
+  jmp .L_epilogue_जीसी_ल_संग्रहित
+.L_epilogue_जीसी_ल_संग्रहित:
+  movq -8(%rbp), %rbx
+  movq -16(%rbp), %rsi
+  movq -24(%rbp), %rdi
+  movq -32(%rbp), %r12
+  movq %rbp, %rsp
+  popq %rbp
+  ret
+
+  .text
+  .globl जीसी_पंक्ति_छापो
+  .def जीसी_पंक्ति_छापो; .scl 2; .type 32; .endef
+जीसी_पंक्ति_छापो:
+  pushq %rbp
+  movq %rsp, %rbp
+  subq $80, %rsp
+  movq %rbx, -8(%rbp)
+  movq %rsi, -16(%rbp)
+  movq %rdi, -24(%rbp)
+  movq %r12, -32(%rbp)
+  movq %r13, -40(%rbp)
+  movq %rcx, %rbx
+  movq %rdx, %rsi
+  movq $0, -64(%rbp)
+  movl gc_roots_count(%rip), %eax
+  leaq gc_roots(%rip), %r10
+  leaq -64(%rbp), %r11
+  movq %r11, (%r10,%rax,8)
+  incl %eax
+  movl %eax, gc_roots_count(%rip)
+
+.L_जीसी_पंक्ति_छापो__प्रवेश_0:
+  movq %rbx, %rcx
+  movq %rsi, %rdx
+  subq $32, %rsp
+  call जीसी_अंक_बफ
+  addq $32, %rsp
+  movq %rax, %rdi
+  movq %rdi, -64(%rbp)
+  movq sutra_glob_जीसी_बफ(%rip), %r10
+  movq %r10, %rbx
+  movq $10, %rsi
+  movq %rbx, %r10
+  movq %rdi, %r11
+  movq %rsi, %r8
+  movb %r8b, (%r10,%r11)
+  movq %rsi, %r12
+  movq sutra_glob_जीसी_बफ(%rip), %r10
+  movq %r10, %rbx
+  movq $0, %rsi
+  movq $1, %r12
+  movq %rdi, %r10
+  addq %r12, %r10
+  movq %r10, %r13
+  movq $0, -64(%rbp)
+  movq %rbx, %rcx
+  addq %rsi, %rcx
+  movq %r13, %rdx
+  subq $32, %rsp
+  call सूत्र_तल_मुद्रण
+  addq $32, %rsp
+  movq $0, %rbx
+  movq %rbx, %rax
+  jmp .L_epilogue_जीसी_पंक्ति_छापो
+.L_epilogue_जीसी_पंक्ति_छापो:
+  subl $1, gc_roots_count(%rip)
+  movq -8(%rbp), %rbx
+  movq -16(%rbp), %rsi
+  movq -24(%rbp), %rdi
+  movq -32(%rbp), %r12
+  movq -40(%rbp), %r13
+  movq %rbp, %rsp
+  popq %rbp
+  ret
+
+  .text
+  .globl जीसी_स्थिति_रन
+  .def जीसी_स्थिति_रन; .scl 2; .type 32; .endef
+जीसी_स्थिति_रन:
+  pushq %rbp
+  movq %rsp, %rbp
+  subq $96, %rsp
+  movq %rbx, -8(%rbp)
+  movq %rsi, -16(%rbp)
+  movq %rdi, -24(%rbp)
+  movq $0, -48(%rbp)
+  movq $0, -56(%rbp)
+  movq $0, -64(%rbp)
+  movq $0, -72(%rbp)
+  movq $0, -80(%rbp)
+  movq $0, -88(%rbp)
+  movl gc_roots_count(%rip), %eax
+  leaq gc_roots(%rip), %r10
+  leaq -48(%rbp), %r11
+  movq %r11, (%r10,%rax,8)
+  incl %eax
+  leaq -56(%rbp), %r11
+  movq %r11, (%r10,%rax,8)
+  incl %eax
+  leaq -64(%rbp), %r11
+  movq %r11, (%r10,%rax,8)
+  incl %eax
+  leaq -72(%rbp), %r11
+  movq %r11, (%r10,%rax,8)
+  incl %eax
+  leaq -80(%rbp), %r11
+  movq %r11, (%r10,%rax,8)
+  incl %eax
+  leaq -88(%rbp), %r11
+  movq %r11, (%r10,%rax,8)
+  incl %eax
+  movl %eax, gc_roots_count(%rip)
+
+.L_जीसी_स्थिति_रन__प्रवेश_0:
+  movq sutra_glob_जीसी_बफ(%rip), %r10
+  movq %r10, %rbx
+  movq $0, %rsi
+  movq %rbx, %r10
+  cmpq %rsi, %r10
+  sete %al
+  movzbq %al, %r10
+  movq %r10, %rdi
+  movq %rdi, %r10
+  cmpq $0, %r10
+  je .L_किनारा_जीसी_स्थिति_रन_0
+  jmp .L_जीसी_स्थिति_रन__if_सत्य_1
+.L_किनारा_जीसी_स्थिति_रन_0:
+  jmp .L_जीसी_स्थिति_रन__if_अंत_2
+.L_जीसी_स्थिति_रन__if_सत्य_1:
+  movq $96, %rbx
+  movq %rbx, %rcx
+  subq $32, %rsp
+  call सूत्र_तल_आवंटन
+  addq $32, %rsp
+  movq %rax, %rsi
+  movq %rsi, %r10
+  movq %r10, sutra_glob_जीसी_बफ(%rip)
+  jmp .L_जीसी_स्थिति_रन__if_अंत_2
+.L_जीसी_स्थिति_रन__if_अंत_2:
+  subq $32, %rsp
+  call जीसी_ल_चक्र
+  addq $32, %rsp
+  movq %rax, %rbx
+  movq %rbx, -48(%rbp)
+  subq $32, %rsp
+  call सूत्र_गण_चक्र
+  addq $32, %rsp
+  movq %rax, %rsi
+  movq %rsi, -56(%rbp)
+  movq %rbx, %rcx
+  movq %rsi, %rdx
+  subq $32, %rsp
+  call जीसी_पंक्ति_छापो
+  addq $32, %rsp
+  movq %rax, %rdi
+  movq $0, -48(%rbp)
+  movq $0, -56(%rbp)
+  subq $32, %rsp
+  call जीसी_ल_सक्रिय
+  addq $32, %rsp
+  movq %rax, %rbx
+  movq %rbx, -64(%rbp)
+  subq $32, %rsp
+  call सूत्र_गण_सक्रिय
+  addq $32, %rsp
+  movq %rax, %rsi
+  movq %rsi, -72(%rbp)
+  movq %rbx, %rcx
+  movq %rsi, %rdx
+  subq $32, %rsp
+  call जीसी_पंक्ति_छापो
+  addq $32, %rsp
+  movq %rax, %rdi
+  movq $0, -64(%rbp)
+  movq $0, -72(%rbp)
+  subq $32, %rsp
+  call जीसी_ल_संग्रहित
+  addq $32, %rsp
+  movq %rax, %rbx
+  movq %rbx, -80(%rbp)
+  subq $32, %rsp
+  call सूत्र_गण_संग्रहित
+  addq $32, %rsp
+  movq %rax, %rsi
+  movq %rsi, -88(%rbp)
+  movq %rbx, %rcx
+  movq %rsi, %rdx
+  subq $32, %rsp
+  call जीसी_पंक्ति_छापो
+  addq $32, %rsp
+  movq %rax, %rdi
+  movq $0, -80(%rbp)
+  movq $0, -88(%rbp)
+  movq $0, %rbx
+  movq %rbx, %rax
+  jmp .L_epilogue_जीसी_स्थिति_रन
+.L_epilogue_जीसी_स्थिति_रन:
+  subl $6, gc_roots_count(%rip)
+  movq -8(%rbp), %rbx
+  movq -16(%rbp), %rsi
+  movq -24(%rbp), %rdi
+  movq %rbp, %rsp
+  popq %rbp
+  ret
+
+  .text
+  .globl दशमलव_बिट
+  .def दशमलव_बिट; .scl 2; .type 32; .endef
+दशमलव_बिट:
+  pushq %rbp
+  movq %rsp, %rbp
+  subq $32, %rsp
+  movq %rbx, -8(%rbp)
+  movq %rcx, %rbx
+
+.L_दशमलव_बिट__प्रवेश_0:
+  movq %rbx, %rax
+  jmp .L_epilogue_दशमलव_बिट
+.L_epilogue_दशमलव_बिट:
+  movq -8(%rbp), %rbx
+  movq %rbp, %rsp
+  popq %rbp
+  ret
+
+  .text
+  .globl बिट_दशमलव
+  .def बिट_दशमलव; .scl 2; .type 32; .endef
+बिट_दशमलव:
+  pushq %rbp
+  movq %rsp, %rbp
+  subq $32, %rsp
+  movq %rbx, -8(%rbp)
+  movq %rcx, %rbx
+
+.L_बिट_दशमलव__प्रवेश_0:
+  movq %rbx, %rax
+  jmp .L_epilogue_बिट_दशमलव
+.L_epilogue_बिट_दशमलव:
+  movq -8(%rbp), %rbx
+  movq %rbp, %rsp
+  popq %rbp
+  ret
+
+  .text
+  .globl दो_बावन
+  .def दो_बावन; .scl 2; .type 32; .endef
+दो_बावन:
+  pushq %rbp
+  movq %rsp, %rbp
+  subq $48, %rsp
+  movq %rbx, -8(%rbp)
+  movq %rsi, -16(%rbp)
+  movq %rdi, -24(%rbp)
+  movq %r12, -32(%rbp)
+
+.L_दो_बावन__प्रवेश_0:
+  movq sutra_glob_घा_बावन(%rip), %r10
+  movq %r10, %rbx
+  movq $0, %rsi
+  movq %rbx, %r10
+  cmpq %rsi, %r10
+  sete %al
+  movzbq %al, %r10
+  movq %r10, %rdi
+  movq %rdi, %r10
+  cmpq $0, %r10
+  je .L_किनारा_दो_बावन_0
+  jmp .L_दो_बावन__if_सत्य_1
+.L_किनारा_दो_बावन_0:
+  jmp .L_दो_बावन__if_अंत_2
+.L_दो_बावन__if_सत्य_1:
+  movq $1, %rbx
+  movq $0, %rsi
+  jmp .L_दो_बावन__wh_शर्त_3
+.L_दो_बावन__wh_शर्त_3:
+  movq $52, %rdi
+  movq %rsi, %r10
+  cmpq %rdi, %r10
+  setl %al
+  movzbq %al, %r10
+  movq %r10, %r12
+  movq %r12, %r10
+  cmpq $0, %r10
+  je .L_किनारा_दो_बावन_1
+  jmp .L_दो_बावन__wh_देह_4
+.L_किनारा_दो_बावन_1:
+  jmp .L_दो_बावन__wh_अंत_5
+.L_दो_बावन__wh_अंत_5:
+  movq %rbx, %r10
+  movq %r10, sutra_glob_घा_बावन(%rip)
+  jmp .L_दो_बावन__if_अंत_2
+.L_दो_बावन__if_अंत_2:
+  movq sutra_glob_घा_बावन(%rip), %r10
+  movq %r10, %rdi
+  movq %rdi, %rax
+  jmp .L_epilogue_दो_बावन
+.L_दो_बावन__wh_देह_4:
+  movq $2, %rdi
+  movq %rbx, %r10
+  imulq %rdi, %r10
+  movq %r10, %r12
+  movq $1, %rbx
+  movq %rsi, %r10
+  addq %rbx, %r10
+  movq %r10, %rdi
+  movq %rdi, %rsi
+  movq %r12, %rbx
+  jmp .L_दो_बावन__wh_शर्त_3
+.L_epilogue_दो_बावन:
+  movq -8(%rbp), %rbx
+  movq -16(%rbp), %rsi
+  movq -24(%rbp), %rdi
+  movq -32(%rbp), %r12
+  movq %rbp, %rsp
+  popq %rbp
+  ret
+
+  .text
+  .globl लघुगणक_रन
+  .def लघुगणक_रन; .scl 2; .type 32; .endef
+लघुगणक_रन:
+  pushq %rbp
+  movq %rsp, %rbp
+  subq $144, %rsp
+  movq %rbx, -8(%rbp)
+  movq %rsi, -16(%rbp)
+  movq %rdi, -24(%rbp)
+  movq %r12, -32(%rbp)
+  movq %r13, -40(%rbp)
+  movq %r14, -48(%rbp)
+  movq %r15, -56(%rbp)
+  movq %rcx, %rbx
+  movq $0, -104(%rbp)
+  movq $0, -112(%rbp)
+  movq $0, -120(%rbp)
+  movq $0, -128(%rbp)
+  movq $0, -136(%rbp)
+  movl gc_roots_count(%rip), %eax
+  leaq gc_roots(%rip), %r10
+  leaq -104(%rbp), %r11
+  movq %r11, (%r10,%rax,8)
+  incl %eax
+  leaq -112(%rbp), %r11
+  movq %r11, (%r10,%rax,8)
+  incl %eax
+  leaq -120(%rbp), %r11
+  movq %r11, (%r10,%rax,8)
+  incl %eax
+  leaq -128(%rbp), %r11
+  movq %r11, (%r10,%rax,8)
+  incl %eax
+  leaq -136(%rbp), %r11
+  movq %r11, (%r10,%rax,8)
+  incl %eax
+  movl %eax, gc_roots_count(%rip)
+
+.L_लघुगणक_रन__प्रवेश_0:
+  movq .LC_dbl_0(%rip), %r10
+  movq %r10, %rsi
+  movq %rbx, %rcx
+  movq %rsi, %rdx
+  subq $32, %rsp
+  call sutra_float_le
+  addq $32, %rsp
+  movq %rax, %rdi
+  movq %rdi, %r10
+  cmpq $0, %r10
+  je .L_किनारा_लघुगणक_रन_0
+  jmp .L_लघुगणक_रन__if_सत्य_1
+.L_किनारा_लघुगणक_रन_0:
+  jmp .L_लघुगणक_रन__if_अंत_2
+.L_लघुगणक_रन__if_अंत_2:
+  subq $32, %rsp
+  call दो_बावन
+  addq $32, %rsp
+  movq %rax, %rsi
+  movq %rsi, -104(%rbp)
+  movq %rbx, %rcx
+  subq $32, %rsp
+  call दशमलव_बिट
+  addq $32, %rsp
+  movq %rax, %rdi
+  movq %rdi, %rax
+  movq %rsi, %r10
+  cqto
+  idivq %r10
+  movq %rax, %rbx
+  movq $2048, %r12
+  movq %rbx, %rax
+  movq %r12, %r10
+  cqto
+  idivq %r10
+  movq %rdx, %r13
+  movq $1023, %rbx
+  movq %r13, %r10
+  subq %rbx, %r10
+  movq %r10, %r12
+  movq %rdi, %rax
+  movq %rsi, %r10
+  cqto
+  idivq %r10
+  movq %rdx, %rbx
+  movq $1023, %rdi
+  movq %rdi, %r10
+  imulq %rsi, %r10
+  movq %r10, %r13
+  movq $0, -104(%rbp)
+  movq %rbx, %r10
+  addq %r13, %r10
+  movq %r10, %rsi
+  movq %rsi, %rcx
+  subq $32, %rsp
+  call बिट_दशमलव
+  addq $32, %rsp
+  movq %rax, %rbx
+  movq .LC_dbl_2(%rip), %r10
+  movq %r10, %rsi
+  movq %rbx, %rcx
+  movq %rsi, %rdx
+  subq $32, %rsp
+  call sutra_float_gt
+  addq $32, %rsp
+  movq %rax, %rdi
+  movq %rdi, %r10
+  cmpq $0, %r10
+  je .L_किनारा_लघुगणक_रन_1
+  jmp .L_लघुगणक_रन__if_सत्य_3
+.L_किनारा_लघुगणक_रन_1:
+  movq %rbx, %rsi
+  movq %r12, -88(%rbp)
+  jmp .L_लघुगणक_रन__if_अंत_4
+.L_लघुगणक_रन__if_सत्य_3:
+  movq .LC_dbl_3(%rip), %r10
+  movq %r10, %rsi
+  movq %rbx, %rcx
+  movq %rsi, %rdx
+  subq $32, %rsp
+  call sutra_float_mul
+  addq $32, %rsp
+  movq %rax, %rdi
+  movq $1, %rbx
+  movq %r12, %r10
+  addq %rbx, %r10
+  movq %r10, %rsi
+  movq %rsi, -88(%rbp)
+  movq %rdi, %rsi
+  jmp .L_लघुगणक_रन__if_अंत_4
+.L_लघुगणक_रन__if_अंत_4:
+  movq -88(%rbp), %r11
+  movq %r11, -112(%rbp)
+  movq .LC_dbl_4(%rip), %r10
+  movq %r10, %rdi
+  movq %rsi, %rcx
+  movq %rdi, %rdx
+  subq $32, %rsp
+  call sutra_float_sub
+  addq $32, %rsp
+  movq %rax, %r12
+  movq .LC_dbl_4(%rip), %r10
+  movq %r10, %rdi
+  movq %rsi, %rcx
+  movq %rdi, %rdx
+  subq $32, %rsp
+  call sutra_float_add
+  addq $32, %rsp
+  movq %rax, %r13
+  movq %r12, %rcx
+  movq %r13, %rdx
+  subq $32, %rsp
+  call sutra_float_div
+  addq $32, %rsp
+  movq %rax, %rsi
+  movq %rsi, %rcx
+  movq %rsi, %rdx
+  subq $32, %rsp
+  call sutra_float_mul
+  addq $32, %rsp
+  movq %rax, -72(%rbp)
+  movq .LC_dbl_0(%rip), %r10
+  movq %r10, %r12
+  movq $1, %r13
+  jmp .L_लघुगणक_रन__wh_शर्त_5
+.L_लघुगणक_रन__wh_शर्त_5:
+  movq %rsi, -120(%rbp)
+  movq %r12, -128(%rbp)
+  movq %r13, -136(%rbp)
+  movq $40, %r14
+  movq %r13, %r10
+  cmpq %r14, %r10
+  setl %al
+  movzbq %al, %r10
+  movq %r10, %r15
+  movq %r15, %r10
+  cmpq $0, %r10
+  je .L_किनारा_लघुगणक_रन_2
+  jmp .L_लघुगणक_रन__wh_देह_6
+.L_किनारा_लघुगणक_रन_2:
+  jmp .L_लघुगणक_रन__wh_अंत_7
+.L_लघुगणक_रन__wh_अंत_7:
+  movq .LC_dbl_5(%rip), %r10
+  movq %r10, %r14
+  movq %r14, %rcx
+  movq %r12, %rdx
+  subq $32, %rsp
+  call sutra_float_mul
+  addq $32, %rsp
+  movq %rax, %r15
+  movq .LC_dbl_6(%rip), %r10
+  movq %r10, %r14
+  movq -88(%rbp), %rcx
+  subq $32, %rsp
+  call sutra_int_to_float
+  addq $32, %rsp
+  movq %rax, %rdi
+  movq %rdi, %rcx
+  movq %r14, %rdx
+  subq $32, %rsp
+  call sutra_float_mul
+  addq $32, %rsp
+  movq %rax, %rbx
+  movq %r15, %rcx
+  movq %rbx, %rdx
+  subq $32, %rsp
+  call sutra_float_add
+  addq $32, %rsp
+  movq %rax, %rdi
+  movq %rdi, %rax
+  jmp .L_epilogue_लघुगणक_रन
+.L_लघुगणक_रन__wh_देह_6:
+  movq %r13, %rcx
+  subq $32, %rsp
+  call sutra_int_to_float
+  addq $32, %rsp
+  movq %rax, %rbx
+  movq %rsi, %rcx
+  movq %rbx, %rdx
+  subq $32, %rsp
+  call sutra_float_div
+  addq $32, %rsp
+  movq %rax, %rdi
+  movq %r12, %rcx
+  movq %rdi, %rdx
+  subq $32, %rsp
+  call sutra_float_add
+  addq $32, %rsp
+  movq %rax, %rbx
+  movq $0, -128(%rbp)
+  movq %rsi, %rcx
+  movq -72(%rbp), %rdx
+  subq $32, %rsp
+  call sutra_float_mul
+  addq $32, %rsp
+  movq %rax, %rdi
+  movq $0, -120(%rbp)
+  movq $2, %rsi
+  movq %r13, %r10
+  addq %rsi, %r10
+  movq %r10, %r12
+  movq $0, -136(%rbp)
+  movq %r12, %r13
+  movq %rbx, %r12
+  movq %rdi, %rsi
+  jmp .L_लघुगणक_रन__wh_शर्त_5
+.L_लघुगणक_रन__if_सत्य_1:
+  movq .LC_dbl_0(%rip), %r10
+  movq %r10, %rbx
+  movq %rbx, %rax
+  jmp .L_epilogue_लघुगणक_रन
+.L_epilogue_लघुगणक_रन:
+  subl $5, gc_roots_count(%rip)
+  movq -8(%rbp), %rbx
+  movq -16(%rbp), %rsi
+  movq -24(%rbp), %rdi
+  movq -32(%rbp), %r12
+  movq -40(%rbp), %r13
+  movq -48(%rbp), %r14
+  movq -56(%rbp), %r15
+  movq %rbp, %rsp
+  popq %rbp
+  ret
+
+  .text
+  .globl घातांकी_रन
+  .def घातांकी_रन; .scl 2; .type 32; .endef
+घातांकी_रन:
+  pushq %rbp
+  movq %rsp, %rbp
+  subq $128, %rsp
+  movq %rbx, -8(%rbp)
+  movq %rsi, -16(%rbp)
+  movq %rdi, -24(%rbp)
+  movq %r12, -32(%rbp)
+  movq %r13, -40(%rbp)
+  movq %r14, -48(%rbp)
+  movq %r15, -56(%rbp)
+  movq %rcx, %rbx
+  movq $0, -88(%rbp)
+  movq $0, -96(%rbp)
+  movq $0, -104(%rbp)
+  movq $0, -112(%rbp)
+  movq $0, -120(%rbp)
+  movl gc_roots_count(%rip), %eax
+  leaq gc_roots(%rip), %r10
+  leaq -88(%rbp), %r11
+  movq %r11, (%r10,%rax,8)
+  incl %eax
+  leaq -96(%rbp), %r11
+  movq %r11, (%r10,%rax,8)
+  incl %eax
+  leaq -104(%rbp), %r11
+  movq %r11, (%r10,%rax,8)
+  incl %eax
+  leaq -112(%rbp), %r11
+  movq %r11, (%r10,%rax,8)
+  incl %eax
+  leaq -120(%rbp), %r11
+  movq %r11, (%r10,%rax,8)
+  incl %eax
+  movl %eax, gc_roots_count(%rip)
+
+.L_घातांकी_रन__प्रवेश_0:
+  subq $32, %rsp
+  call दो_बावन
+  addq $32, %rsp
+  movq %rax, %rsi
+  movq %rsi, -88(%rbp)
+  movq .LC_dbl_7(%rip), %r10
+  movq %r10, %rdi
+  movq %rbx, %rcx
+  movq %rdi, %rdx
+  subq $32, %rsp
+  call sutra_float_mul
+  addq $32, %rsp
+  movq %rax, %r12
+  movq %r12, %rcx
+  subq $32, %rsp
+  call sutra_math_round_f
+  addq $32, %rsp
+  movq %rax, %rdi
+  movq $1000, %r12
+  movq %rdi, %r10
+  cmpq %r12, %r10
+  setg %al
+  movzbq %al, %r10
+  movq %r10, %r13
+  movq %r13, %r10
+  cmpq $0, %r10
+  je .L_किनारा_घातांकी_रन_0
+  jmp .L_घातांकी_रन__if_सत्य_1
+.L_किनारा_घातांकी_रन_0:
+  jmp .L_घातांकी_रन__if_अंत_2
+.L_घातांकी_रन__if_सत्य_1:
+  movq $1000, %rdi
+  jmp .L_घातांकी_रन__if_अंत_2
+.L_घातांकी_रन__if_अंत_2:
+  movq $1000, %r12
+  movq %r12, %r10
+  negq %r10
+  movq %r10, %r13
+  movq %rdi, %r10
+  cmpq %r13, %r10
+  setl %al
+  movzbq %al, %r10
+  movq %r10, %r12
+  movq %r12, %r10
+  cmpq $0, %r10
+  je .L_किनारा_घातांकी_रन_1
+  jmp .L_घातांकी_रन__if_सत्य_3
+.L_किनारा_घातांकी_रन_1:
+  jmp .L_घातांकी_रन__if_अंत_4
+.L_घातांकी_रन__if_सत्य_3:
+  movq $-1000, %rdi
+  jmp .L_घातांकी_रन__if_अंत_4
+.L_घातांकी_रन__if_अंत_4:
+  movq %rdi, -96(%rbp)
+  movq .LC_dbl_6(%rip), %r10
+  movq %r10, %r12
+  movq %rdi, %rcx
+  subq $32, %rsp
+  call sutra_int_to_float
+  addq $32, %rsp
+  movq %rax, %r13
+  movq %r13, %rcx
+  movq %r12, %rdx
+  subq $32, %rsp
+  call sutra_float_mul
+  addq $32, %rsp
+  movq %rax, %r14
+  movq %rbx, %rcx
+  movq %r14, %rdx
+  subq $32, %rsp
+  call sutra_float_sub
+  addq $32, %rsp
+  movq %rax, -72(%rbp)
+  movq .LC_dbl_4(%rip), %r10
+  movq %r10, %rbx
+  movq .LC_dbl_4(%rip), %r10
+  movq %r10, %r13
+  movq $1, %r14
+  jmp .L_घातांकी_रन__wh_शर्त_5
+.L_घातांकी_रन__wh_शर्त_5:
+  movq %rbx, -104(%rbp)
+  movq %r13, -112(%rbp)
+  movq %r14, -120(%rbp)
+  movq $20, %r15
+  movq %r14, %r10
+  cmpq %r15, %r10
+  setl %al
+  movzbq %al, %r10
+  movq %r10, %r12
+  movq %r12, %r10
+  cmpq $0, %r10
+  je .L_किनारा_घातांकी_रन_2
+  jmp .L_घातांकी_रन__wh_देह_6
+.L_किनारा_घातांकी_रन_2:
+  jmp .L_घातांकी_रन__wh_अंत_7
+.L_घातांकी_रन__wh_अंत_7:
+  movq $1023, %r12
+  movq %rdi, %r10
+  addq %r12, %r10
+  movq %r10, %r15
+  movq %r15, %r10
+  imulq %rsi, %r10
+  movq %r10, %r12
+  movq %r12, %rcx
+  subq $32, %rsp
+  call बिट_दशमलव
+  addq $32, %rsp
+  movq %rax, %r15
+  movq %r13, %rcx
+  movq %r15, %rdx
+  subq $32, %rsp
+  call sutra_float_mul
+  addq $32, %rsp
+  movq %rax, %r12
+  movq %r12, %rax
+  jmp .L_epilogue_घातांकी_रन
+.L_घातांकी_रन__wh_देह_6:
+  movq %rbx, %rcx
+  movq -72(%rbp), %rdx
+  subq $32, %rsp
+  call sutra_float_mul
+  addq $32, %rsp
+  movq %rax, %r12
+  movq $0, -104(%rbp)
+  movq %r14, %rcx
+  subq $32, %rsp
+  call sutra_int_to_float
+  addq $32, %rsp
+  movq %rax, %rbx
+  movq %r12, %rcx
+  movq %rbx, %rdx
+  subq $32, %rsp
+  call sutra_float_div
+  addq $32, %rsp
+  movq %rax, %r15
+  movq %r13, %rcx
+  movq %r15, %rdx
+  subq $32, %rsp
+  call sutra_float_add
+  addq $32, %rsp
+  movq %rax, %rbx
+  movq $0, -112(%rbp)
+  movq $1, %r12
+  movq %r14, %r10
+  addq %r12, %r10
+  movq %r10, %r13
+  movq $0, -120(%rbp)
+  movq %r13, %r14
+  movq %rbx, %r13
+  movq %r15, %rbx
+  jmp .L_घातांकी_रन__wh_शर्त_5
+.L_epilogue_घातांकी_रन:
+  subl $5, gc_roots_count(%rip)
+  movq -8(%rbp), %rbx
+  movq -16(%rbp), %rsi
+  movq -24(%rbp), %rdi
+  movq -32(%rbp), %r12
+  movq -40(%rbp), %r13
+  movq -48(%rbp), %r14
+  movq -56(%rbp), %r15
+  movq %rbp, %rsp
+  popq %rbp
+  ret
+
+  .text
+  .globl रन_घात
+  .def रन_घात; .scl 2; .type 32; .endef
+रन_घात:
+  pushq %rbp
+  movq %rsp, %rbp
+  subq $80, %rsp
+  movq %rbx, -8(%rbp)
+  movq %rsi, -16(%rbp)
+  movq %rdi, -24(%rbp)
+  movq %r12, -32(%rbp)
+  movq %r13, -40(%rbp)
+  movq %r14, -48(%rbp)
+  movq %r15, -56(%rbp)
+  movq %rcx, %rbx
+  movq %rdx, %rsi
+
+.L_रन_घात__प्रवेश_0:
+  movq %rsi, %rcx
+  subq $32, %rsp
+  call sutra_math_round_f
+  addq $32, %rsp
+  movq %rax, %rdi
+  movq %rdi, %rcx
+  subq $32, %rsp
+  call sutra_int_to_float
+  addq $32, %rsp
+  movq %rax, %r12
+  movq %r12, %rcx
+  movq %rsi, %rdx
+  subq $32, %rsp
+  call sutra_float_eq
+  addq $32, %rsp
+  movq %rax, %r13
+  movq %r13, %r10
+  cmpq $0, %r10
+  je .L_किनारा_रन_घात_0
+  jmp .L_रन_घात__if_सत्य_1
+.L_किनारा_रन_घात_0:
+  jmp .L_रन_घात__if_अंत_2
+.L_रन_घात__if_सत्य_1:
+  movq .LC_dbl_8(%rip), %r10
+  movq %r10, %r12
+  movq %r12, %r10
+  btcq $63, %r10
+  movq %r10, %r13
+  movq %rsi, %rcx
+  movq %r13, %rdx
+  subq $32, %rsp
+  call sutra_float_ge
+  addq $32, %rsp
+  movq %rax, %r12
+  movq %r12, %r10
+  cmpq $0, %r10
+  je .L_किनारा_रन_घात_1
+  jmp .L_रन_घात__if_सत्य_3
+.L_किनारा_रन_घात_1:
+  jmp .L_रन_घात__if_अंत_4
+.L_रन_घात__if_सत्य_3:
+  movq .LC_dbl_8(%rip), %r10
+  movq %r10, %r12
+  movq %rsi, %rcx
+  movq %r12, %rdx
+  subq $32, %rsp
+  call sutra_float_le
+  addq $32, %rsp
+  movq %rax, %r13
+  movq %r13, %r10
+  cmpq $0, %r10
+  je .L_किनारा_रन_घात_2
+  jmp .L_रन_घात__if_सत्य_5
+.L_किनारा_रन_घात_2:
+  jmp .L_रन_घात__if_अंत_6
+.L_रन_घात__if_अंत_6:
+  jmp .L_रन_घात__if_अंत_4
+.L_रन_घात__if_अंत_4:
+  jmp .L_रन_घात__if_अंत_2
+.L_रन_घात__if_अंत_2:
+  movq .LC_dbl_0(%rip), %r10
+  movq %r10, %r12
+  movq %rbx, %rcx
+  movq %r12, %rdx
+  subq $32, %rsp
+  call sutra_float_gt
+  addq $32, %rsp
+  movq %rax, %r13
+  movq %r13, %r10
+  cmpq $0, %r10
+  je .L_किनारा_रन_घात_3
+  jmp .L_रन_घात__if_सत्य_16
+.L_किनारा_रन_घात_3:
+  jmp .L_रन_घात__if_अंत_17
+.L_रन_घात__if_अंत_17:
+  movq .LC_dbl_0(%rip), %r10
+  movq %r10, %r12
+  movq %r12, %rax
+  jmp .L_epilogue_रन_घात
+.L_रन_घात__if_सत्य_16:
+  movq %rbx, %rcx
+  subq $32, %rsp
+  call लघुगणक_रन
+  addq $32, %rsp
+  movq %rax, %r12
+  movq %rsi, %rcx
+  movq %r12, %rdx
+  subq $32, %rsp
+  call sutra_float_mul
+  addq $32, %rsp
+  movq %rax, %r13
+  movq %r13, %rcx
+  subq $32, %rsp
+  call घातांकी_रन
+  addq $32, %rsp
+  movq %rax, %rsi
+  movq %rsi, %rax
+  jmp .L_epilogue_रन_घात
+.L_रन_घात__if_सत्य_5:
+  movq $0, %rsi
+  movq $0, %r12
+  movq %rdi, %r10
+  cmpq %r12, %r10
+  setl %al
+  movzbq %al, %r10
+  movq %r10, %r13
+  movq %r13, %r10
+  cmpq $0, %r10
+  je .L_किनारा_रन_घात_4
+  jmp .L_रन_घात__if_सत्य_7
+.L_किनारा_रन_घात_4:
+  movq %rsi, %r11
+  movq %rdi, %rsi
+  movq %r11, %rdi
+  jmp .L_रन_घात__if_अंत_8
+.L_रन_घात__if_सत्य_7:
+  movq $1, %rsi
+  movq $0, %r12
+  movq %r12, %r10
+  subq %rdi, %r10
+  movq %r10, %r13
+  movq %rsi, %rdi
+  movq %r13, %rsi
+  jmp .L_रन_घात__if_अंत_8
+.L_रन_घात__if_अंत_8:
+  movq .LC_dbl_4(%rip), %r10
+  movq %r10, %r12
+  movq %rbx, %r11
+  movq %rsi, %rbx
+  movq %r12, %rsi
+  movq %r11, %r12
+  jmp .L_रन_घात__wh_शर्त_9
+.L_रन_घात__wh_शर्त_9:
+  movq $0, %r13
+  movq %rbx, %r10
+  cmpq %r13, %r10
+  setg %al
+  movzbq %al, %r10
+  movq %r10, %r14
+  movq %r14, %r10
+  cmpq $0, %r10
+  je .L_किनारा_रन_घात_5
+  jmp .L_रन_घात__wh_देह_10
+.L_किनारा_रन_घात_5:
+  jmp .L_रन_घात__wh_अंत_11
+.L_रन_घात__wh_अंत_11:
+  movq $1, %r13
+  movq %rdi, %r10
+  cmpq %r13, %r10
+  sete %al
+  movzbq %al, %r10
+  movq %r10, %r14
+  movq %r14, %r10
+  cmpq $0, %r10
+  je .L_किनारा_रन_घात_6
+  jmp .L_रन_घात__if_सत्य_14
+.L_किनारा_रन_घात_6:
+  jmp .L_रन_घात__if_अंत_15
+.L_रन_घात__if_अंत_15:
+  movq %rsi, %rax
+  jmp .L_epilogue_रन_घात
+.L_रन_घात__if_सत्य_14:
+  movq .LC_dbl_4(%rip), %r10
+  movq %r10, %r13
+  movq %r13, %rcx
+  movq %rsi, %rdx
+  subq $32, %rsp
+  call sutra_float_div
+  addq $32, %rsp
+  movq %rax, %r14
+  movq %r14, %rax
+  jmp .L_epilogue_रन_घात
+.L_रन_घात__wh_देह_10:
+  movq $2, %r13
+  movq %rbx, %rax
+  movq %r13, %r10
+  cqto
+  idivq %r10
+  movq %rdx, %r14
+  movq $1, %r13
+  movq %r14, %r10
+  cmpq %r13, %r10
+  sete %al
+  movzbq %al, %r10
+  movq %r10, %r15
+  movq %r15, %r10
+  cmpq $0, %r10
+  je .L_किनारा_रन_घात_7
+  jmp .L_रन_घात__if_सत्य_12
+.L_किनारा_रन_घात_7:
+  jmp .L_रन_घात__if_अंत_13
+.L_रन_घात__if_सत्य_12:
+  movq %rsi, %rcx
+  movq %r12, %rdx
+  subq $32, %rsp
+  call sutra_float_mul
+  addq $32, %rsp
+  movq %rax, %r13
+  movq %r13, %rsi
+  jmp .L_रन_घात__if_अंत_13
+.L_रन_घात__if_अंत_13:
+  movq %r12, %rcx
+  movq %r12, %rdx
+  subq $32, %rsp
+  call sutra_float_mul
+  addq $32, %rsp
+  movq %rax, %r13
+  movq $2, %r12
+  movq %rbx, %rax
+  movq %r12, %r10
+  cqto
+  idivq %r10
+  movq %rax, %r14
+  movq %r13, %r12
+  movq %r14, %rbx
+  jmp .L_रन_घात__wh_शर्त_9
+.L_epilogue_रन_घात:
+  movq -8(%rbp), %rbx
+  movq -16(%rbp), %rsi
+  movq -24(%rbp), %rdi
+  movq -32(%rbp), %r12
+  movq -40(%rbp), %r13
+  movq -48(%rbp), %r14
+  movq -56(%rbp), %r15
+  movq %rbp, %rsp
+  popq %rbp
+  ret
+
   .data
   .globl sutra_glob_प्रयत्न_गहराई
 sutra_glob_प्रयत्न_गहराई:
@@ -13666,6 +15753,12 @@ sutra_glob_पसू_कैश_ब:
   .globl sutra_glob_पसू_कैश_चक्र
 sutra_glob_पसू_कैश_चक्र:
   .quad 0
+  .globl sutra_glob_जीसी_बफ
+sutra_glob_जीसी_बफ:
+  .quad 0
+  .globl sutra_glob_घा_बावन
+sutra_glob_घा_बावन:
+  .quad 0
   .section .rdata,"dr"
   .align 8
 .LC_dbl_0:
@@ -13673,6 +15766,27 @@ sutra_glob_पसू_कैश_चक्र:
   .align 8
 .LC_dbl_1:
   .double 1000000.0
+  .align 8
+.LC_dbl_2:
+  .double 1.4142135623730951
+  .align 8
+.LC_dbl_3:
+  .double 0.5
+  .align 8
+.LC_dbl_4:
+  .double 1.0
+  .align 8
+.LC_dbl_5:
+  .double 2.0
+  .align 8
+.LC_dbl_6:
+  .double 0.6931471805599453
+  .align 8
+.LC_dbl_7:
+  .double 1.4426950408889634
+  .align 8
+.LC_dbl_8:
+  .double 1024.0
 .LC_str_0:
   .ascii "\340\244\244\340\245\215\340\244\260\340\245\201\340\244\237\340\244\277\340\244\203 \342\200\224 \340\244\205\340\244\256\340\244\276\340\244\250\340\245\215\340\244\257 \340\244\270\340\245\202\340\244\232\340\244\225\340\244\276\340\244\202\340\244\225 \340\244\256\340\244\276\340\244\250 (Index cannot be negative)\0"
 .LC_str_0_len:
@@ -13781,4 +15895,20 @@ sutra_glob_पसू_कैश_चक्र:
   .ascii "\340\244\244\340\245\215\340\244\260\340\245\201\340\244\237\340\244\277\340\244\203 \342\200\224 \340\244\270\340\245\202\340\244\232\340\245\215\340\244\257\340\244\276\340\244\203 \340\244\270\340\245\200\340\244\256\340\244\276 \340\244\205\340\244\244\340\244\277\340\244\225\340\245\215\340\244\260\340\244\276\340\244\250\340\245\215\340\244\244\340\244\276 (Array index out of bounds)\0"
 .LC_str_26_len:
   .quad 122
+.LC_str_27:
+  .ascii "\340\244\205\340\244\250\340\245\201\340\244\267\340\245\215\340\244\240\340\244\276\340\244\250-\340\244\244\340\245\215\340\244\260\340\245\201\340\244\237\340\244\277\340\244\203 \342\200\224 \340\244\266\340\245\202\340\244\250\340\245\215\340\244\257\340\245\207\340\244\250 \340\244\265\340\244\277\340\244\255\340\244\276\340\244\234\340\244\250\340\244\256\340\245\215 \340\244\250 \340\244\270\340\244\256\340\245\215\340\244\255\340\244\265\340\244\244\340\244\277 (Division by zero)\0"
+.LC_str_27_len:
+  .quad 142
+.LC_str_28:
+  .ascii "\340\244\244\340\245\215\340\244\260\340\245\201\340\244\237\340\244\277\340\244\203: \0"
+.LC_str_28_len:
+  .quad 23
+.LC_str_29:
+  .ascii "\340\244\244\340\245\215\340\244\260\340\245\201\340\244\237\340\244\277\340\244\203 \342\200\224 \340\244\205\340\244\250\340\244\277\340\244\257\340\244\202\340\244\244\340\245\215\340\244\260\340\244\277\340\244\244 \340\244\205\340\244\252\340\244\265\340\244\276\340\244\246 (Uncaught exception)\0"
+.LC_str_29_len:
+  .quad 93
+.LC_str_30:
+  .ascii "\n\0"
+.LC_str_30_len:
+  .quad 1
 

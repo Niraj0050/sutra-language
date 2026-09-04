@@ -7,7 +7,7 @@
 set -u
 export PATH="/c/msys64/ucrt64/bin:$PATH"
 cd "$(dirname "$0")"
-RT="sutra_runtime_prebuilt.o sutra_alloc.o sutra_srt.o sutra_floor.o"
+RT="sutra_alloc.o sutra_srt.o sutra_floor.o"
 SRC="स्वसंकलक/मूल_संकलन.सूत्र"
 FRONT="स्वसंकलक/अग्र_चालक.सूत्र_native.exe"
 BACK="स्वसंकलक/पश्च_चालक.सूत्र_native.exe"
