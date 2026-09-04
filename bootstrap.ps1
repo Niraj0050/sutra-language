@@ -5,7 +5,8 @@
 # with it and checks the self-hosting fixed point.
 #
 # Requires: MSYS2 ucrt64 (C:\msys64\ucrt64\bin) - as.exe, gcc.exe, ld
-#   gcc is used only as a linker and to compile the C runtime.
+#   gcc is used ONLY as a linker (-nostdlib; own mainCRTStartup in तल.s).
+#   Zero C source, zero libc, zero CRT startup - links kernel32 + shell32 only.
 #   The C++ host (sutra.exe / संकलक/) and any C++ compiler are NOT used.
 #
 # Note: as/gcc from MSYS2 cannot open Devanagari paths, so the seed .s
@@ -51,8 +52,8 @@ Copy-Item (Join-Path $seedDir "मूल_आवंटक.s") "_alloc.s" -Force
 if ($LASTEXITCODE -ne 0) { throw "as failed (मूल_आवंटक.s)" }
 Remove-Item "_floor.s", "_srt.s", "_alloc.s" -ErrorAction SilentlyContinue
 
-Write-Host "== 2/4  link seed compiler (gcc as linker) ==" -ForegroundColor Cyan
-& $gcc -m64 "_seed.o" "sutra_alloc.o" "sutra_srt.o" "sutra_floor.o" -lshell32 -o "seed_sutrac.exe"
+Write-Host "== 2/4  link seed compiler (gcc as ld; -nostdlib, own entry) ==" -ForegroundColor Cyan
+& $gcc -m64 -nostdlib "_seed.o" "sutra_alloc.o" "sutra_srt.o" "sutra_floor.o" -lkernel32 -lshell32 -o "seed_sutrac.exe"
 if ($LASTEXITCODE -ne 0) { throw "link failed" }
 Remove-Item "_seed.s", "_seed.o" -ErrorAction SilentlyContinue
 Write-Host "   seed compiler ready: seed_sutrac.exe (zero C — तल.s + मूल_रनटाइम.s + मूल_आवंटक.s)" -ForegroundColor Green

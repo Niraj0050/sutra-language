@@ -7,6 +7,7 @@
  *   सूत्र_तल_मुक्त(rcx = पता)              -> void          [VirtualFree]
  *   सूत्र_तल_मुद्रण(rcx = पता, rdx = लंबाई) -> void          [GetStdHandle + WriteFile]
  *   सूत्र_तल_निकास(rcx = कोड)              -> कभी नहीं लौटता  [ExitProcess]
+ *   mainCRTStartup                         -> PE प्रवेश-बिंदु (Level 2: कोई crt2.o)
  *   memcpy / memmove / memset / memcmp / strlen — हाथ से (libc-मुक्त)
  *   _setjmp(rcx=env,rdx=frame) / सूत्र_दीर्घकूद(rcx=env,rdx=roots) — न्यूनतम, no-SEH
  *   gc_roots[] + gc_roots_count (.bss) + sutra_gc_push_root/pop_root/
@@ -19,6 +20,23 @@
  * callee-preserved: rbx rbp rdi rsi rsp r12-r15.
  * ============================================================ */
   .text
+
+/* PE प्रवेश-बिंदु — अपना, gcc की crt2.o (__tmainCRTStartup) के बिना।
+ * OS loader नियंत्रण यहाँ देता है (कोई return पता stack पर नहीं)।
+ * नाम `mainCRTStartup` = ld का console-default entry → कोई -e झंडा नहीं।
+ * काम: 16-संरेखो, main के लिए shadow दो, main बुलाओ (हमेशा eax लौटाता),
+ * उसका exit-कोड लेकर ExitProcess। CRT init कुछ नहीं चाहिए — stdio हैंडल
+ * हर बार GetStdHandle से, heap = VirtualAlloc, कोई global ctor, कोई SEH। */
+  .globl mainCRTStartup
+  .def mainCRTStartup; .scl 2; .type 32; .endef
+mainCRTStartup:
+  andq $-16, %rsp          /* 16-संरेखण पक्का */
+  subq $32, %rsp           /* main के लिए shadow */
+  call main
+  movl %eax, %ecx          /* exit code (main का ret) */
+  call ExitProcess         /* नहीं लौटता */
+.Lक्रिट_रुको:
+  jmp .Lक्रिट_रुको         /* अगम्य */
 
   .globl सूत्र_तल_आवंटन
   .def सूत्र_तल_आवंटन; .scl 2; .type 32; .endef
