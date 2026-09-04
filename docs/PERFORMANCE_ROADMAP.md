@@ -713,6 +713,25 @@ fileIO — हर एक designed, अब बिना regression।
    अब **4/4**; `verify_compiler.ps1`/`verify_compiler_self.ps1` अब **55/57**
    (सिर्फ़ known 41/44)।
 
+**§4e — 41/44 को genuinely हल किया (Niraj का निर्णय: GC-counters compare
+करना कभी सही जाँच नहीं थी)** (commit `e02fa68`, 2026-09-04)। `स्मृति_स्थिति()`
+के सक्रिय/संग्रहित अंक collector-कार्यान्वयन-विशिष्ट हैं (interp conservative
+scope-rooting, native precise SSA-liveness — §4b ने इसे और तेज़ किया) —
+दोनों कभी बराबर नहीं होने वाले, तो diff करना correctness-जाँच नहीं था।
+   - `41_dynamic_list_stress.सूत्र`: सिर्फ़ खंड M का इकलौता incidental
+     `स्मृति_स्थिति()` call हटाया (`संग्रह_करो()` रखा — असली जाँच खंड N है:
+     GC के बाद सूची-क्रियाएँ सही चलें)। बाकी 129 लाइन/13 खंड अछूते।
+   - `44_gc_status.सूत्र` → `tests/diagnostics/` (नया) — इसका पूरा उद्देश्य
+     ही GC-अकाउंटिंग दिखाना है, parity-जाँच असंभव बिना native की precise
+     rooting को interp जैसा conservative बनाए (असली regression) या
+     interpreter में precise liveness (गिटइग्नोर्ड test-oracle पर बड़ा
+     खर्च, बिना असली फ़ायदे के)। `tests/intrinsics/` को पहले से यही
+     treatment मिला हुआ (वही कारण — interpreter इसे model नहीं करता)।
+     अब भी compile+run होता, बस automated parity-count से बाहर।
+   **tests/compiler: genuinely 54/54, ZERO known-failures बचे।** fixed
+   point 102682 अपरिवर्तित; stdlib अब सिर्फ़ `18_stdlib` (tagged-value/
+   `मान`-सीमा भाषा-सीमा, अलग मुद्दा — §देखें भाषा-अंतराल)।
+
 **2b. मानक पुस्तकालय (`पुस्तकालय/`) — सूत्र में** (commits `07205ac` + `c07ba45`, 2026-09-01)।
    Phase 2 रोककर पहले लाइब्रेरी (Niraj का निर्णय)। **12 मॉड्यूल**, कोई C
    नहीं, interp/native समान (`tests/stdlib/` 8 फ़ाइलें):
