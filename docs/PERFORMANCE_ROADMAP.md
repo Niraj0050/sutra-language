@@ -564,6 +564,28 @@ fileIO — हर एक designed, अब बिना regression।
    **Runtime self-independence पूर्ण — binary का हर बाइट या हमारा code या
    हाथ से बुलाया genuine Win32 API।** gcc अब विशुद्ध `as` + `ld`।
 
+## 3. भाषा-अंतराल (Level 1/2 ने खोले)
+
+**§3a — बिटवार बिल्टिन** (commit `bc26e19`, 2026-09-04)।
+   6 पूर्णांक-बिट बिल्टिन — **builtin-रूप में, कोई lexer/parser बदलाव नहीं**
+   (self-hosting parser पर जोखिम शून्य): `बिट_और`(&) · `बिट_या`(|) ·
+   `बिट_भेद`(^, "differ") · `बिट_उलट`(~, 1-arg) · `बाम_सरक`(<<) ·
+   `दक्षिण_सरक`(>> **तार्किक/unsigned `shrq`** — hashing/PRNG को यही चाहिए;
+   गणना 6-बिट auto-mask, x86 जैसा)। `निम्नक_कॉल` इन्हें `अंतर्_बिट_*` node
+   बनाता; `उत्_अंतर्` inline emit (`andq`/`orq`/`xorq`/`notq`/`shlq`/`shrq`;
+   r10/r11 scratch, shift-गणना `%cl` में — `rcx` regalloc-pool में नहीं)।
+   `सार्थक` whitelist (उलट 1-arg, बाकी 2) → seed **136031→137585**।
+   **C++ व्याख्याता में नहीं जोड़े** — `build.ps1` पहले से टूटा हुआ मिला
+   (`environment.cpp` का `assign()` signature header से mismatch — पुराना drift,
+   मेरा बदलाव नहीं); `sutra.exe` (Aug 26 frozen) अब rebuild नहीं होता। इसलिए
+   **native-only** + `verify_bitwise.sh` (bash 64-बिट अंकगणित = oracle, 10 केस
+   — बड़े मान shift से बनाए क्योंकि int-lit ≥ 2³¹ नहीं लिख सकते)। fixed point
+   **137585**; verify_ir 51/2 + suites 10/1 (शून्य regression — बिटवार suite
+   में नहीं, क्योंकि interp oracle नहीं दे सकता)। **अब xorshift PRNG / FNV
+   hashing सूत्र में लिखे जा सकते।**
+   ⚠ भविष्य के भाषा-f11 features के लिए: C++ oracle पहले ठीक करना होगा
+   (`environment.cpp` + शायद और) — या native-only + bash-oracle pattern।
+
 **2b. मानक पुस्तकालय (`पुस्तकालय/`) — सूत्र में** (commits `07205ac` + `c07ba45`, 2026-09-01)।
    Phase 2 रोककर पहले लाइब्रेरी (Niraj का निर्णय)। **12 मॉड्यूल**, कोई C
    नहीं, interp/native समान (`tests/stdlib/` 8 फ़ाइलें):
