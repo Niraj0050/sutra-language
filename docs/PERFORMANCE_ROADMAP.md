@@ -575,16 +575,27 @@ fileIO — हर एक designed, अब बिना regression।
    बनाता; `उत्_अंतर्` inline emit (`andq`/`orq`/`xorq`/`notq`/`shlq`/`shrq`;
    r10/r11 scratch, shift-गणना `%cl` में — `rcx` regalloc-pool में नहीं)।
    `सार्थक` whitelist (उलट 1-arg, बाकी 2) → seed **136031→137585**।
-   **C++ व्याख्याता में नहीं जोड़े** — `build.ps1` पहले से टूटा हुआ मिला
-   (`environment.cpp` का `assign()` signature header से mismatch — पुराना drift,
-   मेरा बदलाव नहीं); `sutra.exe` (Aug 26 frozen) अब rebuild नहीं होता। इसलिए
-   **native-only** + `verify_bitwise.sh` (bash 64-बिट अंकगणित = oracle, 10 केस
-   — बड़े मान shift से बनाए क्योंकि int-lit ≥ 2³¹ नहीं लिख सकते)। fixed point
-   **137585**; verify_ir 51/2 + suites 10/1 (शून्य regression — बिटवार suite
-   में नहीं, क्योंकि interp oracle नहीं दे सकता)। **अब xorshift PRNG / FNV
+   पहले native-only था (C++ oracle टूटा); §3b ने ठीक किया — अब interp में भी
+   (`52_bitwise.सूत्र` interp==native, 11 केस)। **अब xorshift PRNG / FNV
    hashing सूत्र में लिखे जा सकते।**
-   ⚠ भविष्य के भाषा-f11 features के लिए: C++ oracle पहले ठीक करना होगा
-   (`environment.cpp` + शायद और) — या native-only + bash-oracle pattern।
+
+**§3b — C++ व्याख्याता (`sutra.exe`) build ठीक; bitwise अब interp में भी** (commit `797b958`, 2026-09-04)।
+   `sutra.exe` (Aug 26 से frozen था, unbuildable) फिर से बनता है। 2 pre-
+   existing rot ठीक किए (दोनों gitignored `संकलक/src/` में — repo "pure Sutra"
+   है, C++ host dev-machine scaffold है, इसलिए ये fixes **commit नहीं होते**):
+   - `environment.cpp`: `assign()` का `const SutraValue&` signature header के
+     by-value से मेल नहीं खाता → header-match।
+   - `interpreter.cpp`: 4 orphaned tracing call-sites (`StmtTrace` /
+     `WatchpointScope` — classes पहले हटीं, call-sites रह गईं) + 3 write-only
+     dead globals (`g_in_pada_vichhedan` / `_env` / `g_last_known_value` —
+     definitions हटीं) → सब delete।
+   सब 29 `.cpp` compile होते; `build.ps1` `[SUCCESS]`। **rebuilt `sutra.exe`
+   64/64 मौजूदा tests पर Aug-26 binary से byte-identical** (oracle shift नहीं)।
+   फिर bitwise 6 बिल्टिन `interpreter.cpp` + `semantic.cpp` में जोड़े →
+   `tests/compiler/52_bitwise.सूत्र` (नया, interp==native)। `verify_bitwise.sh`
+   हटा (52_bitwise ने replace किया)। **tests/compiler अब 52/53।**
+   ⚠ fresh clone में `संकलक/src` नहीं (gitignored) → वहाँ C++ host + `verify_*`
+   oracle नहीं; `bootstrap.ps1` (शून्य C++) फिर भी चलता।
 
 **2b. मानक पुस्तकालय (`पुस्तकालय/`) — सूत्र में** (commits `07205ac` + `c07ba45`, 2026-09-01)।
    Phase 2 रोककर पहले लाइब्रेरी (Niraj का निर्णय)। **12 मॉड्यूल**, कोई C
