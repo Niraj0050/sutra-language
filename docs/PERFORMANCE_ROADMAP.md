@@ -499,13 +499,38 @@ fileIO — हर एक designed, अब बिना regression।
    18_stdlib छूता)। `.c` **737→689**। 40_native_floats + 48_type_inquiry +
    12-केस प्रारूप probe interp==native।
 
-बचा (Level 1 = `sutra_runtime.c` DELETE, ~1 बड़ा चंक):
-   - **RISKY एकल चंक** — `substr`/`str_get`/`str_alloc`/`arr_get` lexer hot-path
-     (Sutra पहले 40× slow) + साथ में entangled cluster: `sr_ln`/`sr_exp`/
-     `sutra_math_pow_f` (या `तल.s` asm), `sutra_gc_status` (non-allocating),
-     `find_gc_allocation`+`native_is_*` (internal C callers `add_dynamic`/
-     `arr_get`), `sg_cache_str` GC-invalidation, ~30 thin shims।
-   अंतिम कदम = **Level 2: custom `_start` / `-nostdlib`** (binary अभी gcc की crt2.o से
+**§2q — RISKY str hot-path cluster → Sutra** (commit `c7a75d1`, 2026-09-04)।
+   लेक्सर के millions-बार-call वाले आवंटन/पहुँच पथ को `मूल_रनटाइम.सूत्र` में:
+   - `पाठ_सूचकांक` ← `sutra_str_get` — अनुक्रमिक-पहुँच cache अब मॉड्यूल-global
+     + **GC-चक्र-स्टैम्प**: auto-GC `सूत्र_गण_चक्र` बढ़ाता → cache अपने-आप
+     अमान्य (पुराना C सिर्फ़ explicit `संग्रह_करो` पर साफ़ करता — latent
+     dangle bug)।
+   - `पाठ_रचना` ← `sutra_str_alloc` (string-literal emit + `sutra_throw_str`)।
+     `सूची_सूचकांक(_सेट)` ← `arr_get/set` (पाठ/शब्दकोश dispatch सहित)।
+     `वस्तु_रचना` ← `obj_alloc`। `पाठ_योग_गतिक` ← `add_dynamic`।
+     `पाठ_खोज_गतिक` ← `find`। `शब्दकोश_कुंजियाँ_रन` ← `dict_keys`।
+     `रन_क्या_पाठ/सूची/शब्दकोश` ← `find_gc_allocation`+`native_is_*`।
+     `संग्रह_रन` ← `gc_collect`। `पाठ_बड़ा/छोटा` ← `str_upper/lower`।
+     (`उपखंड` पहले से `पाठ_उपखंड`; `str_concat` → `पाठ_जोड़`।)
+   ~15 उत्सर्जक/निम्नक emit-sites सीधे सूत्र-नामों पर; `सार्थक` whitelist
+   `सूत्र_गण_चक्र` → seed **135832→135894**। `sutra_str_alloc`/`sutra_throw`
+   shims हटे (`फेंको` opcode retargeted; `sutra_throw_str` अब `पाठ_रचना`)।
+   **`sutra_runtime.c` 689→209 line** — बचा: stderr-पथ (uncaught अपवाद),
+   gc_status diagnostic, ~25 पतले shims, pow/ln/exp (double↔int64 bit-cast)।
+   **self-compile ~16s→~24s (1.5×, पुरानी टिप्पणी का 40× नहीं!)** — IR-अनुकूलक
+   + चक्र-स्टैम्प cache। fixed point 135894; Gen1(split)==Gen2 + Gen2==Gen3;
+   51/2 + 10/1; 14_strings / 30_string_indexing / 31 / 32_string_api /
+   33_array_ops / 29 / 50_dict_literal / 34_class_param / 40_floats /
+   49_exceptions सब interp==native।
+
+बचा (Level 1 = `sutra_runtime.c` DELETE, ~1 सफाई चंक):
+   - stderr floor (`sr_*` + `सूत्र_अपवाद_निकास` + `throw_str`/`throw_div`) →
+     `तल.s` stderr-wrapper + Sutra
+   - `sutra_gc_status` → Sutra (non-allocating: scratch-buf + `अंतर्_मुद्रण`)
+   - `sr_ln`/`sr_exp`/`sutra_math_pow_f` → `तल.s` asm (bit-ops asm में natural)
+   - ~25 पतले shims (`sutra_int_to_str`→`संख्या_से_पाठ` आदि) → उत्सर्जक/निम्नक
+     सीधे सूत्र-नाम emit करें
+   फिर **Level 2: custom `_start` / `-nostdlib`** (binary अभी gcc की crt2.o से
    `api-ms-win-crt-*` link करता — हमारे code से नहीं) — ~1-2 chunk।
 
 **2b. मानक पुस्तकालय (`पुस्तकालय/`) — सूत्र में** (commits `07205ac` + `c07ba45`, 2026-09-01)।
