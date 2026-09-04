@@ -685,6 +685,34 @@ fileIO — हर एक designed, अब बिना regression।
    **§4 संचयी: compiler `.s` 140090 → 102628 (−27%), binary 793552 →
    584838 (−26%), self-compile ~24s → ~8.5s (~3×)।**
 
+**§4d — const-fold correctness: गतिशील/पाठ `+ 0` गलत तरीके से हटता था**
+(commit `2576976`, 2026-09-04; script fixes `71fe7fe`)।
+   `बीज_सरल` (x+0→x — Phase 1c से मौजूद, §4 का नहीं) हर `"योग"` निर्देश पर
+   चलता जिसमें एक operand स्थिर 0/1 हो — पर यह पहचान केवल **शुद्ध
+   पूर्णांक-अंकगणित** पर सच है। `निम्नक_द्विआधारी` हर binary `+` (string
+   concat, dynamic add, float add, int add — सब) को **एक ही** `"योग"`
+   opcode में lower करता, बस `अंश["विधि"]` (पूर्ण/पाठ/दशमलव/मान) से भेद
+   करता — जिसे `बीज_सरल` कभी नहीं देखता था।
+   नतीजा: `"x" + 0` → योग(x, 0) विधि="मान" (गतिशील, एक ओर पाठ) → `बीज_सरल`
+   का b==0 नियम माचता, पूरा instruction सिर्फ़ `x` में बदल देता — string-concat
+   कॉल **पूरी तरह गायब**! (`"" + 0` empty-string print करता, "0" नहीं)।
+   **मिला कैसे:** `tests/intrinsics/04_string_ops.सूत्र` इसे पकड़ता — पर वह
+   suite हफ़्तों से नहीं चली थी क्योंकि `verify_intrinsics.ps1` एक बासी
+   compiler-binary-नाम (`मूल_संकलन_native.exe`, कभी नहीं बना) खोजता था।
+   उसी दौरान 2 और बासी scripts मिले+ठीक किए — `verify_compiler.ps1`
+   (retired `sutra.exe build` C++ पथ इस्तेमाल करता था, अब `sutrac.exe`
+   सीधे; + एक filename bug — `BaseName` बनाम `sutrac.exe`'s असली
+   `<name>.सूत्र_native.exe` पैटर्न, हर test "not found" दिखाता था) और
+   `verify_compiler_self.ps1` (पुराना नाम `sutra_self.exe` खोजता)।
+   **fix:** `बीज_सरल` अब `विधि != "पूर्ण"` पर तुरंत `परत् 0-1` (कोई
+   सरलीकरण नहीं)। दोनों-operand-स्थिर fold-पथ (`स्थिर_गणना`) प्रभावित नहीं
+   — पाठ/दशमलव literals कभी `स्थिरांक` नक्शे में नहीं आते, तो वह सिर्फ़
+   तभी चलता जब दोनों ओर सचमुच पूर्ण हों (जो पहले से विधि="पूर्ण" implies करता)।
+   seed **102628→102682**। fixed point + Gen1(split)==Gen2==Gen3;
+   tests/compiler 53/2, stdlib 10/1 (अपरिवर्तित); `verify_intrinsics.ps1`
+   अब **4/4**; `verify_compiler.ps1`/`verify_compiler_self.ps1` अब **55/57**
+   (सिर्फ़ known 41/44)।
+
 **2b. मानक पुस्तकालय (`पुस्तकालय/`) — सूत्र में** (commits `07205ac` + `c07ba45`, 2026-09-01)।
    Phase 2 रोककर पहले लाइब्रेरी (Niraj का निर्णय)। **12 मॉड्यूल**, कोई C
    नहीं, interp/native समान (`tests/stdlib/` 8 फ़ाइलें):
