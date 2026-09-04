@@ -8,364 +8,17 @@
   movq %rbx, -8(%rbp)
   movq %rsi, -16(%rbp)
   movq %rdi, -24(%rbp)
-  movq $0, -48(%rbp)
-  movq $0, -56(%rbp)
-  movq $0, -64(%rbp)
-  movq $0, -72(%rbp)
-  movq $0, -80(%rbp)
-  movq $0, -88(%rbp)
-  movq $0, -96(%rbp)
-  movq $0, -104(%rbp)
-  movq $0, -112(%rbp)
-  movq $0, -120(%rbp)
-  movq $0, -128(%rbp)
-  movq $0, -136(%rbp)
-  movq $0, -144(%rbp)
-  movq $0, -152(%rbp)
-  movq $0, -160(%rbp)
-  movq $0, -168(%rbp)
-  movq $0, -176(%rbp)
-  movq $0, -184(%rbp)
-  movq $0, -192(%rbp)
-  movq $0, -200(%rbp)
-  movq $0, -208(%rbp)
-  movq $0, -216(%rbp)
-  movq $0, -224(%rbp)
-  movq $0, -232(%rbp)
-  movq $0, -240(%rbp)
-  movq $0, -248(%rbp)
-  movq $0, -256(%rbp)
-  movq $0, -264(%rbp)
-  movq $0, -272(%rbp)
-  movq $0, -280(%rbp)
-  movq $0, -288(%rbp)
-  movq $0, -296(%rbp)
-  movq $0, -304(%rbp)
-  movq $0, -312(%rbp)
-  movq $0, -320(%rbp)
-  movq $0, -328(%rbp)
-  movq $0, -336(%rbp)
-  movq $0, -344(%rbp)
-  movq $0, -352(%rbp)
-  movq $0, -360(%rbp)
-  movq $0, -368(%rbp)
-  movq $0, -376(%rbp)
-  movq $0, -384(%rbp)
-  movq $0, -392(%rbp)
-  movq $0, -400(%rbp)
-  movq $0, -408(%rbp)
-  movq $0, -416(%rbp)
-  movq $0, -424(%rbp)
-  movq $0, -432(%rbp)
-  movq $0, -440(%rbp)
-  movq $0, -448(%rbp)
-  movq $0, -456(%rbp)
-  movq $0, -464(%rbp)
-  movq $0, -472(%rbp)
-  movq $0, -480(%rbp)
-  movq $0, -488(%rbp)
-  movq $0, -496(%rbp)
-  movq $0, -504(%rbp)
-  movq $0, -512(%rbp)
-  movq $0, -520(%rbp)
-  movq $0, -528(%rbp)
-  movq $0, -536(%rbp)
-  movq $0, -544(%rbp)
-  movq $0, -552(%rbp)
-  movq $0, -560(%rbp)
-  movq $0, -568(%rbp)
-  movq $0, -576(%rbp)
-  movq $0, -584(%rbp)
-  movq $0, -592(%rbp)
-  movq $0, -600(%rbp)
-  movq $0, -608(%rbp)
-  movq $0, -616(%rbp)
-  movq $0, -624(%rbp)
-  movq $0, -632(%rbp)
-  movq $0, -640(%rbp)
-  movq $0, -648(%rbp)
-  movq $0, -656(%rbp)
-  movq $0, -664(%rbp)
-  movq $0, -672(%rbp)
-  movq $0, -680(%rbp)
-  movq $0, -688(%rbp)
-  movq $0, -696(%rbp)
-  movq $0, -704(%rbp)
-  movq $0, -712(%rbp)
-  movq $0, -720(%rbp)
-  movq $0, -728(%rbp)
-  movq $0, -736(%rbp)
-  movq $0, -744(%rbp)
-  movq $0, -752(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -48(%rbp), %r11
+  movl $89, %ecx
+.Lजड़_आरक्षित_शब्द_तैयार_करो:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -56(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -64(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -72(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -80(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -88(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -96(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -128(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -136(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -144(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -152(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -160(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -168(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -176(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -184(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -192(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -200(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -208(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -216(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -224(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -232(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -240(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -248(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -256(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -264(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -272(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -280(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -288(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -296(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -304(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -312(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -320(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -328(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -336(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -344(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -352(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -360(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -368(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -376(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -384(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -392(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -400(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -408(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -416(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -424(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -432(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -440(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -448(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -456(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -464(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -472(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -480(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -488(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -496(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -504(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -512(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -520(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -528(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -536(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -544(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -552(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -560(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -568(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -576(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -584(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -592(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -600(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -608(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -616(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -624(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -632(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -640(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -648(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -656(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -664(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -672(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -680(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -688(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -696(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -704(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -712(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -720(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -728(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -736(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -744(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -752(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_आरक्षित_शब्द_तैयार_करो
   movl %eax, gc_roots_count(%rip)
 
 .L_आरक्षित_शब्द_तैयार_करो__प्रवेश_0:
@@ -1371,44 +1024,17 @@
   movq %rdx, %rsi
   movq %r8, %rdi
   movq %r9, %r12
-  movq $0, -72(%rbp)
-  movq $0, -80(%rbp)
-  movq $0, -88(%rbp)
-  movq $0, -96(%rbp)
-  movq $0, -104(%rbp)
-  movq $0, -112(%rbp)
-  movq $0, -120(%rbp)
-  movq $0, -128(%rbp)
-  movq $0, -136(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -72(%rbp), %r11
+  movl $9, %ecx
+.Lजड़_पद_रचना:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -80(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -88(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -96(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -128(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -136(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_पद_रचना
   movl %eax, gc_roots_count(%rip)
   movq %rbx, -72(%rbp)
   movq %rsi, -80(%rbp)
@@ -1511,56 +1137,17 @@
   movq %rcx, %rbx
   movq %rdx, %rsi
   movq %r8, %rdi
-  movq $0, -64(%rbp)
-  movq $0, -72(%rbp)
-  movq $0, -80(%rbp)
-  movq $0, -88(%rbp)
-  movq $0, -96(%rbp)
-  movq $0, -104(%rbp)
-  movq $0, -112(%rbp)
-  movq $0, -120(%rbp)
-  movq $0, -128(%rbp)
-  movq $0, -136(%rbp)
-  movq $0, -144(%rbp)
-  movq $0, -152(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -64(%rbp), %r11
+  movl $12, %ecx
+.Lजड़_त्रुटि_फेको:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -72(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -80(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -88(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -96(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -128(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -136(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -144(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -152(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_त्रुटि_फेको
   movl %eax, gc_roots_count(%rip)
   movq %rbx, -64(%rbp)
   movq %rsi, -72(%rbp)
@@ -2578,40 +2165,17 @@
   movq %r12, -32(%rbp)
   movq %r13, -40(%rbp)
   movq %rcx, %rbx
-  movq $0, -64(%rbp)
-  movq $0, -72(%rbp)
-  movq $0, -80(%rbp)
-  movq $0, -88(%rbp)
-  movq $0, -96(%rbp)
-  movq $0, -104(%rbp)
-  movq $0, -112(%rbp)
-  movq $0, -120(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -64(%rbp), %r11
+  movl $8, %ecx
+.Lजड़_अक्षरम्_दृश्यताम्:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -72(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -80(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -88(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -96(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_अक्षरम्_दृश्यताम्
   movl %eax, gc_roots_count(%rip)
   movq %rbx, -64(%rbp)
 
@@ -2722,88 +2286,17 @@
   movq %r13, -40(%rbp)
   movq %r14, -48(%rbp)
   movq %rcx, %rbx
-  movq $0, -72(%rbp)
-  movq $0, -80(%rbp)
-  movq $0, -88(%rbp)
-  movq $0, -96(%rbp)
-  movq $0, -104(%rbp)
-  movq $0, -112(%rbp)
-  movq $0, -120(%rbp)
-  movq $0, -128(%rbp)
-  movq $0, -136(%rbp)
-  movq $0, -144(%rbp)
-  movq $0, -152(%rbp)
-  movq $0, -160(%rbp)
-  movq $0, -168(%rbp)
-  movq $0, -176(%rbp)
-  movq $0, -184(%rbp)
-  movq $0, -192(%rbp)
-  movq $0, -200(%rbp)
-  movq $0, -208(%rbp)
-  movq $0, -216(%rbp)
-  movq $0, -224(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -72(%rbp), %r11
+  movl $20, %ecx
+.Lजड़_अक्षरम्_अग्रिमम्:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -80(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -88(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -96(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -128(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -136(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -144(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -152(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -160(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -168(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -176(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -184(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -192(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -200(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -208(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -216(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -224(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_अक्षरम्_अग्रिमम्
   movl %eax, gc_roots_count(%rip)
   movq %rbx, -72(%rbp)
 
@@ -3050,124 +2543,17 @@
   movq %r13, -40(%rbp)
   movq %r14, -48(%rbp)
   movq %rcx, %rbx
-  movq $0, -72(%rbp)
-  movq $0, -80(%rbp)
-  movq $0, -88(%rbp)
-  movq $0, -96(%rbp)
-  movq $0, -104(%rbp)
-  movq $0, -112(%rbp)
-  movq $0, -120(%rbp)
-  movq $0, -128(%rbp)
-  movq $0, -136(%rbp)
-  movq $0, -144(%rbp)
-  movq $0, -152(%rbp)
-  movq $0, -160(%rbp)
-  movq $0, -168(%rbp)
-  movq $0, -176(%rbp)
-  movq $0, -184(%rbp)
-  movq $0, -192(%rbp)
-  movq $0, -200(%rbp)
-  movq $0, -208(%rbp)
-  movq $0, -216(%rbp)
-  movq $0, -224(%rbp)
-  movq $0, -232(%rbp)
-  movq $0, -240(%rbp)
-  movq $0, -248(%rbp)
-  movq $0, -256(%rbp)
-  movq $0, -264(%rbp)
-  movq $0, -272(%rbp)
-  movq $0, -280(%rbp)
-  movq $0, -288(%rbp)
-  movq $0, -296(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -72(%rbp), %r11
+  movl $29, %ecx
+.Lजड़_रिक्त_टिप्पणी_छोड़ो:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -80(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -88(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -96(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -128(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -136(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -144(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -152(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -160(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -168(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -176(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -184(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -192(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -200(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -208(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -216(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -224(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -232(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -240(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -248(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -256(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -264(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -272(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -280(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -288(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -296(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_रिक्त_टिप्पणी_छोड़ो
   movl %eax, gc_roots_count(%rip)
   movq %rbx, -72(%rbp)
 
@@ -3633,100 +3019,17 @@
   movq %r14, -48(%rbp)
   movq %r15, -56(%rbp)
   movq %rcx, %rbx
-  movq $0, -120(%rbp)
-  movq $0, -128(%rbp)
-  movq $0, -136(%rbp)
-  movq $0, -144(%rbp)
-  movq $0, -152(%rbp)
-  movq $0, -160(%rbp)
-  movq $0, -168(%rbp)
-  movq $0, -176(%rbp)
-  movq $0, -184(%rbp)
-  movq $0, -192(%rbp)
-  movq $0, -200(%rbp)
-  movq $0, -208(%rbp)
-  movq $0, -216(%rbp)
-  movq $0, -224(%rbp)
-  movq $0, -232(%rbp)
-  movq $0, -240(%rbp)
-  movq $0, -248(%rbp)
-  movq $0, -256(%rbp)
-  movq $0, -264(%rbp)
-  movq $0, -272(%rbp)
-  movq $0, -280(%rbp)
-  movq $0, -288(%rbp)
-  movq $0, -296(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -120(%rbp), %r11
+  movl $23, %ecx
+.Lजड़_पहचान_लिखो:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -128(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -136(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -144(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -152(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -160(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -168(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -176(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -184(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -192(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -200(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -208(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -216(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -224(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -232(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -240(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -248(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -256(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -264(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -272(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -280(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -288(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -296(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_पहचान_लिखो
   movl %eax, gc_roots_count(%rip)
   movq %rbx, -120(%rbp)
 
@@ -3982,116 +3285,17 @@
   movq %r14, -48(%rbp)
   movq %r15, -56(%rbp)
   movq %rcx, -104(%rbp)
-  movq $0, -120(%rbp)
-  movq $0, -128(%rbp)
-  movq $0, -136(%rbp)
-  movq $0, -144(%rbp)
-  movq $0, -152(%rbp)
-  movq $0, -160(%rbp)
-  movq $0, -168(%rbp)
-  movq $0, -176(%rbp)
-  movq $0, -184(%rbp)
-  movq $0, -192(%rbp)
-  movq $0, -200(%rbp)
-  movq $0, -208(%rbp)
-  movq $0, -216(%rbp)
-  movq $0, -224(%rbp)
-  movq $0, -232(%rbp)
-  movq $0, -240(%rbp)
-  movq $0, -248(%rbp)
-  movq $0, -256(%rbp)
-  movq $0, -264(%rbp)
-  movq $0, -272(%rbp)
-  movq $0, -280(%rbp)
-  movq $0, -288(%rbp)
-  movq $0, -296(%rbp)
-  movq $0, -304(%rbp)
-  movq $0, -312(%rbp)
-  movq $0, -320(%rbp)
-  movq $0, -328(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -120(%rbp), %r11
+  movl $27, %ecx
+.Lजड़_संख्या_लिखो:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -128(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -136(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -144(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -152(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -160(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -168(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -176(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -184(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -192(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -200(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -208(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -216(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -224(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -232(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -240(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -248(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -256(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -264(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -272(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -280(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -288(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -296(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -304(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -312(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -320(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -328(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_संख्या_लिखो
   movl %eax, gc_roots_count(%rip)
   movq -104(%rbp), %r11
   movq %r11, -120(%rbp)
@@ -4467,108 +3671,17 @@
   movq %r14, -48(%rbp)
   movq %r15, -56(%rbp)
   movq %rcx, %rbx
-  movq $0, -104(%rbp)
-  movq $0, -112(%rbp)
-  movq $0, -120(%rbp)
-  movq $0, -128(%rbp)
-  movq $0, -136(%rbp)
-  movq $0, -144(%rbp)
-  movq $0, -152(%rbp)
-  movq $0, -160(%rbp)
-  movq $0, -168(%rbp)
-  movq $0, -176(%rbp)
-  movq $0, -184(%rbp)
-  movq $0, -192(%rbp)
-  movq $0, -200(%rbp)
-  movq $0, -208(%rbp)
-  movq $0, -216(%rbp)
-  movq $0, -224(%rbp)
-  movq $0, -232(%rbp)
-  movq $0, -240(%rbp)
-  movq $0, -248(%rbp)
-  movq $0, -256(%rbp)
-  movq $0, -264(%rbp)
-  movq $0, -272(%rbp)
-  movq $0, -280(%rbp)
-  movq $0, -288(%rbp)
-  movq $0, -296(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -104(%rbp), %r11
+  movl $25, %ecx
+.Lजड़_पाठ_लिखो:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -128(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -136(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -144(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -152(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -160(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -168(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -176(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -184(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -192(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -200(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -208(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -216(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -224(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -232(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -240(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -248(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -256(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -264(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -272(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -280(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -288(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -296(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_पाठ_लिखो
   movl %eax, gc_roots_count(%rip)
   movq %rbx, -104(%rbp)
 
@@ -5187,84 +4300,17 @@
   movq %r14, -48(%rbp)
   movq %r15, -56(%rbp)
   movq %rcx, %rbx
-  movq $0, -80(%rbp)
-  movq $0, -88(%rbp)
-  movq $0, -96(%rbp)
-  movq $0, -104(%rbp)
-  movq $0, -112(%rbp)
-  movq $0, -120(%rbp)
-  movq $0, -128(%rbp)
-  movq $0, -136(%rbp)
-  movq $0, -144(%rbp)
-  movq $0, -152(%rbp)
-  movq $0, -160(%rbp)
-  movq $0, -168(%rbp)
-  movq $0, -176(%rbp)
-  movq $0, -184(%rbp)
-  movq $0, -192(%rbp)
-  movq $0, -200(%rbp)
-  movq $0, -208(%rbp)
-  movq $0, -216(%rbp)
-  movq $0, -224(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -80(%rbp), %r11
+  movl $19, %ecx
+.Lजड़_वर्ण_लिखो:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -88(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -96(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -128(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -136(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -144(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -152(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -160(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -168(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -176(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -184(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -192(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -200(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -208(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -216(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -224(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_वर्ण_लिखो
   movl %eax, gc_roots_count(%rip)
   movq %rbx, -80(%rbp)
 
@@ -5823,500 +4869,17 @@
   movq %r14, -48(%rbp)
   movq %r15, -56(%rbp)
   movq %rcx, %rbx
-  movq $0, -80(%rbp)
-  movq $0, -88(%rbp)
-  movq $0, -96(%rbp)
-  movq $0, -104(%rbp)
-  movq $0, -112(%rbp)
-  movq $0, -120(%rbp)
-  movq $0, -128(%rbp)
-  movq $0, -136(%rbp)
-  movq $0, -144(%rbp)
-  movq $0, -152(%rbp)
-  movq $0, -160(%rbp)
-  movq $0, -168(%rbp)
-  movq $0, -176(%rbp)
-  movq $0, -184(%rbp)
-  movq $0, -192(%rbp)
-  movq $0, -200(%rbp)
-  movq $0, -208(%rbp)
-  movq $0, -216(%rbp)
-  movq $0, -224(%rbp)
-  movq $0, -232(%rbp)
-  movq $0, -240(%rbp)
-  movq $0, -248(%rbp)
-  movq $0, -256(%rbp)
-  movq $0, -264(%rbp)
-  movq $0, -272(%rbp)
-  movq $0, -280(%rbp)
-  movq $0, -288(%rbp)
-  movq $0, -296(%rbp)
-  movq $0, -304(%rbp)
-  movq $0, -312(%rbp)
-  movq $0, -320(%rbp)
-  movq $0, -328(%rbp)
-  movq $0, -336(%rbp)
-  movq $0, -344(%rbp)
-  movq $0, -352(%rbp)
-  movq $0, -360(%rbp)
-  movq $0, -368(%rbp)
-  movq $0, -376(%rbp)
-  movq $0, -384(%rbp)
-  movq $0, -392(%rbp)
-  movq $0, -400(%rbp)
-  movq $0, -408(%rbp)
-  movq $0, -416(%rbp)
-  movq $0, -424(%rbp)
-  movq $0, -432(%rbp)
-  movq $0, -440(%rbp)
-  movq $0, -448(%rbp)
-  movq $0, -456(%rbp)
-  movq $0, -464(%rbp)
-  movq $0, -472(%rbp)
-  movq $0, -480(%rbp)
-  movq $0, -488(%rbp)
-  movq $0, -496(%rbp)
-  movq $0, -504(%rbp)
-  movq $0, -512(%rbp)
-  movq $0, -520(%rbp)
-  movq $0, -528(%rbp)
-  movq $0, -536(%rbp)
-  movq $0, -544(%rbp)
-  movq $0, -552(%rbp)
-  movq $0, -560(%rbp)
-  movq $0, -568(%rbp)
-  movq $0, -576(%rbp)
-  movq $0, -584(%rbp)
-  movq $0, -592(%rbp)
-  movq $0, -600(%rbp)
-  movq $0, -608(%rbp)
-  movq $0, -616(%rbp)
-  movq $0, -624(%rbp)
-  movq $0, -632(%rbp)
-  movq $0, -640(%rbp)
-  movq $0, -648(%rbp)
-  movq $0, -656(%rbp)
-  movq $0, -664(%rbp)
-  movq $0, -672(%rbp)
-  movq $0, -680(%rbp)
-  movq $0, -688(%rbp)
-  movq $0, -696(%rbp)
-  movq $0, -704(%rbp)
-  movq $0, -712(%rbp)
-  movq $0, -720(%rbp)
-  movq $0, -728(%rbp)
-  movq $0, -736(%rbp)
-  movq $0, -744(%rbp)
-  movq $0, -752(%rbp)
-  movq $0, -760(%rbp)
-  movq $0, -768(%rbp)
-  movq $0, -776(%rbp)
-  movq $0, -784(%rbp)
-  movq $0, -792(%rbp)
-  movq $0, -800(%rbp)
-  movq $0, -808(%rbp)
-  movq $0, -816(%rbp)
-  movq $0, -824(%rbp)
-  movq $0, -832(%rbp)
-  movq $0, -840(%rbp)
-  movq $0, -848(%rbp)
-  movq $0, -856(%rbp)
-  movq $0, -864(%rbp)
-  movq $0, -872(%rbp)
-  movq $0, -880(%rbp)
-  movq $0, -888(%rbp)
-  movq $0, -896(%rbp)
-  movq $0, -904(%rbp)
-  movq $0, -912(%rbp)
-  movq $0, -920(%rbp)
-  movq $0, -928(%rbp)
-  movq $0, -936(%rbp)
-  movq $0, -944(%rbp)
-  movq $0, -952(%rbp)
-  movq $0, -960(%rbp)
-  movq $0, -968(%rbp)
-  movq $0, -976(%rbp)
-  movq $0, -984(%rbp)
-  movq $0, -992(%rbp)
-  movq $0, -1000(%rbp)
-  movq $0, -1008(%rbp)
-  movq $0, -1016(%rbp)
-  movq $0, -1024(%rbp)
-  movq $0, -1032(%rbp)
-  movq $0, -1040(%rbp)
-  movq $0, -1048(%rbp)
-  movq $0, -1056(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -80(%rbp), %r11
+  movl $123, %ecx
+.Lजड़_पद_विच्छेदन:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -88(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -96(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -128(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -136(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -144(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -152(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -160(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -168(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -176(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -184(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -192(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -200(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -208(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -216(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -224(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -232(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -240(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -248(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -256(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -264(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -272(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -280(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -288(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -296(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -304(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -312(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -320(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -328(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -336(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -344(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -352(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -360(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -368(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -376(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -384(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -392(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -400(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -408(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -416(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -424(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -432(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -440(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -448(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -456(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -464(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -472(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -480(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -488(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -496(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -504(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -512(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -520(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -528(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -536(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -544(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -552(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -560(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -568(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -576(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -584(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -592(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -600(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -608(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -616(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -624(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -632(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -640(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -648(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -656(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -664(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -672(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -680(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -688(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -696(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -704(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -712(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -720(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -728(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -736(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -744(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -752(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -760(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -768(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -776(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -784(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -792(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -800(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -808(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -816(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -824(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -832(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -840(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -848(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -856(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -864(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -872(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -880(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -888(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -896(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -904(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -912(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -920(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -928(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -936(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -944(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -952(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -960(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -968(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -976(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -984(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -992(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1000(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1008(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1016(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1024(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1032(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1040(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1048(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1056(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_पद_विच्छेदन
   movl %eax, gc_roots_count(%rip)
   movq %rbx, -80(%rbp)
 
@@ -8240,44 +6803,17 @@
   movq %rdx, %rsi
   movq %r8, %rdi
   movq %r9, %r12
-  movq $0, -80(%rbp)
-  movq $0, -88(%rbp)
-  movq $0, -96(%rbp)
-  movq $0, -104(%rbp)
-  movq $0, -112(%rbp)
-  movq $0, -120(%rbp)
-  movq $0, -128(%rbp)
-  movq $0, -136(%rbp)
-  movq $0, -144(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -80(%rbp), %r11
+  movl $9, %ecx
+.Lजड़_नोड_स्थिरांक:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -88(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -96(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -128(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -136(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -144(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_नोड_स्थिरांक
   movl %eax, gc_roots_count(%rip)
   movq %rbx, -80(%rbp)
   movq %rsi, -88(%rbp)
@@ -8400,36 +6936,17 @@
   movq %rcx, %rbx
   movq %rdx, %rsi
   movq %r8, %rdi
-  movq $0, -72(%rbp)
-  movq $0, -80(%rbp)
-  movq $0, -88(%rbp)
-  movq $0, -96(%rbp)
-  movq $0, -104(%rbp)
-  movq $0, -112(%rbp)
-  movq $0, -120(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -72(%rbp), %r11
+  movl $7, %ecx
+.Lजड़_नोड_पहचान:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -80(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -88(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -96(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_नोड_पहचान
   movl %eax, gc_roots_count(%rip)
   movq %rbx, -72(%rbp)
 
@@ -8537,44 +7054,17 @@
   movq %rdx, %rsi
   movq %r8, %rdi
   movq %r9, %r12
-  movq $0, -80(%rbp)
-  movq $0, -88(%rbp)
-  movq $0, -96(%rbp)
-  movq $0, -104(%rbp)
-  movq $0, -112(%rbp)
-  movq $0, -120(%rbp)
-  movq $0, -128(%rbp)
-  movq $0, -136(%rbp)
-  movq $0, -144(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -80(%rbp), %r11
+  movl $9, %ecx
+.Lजड़_नोड_एकल:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -88(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -96(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -128(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -136(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -144(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_नोड_एकल
   movl %eax, gc_roots_count(%rip)
   movq %rbx, -80(%rbp)
   movq %rsi, -88(%rbp)
@@ -8701,52 +7191,17 @@
   movq %r9, %r12
   movq 48(%rbp), %r10
   movq %r10, %r13
-  movq $0, -88(%rbp)
-  movq $0, -96(%rbp)
-  movq $0, -104(%rbp)
-  movq $0, -112(%rbp)
-  movq $0, -120(%rbp)
-  movq $0, -128(%rbp)
-  movq $0, -136(%rbp)
-  movq $0, -144(%rbp)
-  movq $0, -152(%rbp)
-  movq $0, -160(%rbp)
-  movq $0, -168(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -88(%rbp), %r11
+  movl $11, %ecx
+.Lजड़_नोड_द्विआधारी:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -96(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -128(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -136(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -144(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -152(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -160(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -168(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_नोड_द्विआधारी
   movl %eax, gc_roots_count(%rip)
   movq %rbx, -88(%rbp)
   movq %rsi, -96(%rbp)
@@ -8889,44 +7344,17 @@
   movq %rdx, %rsi
   movq %r8, %rdi
   movq %r9, %r12
-  movq $0, -80(%rbp)
-  movq $0, -88(%rbp)
-  movq $0, -96(%rbp)
-  movq $0, -104(%rbp)
-  movq $0, -112(%rbp)
-  movq $0, -120(%rbp)
-  movq $0, -128(%rbp)
-  movq $0, -136(%rbp)
-  movq $0, -144(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -80(%rbp), %r11
+  movl $9, %ecx
+.Lजड़_नोड_कॉल:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -88(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -96(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -128(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -136(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -144(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_नोड_कॉल
   movl %eax, gc_roots_count(%rip)
   movq %rbx, -80(%rbp)
   movq %rsi, -88(%rbp)
@@ -9047,28 +7475,17 @@
   movq %r13, -40(%rbp)
   movq %rcx, %rbx
   movq %rdx, %rsi
-  movq $0, -64(%rbp)
-  movq $0, -72(%rbp)
-  movq $0, -80(%rbp)
-  movq $0, -88(%rbp)
-  movq $0, -96(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -64(%rbp), %r11
+  movl $5, %ecx
+.Lजड़_नोड_इनपुट:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -72(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -80(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -88(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -96(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_नोड_इनपुट
   movl %eax, gc_roots_count(%rip)
 
 .L_नोड_इनपुट__प्रवेश_0:
@@ -9157,36 +7574,17 @@
   movq %rcx, %rbx
   movq %rdx, %rsi
   movq %r8, %rdi
-  movq $0, -72(%rbp)
-  movq $0, -80(%rbp)
-  movq $0, -88(%rbp)
-  movq $0, -96(%rbp)
-  movq $0, -104(%rbp)
-  movq $0, -112(%rbp)
-  movq $0, -120(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -72(%rbp), %r11
+  movl $7, %ecx
+.Lजड़_नोड_सूची_स्थिरांक:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -80(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -88(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -96(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_नोड_सूची_स्थिरांक
   movl %eax, gc_roots_count(%rip)
   movq %rbx, -72(%rbp)
 
@@ -9292,36 +7690,17 @@
   movq %rcx, %rbx
   movq %rdx, %rsi
   movq %r8, %rdi
-  movq $0, -72(%rbp)
-  movq $0, -80(%rbp)
-  movq $0, -88(%rbp)
-  movq $0, -96(%rbp)
-  movq $0, -104(%rbp)
-  movq $0, -112(%rbp)
-  movq $0, -120(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -72(%rbp), %r11
+  movl $7, %ecx
+.Lजड़_नोड_शब्दकोश_स्थिरांक:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -80(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -88(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -96(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_नोड_शब्दकोश_स्थिरांक
   movl %eax, gc_roots_count(%rip)
   movq %rbx, -72(%rbp)
 
@@ -9429,44 +7808,17 @@
   movq %rdx, %rsi
   movq %r8, %rdi
   movq %r9, %r12
-  movq $0, -80(%rbp)
-  movq $0, -88(%rbp)
-  movq $0, -96(%rbp)
-  movq $0, -104(%rbp)
-  movq $0, -112(%rbp)
-  movq $0, -120(%rbp)
-  movq $0, -128(%rbp)
-  movq $0, -136(%rbp)
-  movq $0, -144(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -80(%rbp), %r11
+  movl $9, %ecx
+.Lजड़_नोड_अनुक्रमणिका:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -88(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -96(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -128(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -136(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -144(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_नोड_अनुक्रमणिका
   movl %eax, gc_roots_count(%rip)
   movq %rbx, -80(%rbp)
   movq %rsi, -88(%rbp)
@@ -9591,44 +7943,17 @@
   movq %rdx, %rsi
   movq %r8, %rdi
   movq %r9, %r12
-  movq $0, -80(%rbp)
-  movq $0, -88(%rbp)
-  movq $0, -96(%rbp)
-  movq $0, -104(%rbp)
-  movq $0, -112(%rbp)
-  movq $0, -120(%rbp)
-  movq $0, -128(%rbp)
-  movq $0, -136(%rbp)
-  movq $0, -144(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -80(%rbp), %r11
+  movl $9, %ecx
+.Lजड़_नोड_सभ्य:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -88(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -96(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -128(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -136(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -144(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_नोड_सभ्य
   movl %eax, gc_roots_count(%rip)
   movq %rbx, -80(%rbp)
   movq %rsi, -88(%rbp)
@@ -9755,52 +8080,17 @@
   movq %r9, %r12
   movq 48(%rbp), %r10
   movq %r10, %r13
-  movq $0, -88(%rbp)
-  movq $0, -96(%rbp)
-  movq $0, -104(%rbp)
-  movq $0, -112(%rbp)
-  movq $0, -120(%rbp)
-  movq $0, -128(%rbp)
-  movq $0, -136(%rbp)
-  movq $0, -144(%rbp)
-  movq $0, -152(%rbp)
-  movq $0, -160(%rbp)
-  movq $0, -168(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -88(%rbp), %r11
+  movl $11, %ecx
+.Lजड़_नोड_विधि_कॉल:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -96(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -128(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -136(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -144(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -152(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -160(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -168(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_नोड_विधि_कॉल
   movl %eax, gc_roots_count(%rip)
   movq %rbx, -88(%rbp)
   movq %rsi, -96(%rbp)
@@ -9943,44 +8233,17 @@
   movq %rdx, %rsi
   movq %r8, %rdi
   movq %r9, %r12
-  movq $0, -80(%rbp)
-  movq $0, -88(%rbp)
-  movq $0, -96(%rbp)
-  movq $0, -104(%rbp)
-  movq $0, -112(%rbp)
-  movq $0, -120(%rbp)
-  movq $0, -128(%rbp)
-  movq $0, -136(%rbp)
-  movq $0, -144(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -80(%rbp), %r11
+  movl $9, %ecx
+.Lजड़_नोड_नवीन:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -88(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -96(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -128(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -136(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -144(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_नोड_नवीन
   movl %eax, gc_roots_count(%rip)
   movq %rbx, -80(%rbp)
   movq %rsi, -88(%rbp)
@@ -10101,28 +8364,17 @@
   movq %r13, -40(%rbp)
   movq %rcx, %rbx
   movq %rdx, %rsi
-  movq $0, -64(%rbp)
-  movq $0, -72(%rbp)
-  movq $0, -80(%rbp)
-  movq $0, -88(%rbp)
-  movq $0, -96(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -64(%rbp), %r11
+  movl $5, %ecx
+.Lजड़_नोड_स्व:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -72(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -80(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -88(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -96(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_नोड_स्व
   movl %eax, gc_roots_count(%rip)
 
 .L_नोड_स्व__प्रवेश_0:
@@ -10215,52 +8467,17 @@
   movq %r9, %r12
   movq 48(%rbp), %r10
   movq %r10, %r13
-  movq $0, -88(%rbp)
-  movq $0, -96(%rbp)
-  movq $0, -104(%rbp)
-  movq $0, -112(%rbp)
-  movq $0, -120(%rbp)
-  movq $0, -128(%rbp)
-  movq $0, -136(%rbp)
-  movq $0, -144(%rbp)
-  movq $0, -152(%rbp)
-  movq $0, -160(%rbp)
-  movq $0, -168(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -88(%rbp), %r11
+  movl $11, %ecx
+.Lजड़_नोड_चर_घोषणा:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -96(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -128(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -136(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -144(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -152(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -160(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -168(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_नोड_चर_घोषणा
   movl %eax, gc_roots_count(%rip)
   movq %rbx, -88(%rbp)
   movq %rsi, -96(%rbp)
@@ -10403,44 +8620,17 @@
   movq %rdx, %rsi
   movq %r8, %rdi
   movq %r9, %r12
-  movq $0, -80(%rbp)
-  movq $0, -88(%rbp)
-  movq $0, -96(%rbp)
-  movq $0, -104(%rbp)
-  movq $0, -112(%rbp)
-  movq $0, -120(%rbp)
-  movq $0, -128(%rbp)
-  movq $0, -136(%rbp)
-  movq $0, -144(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -80(%rbp), %r11
+  movl $9, %ecx
+.Lजड़_नोड_असाइनमेंट:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -88(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -96(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -128(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -136(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -144(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_नोड_असाइनमेंट
   movl %eax, gc_roots_count(%rip)
   movq %rbx, -80(%rbp)
   movq %rsi, -88(%rbp)
@@ -10567,52 +8757,17 @@
   movq %r9, %r12
   movq 48(%rbp), %r10
   movq %r10, %r13
-  movq $0, -88(%rbp)
-  movq $0, -96(%rbp)
-  movq $0, -104(%rbp)
-  movq $0, -112(%rbp)
-  movq $0, -120(%rbp)
-  movq $0, -128(%rbp)
-  movq $0, -136(%rbp)
-  movq $0, -144(%rbp)
-  movq $0, -152(%rbp)
-  movq $0, -160(%rbp)
-  movq $0, -168(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -88(%rbp), %r11
+  movl $11, %ecx
+.Lजड़_नोड_अनुक्रमणिका_असाइनमेंट:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -96(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -128(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -136(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -144(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -152(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -160(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -168(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_नोड_अनुक्रमणिका_असाइनमेंट
   movl %eax, gc_roots_count(%rip)
   movq %rbx, -88(%rbp)
   movq %rsi, -96(%rbp)
@@ -10757,52 +8912,17 @@
   movq %r9, %r12
   movq 48(%rbp), %r10
   movq %r10, %r13
-  movq $0, -88(%rbp)
-  movq $0, -96(%rbp)
-  movq $0, -104(%rbp)
-  movq $0, -112(%rbp)
-  movq $0, -120(%rbp)
-  movq $0, -128(%rbp)
-  movq $0, -136(%rbp)
-  movq $0, -144(%rbp)
-  movq $0, -152(%rbp)
-  movq $0, -160(%rbp)
-  movq $0, -168(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -88(%rbp), %r11
+  movl $11, %ecx
+.Lजड़_नोड_सभ्य_असाइनमेंट:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -96(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -128(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -136(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -144(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -152(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -160(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -168(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_नोड_सभ्य_असाइनमेंट
   movl %eax, gc_roots_count(%rip)
   movq %rbx, -88(%rbp)
   movq %rsi, -96(%rbp)
@@ -10943,36 +9063,17 @@
   movq %rcx, %rbx
   movq %rdx, %rsi
   movq %r8, %rdi
-  movq $0, -72(%rbp)
-  movq $0, -80(%rbp)
-  movq $0, -88(%rbp)
-  movq $0, -96(%rbp)
-  movq $0, -104(%rbp)
-  movq $0, -112(%rbp)
-  movq $0, -120(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -72(%rbp), %r11
+  movl $7, %ecx
+.Lजड़_नोड_अभिव्यक्ति_कथन:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -80(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -88(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -96(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_नोड_अभिव्यक्ति_कथन
   movl %eax, gc_roots_count(%rip)
   movq %rbx, -72(%rbp)
 
@@ -11080,44 +9181,17 @@
   movq %rdx, %rsi
   movq %r8, %rdi
   movq %r9, %r12
-  movq $0, -80(%rbp)
-  movq $0, -88(%rbp)
-  movq $0, -96(%rbp)
-  movq $0, -104(%rbp)
-  movq $0, -112(%rbp)
-  movq $0, -120(%rbp)
-  movq $0, -128(%rbp)
-  movq $0, -136(%rbp)
-  movq $0, -144(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -80(%rbp), %r11
+  movl $9, %ecx
+.Lजड़_नोड_लिखतु:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -88(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -96(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -128(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -136(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -144(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_नोड_लिखतु
   movl %eax, gc_roots_count(%rip)
   movq %rbx, -80(%rbp)
   movq %rsi, -88(%rbp)
@@ -11240,36 +9314,17 @@
   movq %rcx, %rbx
   movq %rdx, %rsi
   movq %r8, %rdi
-  movq $0, -72(%rbp)
-  movq $0, -80(%rbp)
-  movq $0, -88(%rbp)
-  movq $0, -96(%rbp)
-  movq $0, -104(%rbp)
-  movq $0, -112(%rbp)
-  movq $0, -120(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -72(%rbp), %r11
+  movl $7, %ecx
+.Lजड़_नोड_ब्लॉक:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -80(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -88(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -96(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_नोड_ब्लॉक
   movl %eax, gc_roots_count(%rip)
   movq %rbx, -72(%rbp)
 
@@ -11379,52 +9434,17 @@
   movq %r9, %r12
   movq 48(%rbp), %r10
   movq %r10, %r13
-  movq $0, -88(%rbp)
-  movq $0, -96(%rbp)
-  movq $0, -104(%rbp)
-  movq $0, -112(%rbp)
-  movq $0, -120(%rbp)
-  movq $0, -128(%rbp)
-  movq $0, -136(%rbp)
-  movq $0, -144(%rbp)
-  movq $0, -152(%rbp)
-  movq $0, -160(%rbp)
-  movq $0, -168(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -88(%rbp), %r11
+  movl $11, %ecx
+.Lजड़_नोड_यदि:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -96(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -128(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -136(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -144(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -152(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -160(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -168(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_नोड_यदि
   movl %eax, gc_roots_count(%rip)
   movq %rbx, -88(%rbp)
   movq %rsi, -96(%rbp)
@@ -11567,44 +9587,17 @@
   movq %rdx, %rsi
   movq %r8, %rdi
   movq %r9, %r12
-  movq $0, -80(%rbp)
-  movq $0, -88(%rbp)
-  movq $0, -96(%rbp)
-  movq $0, -104(%rbp)
-  movq $0, -112(%rbp)
-  movq $0, -120(%rbp)
-  movq $0, -128(%rbp)
-  movq $0, -136(%rbp)
-  movq $0, -144(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -80(%rbp), %r11
+  movl $9, %ecx
+.Lजड़_नोड_यावत्:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -88(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -96(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -128(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -136(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -144(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_नोड_यावत्
   movl %eax, gc_roots_count(%rip)
   movq %rbx, -80(%rbp)
   movq %rsi, -88(%rbp)
@@ -11733,60 +9726,17 @@
   movq %r10, %r13
   movq 56(%rbp), %r10
   movq %r10, -88(%rbp)
-  movq $0, -104(%rbp)
-  movq $0, -112(%rbp)
-  movq $0, -120(%rbp)
-  movq $0, -128(%rbp)
-  movq $0, -136(%rbp)
-  movq $0, -144(%rbp)
-  movq $0, -152(%rbp)
-  movq $0, -160(%rbp)
-  movq $0, -168(%rbp)
-  movq $0, -176(%rbp)
-  movq $0, -184(%rbp)
-  movq $0, -192(%rbp)
-  movq $0, -200(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -104(%rbp), %r11
+  movl $13, %ecx
+.Lजड़_नोड_पुनरावृत्ति:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -128(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -136(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -144(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -152(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -160(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -168(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -176(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -184(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -192(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -200(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_नोड_पुनरावृत्ति
   movl %eax, gc_roots_count(%rip)
   movq %rbx, -104(%rbp)
   movq %rsi, -112(%rbp)
@@ -11941,28 +9891,17 @@
   movq %r13, -40(%rbp)
   movq %rcx, %rbx
   movq %rdx, %rsi
-  movq $0, -64(%rbp)
-  movq $0, -72(%rbp)
-  movq $0, -80(%rbp)
-  movq $0, -88(%rbp)
-  movq $0, -96(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -64(%rbp), %r11
+  movl $5, %ecx
+.Lजड़_नोड_विराम:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -72(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -80(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -88(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -96(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_नोड_विराम
   movl %eax, gc_roots_count(%rip)
 
 .L_नोड_विराम__प्रवेश_0:
@@ -12049,28 +9988,17 @@
   movq %r13, -40(%rbp)
   movq %rcx, %rbx
   movq %rdx, %rsi
-  movq $0, -64(%rbp)
-  movq $0, -72(%rbp)
-  movq $0, -80(%rbp)
-  movq $0, -88(%rbp)
-  movq $0, -96(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -64(%rbp), %r11
+  movl $5, %ecx
+.Lजड़_नोड_जारी:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -72(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -80(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -88(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -96(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_नोड_जारी
   movl %eax, gc_roots_count(%rip)
 
 .L_नोड_जारी__प्रवेश_0:
@@ -12159,36 +10087,17 @@
   movq %rcx, %rbx
   movq %rdx, %rsi
   movq %r8, %rdi
-  movq $0, -72(%rbp)
-  movq $0, -80(%rbp)
-  movq $0, -88(%rbp)
-  movq $0, -96(%rbp)
-  movq $0, -104(%rbp)
-  movq $0, -112(%rbp)
-  movq $0, -120(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -72(%rbp), %r11
+  movl $7, %ecx
+.Lजड़_नोड_परत्:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -80(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -88(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -96(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_नोड_परत्
   movl %eax, gc_roots_count(%rip)
   movq %rbx, -72(%rbp)
 
@@ -12298,52 +10207,17 @@
   movq %r9, %r12
   movq 48(%rbp), %r10
   movq %r10, %r13
-  movq $0, -88(%rbp)
-  movq $0, -96(%rbp)
-  movq $0, -104(%rbp)
-  movq $0, -112(%rbp)
-  movq $0, -120(%rbp)
-  movq $0, -128(%rbp)
-  movq $0, -136(%rbp)
-  movq $0, -144(%rbp)
-  movq $0, -152(%rbp)
-  movq $0, -160(%rbp)
-  movq $0, -168(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -88(%rbp), %r11
+  movl $11, %ecx
+.Lजड़_नोड_प्रयत्न:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -96(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -128(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -136(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -144(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -152(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -160(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -168(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_नोड_प्रयत्न
   movl %eax, gc_roots_count(%rip)
   movq %rbx, -88(%rbp)
   movq %rsi, -96(%rbp)
@@ -12484,36 +10358,17 @@
   movq %rcx, %rbx
   movq %rdx, %rsi
   movq %r8, %rdi
-  movq $0, -72(%rbp)
-  movq $0, -80(%rbp)
-  movq $0, -88(%rbp)
-  movq $0, -96(%rbp)
-  movq $0, -104(%rbp)
-  movq $0, -112(%rbp)
-  movq $0, -120(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -72(%rbp), %r11
+  movl $7, %ecx
+.Lजड़_नोड_फेको:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -80(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -88(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -96(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_नोड_फेको
   movl %eax, gc_roots_count(%rip)
   movq %rbx, -72(%rbp)
 
@@ -12619,36 +10474,17 @@
   movq %rcx, %rbx
   movq %rdx, %rsi
   movq %r8, %rdi
-  movq $0, -72(%rbp)
-  movq $0, -80(%rbp)
-  movq $0, -88(%rbp)
-  movq $0, -96(%rbp)
-  movq $0, -104(%rbp)
-  movq $0, -112(%rbp)
-  movq $0, -120(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -72(%rbp), %r11
+  movl $7, %ecx
+.Lजड़_नोड_आयात:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -80(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -88(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -96(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_नोड_आयात
   movl %eax, gc_roots_count(%rip)
   movq %rbx, -72(%rbp)
 
@@ -12758,52 +10594,17 @@
   movq %r9, %r12
   movq 48(%rbp), %r10
   movq %r10, %r13
-  movq $0, -88(%rbp)
-  movq $0, -96(%rbp)
-  movq $0, -104(%rbp)
-  movq $0, -112(%rbp)
-  movq $0, -120(%rbp)
-  movq $0, -128(%rbp)
-  movq $0, -136(%rbp)
-  movq $0, -144(%rbp)
-  movq $0, -152(%rbp)
-  movq $0, -160(%rbp)
-  movq $0, -168(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -88(%rbp), %r11
+  movl $11, %ecx
+.Lजड़_नोड_घोषणा_कार्य:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -96(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -128(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -136(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -144(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -152(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -160(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -168(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_नोड_घोषणा_कार्य
   movl %eax, gc_roots_count(%rip)
   movq %rbx, -88(%rbp)
   movq %rsi, -96(%rbp)
@@ -12948,52 +10749,17 @@
   movq %r9, %r12
   movq 48(%rbp), %r10
   movq %r10, %r13
-  movq $0, -88(%rbp)
-  movq $0, -96(%rbp)
-  movq $0, -104(%rbp)
-  movq $0, -112(%rbp)
-  movq $0, -120(%rbp)
-  movq $0, -128(%rbp)
-  movq $0, -136(%rbp)
-  movq $0, -144(%rbp)
-  movq $0, -152(%rbp)
-  movq $0, -160(%rbp)
-  movq $0, -168(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -88(%rbp), %r11
+  movl $11, %ecx
+.Lजड़_नोड_घोषणा_वर्ग:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -96(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -128(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -136(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -144(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -152(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -160(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -168(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_नोड_घोषणा_वर्ग
   movl %eax, gc_roots_count(%rip)
   movq %rbx, -88(%rbp)
   movq %rsi, -96(%rbp)
@@ -13134,52 +10900,17 @@
   movq %rcx, %rbx
   movq %rdx, %rsi
   movq %r8, %rdi
-  movq $0, -72(%rbp)
-  movq $0, -80(%rbp)
-  movq $0, -88(%rbp)
-  movq $0, -96(%rbp)
-  movq $0, -104(%rbp)
-  movq $0, -112(%rbp)
-  movq $0, -120(%rbp)
-  movq $0, -128(%rbp)
-  movq $0, -136(%rbp)
-  movq $0, -144(%rbp)
-  movq $0, -152(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -72(%rbp), %r11
+  movl $11, %ecx
+.Lजड़_नोड_प्रोग्राम:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -80(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -88(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -96(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -128(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -136(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -144(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -152(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_नोड_प्रोग्राम
   movl %eax, gc_roots_count(%rip)
   movq %rbx, -72(%rbp)
   movq %rsi, -80(%rbp)
@@ -13316,64 +11047,17 @@
   movq %r12, -32(%rbp)
   movq %r13, -40(%rbp)
   movq %rcx, %rbx
-  movq $0, -64(%rbp)
-  movq $0, -72(%rbp)
-  movq $0, -80(%rbp)
-  movq $0, -88(%rbp)
-  movq $0, -96(%rbp)
-  movq $0, -104(%rbp)
-  movq $0, -112(%rbp)
-  movq $0, -120(%rbp)
-  movq $0, -128(%rbp)
-  movq $0, -136(%rbp)
-  movq $0, -144(%rbp)
-  movq $0, -152(%rbp)
-  movq $0, -160(%rbp)
-  movq $0, -168(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -64(%rbp), %r11
+  movl $14, %ecx
+.Lजड़_वर्तमान:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -72(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -80(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -88(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -96(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -128(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -136(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -144(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -152(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -160(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -168(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_वर्तमान
   movl %eax, gc_roots_count(%rip)
   movq %rbx, -64(%rbp)
 
@@ -13535,72 +11219,17 @@
   movq %r12, -32(%rbp)
   movq %r13, -40(%rbp)
   movq %rcx, %rbx
-  movq $0, -64(%rbp)
-  movq $0, -72(%rbp)
-  movq $0, -80(%rbp)
-  movq $0, -88(%rbp)
-  movq $0, -96(%rbp)
-  movq $0, -104(%rbp)
-  movq $0, -112(%rbp)
-  movq $0, -120(%rbp)
-  movq $0, -128(%rbp)
-  movq $0, -136(%rbp)
-  movq $0, -144(%rbp)
-  movq $0, -152(%rbp)
-  movq $0, -160(%rbp)
-  movq $0, -168(%rbp)
-  movq $0, -176(%rbp)
-  movq $0, -184(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -64(%rbp), %r11
+  movl $16, %ecx
+.Lजड़_अगला:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -72(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -80(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -88(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -96(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -128(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -136(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -144(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -152(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -160(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -168(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -176(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -184(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_अगला
   movl %eax, gc_roots_count(%rip)
   movq %rbx, -64(%rbp)
 
@@ -13779,48 +11408,17 @@
   movq %rdi, -24(%rbp)
   movq %r12, -32(%rbp)
   movq %rcx, %rbx
-  movq $0, -56(%rbp)
-  movq $0, -64(%rbp)
-  movq $0, -72(%rbp)
-  movq $0, -80(%rbp)
-  movq $0, -88(%rbp)
-  movq $0, -96(%rbp)
-  movq $0, -104(%rbp)
-  movq $0, -112(%rbp)
-  movq $0, -120(%rbp)
-  movq $0, -128(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -56(%rbp), %r11
+  movl $10, %ecx
+.Lजड़_पिछला:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -64(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -72(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -80(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -88(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -96(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -128(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_पिछला
   movl %eax, gc_roots_count(%rip)
   movq %rbx, -56(%rbp)
 
@@ -13949,28 +11547,17 @@
   movq %rsi, -16(%rbp)
   movq %rdi, -24(%rbp)
   movq %rcx, %rbx
-  movq $0, -48(%rbp)
-  movq $0, -56(%rbp)
-  movq $0, -64(%rbp)
-  movq $0, -72(%rbp)
-  movq $0, -80(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -48(%rbp), %r11
+  movl $5, %ecx
+.Lजड़_अन्त_है:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -56(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -64(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -72(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -80(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_अन्त_है
   movl %eax, gc_roots_count(%rip)
   movq %rbx, -48(%rbp)
 
@@ -14037,28 +11624,17 @@
   movq %r12, -32(%rbp)
   movq %r13, -40(%rbp)
   movq %rcx, %rbx
-  movq $0, -64(%rbp)
-  movq $0, -72(%rbp)
-  movq $0, -80(%rbp)
-  movq $0, -88(%rbp)
-  movq $0, -96(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -64(%rbp), %r11
+  movl $5, %ecx
+.Lजड़_आगे_बढ़ो:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -72(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -80(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -88(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -96(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_आगे_बढ़ो
   movl %eax, gc_roots_count(%rip)
   movq %rbx, -64(%rbp)
 
@@ -14153,28 +11729,17 @@
   movq %r12, -32(%rbp)
   movq %rcx, %rbx
   movq %rdx, %rsi
-  movq $0, -56(%rbp)
-  movq $0, -64(%rbp)
-  movq $0, -72(%rbp)
-  movq $0, -80(%rbp)
-  movq $0, -88(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -56(%rbp), %r11
+  movl $5, %ecx
+.Lजड़_जाँचो:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -64(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -72(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -80(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -88(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_जाँचो
   movl %eax, gc_roots_count(%rip)
   movq %rbx, -56(%rbp)
   movq %rsi, -64(%rbp)
@@ -14318,96 +11883,17 @@
   movq %rcx, %rbx
   movq %rdx, %rsi
   movq %r8, %rdi
-  movq $0, -72(%rbp)
-  movq $0, -80(%rbp)
-  movq $0, -88(%rbp)
-  movq $0, -96(%rbp)
-  movq $0, -104(%rbp)
-  movq $0, -112(%rbp)
-  movq $0, -120(%rbp)
-  movq $0, -128(%rbp)
-  movq $0, -136(%rbp)
-  movq $0, -144(%rbp)
-  movq $0, -152(%rbp)
-  movq $0, -160(%rbp)
-  movq $0, -168(%rbp)
-  movq $0, -176(%rbp)
-  movq $0, -184(%rbp)
-  movq $0, -192(%rbp)
-  movq $0, -200(%rbp)
-  movq $0, -208(%rbp)
-  movq $0, -216(%rbp)
-  movq $0, -224(%rbp)
-  movq $0, -232(%rbp)
-  movq $0, -240(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -72(%rbp), %r11
+  movl $22, %ecx
+.Lजड़_ग्रहण:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -80(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -88(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -96(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -128(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -136(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -144(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -152(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -160(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -168(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -176(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -184(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -192(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -200(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -208(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -216(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -224(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -232(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -240(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_ग्रहण
   movl %eax, gc_roots_count(%rip)
   movq %rbx, -72(%rbp)
   movq %rsi, -80(%rbp)
@@ -14662,56 +12148,17 @@
   movq %r14, -48(%rbp)
   movq %r15, -56(%rbp)
   movq %rcx, -72(%rbp)
-  movq $0, -88(%rbp)
-  movq $0, -96(%rbp)
-  movq $0, -104(%rbp)
-  movq $0, -112(%rbp)
-  movq $0, -120(%rbp)
-  movq $0, -128(%rbp)
-  movq $0, -136(%rbp)
-  movq $0, -144(%rbp)
-  movq $0, -152(%rbp)
-  movq $0, -160(%rbp)
-  movq $0, -168(%rbp)
-  movq $0, -176(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -88(%rbp), %r11
+  movl $12, %ecx
+.Lजड़_तार्किक_अथवा_पार्स:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -96(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -128(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -136(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -144(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -152(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -160(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -168(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -176(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_तार्किक_अथवा_पार्स
   movl %eax, gc_roots_count(%rip)
   movq -72(%rbp), %r11
   movq %r11, -88(%rbp)
@@ -14880,56 +12327,17 @@
   movq %r14, -48(%rbp)
   movq %r15, -56(%rbp)
   movq %rcx, -72(%rbp)
-  movq $0, -88(%rbp)
-  movq $0, -96(%rbp)
-  movq $0, -104(%rbp)
-  movq $0, -112(%rbp)
-  movq $0, -120(%rbp)
-  movq $0, -128(%rbp)
-  movq $0, -136(%rbp)
-  movq $0, -144(%rbp)
-  movq $0, -152(%rbp)
-  movq $0, -160(%rbp)
-  movq $0, -168(%rbp)
-  movq $0, -176(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -88(%rbp), %r11
+  movl $12, %ecx
+.Lजड़_तार्किक_तथा_पार्स:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -96(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -128(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -136(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -144(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -152(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -160(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -168(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -176(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_तार्किक_तथा_पार्स
   movl %eax, gc_roots_count(%rip)
   movq -72(%rbp), %r11
   movq %r11, -88(%rbp)
@@ -15098,56 +12506,17 @@
   movq %r14, -48(%rbp)
   movq %r15, -56(%rbp)
   movq %rcx, -72(%rbp)
-  movq $0, -88(%rbp)
-  movq $0, -96(%rbp)
-  movq $0, -104(%rbp)
-  movq $0, -112(%rbp)
-  movq $0, -120(%rbp)
-  movq $0, -128(%rbp)
-  movq $0, -136(%rbp)
-  movq $0, -144(%rbp)
-  movq $0, -152(%rbp)
-  movq $0, -160(%rbp)
-  movq $0, -168(%rbp)
-  movq $0, -176(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -88(%rbp), %r11
+  movl $12, %ecx
+.Lजड़_समानता_पार्स:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -96(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -128(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -136(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -144(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -152(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -160(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -168(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -176(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_समानता_पार्स
   movl %eax, gc_roots_count(%rip)
   movq -72(%rbp), %r11
   movq %r11, -88(%rbp)
@@ -15316,64 +12685,17 @@
   movq %r14, -48(%rbp)
   movq %r15, -56(%rbp)
   movq %rcx, -72(%rbp)
-  movq $0, -88(%rbp)
-  movq $0, -96(%rbp)
-  movq $0, -104(%rbp)
-  movq $0, -112(%rbp)
-  movq $0, -120(%rbp)
-  movq $0, -128(%rbp)
-  movq $0, -136(%rbp)
-  movq $0, -144(%rbp)
-  movq $0, -152(%rbp)
-  movq $0, -160(%rbp)
-  movq $0, -168(%rbp)
-  movq $0, -176(%rbp)
-  movq $0, -184(%rbp)
-  movq $0, -192(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -88(%rbp), %r11
+  movl $14, %ecx
+.Lजड़_तुलना_पार्स:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -96(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -128(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -136(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -144(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -152(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -160(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -168(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -176(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -184(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -192(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_तुलना_पार्स
   movl %eax, gc_roots_count(%rip)
   movq -72(%rbp), %r11
   movq %r11, -88(%rbp)
@@ -15596,56 +12918,17 @@
   movq %r14, -48(%rbp)
   movq %r15, -56(%rbp)
   movq %rcx, -72(%rbp)
-  movq $0, -88(%rbp)
-  movq $0, -96(%rbp)
-  movq $0, -104(%rbp)
-  movq $0, -112(%rbp)
-  movq $0, -120(%rbp)
-  movq $0, -128(%rbp)
-  movq $0, -136(%rbp)
-  movq $0, -144(%rbp)
-  movq $0, -152(%rbp)
-  movq $0, -160(%rbp)
-  movq $0, -168(%rbp)
-  movq $0, -176(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -88(%rbp), %r11
+  movl $12, %ecx
+.Lजड़_योग_अंतर_पार्स:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -96(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -128(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -136(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -144(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -152(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -160(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -168(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -176(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_योग_अंतर_पार्स
   movl %eax, gc_roots_count(%rip)
   movq -72(%rbp), %r11
   movq %r11, -88(%rbp)
@@ -15814,60 +13097,17 @@
   movq %r14, -48(%rbp)
   movq %r15, -56(%rbp)
   movq %rcx, -72(%rbp)
-  movq $0, -88(%rbp)
-  movq $0, -96(%rbp)
-  movq $0, -104(%rbp)
-  movq $0, -112(%rbp)
-  movq $0, -120(%rbp)
-  movq $0, -128(%rbp)
-  movq $0, -136(%rbp)
-  movq $0, -144(%rbp)
-  movq $0, -152(%rbp)
-  movq $0, -160(%rbp)
-  movq $0, -168(%rbp)
-  movq $0, -176(%rbp)
-  movq $0, -184(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -88(%rbp), %r11
+  movl $13, %ecx
+.Lजड़_गुणा_भाग_पार्स:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -96(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -128(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -136(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -144(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -152(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -160(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -168(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -176(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -184(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_गुणा_भाग_पार्स
   movl %eax, gc_roots_count(%rip)
   movq -72(%rbp), %r11
   movq %r11, -88(%rbp)
@@ -16062,56 +13302,17 @@
   movq %r13, -40(%rbp)
   movq %r14, -48(%rbp)
   movq %rcx, %rbx
-  movq $0, -72(%rbp)
-  movq $0, -80(%rbp)
-  movq $0, -88(%rbp)
-  movq $0, -96(%rbp)
-  movq $0, -104(%rbp)
-  movq $0, -112(%rbp)
-  movq $0, -120(%rbp)
-  movq $0, -128(%rbp)
-  movq $0, -136(%rbp)
-  movq $0, -144(%rbp)
-  movq $0, -152(%rbp)
-  movq $0, -160(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -72(%rbp), %r11
+  movl $12, %ecx
+.Lजड़_एकल_पार्स:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -80(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -88(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -96(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -128(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -136(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -144(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -152(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -160(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_एकल_पार्स
   movl %eax, gc_roots_count(%rip)
   movq %rbx, -72(%rbp)
 
@@ -16299,136 +13500,17 @@
   movq %r14, -48(%rbp)
   movq %r15, -56(%rbp)
   movq %rcx, -72(%rbp)
-  movq $0, -120(%rbp)
-  movq $0, -128(%rbp)
-  movq $0, -136(%rbp)
-  movq $0, -144(%rbp)
-  movq $0, -152(%rbp)
-  movq $0, -160(%rbp)
-  movq $0, -168(%rbp)
-  movq $0, -176(%rbp)
-  movq $0, -184(%rbp)
-  movq $0, -192(%rbp)
-  movq $0, -200(%rbp)
-  movq $0, -208(%rbp)
-  movq $0, -216(%rbp)
-  movq $0, -224(%rbp)
-  movq $0, -232(%rbp)
-  movq $0, -240(%rbp)
-  movq $0, -248(%rbp)
-  movq $0, -256(%rbp)
-  movq $0, -264(%rbp)
-  movq $0, -272(%rbp)
-  movq $0, -280(%rbp)
-  movq $0, -288(%rbp)
-  movq $0, -296(%rbp)
-  movq $0, -304(%rbp)
-  movq $0, -312(%rbp)
-  movq $0, -320(%rbp)
-  movq $0, -328(%rbp)
-  movq $0, -336(%rbp)
-  movq $0, -344(%rbp)
-  movq $0, -352(%rbp)
-  movq $0, -360(%rbp)
-  movq $0, -368(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -120(%rbp), %r11
+  movl $32, %ecx
+.Lजड़_उत्तरलग्न_पार्स:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -128(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -136(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -144(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -152(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -160(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -168(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -176(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -184(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -192(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -200(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -208(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -216(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -224(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -232(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -240(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -248(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -256(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -264(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -272(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -280(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -288(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -296(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -304(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -312(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -320(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -328(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -336(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -344(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -352(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -360(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -368(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_उत्तरलग्न_पार्स
   movl %eax, gc_roots_count(%rip)
   movq -72(%rbp), %r11
   movq %r11, -120(%rbp)
@@ -16855,844 +13937,17 @@
   movq %r14, -48(%rbp)
   movq %r15, -56(%rbp)
   movq %rcx, -88(%rbp)
-  movq $0, -488(%rbp)
-  movq $0, -496(%rbp)
-  movq $0, -504(%rbp)
-  movq $0, -512(%rbp)
-  movq $0, -520(%rbp)
-  movq $0, -528(%rbp)
-  movq $0, -536(%rbp)
-  movq $0, -544(%rbp)
-  movq $0, -552(%rbp)
-  movq $0, -560(%rbp)
-  movq $0, -568(%rbp)
-  movq $0, -576(%rbp)
-  movq $0, -584(%rbp)
-  movq $0, -592(%rbp)
-  movq $0, -600(%rbp)
-  movq $0, -608(%rbp)
-  movq $0, -616(%rbp)
-  movq $0, -624(%rbp)
-  movq $0, -632(%rbp)
-  movq $0, -640(%rbp)
-  movq $0, -648(%rbp)
-  movq $0, -656(%rbp)
-  movq $0, -664(%rbp)
-  movq $0, -672(%rbp)
-  movq $0, -680(%rbp)
-  movq $0, -688(%rbp)
-  movq $0, -696(%rbp)
-  movq $0, -704(%rbp)
-  movq $0, -712(%rbp)
-  movq $0, -720(%rbp)
-  movq $0, -728(%rbp)
-  movq $0, -736(%rbp)
-  movq $0, -744(%rbp)
-  movq $0, -752(%rbp)
-  movq $0, -760(%rbp)
-  movq $0, -768(%rbp)
-  movq $0, -776(%rbp)
-  movq $0, -784(%rbp)
-  movq $0, -792(%rbp)
-  movq $0, -800(%rbp)
-  movq $0, -808(%rbp)
-  movq $0, -816(%rbp)
-  movq $0, -824(%rbp)
-  movq $0, -832(%rbp)
-  movq $0, -840(%rbp)
-  movq $0, -848(%rbp)
-  movq $0, -856(%rbp)
-  movq $0, -864(%rbp)
-  movq $0, -872(%rbp)
-  movq $0, -880(%rbp)
-  movq $0, -888(%rbp)
-  movq $0, -896(%rbp)
-  movq $0, -904(%rbp)
-  movq $0, -912(%rbp)
-  movq $0, -920(%rbp)
-  movq $0, -928(%rbp)
-  movq $0, -936(%rbp)
-  movq $0, -944(%rbp)
-  movq $0, -952(%rbp)
-  movq $0, -960(%rbp)
-  movq $0, -968(%rbp)
-  movq $0, -976(%rbp)
-  movq $0, -984(%rbp)
-  movq $0, -992(%rbp)
-  movq $0, -1000(%rbp)
-  movq $0, -1008(%rbp)
-  movq $0, -1016(%rbp)
-  movq $0, -1024(%rbp)
-  movq $0, -1032(%rbp)
-  movq $0, -1040(%rbp)
-  movq $0, -1048(%rbp)
-  movq $0, -1056(%rbp)
-  movq $0, -1064(%rbp)
-  movq $0, -1072(%rbp)
-  movq $0, -1080(%rbp)
-  movq $0, -1088(%rbp)
-  movq $0, -1096(%rbp)
-  movq $0, -1104(%rbp)
-  movq $0, -1112(%rbp)
-  movq $0, -1120(%rbp)
-  movq $0, -1128(%rbp)
-  movq $0, -1136(%rbp)
-  movq $0, -1144(%rbp)
-  movq $0, -1152(%rbp)
-  movq $0, -1160(%rbp)
-  movq $0, -1168(%rbp)
-  movq $0, -1176(%rbp)
-  movq $0, -1184(%rbp)
-  movq $0, -1192(%rbp)
-  movq $0, -1200(%rbp)
-  movq $0, -1208(%rbp)
-  movq $0, -1216(%rbp)
-  movq $0, -1224(%rbp)
-  movq $0, -1232(%rbp)
-  movq $0, -1240(%rbp)
-  movq $0, -1248(%rbp)
-  movq $0, -1256(%rbp)
-  movq $0, -1264(%rbp)
-  movq $0, -1272(%rbp)
-  movq $0, -1280(%rbp)
-  movq $0, -1288(%rbp)
-  movq $0, -1296(%rbp)
-  movq $0, -1304(%rbp)
-  movq $0, -1312(%rbp)
-  movq $0, -1320(%rbp)
-  movq $0, -1328(%rbp)
-  movq $0, -1336(%rbp)
-  movq $0, -1344(%rbp)
-  movq $0, -1352(%rbp)
-  movq $0, -1360(%rbp)
-  movq $0, -1368(%rbp)
-  movq $0, -1376(%rbp)
-  movq $0, -1384(%rbp)
-  movq $0, -1392(%rbp)
-  movq $0, -1400(%rbp)
-  movq $0, -1408(%rbp)
-  movq $0, -1416(%rbp)
-  movq $0, -1424(%rbp)
-  movq $0, -1432(%rbp)
-  movq $0, -1440(%rbp)
-  movq $0, -1448(%rbp)
-  movq $0, -1456(%rbp)
-  movq $0, -1464(%rbp)
-  movq $0, -1472(%rbp)
-  movq $0, -1480(%rbp)
-  movq $0, -1488(%rbp)
-  movq $0, -1496(%rbp)
-  movq $0, -1504(%rbp)
-  movq $0, -1512(%rbp)
-  movq $0, -1520(%rbp)
-  movq $0, -1528(%rbp)
-  movq $0, -1536(%rbp)
-  movq $0, -1544(%rbp)
-  movq $0, -1552(%rbp)
-  movq $0, -1560(%rbp)
-  movq $0, -1568(%rbp)
-  movq $0, -1576(%rbp)
-  movq $0, -1584(%rbp)
-  movq $0, -1592(%rbp)
-  movq $0, -1600(%rbp)
-  movq $0, -1608(%rbp)
-  movq $0, -1616(%rbp)
-  movq $0, -1624(%rbp)
-  movq $0, -1632(%rbp)
-  movq $0, -1640(%rbp)
-  movq $0, -1648(%rbp)
-  movq $0, -1656(%rbp)
-  movq $0, -1664(%rbp)
-  movq $0, -1672(%rbp)
-  movq $0, -1680(%rbp)
-  movq $0, -1688(%rbp)
-  movq $0, -1696(%rbp)
-  movq $0, -1704(%rbp)
-  movq $0, -1712(%rbp)
-  movq $0, -1720(%rbp)
-  movq $0, -1728(%rbp)
-  movq $0, -1736(%rbp)
-  movq $0, -1744(%rbp)
-  movq $0, -1752(%rbp)
-  movq $0, -1760(%rbp)
-  movq $0, -1768(%rbp)
-  movq $0, -1776(%rbp)
-  movq $0, -1784(%rbp)
-  movq $0, -1792(%rbp)
-  movq $0, -1800(%rbp)
-  movq $0, -1808(%rbp)
-  movq $0, -1816(%rbp)
-  movq $0, -1824(%rbp)
-  movq $0, -1832(%rbp)
-  movq $0, -1840(%rbp)
-  movq $0, -1848(%rbp)
-  movq $0, -1856(%rbp)
-  movq $0, -1864(%rbp)
-  movq $0, -1872(%rbp)
-  movq $0, -1880(%rbp)
-  movq $0, -1888(%rbp)
-  movq $0, -1896(%rbp)
-  movq $0, -1904(%rbp)
-  movq $0, -1912(%rbp)
-  movq $0, -1920(%rbp)
-  movq $0, -1928(%rbp)
-  movq $0, -1936(%rbp)
-  movq $0, -1944(%rbp)
-  movq $0, -1952(%rbp)
-  movq $0, -1960(%rbp)
-  movq $0, -1968(%rbp)
-  movq $0, -1976(%rbp)
-  movq $0, -1984(%rbp)
-  movq $0, -1992(%rbp)
-  movq $0, -2000(%rbp)
-  movq $0, -2008(%rbp)
-  movq $0, -2016(%rbp)
-  movq $0, -2024(%rbp)
-  movq $0, -2032(%rbp)
-  movq $0, -2040(%rbp)
-  movq $0, -2048(%rbp)
-  movq $0, -2056(%rbp)
-  movq $0, -2064(%rbp)
-  movq $0, -2072(%rbp)
-  movq $0, -2080(%rbp)
-  movq $0, -2088(%rbp)
-  movq $0, -2096(%rbp)
-  movq $0, -2104(%rbp)
-  movq $0, -2112(%rbp)
-  movq $0, -2120(%rbp)
-  movq $0, -2128(%rbp)
-  movq $0, -2136(%rbp)
-  movq $0, -2144(%rbp)
-  movq $0, -2152(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -488(%rbp), %r11
+  movl $209, %ecx
+.Lजड़_प्राथमिक_पार्स:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -496(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -504(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -512(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -520(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -528(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -536(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -544(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -552(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -560(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -568(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -576(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -584(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -592(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -600(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -608(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -616(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -624(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -632(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -640(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -648(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -656(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -664(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -672(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -680(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -688(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -696(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -704(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -712(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -720(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -728(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -736(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -744(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -752(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -760(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -768(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -776(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -784(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -792(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -800(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -808(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -816(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -824(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -832(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -840(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -848(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -856(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -864(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -872(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -880(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -888(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -896(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -904(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -912(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -920(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -928(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -936(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -944(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -952(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -960(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -968(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -976(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -984(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -992(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1000(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1008(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1016(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1024(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1032(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1040(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1048(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1056(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1064(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1072(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1080(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1088(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1096(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1128(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1136(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1144(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1152(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1160(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1168(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1176(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1184(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1192(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1200(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1208(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1216(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1224(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1232(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1240(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1248(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1256(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1264(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1272(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1280(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1288(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1296(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1304(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1312(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1320(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1328(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1336(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1344(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1352(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1360(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1368(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1376(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1384(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1392(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1400(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1408(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1416(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1424(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1432(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1440(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1448(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1456(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1464(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1472(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1480(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1488(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1496(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1504(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1512(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1520(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1528(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1536(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1544(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1552(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1560(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1568(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1576(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1584(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1592(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1600(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1608(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1616(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1624(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1632(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1640(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1648(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1656(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1664(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1672(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1680(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1688(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1696(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1704(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1712(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1720(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1728(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1736(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1744(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1752(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1760(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1768(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1776(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1784(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1792(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1800(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1808(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1816(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1824(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1832(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1840(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1848(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1856(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1864(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1872(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1880(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1888(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1896(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1904(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1912(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1920(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1928(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1936(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1944(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1952(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1960(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1968(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1976(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1984(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1992(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2000(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2008(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2016(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2024(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2032(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2040(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2048(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2056(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2064(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2072(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2080(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2088(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2096(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2128(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2136(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2144(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2152(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_प्राथमिक_पार्स
   movl %eax, gc_roots_count(%rip)
   movq -88(%rbp), %r11
   movq %r11, -488(%rbp)
@@ -19859,308 +16114,17 @@
   movq %r14, -48(%rbp)
   movq %r15, -56(%rbp)
   movq %rcx, -72(%rbp)
-  movq $0, -152(%rbp)
-  movq $0, -160(%rbp)
-  movq $0, -168(%rbp)
-  movq $0, -176(%rbp)
-  movq $0, -184(%rbp)
-  movq $0, -192(%rbp)
-  movq $0, -200(%rbp)
-  movq $0, -208(%rbp)
-  movq $0, -216(%rbp)
-  movq $0, -224(%rbp)
-  movq $0, -232(%rbp)
-  movq $0, -240(%rbp)
-  movq $0, -248(%rbp)
-  movq $0, -256(%rbp)
-  movq $0, -264(%rbp)
-  movq $0, -272(%rbp)
-  movq $0, -280(%rbp)
-  movq $0, -288(%rbp)
-  movq $0, -296(%rbp)
-  movq $0, -304(%rbp)
-  movq $0, -312(%rbp)
-  movq $0, -320(%rbp)
-  movq $0, -328(%rbp)
-  movq $0, -336(%rbp)
-  movq $0, -344(%rbp)
-  movq $0, -352(%rbp)
-  movq $0, -360(%rbp)
-  movq $0, -368(%rbp)
-  movq $0, -376(%rbp)
-  movq $0, -384(%rbp)
-  movq $0, -392(%rbp)
-  movq $0, -400(%rbp)
-  movq $0, -408(%rbp)
-  movq $0, -416(%rbp)
-  movq $0, -424(%rbp)
-  movq $0, -432(%rbp)
-  movq $0, -440(%rbp)
-  movq $0, -448(%rbp)
-  movq $0, -456(%rbp)
-  movq $0, -464(%rbp)
-  movq $0, -472(%rbp)
-  movq $0, -480(%rbp)
-  movq $0, -488(%rbp)
-  movq $0, -496(%rbp)
-  movq $0, -504(%rbp)
-  movq $0, -512(%rbp)
-  movq $0, -520(%rbp)
-  movq $0, -528(%rbp)
-  movq $0, -536(%rbp)
-  movq $0, -544(%rbp)
-  movq $0, -552(%rbp)
-  movq $0, -560(%rbp)
-  movq $0, -568(%rbp)
-  movq $0, -576(%rbp)
-  movq $0, -584(%rbp)
-  movq $0, -592(%rbp)
-  movq $0, -600(%rbp)
-  movq $0, -608(%rbp)
-  movq $0, -616(%rbp)
-  movq $0, -624(%rbp)
-  movq $0, -632(%rbp)
-  movq $0, -640(%rbp)
-  movq $0, -648(%rbp)
-  movq $0, -656(%rbp)
-  movq $0, -664(%rbp)
-  movq $0, -672(%rbp)
-  movq $0, -680(%rbp)
-  movq $0, -688(%rbp)
-  movq $0, -696(%rbp)
-  movq $0, -704(%rbp)
-  movq $0, -712(%rbp)
-  movq $0, -720(%rbp)
-  movq $0, -728(%rbp)
-  movq $0, -736(%rbp)
-  movq $0, -744(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -152(%rbp), %r11
+  movl $75, %ecx
+.Lजड़_कथन_पार्स:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -160(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -168(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -176(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -184(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -192(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -200(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -208(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -216(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -224(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -232(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -240(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -248(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -256(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -264(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -272(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -280(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -288(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -296(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -304(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -312(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -320(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -328(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -336(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -344(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -352(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -360(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -368(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -376(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -384(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -392(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -400(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -408(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -416(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -424(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -432(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -440(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -448(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -456(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -464(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -472(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -480(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -488(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -496(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -504(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -512(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -520(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -528(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -536(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -544(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -552(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -560(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -568(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -576(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -584(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -592(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -600(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -608(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -616(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -624(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -632(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -640(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -648(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -656(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -664(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -672(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -680(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -688(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -696(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -704(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -712(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -720(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -728(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -736(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -744(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_कथन_पार्स
   movl %eax, gc_roots_count(%rip)
   movq -72(%rbp), %r11
   movq %r11, -152(%rbp)
@@ -21406,112 +17370,17 @@
   movq %r13, -40(%rbp)
   movq %r14, -48(%rbp)
   movq %rcx, %rbx
-  movq $0, -72(%rbp)
-  movq $0, -80(%rbp)
-  movq $0, -88(%rbp)
-  movq $0, -96(%rbp)
-  movq $0, -104(%rbp)
-  movq $0, -112(%rbp)
-  movq $0, -120(%rbp)
-  movq $0, -128(%rbp)
-  movq $0, -136(%rbp)
-  movq $0, -144(%rbp)
-  movq $0, -152(%rbp)
-  movq $0, -160(%rbp)
-  movq $0, -168(%rbp)
-  movq $0, -176(%rbp)
-  movq $0, -184(%rbp)
-  movq $0, -192(%rbp)
-  movq $0, -200(%rbp)
-  movq $0, -208(%rbp)
-  movq $0, -216(%rbp)
-  movq $0, -224(%rbp)
-  movq $0, -232(%rbp)
-  movq $0, -240(%rbp)
-  movq $0, -248(%rbp)
-  movq $0, -256(%rbp)
-  movq $0, -264(%rbp)
-  movq $0, -272(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -72(%rbp), %r11
+  movl $26, %ecx
+.Lजड़_कथन_लिखतु_पार्स:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -80(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -88(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -96(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -128(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -136(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -144(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -152(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -160(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -168(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -176(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -184(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -192(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -200(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -208(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -216(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -224(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -232(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -240(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -248(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -256(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -264(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -272(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_कथन_लिखतु_पार्स
   movl %eax, gc_roots_count(%rip)
   movq %rbx, -72(%rbp)
 
@@ -21810,128 +17679,17 @@
   movq %r14, -48(%rbp)
   movq %r15, -56(%rbp)
   movq %rcx, %rbx
-  movq $0, -88(%rbp)
-  movq $0, -96(%rbp)
-  movq $0, -104(%rbp)
-  movq $0, -112(%rbp)
-  movq $0, -120(%rbp)
-  movq $0, -128(%rbp)
-  movq $0, -136(%rbp)
-  movq $0, -144(%rbp)
-  movq $0, -152(%rbp)
-  movq $0, -160(%rbp)
-  movq $0, -168(%rbp)
-  movq $0, -176(%rbp)
-  movq $0, -184(%rbp)
-  movq $0, -192(%rbp)
-  movq $0, -200(%rbp)
-  movq $0, -208(%rbp)
-  movq $0, -216(%rbp)
-  movq $0, -224(%rbp)
-  movq $0, -232(%rbp)
-  movq $0, -240(%rbp)
-  movq $0, -248(%rbp)
-  movq $0, -256(%rbp)
-  movq $0, -264(%rbp)
-  movq $0, -272(%rbp)
-  movq $0, -280(%rbp)
-  movq $0, -288(%rbp)
-  movq $0, -296(%rbp)
-  movq $0, -304(%rbp)
-  movq $0, -312(%rbp)
-  movq $0, -320(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -88(%rbp), %r11
+  movl $30, %ecx
+.Lजड़_कथन_यदि_पार्स:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -96(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -128(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -136(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -144(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -152(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -160(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -168(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -176(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -184(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -192(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -200(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -208(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -216(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -224(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -232(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -240(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -248(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -256(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -264(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -272(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -280(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -288(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -296(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -304(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -312(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -320(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_कथन_यदि_पार्स
   movl %eax, gc_roots_count(%rip)
   movq %rbx, -88(%rbp)
 
@@ -22272,76 +18030,17 @@
   movq %r13, -40(%rbp)
   movq %r14, -48(%rbp)
   movq %rcx, %rbx
-  movq $0, -72(%rbp)
-  movq $0, -80(%rbp)
-  movq $0, -88(%rbp)
-  movq $0, -96(%rbp)
-  movq $0, -104(%rbp)
-  movq $0, -112(%rbp)
-  movq $0, -120(%rbp)
-  movq $0, -128(%rbp)
-  movq $0, -136(%rbp)
-  movq $0, -144(%rbp)
-  movq $0, -152(%rbp)
-  movq $0, -160(%rbp)
-  movq $0, -168(%rbp)
-  movq $0, -176(%rbp)
-  movq $0, -184(%rbp)
-  movq $0, -192(%rbp)
-  movq $0, -200(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -72(%rbp), %r11
+  movl $17, %ecx
+.Lजड़_कथन_यावत्_पार्स:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -80(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -88(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -96(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -128(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -136(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -144(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -152(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -160(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -168(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -176(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -184(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -192(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -200(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_कथन_यावत्_पार्स
   movl %eax, gc_roots_count(%rip)
   movq %rbx, -72(%rbp)
 
@@ -22523,272 +18222,17 @@
   movq %r14, -48(%rbp)
   movq %r15, -56(%rbp)
   movq %rcx, %rbx
-  movq $0, -120(%rbp)
-  movq $0, -128(%rbp)
-  movq $0, -136(%rbp)
-  movq $0, -144(%rbp)
-  movq $0, -152(%rbp)
-  movq $0, -160(%rbp)
-  movq $0, -168(%rbp)
-  movq $0, -176(%rbp)
-  movq $0, -184(%rbp)
-  movq $0, -192(%rbp)
-  movq $0, -200(%rbp)
-  movq $0, -208(%rbp)
-  movq $0, -216(%rbp)
-  movq $0, -224(%rbp)
-  movq $0, -232(%rbp)
-  movq $0, -240(%rbp)
-  movq $0, -248(%rbp)
-  movq $0, -256(%rbp)
-  movq $0, -264(%rbp)
-  movq $0, -272(%rbp)
-  movq $0, -280(%rbp)
-  movq $0, -288(%rbp)
-  movq $0, -296(%rbp)
-  movq $0, -304(%rbp)
-  movq $0, -312(%rbp)
-  movq $0, -320(%rbp)
-  movq $0, -328(%rbp)
-  movq $0, -336(%rbp)
-  movq $0, -344(%rbp)
-  movq $0, -352(%rbp)
-  movq $0, -360(%rbp)
-  movq $0, -368(%rbp)
-  movq $0, -376(%rbp)
-  movq $0, -384(%rbp)
-  movq $0, -392(%rbp)
-  movq $0, -400(%rbp)
-  movq $0, -408(%rbp)
-  movq $0, -416(%rbp)
-  movq $0, -424(%rbp)
-  movq $0, -432(%rbp)
-  movq $0, -440(%rbp)
-  movq $0, -448(%rbp)
-  movq $0, -456(%rbp)
-  movq $0, -464(%rbp)
-  movq $0, -472(%rbp)
-  movq $0, -480(%rbp)
-  movq $0, -488(%rbp)
-  movq $0, -496(%rbp)
-  movq $0, -504(%rbp)
-  movq $0, -512(%rbp)
-  movq $0, -520(%rbp)
-  movq $0, -528(%rbp)
-  movq $0, -536(%rbp)
-  movq $0, -544(%rbp)
-  movq $0, -552(%rbp)
-  movq $0, -560(%rbp)
-  movq $0, -568(%rbp)
-  movq $0, -576(%rbp)
-  movq $0, -584(%rbp)
-  movq $0, -592(%rbp)
-  movq $0, -600(%rbp)
-  movq $0, -608(%rbp)
-  movq $0, -616(%rbp)
-  movq $0, -624(%rbp)
-  movq $0, -632(%rbp)
-  movq $0, -640(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -120(%rbp), %r11
+  movl $66, %ecx
+.Lजड़_कथन_पुनरावृत्ति_पार्स:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -128(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -136(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -144(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -152(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -160(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -168(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -176(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -184(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -192(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -200(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -208(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -216(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -224(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -232(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -240(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -248(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -256(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -264(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -272(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -280(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -288(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -296(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -304(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -312(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -320(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -328(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -336(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -344(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -352(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -360(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -368(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -376(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -384(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -392(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -400(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -408(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -416(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -424(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -432(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -440(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -448(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -456(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -464(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -472(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -480(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -488(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -496(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -504(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -512(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -520(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -528(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -536(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -544(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -552(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -560(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -568(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -576(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -584(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -592(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -600(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -608(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -616(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -624(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -632(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -640(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_कथन_पुनरावृत्ति_पार्स
   movl %eax, gc_roots_count(%rip)
   movq %rbx, -120(%rbp)
 
@@ -23663,68 +19107,17 @@
   movq %r13, -40(%rbp)
   movq %r14, -48(%rbp)
   movq %rcx, %rbx
-  movq $0, -72(%rbp)
-  movq $0, -80(%rbp)
-  movq $0, -88(%rbp)
-  movq $0, -96(%rbp)
-  movq $0, -104(%rbp)
-  movq $0, -112(%rbp)
-  movq $0, -120(%rbp)
-  movq $0, -128(%rbp)
-  movq $0, -136(%rbp)
-  movq $0, -144(%rbp)
-  movq $0, -152(%rbp)
-  movq $0, -160(%rbp)
-  movq $0, -168(%rbp)
-  movq $0, -176(%rbp)
-  movq $0, -184(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -72(%rbp), %r11
+  movl $15, %ecx
+.Lजड़_कथन_असाइनमेंट_सहायक:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -80(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -88(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -96(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -128(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -136(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -144(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -152(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -160(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -168(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -176(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -184(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_कथन_असाइनमेंट_सहायक
   movl %eax, gc_roots_count(%rip)
   movq %rbx, -72(%rbp)
 
@@ -23891,40 +19284,17 @@
   movq %r12, -32(%rbp)
   movq %r13, -40(%rbp)
   movq %rcx, %rbx
-  movq $0, -64(%rbp)
-  movq $0, -72(%rbp)
-  movq $0, -80(%rbp)
-  movq $0, -88(%rbp)
-  movq $0, -96(%rbp)
-  movq $0, -104(%rbp)
-  movq $0, -112(%rbp)
-  movq $0, -120(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -64(%rbp), %r11
+  movl $8, %ecx
+.Lजड़_कथन_विराम_पार्स:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -72(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -80(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -88(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -96(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_कथन_विराम_पार्स
   movl %eax, gc_roots_count(%rip)
   movq %rbx, -64(%rbp)
 
@@ -24024,40 +19394,17 @@
   movq %r12, -32(%rbp)
   movq %r13, -40(%rbp)
   movq %rcx, %rbx
-  movq $0, -64(%rbp)
-  movq $0, -72(%rbp)
-  movq $0, -80(%rbp)
-  movq $0, -88(%rbp)
-  movq $0, -96(%rbp)
-  movq $0, -104(%rbp)
-  movq $0, -112(%rbp)
-  movq $0, -120(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -64(%rbp), %r11
+  movl $8, %ecx
+.Lजड़_कथन_जारी_पार्स:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -72(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -80(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -88(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -96(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_कथन_जारी_पार्स
   movl %eax, gc_roots_count(%rip)
   movq %rbx, -64(%rbp)
 
@@ -24159,84 +19506,17 @@
   movq %r14, -48(%rbp)
   movq %r15, -56(%rbp)
   movq %rcx, %rbx
-  movq $0, -80(%rbp)
-  movq $0, -88(%rbp)
-  movq $0, -96(%rbp)
-  movq $0, -104(%rbp)
-  movq $0, -112(%rbp)
-  movq $0, -120(%rbp)
-  movq $0, -128(%rbp)
-  movq $0, -136(%rbp)
-  movq $0, -144(%rbp)
-  movq $0, -152(%rbp)
-  movq $0, -160(%rbp)
-  movq $0, -168(%rbp)
-  movq $0, -176(%rbp)
-  movq $0, -184(%rbp)
-  movq $0, -192(%rbp)
-  movq $0, -200(%rbp)
-  movq $0, -208(%rbp)
-  movq $0, -216(%rbp)
-  movq $0, -224(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -80(%rbp), %r11
+  movl $19, %ecx
+.Lजड़_कथन_प्रयत्न_पार्स:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -88(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -96(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -128(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -136(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -144(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -152(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -160(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -168(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -176(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -184(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -192(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -200(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -208(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -216(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -224(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_कथन_प्रयत्न_पार्स
   movl %eax, gc_roots_count(%rip)
   movq %rbx, -80(%rbp)
 
@@ -24445,44 +19725,17 @@
   movq %r13, -40(%rbp)
   movq %r14, -48(%rbp)
   movq %rcx, %rbx
-  movq $0, -72(%rbp)
-  movq $0, -80(%rbp)
-  movq $0, -88(%rbp)
-  movq $0, -96(%rbp)
-  movq $0, -104(%rbp)
-  movq $0, -112(%rbp)
-  movq $0, -120(%rbp)
-  movq $0, -128(%rbp)
-  movq $0, -136(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -72(%rbp), %r11
+  movl $9, %ecx
+.Lजड़_कथन_फेको_पार्स:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -80(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -88(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -96(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -128(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -136(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_कथन_फेको_पार्स
   movl %eax, gc_roots_count(%rip)
   movq %rbx, -72(%rbp)
 
@@ -24592,52 +19845,17 @@
   movq %r13, -40(%rbp)
   movq %r14, -48(%rbp)
   movq %rcx, %rbx
-  movq $0, -72(%rbp)
-  movq $0, -80(%rbp)
-  movq $0, -88(%rbp)
-  movq $0, -96(%rbp)
-  movq $0, -104(%rbp)
-  movq $0, -112(%rbp)
-  movq $0, -120(%rbp)
-  movq $0, -128(%rbp)
-  movq $0, -136(%rbp)
-  movq $0, -144(%rbp)
-  movq $0, -152(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -72(%rbp), %r11
+  movl $11, %ecx
+.Lजड़_कथन_परत्_पार्स:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -80(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -88(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -96(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -128(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -136(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -144(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -152(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_कथन_परत्_पार्स
   movl %eax, gc_roots_count(%rip)
   movq %rbx, -72(%rbp)
 
@@ -24777,64 +19995,17 @@
   movq %r13, -40(%rbp)
   movq %r14, -48(%rbp)
   movq %rcx, %rbx
-  movq $0, -72(%rbp)
-  movq $0, -80(%rbp)
-  movq $0, -88(%rbp)
-  movq $0, -96(%rbp)
-  movq $0, -104(%rbp)
-  movq $0, -112(%rbp)
-  movq $0, -120(%rbp)
-  movq $0, -128(%rbp)
-  movq $0, -136(%rbp)
-  movq $0, -144(%rbp)
-  movq $0, -152(%rbp)
-  movq $0, -160(%rbp)
-  movq $0, -168(%rbp)
-  movq $0, -176(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -72(%rbp), %r11
+  movl $14, %ecx
+.Lजड़_कथन_ब्लॉक_पार्स:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -80(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -88(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -96(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -128(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -136(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -144(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -152(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -160(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -168(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -176(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_कथन_ब्लॉक_पार्स
   movl %eax, gc_roots_count(%rip)
   movq %rbx, -72(%rbp)
 
@@ -25029,60 +20200,17 @@
   movq %r13, -40(%rbp)
   movq %r14, -48(%rbp)
   movq %rcx, %rbx
-  movq $0, -72(%rbp)
-  movq $0, -80(%rbp)
-  movq $0, -88(%rbp)
-  movq $0, -96(%rbp)
-  movq $0, -104(%rbp)
-  movq $0, -112(%rbp)
-  movq $0, -120(%rbp)
-  movq $0, -128(%rbp)
-  movq $0, -136(%rbp)
-  movq $0, -144(%rbp)
-  movq $0, -152(%rbp)
-  movq $0, -160(%rbp)
-  movq $0, -168(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -72(%rbp), %r11
+  movl $13, %ecx
+.Lजड़_कथन_आयात_पार्स:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -80(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -88(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -96(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -128(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -136(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -144(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -152(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -160(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -168(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_कथन_आयात_पार्स
   movl %eax, gc_roots_count(%rip)
   movq %rbx, -72(%rbp)
 
@@ -25227,176 +20355,17 @@
   movq %r14, -48(%rbp)
   movq %r15, -56(%rbp)
   movq %rcx, %rbx
-  movq $0, -88(%rbp)
-  movq $0, -96(%rbp)
-  movq $0, -104(%rbp)
-  movq $0, -112(%rbp)
-  movq $0, -120(%rbp)
-  movq $0, -128(%rbp)
-  movq $0, -136(%rbp)
-  movq $0, -144(%rbp)
-  movq $0, -152(%rbp)
-  movq $0, -160(%rbp)
-  movq $0, -168(%rbp)
-  movq $0, -176(%rbp)
-  movq $0, -184(%rbp)
-  movq $0, -192(%rbp)
-  movq $0, -200(%rbp)
-  movq $0, -208(%rbp)
-  movq $0, -216(%rbp)
-  movq $0, -224(%rbp)
-  movq $0, -232(%rbp)
-  movq $0, -240(%rbp)
-  movq $0, -248(%rbp)
-  movq $0, -256(%rbp)
-  movq $0, -264(%rbp)
-  movq $0, -272(%rbp)
-  movq $0, -280(%rbp)
-  movq $0, -288(%rbp)
-  movq $0, -296(%rbp)
-  movq $0, -304(%rbp)
-  movq $0, -312(%rbp)
-  movq $0, -320(%rbp)
-  movq $0, -328(%rbp)
-  movq $0, -336(%rbp)
-  movq $0, -344(%rbp)
-  movq $0, -352(%rbp)
-  movq $0, -360(%rbp)
-  movq $0, -368(%rbp)
-  movq $0, -376(%rbp)
-  movq $0, -384(%rbp)
-  movq $0, -392(%rbp)
-  movq $0, -400(%rbp)
-  movq $0, -408(%rbp)
-  movq $0, -416(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -88(%rbp), %r11
+  movl $42, %ecx
+.Lजड़_कथन_चर_घोषणा_पार्स:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -96(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -128(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -136(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -144(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -152(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -160(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -168(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -176(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -184(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -192(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -200(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -208(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -216(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -224(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -232(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -240(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -248(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -256(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -264(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -272(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -280(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -288(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -296(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -304(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -312(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -320(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -328(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -336(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -344(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -352(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -360(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -368(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -376(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -384(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -392(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -400(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -408(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -416(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_कथन_चर_घोषणा_पार्स
   movl %eax, gc_roots_count(%rip)
   movq %rbx, -88(%rbp)
 
@@ -25968,476 +20937,17 @@
   movq %r14, -48(%rbp)
   movq %r15, -56(%rbp)
   movq %rcx, -104(%rbp)
-  movq $0, -216(%rbp)
-  movq $0, -224(%rbp)
-  movq $0, -232(%rbp)
-  movq $0, -240(%rbp)
-  movq $0, -248(%rbp)
-  movq $0, -256(%rbp)
-  movq $0, -264(%rbp)
-  movq $0, -272(%rbp)
-  movq $0, -280(%rbp)
-  movq $0, -288(%rbp)
-  movq $0, -296(%rbp)
-  movq $0, -304(%rbp)
-  movq $0, -312(%rbp)
-  movq $0, -320(%rbp)
-  movq $0, -328(%rbp)
-  movq $0, -336(%rbp)
-  movq $0, -344(%rbp)
-  movq $0, -352(%rbp)
-  movq $0, -360(%rbp)
-  movq $0, -368(%rbp)
-  movq $0, -376(%rbp)
-  movq $0, -384(%rbp)
-  movq $0, -392(%rbp)
-  movq $0, -400(%rbp)
-  movq $0, -408(%rbp)
-  movq $0, -416(%rbp)
-  movq $0, -424(%rbp)
-  movq $0, -432(%rbp)
-  movq $0, -440(%rbp)
-  movq $0, -448(%rbp)
-  movq $0, -456(%rbp)
-  movq $0, -464(%rbp)
-  movq $0, -472(%rbp)
-  movq $0, -480(%rbp)
-  movq $0, -488(%rbp)
-  movq $0, -496(%rbp)
-  movq $0, -504(%rbp)
-  movq $0, -512(%rbp)
-  movq $0, -520(%rbp)
-  movq $0, -528(%rbp)
-  movq $0, -536(%rbp)
-  movq $0, -544(%rbp)
-  movq $0, -552(%rbp)
-  movq $0, -560(%rbp)
-  movq $0, -568(%rbp)
-  movq $0, -576(%rbp)
-  movq $0, -584(%rbp)
-  movq $0, -592(%rbp)
-  movq $0, -600(%rbp)
-  movq $0, -608(%rbp)
-  movq $0, -616(%rbp)
-  movq $0, -624(%rbp)
-  movq $0, -632(%rbp)
-  movq $0, -640(%rbp)
-  movq $0, -648(%rbp)
-  movq $0, -656(%rbp)
-  movq $0, -664(%rbp)
-  movq $0, -672(%rbp)
-  movq $0, -680(%rbp)
-  movq $0, -688(%rbp)
-  movq $0, -696(%rbp)
-  movq $0, -704(%rbp)
-  movq $0, -712(%rbp)
-  movq $0, -720(%rbp)
-  movq $0, -728(%rbp)
-  movq $0, -736(%rbp)
-  movq $0, -744(%rbp)
-  movq $0, -752(%rbp)
-  movq $0, -760(%rbp)
-  movq $0, -768(%rbp)
-  movq $0, -776(%rbp)
-  movq $0, -784(%rbp)
-  movq $0, -792(%rbp)
-  movq $0, -800(%rbp)
-  movq $0, -808(%rbp)
-  movq $0, -816(%rbp)
-  movq $0, -824(%rbp)
-  movq $0, -832(%rbp)
-  movq $0, -840(%rbp)
-  movq $0, -848(%rbp)
-  movq $0, -856(%rbp)
-  movq $0, -864(%rbp)
-  movq $0, -872(%rbp)
-  movq $0, -880(%rbp)
-  movq $0, -888(%rbp)
-  movq $0, -896(%rbp)
-  movq $0, -904(%rbp)
-  movq $0, -912(%rbp)
-  movq $0, -920(%rbp)
-  movq $0, -928(%rbp)
-  movq $0, -936(%rbp)
-  movq $0, -944(%rbp)
-  movq $0, -952(%rbp)
-  movq $0, -960(%rbp)
-  movq $0, -968(%rbp)
-  movq $0, -976(%rbp)
-  movq $0, -984(%rbp)
-  movq $0, -992(%rbp)
-  movq $0, -1000(%rbp)
-  movq $0, -1008(%rbp)
-  movq $0, -1016(%rbp)
-  movq $0, -1024(%rbp)
-  movq $0, -1032(%rbp)
-  movq $0, -1040(%rbp)
-  movq $0, -1048(%rbp)
-  movq $0, -1056(%rbp)
-  movq $0, -1064(%rbp)
-  movq $0, -1072(%rbp)
-  movq $0, -1080(%rbp)
-  movq $0, -1088(%rbp)
-  movq $0, -1096(%rbp)
-  movq $0, -1104(%rbp)
-  movq $0, -1112(%rbp)
-  movq $0, -1120(%rbp)
-  movq $0, -1128(%rbp)
-  movq $0, -1136(%rbp)
-  movq $0, -1144(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -216(%rbp), %r11
+  movl $117, %ecx
+.Lजड़_कार्य_पार्स:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -224(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -232(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -240(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -248(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -256(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -264(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -272(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -280(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -288(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -296(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -304(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -312(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -320(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -328(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -336(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -344(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -352(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -360(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -368(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -376(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -384(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -392(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -400(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -408(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -416(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -424(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -432(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -440(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -448(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -456(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -464(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -472(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -480(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -488(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -496(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -504(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -512(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -520(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -528(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -536(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -544(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -552(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -560(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -568(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -576(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -584(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -592(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -600(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -608(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -616(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -624(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -632(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -640(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -648(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -656(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -664(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -672(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -680(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -688(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -696(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -704(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -712(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -720(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -728(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -736(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -744(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -752(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -760(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -768(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -776(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -784(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -792(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -800(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -808(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -816(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -824(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -832(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -840(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -848(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -856(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -864(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -872(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -880(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -888(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -896(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -904(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -912(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -920(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -928(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -936(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -944(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -952(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -960(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -968(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -976(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -984(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -992(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1000(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1008(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1016(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1024(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1032(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1040(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1048(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1056(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1064(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1072(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1080(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1088(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1096(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1128(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1136(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1144(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_कार्य_पार्स
   movl %eax, gc_roots_count(%rip)
   movq -104(%rbp), %r11
   movq %r11, -216(%rbp)
@@ -27691,180 +22201,17 @@
   movq %r14, -48(%rbp)
   movq %r15, -56(%rbp)
   movq %rcx, %rbx
-  movq $0, -104(%rbp)
-  movq $0, -112(%rbp)
-  movq $0, -120(%rbp)
-  movq $0, -128(%rbp)
-  movq $0, -136(%rbp)
-  movq $0, -144(%rbp)
-  movq $0, -152(%rbp)
-  movq $0, -160(%rbp)
-  movq $0, -168(%rbp)
-  movq $0, -176(%rbp)
-  movq $0, -184(%rbp)
-  movq $0, -192(%rbp)
-  movq $0, -200(%rbp)
-  movq $0, -208(%rbp)
-  movq $0, -216(%rbp)
-  movq $0, -224(%rbp)
-  movq $0, -232(%rbp)
-  movq $0, -240(%rbp)
-  movq $0, -248(%rbp)
-  movq $0, -256(%rbp)
-  movq $0, -264(%rbp)
-  movq $0, -272(%rbp)
-  movq $0, -280(%rbp)
-  movq $0, -288(%rbp)
-  movq $0, -296(%rbp)
-  movq $0, -304(%rbp)
-  movq $0, -312(%rbp)
-  movq $0, -320(%rbp)
-  movq $0, -328(%rbp)
-  movq $0, -336(%rbp)
-  movq $0, -344(%rbp)
-  movq $0, -352(%rbp)
-  movq $0, -360(%rbp)
-  movq $0, -368(%rbp)
-  movq $0, -376(%rbp)
-  movq $0, -384(%rbp)
-  movq $0, -392(%rbp)
-  movq $0, -400(%rbp)
-  movq $0, -408(%rbp)
-  movq $0, -416(%rbp)
-  movq $0, -424(%rbp)
-  movq $0, -432(%rbp)
-  movq $0, -440(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -104(%rbp), %r11
+  movl $43, %ecx
+.Lजड़_वर्ग_पार्स:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -128(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -136(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -144(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -152(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -160(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -168(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -176(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -184(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -192(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -200(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -208(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -216(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -224(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -232(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -240(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -248(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -256(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -264(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -272(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -280(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -288(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -296(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -304(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -312(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -320(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -328(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -336(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -344(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -352(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -360(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -368(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -376(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -384(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -392(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -400(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -408(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -416(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -424(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -432(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -440(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_वर्ग_पार्स
   movl %eax, gc_roots_count(%rip)
   movq %rbx, -104(%rbp)
 
@@ -28633,408 +22980,17 @@
   movq %rcx, -104(%rbp)
   movq %rdx, -88(%rbp)
   movq %r8, -72(%rbp)
-  movq $0, -1208(%rbp)
-  movq $0, -1216(%rbp)
-  movq $0, -1224(%rbp)
-  movq $0, -1232(%rbp)
-  movq $0, -1240(%rbp)
-  movq $0, -1248(%rbp)
-  movq $0, -1256(%rbp)
-  movq $0, -1264(%rbp)
-  movq $0, -1272(%rbp)
-  movq $0, -1280(%rbp)
-  movq $0, -1288(%rbp)
-  movq $0, -1296(%rbp)
-  movq $0, -1304(%rbp)
-  movq $0, -1312(%rbp)
-  movq $0, -1320(%rbp)
-  movq $0, -1328(%rbp)
-  movq $0, -1336(%rbp)
-  movq $0, -1344(%rbp)
-  movq $0, -1352(%rbp)
-  movq $0, -1360(%rbp)
-  movq $0, -1368(%rbp)
-  movq $0, -1376(%rbp)
-  movq $0, -1384(%rbp)
-  movq $0, -1392(%rbp)
-  movq $0, -1400(%rbp)
-  movq $0, -1408(%rbp)
-  movq $0, -1416(%rbp)
-  movq $0, -1424(%rbp)
-  movq $0, -1432(%rbp)
-  movq $0, -1440(%rbp)
-  movq $0, -1448(%rbp)
-  movq $0, -1456(%rbp)
-  movq $0, -1464(%rbp)
-  movq $0, -1472(%rbp)
-  movq $0, -1480(%rbp)
-  movq $0, -1488(%rbp)
-  movq $0, -1496(%rbp)
-  movq $0, -1504(%rbp)
-  movq $0, -1512(%rbp)
-  movq $0, -1520(%rbp)
-  movq $0, -1528(%rbp)
-  movq $0, -1536(%rbp)
-  movq $0, -1544(%rbp)
-  movq $0, -1552(%rbp)
-  movq $0, -1560(%rbp)
-  movq $0, -1568(%rbp)
-  movq $0, -1576(%rbp)
-  movq $0, -1584(%rbp)
-  movq $0, -1592(%rbp)
-  movq $0, -1600(%rbp)
-  movq $0, -1608(%rbp)
-  movq $0, -1616(%rbp)
-  movq $0, -1624(%rbp)
-  movq $0, -1632(%rbp)
-  movq $0, -1640(%rbp)
-  movq $0, -1648(%rbp)
-  movq $0, -1656(%rbp)
-  movq $0, -1664(%rbp)
-  movq $0, -1672(%rbp)
-  movq $0, -1680(%rbp)
-  movq $0, -1688(%rbp)
-  movq $0, -1696(%rbp)
-  movq $0, -1704(%rbp)
-  movq $0, -1712(%rbp)
-  movq $0, -1720(%rbp)
-  movq $0, -1728(%rbp)
-  movq $0, -1736(%rbp)
-  movq $0, -1744(%rbp)
-  movq $0, -1752(%rbp)
-  movq $0, -1760(%rbp)
-  movq $0, -1768(%rbp)
-  movq $0, -1776(%rbp)
-  movq $0, -1784(%rbp)
-  movq $0, -1792(%rbp)
-  movq $0, -1800(%rbp)
-  movq $0, -1808(%rbp)
-  movq $0, -1816(%rbp)
-  movq $0, -1824(%rbp)
-  movq $0, -1832(%rbp)
-  movq $0, -1840(%rbp)
-  movq $0, -1848(%rbp)
-  movq $0, -1856(%rbp)
-  movq $0, -1864(%rbp)
-  movq $0, -1872(%rbp)
-  movq $0, -1880(%rbp)
-  movq $0, -1888(%rbp)
-  movq $0, -1896(%rbp)
-  movq $0, -1904(%rbp)
-  movq $0, -1912(%rbp)
-  movq $0, -1920(%rbp)
-  movq $0, -1928(%rbp)
-  movq $0, -1936(%rbp)
-  movq $0, -1944(%rbp)
-  movq $0, -1952(%rbp)
-  movq $0, -1960(%rbp)
-  movq $0, -1968(%rbp)
-  movq $0, -1976(%rbp)
-  movq $0, -1984(%rbp)
-  movq $0, -1992(%rbp)
-  movq $0, -2000(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -1208(%rbp), %r11
+  movl $100, %ecx
+.Lजड़_प्रोग्राम_पार्स:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -1216(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1224(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1232(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1240(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1248(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1256(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1264(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1272(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1280(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1288(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1296(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1304(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1312(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1320(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1328(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1336(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1344(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1352(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1360(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1368(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1376(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1384(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1392(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1400(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1408(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1416(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1424(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1432(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1440(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1448(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1456(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1464(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1472(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1480(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1488(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1496(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1504(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1512(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1520(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1528(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1536(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1544(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1552(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1560(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1568(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1576(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1584(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1592(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1600(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1608(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1616(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1624(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1632(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1640(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1648(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1656(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1664(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1672(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1680(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1688(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1696(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1704(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1712(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1720(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1728(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1736(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1744(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1752(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1760(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1768(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1776(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1784(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1792(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1800(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1808(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1816(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1824(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1832(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1840(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1848(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1856(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1864(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1872(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1880(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1888(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1896(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1904(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1912(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1920(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1928(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1936(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1944(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1952(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1960(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1968(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1976(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1984(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1992(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2000(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_प्रोग्राम_पार्स
   movl %eax, gc_roots_count(%rip)
   movq -104(%rbp), %r11
   movq %r11, -1208(%rbp)
@@ -30204,2500 +24160,17 @@
   movq %r15, -56(%rbp)
   movq %rcx, -88(%rbp)
   movq %rdx, -72(%rbp)
-  movq $0, -3560(%rbp)
-  movq $0, -3568(%rbp)
-  movq $0, -3576(%rbp)
-  movq $0, -3584(%rbp)
-  movq $0, -3592(%rbp)
-  movq $0, -3600(%rbp)
-  movq $0, -3608(%rbp)
-  movq $0, -3616(%rbp)
-  movq $0, -3624(%rbp)
-  movq $0, -3632(%rbp)
-  movq $0, -3640(%rbp)
-  movq $0, -3648(%rbp)
-  movq $0, -3656(%rbp)
-  movq $0, -3664(%rbp)
-  movq $0, -3672(%rbp)
-  movq $0, -3680(%rbp)
-  movq $0, -3688(%rbp)
-  movq $0, -3696(%rbp)
-  movq $0, -3704(%rbp)
-  movq $0, -3712(%rbp)
-  movq $0, -3720(%rbp)
-  movq $0, -3728(%rbp)
-  movq $0, -3736(%rbp)
-  movq $0, -3744(%rbp)
-  movq $0, -3752(%rbp)
-  movq $0, -3760(%rbp)
-  movq $0, -3768(%rbp)
-  movq $0, -3776(%rbp)
-  movq $0, -3784(%rbp)
-  movq $0, -3792(%rbp)
-  movq $0, -3800(%rbp)
-  movq $0, -3808(%rbp)
-  movq $0, -3816(%rbp)
-  movq $0, -3824(%rbp)
-  movq $0, -3832(%rbp)
-  movq $0, -3840(%rbp)
-  movq $0, -3848(%rbp)
-  movq $0, -3856(%rbp)
-  movq $0, -3864(%rbp)
-  movq $0, -3872(%rbp)
-  movq $0, -3880(%rbp)
-  movq $0, -3888(%rbp)
-  movq $0, -3896(%rbp)
-  movq $0, -3904(%rbp)
-  movq $0, -3912(%rbp)
-  movq $0, -3920(%rbp)
-  movq $0, -3928(%rbp)
-  movq $0, -3936(%rbp)
-  movq $0, -3944(%rbp)
-  movq $0, -3952(%rbp)
-  movq $0, -3960(%rbp)
-  movq $0, -3968(%rbp)
-  movq $0, -3976(%rbp)
-  movq $0, -3984(%rbp)
-  movq $0, -3992(%rbp)
-  movq $0, -4000(%rbp)
-  movq $0, -4008(%rbp)
-  movq $0, -4016(%rbp)
-  movq $0, -4024(%rbp)
-  movq $0, -4032(%rbp)
-  movq $0, -4040(%rbp)
-  movq $0, -4048(%rbp)
-  movq $0, -4056(%rbp)
-  movq $0, -4064(%rbp)
-  movq $0, -4072(%rbp)
-  movq $0, -4080(%rbp)
-  movq $0, -4088(%rbp)
-  movq $0, -4096(%rbp)
-  movq $0, -4104(%rbp)
-  movq $0, -4112(%rbp)
-  movq $0, -4120(%rbp)
-  movq $0, -4128(%rbp)
-  movq $0, -4136(%rbp)
-  movq $0, -4144(%rbp)
-  movq $0, -4152(%rbp)
-  movq $0, -4160(%rbp)
-  movq $0, -4168(%rbp)
-  movq $0, -4176(%rbp)
-  movq $0, -4184(%rbp)
-  movq $0, -4192(%rbp)
-  movq $0, -4200(%rbp)
-  movq $0, -4208(%rbp)
-  movq $0, -4216(%rbp)
-  movq $0, -4224(%rbp)
-  movq $0, -4232(%rbp)
-  movq $0, -4240(%rbp)
-  movq $0, -4248(%rbp)
-  movq $0, -4256(%rbp)
-  movq $0, -4264(%rbp)
-  movq $0, -4272(%rbp)
-  movq $0, -4280(%rbp)
-  movq $0, -4288(%rbp)
-  movq $0, -4296(%rbp)
-  movq $0, -4304(%rbp)
-  movq $0, -4312(%rbp)
-  movq $0, -4320(%rbp)
-  movq $0, -4328(%rbp)
-  movq $0, -4336(%rbp)
-  movq $0, -4344(%rbp)
-  movq $0, -4352(%rbp)
-  movq $0, -4360(%rbp)
-  movq $0, -4368(%rbp)
-  movq $0, -4376(%rbp)
-  movq $0, -4384(%rbp)
-  movq $0, -4392(%rbp)
-  movq $0, -4400(%rbp)
-  movq $0, -4408(%rbp)
-  movq $0, -4416(%rbp)
-  movq $0, -4424(%rbp)
-  movq $0, -4432(%rbp)
-  movq $0, -4440(%rbp)
-  movq $0, -4448(%rbp)
-  movq $0, -4456(%rbp)
-  movq $0, -4464(%rbp)
-  movq $0, -4472(%rbp)
-  movq $0, -4480(%rbp)
-  movq $0, -4488(%rbp)
-  movq $0, -4496(%rbp)
-  movq $0, -4504(%rbp)
-  movq $0, -4512(%rbp)
-  movq $0, -4520(%rbp)
-  movq $0, -4528(%rbp)
-  movq $0, -4536(%rbp)
-  movq $0, -4544(%rbp)
-  movq $0, -4552(%rbp)
-  movq $0, -4560(%rbp)
-  movq $0, -4568(%rbp)
-  movq $0, -4576(%rbp)
-  movq $0, -4584(%rbp)
-  movq $0, -4592(%rbp)
-  movq $0, -4600(%rbp)
-  movq $0, -4608(%rbp)
-  movq $0, -4616(%rbp)
-  movq $0, -4624(%rbp)
-  movq $0, -4632(%rbp)
-  movq $0, -4640(%rbp)
-  movq $0, -4648(%rbp)
-  movq $0, -4656(%rbp)
-  movq $0, -4664(%rbp)
-  movq $0, -4672(%rbp)
-  movq $0, -4680(%rbp)
-  movq $0, -4688(%rbp)
-  movq $0, -4696(%rbp)
-  movq $0, -4704(%rbp)
-  movq $0, -4712(%rbp)
-  movq $0, -4720(%rbp)
-  movq $0, -4728(%rbp)
-  movq $0, -4736(%rbp)
-  movq $0, -4744(%rbp)
-  movq $0, -4752(%rbp)
-  movq $0, -4760(%rbp)
-  movq $0, -4768(%rbp)
-  movq $0, -4776(%rbp)
-  movq $0, -4784(%rbp)
-  movq $0, -4792(%rbp)
-  movq $0, -4800(%rbp)
-  movq $0, -4808(%rbp)
-  movq $0, -4816(%rbp)
-  movq $0, -4824(%rbp)
-  movq $0, -4832(%rbp)
-  movq $0, -4840(%rbp)
-  movq $0, -4848(%rbp)
-  movq $0, -4856(%rbp)
-  movq $0, -4864(%rbp)
-  movq $0, -4872(%rbp)
-  movq $0, -4880(%rbp)
-  movq $0, -4888(%rbp)
-  movq $0, -4896(%rbp)
-  movq $0, -4904(%rbp)
-  movq $0, -4912(%rbp)
-  movq $0, -4920(%rbp)
-  movq $0, -4928(%rbp)
-  movq $0, -4936(%rbp)
-  movq $0, -4944(%rbp)
-  movq $0, -4952(%rbp)
-  movq $0, -4960(%rbp)
-  movq $0, -4968(%rbp)
-  movq $0, -4976(%rbp)
-  movq $0, -4984(%rbp)
-  movq $0, -4992(%rbp)
-  movq $0, -5000(%rbp)
-  movq $0, -5008(%rbp)
-  movq $0, -5016(%rbp)
-  movq $0, -5024(%rbp)
-  movq $0, -5032(%rbp)
-  movq $0, -5040(%rbp)
-  movq $0, -5048(%rbp)
-  movq $0, -5056(%rbp)
-  movq $0, -5064(%rbp)
-  movq $0, -5072(%rbp)
-  movq $0, -5080(%rbp)
-  movq $0, -5088(%rbp)
-  movq $0, -5096(%rbp)
-  movq $0, -5104(%rbp)
-  movq $0, -5112(%rbp)
-  movq $0, -5120(%rbp)
-  movq $0, -5128(%rbp)
-  movq $0, -5136(%rbp)
-  movq $0, -5144(%rbp)
-  movq $0, -5152(%rbp)
-  movq $0, -5160(%rbp)
-  movq $0, -5168(%rbp)
-  movq $0, -5176(%rbp)
-  movq $0, -5184(%rbp)
-  movq $0, -5192(%rbp)
-  movq $0, -5200(%rbp)
-  movq $0, -5208(%rbp)
-  movq $0, -5216(%rbp)
-  movq $0, -5224(%rbp)
-  movq $0, -5232(%rbp)
-  movq $0, -5240(%rbp)
-  movq $0, -5248(%rbp)
-  movq $0, -5256(%rbp)
-  movq $0, -5264(%rbp)
-  movq $0, -5272(%rbp)
-  movq $0, -5280(%rbp)
-  movq $0, -5288(%rbp)
-  movq $0, -5296(%rbp)
-  movq $0, -5304(%rbp)
-  movq $0, -5312(%rbp)
-  movq $0, -5320(%rbp)
-  movq $0, -5328(%rbp)
-  movq $0, -5336(%rbp)
-  movq $0, -5344(%rbp)
-  movq $0, -5352(%rbp)
-  movq $0, -5360(%rbp)
-  movq $0, -5368(%rbp)
-  movq $0, -5376(%rbp)
-  movq $0, -5384(%rbp)
-  movq $0, -5392(%rbp)
-  movq $0, -5400(%rbp)
-  movq $0, -5408(%rbp)
-  movq $0, -5416(%rbp)
-  movq $0, -5424(%rbp)
-  movq $0, -5432(%rbp)
-  movq $0, -5440(%rbp)
-  movq $0, -5448(%rbp)
-  movq $0, -5456(%rbp)
-  movq $0, -5464(%rbp)
-  movq $0, -5472(%rbp)
-  movq $0, -5480(%rbp)
-  movq $0, -5488(%rbp)
-  movq $0, -5496(%rbp)
-  movq $0, -5504(%rbp)
-  movq $0, -5512(%rbp)
-  movq $0, -5520(%rbp)
-  movq $0, -5528(%rbp)
-  movq $0, -5536(%rbp)
-  movq $0, -5544(%rbp)
-  movq $0, -5552(%rbp)
-  movq $0, -5560(%rbp)
-  movq $0, -5568(%rbp)
-  movq $0, -5576(%rbp)
-  movq $0, -5584(%rbp)
-  movq $0, -5592(%rbp)
-  movq $0, -5600(%rbp)
-  movq $0, -5608(%rbp)
-  movq $0, -5616(%rbp)
-  movq $0, -5624(%rbp)
-  movq $0, -5632(%rbp)
-  movq $0, -5640(%rbp)
-  movq $0, -5648(%rbp)
-  movq $0, -5656(%rbp)
-  movq $0, -5664(%rbp)
-  movq $0, -5672(%rbp)
-  movq $0, -5680(%rbp)
-  movq $0, -5688(%rbp)
-  movq $0, -5696(%rbp)
-  movq $0, -5704(%rbp)
-  movq $0, -5712(%rbp)
-  movq $0, -5720(%rbp)
-  movq $0, -5728(%rbp)
-  movq $0, -5736(%rbp)
-  movq $0, -5744(%rbp)
-  movq $0, -5752(%rbp)
-  movq $0, -5760(%rbp)
-  movq $0, -5768(%rbp)
-  movq $0, -5776(%rbp)
-  movq $0, -5784(%rbp)
-  movq $0, -5792(%rbp)
-  movq $0, -5800(%rbp)
-  movq $0, -5808(%rbp)
-  movq $0, -5816(%rbp)
-  movq $0, -5824(%rbp)
-  movq $0, -5832(%rbp)
-  movq $0, -5840(%rbp)
-  movq $0, -5848(%rbp)
-  movq $0, -5856(%rbp)
-  movq $0, -5864(%rbp)
-  movq $0, -5872(%rbp)
-  movq $0, -5880(%rbp)
-  movq $0, -5888(%rbp)
-  movq $0, -5896(%rbp)
-  movq $0, -5904(%rbp)
-  movq $0, -5912(%rbp)
-  movq $0, -5920(%rbp)
-  movq $0, -5928(%rbp)
-  movq $0, -5936(%rbp)
-  movq $0, -5944(%rbp)
-  movq $0, -5952(%rbp)
-  movq $0, -5960(%rbp)
-  movq $0, -5968(%rbp)
-  movq $0, -5976(%rbp)
-  movq $0, -5984(%rbp)
-  movq $0, -5992(%rbp)
-  movq $0, -6000(%rbp)
-  movq $0, -6008(%rbp)
-  movq $0, -6016(%rbp)
-  movq $0, -6024(%rbp)
-  movq $0, -6032(%rbp)
-  movq $0, -6040(%rbp)
-  movq $0, -6048(%rbp)
-  movq $0, -6056(%rbp)
-  movq $0, -6064(%rbp)
-  movq $0, -6072(%rbp)
-  movq $0, -6080(%rbp)
-  movq $0, -6088(%rbp)
-  movq $0, -6096(%rbp)
-  movq $0, -6104(%rbp)
-  movq $0, -6112(%rbp)
-  movq $0, -6120(%rbp)
-  movq $0, -6128(%rbp)
-  movq $0, -6136(%rbp)
-  movq $0, -6144(%rbp)
-  movq $0, -6152(%rbp)
-  movq $0, -6160(%rbp)
-  movq $0, -6168(%rbp)
-  movq $0, -6176(%rbp)
-  movq $0, -6184(%rbp)
-  movq $0, -6192(%rbp)
-  movq $0, -6200(%rbp)
-  movq $0, -6208(%rbp)
-  movq $0, -6216(%rbp)
-  movq $0, -6224(%rbp)
-  movq $0, -6232(%rbp)
-  movq $0, -6240(%rbp)
-  movq $0, -6248(%rbp)
-  movq $0, -6256(%rbp)
-  movq $0, -6264(%rbp)
-  movq $0, -6272(%rbp)
-  movq $0, -6280(%rbp)
-  movq $0, -6288(%rbp)
-  movq $0, -6296(%rbp)
-  movq $0, -6304(%rbp)
-  movq $0, -6312(%rbp)
-  movq $0, -6320(%rbp)
-  movq $0, -6328(%rbp)
-  movq $0, -6336(%rbp)
-  movq $0, -6344(%rbp)
-  movq $0, -6352(%rbp)
-  movq $0, -6360(%rbp)
-  movq $0, -6368(%rbp)
-  movq $0, -6376(%rbp)
-  movq $0, -6384(%rbp)
-  movq $0, -6392(%rbp)
-  movq $0, -6400(%rbp)
-  movq $0, -6408(%rbp)
-  movq $0, -6416(%rbp)
-  movq $0, -6424(%rbp)
-  movq $0, -6432(%rbp)
-  movq $0, -6440(%rbp)
-  movq $0, -6448(%rbp)
-  movq $0, -6456(%rbp)
-  movq $0, -6464(%rbp)
-  movq $0, -6472(%rbp)
-  movq $0, -6480(%rbp)
-  movq $0, -6488(%rbp)
-  movq $0, -6496(%rbp)
-  movq $0, -6504(%rbp)
-  movq $0, -6512(%rbp)
-  movq $0, -6520(%rbp)
-  movq $0, -6528(%rbp)
-  movq $0, -6536(%rbp)
-  movq $0, -6544(%rbp)
-  movq $0, -6552(%rbp)
-  movq $0, -6560(%rbp)
-  movq $0, -6568(%rbp)
-  movq $0, -6576(%rbp)
-  movq $0, -6584(%rbp)
-  movq $0, -6592(%rbp)
-  movq $0, -6600(%rbp)
-  movq $0, -6608(%rbp)
-  movq $0, -6616(%rbp)
-  movq $0, -6624(%rbp)
-  movq $0, -6632(%rbp)
-  movq $0, -6640(%rbp)
-  movq $0, -6648(%rbp)
-  movq $0, -6656(%rbp)
-  movq $0, -6664(%rbp)
-  movq $0, -6672(%rbp)
-  movq $0, -6680(%rbp)
-  movq $0, -6688(%rbp)
-  movq $0, -6696(%rbp)
-  movq $0, -6704(%rbp)
-  movq $0, -6712(%rbp)
-  movq $0, -6720(%rbp)
-  movq $0, -6728(%rbp)
-  movq $0, -6736(%rbp)
-  movq $0, -6744(%rbp)
-  movq $0, -6752(%rbp)
-  movq $0, -6760(%rbp)
-  movq $0, -6768(%rbp)
-  movq $0, -6776(%rbp)
-  movq $0, -6784(%rbp)
-  movq $0, -6792(%rbp)
-  movq $0, -6800(%rbp)
-  movq $0, -6808(%rbp)
-  movq $0, -6816(%rbp)
-  movq $0, -6824(%rbp)
-  movq $0, -6832(%rbp)
-  movq $0, -6840(%rbp)
-  movq $0, -6848(%rbp)
-  movq $0, -6856(%rbp)
-  movq $0, -6864(%rbp)
-  movq $0, -6872(%rbp)
-  movq $0, -6880(%rbp)
-  movq $0, -6888(%rbp)
-  movq $0, -6896(%rbp)
-  movq $0, -6904(%rbp)
-  movq $0, -6912(%rbp)
-  movq $0, -6920(%rbp)
-  movq $0, -6928(%rbp)
-  movq $0, -6936(%rbp)
-  movq $0, -6944(%rbp)
-  movq $0, -6952(%rbp)
-  movq $0, -6960(%rbp)
-  movq $0, -6968(%rbp)
-  movq $0, -6976(%rbp)
-  movq $0, -6984(%rbp)
-  movq $0, -6992(%rbp)
-  movq $0, -7000(%rbp)
-  movq $0, -7008(%rbp)
-  movq $0, -7016(%rbp)
-  movq $0, -7024(%rbp)
-  movq $0, -7032(%rbp)
-  movq $0, -7040(%rbp)
-  movq $0, -7048(%rbp)
-  movq $0, -7056(%rbp)
-  movq $0, -7064(%rbp)
-  movq $0, -7072(%rbp)
-  movq $0, -7080(%rbp)
-  movq $0, -7088(%rbp)
-  movq $0, -7096(%rbp)
-  movq $0, -7104(%rbp)
-  movq $0, -7112(%rbp)
-  movq $0, -7120(%rbp)
-  movq $0, -7128(%rbp)
-  movq $0, -7136(%rbp)
-  movq $0, -7144(%rbp)
-  movq $0, -7152(%rbp)
-  movq $0, -7160(%rbp)
-  movq $0, -7168(%rbp)
-  movq $0, -7176(%rbp)
-  movq $0, -7184(%rbp)
-  movq $0, -7192(%rbp)
-  movq $0, -7200(%rbp)
-  movq $0, -7208(%rbp)
-  movq $0, -7216(%rbp)
-  movq $0, -7224(%rbp)
-  movq $0, -7232(%rbp)
-  movq $0, -7240(%rbp)
-  movq $0, -7248(%rbp)
-  movq $0, -7256(%rbp)
-  movq $0, -7264(%rbp)
-  movq $0, -7272(%rbp)
-  movq $0, -7280(%rbp)
-  movq $0, -7288(%rbp)
-  movq $0, -7296(%rbp)
-  movq $0, -7304(%rbp)
-  movq $0, -7312(%rbp)
-  movq $0, -7320(%rbp)
-  movq $0, -7328(%rbp)
-  movq $0, -7336(%rbp)
-  movq $0, -7344(%rbp)
-  movq $0, -7352(%rbp)
-  movq $0, -7360(%rbp)
-  movq $0, -7368(%rbp)
-  movq $0, -7376(%rbp)
-  movq $0, -7384(%rbp)
-  movq $0, -7392(%rbp)
-  movq $0, -7400(%rbp)
-  movq $0, -7408(%rbp)
-  movq $0, -7416(%rbp)
-  movq $0, -7424(%rbp)
-  movq $0, -7432(%rbp)
-  movq $0, -7440(%rbp)
-  movq $0, -7448(%rbp)
-  movq $0, -7456(%rbp)
-  movq $0, -7464(%rbp)
-  movq $0, -7472(%rbp)
-  movq $0, -7480(%rbp)
-  movq $0, -7488(%rbp)
-  movq $0, -7496(%rbp)
-  movq $0, -7504(%rbp)
-  movq $0, -7512(%rbp)
-  movq $0, -7520(%rbp)
-  movq $0, -7528(%rbp)
-  movq $0, -7536(%rbp)
-  movq $0, -7544(%rbp)
-  movq $0, -7552(%rbp)
-  movq $0, -7560(%rbp)
-  movq $0, -7568(%rbp)
-  movq $0, -7576(%rbp)
-  movq $0, -7584(%rbp)
-  movq $0, -7592(%rbp)
-  movq $0, -7600(%rbp)
-  movq $0, -7608(%rbp)
-  movq $0, -7616(%rbp)
-  movq $0, -7624(%rbp)
-  movq $0, -7632(%rbp)
-  movq $0, -7640(%rbp)
-  movq $0, -7648(%rbp)
-  movq $0, -7656(%rbp)
-  movq $0, -7664(%rbp)
-  movq $0, -7672(%rbp)
-  movq $0, -7680(%rbp)
-  movq $0, -7688(%rbp)
-  movq $0, -7696(%rbp)
-  movq $0, -7704(%rbp)
-  movq $0, -7712(%rbp)
-  movq $0, -7720(%rbp)
-  movq $0, -7728(%rbp)
-  movq $0, -7736(%rbp)
-  movq $0, -7744(%rbp)
-  movq $0, -7752(%rbp)
-  movq $0, -7760(%rbp)
-  movq $0, -7768(%rbp)
-  movq $0, -7776(%rbp)
-  movq $0, -7784(%rbp)
-  movq $0, -7792(%rbp)
-  movq $0, -7800(%rbp)
-  movq $0, -7808(%rbp)
-  movq $0, -7816(%rbp)
-  movq $0, -7824(%rbp)
-  movq $0, -7832(%rbp)
-  movq $0, -7840(%rbp)
-  movq $0, -7848(%rbp)
-  movq $0, -7856(%rbp)
-  movq $0, -7864(%rbp)
-  movq $0, -7872(%rbp)
-  movq $0, -7880(%rbp)
-  movq $0, -7888(%rbp)
-  movq $0, -7896(%rbp)
-  movq $0, -7904(%rbp)
-  movq $0, -7912(%rbp)
-  movq $0, -7920(%rbp)
-  movq $0, -7928(%rbp)
-  movq $0, -7936(%rbp)
-  movq $0, -7944(%rbp)
-  movq $0, -7952(%rbp)
-  movq $0, -7960(%rbp)
-  movq $0, -7968(%rbp)
-  movq $0, -7976(%rbp)
-  movq $0, -7984(%rbp)
-  movq $0, -7992(%rbp)
-  movq $0, -8000(%rbp)
-  movq $0, -8008(%rbp)
-  movq $0, -8016(%rbp)
-  movq $0, -8024(%rbp)
-  movq $0, -8032(%rbp)
-  movq $0, -8040(%rbp)
-  movq $0, -8048(%rbp)
-  movq $0, -8056(%rbp)
-  movq $0, -8064(%rbp)
-  movq $0, -8072(%rbp)
-  movq $0, -8080(%rbp)
-  movq $0, -8088(%rbp)
-  movq $0, -8096(%rbp)
-  movq $0, -8104(%rbp)
-  movq $0, -8112(%rbp)
-  movq $0, -8120(%rbp)
-  movq $0, -8128(%rbp)
-  movq $0, -8136(%rbp)
-  movq $0, -8144(%rbp)
-  movq $0, -8152(%rbp)
-  movq $0, -8160(%rbp)
-  movq $0, -8168(%rbp)
-  movq $0, -8176(%rbp)
-  movq $0, -8184(%rbp)
-  movq $0, -8192(%rbp)
-  movq $0, -8200(%rbp)
-  movq $0, -8208(%rbp)
-  movq $0, -8216(%rbp)
-  movq $0, -8224(%rbp)
-  movq $0, -8232(%rbp)
-  movq $0, -8240(%rbp)
-  movq $0, -8248(%rbp)
-  movq $0, -8256(%rbp)
-  movq $0, -8264(%rbp)
-  movq $0, -8272(%rbp)
-  movq $0, -8280(%rbp)
-  movq $0, -8288(%rbp)
-  movq $0, -8296(%rbp)
-  movq $0, -8304(%rbp)
-  movq $0, -8312(%rbp)
-  movq $0, -8320(%rbp)
-  movq $0, -8328(%rbp)
-  movq $0, -8336(%rbp)
-  movq $0, -8344(%rbp)
-  movq $0, -8352(%rbp)
-  movq $0, -8360(%rbp)
-  movq $0, -8368(%rbp)
-  movq $0, -8376(%rbp)
-  movq $0, -8384(%rbp)
-  movq $0, -8392(%rbp)
-  movq $0, -8400(%rbp)
-  movq $0, -8408(%rbp)
-  movq $0, -8416(%rbp)
-  movq $0, -8424(%rbp)
-  movq $0, -8432(%rbp)
-  movq $0, -8440(%rbp)
-  movq $0, -8448(%rbp)
-  movq $0, -8456(%rbp)
-  movq $0, -8464(%rbp)
-  movq $0, -8472(%rbp)
-  movq $0, -8480(%rbp)
-  movq $0, -8488(%rbp)
-  movq $0, -8496(%rbp)
-  movq $0, -8504(%rbp)
-  movq $0, -8512(%rbp)
-  movq $0, -8520(%rbp)
-  movq $0, -8528(%rbp)
-  movq $0, -8536(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -3560(%rbp), %r11
+  movl $623, %ecx
+.Lजड़_नोड_छापो:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -3568(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3576(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3584(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3592(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3600(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3608(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3616(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3624(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3632(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3640(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3648(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3656(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3664(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3672(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3680(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3688(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3696(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3704(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3712(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3720(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3728(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3736(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3744(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3752(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3760(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3768(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3776(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3784(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3792(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3800(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3808(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3816(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3824(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3832(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3840(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3848(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3856(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3864(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3872(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3880(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3888(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3896(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3904(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3912(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3920(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3928(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3936(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3944(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3952(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3960(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3968(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3976(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3984(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3992(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -4000(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -4008(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -4016(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -4024(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -4032(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -4040(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -4048(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -4056(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -4064(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -4072(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -4080(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -4088(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -4096(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -4104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -4112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -4120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -4128(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -4136(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -4144(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -4152(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -4160(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -4168(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -4176(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -4184(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -4192(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -4200(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -4208(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -4216(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -4224(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -4232(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -4240(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -4248(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -4256(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -4264(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -4272(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -4280(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -4288(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -4296(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -4304(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -4312(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -4320(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -4328(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -4336(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -4344(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -4352(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -4360(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -4368(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -4376(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -4384(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -4392(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -4400(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -4408(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -4416(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -4424(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -4432(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -4440(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -4448(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -4456(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -4464(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -4472(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -4480(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -4488(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -4496(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -4504(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -4512(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -4520(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -4528(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -4536(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -4544(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -4552(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -4560(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -4568(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -4576(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -4584(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -4592(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -4600(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -4608(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -4616(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -4624(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -4632(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -4640(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -4648(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -4656(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -4664(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -4672(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -4680(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -4688(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -4696(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -4704(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -4712(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -4720(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -4728(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -4736(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -4744(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -4752(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -4760(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -4768(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -4776(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -4784(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -4792(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -4800(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -4808(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -4816(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -4824(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -4832(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -4840(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -4848(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -4856(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -4864(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -4872(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -4880(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -4888(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -4896(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -4904(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -4912(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -4920(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -4928(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -4936(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -4944(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -4952(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -4960(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -4968(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -4976(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -4984(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -4992(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -5000(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -5008(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -5016(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -5024(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -5032(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -5040(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -5048(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -5056(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -5064(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -5072(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -5080(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -5088(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -5096(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -5104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -5112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -5120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -5128(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -5136(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -5144(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -5152(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -5160(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -5168(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -5176(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -5184(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -5192(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -5200(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -5208(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -5216(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -5224(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -5232(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -5240(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -5248(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -5256(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -5264(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -5272(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -5280(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -5288(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -5296(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -5304(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -5312(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -5320(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -5328(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -5336(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -5344(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -5352(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -5360(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -5368(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -5376(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -5384(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -5392(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -5400(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -5408(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -5416(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -5424(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -5432(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -5440(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -5448(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -5456(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -5464(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -5472(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -5480(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -5488(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -5496(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -5504(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -5512(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -5520(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -5528(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -5536(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -5544(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -5552(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -5560(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -5568(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -5576(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -5584(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -5592(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -5600(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -5608(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -5616(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -5624(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -5632(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -5640(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -5648(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -5656(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -5664(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -5672(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -5680(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -5688(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -5696(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -5704(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -5712(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -5720(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -5728(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -5736(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -5744(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -5752(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -5760(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -5768(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -5776(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -5784(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -5792(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -5800(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -5808(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -5816(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -5824(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -5832(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -5840(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -5848(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -5856(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -5864(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -5872(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -5880(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -5888(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -5896(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -5904(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -5912(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -5920(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -5928(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -5936(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -5944(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -5952(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -5960(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -5968(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -5976(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -5984(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -5992(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6000(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6008(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6016(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6024(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6032(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6040(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6048(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6056(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6064(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6072(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6080(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6088(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6096(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6128(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6136(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6144(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6152(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6160(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6168(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6176(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6184(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6192(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6200(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6208(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6216(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6224(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6232(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6240(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6248(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6256(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6264(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6272(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6280(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6288(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6296(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6304(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6312(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6320(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6328(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6336(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6344(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6352(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6360(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6368(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6376(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6384(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6392(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6400(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6408(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6416(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6424(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6432(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6440(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6448(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6456(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6464(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6472(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6480(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6488(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6496(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6504(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6512(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6520(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6528(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6536(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6544(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6552(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6560(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6568(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6576(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6584(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6592(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6600(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6608(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6616(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6624(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6632(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6640(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6648(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6656(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6664(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6672(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6680(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6688(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6696(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6704(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6712(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6720(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6728(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6736(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6744(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6752(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6760(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6768(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6776(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6784(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6792(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6800(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6808(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6816(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6824(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6832(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6840(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6848(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6856(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6864(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6872(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6880(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6888(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6896(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6904(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6912(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6920(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6928(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6936(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6944(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6952(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6960(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6968(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6976(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6984(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6992(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -7000(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -7008(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -7016(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -7024(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -7032(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -7040(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -7048(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -7056(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -7064(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -7072(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -7080(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -7088(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -7096(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -7104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -7112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -7120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -7128(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -7136(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -7144(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -7152(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -7160(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -7168(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -7176(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -7184(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -7192(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -7200(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -7208(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -7216(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -7224(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -7232(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -7240(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -7248(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -7256(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -7264(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -7272(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -7280(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -7288(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -7296(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -7304(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -7312(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -7320(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -7328(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -7336(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -7344(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -7352(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -7360(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -7368(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -7376(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -7384(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -7392(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -7400(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -7408(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -7416(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -7424(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -7432(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -7440(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -7448(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -7456(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -7464(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -7472(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -7480(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -7488(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -7496(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -7504(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -7512(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -7520(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -7528(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -7536(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -7544(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -7552(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -7560(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -7568(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -7576(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -7584(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -7592(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -7600(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -7608(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -7616(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -7624(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -7632(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -7640(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -7648(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -7656(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -7664(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -7672(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -7680(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -7688(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -7696(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -7704(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -7712(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -7720(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -7728(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -7736(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -7744(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -7752(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -7760(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -7768(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -7776(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -7784(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -7792(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -7800(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -7808(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -7816(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -7824(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -7832(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -7840(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -7848(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -7856(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -7864(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -7872(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -7880(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -7888(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -7896(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -7904(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -7912(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -7920(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -7928(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -7936(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -7944(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -7952(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -7960(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -7968(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -7976(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -7984(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -7992(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -8000(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -8008(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -8016(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -8024(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -8032(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -8040(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -8048(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -8056(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -8064(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -8072(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -8080(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -8088(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -8096(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -8104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -8112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -8120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -8128(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -8136(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -8144(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -8152(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -8160(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -8168(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -8176(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -8184(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -8192(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -8200(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -8208(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -8216(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -8224(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -8232(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -8240(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -8248(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -8256(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -8264(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -8272(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -8280(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -8288(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -8296(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -8304(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -8312(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -8320(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -8328(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -8336(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -8344(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -8352(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -8360(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -8368(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -8376(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -8384(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -8392(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -8400(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -8408(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -8416(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -8424(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -8432(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -8440(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -8448(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -8456(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -8464(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -8472(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -8480(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -8488(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -8496(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -8504(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -8512(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -8520(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -8528(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -8536(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_नोड_छापो
   movl %eax, gc_roots_count(%rip)
   movq -88(%rbp), %r11
   movq %r11, -3560(%rbp)
@@ -38104,48 +29577,17 @@
   movq %rcx, %rbx
   movq %rdx, %rsi
   movq %r8, %rdi
-  movq $0, -64(%rbp)
-  movq $0, -72(%rbp)
-  movq $0, -80(%rbp)
-  movq $0, -88(%rbp)
-  movq $0, -96(%rbp)
-  movq $0, -104(%rbp)
-  movq $0, -112(%rbp)
-  movq $0, -120(%rbp)
-  movq $0, -128(%rbp)
-  movq $0, -136(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -64(%rbp), %r11
+  movl $10, %ecx
+.Lजड़_सार्थक_त्रुटि:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -72(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -80(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -88(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -96(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -128(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -136(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_सार्थक_त्रुटि
   movl %eax, gc_roots_count(%rip)
   movq %rbx, -64(%rbp)
 
@@ -38264,88 +29706,17 @@
   movq %r9, %r12
   movq 48(%rbp), %r10
   movq %r10, %r13
-  movq $0, -88(%rbp)
-  movq $0, -96(%rbp)
-  movq $0, -104(%rbp)
-  movq $0, -112(%rbp)
-  movq $0, -120(%rbp)
-  movq $0, -128(%rbp)
-  movq $0, -136(%rbp)
-  movq $0, -144(%rbp)
-  movq $0, -152(%rbp)
-  movq $0, -160(%rbp)
-  movq $0, -168(%rbp)
-  movq $0, -176(%rbp)
-  movq $0, -184(%rbp)
-  movq $0, -192(%rbp)
-  movq $0, -200(%rbp)
-  movq $0, -208(%rbp)
-  movq $0, -216(%rbp)
-  movq $0, -224(%rbp)
-  movq $0, -232(%rbp)
-  movq $0, -240(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -88(%rbp), %r11
+  movl $20, %ecx
+.Lजड़_सार्थक_घोषणा_चर:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -96(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -128(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -136(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -144(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -152(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -160(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -168(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -176(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -184(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -192(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -200(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -208(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -216(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -224(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -232(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -240(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_सार्थक_घोषणा_चर
   movl %eax, gc_roots_count(%rip)
   movq %rbx, -88(%rbp)
   movq %rsi, -96(%rbp)
@@ -38616,56 +29987,17 @@
   movq %r14, -48(%rbp)
   movq %rcx, %rbx
   movq %rdx, %rsi
-  movq $0, -72(%rbp)
-  movq $0, -80(%rbp)
-  movq $0, -88(%rbp)
-  movq $0, -96(%rbp)
-  movq $0, -104(%rbp)
-  movq $0, -112(%rbp)
-  movq $0, -120(%rbp)
-  movq $0, -128(%rbp)
-  movq $0, -136(%rbp)
-  movq $0, -144(%rbp)
-  movq $0, -152(%rbp)
-  movq $0, -160(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -72(%rbp), %r11
+  movl $12, %ecx
+.Lजड़_सार्थक_जाँच_चर_घोषित:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -80(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -88(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -96(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -128(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -136(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -144(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -152(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -160(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_सार्थक_जाँच_चर_घोषित
   movl %eax, gc_roots_count(%rip)
   movq %rbx, -72(%rbp)
   movq %rsi, -80(%rbp)
@@ -38843,56 +30175,17 @@
   movq %r15, -56(%rbp)
   movq %rcx, %rbx
   movq %rdx, %rsi
-  movq $0, -80(%rbp)
-  movq $0, -88(%rbp)
-  movq $0, -96(%rbp)
-  movq $0, -104(%rbp)
-  movq $0, -112(%rbp)
-  movq $0, -120(%rbp)
-  movq $0, -128(%rbp)
-  movq $0, -136(%rbp)
-  movq $0, -144(%rbp)
-  movq $0, -152(%rbp)
-  movq $0, -160(%rbp)
-  movq $0, -168(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -80(%rbp), %r11
+  movl $12, %ecx
+.Lजड़_सार्थक_प्राप्त_चर_प्रकार:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -88(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -96(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -128(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -136(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -144(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -152(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -160(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -168(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_सार्थक_प्राप्त_चर_प्रकार
   movl %eax, gc_roots_count(%rip)
   movq %rbx, -80(%rbp)
   movq %rsi, -88(%rbp)
@@ -39084,52 +30377,17 @@
   movq %r12, -32(%rbp)
   movq %r13, -40(%rbp)
   movq %rcx, %rbx
-  movq $0, -64(%rbp)
-  movq $0, -72(%rbp)
-  movq $0, -80(%rbp)
-  movq $0, -88(%rbp)
-  movq $0, -96(%rbp)
-  movq $0, -104(%rbp)
-  movq $0, -112(%rbp)
-  movq $0, -120(%rbp)
-  movq $0, -128(%rbp)
-  movq $0, -136(%rbp)
-  movq $0, -144(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -64(%rbp), %r11
+  movl $11, %ecx
+.Lजड़_सार्थक_धकेलें_कार्यक्षेत्र:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -72(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -80(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -88(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -96(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -128(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -136(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -144(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_सार्थक_धकेलें_कार्यक्षेत्र
   movl %eax, gc_roots_count(%rip)
   movq %rbx, -64(%rbp)
 
@@ -39261,44 +30519,17 @@
   movq %rdi, -24(%rbp)
   movq %r12, -32(%rbp)
   movq %rcx, %rbx
-  movq $0, -56(%rbp)
-  movq $0, -64(%rbp)
-  movq $0, -72(%rbp)
-  movq $0, -80(%rbp)
-  movq $0, -88(%rbp)
-  movq $0, -96(%rbp)
-  movq $0, -104(%rbp)
-  movq $0, -112(%rbp)
-  movq $0, -120(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -56(%rbp), %r11
+  movl $9, %ecx
+.Lजड़_सार्थक_हटाएं_कार्यक्षेत्र:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -64(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -72(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -80(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -88(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -96(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_सार्थक_हटाएं_कार्यक्षेत्र
   movl %eax, gc_roots_count(%rip)
   movq %rbx, -56(%rbp)
 
@@ -39892,628 +31123,17 @@
   movq %r15, -56(%rbp)
   movq %rcx, -88(%rbp)
   movq %rdx, -72(%rbp)
-  movq $0, -696(%rbp)
-  movq $0, -704(%rbp)
-  movq $0, -712(%rbp)
-  movq $0, -720(%rbp)
-  movq $0, -728(%rbp)
-  movq $0, -736(%rbp)
-  movq $0, -744(%rbp)
-  movq $0, -752(%rbp)
-  movq $0, -760(%rbp)
-  movq $0, -768(%rbp)
-  movq $0, -776(%rbp)
-  movq $0, -784(%rbp)
-  movq $0, -792(%rbp)
-  movq $0, -800(%rbp)
-  movq $0, -808(%rbp)
-  movq $0, -816(%rbp)
-  movq $0, -824(%rbp)
-  movq $0, -832(%rbp)
-  movq $0, -840(%rbp)
-  movq $0, -848(%rbp)
-  movq $0, -856(%rbp)
-  movq $0, -864(%rbp)
-  movq $0, -872(%rbp)
-  movq $0, -880(%rbp)
-  movq $0, -888(%rbp)
-  movq $0, -896(%rbp)
-  movq $0, -904(%rbp)
-  movq $0, -912(%rbp)
-  movq $0, -920(%rbp)
-  movq $0, -928(%rbp)
-  movq $0, -936(%rbp)
-  movq $0, -944(%rbp)
-  movq $0, -952(%rbp)
-  movq $0, -960(%rbp)
-  movq $0, -968(%rbp)
-  movq $0, -976(%rbp)
-  movq $0, -984(%rbp)
-  movq $0, -992(%rbp)
-  movq $0, -1000(%rbp)
-  movq $0, -1008(%rbp)
-  movq $0, -1016(%rbp)
-  movq $0, -1024(%rbp)
-  movq $0, -1032(%rbp)
-  movq $0, -1040(%rbp)
-  movq $0, -1048(%rbp)
-  movq $0, -1056(%rbp)
-  movq $0, -1064(%rbp)
-  movq $0, -1072(%rbp)
-  movq $0, -1080(%rbp)
-  movq $0, -1088(%rbp)
-  movq $0, -1096(%rbp)
-  movq $0, -1104(%rbp)
-  movq $0, -1112(%rbp)
-  movq $0, -1120(%rbp)
-  movq $0, -1128(%rbp)
-  movq $0, -1136(%rbp)
-  movq $0, -1144(%rbp)
-  movq $0, -1152(%rbp)
-  movq $0, -1160(%rbp)
-  movq $0, -1168(%rbp)
-  movq $0, -1176(%rbp)
-  movq $0, -1184(%rbp)
-  movq $0, -1192(%rbp)
-  movq $0, -1200(%rbp)
-  movq $0, -1208(%rbp)
-  movq $0, -1216(%rbp)
-  movq $0, -1224(%rbp)
-  movq $0, -1232(%rbp)
-  movq $0, -1240(%rbp)
-  movq $0, -1248(%rbp)
-  movq $0, -1256(%rbp)
-  movq $0, -1264(%rbp)
-  movq $0, -1272(%rbp)
-  movq $0, -1280(%rbp)
-  movq $0, -1288(%rbp)
-  movq $0, -1296(%rbp)
-  movq $0, -1304(%rbp)
-  movq $0, -1312(%rbp)
-  movq $0, -1320(%rbp)
-  movq $0, -1328(%rbp)
-  movq $0, -1336(%rbp)
-  movq $0, -1344(%rbp)
-  movq $0, -1352(%rbp)
-  movq $0, -1360(%rbp)
-  movq $0, -1368(%rbp)
-  movq $0, -1376(%rbp)
-  movq $0, -1384(%rbp)
-  movq $0, -1392(%rbp)
-  movq $0, -1400(%rbp)
-  movq $0, -1408(%rbp)
-  movq $0, -1416(%rbp)
-  movq $0, -1424(%rbp)
-  movq $0, -1432(%rbp)
-  movq $0, -1440(%rbp)
-  movq $0, -1448(%rbp)
-  movq $0, -1456(%rbp)
-  movq $0, -1464(%rbp)
-  movq $0, -1472(%rbp)
-  movq $0, -1480(%rbp)
-  movq $0, -1488(%rbp)
-  movq $0, -1496(%rbp)
-  movq $0, -1504(%rbp)
-  movq $0, -1512(%rbp)
-  movq $0, -1520(%rbp)
-  movq $0, -1528(%rbp)
-  movq $0, -1536(%rbp)
-  movq $0, -1544(%rbp)
-  movq $0, -1552(%rbp)
-  movq $0, -1560(%rbp)
-  movq $0, -1568(%rbp)
-  movq $0, -1576(%rbp)
-  movq $0, -1584(%rbp)
-  movq $0, -1592(%rbp)
-  movq $0, -1600(%rbp)
-  movq $0, -1608(%rbp)
-  movq $0, -1616(%rbp)
-  movq $0, -1624(%rbp)
-  movq $0, -1632(%rbp)
-  movq $0, -1640(%rbp)
-  movq $0, -1648(%rbp)
-  movq $0, -1656(%rbp)
-  movq $0, -1664(%rbp)
-  movq $0, -1672(%rbp)
-  movq $0, -1680(%rbp)
-  movq $0, -1688(%rbp)
-  movq $0, -1696(%rbp)
-  movq $0, -1704(%rbp)
-  movq $0, -1712(%rbp)
-  movq $0, -1720(%rbp)
-  movq $0, -1728(%rbp)
-  movq $0, -1736(%rbp)
-  movq $0, -1744(%rbp)
-  movq $0, -1752(%rbp)
-  movq $0, -1760(%rbp)
-  movq $0, -1768(%rbp)
-  movq $0, -1776(%rbp)
-  movq $0, -1784(%rbp)
-  movq $0, -1792(%rbp)
-  movq $0, -1800(%rbp)
-  movq $0, -1808(%rbp)
-  movq $0, -1816(%rbp)
-  movq $0, -1824(%rbp)
-  movq $0, -1832(%rbp)
-  movq $0, -1840(%rbp)
-  movq $0, -1848(%rbp)
-  movq $0, -1856(%rbp)
-  movq $0, -1864(%rbp)
-  movq $0, -1872(%rbp)
-  movq $0, -1880(%rbp)
-  movq $0, -1888(%rbp)
-  movq $0, -1896(%rbp)
-  movq $0, -1904(%rbp)
-  movq $0, -1912(%rbp)
-  movq $0, -1920(%rbp)
-  movq $0, -1928(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -696(%rbp), %r11
+  movl $155, %ecx
+.Lजड़_सार्थक_प्रकार_निर्धारण:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -704(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -712(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -720(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -728(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -736(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -744(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -752(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -760(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -768(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -776(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -784(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -792(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -800(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -808(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -816(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -824(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -832(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -840(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -848(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -856(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -864(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -872(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -880(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -888(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -896(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -904(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -912(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -920(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -928(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -936(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -944(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -952(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -960(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -968(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -976(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -984(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -992(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1000(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1008(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1016(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1024(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1032(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1040(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1048(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1056(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1064(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1072(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1080(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1088(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1096(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1128(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1136(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1144(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1152(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1160(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1168(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1176(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1184(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1192(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1200(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1208(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1216(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1224(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1232(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1240(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1248(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1256(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1264(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1272(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1280(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1288(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1296(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1304(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1312(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1320(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1328(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1336(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1344(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1352(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1360(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1368(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1376(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1384(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1392(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1400(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1408(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1416(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1424(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1432(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1440(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1448(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1456(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1464(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1472(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1480(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1488(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1496(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1504(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1512(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1520(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1528(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1536(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1544(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1552(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1560(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1568(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1576(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1584(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1592(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1600(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1608(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1616(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1624(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1632(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1640(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1648(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1656(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1664(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1672(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1680(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1688(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1696(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1704(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1712(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1720(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1728(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1736(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1744(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1752(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1760(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1768(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1776(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1784(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1792(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1800(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1808(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1816(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1824(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1832(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1840(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1848(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1856(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1864(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1872(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1880(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1888(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1896(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1904(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1912(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1920(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1928(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_सार्थक_प्रकार_निर्धारण
   movl %eax, gc_roots_count(%rip)
   movq -88(%rbp), %r11
   movq %r11, -696(%rbp)
@@ -43593,672 +34213,17 @@
   movq %r15, -56(%rbp)
   movq %rcx, -104(%rbp)
   movq %rdx, -120(%rbp)
-  movq $0, -184(%rbp)
-  movq $0, -192(%rbp)
-  movq $0, -200(%rbp)
-  movq $0, -208(%rbp)
-  movq $0, -216(%rbp)
-  movq $0, -224(%rbp)
-  movq $0, -232(%rbp)
-  movq $0, -240(%rbp)
-  movq $0, -248(%rbp)
-  movq $0, -256(%rbp)
-  movq $0, -264(%rbp)
-  movq $0, -272(%rbp)
-  movq $0, -280(%rbp)
-  movq $0, -288(%rbp)
-  movq $0, -296(%rbp)
-  movq $0, -304(%rbp)
-  movq $0, -312(%rbp)
-  movq $0, -320(%rbp)
-  movq $0, -328(%rbp)
-  movq $0, -336(%rbp)
-  movq $0, -344(%rbp)
-  movq $0, -352(%rbp)
-  movq $0, -360(%rbp)
-  movq $0, -368(%rbp)
-  movq $0, -376(%rbp)
-  movq $0, -384(%rbp)
-  movq $0, -392(%rbp)
-  movq $0, -400(%rbp)
-  movq $0, -408(%rbp)
-  movq $0, -416(%rbp)
-  movq $0, -424(%rbp)
-  movq $0, -432(%rbp)
-  movq $0, -440(%rbp)
-  movq $0, -448(%rbp)
-  movq $0, -456(%rbp)
-  movq $0, -464(%rbp)
-  movq $0, -472(%rbp)
-  movq $0, -480(%rbp)
-  movq $0, -488(%rbp)
-  movq $0, -496(%rbp)
-  movq $0, -504(%rbp)
-  movq $0, -512(%rbp)
-  movq $0, -520(%rbp)
-  movq $0, -528(%rbp)
-  movq $0, -536(%rbp)
-  movq $0, -544(%rbp)
-  movq $0, -552(%rbp)
-  movq $0, -560(%rbp)
-  movq $0, -568(%rbp)
-  movq $0, -576(%rbp)
-  movq $0, -584(%rbp)
-  movq $0, -592(%rbp)
-  movq $0, -600(%rbp)
-  movq $0, -608(%rbp)
-  movq $0, -616(%rbp)
-  movq $0, -624(%rbp)
-  movq $0, -632(%rbp)
-  movq $0, -640(%rbp)
-  movq $0, -648(%rbp)
-  movq $0, -656(%rbp)
-  movq $0, -664(%rbp)
-  movq $0, -672(%rbp)
-  movq $0, -680(%rbp)
-  movq $0, -688(%rbp)
-  movq $0, -696(%rbp)
-  movq $0, -704(%rbp)
-  movq $0, -712(%rbp)
-  movq $0, -720(%rbp)
-  movq $0, -728(%rbp)
-  movq $0, -736(%rbp)
-  movq $0, -744(%rbp)
-  movq $0, -752(%rbp)
-  movq $0, -760(%rbp)
-  movq $0, -768(%rbp)
-  movq $0, -776(%rbp)
-  movq $0, -784(%rbp)
-  movq $0, -792(%rbp)
-  movq $0, -800(%rbp)
-  movq $0, -808(%rbp)
-  movq $0, -816(%rbp)
-  movq $0, -824(%rbp)
-  movq $0, -832(%rbp)
-  movq $0, -840(%rbp)
-  movq $0, -848(%rbp)
-  movq $0, -856(%rbp)
-  movq $0, -864(%rbp)
-  movq $0, -872(%rbp)
-  movq $0, -880(%rbp)
-  movq $0, -888(%rbp)
-  movq $0, -896(%rbp)
-  movq $0, -904(%rbp)
-  movq $0, -912(%rbp)
-  movq $0, -920(%rbp)
-  movq $0, -928(%rbp)
-  movq $0, -936(%rbp)
-  movq $0, -944(%rbp)
-  movq $0, -952(%rbp)
-  movq $0, -960(%rbp)
-  movq $0, -968(%rbp)
-  movq $0, -976(%rbp)
-  movq $0, -984(%rbp)
-  movq $0, -992(%rbp)
-  movq $0, -1000(%rbp)
-  movq $0, -1008(%rbp)
-  movq $0, -1016(%rbp)
-  movq $0, -1024(%rbp)
-  movq $0, -1032(%rbp)
-  movq $0, -1040(%rbp)
-  movq $0, -1048(%rbp)
-  movq $0, -1056(%rbp)
-  movq $0, -1064(%rbp)
-  movq $0, -1072(%rbp)
-  movq $0, -1080(%rbp)
-  movq $0, -1088(%rbp)
-  movq $0, -1096(%rbp)
-  movq $0, -1104(%rbp)
-  movq $0, -1112(%rbp)
-  movq $0, -1120(%rbp)
-  movq $0, -1128(%rbp)
-  movq $0, -1136(%rbp)
-  movq $0, -1144(%rbp)
-  movq $0, -1152(%rbp)
-  movq $0, -1160(%rbp)
-  movq $0, -1168(%rbp)
-  movq $0, -1176(%rbp)
-  movq $0, -1184(%rbp)
-  movq $0, -1192(%rbp)
-  movq $0, -1200(%rbp)
-  movq $0, -1208(%rbp)
-  movq $0, -1216(%rbp)
-  movq $0, -1224(%rbp)
-  movq $0, -1232(%rbp)
-  movq $0, -1240(%rbp)
-  movq $0, -1248(%rbp)
-  movq $0, -1256(%rbp)
-  movq $0, -1264(%rbp)
-  movq $0, -1272(%rbp)
-  movq $0, -1280(%rbp)
-  movq $0, -1288(%rbp)
-  movq $0, -1296(%rbp)
-  movq $0, -1304(%rbp)
-  movq $0, -1312(%rbp)
-  movq $0, -1320(%rbp)
-  movq $0, -1328(%rbp)
-  movq $0, -1336(%rbp)
-  movq $0, -1344(%rbp)
-  movq $0, -1352(%rbp)
-  movq $0, -1360(%rbp)
-  movq $0, -1368(%rbp)
-  movq $0, -1376(%rbp)
-  movq $0, -1384(%rbp)
-  movq $0, -1392(%rbp)
-  movq $0, -1400(%rbp)
-  movq $0, -1408(%rbp)
-  movq $0, -1416(%rbp)
-  movq $0, -1424(%rbp)
-  movq $0, -1432(%rbp)
-  movq $0, -1440(%rbp)
-  movq $0, -1448(%rbp)
-  movq $0, -1456(%rbp)
-  movq $0, -1464(%rbp)
-  movq $0, -1472(%rbp)
-  movq $0, -1480(%rbp)
-  movq $0, -1488(%rbp)
-  movq $0, -1496(%rbp)
-  movq $0, -1504(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -184(%rbp), %r11
+  movl $166, %ecx
+.Lजड़_सार्थक_कथन_विश्लेषण:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -192(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -200(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -208(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -216(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -224(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -232(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -240(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -248(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -256(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -264(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -272(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -280(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -288(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -296(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -304(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -312(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -320(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -328(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -336(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -344(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -352(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -360(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -368(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -376(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -384(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -392(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -400(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -408(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -416(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -424(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -432(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -440(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -448(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -456(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -464(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -472(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -480(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -488(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -496(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -504(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -512(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -520(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -528(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -536(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -544(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -552(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -560(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -568(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -576(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -584(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -592(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -600(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -608(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -616(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -624(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -632(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -640(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -648(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -656(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -664(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -672(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -680(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -688(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -696(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -704(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -712(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -720(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -728(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -736(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -744(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -752(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -760(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -768(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -776(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -784(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -792(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -800(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -808(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -816(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -824(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -832(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -840(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -848(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -856(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -864(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -872(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -880(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -888(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -896(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -904(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -912(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -920(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -928(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -936(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -944(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -952(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -960(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -968(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -976(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -984(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -992(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1000(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1008(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1016(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1024(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1032(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1040(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1048(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1056(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1064(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1072(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1080(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1088(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1096(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1128(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1136(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1144(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1152(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1160(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1168(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1176(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1184(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1192(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1200(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1208(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1216(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1224(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1232(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1240(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1248(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1256(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1264(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1272(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1280(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1288(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1296(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1304(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1312(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1320(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1328(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1336(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1344(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1352(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1360(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1368(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1376(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1384(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1392(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1400(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1408(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1416(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1424(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1432(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1440(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1448(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1456(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1464(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1472(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1480(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1488(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1496(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1504(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_सार्थक_कथन_विश्लेषण
   movl %eax, gc_roots_count(%rip)
   movq -104(%rbp), %r11
   movq %r11, -184(%rbp)
@@ -46489,76 +36454,17 @@
   movq %r15, -56(%rbp)
   movq %rcx, %rbx
   movq %rdx, -88(%rbp)
-  movq $0, -104(%rbp)
-  movq $0, -112(%rbp)
-  movq $0, -120(%rbp)
-  movq $0, -128(%rbp)
-  movq $0, -136(%rbp)
-  movq $0, -144(%rbp)
-  movq $0, -152(%rbp)
-  movq $0, -160(%rbp)
-  movq $0, -168(%rbp)
-  movq $0, -176(%rbp)
-  movq $0, -184(%rbp)
-  movq $0, -192(%rbp)
-  movq $0, -200(%rbp)
-  movq $0, -208(%rbp)
-  movq $0, -216(%rbp)
-  movq $0, -224(%rbp)
-  movq $0, -232(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -104(%rbp), %r11
+  movl $17, %ecx
+.Lजड़_सार्थक_कार्य_विश्लेषण:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -128(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -136(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -144(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -152(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -160(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -168(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -176(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -184(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -192(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -200(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -208(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -216(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -224(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -232(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_सार्थक_कार्य_विश्लेषण
   movl %eax, gc_roots_count(%rip)
   movq %rbx, -104(%rbp)
   movq -88(%rbp), %r11
@@ -46761,32 +36667,17 @@
   movq %r13, -40(%rbp)
   movq %rcx, %rbx
   movq %rdx, %rsi
-  movq $0, -64(%rbp)
-  movq $0, -72(%rbp)
-  movq $0, -80(%rbp)
-  movq $0, -88(%rbp)
-  movq $0, -96(%rbp)
-  movq $0, -104(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -64(%rbp), %r11
+  movl $6, %ecx
+.Lजड़_सार्थक_वर्ग_विश्लेषण:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -72(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -80(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -88(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -96(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_सार्थक_वर्ग_विश्लेषण
   movl %eax, gc_roots_count(%rip)
   movq %rbx, -64(%rbp)
   movq %rsi, -72(%rbp)
@@ -46879,788 +36770,17 @@
   movq %r14, -48(%rbp)
   movq %r15, -56(%rbp)
   movq %rcx, -72(%rbp)
-  movq $0, -1320(%rbp)
-  movq $0, -1328(%rbp)
-  movq $0, -1336(%rbp)
-  movq $0, -1344(%rbp)
-  movq $0, -1352(%rbp)
-  movq $0, -1360(%rbp)
-  movq $0, -1368(%rbp)
-  movq $0, -1376(%rbp)
-  movq $0, -1384(%rbp)
-  movq $0, -1392(%rbp)
-  movq $0, -1400(%rbp)
-  movq $0, -1408(%rbp)
-  movq $0, -1416(%rbp)
-  movq $0, -1424(%rbp)
-  movq $0, -1432(%rbp)
-  movq $0, -1440(%rbp)
-  movq $0, -1448(%rbp)
-  movq $0, -1456(%rbp)
-  movq $0, -1464(%rbp)
-  movq $0, -1472(%rbp)
-  movq $0, -1480(%rbp)
-  movq $0, -1488(%rbp)
-  movq $0, -1496(%rbp)
-  movq $0, -1504(%rbp)
-  movq $0, -1512(%rbp)
-  movq $0, -1520(%rbp)
-  movq $0, -1528(%rbp)
-  movq $0, -1536(%rbp)
-  movq $0, -1544(%rbp)
-  movq $0, -1552(%rbp)
-  movq $0, -1560(%rbp)
-  movq $0, -1568(%rbp)
-  movq $0, -1576(%rbp)
-  movq $0, -1584(%rbp)
-  movq $0, -1592(%rbp)
-  movq $0, -1600(%rbp)
-  movq $0, -1608(%rbp)
-  movq $0, -1616(%rbp)
-  movq $0, -1624(%rbp)
-  movq $0, -1632(%rbp)
-  movq $0, -1640(%rbp)
-  movq $0, -1648(%rbp)
-  movq $0, -1656(%rbp)
-  movq $0, -1664(%rbp)
-  movq $0, -1672(%rbp)
-  movq $0, -1680(%rbp)
-  movq $0, -1688(%rbp)
-  movq $0, -1696(%rbp)
-  movq $0, -1704(%rbp)
-  movq $0, -1712(%rbp)
-  movq $0, -1720(%rbp)
-  movq $0, -1728(%rbp)
-  movq $0, -1736(%rbp)
-  movq $0, -1744(%rbp)
-  movq $0, -1752(%rbp)
-  movq $0, -1760(%rbp)
-  movq $0, -1768(%rbp)
-  movq $0, -1776(%rbp)
-  movq $0, -1784(%rbp)
-  movq $0, -1792(%rbp)
-  movq $0, -1800(%rbp)
-  movq $0, -1808(%rbp)
-  movq $0, -1816(%rbp)
-  movq $0, -1824(%rbp)
-  movq $0, -1832(%rbp)
-  movq $0, -1840(%rbp)
-  movq $0, -1848(%rbp)
-  movq $0, -1856(%rbp)
-  movq $0, -1864(%rbp)
-  movq $0, -1872(%rbp)
-  movq $0, -1880(%rbp)
-  movq $0, -1888(%rbp)
-  movq $0, -1896(%rbp)
-  movq $0, -1904(%rbp)
-  movq $0, -1912(%rbp)
-  movq $0, -1920(%rbp)
-  movq $0, -1928(%rbp)
-  movq $0, -1936(%rbp)
-  movq $0, -1944(%rbp)
-  movq $0, -1952(%rbp)
-  movq $0, -1960(%rbp)
-  movq $0, -1968(%rbp)
-  movq $0, -1976(%rbp)
-  movq $0, -1984(%rbp)
-  movq $0, -1992(%rbp)
-  movq $0, -2000(%rbp)
-  movq $0, -2008(%rbp)
-  movq $0, -2016(%rbp)
-  movq $0, -2024(%rbp)
-  movq $0, -2032(%rbp)
-  movq $0, -2040(%rbp)
-  movq $0, -2048(%rbp)
-  movq $0, -2056(%rbp)
-  movq $0, -2064(%rbp)
-  movq $0, -2072(%rbp)
-  movq $0, -2080(%rbp)
-  movq $0, -2088(%rbp)
-  movq $0, -2096(%rbp)
-  movq $0, -2104(%rbp)
-  movq $0, -2112(%rbp)
-  movq $0, -2120(%rbp)
-  movq $0, -2128(%rbp)
-  movq $0, -2136(%rbp)
-  movq $0, -2144(%rbp)
-  movq $0, -2152(%rbp)
-  movq $0, -2160(%rbp)
-  movq $0, -2168(%rbp)
-  movq $0, -2176(%rbp)
-  movq $0, -2184(%rbp)
-  movq $0, -2192(%rbp)
-  movq $0, -2200(%rbp)
-  movq $0, -2208(%rbp)
-  movq $0, -2216(%rbp)
-  movq $0, -2224(%rbp)
-  movq $0, -2232(%rbp)
-  movq $0, -2240(%rbp)
-  movq $0, -2248(%rbp)
-  movq $0, -2256(%rbp)
-  movq $0, -2264(%rbp)
-  movq $0, -2272(%rbp)
-  movq $0, -2280(%rbp)
-  movq $0, -2288(%rbp)
-  movq $0, -2296(%rbp)
-  movq $0, -2304(%rbp)
-  movq $0, -2312(%rbp)
-  movq $0, -2320(%rbp)
-  movq $0, -2328(%rbp)
-  movq $0, -2336(%rbp)
-  movq $0, -2344(%rbp)
-  movq $0, -2352(%rbp)
-  movq $0, -2360(%rbp)
-  movq $0, -2368(%rbp)
-  movq $0, -2376(%rbp)
-  movq $0, -2384(%rbp)
-  movq $0, -2392(%rbp)
-  movq $0, -2400(%rbp)
-  movq $0, -2408(%rbp)
-  movq $0, -2416(%rbp)
-  movq $0, -2424(%rbp)
-  movq $0, -2432(%rbp)
-  movq $0, -2440(%rbp)
-  movq $0, -2448(%rbp)
-  movq $0, -2456(%rbp)
-  movq $0, -2464(%rbp)
-  movq $0, -2472(%rbp)
-  movq $0, -2480(%rbp)
-  movq $0, -2488(%rbp)
-  movq $0, -2496(%rbp)
-  movq $0, -2504(%rbp)
-  movq $0, -2512(%rbp)
-  movq $0, -2520(%rbp)
-  movq $0, -2528(%rbp)
-  movq $0, -2536(%rbp)
-  movq $0, -2544(%rbp)
-  movq $0, -2552(%rbp)
-  movq $0, -2560(%rbp)
-  movq $0, -2568(%rbp)
-  movq $0, -2576(%rbp)
-  movq $0, -2584(%rbp)
-  movq $0, -2592(%rbp)
-  movq $0, -2600(%rbp)
-  movq $0, -2608(%rbp)
-  movq $0, -2616(%rbp)
-  movq $0, -2624(%rbp)
-  movq $0, -2632(%rbp)
-  movq $0, -2640(%rbp)
-  movq $0, -2648(%rbp)
-  movq $0, -2656(%rbp)
-  movq $0, -2664(%rbp)
-  movq $0, -2672(%rbp)
-  movq $0, -2680(%rbp)
-  movq $0, -2688(%rbp)
-  movq $0, -2696(%rbp)
-  movq $0, -2704(%rbp)
-  movq $0, -2712(%rbp)
-  movq $0, -2720(%rbp)
-  movq $0, -2728(%rbp)
-  movq $0, -2736(%rbp)
-  movq $0, -2744(%rbp)
-  movq $0, -2752(%rbp)
-  movq $0, -2760(%rbp)
-  movq $0, -2768(%rbp)
-  movq $0, -2776(%rbp)
-  movq $0, -2784(%rbp)
-  movq $0, -2792(%rbp)
-  movq $0, -2800(%rbp)
-  movq $0, -2808(%rbp)
-  movq $0, -2816(%rbp)
-  movq $0, -2824(%rbp)
-  movq $0, -2832(%rbp)
-  movq $0, -2840(%rbp)
-  movq $0, -2848(%rbp)
-  movq $0, -2856(%rbp)
-  movq $0, -2864(%rbp)
-  movq $0, -2872(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -1320(%rbp), %r11
+  movl $195, %ecx
+.Lजड़_सार्थक_पंजीकरण_बिल्टिन:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -1328(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1336(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1344(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1352(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1360(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1368(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1376(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1384(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1392(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1400(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1408(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1416(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1424(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1432(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1440(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1448(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1456(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1464(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1472(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1480(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1488(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1496(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1504(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1512(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1520(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1528(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1536(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1544(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1552(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1560(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1568(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1576(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1584(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1592(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1600(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1608(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1616(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1624(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1632(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1640(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1648(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1656(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1664(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1672(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1680(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1688(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1696(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1704(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1712(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1720(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1728(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1736(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1744(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1752(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1760(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1768(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1776(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1784(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1792(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1800(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1808(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1816(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1824(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1832(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1840(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1848(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1856(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1864(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1872(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1880(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1888(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1896(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1904(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1912(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1920(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1928(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1936(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1944(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1952(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1960(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1968(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1976(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1984(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1992(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2000(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2008(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2016(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2024(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2032(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2040(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2048(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2056(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2064(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2072(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2080(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2088(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2096(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2128(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2136(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2144(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2152(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2160(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2168(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2176(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2184(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2192(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2200(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2208(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2216(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2224(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2232(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2240(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2248(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2256(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2264(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2272(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2280(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2288(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2296(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2304(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2312(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2320(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2328(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2336(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2344(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2352(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2360(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2368(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2376(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2384(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2392(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2400(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2408(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2416(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2424(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2432(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2440(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2448(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2456(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2464(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2472(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2480(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2488(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2496(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2504(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2512(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2520(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2528(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2536(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2544(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2552(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2560(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2568(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2576(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2584(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2592(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2600(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2608(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2616(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2624(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2632(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2640(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2648(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2656(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2664(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2672(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2680(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2688(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2696(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2704(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2712(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2720(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2728(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2736(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2744(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2752(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2760(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2768(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2776(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2784(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2792(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2800(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2808(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2816(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2824(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2832(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2840(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2848(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2856(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2864(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2872(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_सार्थक_पंजीकरण_बिल्टिन
   movl %eax, gc_roots_count(%rip)
   movq -72(%rbp), %r11
   movq %r11, -1320(%rbp)
@@ -50782,336 +39902,17 @@
   movq %r14, -48(%rbp)
   movq %r15, -56(%rbp)
   movq %rcx, -120(%rbp)
-  movq $0, -200(%rbp)
-  movq $0, -208(%rbp)
-  movq $0, -216(%rbp)
-  movq $0, -224(%rbp)
-  movq $0, -232(%rbp)
-  movq $0, -240(%rbp)
-  movq $0, -248(%rbp)
-  movq $0, -256(%rbp)
-  movq $0, -264(%rbp)
-  movq $0, -272(%rbp)
-  movq $0, -280(%rbp)
-  movq $0, -288(%rbp)
-  movq $0, -296(%rbp)
-  movq $0, -304(%rbp)
-  movq $0, -312(%rbp)
-  movq $0, -320(%rbp)
-  movq $0, -328(%rbp)
-  movq $0, -336(%rbp)
-  movq $0, -344(%rbp)
-  movq $0, -352(%rbp)
-  movq $0, -360(%rbp)
-  movq $0, -368(%rbp)
-  movq $0, -376(%rbp)
-  movq $0, -384(%rbp)
-  movq $0, -392(%rbp)
-  movq $0, -400(%rbp)
-  movq $0, -408(%rbp)
-  movq $0, -416(%rbp)
-  movq $0, -424(%rbp)
-  movq $0, -432(%rbp)
-  movq $0, -440(%rbp)
-  movq $0, -448(%rbp)
-  movq $0, -456(%rbp)
-  movq $0, -464(%rbp)
-  movq $0, -472(%rbp)
-  movq $0, -480(%rbp)
-  movq $0, -488(%rbp)
-  movq $0, -496(%rbp)
-  movq $0, -504(%rbp)
-  movq $0, -512(%rbp)
-  movq $0, -520(%rbp)
-  movq $0, -528(%rbp)
-  movq $0, -536(%rbp)
-  movq $0, -544(%rbp)
-  movq $0, -552(%rbp)
-  movq $0, -560(%rbp)
-  movq $0, -568(%rbp)
-  movq $0, -576(%rbp)
-  movq $0, -584(%rbp)
-  movq $0, -592(%rbp)
-  movq $0, -600(%rbp)
-  movq $0, -608(%rbp)
-  movq $0, -616(%rbp)
-  movq $0, -624(%rbp)
-  movq $0, -632(%rbp)
-  movq $0, -640(%rbp)
-  movq $0, -648(%rbp)
-  movq $0, -656(%rbp)
-  movq $0, -664(%rbp)
-  movq $0, -672(%rbp)
-  movq $0, -680(%rbp)
-  movq $0, -688(%rbp)
-  movq $0, -696(%rbp)
-  movq $0, -704(%rbp)
-  movq $0, -712(%rbp)
-  movq $0, -720(%rbp)
-  movq $0, -728(%rbp)
-  movq $0, -736(%rbp)
-  movq $0, -744(%rbp)
-  movq $0, -752(%rbp)
-  movq $0, -760(%rbp)
-  movq $0, -768(%rbp)
-  movq $0, -776(%rbp)
-  movq $0, -784(%rbp)
-  movq $0, -792(%rbp)
-  movq $0, -800(%rbp)
-  movq $0, -808(%rbp)
-  movq $0, -816(%rbp)
-  movq $0, -824(%rbp)
-  movq $0, -832(%rbp)
-  movq $0, -840(%rbp)
-  movq $0, -848(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -200(%rbp), %r11
+  movl $82, %ecx
+.Lजड़_मूल_सार्थक_विश्लेषण:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -208(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -216(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -224(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -232(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -240(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -248(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -256(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -264(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -272(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -280(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -288(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -296(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -304(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -312(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -320(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -328(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -336(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -344(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -352(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -360(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -368(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -376(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -384(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -392(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -400(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -408(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -416(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -424(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -432(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -440(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -448(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -456(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -464(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -472(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -480(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -488(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -496(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -504(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -512(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -520(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -528(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -536(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -544(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -552(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -560(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -568(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -576(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -584(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -592(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -600(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -608(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -616(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -624(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -632(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -640(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -648(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -656(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -664(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -672(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -680(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -688(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -696(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -704(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -712(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -720(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -728(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -736(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -744(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -752(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -760(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -768(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -776(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -784(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -792(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -800(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -808(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -816(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -824(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -832(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -840(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -848(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_मूल_सार्थक_विश्लेषण
   movl %eax, gc_roots_count(%rip)
   movq -120(%rbp), %r11
   movq %r11, -200(%rbp)
@@ -52097,44 +40898,17 @@
   movq %rbx, -8(%rbp)
   movq %rsi, -16(%rbp)
   movq %rdi, -24(%rbp)
-  movq $0, -48(%rbp)
-  movq $0, -56(%rbp)
-  movq $0, -64(%rbp)
-  movq $0, -72(%rbp)
-  movq $0, -80(%rbp)
-  movq $0, -88(%rbp)
-  movq $0, -96(%rbp)
-  movq $0, -104(%rbp)
-  movq $0, -112(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -48(%rbp), %r11
+  movl $9, %ecx
+.Lजड़_मध्यम_नव_एकक:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -56(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -64(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -72(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -80(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -88(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -96(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_मध्यम_नव_एकक
   movl %eax, gc_roots_count(%rip)
 
 .L_मध्यम_नव_एकक__प्रवेश_0:
@@ -52259,44 +41033,17 @@
   movq %r15, -56(%rbp)
   movq %rcx, %rbx
   movq %rdx, %rsi
-  movq $0, -88(%rbp)
-  movq $0, -96(%rbp)
-  movq $0, -104(%rbp)
-  movq $0, -112(%rbp)
-  movq $0, -120(%rbp)
-  movq $0, -128(%rbp)
-  movq $0, -136(%rbp)
-  movq $0, -144(%rbp)
-  movq $0, -152(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -88(%rbp), %r11
+  movl $9, %ecx
+.Lजड़_मध्यम_दशमलव_स्थिरांक:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -96(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -128(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -136(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -144(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -152(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_मध्यम_दशमलव_स्थिरांक
   movl %eax, gc_roots_count(%rip)
   movq %rbx, -88(%rbp)
   movq %rsi, -96(%rbp)
@@ -52430,44 +41177,17 @@
   movq %r15, -56(%rbp)
   movq %rcx, %rbx
   movq %rdx, %rsi
-  movq $0, -88(%rbp)
-  movq $0, -96(%rbp)
-  movq $0, -104(%rbp)
-  movq $0, -112(%rbp)
-  movq $0, -120(%rbp)
-  movq $0, -128(%rbp)
-  movq $0, -136(%rbp)
-  movq $0, -144(%rbp)
-  movq $0, -152(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -88(%rbp), %r11
+  movl $9, %ecx
+.Lजड़_मध्यम_पाठ_स्थिरांक:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -96(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -128(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -136(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -144(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -152(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_मध्यम_पाठ_स्थिरांक
   movl %eax, gc_roots_count(%rip)
   movq %rbx, -88(%rbp)
   movq %rsi, -96(%rbp)
@@ -52598,52 +41318,17 @@
   movq %r12, -32(%rbp)
   movq %rcx, %rbx
   movq %rdx, %rsi
-  movq $0, -56(%rbp)
-  movq $0, -64(%rbp)
-  movq $0, -72(%rbp)
-  movq $0, -80(%rbp)
-  movq $0, -88(%rbp)
-  movq $0, -96(%rbp)
-  movq $0, -104(%rbp)
-  movq $0, -112(%rbp)
-  movq $0, -120(%rbp)
-  movq $0, -128(%rbp)
-  movq $0, -136(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -56(%rbp), %r11
+  movl $11, %ecx
+.Lजड़_मध्यम_नव_कार्य:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -64(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -72(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -80(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -88(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -96(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -128(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -136(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_मध्यम_नव_कार्य
   movl %eax, gc_roots_count(%rip)
   movq %rbx, -56(%rbp)
   movq %rsi, -64(%rbp)
@@ -52869,56 +41554,17 @@
   movq %rcx, %rbx
   movq %rdx, %rsi
   movq %r8, %rdi
-  movq $0, -72(%rbp)
-  movq $0, -80(%rbp)
-  movq $0, -88(%rbp)
-  movq $0, -96(%rbp)
-  movq $0, -104(%rbp)
-  movq $0, -112(%rbp)
-  movq $0, -120(%rbp)
-  movq $0, -128(%rbp)
-  movq $0, -136(%rbp)
-  movq $0, -144(%rbp)
-  movq $0, -152(%rbp)
-  movq $0, -160(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -72(%rbp), %r11
+  movl $12, %ecx
+.Lजड़_मध्यम_पैरामीटर:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -80(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -88(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -96(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -128(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -136(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -144(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -152(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -160(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_मध्यम_पैरामीटर
   movl %eax, gc_roots_count(%rip)
   movq %rbx, -72(%rbp)
   movq %rsi, -80(%rbp)
@@ -53051,88 +41697,17 @@
   movq %r15, -56(%rbp)
   movq %rcx, %rbx
   movq %rdx, %rsi
-  movq $0, -80(%rbp)
-  movq $0, -88(%rbp)
-  movq $0, -96(%rbp)
-  movq $0, -104(%rbp)
-  movq $0, -112(%rbp)
-  movq $0, -120(%rbp)
-  movq $0, -128(%rbp)
-  movq $0, -136(%rbp)
-  movq $0, -144(%rbp)
-  movq $0, -152(%rbp)
-  movq $0, -160(%rbp)
-  movq $0, -168(%rbp)
-  movq $0, -176(%rbp)
-  movq $0, -184(%rbp)
-  movq $0, -192(%rbp)
-  movq $0, -200(%rbp)
-  movq $0, -208(%rbp)
-  movq $0, -216(%rbp)
-  movq $0, -224(%rbp)
-  movq $0, -232(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -80(%rbp), %r11
+  movl $20, %ecx
+.Lजड़_मध्यम_नव_खंड:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -88(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -96(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -128(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -136(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -144(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -152(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -160(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -168(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -176(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -184(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -192(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -200(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -208(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -216(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -224(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -232(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_मध्यम_नव_खंड
   movl %eax, gc_roots_count(%rip)
   movq %rbx, -80(%rbp)
   movq %rsi, -88(%rbp)
@@ -53352,48 +41927,17 @@
   movq %r9, %r12
   movq 48(%rbp), %r10
   movq %r10, %r13
-  movq $0, -80(%rbp)
-  movq $0, -88(%rbp)
-  movq $0, -96(%rbp)
-  movq $0, -104(%rbp)
-  movq $0, -112(%rbp)
-  movq $0, -120(%rbp)
-  movq $0, -128(%rbp)
-  movq $0, -136(%rbp)
-  movq $0, -144(%rbp)
-  movq $0, -152(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -80(%rbp), %r11
+  movl $10, %ecx
+.Lजड़_मध्यम_निर्देश_बनाओ:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -88(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -96(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -128(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -136(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -144(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -152(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_मध्यम_निर्देश_बनाओ
   movl %eax, gc_roots_count(%rip)
   movq %rbx, -80(%rbp)
   movq %rdi, -88(%rbp)
@@ -53518,56 +42062,17 @@
   movq %r10, %r13
   movq 56(%rbp), %r10
   movq %r10, %r14
-  movq $0, -80(%rbp)
-  movq $0, -88(%rbp)
-  movq $0, -96(%rbp)
-  movq $0, -104(%rbp)
-  movq $0, -112(%rbp)
-  movq $0, -120(%rbp)
-  movq $0, -128(%rbp)
-  movq $0, -136(%rbp)
-  movq $0, -144(%rbp)
-  movq $0, -152(%rbp)
-  movq $0, -160(%rbp)
-  movq $0, -168(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -80(%rbp), %r11
+  movl $12, %ecx
+.Lजड़_मध्यम_जोड़:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -88(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -96(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -128(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -136(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -144(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -152(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -160(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -168(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_मध्यम_जोड़
   movl %eax, gc_roots_count(%rip)
   movq %rbx, -80(%rbp)
   movq %rsi, -88(%rbp)
@@ -53673,48 +42178,17 @@
   movq %rdx, %rsi
   movq %r8, %rdi
   movq %r9, %r12
-  movq $0, -80(%rbp)
-  movq $0, -88(%rbp)
-  movq $0, -96(%rbp)
-  movq $0, -104(%rbp)
-  movq $0, -112(%rbp)
-  movq $0, -120(%rbp)
-  movq $0, -128(%rbp)
-  movq $0, -136(%rbp)
-  movq $0, -144(%rbp)
-  movq $0, -152(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -80(%rbp), %r11
+  movl $10, %ecx
+.Lजड़_मध्यम_जोड़_प्रभाव:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -88(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -96(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -128(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -136(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -144(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -152(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_मध्यम_जोड़_प्रभाव
   movl %eax, gc_roots_count(%rip)
   movq %rbx, -80(%rbp)
   movq %rsi, -88(%rbp)
@@ -53820,64 +42294,17 @@
   movq %rdx, %rsi
   movq %r8, %rdi
   movq %r9, %r12
-  movq $0, -80(%rbp)
-  movq $0, -88(%rbp)
-  movq $0, -96(%rbp)
-  movq $0, -104(%rbp)
-  movq $0, -112(%rbp)
-  movq $0, -120(%rbp)
-  movq $0, -128(%rbp)
-  movq $0, -136(%rbp)
-  movq $0, -144(%rbp)
-  movq $0, -152(%rbp)
-  movq $0, -160(%rbp)
-  movq $0, -168(%rbp)
-  movq $0, -176(%rbp)
-  movq $0, -184(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -80(%rbp), %r11
+  movl $14, %ecx
+.Lजड़_मध्यम_फाई:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -88(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -96(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -128(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -136(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -144(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -152(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -160(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -168(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -176(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -184(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_मध्यम_फाई
   movl %eax, gc_roots_count(%rip)
   movq %rbx, -80(%rbp)
   movq %rsi, -88(%rbp)
@@ -54014,44 +42441,17 @@
   movq %r15, -56(%rbp)
   movq %rcx, %rbx
   movq %rdx, %rsi
-  movq $0, -88(%rbp)
-  movq $0, -96(%rbp)
-  movq $0, -104(%rbp)
-  movq $0, -112(%rbp)
-  movq $0, -120(%rbp)
-  movq $0, -128(%rbp)
-  movq $0, -136(%rbp)
-  movq $0, -144(%rbp)
-  movq $0, -152(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -88(%rbp), %r11
+  movl $9, %ecx
+.Lजड़_मध्यम_वापस:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -96(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -128(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -136(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -144(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -152(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_मध्यम_वापस
   movl %eax, gc_roots_count(%rip)
   movq %rbx, -88(%rbp)
 
@@ -54180,44 +42580,17 @@
   movq %r15, -56(%rbp)
   movq %rcx, %rbx
   movq %rdx, %rsi
-  movq $0, -88(%rbp)
-  movq $0, -96(%rbp)
-  movq $0, -104(%rbp)
-  movq $0, -112(%rbp)
-  movq $0, -120(%rbp)
-  movq $0, -128(%rbp)
-  movq $0, -136(%rbp)
-  movq $0, -144(%rbp)
-  movq $0, -152(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -88(%rbp), %r11
+  movl $9, %ecx
+.Lजड़_मध्यम_जाओ:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -96(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -128(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -136(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -144(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -152(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_मध्यम_जाओ
   movl %eax, gc_roots_count(%rip)
   movq %rbx, -88(%rbp)
   movq %rsi, -96(%rbp)
@@ -54333,52 +42706,17 @@
   movq %rdx, %rsi
   movq %r8, %rdi
   movq %r9, %r12
-  movq $0, -88(%rbp)
-  movq $0, -96(%rbp)
-  movq $0, -104(%rbp)
-  movq $0, -112(%rbp)
-  movq $0, -120(%rbp)
-  movq $0, -128(%rbp)
-  movq $0, -136(%rbp)
-  movq $0, -144(%rbp)
-  movq $0, -152(%rbp)
-  movq $0, -160(%rbp)
-  movq $0, -168(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -88(%rbp), %r11
+  movl $11, %ecx
+.Lजड़_मध्यम_यदि_जाओ:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -96(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -128(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -136(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -144(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -152(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -160(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -168(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_मध्यम_यदि_जाओ
   movl %eax, gc_roots_count(%rip)
   movq %rbx, -88(%rbp)
   movq %rdi, -96(%rbp)
@@ -54514,36 +42852,17 @@
   movq %r15, -56(%rbp)
   movq %rcx, %rbx
   movq %rdx, %rsi
-  movq $0, -88(%rbp)
-  movq $0, -96(%rbp)
-  movq $0, -104(%rbp)
-  movq $0, -112(%rbp)
-  movq $0, -120(%rbp)
-  movq $0, -128(%rbp)
-  movq $0, -136(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -88(%rbp), %r11
+  movl $7, %ecx
+.Lजड़_मध्यम_फेंको:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -96(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -128(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -136(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_मध्यम_फेंको
   movl %eax, gc_roots_count(%rip)
   movq %rbx, -88(%rbp)
 
@@ -54648,44 +42967,17 @@
   movq %rcx, %rbx
   movq %rdx, %rsi
   movq %r8, %rdi
-  movq $0, -80(%rbp)
-  movq $0, -88(%rbp)
-  movq $0, -96(%rbp)
-  movq $0, -104(%rbp)
-  movq $0, -112(%rbp)
-  movq $0, -120(%rbp)
-  movq $0, -128(%rbp)
-  movq $0, -136(%rbp)
-  movq $0, -144(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -80(%rbp), %r11
+  movl $9, %ecx
+.Lजड़_मध्यम_स्थिर_पूर्ण:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -88(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -96(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -128(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -136(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -144(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_मध्यम_स्थिर_पूर्ण
   movl %eax, gc_roots_count(%rip)
   movq %rbx, -80(%rbp)
   movq %rsi, -88(%rbp)
@@ -54804,48 +43096,17 @@
   movq %rcx, %rbx
   movq %rdx, %rsi
   movq %r8, %rdi
-  movq $0, -80(%rbp)
-  movq $0, -88(%rbp)
-  movq $0, -96(%rbp)
-  movq $0, -104(%rbp)
-  movq $0, -112(%rbp)
-  movq $0, -120(%rbp)
-  movq $0, -128(%rbp)
-  movq $0, -136(%rbp)
-  movq $0, -144(%rbp)
-  movq $0, -152(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -80(%rbp), %r11
+  movl $10, %ecx
+.Lजड़_मध्यम_स्थिर_बूल:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -88(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -96(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -128(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -136(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -144(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -152(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_मध्यम_स्थिर_बूल
   movl %eax, gc_roots_count(%rip)
   movq %rbx, -80(%rbp)
   movq %rsi, -88(%rbp)
@@ -54965,40 +43226,17 @@
   movq %r15, -56(%rbp)
   movq %rcx, %rbx
   movq %rdx, %rsi
-  movq $0, -80(%rbp)
-  movq $0, -88(%rbp)
-  movq $0, -96(%rbp)
-  movq $0, -104(%rbp)
-  movq $0, -112(%rbp)
-  movq $0, -120(%rbp)
-  movq $0, -128(%rbp)
-  movq $0, -136(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -80(%rbp), %r11
+  movl $8, %ecx
+.Lजड़_मध्यम_स्थिर_शून्यम्:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -88(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -96(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -128(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -136(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_मध्यम_स्थिर_शून्यम्
   movl %eax, gc_roots_count(%rip)
   movq %rbx, -80(%rbp)
   movq %rsi, -88(%rbp)
@@ -55104,56 +43342,17 @@
   movq %rdx, %rsi
   movq %r8, %rdi
   movq %r9, %r12
-  movq $0, -80(%rbp)
-  movq $0, -88(%rbp)
-  movq $0, -96(%rbp)
-  movq $0, -104(%rbp)
-  movq $0, -112(%rbp)
-  movq $0, -120(%rbp)
-  movq $0, -128(%rbp)
-  movq $0, -136(%rbp)
-  movq $0, -144(%rbp)
-  movq $0, -152(%rbp)
-  movq $0, -160(%rbp)
-  movq $0, -168(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -80(%rbp), %r11
+  movl $12, %ecx
+.Lजड़_मध्यम_स्थिर_पाठ:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -88(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -96(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -128(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -136(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -144(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -152(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -160(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -168(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_मध्यम_स्थिर_पाठ
   movl %eax, gc_roots_count(%rip)
   movq %rbx, -80(%rbp)
   movq %rsi, -88(%rbp)
@@ -55289,32 +43488,17 @@
   movq %r10, %r13
   movq 56(%rbp), %r10
   movq %r10, %r14
-  movq $0, -80(%rbp)
-  movq $0, -88(%rbp)
-  movq $0, -96(%rbp)
-  movq $0, -104(%rbp)
-  movq $0, -112(%rbp)
-  movq $0, -120(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -80(%rbp), %r11
+  movl $6, %ecx
+.Lजड़_मध्यम_द्विआधारी:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -88(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -96(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_मध्यम_द्विआधारी
   movl %eax, gc_roots_count(%rip)
   movq %rbx, -80(%rbp)
   movq %rsi, -88(%rbp)
@@ -55400,32 +43584,17 @@
   movq %r9, %r12
   movq 48(%rbp), %r10
   movq %r10, %r13
-  movq $0, -80(%rbp)
-  movq $0, -88(%rbp)
-  movq $0, -96(%rbp)
-  movq $0, -104(%rbp)
-  movq $0, -112(%rbp)
-  movq $0, -120(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -80(%rbp), %r11
+  movl $6, %ecx
+.Lजड़_मध्यम_तुलना:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -88(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -96(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_मध्यम_तुलना
   movl %eax, gc_roots_count(%rip)
   movq %rbx, -80(%rbp)
   movq %rsi, -88(%rbp)
@@ -55514,40 +43683,17 @@
   movq %rcx, %rbx
   movq %rdx, %rsi
   movq %r8, %rdi
-  movq $0, -80(%rbp)
-  movq $0, -88(%rbp)
-  movq $0, -96(%rbp)
-  movq $0, -104(%rbp)
-  movq $0, -112(%rbp)
-  movq $0, -120(%rbp)
-  movq $0, -128(%rbp)
-  movq $0, -136(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -80(%rbp), %r11
+  movl $8, %ecx
+.Lजड़_मध्यम_स्लॉट:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -88(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -96(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -128(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -136(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_मध्यम_स्लॉट
   movl %eax, gc_roots_count(%rip)
   movq %rbx, -80(%rbp)
   movq %rsi, -88(%rbp)
@@ -55647,32 +43793,17 @@
   movq %rdx, %rsi
   movq %r8, %rdi
   movq %r9, %r12
-  movq $0, -80(%rbp)
-  movq $0, -88(%rbp)
-  movq $0, -96(%rbp)
-  movq $0, -104(%rbp)
-  movq $0, -112(%rbp)
-  movq $0, -120(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -80(%rbp), %r11
+  movl $6, %ecx
+.Lजड़_मध्यम_पढ़_स्लॉट:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -88(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -96(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_मध्यम_पढ़_स्लॉट
   movl %eax, gc_roots_count(%rip)
   movq %rbx, -80(%rbp)
   movq %rsi, -88(%rbp)
@@ -55852,40 +43983,17 @@
   movq %r9, %r12
   movq 48(%rbp), %r10
   movq %r10, %r13
-  movq $0, -80(%rbp)
-  movq $0, -88(%rbp)
-  movq $0, -96(%rbp)
-  movq $0, -104(%rbp)
-  movq $0, -112(%rbp)
-  movq $0, -120(%rbp)
-  movq $0, -128(%rbp)
-  movq $0, -136(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -80(%rbp), %r11
+  movl $8, %ecx
+.Lजड़_मध्यम_बुलाओ:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -88(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -96(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -128(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -136(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_मध्यम_बुलाओ
   movl %eax, gc_roots_count(%rip)
   movq %rbx, -80(%rbp)
   movq %rsi, -88(%rbp)
@@ -55975,40 +44083,17 @@
   movq %r9, %r12
   movq 48(%rbp), %r10
   movq %r10, %r13
-  movq $0, -80(%rbp)
-  movq $0, -88(%rbp)
-  movq $0, -96(%rbp)
-  movq $0, -104(%rbp)
-  movq $0, -112(%rbp)
-  movq $0, -120(%rbp)
-  movq $0, -128(%rbp)
-  movq $0, -136(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -80(%rbp), %r11
+  movl $8, %ecx
+.Lजड़_मध्यम_अंतर्:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -88(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -96(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -128(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -136(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_मध्यम_अंतर्
   movl %eax, gc_roots_count(%rip)
   movq %rbx, -80(%rbp)
   movq %rsi, -88(%rbp)
@@ -56158,36 +44243,17 @@
   movq %r12, -32(%rbp)
   movq %r13, -40(%rbp)
   movq %rcx, %rbx
-  movq $0, -64(%rbp)
-  movq $0, -72(%rbp)
-  movq $0, -80(%rbp)
-  movq $0, -88(%rbp)
-  movq $0, -96(%rbp)
-  movq $0, -104(%rbp)
-  movq $0, -112(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -64(%rbp), %r11
+  movl $7, %ecx
+.Lजड़_मध्यम_संचालक_सूची:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -72(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -80(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -88(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -96(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_मध्यम_संचालक_सूची
   movl %eax, gc_roots_count(%rip)
   movq %rbx, -64(%rbp)
 
@@ -56308,240 +44374,17 @@
   movq %rdi, -24(%rbp)
   movq %r12, -32(%rbp)
   movq %rcx, %rbx
-  movq $0, -56(%rbp)
-  movq $0, -64(%rbp)
-  movq $0, -72(%rbp)
-  movq $0, -80(%rbp)
-  movq $0, -88(%rbp)
-  movq $0, -96(%rbp)
-  movq $0, -104(%rbp)
-  movq $0, -112(%rbp)
-  movq $0, -120(%rbp)
-  movq $0, -128(%rbp)
-  movq $0, -136(%rbp)
-  movq $0, -144(%rbp)
-  movq $0, -152(%rbp)
-  movq $0, -160(%rbp)
-  movq $0, -168(%rbp)
-  movq $0, -176(%rbp)
-  movq $0, -184(%rbp)
-  movq $0, -192(%rbp)
-  movq $0, -200(%rbp)
-  movq $0, -208(%rbp)
-  movq $0, -216(%rbp)
-  movq $0, -224(%rbp)
-  movq $0, -232(%rbp)
-  movq $0, -240(%rbp)
-  movq $0, -248(%rbp)
-  movq $0, -256(%rbp)
-  movq $0, -264(%rbp)
-  movq $0, -272(%rbp)
-  movq $0, -280(%rbp)
-  movq $0, -288(%rbp)
-  movq $0, -296(%rbp)
-  movq $0, -304(%rbp)
-  movq $0, -312(%rbp)
-  movq $0, -320(%rbp)
-  movq $0, -328(%rbp)
-  movq $0, -336(%rbp)
-  movq $0, -344(%rbp)
-  movq $0, -352(%rbp)
-  movq $0, -360(%rbp)
-  movq $0, -368(%rbp)
-  movq $0, -376(%rbp)
-  movq $0, -384(%rbp)
-  movq $0, -392(%rbp)
-  movq $0, -400(%rbp)
-  movq $0, -408(%rbp)
-  movq $0, -416(%rbp)
-  movq $0, -424(%rbp)
-  movq $0, -432(%rbp)
-  movq $0, -440(%rbp)
-  movq $0, -448(%rbp)
-  movq $0, -456(%rbp)
-  movq $0, -464(%rbp)
-  movq $0, -472(%rbp)
-  movq $0, -480(%rbp)
-  movq $0, -488(%rbp)
-  movq $0, -496(%rbp)
-  movq $0, -504(%rbp)
-  movq $0, -512(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -56(%rbp), %r11
+  movl $58, %ecx
+.Lजड़_मध्यम_अंश_सार:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -64(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -72(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -80(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -88(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -96(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -128(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -136(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -144(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -152(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -160(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -168(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -176(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -184(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -192(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -200(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -208(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -216(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -224(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -232(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -240(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -248(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -256(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -264(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -272(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -280(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -288(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -296(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -304(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -312(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -320(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -328(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -336(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -344(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -352(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -360(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -368(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -376(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -384(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -392(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -400(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -408(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -416(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -424(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -432(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -440(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -448(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -456(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -464(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -472(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -480(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -488(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -496(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -504(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -512(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_मध्यम_अंश_सार
   movl %eax, gc_roots_count(%rip)
   movq %rbx, -56(%rbp)
 
@@ -57446,112 +45289,17 @@
   movq %r13, -40(%rbp)
   movq %r14, -48(%rbp)
   movq %rcx, %rbx
-  movq $0, -72(%rbp)
-  movq $0, -80(%rbp)
-  movq $0, -88(%rbp)
-  movq $0, -96(%rbp)
-  movq $0, -104(%rbp)
-  movq $0, -112(%rbp)
-  movq $0, -120(%rbp)
-  movq $0, -128(%rbp)
-  movq $0, -136(%rbp)
-  movq $0, -144(%rbp)
-  movq $0, -152(%rbp)
-  movq $0, -160(%rbp)
-  movq $0, -168(%rbp)
-  movq $0, -176(%rbp)
-  movq $0, -184(%rbp)
-  movq $0, -192(%rbp)
-  movq $0, -200(%rbp)
-  movq $0, -208(%rbp)
-  movq $0, -216(%rbp)
-  movq $0, -224(%rbp)
-  movq $0, -232(%rbp)
-  movq $0, -240(%rbp)
-  movq $0, -248(%rbp)
-  movq $0, -256(%rbp)
-  movq $0, -264(%rbp)
-  movq $0, -272(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -72(%rbp), %r11
+  movl $26, %ecx
+.Lजड़_मध्यम_निर्देश_पंक्ति:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -80(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -88(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -96(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -128(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -136(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -144(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -152(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -160(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -168(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -176(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -184(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -192(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -200(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -208(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -216(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -224(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -232(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -240(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -248(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -256(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -264(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -272(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_मध्यम_निर्देश_पंक्ति
   movl %eax, gc_roots_count(%rip)
   movq %rbx, -72(%rbp)
 
@@ -57873,136 +45621,17 @@
   movq %r14, -48(%rbp)
   movq %r15, -56(%rbp)
   movq %rcx, %rbx
-  movq $0, -80(%rbp)
-  movq $0, -88(%rbp)
-  movq $0, -96(%rbp)
-  movq $0, -104(%rbp)
-  movq $0, -112(%rbp)
-  movq $0, -120(%rbp)
-  movq $0, -128(%rbp)
-  movq $0, -136(%rbp)
-  movq $0, -144(%rbp)
-  movq $0, -152(%rbp)
-  movq $0, -160(%rbp)
-  movq $0, -168(%rbp)
-  movq $0, -176(%rbp)
-  movq $0, -184(%rbp)
-  movq $0, -192(%rbp)
-  movq $0, -200(%rbp)
-  movq $0, -208(%rbp)
-  movq $0, -216(%rbp)
-  movq $0, -224(%rbp)
-  movq $0, -232(%rbp)
-  movq $0, -240(%rbp)
-  movq $0, -248(%rbp)
-  movq $0, -256(%rbp)
-  movq $0, -264(%rbp)
-  movq $0, -272(%rbp)
-  movq $0, -280(%rbp)
-  movq $0, -288(%rbp)
-  movq $0, -296(%rbp)
-  movq $0, -304(%rbp)
-  movq $0, -312(%rbp)
-  movq $0, -320(%rbp)
-  movq $0, -328(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -80(%rbp), %r11
+  movl $32, %ecx
+.Lजड़_मध्यम_फाई_पंक्ति:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -88(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -96(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -128(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -136(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -144(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -152(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -160(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -168(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -176(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -184(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -192(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -200(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -208(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -216(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -224(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -232(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -240(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -248(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -256(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -264(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -272(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -280(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -288(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -296(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -304(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -312(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -320(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -328(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_मध्यम_फाई_पंक्ति
   movl %eax, gc_roots_count(%rip)
   movq %rbx, -80(%rbp)
 
@@ -58330,340 +45959,17 @@
   movq %r14, -48(%rbp)
   movq %r15, -56(%rbp)
   movq %rcx, -88(%rbp)
-  movq $0, -280(%rbp)
-  movq $0, -288(%rbp)
-  movq $0, -296(%rbp)
-  movq $0, -304(%rbp)
-  movq $0, -312(%rbp)
-  movq $0, -320(%rbp)
-  movq $0, -328(%rbp)
-  movq $0, -336(%rbp)
-  movq $0, -344(%rbp)
-  movq $0, -352(%rbp)
-  movq $0, -360(%rbp)
-  movq $0, -368(%rbp)
-  movq $0, -376(%rbp)
-  movq $0, -384(%rbp)
-  movq $0, -392(%rbp)
-  movq $0, -400(%rbp)
-  movq $0, -408(%rbp)
-  movq $0, -416(%rbp)
-  movq $0, -424(%rbp)
-  movq $0, -432(%rbp)
-  movq $0, -440(%rbp)
-  movq $0, -448(%rbp)
-  movq $0, -456(%rbp)
-  movq $0, -464(%rbp)
-  movq $0, -472(%rbp)
-  movq $0, -480(%rbp)
-  movq $0, -488(%rbp)
-  movq $0, -496(%rbp)
-  movq $0, -504(%rbp)
-  movq $0, -512(%rbp)
-  movq $0, -520(%rbp)
-  movq $0, -528(%rbp)
-  movq $0, -536(%rbp)
-  movq $0, -544(%rbp)
-  movq $0, -552(%rbp)
-  movq $0, -560(%rbp)
-  movq $0, -568(%rbp)
-  movq $0, -576(%rbp)
-  movq $0, -584(%rbp)
-  movq $0, -592(%rbp)
-  movq $0, -600(%rbp)
-  movq $0, -608(%rbp)
-  movq $0, -616(%rbp)
-  movq $0, -624(%rbp)
-  movq $0, -632(%rbp)
-  movq $0, -640(%rbp)
-  movq $0, -648(%rbp)
-  movq $0, -656(%rbp)
-  movq $0, -664(%rbp)
-  movq $0, -672(%rbp)
-  movq $0, -680(%rbp)
-  movq $0, -688(%rbp)
-  movq $0, -696(%rbp)
-  movq $0, -704(%rbp)
-  movq $0, -712(%rbp)
-  movq $0, -720(%rbp)
-  movq $0, -728(%rbp)
-  movq $0, -736(%rbp)
-  movq $0, -744(%rbp)
-  movq $0, -752(%rbp)
-  movq $0, -760(%rbp)
-  movq $0, -768(%rbp)
-  movq $0, -776(%rbp)
-  movq $0, -784(%rbp)
-  movq $0, -792(%rbp)
-  movq $0, -800(%rbp)
-  movq $0, -808(%rbp)
-  movq $0, -816(%rbp)
-  movq $0, -824(%rbp)
-  movq $0, -832(%rbp)
-  movq $0, -840(%rbp)
-  movq $0, -848(%rbp)
-  movq $0, -856(%rbp)
-  movq $0, -864(%rbp)
-  movq $0, -872(%rbp)
-  movq $0, -880(%rbp)
-  movq $0, -888(%rbp)
-  movq $0, -896(%rbp)
-  movq $0, -904(%rbp)
-  movq $0, -912(%rbp)
-  movq $0, -920(%rbp)
-  movq $0, -928(%rbp)
-  movq $0, -936(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -280(%rbp), %r11
+  movl $83, %ecx
+.Lजड़_मध्यम_छापो_कार्य:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -288(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -296(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -304(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -312(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -320(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -328(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -336(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -344(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -352(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -360(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -368(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -376(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -384(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -392(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -400(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -408(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -416(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -424(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -432(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -440(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -448(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -456(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -464(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -472(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -480(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -488(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -496(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -504(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -512(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -520(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -528(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -536(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -544(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -552(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -560(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -568(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -576(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -584(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -592(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -600(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -608(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -616(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -624(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -632(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -640(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -648(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -656(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -664(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -672(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -680(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -688(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -696(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -704(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -712(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -720(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -728(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -736(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -744(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -752(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -760(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -768(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -776(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -784(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -792(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -800(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -808(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -816(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -824(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -832(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -840(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -848(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -856(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -864(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -872(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -880(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -888(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -896(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -904(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -912(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -920(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -928(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -936(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_मध्यम_छापो_कार्य
   movl %eax, gc_roots_count(%rip)
   movq -88(%rbp), %r11
   movq %r11, -280(%rbp)
@@ -59441,68 +46747,17 @@
   movq %rdi, -24(%rbp)
   movq %r12, -32(%rbp)
   movq %rcx, %rbx
-  movq $0, -56(%rbp)
-  movq $0, -64(%rbp)
-  movq $0, -72(%rbp)
-  movq $0, -80(%rbp)
-  movq $0, -88(%rbp)
-  movq $0, -96(%rbp)
-  movq $0, -104(%rbp)
-  movq $0, -112(%rbp)
-  movq $0, -120(%rbp)
-  movq $0, -128(%rbp)
-  movq $0, -136(%rbp)
-  movq $0, -144(%rbp)
-  movq $0, -152(%rbp)
-  movq $0, -160(%rbp)
-  movq $0, -168(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -56(%rbp), %r11
+  movl $15, %ecx
+.Lजड़_मध्यम_सुरक्षा_बिंदु_है:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -64(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -72(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -80(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -88(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -96(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -128(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -136(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -144(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -152(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -160(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -168(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_मध्यम_सुरक्षा_बिंदु_है
   movl %eax, gc_roots_count(%rip)
   movq %rbx, -56(%rbp)
 
@@ -60208,32 +47463,17 @@
   movq %rsi, -16(%rbp)
   movq %rdi, -24(%rbp)
   movq %rcx, %rbx
-  movq $0, -48(%rbp)
-  movq $0, -56(%rbp)
-  movq $0, -64(%rbp)
-  movq $0, -72(%rbp)
-  movq $0, -80(%rbp)
-  movq $0, -88(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -48(%rbp), %r11
+  movl $6, %ecx
+.Lजड़_मध्यम_जीसी_टैप्ड:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -56(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -64(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -72(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -80(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -88(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_मध्यम_जीसी_टैप्ड
   movl %eax, gc_roots_count(%rip)
   movq %rbx, -48(%rbp)
 
@@ -60392,112 +47632,17 @@
   movq %r14, -48(%rbp)
   movq %r15, -56(%rbp)
   movq %rcx, -120(%rbp)
-  movq $0, -136(%rbp)
-  movq $0, -144(%rbp)
-  movq $0, -152(%rbp)
-  movq $0, -160(%rbp)
-  movq $0, -168(%rbp)
-  movq $0, -176(%rbp)
-  movq $0, -184(%rbp)
-  movq $0, -192(%rbp)
-  movq $0, -200(%rbp)
-  movq $0, -208(%rbp)
-  movq $0, -216(%rbp)
-  movq $0, -224(%rbp)
-  movq $0, -232(%rbp)
-  movq $0, -240(%rbp)
-  movq $0, -248(%rbp)
-  movq $0, -256(%rbp)
-  movq $0, -264(%rbp)
-  movq $0, -272(%rbp)
-  movq $0, -280(%rbp)
-  movq $0, -288(%rbp)
-  movq $0, -296(%rbp)
-  movq $0, -304(%rbp)
-  movq $0, -312(%rbp)
-  movq $0, -320(%rbp)
-  movq $0, -328(%rbp)
-  movq $0, -336(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -136(%rbp), %r11
+  movl $26, %ecx
+.Lजड़_मध्यम_छापो_एकक:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -144(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -152(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -160(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -168(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -176(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -184(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -192(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -200(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -208(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -216(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -224(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -232(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -240(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -248(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -256(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -264(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -272(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -280(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -288(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -296(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -304(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -312(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -320(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -328(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -336(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_मध्यम_छापो_एकक
   movl %eax, gc_roots_count(%rip)
   movq -120(%rbp), %r11
   movq %r11, -136(%rbp)
@@ -61188,56 +48333,17 @@
   movq %r9, %r12
   movq 48(%rbp), %r10
   movq %r10, %r13
-  movq $0, -88(%rbp)
-  movq $0, -96(%rbp)
-  movq $0, -104(%rbp)
-  movq $0, -112(%rbp)
-  movq $0, -120(%rbp)
-  movq $0, -128(%rbp)
-  movq $0, -136(%rbp)
-  movq $0, -144(%rbp)
-  movq $0, -152(%rbp)
-  movq $0, -160(%rbp)
-  movq $0, -168(%rbp)
-  movq $0, -176(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -88(%rbp), %r11
+  movl $12, %ecx
+.Lजड़_नि_जोड़:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -96(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -128(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -136(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -144(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -152(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -160(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -168(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -176(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_नि_जोड़
   movl %eax, gc_roots_count(%rip)
   movq %rbx, -88(%rbp)
   movq %rsi, -96(%rbp)
@@ -61351,32 +48457,17 @@
   movq %rdx, %rsi
   movq %r8, %rdi
   movq %r9, %r12
-  movq $0, -72(%rbp)
-  movq $0, -80(%rbp)
-  movq $0, -88(%rbp)
-  movq $0, -96(%rbp)
-  movq $0, -104(%rbp)
-  movq $0, -112(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -72(%rbp), %r11
+  movl $6, %ecx
+.Lजड़_नि_प्रभाव:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -80(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -88(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -96(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_नि_प्रभाव
   movl %eax, gc_roots_count(%rip)
   movq %rbx, -72(%rbp)
   movq %rsi, -80(%rbp)
@@ -61439,28 +48530,17 @@
   movq %r12, -32(%rbp)
   movq %rcx, %rbx
   movq %rdx, %rsi
-  movq $0, -56(%rbp)
-  movq $0, -64(%rbp)
-  movq $0, -72(%rbp)
-  movq $0, -80(%rbp)
-  movq $0, -88(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -56(%rbp), %r11
+  movl $5, %ecx
+.Lजड़_नि_मान_प्रकार:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -64(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -72(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -80(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -88(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_नि_मान_प्रकार
   movl %eax, gc_roots_count(%rip)
   movq %rbx, -56(%rbp)
 
@@ -61537,32 +48617,17 @@
   movq %rsi, -16(%rbp)
   movq %rdi, -24(%rbp)
   movq %rcx, %rbx
-  movq $0, -48(%rbp)
-  movq $0, -56(%rbp)
-  movq $0, -64(%rbp)
-  movq $0, -72(%rbp)
-  movq $0, -80(%rbp)
-  movq $0, -88(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -48(%rbp), %r11
+  movl $6, %ecx
+.Lजड़_नि_समाप्त_है:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -56(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -64(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -72(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -80(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -88(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_नि_समाप्त_है
   movl %eax, gc_roots_count(%rip)
   movq %rbx, -48(%rbp)
 
@@ -61772,880 +48837,17 @@
   movq %r15, -56(%rbp)
   movq %rcx, -72(%rbp)
   movq %rdx, -88(%rbp)
-  movq $0, -1592(%rbp)
-  movq $0, -1600(%rbp)
-  movq $0, -1608(%rbp)
-  movq $0, -1616(%rbp)
-  movq $0, -1624(%rbp)
-  movq $0, -1632(%rbp)
-  movq $0, -1640(%rbp)
-  movq $0, -1648(%rbp)
-  movq $0, -1656(%rbp)
-  movq $0, -1664(%rbp)
-  movq $0, -1672(%rbp)
-  movq $0, -1680(%rbp)
-  movq $0, -1688(%rbp)
-  movq $0, -1696(%rbp)
-  movq $0, -1704(%rbp)
-  movq $0, -1712(%rbp)
-  movq $0, -1720(%rbp)
-  movq $0, -1728(%rbp)
-  movq $0, -1736(%rbp)
-  movq $0, -1744(%rbp)
-  movq $0, -1752(%rbp)
-  movq $0, -1760(%rbp)
-  movq $0, -1768(%rbp)
-  movq $0, -1776(%rbp)
-  movq $0, -1784(%rbp)
-  movq $0, -1792(%rbp)
-  movq $0, -1800(%rbp)
-  movq $0, -1808(%rbp)
-  movq $0, -1816(%rbp)
-  movq $0, -1824(%rbp)
-  movq $0, -1832(%rbp)
-  movq $0, -1840(%rbp)
-  movq $0, -1848(%rbp)
-  movq $0, -1856(%rbp)
-  movq $0, -1864(%rbp)
-  movq $0, -1872(%rbp)
-  movq $0, -1880(%rbp)
-  movq $0, -1888(%rbp)
-  movq $0, -1896(%rbp)
-  movq $0, -1904(%rbp)
-  movq $0, -1912(%rbp)
-  movq $0, -1920(%rbp)
-  movq $0, -1928(%rbp)
-  movq $0, -1936(%rbp)
-  movq $0, -1944(%rbp)
-  movq $0, -1952(%rbp)
-  movq $0, -1960(%rbp)
-  movq $0, -1968(%rbp)
-  movq $0, -1976(%rbp)
-  movq $0, -1984(%rbp)
-  movq $0, -1992(%rbp)
-  movq $0, -2000(%rbp)
-  movq $0, -2008(%rbp)
-  movq $0, -2016(%rbp)
-  movq $0, -2024(%rbp)
-  movq $0, -2032(%rbp)
-  movq $0, -2040(%rbp)
-  movq $0, -2048(%rbp)
-  movq $0, -2056(%rbp)
-  movq $0, -2064(%rbp)
-  movq $0, -2072(%rbp)
-  movq $0, -2080(%rbp)
-  movq $0, -2088(%rbp)
-  movq $0, -2096(%rbp)
-  movq $0, -2104(%rbp)
-  movq $0, -2112(%rbp)
-  movq $0, -2120(%rbp)
-  movq $0, -2128(%rbp)
-  movq $0, -2136(%rbp)
-  movq $0, -2144(%rbp)
-  movq $0, -2152(%rbp)
-  movq $0, -2160(%rbp)
-  movq $0, -2168(%rbp)
-  movq $0, -2176(%rbp)
-  movq $0, -2184(%rbp)
-  movq $0, -2192(%rbp)
-  movq $0, -2200(%rbp)
-  movq $0, -2208(%rbp)
-  movq $0, -2216(%rbp)
-  movq $0, -2224(%rbp)
-  movq $0, -2232(%rbp)
-  movq $0, -2240(%rbp)
-  movq $0, -2248(%rbp)
-  movq $0, -2256(%rbp)
-  movq $0, -2264(%rbp)
-  movq $0, -2272(%rbp)
-  movq $0, -2280(%rbp)
-  movq $0, -2288(%rbp)
-  movq $0, -2296(%rbp)
-  movq $0, -2304(%rbp)
-  movq $0, -2312(%rbp)
-  movq $0, -2320(%rbp)
-  movq $0, -2328(%rbp)
-  movq $0, -2336(%rbp)
-  movq $0, -2344(%rbp)
-  movq $0, -2352(%rbp)
-  movq $0, -2360(%rbp)
-  movq $0, -2368(%rbp)
-  movq $0, -2376(%rbp)
-  movq $0, -2384(%rbp)
-  movq $0, -2392(%rbp)
-  movq $0, -2400(%rbp)
-  movq $0, -2408(%rbp)
-  movq $0, -2416(%rbp)
-  movq $0, -2424(%rbp)
-  movq $0, -2432(%rbp)
-  movq $0, -2440(%rbp)
-  movq $0, -2448(%rbp)
-  movq $0, -2456(%rbp)
-  movq $0, -2464(%rbp)
-  movq $0, -2472(%rbp)
-  movq $0, -2480(%rbp)
-  movq $0, -2488(%rbp)
-  movq $0, -2496(%rbp)
-  movq $0, -2504(%rbp)
-  movq $0, -2512(%rbp)
-  movq $0, -2520(%rbp)
-  movq $0, -2528(%rbp)
-  movq $0, -2536(%rbp)
-  movq $0, -2544(%rbp)
-  movq $0, -2552(%rbp)
-  movq $0, -2560(%rbp)
-  movq $0, -2568(%rbp)
-  movq $0, -2576(%rbp)
-  movq $0, -2584(%rbp)
-  movq $0, -2592(%rbp)
-  movq $0, -2600(%rbp)
-  movq $0, -2608(%rbp)
-  movq $0, -2616(%rbp)
-  movq $0, -2624(%rbp)
-  movq $0, -2632(%rbp)
-  movq $0, -2640(%rbp)
-  movq $0, -2648(%rbp)
-  movq $0, -2656(%rbp)
-  movq $0, -2664(%rbp)
-  movq $0, -2672(%rbp)
-  movq $0, -2680(%rbp)
-  movq $0, -2688(%rbp)
-  movq $0, -2696(%rbp)
-  movq $0, -2704(%rbp)
-  movq $0, -2712(%rbp)
-  movq $0, -2720(%rbp)
-  movq $0, -2728(%rbp)
-  movq $0, -2736(%rbp)
-  movq $0, -2744(%rbp)
-  movq $0, -2752(%rbp)
-  movq $0, -2760(%rbp)
-  movq $0, -2768(%rbp)
-  movq $0, -2776(%rbp)
-  movq $0, -2784(%rbp)
-  movq $0, -2792(%rbp)
-  movq $0, -2800(%rbp)
-  movq $0, -2808(%rbp)
-  movq $0, -2816(%rbp)
-  movq $0, -2824(%rbp)
-  movq $0, -2832(%rbp)
-  movq $0, -2840(%rbp)
-  movq $0, -2848(%rbp)
-  movq $0, -2856(%rbp)
-  movq $0, -2864(%rbp)
-  movq $0, -2872(%rbp)
-  movq $0, -2880(%rbp)
-  movq $0, -2888(%rbp)
-  movq $0, -2896(%rbp)
-  movq $0, -2904(%rbp)
-  movq $0, -2912(%rbp)
-  movq $0, -2920(%rbp)
-  movq $0, -2928(%rbp)
-  movq $0, -2936(%rbp)
-  movq $0, -2944(%rbp)
-  movq $0, -2952(%rbp)
-  movq $0, -2960(%rbp)
-  movq $0, -2968(%rbp)
-  movq $0, -2976(%rbp)
-  movq $0, -2984(%rbp)
-  movq $0, -2992(%rbp)
-  movq $0, -3000(%rbp)
-  movq $0, -3008(%rbp)
-  movq $0, -3016(%rbp)
-  movq $0, -3024(%rbp)
-  movq $0, -3032(%rbp)
-  movq $0, -3040(%rbp)
-  movq $0, -3048(%rbp)
-  movq $0, -3056(%rbp)
-  movq $0, -3064(%rbp)
-  movq $0, -3072(%rbp)
-  movq $0, -3080(%rbp)
-  movq $0, -3088(%rbp)
-  movq $0, -3096(%rbp)
-  movq $0, -3104(%rbp)
-  movq $0, -3112(%rbp)
-  movq $0, -3120(%rbp)
-  movq $0, -3128(%rbp)
-  movq $0, -3136(%rbp)
-  movq $0, -3144(%rbp)
-  movq $0, -3152(%rbp)
-  movq $0, -3160(%rbp)
-  movq $0, -3168(%rbp)
-  movq $0, -3176(%rbp)
-  movq $0, -3184(%rbp)
-  movq $0, -3192(%rbp)
-  movq $0, -3200(%rbp)
-  movq $0, -3208(%rbp)
-  movq $0, -3216(%rbp)
-  movq $0, -3224(%rbp)
-  movq $0, -3232(%rbp)
-  movq $0, -3240(%rbp)
-  movq $0, -3248(%rbp)
-  movq $0, -3256(%rbp)
-  movq $0, -3264(%rbp)
-  movq $0, -3272(%rbp)
-  movq $0, -3280(%rbp)
-  movq $0, -3288(%rbp)
-  movq $0, -3296(%rbp)
-  movq $0, -3304(%rbp)
-  movq $0, -3312(%rbp)
-  movq $0, -3320(%rbp)
-  movq $0, -3328(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -1592(%rbp), %r11
+  movl $218, %ecx
+.Lजड़_निम्नक_अभिव्यक्ति:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -1600(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1608(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1616(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1624(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1632(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1640(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1648(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1656(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1664(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1672(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1680(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1688(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1696(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1704(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1712(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1720(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1728(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1736(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1744(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1752(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1760(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1768(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1776(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1784(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1792(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1800(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1808(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1816(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1824(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1832(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1840(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1848(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1856(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1864(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1872(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1880(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1888(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1896(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1904(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1912(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1920(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1928(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1936(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1944(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1952(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1960(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1968(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1976(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1984(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1992(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2000(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2008(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2016(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2024(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2032(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2040(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2048(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2056(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2064(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2072(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2080(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2088(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2096(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2128(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2136(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2144(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2152(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2160(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2168(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2176(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2184(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2192(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2200(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2208(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2216(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2224(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2232(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2240(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2248(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2256(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2264(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2272(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2280(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2288(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2296(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2304(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2312(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2320(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2328(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2336(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2344(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2352(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2360(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2368(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2376(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2384(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2392(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2400(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2408(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2416(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2424(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2432(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2440(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2448(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2456(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2464(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2472(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2480(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2488(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2496(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2504(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2512(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2520(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2528(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2536(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2544(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2552(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2560(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2568(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2576(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2584(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2592(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2600(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2608(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2616(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2624(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2632(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2640(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2648(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2656(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2664(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2672(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2680(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2688(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2696(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2704(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2712(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2720(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2728(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2736(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2744(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2752(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2760(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2768(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2776(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2784(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2792(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2800(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2808(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2816(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2824(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2832(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2840(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2848(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2856(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2864(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2872(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2880(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2888(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2896(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2904(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2912(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2920(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2928(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2936(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2944(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2952(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2960(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2968(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2976(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2984(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2992(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3000(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3008(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3016(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3024(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3032(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3040(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3048(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3056(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3064(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3072(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3080(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3088(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3096(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3128(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3136(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3144(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3152(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3160(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3168(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3176(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3184(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3192(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3200(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3208(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3216(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3224(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3232(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3240(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3248(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3256(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3264(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3272(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3280(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3288(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3296(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3304(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3312(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3320(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3328(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_निम्नक_अभिव्यक्ति
   movl %eax, gc_roots_count(%rip)
   movq -72(%rbp), %r11
   movq %r11, -1592(%rbp)
@@ -64472,204 +50674,17 @@
   movq %r15, -56(%rbp)
   movq %rcx, %rbx
   movq %rdx, %rsi
-  movq $0, -80(%rbp)
-  movq $0, -88(%rbp)
-  movq $0, -96(%rbp)
-  movq $0, -104(%rbp)
-  movq $0, -112(%rbp)
-  movq $0, -120(%rbp)
-  movq $0, -128(%rbp)
-  movq $0, -136(%rbp)
-  movq $0, -144(%rbp)
-  movq $0, -152(%rbp)
-  movq $0, -160(%rbp)
-  movq $0, -168(%rbp)
-  movq $0, -176(%rbp)
-  movq $0, -184(%rbp)
-  movq $0, -192(%rbp)
-  movq $0, -200(%rbp)
-  movq $0, -208(%rbp)
-  movq $0, -216(%rbp)
-  movq $0, -224(%rbp)
-  movq $0, -232(%rbp)
-  movq $0, -240(%rbp)
-  movq $0, -248(%rbp)
-  movq $0, -256(%rbp)
-  movq $0, -264(%rbp)
-  movq $0, -272(%rbp)
-  movq $0, -280(%rbp)
-  movq $0, -288(%rbp)
-  movq $0, -296(%rbp)
-  movq $0, -304(%rbp)
-  movq $0, -312(%rbp)
-  movq $0, -320(%rbp)
-  movq $0, -328(%rbp)
-  movq $0, -336(%rbp)
-  movq $0, -344(%rbp)
-  movq $0, -352(%rbp)
-  movq $0, -360(%rbp)
-  movq $0, -368(%rbp)
-  movq $0, -376(%rbp)
-  movq $0, -384(%rbp)
-  movq $0, -392(%rbp)
-  movq $0, -400(%rbp)
-  movq $0, -408(%rbp)
-  movq $0, -416(%rbp)
-  movq $0, -424(%rbp)
-  movq $0, -432(%rbp)
-  movq $0, -440(%rbp)
-  movq $0, -448(%rbp)
-  movq $0, -456(%rbp)
-  movq $0, -464(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -80(%rbp), %r11
+  movl $49, %ecx
+.Lजड़_निम्नक_स्थिरांक:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -88(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -96(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -128(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -136(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -144(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -152(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -160(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -168(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -176(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -184(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -192(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -200(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -208(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -216(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -224(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -232(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -240(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -248(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -256(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -264(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -272(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -280(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -288(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -296(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -304(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -312(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -320(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -328(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -336(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -344(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -352(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -360(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -368(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -376(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -384(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -392(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -400(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -408(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -416(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -424(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -432(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -440(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -448(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -456(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -464(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_निम्नक_स्थिरांक
   movl %eax, gc_roots_count(%rip)
   movq %rbx, -80(%rbp)
   movq %rsi, -88(%rbp)
@@ -65233,32 +51248,17 @@
   movq %r14, -48(%rbp)
   movq %r15, -56(%rbp)
   movq %rcx, %rbx
-  movq $0, -80(%rbp)
-  movq $0, -88(%rbp)
-  movq $0, -96(%rbp)
-  movq $0, -104(%rbp)
-  movq $0, -112(%rbp)
-  movq $0, -120(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -80(%rbp), %r11
+  movl $6, %ecx
+.Lजड़_अंक_से_पूर्ण:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -88(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -96(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_अंक_से_पूर्ण
   movl %eax, gc_roots_count(%rip)
   movq %rbx, -80(%rbp)
 
@@ -65455,132 +51455,17 @@
   movq %r15, -56(%rbp)
   movq %rcx, -72(%rbp)
   movq %rdx, %rsi
-  movq $0, -88(%rbp)
-  movq $0, -96(%rbp)
-  movq $0, -104(%rbp)
-  movq $0, -112(%rbp)
-  movq $0, -120(%rbp)
-  movq $0, -128(%rbp)
-  movq $0, -136(%rbp)
-  movq $0, -144(%rbp)
-  movq $0, -152(%rbp)
-  movq $0, -160(%rbp)
-  movq $0, -168(%rbp)
-  movq $0, -176(%rbp)
-  movq $0, -184(%rbp)
-  movq $0, -192(%rbp)
-  movq $0, -200(%rbp)
-  movq $0, -208(%rbp)
-  movq $0, -216(%rbp)
-  movq $0, -224(%rbp)
-  movq $0, -232(%rbp)
-  movq $0, -240(%rbp)
-  movq $0, -248(%rbp)
-  movq $0, -256(%rbp)
-  movq $0, -264(%rbp)
-  movq $0, -272(%rbp)
-  movq $0, -280(%rbp)
-  movq $0, -288(%rbp)
-  movq $0, -296(%rbp)
-  movq $0, -304(%rbp)
-  movq $0, -312(%rbp)
-  movq $0, -320(%rbp)
-  movq $0, -328(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -88(%rbp), %r11
+  movl $31, %ecx
+.Lजड़_निम्नक_वस्तु_वर्ग:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -96(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -128(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -136(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -144(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -152(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -160(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -168(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -176(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -184(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -192(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -200(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -208(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -216(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -224(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -232(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -240(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -248(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -256(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -264(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -272(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -280(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -288(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -296(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -304(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -312(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -320(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -328(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_निम्नक_वस्तु_वर्ग
   movl %eax, gc_roots_count(%rip)
   movq -72(%rbp), %r11
   movq %r11, -88(%rbp)
@@ -66221,32 +52106,17 @@
   movq %r12, -32(%rbp)
   movq %rcx, %rbx
   movq %rdx, %rsi
-  movq $0, -56(%rbp)
-  movq $0, -64(%rbp)
-  movq $0, -72(%rbp)
-  movq $0, -80(%rbp)
-  movq $0, -88(%rbp)
-  movq $0, -96(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -56(%rbp), %r11
+  movl $6, %ecx
+.Lजड़_निम्नक_वर्ग_प्रकार_है:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -64(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -72(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -80(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -88(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -96(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_निम्नक_वर्ग_प्रकार_है
   movl %eax, gc_roots_count(%rip)
   movq %rbx, -56(%rbp)
   movq %rsi, -64(%rbp)
@@ -66331,48 +52201,17 @@
   movq %rcx, %rbx
   movq %rdx, %rsi
   movq %r8, %rdi
-  movq $0, -64(%rbp)
-  movq $0, -72(%rbp)
-  movq $0, -80(%rbp)
-  movq $0, -88(%rbp)
-  movq $0, -96(%rbp)
-  movq $0, -104(%rbp)
-  movq $0, -112(%rbp)
-  movq $0, -120(%rbp)
-  movq $0, -128(%rbp)
-  movq $0, -136(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -64(%rbp), %r11
+  movl $10, %ecx
+.Lजड़_निम्नक_क्षेत्र_सूचकांक:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -72(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -80(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -88(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -96(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -128(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -136(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_निम्नक_क्षेत्र_सूचकांक
   movl %eax, gc_roots_count(%rip)
   movq %rbx, -64(%rbp)
   movq %rsi, -72(%rbp)
@@ -66517,100 +52356,17 @@
   movq %r15, -56(%rbp)
   movq %rcx, %rbx
   movq %rdx, %rsi
-  movq $0, -80(%rbp)
-  movq $0, -88(%rbp)
-  movq $0, -96(%rbp)
-  movq $0, -104(%rbp)
-  movq $0, -112(%rbp)
-  movq $0, -120(%rbp)
-  movq $0, -128(%rbp)
-  movq $0, -136(%rbp)
-  movq $0, -144(%rbp)
-  movq $0, -152(%rbp)
-  movq $0, -160(%rbp)
-  movq $0, -168(%rbp)
-  movq $0, -176(%rbp)
-  movq $0, -184(%rbp)
-  movq $0, -192(%rbp)
-  movq $0, -200(%rbp)
-  movq $0, -208(%rbp)
-  movq $0, -216(%rbp)
-  movq $0, -224(%rbp)
-  movq $0, -232(%rbp)
-  movq $0, -240(%rbp)
-  movq $0, -248(%rbp)
-  movq $0, -256(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -80(%rbp), %r11
+  movl $23, %ecx
+.Lजड़_निम्नक_पहचान:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -88(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -96(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -128(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -136(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -144(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -152(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -160(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -168(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -176(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -184(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -192(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -200(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -208(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -216(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -224(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -232(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -240(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -248(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -256(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_निम्नक_पहचान
   movl %eax, gc_roots_count(%rip)
   movq %rbx, -80(%rbp)
   movq %rsi, -88(%rbp)
@@ -67711,88 +53467,17 @@
   movq %rcx, %rbx
   movq %rdx, %rsi
   movq %r8, %rdi
-  movq $0, -80(%rbp)
-  movq $0, -88(%rbp)
-  movq $0, -96(%rbp)
-  movq $0, -104(%rbp)
-  movq $0, -112(%rbp)
-  movq $0, -120(%rbp)
-  movq $0, -128(%rbp)
-  movq $0, -136(%rbp)
-  movq $0, -144(%rbp)
-  movq $0, -152(%rbp)
-  movq $0, -160(%rbp)
-  movq $0, -168(%rbp)
-  movq $0, -176(%rbp)
-  movq $0, -184(%rbp)
-  movq $0, -192(%rbp)
-  movq $0, -200(%rbp)
-  movq $0, -208(%rbp)
-  movq $0, -216(%rbp)
-  movq $0, -224(%rbp)
-  movq $0, -232(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -80(%rbp), %r11
+  movl $20, %ecx
+.Lजड़_निम्नक_पाठ_में_बदलो:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -88(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -96(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -128(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -136(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -144(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -152(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -160(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -168(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -176(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -184(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -192(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -200(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -208(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -216(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -224(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -232(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_निम्नक_पाठ_में_बदलो
   movl %eax, gc_roots_count(%rip)
   movq %rbx, -80(%rbp)
   movq %rdi, -88(%rbp)
@@ -68101,208 +53786,17 @@
   movq %r15, -56(%rbp)
   movq %rcx, -72(%rbp)
   movq %rdx, -88(%rbp)
-  movq $0, -152(%rbp)
-  movq $0, -160(%rbp)
-  movq $0, -168(%rbp)
-  movq $0, -176(%rbp)
-  movq $0, -184(%rbp)
-  movq $0, -192(%rbp)
-  movq $0, -200(%rbp)
-  movq $0, -208(%rbp)
-  movq $0, -216(%rbp)
-  movq $0, -224(%rbp)
-  movq $0, -232(%rbp)
-  movq $0, -240(%rbp)
-  movq $0, -248(%rbp)
-  movq $0, -256(%rbp)
-  movq $0, -264(%rbp)
-  movq $0, -272(%rbp)
-  movq $0, -280(%rbp)
-  movq $0, -288(%rbp)
-  movq $0, -296(%rbp)
-  movq $0, -304(%rbp)
-  movq $0, -312(%rbp)
-  movq $0, -320(%rbp)
-  movq $0, -328(%rbp)
-  movq $0, -336(%rbp)
-  movq $0, -344(%rbp)
-  movq $0, -352(%rbp)
-  movq $0, -360(%rbp)
-  movq $0, -368(%rbp)
-  movq $0, -376(%rbp)
-  movq $0, -384(%rbp)
-  movq $0, -392(%rbp)
-  movq $0, -400(%rbp)
-  movq $0, -408(%rbp)
-  movq $0, -416(%rbp)
-  movq $0, -424(%rbp)
-  movq $0, -432(%rbp)
-  movq $0, -440(%rbp)
-  movq $0, -448(%rbp)
-  movq $0, -456(%rbp)
-  movq $0, -464(%rbp)
-  movq $0, -472(%rbp)
-  movq $0, -480(%rbp)
-  movq $0, -488(%rbp)
-  movq $0, -496(%rbp)
-  movq $0, -504(%rbp)
-  movq $0, -512(%rbp)
-  movq $0, -520(%rbp)
-  movq $0, -528(%rbp)
-  movq $0, -536(%rbp)
-  movq $0, -544(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -152(%rbp), %r11
+  movl $50, %ecx
+.Lजड़_निम्नक_द्विआधारी:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -160(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -168(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -176(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -184(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -192(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -200(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -208(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -216(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -224(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -232(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -240(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -248(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -256(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -264(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -272(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -280(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -288(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -296(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -304(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -312(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -320(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -328(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -336(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -344(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -352(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -360(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -368(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -376(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -384(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -392(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -400(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -408(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -416(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -424(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -432(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -440(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -448(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -456(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -464(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -472(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -480(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -488(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -496(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -504(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -512(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -520(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -528(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -536(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -544(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_निम्नक_द्विआधारी
   movl %eax, gc_roots_count(%rip)
   movq -72(%rbp), %r11
   movq %r11, -152(%rbp)
@@ -69284,192 +54778,17 @@
   movq %rdx, %rsi
   movq %r8, -120(%rbp)
   movq %r9, %r12
-  movq $0, -136(%rbp)
-  movq $0, -144(%rbp)
-  movq $0, -152(%rbp)
-  movq $0, -160(%rbp)
-  movq $0, -168(%rbp)
-  movq $0, -176(%rbp)
-  movq $0, -184(%rbp)
-  movq $0, -192(%rbp)
-  movq $0, -200(%rbp)
-  movq $0, -208(%rbp)
-  movq $0, -216(%rbp)
-  movq $0, -224(%rbp)
-  movq $0, -232(%rbp)
-  movq $0, -240(%rbp)
-  movq $0, -248(%rbp)
-  movq $0, -256(%rbp)
-  movq $0, -264(%rbp)
-  movq $0, -272(%rbp)
-  movq $0, -280(%rbp)
-  movq $0, -288(%rbp)
-  movq $0, -296(%rbp)
-  movq $0, -304(%rbp)
-  movq $0, -312(%rbp)
-  movq $0, -320(%rbp)
-  movq $0, -328(%rbp)
-  movq $0, -336(%rbp)
-  movq $0, -344(%rbp)
-  movq $0, -352(%rbp)
-  movq $0, -360(%rbp)
-  movq $0, -368(%rbp)
-  movq $0, -376(%rbp)
-  movq $0, -384(%rbp)
-  movq $0, -392(%rbp)
-  movq $0, -400(%rbp)
-  movq $0, -408(%rbp)
-  movq $0, -416(%rbp)
-  movq $0, -424(%rbp)
-  movq $0, -432(%rbp)
-  movq $0, -440(%rbp)
-  movq $0, -448(%rbp)
-  movq $0, -456(%rbp)
-  movq $0, -464(%rbp)
-  movq $0, -472(%rbp)
-  movq $0, -480(%rbp)
-  movq $0, -488(%rbp)
-  movq $0, -496(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -136(%rbp), %r11
+  movl $46, %ecx
+.Lजड़_निम्नक_लघुपथ:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -144(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -152(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -160(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -168(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -176(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -184(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -192(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -200(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -208(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -216(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -224(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -232(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -240(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -248(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -256(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -264(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -272(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -280(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -288(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -296(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -304(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -312(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -320(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -328(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -336(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -344(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -352(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -360(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -368(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -376(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -384(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -392(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -400(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -408(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -416(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -424(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -432(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -440(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -448(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -456(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -464(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -472(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -480(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -488(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -496(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_निम्नक_लघुपथ
   movl %eax, gc_roots_count(%rip)
   movq -72(%rbp), %r11
   movq %r11, -136(%rbp)
@@ -69957,72 +55276,17 @@
   movq %r15, -56(%rbp)
   movq %rcx, %rbx
   movq %rdx, %rsi
-  movq $0, -80(%rbp)
-  movq $0, -88(%rbp)
-  movq $0, -96(%rbp)
-  movq $0, -104(%rbp)
-  movq $0, -112(%rbp)
-  movq $0, -120(%rbp)
-  movq $0, -128(%rbp)
-  movq $0, -136(%rbp)
-  movq $0, -144(%rbp)
-  movq $0, -152(%rbp)
-  movq $0, -160(%rbp)
-  movq $0, -168(%rbp)
-  movq $0, -176(%rbp)
-  movq $0, -184(%rbp)
-  movq $0, -192(%rbp)
-  movq $0, -200(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -80(%rbp), %r11
+  movl $16, %ecx
+.Lजड़_निम्नक_एकल:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -88(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -96(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -128(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -136(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -144(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -152(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -160(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -168(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -176(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -184(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -192(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -200(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_निम्नक_एकल
   movl %eax, gc_roots_count(%rip)
   movq %rbx, -80(%rbp)
   movq %rsi, -88(%rbp)
@@ -70252,272 +55516,17 @@
   movq %r15, -56(%rbp)
   movq %rcx, -280(%rbp)
   movq %rdx, %rsi
-  movq $0, -312(%rbp)
-  movq $0, -320(%rbp)
-  movq $0, -328(%rbp)
-  movq $0, -336(%rbp)
-  movq $0, -344(%rbp)
-  movq $0, -352(%rbp)
-  movq $0, -360(%rbp)
-  movq $0, -368(%rbp)
-  movq $0, -376(%rbp)
-  movq $0, -384(%rbp)
-  movq $0, -392(%rbp)
-  movq $0, -400(%rbp)
-  movq $0, -408(%rbp)
-  movq $0, -416(%rbp)
-  movq $0, -424(%rbp)
-  movq $0, -432(%rbp)
-  movq $0, -440(%rbp)
-  movq $0, -448(%rbp)
-  movq $0, -456(%rbp)
-  movq $0, -464(%rbp)
-  movq $0, -472(%rbp)
-  movq $0, -480(%rbp)
-  movq $0, -488(%rbp)
-  movq $0, -496(%rbp)
-  movq $0, -504(%rbp)
-  movq $0, -512(%rbp)
-  movq $0, -520(%rbp)
-  movq $0, -528(%rbp)
-  movq $0, -536(%rbp)
-  movq $0, -544(%rbp)
-  movq $0, -552(%rbp)
-  movq $0, -560(%rbp)
-  movq $0, -568(%rbp)
-  movq $0, -576(%rbp)
-  movq $0, -584(%rbp)
-  movq $0, -592(%rbp)
-  movq $0, -600(%rbp)
-  movq $0, -608(%rbp)
-  movq $0, -616(%rbp)
-  movq $0, -624(%rbp)
-  movq $0, -632(%rbp)
-  movq $0, -640(%rbp)
-  movq $0, -648(%rbp)
-  movq $0, -656(%rbp)
-  movq $0, -664(%rbp)
-  movq $0, -672(%rbp)
-  movq $0, -680(%rbp)
-  movq $0, -688(%rbp)
-  movq $0, -696(%rbp)
-  movq $0, -704(%rbp)
-  movq $0, -712(%rbp)
-  movq $0, -720(%rbp)
-  movq $0, -728(%rbp)
-  movq $0, -736(%rbp)
-  movq $0, -744(%rbp)
-  movq $0, -752(%rbp)
-  movq $0, -760(%rbp)
-  movq $0, -768(%rbp)
-  movq $0, -776(%rbp)
-  movq $0, -784(%rbp)
-  movq $0, -792(%rbp)
-  movq $0, -800(%rbp)
-  movq $0, -808(%rbp)
-  movq $0, -816(%rbp)
-  movq $0, -824(%rbp)
-  movq $0, -832(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -312(%rbp), %r11
+  movl $66, %ecx
+.Lजड़_निम्नक_कॉल:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -320(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -328(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -336(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -344(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -352(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -360(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -368(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -376(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -384(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -392(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -400(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -408(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -416(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -424(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -432(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -440(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -448(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -456(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -464(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -472(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -480(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -488(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -496(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -504(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -512(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -520(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -528(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -536(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -544(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -552(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -560(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -568(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -576(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -584(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -592(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -600(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -608(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -616(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -624(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -632(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -640(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -648(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -656(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -664(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -672(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -680(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -688(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -696(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -704(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -712(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -720(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -728(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -736(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -744(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -752(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -760(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -768(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -776(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -784(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -792(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -800(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -808(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -816(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -824(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -832(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_निम्नक_कॉल
   movl %eax, gc_roots_count(%rip)
   movq -280(%rbp), %r11
   movq %r11, -312(%rbp)
@@ -72964,784 +57973,17 @@
   movq %r15, -56(%rbp)
   movq %rcx, -72(%rbp)
   movq %rdx, -88(%rbp)
-  movq $0, -968(%rbp)
-  movq $0, -976(%rbp)
-  movq $0, -984(%rbp)
-  movq $0, -992(%rbp)
-  movq $0, -1000(%rbp)
-  movq $0, -1008(%rbp)
-  movq $0, -1016(%rbp)
-  movq $0, -1024(%rbp)
-  movq $0, -1032(%rbp)
-  movq $0, -1040(%rbp)
-  movq $0, -1048(%rbp)
-  movq $0, -1056(%rbp)
-  movq $0, -1064(%rbp)
-  movq $0, -1072(%rbp)
-  movq $0, -1080(%rbp)
-  movq $0, -1088(%rbp)
-  movq $0, -1096(%rbp)
-  movq $0, -1104(%rbp)
-  movq $0, -1112(%rbp)
-  movq $0, -1120(%rbp)
-  movq $0, -1128(%rbp)
-  movq $0, -1136(%rbp)
-  movq $0, -1144(%rbp)
-  movq $0, -1152(%rbp)
-  movq $0, -1160(%rbp)
-  movq $0, -1168(%rbp)
-  movq $0, -1176(%rbp)
-  movq $0, -1184(%rbp)
-  movq $0, -1192(%rbp)
-  movq $0, -1200(%rbp)
-  movq $0, -1208(%rbp)
-  movq $0, -1216(%rbp)
-  movq $0, -1224(%rbp)
-  movq $0, -1232(%rbp)
-  movq $0, -1240(%rbp)
-  movq $0, -1248(%rbp)
-  movq $0, -1256(%rbp)
-  movq $0, -1264(%rbp)
-  movq $0, -1272(%rbp)
-  movq $0, -1280(%rbp)
-  movq $0, -1288(%rbp)
-  movq $0, -1296(%rbp)
-  movq $0, -1304(%rbp)
-  movq $0, -1312(%rbp)
-  movq $0, -1320(%rbp)
-  movq $0, -1328(%rbp)
-  movq $0, -1336(%rbp)
-  movq $0, -1344(%rbp)
-  movq $0, -1352(%rbp)
-  movq $0, -1360(%rbp)
-  movq $0, -1368(%rbp)
-  movq $0, -1376(%rbp)
-  movq $0, -1384(%rbp)
-  movq $0, -1392(%rbp)
-  movq $0, -1400(%rbp)
-  movq $0, -1408(%rbp)
-  movq $0, -1416(%rbp)
-  movq $0, -1424(%rbp)
-  movq $0, -1432(%rbp)
-  movq $0, -1440(%rbp)
-  movq $0, -1448(%rbp)
-  movq $0, -1456(%rbp)
-  movq $0, -1464(%rbp)
-  movq $0, -1472(%rbp)
-  movq $0, -1480(%rbp)
-  movq $0, -1488(%rbp)
-  movq $0, -1496(%rbp)
-  movq $0, -1504(%rbp)
-  movq $0, -1512(%rbp)
-  movq $0, -1520(%rbp)
-  movq $0, -1528(%rbp)
-  movq $0, -1536(%rbp)
-  movq $0, -1544(%rbp)
-  movq $0, -1552(%rbp)
-  movq $0, -1560(%rbp)
-  movq $0, -1568(%rbp)
-  movq $0, -1576(%rbp)
-  movq $0, -1584(%rbp)
-  movq $0, -1592(%rbp)
-  movq $0, -1600(%rbp)
-  movq $0, -1608(%rbp)
-  movq $0, -1616(%rbp)
-  movq $0, -1624(%rbp)
-  movq $0, -1632(%rbp)
-  movq $0, -1640(%rbp)
-  movq $0, -1648(%rbp)
-  movq $0, -1656(%rbp)
-  movq $0, -1664(%rbp)
-  movq $0, -1672(%rbp)
-  movq $0, -1680(%rbp)
-  movq $0, -1688(%rbp)
-  movq $0, -1696(%rbp)
-  movq $0, -1704(%rbp)
-  movq $0, -1712(%rbp)
-  movq $0, -1720(%rbp)
-  movq $0, -1728(%rbp)
-  movq $0, -1736(%rbp)
-  movq $0, -1744(%rbp)
-  movq $0, -1752(%rbp)
-  movq $0, -1760(%rbp)
-  movq $0, -1768(%rbp)
-  movq $0, -1776(%rbp)
-  movq $0, -1784(%rbp)
-  movq $0, -1792(%rbp)
-  movq $0, -1800(%rbp)
-  movq $0, -1808(%rbp)
-  movq $0, -1816(%rbp)
-  movq $0, -1824(%rbp)
-  movq $0, -1832(%rbp)
-  movq $0, -1840(%rbp)
-  movq $0, -1848(%rbp)
-  movq $0, -1856(%rbp)
-  movq $0, -1864(%rbp)
-  movq $0, -1872(%rbp)
-  movq $0, -1880(%rbp)
-  movq $0, -1888(%rbp)
-  movq $0, -1896(%rbp)
-  movq $0, -1904(%rbp)
-  movq $0, -1912(%rbp)
-  movq $0, -1920(%rbp)
-  movq $0, -1928(%rbp)
-  movq $0, -1936(%rbp)
-  movq $0, -1944(%rbp)
-  movq $0, -1952(%rbp)
-  movq $0, -1960(%rbp)
-  movq $0, -1968(%rbp)
-  movq $0, -1976(%rbp)
-  movq $0, -1984(%rbp)
-  movq $0, -1992(%rbp)
-  movq $0, -2000(%rbp)
-  movq $0, -2008(%rbp)
-  movq $0, -2016(%rbp)
-  movq $0, -2024(%rbp)
-  movq $0, -2032(%rbp)
-  movq $0, -2040(%rbp)
-  movq $0, -2048(%rbp)
-  movq $0, -2056(%rbp)
-  movq $0, -2064(%rbp)
-  movq $0, -2072(%rbp)
-  movq $0, -2080(%rbp)
-  movq $0, -2088(%rbp)
-  movq $0, -2096(%rbp)
-  movq $0, -2104(%rbp)
-  movq $0, -2112(%rbp)
-  movq $0, -2120(%rbp)
-  movq $0, -2128(%rbp)
-  movq $0, -2136(%rbp)
-  movq $0, -2144(%rbp)
-  movq $0, -2152(%rbp)
-  movq $0, -2160(%rbp)
-  movq $0, -2168(%rbp)
-  movq $0, -2176(%rbp)
-  movq $0, -2184(%rbp)
-  movq $0, -2192(%rbp)
-  movq $0, -2200(%rbp)
-  movq $0, -2208(%rbp)
-  movq $0, -2216(%rbp)
-  movq $0, -2224(%rbp)
-  movq $0, -2232(%rbp)
-  movq $0, -2240(%rbp)
-  movq $0, -2248(%rbp)
-  movq $0, -2256(%rbp)
-  movq $0, -2264(%rbp)
-  movq $0, -2272(%rbp)
-  movq $0, -2280(%rbp)
-  movq $0, -2288(%rbp)
-  movq $0, -2296(%rbp)
-  movq $0, -2304(%rbp)
-  movq $0, -2312(%rbp)
-  movq $0, -2320(%rbp)
-  movq $0, -2328(%rbp)
-  movq $0, -2336(%rbp)
-  movq $0, -2344(%rbp)
-  movq $0, -2352(%rbp)
-  movq $0, -2360(%rbp)
-  movq $0, -2368(%rbp)
-  movq $0, -2376(%rbp)
-  movq $0, -2384(%rbp)
-  movq $0, -2392(%rbp)
-  movq $0, -2400(%rbp)
-  movq $0, -2408(%rbp)
-  movq $0, -2416(%rbp)
-  movq $0, -2424(%rbp)
-  movq $0, -2432(%rbp)
-  movq $0, -2440(%rbp)
-  movq $0, -2448(%rbp)
-  movq $0, -2456(%rbp)
-  movq $0, -2464(%rbp)
-  movq $0, -2472(%rbp)
-  movq $0, -2480(%rbp)
-  movq $0, -2488(%rbp)
-  movq $0, -2496(%rbp)
-  movq $0, -2504(%rbp)
-  movq $0, -2512(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -968(%rbp), %r11
+  movl $194, %ecx
+.Lजड़_निम्नक_कथन:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -976(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -984(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -992(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1000(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1008(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1016(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1024(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1032(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1040(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1048(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1056(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1064(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1072(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1080(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1088(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1096(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1128(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1136(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1144(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1152(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1160(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1168(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1176(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1184(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1192(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1200(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1208(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1216(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1224(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1232(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1240(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1248(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1256(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1264(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1272(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1280(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1288(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1296(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1304(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1312(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1320(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1328(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1336(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1344(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1352(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1360(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1368(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1376(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1384(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1392(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1400(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1408(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1416(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1424(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1432(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1440(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1448(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1456(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1464(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1472(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1480(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1488(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1496(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1504(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1512(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1520(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1528(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1536(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1544(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1552(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1560(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1568(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1576(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1584(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1592(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1600(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1608(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1616(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1624(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1632(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1640(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1648(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1656(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1664(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1672(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1680(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1688(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1696(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1704(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1712(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1720(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1728(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1736(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1744(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1752(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1760(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1768(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1776(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1784(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1792(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1800(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1808(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1816(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1824(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1832(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1840(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1848(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1856(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1864(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1872(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1880(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1888(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1896(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1904(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1912(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1920(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1928(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1936(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1944(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1952(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1960(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1968(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1976(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1984(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1992(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2000(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2008(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2016(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2024(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2032(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2040(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2048(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2056(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2064(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2072(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2080(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2088(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2096(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2128(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2136(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2144(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2152(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2160(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2168(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2176(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2184(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2192(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2200(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2208(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2216(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2224(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2232(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2240(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2248(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2256(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2264(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2272(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2280(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2288(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2296(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2304(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2312(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2320(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2328(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2336(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2344(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2352(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2360(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2368(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2376(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2384(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2392(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2400(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2408(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2416(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2424(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2432(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2440(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2448(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2456(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2464(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2472(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2480(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2488(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2496(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2504(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2512(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_निम्नक_कथन
   movl %eax, gc_roots_count(%rip)
   movq -72(%rbp), %r11
   movq %r11, -968(%rbp)
@@ -75973,308 +60215,17 @@
   movq %r15, -56(%rbp)
   movq %rcx, -72(%rbp)
   movq %rdx, -104(%rbp)
-  movq $0, -120(%rbp)
-  movq $0, -128(%rbp)
-  movq $0, -136(%rbp)
-  movq $0, -144(%rbp)
-  movq $0, -152(%rbp)
-  movq $0, -160(%rbp)
-  movq $0, -168(%rbp)
-  movq $0, -176(%rbp)
-  movq $0, -184(%rbp)
-  movq $0, -192(%rbp)
-  movq $0, -200(%rbp)
-  movq $0, -208(%rbp)
-  movq $0, -216(%rbp)
-  movq $0, -224(%rbp)
-  movq $0, -232(%rbp)
-  movq $0, -240(%rbp)
-  movq $0, -248(%rbp)
-  movq $0, -256(%rbp)
-  movq $0, -264(%rbp)
-  movq $0, -272(%rbp)
-  movq $0, -280(%rbp)
-  movq $0, -288(%rbp)
-  movq $0, -296(%rbp)
-  movq $0, -304(%rbp)
-  movq $0, -312(%rbp)
-  movq $0, -320(%rbp)
-  movq $0, -328(%rbp)
-  movq $0, -336(%rbp)
-  movq $0, -344(%rbp)
-  movq $0, -352(%rbp)
-  movq $0, -360(%rbp)
-  movq $0, -368(%rbp)
-  movq $0, -376(%rbp)
-  movq $0, -384(%rbp)
-  movq $0, -392(%rbp)
-  movq $0, -400(%rbp)
-  movq $0, -408(%rbp)
-  movq $0, -416(%rbp)
-  movq $0, -424(%rbp)
-  movq $0, -432(%rbp)
-  movq $0, -440(%rbp)
-  movq $0, -448(%rbp)
-  movq $0, -456(%rbp)
-  movq $0, -464(%rbp)
-  movq $0, -472(%rbp)
-  movq $0, -480(%rbp)
-  movq $0, -488(%rbp)
-  movq $0, -496(%rbp)
-  movq $0, -504(%rbp)
-  movq $0, -512(%rbp)
-  movq $0, -520(%rbp)
-  movq $0, -528(%rbp)
-  movq $0, -536(%rbp)
-  movq $0, -544(%rbp)
-  movq $0, -552(%rbp)
-  movq $0, -560(%rbp)
-  movq $0, -568(%rbp)
-  movq $0, -576(%rbp)
-  movq $0, -584(%rbp)
-  movq $0, -592(%rbp)
-  movq $0, -600(%rbp)
-  movq $0, -608(%rbp)
-  movq $0, -616(%rbp)
-  movq $0, -624(%rbp)
-  movq $0, -632(%rbp)
-  movq $0, -640(%rbp)
-  movq $0, -648(%rbp)
-  movq $0, -656(%rbp)
-  movq $0, -664(%rbp)
-  movq $0, -672(%rbp)
-  movq $0, -680(%rbp)
-  movq $0, -688(%rbp)
-  movq $0, -696(%rbp)
-  movq $0, -704(%rbp)
-  movq $0, -712(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -120(%rbp), %r11
+  movl $75, %ecx
+.Lजड़_निम्नक_प्रयत्न:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -128(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -136(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -144(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -152(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -160(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -168(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -176(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -184(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -192(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -200(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -208(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -216(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -224(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -232(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -240(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -248(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -256(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -264(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -272(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -280(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -288(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -296(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -304(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -312(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -320(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -328(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -336(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -344(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -352(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -360(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -368(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -376(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -384(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -392(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -400(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -408(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -416(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -424(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -432(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -440(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -448(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -456(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -464(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -472(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -480(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -488(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -496(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -504(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -512(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -520(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -528(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -536(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -544(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -552(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -560(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -568(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -576(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -584(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -592(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -600(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -608(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -616(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -624(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -632(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -640(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -648(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -656(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -664(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -672(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -680(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -688(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -696(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -704(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -712(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_निम्नक_प्रयत्न
   movl %eax, gc_roots_count(%rip)
   movq -72(%rbp), %r11
   movq %r11, -120(%rbp)
@@ -77121,56 +61072,17 @@
   movq %r14, -48(%rbp)
   movq %rcx, %rbx
   movq %rdx, %rsi
-  movq $0, -72(%rbp)
-  movq $0, -80(%rbp)
-  movq $0, -88(%rbp)
-  movq $0, -96(%rbp)
-  movq $0, -104(%rbp)
-  movq $0, -112(%rbp)
-  movq $0, -120(%rbp)
-  movq $0, -128(%rbp)
-  movq $0, -136(%rbp)
-  movq $0, -144(%rbp)
-  movq $0, -152(%rbp)
-  movq $0, -160(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -72(%rbp), %r11
+  movl $12, %ecx
+.Lजड़_निम्नक_लिखतु:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -80(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -88(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -96(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -128(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -136(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -144(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -152(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -160(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_निम्नक_लिखतु
   movl %eax, gc_roots_count(%rip)
   movq %rbx, -72(%rbp)
   movq %rsi, -80(%rbp)
@@ -77369,132 +61281,17 @@
   movq %r15, -56(%rbp)
   movq %rcx, -88(%rbp)
   movq %rdx, %rsi
-  movq $0, -136(%rbp)
-  movq $0, -144(%rbp)
-  movq $0, -152(%rbp)
-  movq $0, -160(%rbp)
-  movq $0, -168(%rbp)
-  movq $0, -176(%rbp)
-  movq $0, -184(%rbp)
-  movq $0, -192(%rbp)
-  movq $0, -200(%rbp)
-  movq $0, -208(%rbp)
-  movq $0, -216(%rbp)
-  movq $0, -224(%rbp)
-  movq $0, -232(%rbp)
-  movq $0, -240(%rbp)
-  movq $0, -248(%rbp)
-  movq $0, -256(%rbp)
-  movq $0, -264(%rbp)
-  movq $0, -272(%rbp)
-  movq $0, -280(%rbp)
-  movq $0, -288(%rbp)
-  movq $0, -296(%rbp)
-  movq $0, -304(%rbp)
-  movq $0, -312(%rbp)
-  movq $0, -320(%rbp)
-  movq $0, -328(%rbp)
-  movq $0, -336(%rbp)
-  movq $0, -344(%rbp)
-  movq $0, -352(%rbp)
-  movq $0, -360(%rbp)
-  movq $0, -368(%rbp)
-  movq $0, -376(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -136(%rbp), %r11
+  movl $31, %ecx
+.Lजड़_निम्नक_यदि:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -144(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -152(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -160(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -168(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -176(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -184(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -192(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -200(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -208(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -216(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -224(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -232(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -240(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -248(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -256(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -264(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -272(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -280(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -288(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -296(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -304(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -312(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -320(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -328(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -336(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -344(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -352(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -360(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -368(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -376(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_निम्नक_यदि
   movl %eax, gc_roots_count(%rip)
   movq -88(%rbp), %r11
   movq %r11, -136(%rbp)
@@ -77891,196 +61688,17 @@
   movq %r15, -56(%rbp)
   movq %rcx, -88(%rbp)
   movq %rdx, %rsi
-  movq $0, -120(%rbp)
-  movq $0, -128(%rbp)
-  movq $0, -136(%rbp)
-  movq $0, -144(%rbp)
-  movq $0, -152(%rbp)
-  movq $0, -160(%rbp)
-  movq $0, -168(%rbp)
-  movq $0, -176(%rbp)
-  movq $0, -184(%rbp)
-  movq $0, -192(%rbp)
-  movq $0, -200(%rbp)
-  movq $0, -208(%rbp)
-  movq $0, -216(%rbp)
-  movq $0, -224(%rbp)
-  movq $0, -232(%rbp)
-  movq $0, -240(%rbp)
-  movq $0, -248(%rbp)
-  movq $0, -256(%rbp)
-  movq $0, -264(%rbp)
-  movq $0, -272(%rbp)
-  movq $0, -280(%rbp)
-  movq $0, -288(%rbp)
-  movq $0, -296(%rbp)
-  movq $0, -304(%rbp)
-  movq $0, -312(%rbp)
-  movq $0, -320(%rbp)
-  movq $0, -328(%rbp)
-  movq $0, -336(%rbp)
-  movq $0, -344(%rbp)
-  movq $0, -352(%rbp)
-  movq $0, -360(%rbp)
-  movq $0, -368(%rbp)
-  movq $0, -376(%rbp)
-  movq $0, -384(%rbp)
-  movq $0, -392(%rbp)
-  movq $0, -400(%rbp)
-  movq $0, -408(%rbp)
-  movq $0, -416(%rbp)
-  movq $0, -424(%rbp)
-  movq $0, -432(%rbp)
-  movq $0, -440(%rbp)
-  movq $0, -448(%rbp)
-  movq $0, -456(%rbp)
-  movq $0, -464(%rbp)
-  movq $0, -472(%rbp)
-  movq $0, -480(%rbp)
-  movq $0, -488(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -120(%rbp), %r11
+  movl $47, %ecx
+.Lजड़_निम्नक_यावत्:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -128(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -136(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -144(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -152(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -160(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -168(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -176(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -184(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -192(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -200(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -208(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -216(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -224(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -232(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -240(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -248(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -256(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -264(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -272(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -280(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -288(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -296(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -304(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -312(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -320(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -328(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -336(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -344(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -352(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -360(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -368(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -376(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -384(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -392(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -400(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -408(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -416(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -424(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -432(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -440(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -448(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -456(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -464(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -472(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -480(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -488(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_निम्नक_यावत्
   movl %eax, gc_roots_count(%rip)
   movq -88(%rbp), %r11
   movq %r11, -120(%rbp)
@@ -78568,256 +62186,17 @@
   movq %r15, -56(%rbp)
   movq %rcx, -88(%rbp)
   movq %rdx, -120(%rbp)
-  movq $0, -136(%rbp)
-  movq $0, -144(%rbp)
-  movq $0, -152(%rbp)
-  movq $0, -160(%rbp)
-  movq $0, -168(%rbp)
-  movq $0, -176(%rbp)
-  movq $0, -184(%rbp)
-  movq $0, -192(%rbp)
-  movq $0, -200(%rbp)
-  movq $0, -208(%rbp)
-  movq $0, -216(%rbp)
-  movq $0, -224(%rbp)
-  movq $0, -232(%rbp)
-  movq $0, -240(%rbp)
-  movq $0, -248(%rbp)
-  movq $0, -256(%rbp)
-  movq $0, -264(%rbp)
-  movq $0, -272(%rbp)
-  movq $0, -280(%rbp)
-  movq $0, -288(%rbp)
-  movq $0, -296(%rbp)
-  movq $0, -304(%rbp)
-  movq $0, -312(%rbp)
-  movq $0, -320(%rbp)
-  movq $0, -328(%rbp)
-  movq $0, -336(%rbp)
-  movq $0, -344(%rbp)
-  movq $0, -352(%rbp)
-  movq $0, -360(%rbp)
-  movq $0, -368(%rbp)
-  movq $0, -376(%rbp)
-  movq $0, -384(%rbp)
-  movq $0, -392(%rbp)
-  movq $0, -400(%rbp)
-  movq $0, -408(%rbp)
-  movq $0, -416(%rbp)
-  movq $0, -424(%rbp)
-  movq $0, -432(%rbp)
-  movq $0, -440(%rbp)
-  movq $0, -448(%rbp)
-  movq $0, -456(%rbp)
-  movq $0, -464(%rbp)
-  movq $0, -472(%rbp)
-  movq $0, -480(%rbp)
-  movq $0, -488(%rbp)
-  movq $0, -496(%rbp)
-  movq $0, -504(%rbp)
-  movq $0, -512(%rbp)
-  movq $0, -520(%rbp)
-  movq $0, -528(%rbp)
-  movq $0, -536(%rbp)
-  movq $0, -544(%rbp)
-  movq $0, -552(%rbp)
-  movq $0, -560(%rbp)
-  movq $0, -568(%rbp)
-  movq $0, -576(%rbp)
-  movq $0, -584(%rbp)
-  movq $0, -592(%rbp)
-  movq $0, -600(%rbp)
-  movq $0, -608(%rbp)
-  movq $0, -616(%rbp)
-  movq $0, -624(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -136(%rbp), %r11
+  movl $62, %ecx
+.Lजड़_निम्नक_पुनरावृत्ति:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -144(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -152(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -160(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -168(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -176(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -184(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -192(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -200(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -208(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -216(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -224(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -232(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -240(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -248(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -256(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -264(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -272(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -280(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -288(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -296(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -304(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -312(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -320(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -328(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -336(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -344(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -352(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -360(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -368(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -376(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -384(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -392(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -400(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -408(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -416(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -424(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -432(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -440(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -448(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -456(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -464(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -472(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -480(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -488(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -496(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -504(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -512(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -520(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -528(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -536(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -544(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -552(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -560(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -568(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -576(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -584(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -592(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -600(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -608(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -616(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -624(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_निम्नक_पुनरावृत्ति
   movl %eax, gc_roots_count(%rip)
   movq -88(%rbp), %r11
   movq %r11, -136(%rbp)
@@ -79495,332 +62874,17 @@
   movq %r10, -88(%rbp)
   movq 64(%rbp), %r10
   movq %r10, -104(%rbp)
-  movq $0, -280(%rbp)
-  movq $0, -288(%rbp)
-  movq $0, -296(%rbp)
-  movq $0, -304(%rbp)
-  movq $0, -312(%rbp)
-  movq $0, -320(%rbp)
-  movq $0, -328(%rbp)
-  movq $0, -336(%rbp)
-  movq $0, -344(%rbp)
-  movq $0, -352(%rbp)
-  movq $0, -360(%rbp)
-  movq $0, -368(%rbp)
-  movq $0, -376(%rbp)
-  movq $0, -384(%rbp)
-  movq $0, -392(%rbp)
-  movq $0, -400(%rbp)
-  movq $0, -408(%rbp)
-  movq $0, -416(%rbp)
-  movq $0, -424(%rbp)
-  movq $0, -432(%rbp)
-  movq $0, -440(%rbp)
-  movq $0, -448(%rbp)
-  movq $0, -456(%rbp)
-  movq $0, -464(%rbp)
-  movq $0, -472(%rbp)
-  movq $0, -480(%rbp)
-  movq $0, -488(%rbp)
-  movq $0, -496(%rbp)
-  movq $0, -504(%rbp)
-  movq $0, -512(%rbp)
-  movq $0, -520(%rbp)
-  movq $0, -528(%rbp)
-  movq $0, -536(%rbp)
-  movq $0, -544(%rbp)
-  movq $0, -552(%rbp)
-  movq $0, -560(%rbp)
-  movq $0, -568(%rbp)
-  movq $0, -576(%rbp)
-  movq $0, -584(%rbp)
-  movq $0, -592(%rbp)
-  movq $0, -600(%rbp)
-  movq $0, -608(%rbp)
-  movq $0, -616(%rbp)
-  movq $0, -624(%rbp)
-  movq $0, -632(%rbp)
-  movq $0, -640(%rbp)
-  movq $0, -648(%rbp)
-  movq $0, -656(%rbp)
-  movq $0, -664(%rbp)
-  movq $0, -672(%rbp)
-  movq $0, -680(%rbp)
-  movq $0, -688(%rbp)
-  movq $0, -696(%rbp)
-  movq $0, -704(%rbp)
-  movq $0, -712(%rbp)
-  movq $0, -720(%rbp)
-  movq $0, -728(%rbp)
-  movq $0, -736(%rbp)
-  movq $0, -744(%rbp)
-  movq $0, -752(%rbp)
-  movq $0, -760(%rbp)
-  movq $0, -768(%rbp)
-  movq $0, -776(%rbp)
-  movq $0, -784(%rbp)
-  movq $0, -792(%rbp)
-  movq $0, -800(%rbp)
-  movq $0, -808(%rbp)
-  movq $0, -816(%rbp)
-  movq $0, -824(%rbp)
-  movq $0, -832(%rbp)
-  movq $0, -840(%rbp)
-  movq $0, -848(%rbp)
-  movq $0, -856(%rbp)
-  movq $0, -864(%rbp)
-  movq $0, -872(%rbp)
-  movq $0, -880(%rbp)
-  movq $0, -888(%rbp)
-  movq $0, -896(%rbp)
-  movq $0, -904(%rbp)
-  movq $0, -912(%rbp)
-  movq $0, -920(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -280(%rbp), %r11
+  movl $81, %ecx
+.Lजड़_निम्नक_कार्य:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -288(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -296(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -304(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -312(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -320(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -328(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -336(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -344(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -352(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -360(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -368(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -376(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -384(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -392(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -400(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -408(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -416(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -424(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -432(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -440(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -448(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -456(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -464(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -472(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -480(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -488(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -496(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -504(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -512(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -520(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -528(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -536(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -544(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -552(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -560(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -568(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -576(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -584(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -592(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -600(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -608(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -616(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -624(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -632(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -640(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -648(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -656(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -664(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -672(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -680(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -688(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -696(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -704(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -712(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -720(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -728(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -736(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -744(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -752(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -760(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -768(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -776(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -784(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -792(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -800(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -808(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -816(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -824(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -832(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -840(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -848(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -856(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -864(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -872(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -880(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -888(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -896(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -904(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -912(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -920(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_निम्नक_कार्य
   movl %eax, gc_roots_count(%rip)
   movq %rbx, -280(%rbp)
   movq -72(%rbp), %r11
@@ -80810,680 +63874,17 @@
   movq %r14, -48(%rbp)
   movq %r15, -56(%rbp)
   movq %rcx, -520(%rbp)
-  movq $0, -840(%rbp)
-  movq $0, -848(%rbp)
-  movq $0, -856(%rbp)
-  movq $0, -864(%rbp)
-  movq $0, -872(%rbp)
-  movq $0, -880(%rbp)
-  movq $0, -888(%rbp)
-  movq $0, -896(%rbp)
-  movq $0, -904(%rbp)
-  movq $0, -912(%rbp)
-  movq $0, -920(%rbp)
-  movq $0, -928(%rbp)
-  movq $0, -936(%rbp)
-  movq $0, -944(%rbp)
-  movq $0, -952(%rbp)
-  movq $0, -960(%rbp)
-  movq $0, -968(%rbp)
-  movq $0, -976(%rbp)
-  movq $0, -984(%rbp)
-  movq $0, -992(%rbp)
-  movq $0, -1000(%rbp)
-  movq $0, -1008(%rbp)
-  movq $0, -1016(%rbp)
-  movq $0, -1024(%rbp)
-  movq $0, -1032(%rbp)
-  movq $0, -1040(%rbp)
-  movq $0, -1048(%rbp)
-  movq $0, -1056(%rbp)
-  movq $0, -1064(%rbp)
-  movq $0, -1072(%rbp)
-  movq $0, -1080(%rbp)
-  movq $0, -1088(%rbp)
-  movq $0, -1096(%rbp)
-  movq $0, -1104(%rbp)
-  movq $0, -1112(%rbp)
-  movq $0, -1120(%rbp)
-  movq $0, -1128(%rbp)
-  movq $0, -1136(%rbp)
-  movq $0, -1144(%rbp)
-  movq $0, -1152(%rbp)
-  movq $0, -1160(%rbp)
-  movq $0, -1168(%rbp)
-  movq $0, -1176(%rbp)
-  movq $0, -1184(%rbp)
-  movq $0, -1192(%rbp)
-  movq $0, -1200(%rbp)
-  movq $0, -1208(%rbp)
-  movq $0, -1216(%rbp)
-  movq $0, -1224(%rbp)
-  movq $0, -1232(%rbp)
-  movq $0, -1240(%rbp)
-  movq $0, -1248(%rbp)
-  movq $0, -1256(%rbp)
-  movq $0, -1264(%rbp)
-  movq $0, -1272(%rbp)
-  movq $0, -1280(%rbp)
-  movq $0, -1288(%rbp)
-  movq $0, -1296(%rbp)
-  movq $0, -1304(%rbp)
-  movq $0, -1312(%rbp)
-  movq $0, -1320(%rbp)
-  movq $0, -1328(%rbp)
-  movq $0, -1336(%rbp)
-  movq $0, -1344(%rbp)
-  movq $0, -1352(%rbp)
-  movq $0, -1360(%rbp)
-  movq $0, -1368(%rbp)
-  movq $0, -1376(%rbp)
-  movq $0, -1384(%rbp)
-  movq $0, -1392(%rbp)
-  movq $0, -1400(%rbp)
-  movq $0, -1408(%rbp)
-  movq $0, -1416(%rbp)
-  movq $0, -1424(%rbp)
-  movq $0, -1432(%rbp)
-  movq $0, -1440(%rbp)
-  movq $0, -1448(%rbp)
-  movq $0, -1456(%rbp)
-  movq $0, -1464(%rbp)
-  movq $0, -1472(%rbp)
-  movq $0, -1480(%rbp)
-  movq $0, -1488(%rbp)
-  movq $0, -1496(%rbp)
-  movq $0, -1504(%rbp)
-  movq $0, -1512(%rbp)
-  movq $0, -1520(%rbp)
-  movq $0, -1528(%rbp)
-  movq $0, -1536(%rbp)
-  movq $0, -1544(%rbp)
-  movq $0, -1552(%rbp)
-  movq $0, -1560(%rbp)
-  movq $0, -1568(%rbp)
-  movq $0, -1576(%rbp)
-  movq $0, -1584(%rbp)
-  movq $0, -1592(%rbp)
-  movq $0, -1600(%rbp)
-  movq $0, -1608(%rbp)
-  movq $0, -1616(%rbp)
-  movq $0, -1624(%rbp)
-  movq $0, -1632(%rbp)
-  movq $0, -1640(%rbp)
-  movq $0, -1648(%rbp)
-  movq $0, -1656(%rbp)
-  movq $0, -1664(%rbp)
-  movq $0, -1672(%rbp)
-  movq $0, -1680(%rbp)
-  movq $0, -1688(%rbp)
-  movq $0, -1696(%rbp)
-  movq $0, -1704(%rbp)
-  movq $0, -1712(%rbp)
-  movq $0, -1720(%rbp)
-  movq $0, -1728(%rbp)
-  movq $0, -1736(%rbp)
-  movq $0, -1744(%rbp)
-  movq $0, -1752(%rbp)
-  movq $0, -1760(%rbp)
-  movq $0, -1768(%rbp)
-  movq $0, -1776(%rbp)
-  movq $0, -1784(%rbp)
-  movq $0, -1792(%rbp)
-  movq $0, -1800(%rbp)
-  movq $0, -1808(%rbp)
-  movq $0, -1816(%rbp)
-  movq $0, -1824(%rbp)
-  movq $0, -1832(%rbp)
-  movq $0, -1840(%rbp)
-  movq $0, -1848(%rbp)
-  movq $0, -1856(%rbp)
-  movq $0, -1864(%rbp)
-  movq $0, -1872(%rbp)
-  movq $0, -1880(%rbp)
-  movq $0, -1888(%rbp)
-  movq $0, -1896(%rbp)
-  movq $0, -1904(%rbp)
-  movq $0, -1912(%rbp)
-  movq $0, -1920(%rbp)
-  movq $0, -1928(%rbp)
-  movq $0, -1936(%rbp)
-  movq $0, -1944(%rbp)
-  movq $0, -1952(%rbp)
-  movq $0, -1960(%rbp)
-  movq $0, -1968(%rbp)
-  movq $0, -1976(%rbp)
-  movq $0, -1984(%rbp)
-  movq $0, -1992(%rbp)
-  movq $0, -2000(%rbp)
-  movq $0, -2008(%rbp)
-  movq $0, -2016(%rbp)
-  movq $0, -2024(%rbp)
-  movq $0, -2032(%rbp)
-  movq $0, -2040(%rbp)
-  movq $0, -2048(%rbp)
-  movq $0, -2056(%rbp)
-  movq $0, -2064(%rbp)
-  movq $0, -2072(%rbp)
-  movq $0, -2080(%rbp)
-  movq $0, -2088(%rbp)
-  movq $0, -2096(%rbp)
-  movq $0, -2104(%rbp)
-  movq $0, -2112(%rbp)
-  movq $0, -2120(%rbp)
-  movq $0, -2128(%rbp)
-  movq $0, -2136(%rbp)
-  movq $0, -2144(%rbp)
-  movq $0, -2152(%rbp)
-  movq $0, -2160(%rbp)
-  movq $0, -2168(%rbp)
-  movq $0, -2176(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -840(%rbp), %r11
+  movl $168, %ecx
+.Lजड़_निम्नक_एकक:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -848(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -856(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -864(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -872(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -880(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -888(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -896(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -904(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -912(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -920(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -928(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -936(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -944(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -952(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -960(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -968(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -976(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -984(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -992(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1000(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1008(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1016(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1024(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1032(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1040(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1048(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1056(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1064(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1072(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1080(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1088(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1096(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1128(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1136(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1144(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1152(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1160(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1168(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1176(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1184(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1192(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1200(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1208(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1216(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1224(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1232(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1240(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1248(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1256(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1264(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1272(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1280(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1288(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1296(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1304(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1312(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1320(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1328(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1336(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1344(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1352(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1360(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1368(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1376(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1384(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1392(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1400(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1408(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1416(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1424(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1432(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1440(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1448(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1456(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1464(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1472(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1480(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1488(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1496(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1504(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1512(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1520(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1528(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1536(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1544(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1552(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1560(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1568(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1576(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1584(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1592(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1600(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1608(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1616(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1624(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1632(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1640(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1648(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1656(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1664(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1672(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1680(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1688(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1696(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1704(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1712(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1720(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1728(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1736(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1744(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1752(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1760(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1768(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1776(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1784(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1792(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1800(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1808(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1816(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1824(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1832(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1840(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1848(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1856(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1864(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1872(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1880(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1888(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1896(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1904(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1912(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1920(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1928(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1936(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1944(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1952(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1960(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1968(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1976(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1984(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1992(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2000(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2008(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2016(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2024(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2032(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2040(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2048(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2056(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2064(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2072(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2080(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2088(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2096(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2128(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2136(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2144(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2152(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2160(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2168(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2176(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_निम्नक_एकक
   movl %eax, gc_roots_count(%rip)
   movq -520(%rbp), %r11
   movq %r11, -840(%rbp)
@@ -83178,96 +65579,17 @@
   movq %r12, -32(%rbp)
   movq %r13, -40(%rbp)
   movq %rcx, %rbx
-  movq $0, -64(%rbp)
-  movq $0, -72(%rbp)
-  movq $0, -80(%rbp)
-  movq $0, -88(%rbp)
-  movq $0, -96(%rbp)
-  movq $0, -104(%rbp)
-  movq $0, -112(%rbp)
-  movq $0, -120(%rbp)
-  movq $0, -128(%rbp)
-  movq $0, -136(%rbp)
-  movq $0, -144(%rbp)
-  movq $0, -152(%rbp)
-  movq $0, -160(%rbp)
-  movq $0, -168(%rbp)
-  movq $0, -176(%rbp)
-  movq $0, -184(%rbp)
-  movq $0, -192(%rbp)
-  movq $0, -200(%rbp)
-  movq $0, -208(%rbp)
-  movq $0, -216(%rbp)
-  movq $0, -224(%rbp)
-  movq $0, -232(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -64(%rbp), %r11
+  movl $22, %ecx
+.Lजड़_अनु_उत्तराधिकारी:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -72(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -80(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -88(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -96(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -128(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -136(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -144(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -152(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -160(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -168(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -176(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -184(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -192(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -200(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -208(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -216(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -224(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -232(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_अनु_उत्तराधिकारी
   movl %eax, gc_roots_count(%rip)
   movq %rbx, -64(%rbp)
 
@@ -83539,88 +65861,17 @@
   movq %r15, -56(%rbp)
   movq %rcx, %rbx
   movq %rdx, %rsi
-  movq $0, -88(%rbp)
-  movq $0, -96(%rbp)
-  movq $0, -104(%rbp)
-  movq $0, -112(%rbp)
-  movq $0, -120(%rbp)
-  movq $0, -128(%rbp)
-  movq $0, -136(%rbp)
-  movq $0, -144(%rbp)
-  movq $0, -152(%rbp)
-  movq $0, -160(%rbp)
-  movq $0, -168(%rbp)
-  movq $0, -176(%rbp)
-  movq $0, -184(%rbp)
-  movq $0, -192(%rbp)
-  movq $0, -200(%rbp)
-  movq $0, -208(%rbp)
-  movq $0, -216(%rbp)
-  movq $0, -224(%rbp)
-  movq $0, -232(%rbp)
-  movq $0, -240(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -88(%rbp), %r11
+  movl $20, %ecx
+.Lजड़_अनु_खंड_खोजें:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -96(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -128(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -136(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -144(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -152(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -160(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -168(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -176(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -184(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -192(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -200(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -208(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -216(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -224(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -232(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -240(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_अनु_खंड_खोजें
   movl %eax, gc_roots_count(%rip)
   movq %rbx, -88(%rbp)
   movq %rsi, -96(%rbp)
@@ -83888,28 +66139,17 @@
   movq %r14, -48(%rbp)
   movq %rcx, %rbx
   movq %rdx, %rsi
-  movq $0, -72(%rbp)
-  movq $0, -80(%rbp)
-  movq $0, -88(%rbp)
-  movq $0, -96(%rbp)
-  movq $0, -104(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -72(%rbp), %r11
+  movl $5, %ecx
+.Lजड़_अनु_हल:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -80(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -88(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -96(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_अनु_हल
   movl %eax, gc_roots_count(%rip)
   movq %rbx, -72(%rbp)
 
@@ -83997,68 +66237,17 @@
   movq %r15, -56(%rbp)
   movq %rcx, %rbx
   movq %rdx, %rsi
-  movq $0, -80(%rbp)
-  movq $0, -88(%rbp)
-  movq $0, -96(%rbp)
-  movq $0, -104(%rbp)
-  movq $0, -112(%rbp)
-  movq $0, -120(%rbp)
-  movq $0, -128(%rbp)
-  movq $0, -136(%rbp)
-  movq $0, -144(%rbp)
-  movq $0, -152(%rbp)
-  movq $0, -160(%rbp)
-  movq $0, -168(%rbp)
-  movq $0, -176(%rbp)
-  movq $0, -184(%rbp)
-  movq $0, -192(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -80(%rbp), %r11
+  movl $15, %ecx
+.Lजड़_अनु_बहु_बदलो:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -88(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -96(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -128(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -136(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -144(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -152(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -160(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -168(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -176(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -184(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -192(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_अनु_बहु_बदलो
   movl %eax, gc_roots_count(%rip)
   movq %rbx, -80(%rbp)
   movq %rsi, -88(%rbp)
@@ -84375,112 +66564,17 @@
   movq %r15, -56(%rbp)
   movq %rcx, -104(%rbp)
   movq %rdx, -88(%rbp)
-  movq $0, -136(%rbp)
-  movq $0, -144(%rbp)
-  movq $0, -152(%rbp)
-  movq $0, -160(%rbp)
-  movq $0, -168(%rbp)
-  movq $0, -176(%rbp)
-  movq $0, -184(%rbp)
-  movq $0, -192(%rbp)
-  movq $0, -200(%rbp)
-  movq $0, -208(%rbp)
-  movq $0, -216(%rbp)
-  movq $0, -224(%rbp)
-  movq $0, -232(%rbp)
-  movq $0, -240(%rbp)
-  movq $0, -248(%rbp)
-  movq $0, -256(%rbp)
-  movq $0, -264(%rbp)
-  movq $0, -272(%rbp)
-  movq $0, -280(%rbp)
-  movq $0, -288(%rbp)
-  movq $0, -296(%rbp)
-  movq $0, -304(%rbp)
-  movq $0, -312(%rbp)
-  movq $0, -320(%rbp)
-  movq $0, -328(%rbp)
-  movq $0, -336(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -136(%rbp), %r11
+  movl $26, %ecx
+.Lजड़_अनु_बहु_एक:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -144(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -152(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -160(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -168(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -176(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -184(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -192(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -200(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -208(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -216(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -224(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -232(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -240(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -248(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -256(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -264(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -272(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -280(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -288(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -296(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -304(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -312(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -320(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -328(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -336(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_अनु_बहु_एक
   movl %eax, gc_roots_count(%rip)
   movq -104(%rbp), %r11
   movq %r11, -136(%rbp)
@@ -84840,112 +66934,17 @@
   movq %r14, -48(%rbp)
   movq %r15, -56(%rbp)
   movq %rcx, %rbx
-  movq $0, -184(%rbp)
-  movq $0, -192(%rbp)
-  movq $0, -200(%rbp)
-  movq $0, -208(%rbp)
-  movq $0, -216(%rbp)
-  movq $0, -224(%rbp)
-  movq $0, -232(%rbp)
-  movq $0, -240(%rbp)
-  movq $0, -248(%rbp)
-  movq $0, -256(%rbp)
-  movq $0, -264(%rbp)
-  movq $0, -272(%rbp)
-  movq $0, -280(%rbp)
-  movq $0, -288(%rbp)
-  movq $0, -296(%rbp)
-  movq $0, -304(%rbp)
-  movq $0, -312(%rbp)
-  movq $0, -320(%rbp)
-  movq $0, -328(%rbp)
-  movq $0, -336(%rbp)
-  movq $0, -344(%rbp)
-  movq $0, -352(%rbp)
-  movq $0, -360(%rbp)
-  movq $0, -368(%rbp)
-  movq $0, -376(%rbp)
-  movq $0, -384(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -184(%rbp), %r11
+  movl $26, %ecx
+.Lजड़_अनु_पूर्ववर्ती:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -192(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -200(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -208(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -216(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -224(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -232(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -240(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -248(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -256(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -264(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -272(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -280(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -288(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -296(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -304(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -312(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -320(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -328(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -336(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -344(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -352(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -360(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -368(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -376(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -384(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_अनु_पूर्ववर्ती
   movl %eax, gc_roots_count(%rip)
   movq %rbx, -184(%rbp)
 
@@ -85238,76 +67237,17 @@
   movq %r13, -40(%rbp)
   movq %r14, -48(%rbp)
   movq %rcx, %rbx
-  movq $0, -72(%rbp)
-  movq $0, -80(%rbp)
-  movq $0, -88(%rbp)
-  movq $0, -96(%rbp)
-  movq $0, -104(%rbp)
-  movq $0, -112(%rbp)
-  movq $0, -120(%rbp)
-  movq $0, -128(%rbp)
-  movq $0, -136(%rbp)
-  movq $0, -144(%rbp)
-  movq $0, -152(%rbp)
-  movq $0, -160(%rbp)
-  movq $0, -168(%rbp)
-  movq $0, -176(%rbp)
-  movq $0, -184(%rbp)
-  movq $0, -192(%rbp)
-  movq $0, -200(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -72(%rbp), %r11
+  movl $17, %ecx
+.Lजड़_अनु_विपक्रम:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -80(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -88(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -96(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -128(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -136(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -144(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -152(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -160(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -168(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -176(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -184(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -192(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -200(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_अनु_विपक्रम
   movl %eax, gc_roots_count(%rip)
   movq %rbx, -72(%rbp)
 
@@ -85531,60 +67471,17 @@
   movq %rdx, %rsi
   movq %r8, %rdi
   movq %r9, -88(%rbp)
-  movq $0, -104(%rbp)
-  movq $0, -112(%rbp)
-  movq $0, -120(%rbp)
-  movq $0, -128(%rbp)
-  movq $0, -136(%rbp)
-  movq $0, -144(%rbp)
-  movq $0, -152(%rbp)
-  movq $0, -160(%rbp)
-  movq $0, -168(%rbp)
-  movq $0, -176(%rbp)
-  movq $0, -184(%rbp)
-  movq $0, -192(%rbp)
-  movq $0, -200(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -104(%rbp), %r11
+  movl $13, %ecx
+.Lजड़_अनु_विपक्रम_गहन:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -128(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -136(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -144(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -152(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -160(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -168(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -176(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -184(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -192(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -200(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_अनु_विपक्रम_गहन
   movl %eax, gc_roots_count(%rip)
   movq %rbx, -104(%rbp)
   movq %rsi, -112(%rbp)
@@ -85772,112 +67669,17 @@
   movq %rcx, -120(%rbp)
   movq %rdx, -104(%rbp)
   movq %r8, -88(%rbp)
-  movq $0, -168(%rbp)
-  movq $0, -176(%rbp)
-  movq $0, -184(%rbp)
-  movq $0, -192(%rbp)
-  movq $0, -200(%rbp)
-  movq $0, -208(%rbp)
-  movq $0, -216(%rbp)
-  movq $0, -224(%rbp)
-  movq $0, -232(%rbp)
-  movq $0, -240(%rbp)
-  movq $0, -248(%rbp)
-  movq $0, -256(%rbp)
-  movq $0, -264(%rbp)
-  movq $0, -272(%rbp)
-  movq $0, -280(%rbp)
-  movq $0, -288(%rbp)
-  movq $0, -296(%rbp)
-  movq $0, -304(%rbp)
-  movq $0, -312(%rbp)
-  movq $0, -320(%rbp)
-  movq $0, -328(%rbp)
-  movq $0, -336(%rbp)
-  movq $0, -344(%rbp)
-  movq $0, -352(%rbp)
-  movq $0, -360(%rbp)
-  movq $0, -368(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -168(%rbp), %r11
+  movl $26, %ecx
+.Lजड़_अनु_निर्देश_बदलो:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -176(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -184(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -192(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -200(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -208(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -216(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -224(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -232(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -240(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -248(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -256(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -264(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -272(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -280(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -288(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -296(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -304(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -312(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -320(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -328(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -336(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -344(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -352(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -360(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -368(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_अनु_निर्देश_बदलो
   movl %eax, gc_roots_count(%rip)
   movq -120(%rbp), %r11
   movq %r11, -168(%rbp)
@@ -86245,80 +68047,17 @@
   movq %rcx, %rbx
   movq %rdx, %rsi
   movq %r8, -136(%rbp)
-  movq $0, -152(%rbp)
-  movq $0, -160(%rbp)
-  movq $0, -168(%rbp)
-  movq $0, -176(%rbp)
-  movq $0, -184(%rbp)
-  movq $0, -192(%rbp)
-  movq $0, -200(%rbp)
-  movq $0, -208(%rbp)
-  movq $0, -216(%rbp)
-  movq $0, -224(%rbp)
-  movq $0, -232(%rbp)
-  movq $0, -240(%rbp)
-  movq $0, -248(%rbp)
-  movq $0, -256(%rbp)
-  movq $0, -264(%rbp)
-  movq $0, -272(%rbp)
-  movq $0, -280(%rbp)
-  movq $0, -288(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -152(%rbp), %r11
+  movl $18, %ecx
+.Lजड़_अनु_हर_उपयोग_बदलो:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -160(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -168(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -176(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -184(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -192(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -200(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -208(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -216(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -224(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -232(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -240(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -248(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -256(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -264(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -272(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -280(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -288(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_अनु_हर_उपयोग_बदलो
   movl %eax, gc_roots_count(%rip)
   movq %rbx, -152(%rbp)
 
@@ -86590,468 +68329,17 @@
   movq %r14, -48(%rbp)
   movq %r15, -56(%rbp)
   movq %rcx, -200(%rbp)
-  movq $0, -1064(%rbp)
-  movq $0, -1072(%rbp)
-  movq $0, -1080(%rbp)
-  movq $0, -1088(%rbp)
-  movq $0, -1096(%rbp)
-  movq $0, -1104(%rbp)
-  movq $0, -1112(%rbp)
-  movq $0, -1120(%rbp)
-  movq $0, -1128(%rbp)
-  movq $0, -1136(%rbp)
-  movq $0, -1144(%rbp)
-  movq $0, -1152(%rbp)
-  movq $0, -1160(%rbp)
-  movq $0, -1168(%rbp)
-  movq $0, -1176(%rbp)
-  movq $0, -1184(%rbp)
-  movq $0, -1192(%rbp)
-  movq $0, -1200(%rbp)
-  movq $0, -1208(%rbp)
-  movq $0, -1216(%rbp)
-  movq $0, -1224(%rbp)
-  movq $0, -1232(%rbp)
-  movq $0, -1240(%rbp)
-  movq $0, -1248(%rbp)
-  movq $0, -1256(%rbp)
-  movq $0, -1264(%rbp)
-  movq $0, -1272(%rbp)
-  movq $0, -1280(%rbp)
-  movq $0, -1288(%rbp)
-  movq $0, -1296(%rbp)
-  movq $0, -1304(%rbp)
-  movq $0, -1312(%rbp)
-  movq $0, -1320(%rbp)
-  movq $0, -1328(%rbp)
-  movq $0, -1336(%rbp)
-  movq $0, -1344(%rbp)
-  movq $0, -1352(%rbp)
-  movq $0, -1360(%rbp)
-  movq $0, -1368(%rbp)
-  movq $0, -1376(%rbp)
-  movq $0, -1384(%rbp)
-  movq $0, -1392(%rbp)
-  movq $0, -1400(%rbp)
-  movq $0, -1408(%rbp)
-  movq $0, -1416(%rbp)
-  movq $0, -1424(%rbp)
-  movq $0, -1432(%rbp)
-  movq $0, -1440(%rbp)
-  movq $0, -1448(%rbp)
-  movq $0, -1456(%rbp)
-  movq $0, -1464(%rbp)
-  movq $0, -1472(%rbp)
-  movq $0, -1480(%rbp)
-  movq $0, -1488(%rbp)
-  movq $0, -1496(%rbp)
-  movq $0, -1504(%rbp)
-  movq $0, -1512(%rbp)
-  movq $0, -1520(%rbp)
-  movq $0, -1528(%rbp)
-  movq $0, -1536(%rbp)
-  movq $0, -1544(%rbp)
-  movq $0, -1552(%rbp)
-  movq $0, -1560(%rbp)
-  movq $0, -1568(%rbp)
-  movq $0, -1576(%rbp)
-  movq $0, -1584(%rbp)
-  movq $0, -1592(%rbp)
-  movq $0, -1600(%rbp)
-  movq $0, -1608(%rbp)
-  movq $0, -1616(%rbp)
-  movq $0, -1624(%rbp)
-  movq $0, -1632(%rbp)
-  movq $0, -1640(%rbp)
-  movq $0, -1648(%rbp)
-  movq $0, -1656(%rbp)
-  movq $0, -1664(%rbp)
-  movq $0, -1672(%rbp)
-  movq $0, -1680(%rbp)
-  movq $0, -1688(%rbp)
-  movq $0, -1696(%rbp)
-  movq $0, -1704(%rbp)
-  movq $0, -1712(%rbp)
-  movq $0, -1720(%rbp)
-  movq $0, -1728(%rbp)
-  movq $0, -1736(%rbp)
-  movq $0, -1744(%rbp)
-  movq $0, -1752(%rbp)
-  movq $0, -1760(%rbp)
-  movq $0, -1768(%rbp)
-  movq $0, -1776(%rbp)
-  movq $0, -1784(%rbp)
-  movq $0, -1792(%rbp)
-  movq $0, -1800(%rbp)
-  movq $0, -1808(%rbp)
-  movq $0, -1816(%rbp)
-  movq $0, -1824(%rbp)
-  movq $0, -1832(%rbp)
-  movq $0, -1840(%rbp)
-  movq $0, -1848(%rbp)
-  movq $0, -1856(%rbp)
-  movq $0, -1864(%rbp)
-  movq $0, -1872(%rbp)
-  movq $0, -1880(%rbp)
-  movq $0, -1888(%rbp)
-  movq $0, -1896(%rbp)
-  movq $0, -1904(%rbp)
-  movq $0, -1912(%rbp)
-  movq $0, -1920(%rbp)
-  movq $0, -1928(%rbp)
-  movq $0, -1936(%rbp)
-  movq $0, -1944(%rbp)
-  movq $0, -1952(%rbp)
-  movq $0, -1960(%rbp)
-  movq $0, -1968(%rbp)
-  movq $0, -1976(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -1064(%rbp), %r11
+  movl $115, %ecx
+.Lजड़_स्लॉट_उन्नयन:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -1072(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1080(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1088(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1096(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1128(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1136(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1144(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1152(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1160(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1168(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1176(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1184(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1192(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1200(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1208(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1216(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1224(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1232(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1240(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1248(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1256(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1264(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1272(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1280(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1288(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1296(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1304(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1312(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1320(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1328(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1336(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1344(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1352(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1360(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1368(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1376(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1384(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1392(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1400(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1408(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1416(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1424(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1432(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1440(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1448(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1456(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1464(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1472(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1480(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1488(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1496(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1504(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1512(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1520(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1528(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1536(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1544(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1552(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1560(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1568(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1576(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1584(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1592(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1600(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1608(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1616(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1624(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1632(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1640(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1648(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1656(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1664(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1672(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1680(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1688(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1696(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1704(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1712(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1720(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1728(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1736(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1744(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1752(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1760(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1768(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1776(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1784(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1792(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1800(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1808(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1816(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1824(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1832(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1840(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1848(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1856(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1864(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1872(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1880(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1888(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1896(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1904(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1912(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1920(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1928(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1936(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1944(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1952(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1960(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1968(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1976(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_स्लॉट_उन्नयन
   movl %eax, gc_roots_count(%rip)
   movq -200(%rbp), %r11
   movq %r11, -1064(%rbp)
@@ -88396,32 +69684,17 @@
   movq %r12, -32(%rbp)
   movq %r13, -40(%rbp)
   movq %rcx, %rbx
-  movq $0, -64(%rbp)
-  movq $0, -72(%rbp)
-  movq $0, -80(%rbp)
-  movq $0, -88(%rbp)
-  movq $0, -96(%rbp)
-  movq $0, -104(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -64(%rbp), %r11
+  movl $6, %ecx
+.Lजड़_मेम_स्लॉट_सूची:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -72(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -80(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -88(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -96(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_मेम_स्लॉट_सूची
   movl %eax, gc_roots_count(%rip)
   movq %rbx, -64(%rbp)
 
@@ -88528,212 +69801,17 @@
   movq %r10, -72(%rbp)
   movq 72(%rbp), %r10
   movq %r10, -120(%rbp)
-  movq $0, -216(%rbp)
-  movq $0, -224(%rbp)
-  movq $0, -232(%rbp)
-  movq $0, -240(%rbp)
-  movq $0, -248(%rbp)
-  movq $0, -256(%rbp)
-  movq $0, -264(%rbp)
-  movq $0, -272(%rbp)
-  movq $0, -280(%rbp)
-  movq $0, -288(%rbp)
-  movq $0, -296(%rbp)
-  movq $0, -304(%rbp)
-  movq $0, -312(%rbp)
-  movq $0, -320(%rbp)
-  movq $0, -328(%rbp)
-  movq $0, -336(%rbp)
-  movq $0, -344(%rbp)
-  movq $0, -352(%rbp)
-  movq $0, -360(%rbp)
-  movq $0, -368(%rbp)
-  movq $0, -376(%rbp)
-  movq $0, -384(%rbp)
-  movq $0, -392(%rbp)
-  movq $0, -400(%rbp)
-  movq $0, -408(%rbp)
-  movq $0, -416(%rbp)
-  movq $0, -424(%rbp)
-  movq $0, -432(%rbp)
-  movq $0, -440(%rbp)
-  movq $0, -448(%rbp)
-  movq $0, -456(%rbp)
-  movq $0, -464(%rbp)
-  movq $0, -472(%rbp)
-  movq $0, -480(%rbp)
-  movq $0, -488(%rbp)
-  movq $0, -496(%rbp)
-  movq $0, -504(%rbp)
-  movq $0, -512(%rbp)
-  movq $0, -520(%rbp)
-  movq $0, -528(%rbp)
-  movq $0, -536(%rbp)
-  movq $0, -544(%rbp)
-  movq $0, -552(%rbp)
-  movq $0, -560(%rbp)
-  movq $0, -568(%rbp)
-  movq $0, -576(%rbp)
-  movq $0, -584(%rbp)
-  movq $0, -592(%rbp)
-  movq $0, -600(%rbp)
-  movq $0, -608(%rbp)
-  movq $0, -616(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -216(%rbp), %r11
+  movl $51, %ecx
+.Lजड़_मेम_प्रवेश_मान:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -224(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -232(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -240(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -248(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -256(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -264(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -272(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -280(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -288(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -296(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -304(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -312(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -320(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -328(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -336(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -344(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -352(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -360(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -368(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -376(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -384(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -392(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -400(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -408(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -416(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -424(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -432(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -440(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -448(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -456(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -464(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -472(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -480(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -488(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -496(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -504(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -512(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -520(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -528(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -536(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -544(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -552(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -560(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -568(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -576(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -584(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -592(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -600(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -608(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -616(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_मेम_प्रवेश_मान
   movl %eax, gc_roots_count(%rip)
   movq %rbx, -216(%rbp)
   movq %rsi, -224(%rbp)
@@ -89433,128 +70511,17 @@
   movq %rcx, %rbx
   movq %rdx, -168(%rbp)
   movq %r8, -152(%rbp)
-  movq $0, -184(%rbp)
-  movq $0, -192(%rbp)
-  movq $0, -200(%rbp)
-  movq $0, -208(%rbp)
-  movq $0, -216(%rbp)
-  movq $0, -224(%rbp)
-  movq $0, -232(%rbp)
-  movq $0, -240(%rbp)
-  movq $0, -248(%rbp)
-  movq $0, -256(%rbp)
-  movq $0, -264(%rbp)
-  movq $0, -272(%rbp)
-  movq $0, -280(%rbp)
-  movq $0, -288(%rbp)
-  movq $0, -296(%rbp)
-  movq $0, -304(%rbp)
-  movq $0, -312(%rbp)
-  movq $0, -320(%rbp)
-  movq $0, -328(%rbp)
-  movq $0, -336(%rbp)
-  movq $0, -344(%rbp)
-  movq $0, -352(%rbp)
-  movq $0, -360(%rbp)
-  movq $0, -368(%rbp)
-  movq $0, -376(%rbp)
-  movq $0, -384(%rbp)
-  movq $0, -392(%rbp)
-  movq $0, -400(%rbp)
-  movq $0, -408(%rbp)
-  movq $0, -416(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -184(%rbp), %r11
+  movl $30, %ecx
+.Lजड़_मेम_तुच्छ_फाई_चिन्हित:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -192(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -200(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -208(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -216(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -224(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -232(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -240(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -248(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -256(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -264(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -272(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -280(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -288(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -296(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -304(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -312(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -320(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -328(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -336(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -344(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -352(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -360(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -368(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -376(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -384(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -392(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -400(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -408(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -416(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_मेम_तुच्छ_फाई_चिन्हित
   movl %eax, gc_roots_count(%rip)
   movq -168(%rbp), %r11
   movq %r11, -184(%rbp)
@@ -90026,40 +70993,17 @@
   movq %r15, -56(%rbp)
   movq %rcx, %rbx
   movq %rdx, %rsi
-  movq $0, -80(%rbp)
-  movq $0, -88(%rbp)
-  movq $0, -96(%rbp)
-  movq $0, -104(%rbp)
-  movq $0, -112(%rbp)
-  movq $0, -120(%rbp)
-  movq $0, -128(%rbp)
-  movq $0, -136(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -80(%rbp), %r11
+  movl $8, %ecx
+.Lजड़_मेम_फाई_निकालो:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -88(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -96(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -128(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -136(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_मेम_फाई_निकालो
   movl %eax, gc_roots_count(%rip)
   movq %rbx, -80(%rbp)
 
@@ -90191,404 +71135,17 @@
   movq %r14, -48(%rbp)
   movq %r15, -56(%rbp)
   movq %rcx, -152(%rbp)
-  movq $0, -232(%rbp)
-  movq $0, -240(%rbp)
-  movq $0, -248(%rbp)
-  movq $0, -256(%rbp)
-  movq $0, -264(%rbp)
-  movq $0, -272(%rbp)
-  movq $0, -280(%rbp)
-  movq $0, -288(%rbp)
-  movq $0, -296(%rbp)
-  movq $0, -304(%rbp)
-  movq $0, -312(%rbp)
-  movq $0, -320(%rbp)
-  movq $0, -328(%rbp)
-  movq $0, -336(%rbp)
-  movq $0, -344(%rbp)
-  movq $0, -352(%rbp)
-  movq $0, -360(%rbp)
-  movq $0, -368(%rbp)
-  movq $0, -376(%rbp)
-  movq $0, -384(%rbp)
-  movq $0, -392(%rbp)
-  movq $0, -400(%rbp)
-  movq $0, -408(%rbp)
-  movq $0, -416(%rbp)
-  movq $0, -424(%rbp)
-  movq $0, -432(%rbp)
-  movq $0, -440(%rbp)
-  movq $0, -448(%rbp)
-  movq $0, -456(%rbp)
-  movq $0, -464(%rbp)
-  movq $0, -472(%rbp)
-  movq $0, -480(%rbp)
-  movq $0, -488(%rbp)
-  movq $0, -496(%rbp)
-  movq $0, -504(%rbp)
-  movq $0, -512(%rbp)
-  movq $0, -520(%rbp)
-  movq $0, -528(%rbp)
-  movq $0, -536(%rbp)
-  movq $0, -544(%rbp)
-  movq $0, -552(%rbp)
-  movq $0, -560(%rbp)
-  movq $0, -568(%rbp)
-  movq $0, -576(%rbp)
-  movq $0, -584(%rbp)
-  movq $0, -592(%rbp)
-  movq $0, -600(%rbp)
-  movq $0, -608(%rbp)
-  movq $0, -616(%rbp)
-  movq $0, -624(%rbp)
-  movq $0, -632(%rbp)
-  movq $0, -640(%rbp)
-  movq $0, -648(%rbp)
-  movq $0, -656(%rbp)
-  movq $0, -664(%rbp)
-  movq $0, -672(%rbp)
-  movq $0, -680(%rbp)
-  movq $0, -688(%rbp)
-  movq $0, -696(%rbp)
-  movq $0, -704(%rbp)
-  movq $0, -712(%rbp)
-  movq $0, -720(%rbp)
-  movq $0, -728(%rbp)
-  movq $0, -736(%rbp)
-  movq $0, -744(%rbp)
-  movq $0, -752(%rbp)
-  movq $0, -760(%rbp)
-  movq $0, -768(%rbp)
-  movq $0, -776(%rbp)
-  movq $0, -784(%rbp)
-  movq $0, -792(%rbp)
-  movq $0, -800(%rbp)
-  movq $0, -808(%rbp)
-  movq $0, -816(%rbp)
-  movq $0, -824(%rbp)
-  movq $0, -832(%rbp)
-  movq $0, -840(%rbp)
-  movq $0, -848(%rbp)
-  movq $0, -856(%rbp)
-  movq $0, -864(%rbp)
-  movq $0, -872(%rbp)
-  movq $0, -880(%rbp)
-  movq $0, -888(%rbp)
-  movq $0, -896(%rbp)
-  movq $0, -904(%rbp)
-  movq $0, -912(%rbp)
-  movq $0, -920(%rbp)
-  movq $0, -928(%rbp)
-  movq $0, -936(%rbp)
-  movq $0, -944(%rbp)
-  movq $0, -952(%rbp)
-  movq $0, -960(%rbp)
-  movq $0, -968(%rbp)
-  movq $0, -976(%rbp)
-  movq $0, -984(%rbp)
-  movq $0, -992(%rbp)
-  movq $0, -1000(%rbp)
-  movq $0, -1008(%rbp)
-  movq $0, -1016(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -232(%rbp), %r11
+  movl $99, %ecx
+.Lजड़_स्थिर_तह:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -240(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -248(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -256(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -264(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -272(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -280(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -288(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -296(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -304(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -312(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -320(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -328(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -336(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -344(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -352(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -360(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -368(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -376(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -384(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -392(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -400(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -408(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -416(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -424(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -432(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -440(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -448(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -456(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -464(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -472(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -480(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -488(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -496(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -504(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -512(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -520(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -528(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -536(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -544(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -552(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -560(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -568(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -576(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -584(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -592(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -600(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -608(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -616(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -624(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -632(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -640(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -648(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -656(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -664(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -672(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -680(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -688(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -696(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -704(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -712(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -720(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -728(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -736(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -744(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -752(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -760(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -768(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -776(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -784(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -792(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -800(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -808(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -816(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -824(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -832(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -840(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -848(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -856(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -864(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -872(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -880(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -888(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -896(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -904(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -912(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -920(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -928(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -936(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -944(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -952(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -960(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -968(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -976(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -984(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -992(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1000(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1008(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1016(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_स्थिर_तह
   movl %eax, gc_roots_count(%rip)
   movq -152(%rbp), %r11
   movq %r11, -232(%rbp)
@@ -92084,56 +72641,17 @@
   movq %rcx, %rbx
   movq %rdx, %rsi
   movq %r8, %rdi
-  movq $0, -64(%rbp)
-  movq $0, -72(%rbp)
-  movq $0, -80(%rbp)
-  movq $0, -88(%rbp)
-  movq $0, -96(%rbp)
-  movq $0, -104(%rbp)
-  movq $0, -112(%rbp)
-  movq $0, -120(%rbp)
-  movq $0, -128(%rbp)
-  movq $0, -136(%rbp)
-  movq $0, -144(%rbp)
-  movq $0, -152(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -64(%rbp), %r11
+  movl $12, %ecx
+.Lजड़_स्थिर_में_बदलो:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -72(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -80(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -88(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -96(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -128(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -136(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -144(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -152(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_स्थिर_में_बदलो
   movl %eax, gc_roots_count(%rip)
   movq %rbx, -64(%rbp)
   movq %rsi, -72(%rbp)
@@ -92276,40 +72794,17 @@
   movq %rdi, -24(%rbp)
   movq %r12, -32(%rbp)
   movq %rcx, %rbx
-  movq $0, -56(%rbp)
-  movq $0, -64(%rbp)
-  movq $0, -72(%rbp)
-  movq $0, -80(%rbp)
-  movq $0, -88(%rbp)
-  movq $0, -96(%rbp)
-  movq $0, -104(%rbp)
-  movq $0, -112(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -56(%rbp), %r11
+  movl $8, %ecx
+.Lजड़_बिट_अंतर्_है:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -64(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -72(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -80(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -88(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -96(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_बिट_अंतर्_है
   movl %eax, gc_roots_count(%rip)
   movq %rbx, -56(%rbp)
 
@@ -92746,64 +73241,17 @@
   movq %r9, %r12
   movq 48(%rbp), %r10
   movq %r10, %r13
-  movq $0, -72(%rbp)
-  movq $0, -80(%rbp)
-  movq $0, -88(%rbp)
-  movq $0, -96(%rbp)
-  movq $0, -104(%rbp)
-  movq $0, -112(%rbp)
-  movq $0, -120(%rbp)
-  movq $0, -128(%rbp)
-  movq $0, -136(%rbp)
-  movq $0, -144(%rbp)
-  movq $0, -152(%rbp)
-  movq $0, -160(%rbp)
-  movq $0, -168(%rbp)
-  movq $0, -176(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -72(%rbp), %r11
+  movl $14, %ecx
+.Lजड़_बीज_सरल:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -80(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -88(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -96(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -128(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -136(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -144(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -152(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -160(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -168(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -176(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_बीज_सरल
   movl %eax, gc_roots_count(%rip)
   movq %rsi, -72(%rbp)
   movq %rdi, -80(%rbp)
@@ -94557,332 +75005,17 @@
   movq %r14, -48(%rbp)
   movq %r15, -56(%rbp)
   movq %rcx, -312(%rbp)
-  movq $0, -632(%rbp)
-  movq $0, -640(%rbp)
-  movq $0, -648(%rbp)
-  movq $0, -656(%rbp)
-  movq $0, -664(%rbp)
-  movq $0, -672(%rbp)
-  movq $0, -680(%rbp)
-  movq $0, -688(%rbp)
-  movq $0, -696(%rbp)
-  movq $0, -704(%rbp)
-  movq $0, -712(%rbp)
-  movq $0, -720(%rbp)
-  movq $0, -728(%rbp)
-  movq $0, -736(%rbp)
-  movq $0, -744(%rbp)
-  movq $0, -752(%rbp)
-  movq $0, -760(%rbp)
-  movq $0, -768(%rbp)
-  movq $0, -776(%rbp)
-  movq $0, -784(%rbp)
-  movq $0, -792(%rbp)
-  movq $0, -800(%rbp)
-  movq $0, -808(%rbp)
-  movq $0, -816(%rbp)
-  movq $0, -824(%rbp)
-  movq $0, -832(%rbp)
-  movq $0, -840(%rbp)
-  movq $0, -848(%rbp)
-  movq $0, -856(%rbp)
-  movq $0, -864(%rbp)
-  movq $0, -872(%rbp)
-  movq $0, -880(%rbp)
-  movq $0, -888(%rbp)
-  movq $0, -896(%rbp)
-  movq $0, -904(%rbp)
-  movq $0, -912(%rbp)
-  movq $0, -920(%rbp)
-  movq $0, -928(%rbp)
-  movq $0, -936(%rbp)
-  movq $0, -944(%rbp)
-  movq $0, -952(%rbp)
-  movq $0, -960(%rbp)
-  movq $0, -968(%rbp)
-  movq $0, -976(%rbp)
-  movq $0, -984(%rbp)
-  movq $0, -992(%rbp)
-  movq $0, -1000(%rbp)
-  movq $0, -1008(%rbp)
-  movq $0, -1016(%rbp)
-  movq $0, -1024(%rbp)
-  movq $0, -1032(%rbp)
-  movq $0, -1040(%rbp)
-  movq $0, -1048(%rbp)
-  movq $0, -1056(%rbp)
-  movq $0, -1064(%rbp)
-  movq $0, -1072(%rbp)
-  movq $0, -1080(%rbp)
-  movq $0, -1088(%rbp)
-  movq $0, -1096(%rbp)
-  movq $0, -1104(%rbp)
-  movq $0, -1112(%rbp)
-  movq $0, -1120(%rbp)
-  movq $0, -1128(%rbp)
-  movq $0, -1136(%rbp)
-  movq $0, -1144(%rbp)
-  movq $0, -1152(%rbp)
-  movq $0, -1160(%rbp)
-  movq $0, -1168(%rbp)
-  movq $0, -1176(%rbp)
-  movq $0, -1184(%rbp)
-  movq $0, -1192(%rbp)
-  movq $0, -1200(%rbp)
-  movq $0, -1208(%rbp)
-  movq $0, -1216(%rbp)
-  movq $0, -1224(%rbp)
-  movq $0, -1232(%rbp)
-  movq $0, -1240(%rbp)
-  movq $0, -1248(%rbp)
-  movq $0, -1256(%rbp)
-  movq $0, -1264(%rbp)
-  movq $0, -1272(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -632(%rbp), %r11
+  movl $81, %ecx
+.Lजड़_मृत_कोड_हटाओ:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -640(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -648(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -656(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -664(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -672(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -680(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -688(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -696(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -704(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -712(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -720(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -728(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -736(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -744(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -752(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -760(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -768(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -776(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -784(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -792(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -800(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -808(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -816(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -824(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -832(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -840(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -848(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -856(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -864(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -872(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -880(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -888(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -896(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -904(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -912(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -920(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -928(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -936(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -944(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -952(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -960(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -968(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -976(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -984(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -992(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1000(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1008(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1016(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1024(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1032(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1040(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1048(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1056(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1064(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1072(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1080(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1088(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1096(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1128(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1136(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1144(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1152(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1160(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1168(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1176(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1184(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1192(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1200(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1208(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1216(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1224(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1232(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1240(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1248(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1256(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1264(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1272(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_मृत_कोड_हटाओ
   movl %eax, gc_roots_count(%rip)
   movq -312(%rbp), %r11
   movq %r11, -632(%rbp)
@@ -95688,68 +75821,17 @@
   movq %r14, -48(%rbp)
   movq %r15, -56(%rbp)
   movq %rcx, %rbx
-  movq $0, -80(%rbp)
-  movq $0, -88(%rbp)
-  movq $0, -96(%rbp)
-  movq $0, -104(%rbp)
-  movq $0, -112(%rbp)
-  movq $0, -120(%rbp)
-  movq $0, -128(%rbp)
-  movq $0, -136(%rbp)
-  movq $0, -144(%rbp)
-  movq $0, -152(%rbp)
-  movq $0, -160(%rbp)
-  movq $0, -168(%rbp)
-  movq $0, -176(%rbp)
-  movq $0, -184(%rbp)
-  movq $0, -192(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -80(%rbp), %r11
+  movl $15, %ecx
+.Lजड़_अनु_उपयोग_गणना:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -88(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -96(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -128(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -136(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -144(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -152(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -160(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -168(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -176(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -184(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -192(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_अनु_उपयोग_गणना
   movl %eax, gc_roots_count(%rip)
   movq %rbx, -80(%rbp)
 
@@ -96043,96 +76125,17 @@
   movq %r15, -56(%rbp)
   movq %rcx, -104(%rbp)
   movq %rdx, -88(%rbp)
-  movq $0, -120(%rbp)
-  movq $0, -128(%rbp)
-  movq $0, -136(%rbp)
-  movq $0, -144(%rbp)
-  movq $0, -152(%rbp)
-  movq $0, -160(%rbp)
-  movq $0, -168(%rbp)
-  movq $0, -176(%rbp)
-  movq $0, -184(%rbp)
-  movq $0, -192(%rbp)
-  movq $0, -200(%rbp)
-  movq $0, -208(%rbp)
-  movq $0, -216(%rbp)
-  movq $0, -224(%rbp)
-  movq $0, -232(%rbp)
-  movq $0, -240(%rbp)
-  movq $0, -248(%rbp)
-  movq $0, -256(%rbp)
-  movq $0, -264(%rbp)
-  movq $0, -272(%rbp)
-  movq $0, -280(%rbp)
-  movq $0, -288(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -120(%rbp), %r11
+  movl $22, %ecx
+.Lजड़_अनु_गिनो_एक:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -128(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -136(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -144(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -152(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -160(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -168(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -176(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -184(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -192(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -200(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -208(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -216(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -224(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -232(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -240(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -248(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -256(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -264(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -272(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -280(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -288(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_अनु_गिनो_एक
   movl %eax, gc_roots_count(%rip)
   movq -104(%rbp), %r11
   movq %r11, -120(%rbp)
@@ -96517,28 +76520,17 @@
   movq %r12, -32(%rbp)
   movq %r13, -40(%rbp)
   movq %rcx, %rbx
-  movq $0, -64(%rbp)
-  movq $0, -72(%rbp)
-  movq $0, -80(%rbp)
-  movq $0, -88(%rbp)
-  movq $0, -96(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -64(%rbp), %r11
+  movl $5, %ecx
+.Lजड़_अनुकूलक_एकक:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -72(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -80(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -88(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -96(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_अनुकूलक_एकक
   movl %eax, gc_roots_count(%rip)
   movq %rbx, -64(%rbp)
 
@@ -96627,40 +76619,17 @@
   movq %r13, -40(%rbp)
   movq %r14, -48(%rbp)
   movq %r15, -56(%rbp)
-  movq $0, -88(%rbp)
-  movq $0, -96(%rbp)
-  movq $0, -104(%rbp)
-  movq $0, -112(%rbp)
-  movq $0, -120(%rbp)
-  movq $0, -128(%rbp)
-  movq $0, -136(%rbp)
-  movq $0, -144(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -88(%rbp), %r11
+  movl $8, %ecx
+.Lजड़_रजि_पूल:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -96(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -128(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -136(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -144(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_रजि_पूल
   movl %eax, gc_roots_count(%rip)
 
 .L_रजि_पूल__प्रवेश_0:
@@ -96801,216 +76770,17 @@
   movq %r14, -48(%rbp)
   movq %r15, -56(%rbp)
   movq %rcx, -216(%rbp)
-  movq $0, -232(%rbp)
-  movq $0, -240(%rbp)
-  movq $0, -248(%rbp)
-  movq $0, -256(%rbp)
-  movq $0, -264(%rbp)
-  movq $0, -272(%rbp)
-  movq $0, -280(%rbp)
-  movq $0, -288(%rbp)
-  movq $0, -296(%rbp)
-  movq $0, -304(%rbp)
-  movq $0, -312(%rbp)
-  movq $0, -320(%rbp)
-  movq $0, -328(%rbp)
-  movq $0, -336(%rbp)
-  movq $0, -344(%rbp)
-  movq $0, -352(%rbp)
-  movq $0, -360(%rbp)
-  movq $0, -368(%rbp)
-  movq $0, -376(%rbp)
-  movq $0, -384(%rbp)
-  movq $0, -392(%rbp)
-  movq $0, -400(%rbp)
-  movq $0, -408(%rbp)
-  movq $0, -416(%rbp)
-  movq $0, -424(%rbp)
-  movq $0, -432(%rbp)
-  movq $0, -440(%rbp)
-  movq $0, -448(%rbp)
-  movq $0, -456(%rbp)
-  movq $0, -464(%rbp)
-  movq $0, -472(%rbp)
-  movq $0, -480(%rbp)
-  movq $0, -488(%rbp)
-  movq $0, -496(%rbp)
-  movq $0, -504(%rbp)
-  movq $0, -512(%rbp)
-  movq $0, -520(%rbp)
-  movq $0, -528(%rbp)
-  movq $0, -536(%rbp)
-  movq $0, -544(%rbp)
-  movq $0, -552(%rbp)
-  movq $0, -560(%rbp)
-  movq $0, -568(%rbp)
-  movq $0, -576(%rbp)
-  movq $0, -584(%rbp)
-  movq $0, -592(%rbp)
-  movq $0, -600(%rbp)
-  movq $0, -608(%rbp)
-  movq $0, -616(%rbp)
-  movq $0, -624(%rbp)
-  movq $0, -632(%rbp)
-  movq $0, -640(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -232(%rbp), %r11
+  movl $52, %ecx
+.Lजड़_रजि_क्रमांकन:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -240(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -248(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -256(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -264(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -272(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -280(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -288(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -296(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -304(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -312(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -320(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -328(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -336(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -344(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -352(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -360(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -368(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -376(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -384(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -392(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -400(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -408(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -416(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -424(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -432(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -440(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -448(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -456(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -464(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -472(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -480(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -488(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -496(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -504(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -512(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -520(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -528(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -536(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -544(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -552(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -560(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -568(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -576(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -584(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -592(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -600(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -608(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -616(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -624(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -632(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -640(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_रजि_क्रमांकन
   movl %eax, gc_roots_count(%rip)
   movq -216(%rbp), %r11
   movq %r11, -232(%rbp)
@@ -97657,40 +77427,17 @@
   movq %r13, -40(%rbp)
   movq %r14, -48(%rbp)
   movq %rcx, %rbx
-  movq $0, -72(%rbp)
-  movq $0, -80(%rbp)
-  movq $0, -88(%rbp)
-  movq $0, -96(%rbp)
-  movq $0, -104(%rbp)
-  movq $0, -112(%rbp)
-  movq $0, -120(%rbp)
-  movq $0, -128(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -72(%rbp), %r11
+  movl $8, %ecx
+.Lजड़_रजि_उपयोग_मान:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -80(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -88(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -96(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -128(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_रजि_उपयोग_मान
   movl %eax, gc_roots_count(%rip)
   movq %rbx, -72(%rbp)
 
@@ -97821,488 +77568,17 @@
   movq %r15, -56(%rbp)
   movq %rcx, -152(%rbp)
   movq %rdx, -136(%rbp)
-  movq $0, -904(%rbp)
-  movq $0, -912(%rbp)
-  movq $0, -920(%rbp)
-  movq $0, -928(%rbp)
-  movq $0, -936(%rbp)
-  movq $0, -944(%rbp)
-  movq $0, -952(%rbp)
-  movq $0, -960(%rbp)
-  movq $0, -968(%rbp)
-  movq $0, -976(%rbp)
-  movq $0, -984(%rbp)
-  movq $0, -992(%rbp)
-  movq $0, -1000(%rbp)
-  movq $0, -1008(%rbp)
-  movq $0, -1016(%rbp)
-  movq $0, -1024(%rbp)
-  movq $0, -1032(%rbp)
-  movq $0, -1040(%rbp)
-  movq $0, -1048(%rbp)
-  movq $0, -1056(%rbp)
-  movq $0, -1064(%rbp)
-  movq $0, -1072(%rbp)
-  movq $0, -1080(%rbp)
-  movq $0, -1088(%rbp)
-  movq $0, -1096(%rbp)
-  movq $0, -1104(%rbp)
-  movq $0, -1112(%rbp)
-  movq $0, -1120(%rbp)
-  movq $0, -1128(%rbp)
-  movq $0, -1136(%rbp)
-  movq $0, -1144(%rbp)
-  movq $0, -1152(%rbp)
-  movq $0, -1160(%rbp)
-  movq $0, -1168(%rbp)
-  movq $0, -1176(%rbp)
-  movq $0, -1184(%rbp)
-  movq $0, -1192(%rbp)
-  movq $0, -1200(%rbp)
-  movq $0, -1208(%rbp)
-  movq $0, -1216(%rbp)
-  movq $0, -1224(%rbp)
-  movq $0, -1232(%rbp)
-  movq $0, -1240(%rbp)
-  movq $0, -1248(%rbp)
-  movq $0, -1256(%rbp)
-  movq $0, -1264(%rbp)
-  movq $0, -1272(%rbp)
-  movq $0, -1280(%rbp)
-  movq $0, -1288(%rbp)
-  movq $0, -1296(%rbp)
-  movq $0, -1304(%rbp)
-  movq $0, -1312(%rbp)
-  movq $0, -1320(%rbp)
-  movq $0, -1328(%rbp)
-  movq $0, -1336(%rbp)
-  movq $0, -1344(%rbp)
-  movq $0, -1352(%rbp)
-  movq $0, -1360(%rbp)
-  movq $0, -1368(%rbp)
-  movq $0, -1376(%rbp)
-  movq $0, -1384(%rbp)
-  movq $0, -1392(%rbp)
-  movq $0, -1400(%rbp)
-  movq $0, -1408(%rbp)
-  movq $0, -1416(%rbp)
-  movq $0, -1424(%rbp)
-  movq $0, -1432(%rbp)
-  movq $0, -1440(%rbp)
-  movq $0, -1448(%rbp)
-  movq $0, -1456(%rbp)
-  movq $0, -1464(%rbp)
-  movq $0, -1472(%rbp)
-  movq $0, -1480(%rbp)
-  movq $0, -1488(%rbp)
-  movq $0, -1496(%rbp)
-  movq $0, -1504(%rbp)
-  movq $0, -1512(%rbp)
-  movq $0, -1520(%rbp)
-  movq $0, -1528(%rbp)
-  movq $0, -1536(%rbp)
-  movq $0, -1544(%rbp)
-  movq $0, -1552(%rbp)
-  movq $0, -1560(%rbp)
-  movq $0, -1568(%rbp)
-  movq $0, -1576(%rbp)
-  movq $0, -1584(%rbp)
-  movq $0, -1592(%rbp)
-  movq $0, -1600(%rbp)
-  movq $0, -1608(%rbp)
-  movq $0, -1616(%rbp)
-  movq $0, -1624(%rbp)
-  movq $0, -1632(%rbp)
-  movq $0, -1640(%rbp)
-  movq $0, -1648(%rbp)
-  movq $0, -1656(%rbp)
-  movq $0, -1664(%rbp)
-  movq $0, -1672(%rbp)
-  movq $0, -1680(%rbp)
-  movq $0, -1688(%rbp)
-  movq $0, -1696(%rbp)
-  movq $0, -1704(%rbp)
-  movq $0, -1712(%rbp)
-  movq $0, -1720(%rbp)
-  movq $0, -1728(%rbp)
-  movq $0, -1736(%rbp)
-  movq $0, -1744(%rbp)
-  movq $0, -1752(%rbp)
-  movq $0, -1760(%rbp)
-  movq $0, -1768(%rbp)
-  movq $0, -1776(%rbp)
-  movq $0, -1784(%rbp)
-  movq $0, -1792(%rbp)
-  movq $0, -1800(%rbp)
-  movq $0, -1808(%rbp)
-  movq $0, -1816(%rbp)
-  movq $0, -1824(%rbp)
-  movq $0, -1832(%rbp)
-  movq $0, -1840(%rbp)
-  movq $0, -1848(%rbp)
-  movq $0, -1856(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -904(%rbp), %r11
+  movl $120, %ecx
+.Lजड़_रजि_सजीवता:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -912(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -920(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -928(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -936(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -944(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -952(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -960(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -968(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -976(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -984(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -992(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1000(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1008(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1016(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1024(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1032(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1040(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1048(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1056(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1064(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1072(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1080(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1088(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1096(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1128(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1136(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1144(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1152(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1160(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1168(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1176(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1184(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1192(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1200(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1208(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1216(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1224(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1232(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1240(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1248(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1256(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1264(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1272(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1280(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1288(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1296(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1304(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1312(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1320(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1328(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1336(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1344(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1352(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1360(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1368(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1376(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1384(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1392(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1400(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1408(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1416(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1424(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1432(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1440(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1448(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1456(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1464(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1472(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1480(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1488(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1496(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1504(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1512(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1520(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1528(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1536(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1544(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1552(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1560(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1568(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1576(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1584(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1592(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1600(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1608(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1616(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1624(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1632(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1640(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1648(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1656(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1664(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1672(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1680(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1688(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1696(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1704(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1712(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1720(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1728(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1736(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1744(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1752(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1760(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1768(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1776(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1784(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1792(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1800(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1808(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1816(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1824(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1832(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1840(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1848(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1856(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_रजि_सजीवता
   movl %eax, gc_roots_count(%rip)
   movq -152(%rbp), %r11
   movq %r11, -904(%rbp)
@@ -99732,40 +79008,17 @@
   movq %r14, -48(%rbp)
   movq %r15, -56(%rbp)
   movq %rcx, %rbx
-  movq $0, -80(%rbp)
-  movq $0, -88(%rbp)
-  movq $0, -96(%rbp)
-  movq $0, -104(%rbp)
-  movq $0, -112(%rbp)
-  movq $0, -120(%rbp)
-  movq $0, -128(%rbp)
-  movq $0, -136(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -80(%rbp), %r11
+  movl $8, %ecx
+.Lजड़_रजि_सेट_सूची:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -88(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -96(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -128(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -136(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_रजि_सेट_सूची
   movl %eax, gc_roots_count(%rip)
   movq %rbx, -80(%rbp)
 
@@ -99990,36 +79243,17 @@
   movq %r15, -56(%rbp)
   movq %rcx, %rbx
   movq %rdx, %rsi
-  movq $0, -80(%rbp)
-  movq $0, -88(%rbp)
-  movq $0, -96(%rbp)
-  movq $0, -104(%rbp)
-  movq $0, -112(%rbp)
-  movq $0, -120(%rbp)
-  movq $0, -128(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -80(%rbp), %r11
+  movl $7, %ecx
+.Lजड़_रजि_सेट_मिलाओ:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -88(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -96(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -128(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_रजि_सेट_मिलाओ
   movl %eax, gc_roots_count(%rip)
   movq %rbx, -80(%rbp)
   movq %rsi, -88(%rbp)
@@ -100138,32 +79372,17 @@
   movq %r14, -48(%rbp)
   movq %rcx, %rbx
   movq %rdx, %rsi
-  movq $0, -72(%rbp)
-  movq $0, -80(%rbp)
-  movq $0, -88(%rbp)
-  movq $0, -96(%rbp)
-  movq $0, -104(%rbp)
-  movq $0, -112(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -72(%rbp), %r11
+  movl $6, %ecx
+.Lजड़_रजि_सेट_भिन्न:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -80(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -88(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -96(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_रजि_सेट_भिन्न
   movl %eax, gc_roots_count(%rip)
   movq %rbx, -72(%rbp)
   movq %rsi, -80(%rbp)
@@ -100312,552 +79531,17 @@
   movq %rcx, -488(%rbp)
   movq %rdx, %rsi
   movq %r8, %rdi
-  movq $0, -968(%rbp)
-  movq $0, -976(%rbp)
-  movq $0, -984(%rbp)
-  movq $0, -992(%rbp)
-  movq $0, -1000(%rbp)
-  movq $0, -1008(%rbp)
-  movq $0, -1016(%rbp)
-  movq $0, -1024(%rbp)
-  movq $0, -1032(%rbp)
-  movq $0, -1040(%rbp)
-  movq $0, -1048(%rbp)
-  movq $0, -1056(%rbp)
-  movq $0, -1064(%rbp)
-  movq $0, -1072(%rbp)
-  movq $0, -1080(%rbp)
-  movq $0, -1088(%rbp)
-  movq $0, -1096(%rbp)
-  movq $0, -1104(%rbp)
-  movq $0, -1112(%rbp)
-  movq $0, -1120(%rbp)
-  movq $0, -1128(%rbp)
-  movq $0, -1136(%rbp)
-  movq $0, -1144(%rbp)
-  movq $0, -1152(%rbp)
-  movq $0, -1160(%rbp)
-  movq $0, -1168(%rbp)
-  movq $0, -1176(%rbp)
-  movq $0, -1184(%rbp)
-  movq $0, -1192(%rbp)
-  movq $0, -1200(%rbp)
-  movq $0, -1208(%rbp)
-  movq $0, -1216(%rbp)
-  movq $0, -1224(%rbp)
-  movq $0, -1232(%rbp)
-  movq $0, -1240(%rbp)
-  movq $0, -1248(%rbp)
-  movq $0, -1256(%rbp)
-  movq $0, -1264(%rbp)
-  movq $0, -1272(%rbp)
-  movq $0, -1280(%rbp)
-  movq $0, -1288(%rbp)
-  movq $0, -1296(%rbp)
-  movq $0, -1304(%rbp)
-  movq $0, -1312(%rbp)
-  movq $0, -1320(%rbp)
-  movq $0, -1328(%rbp)
-  movq $0, -1336(%rbp)
-  movq $0, -1344(%rbp)
-  movq $0, -1352(%rbp)
-  movq $0, -1360(%rbp)
-  movq $0, -1368(%rbp)
-  movq $0, -1376(%rbp)
-  movq $0, -1384(%rbp)
-  movq $0, -1392(%rbp)
-  movq $0, -1400(%rbp)
-  movq $0, -1408(%rbp)
-  movq $0, -1416(%rbp)
-  movq $0, -1424(%rbp)
-  movq $0, -1432(%rbp)
-  movq $0, -1440(%rbp)
-  movq $0, -1448(%rbp)
-  movq $0, -1456(%rbp)
-  movq $0, -1464(%rbp)
-  movq $0, -1472(%rbp)
-  movq $0, -1480(%rbp)
-  movq $0, -1488(%rbp)
-  movq $0, -1496(%rbp)
-  movq $0, -1504(%rbp)
-  movq $0, -1512(%rbp)
-  movq $0, -1520(%rbp)
-  movq $0, -1528(%rbp)
-  movq $0, -1536(%rbp)
-  movq $0, -1544(%rbp)
-  movq $0, -1552(%rbp)
-  movq $0, -1560(%rbp)
-  movq $0, -1568(%rbp)
-  movq $0, -1576(%rbp)
-  movq $0, -1584(%rbp)
-  movq $0, -1592(%rbp)
-  movq $0, -1600(%rbp)
-  movq $0, -1608(%rbp)
-  movq $0, -1616(%rbp)
-  movq $0, -1624(%rbp)
-  movq $0, -1632(%rbp)
-  movq $0, -1640(%rbp)
-  movq $0, -1648(%rbp)
-  movq $0, -1656(%rbp)
-  movq $0, -1664(%rbp)
-  movq $0, -1672(%rbp)
-  movq $0, -1680(%rbp)
-  movq $0, -1688(%rbp)
-  movq $0, -1696(%rbp)
-  movq $0, -1704(%rbp)
-  movq $0, -1712(%rbp)
-  movq $0, -1720(%rbp)
-  movq $0, -1728(%rbp)
-  movq $0, -1736(%rbp)
-  movq $0, -1744(%rbp)
-  movq $0, -1752(%rbp)
-  movq $0, -1760(%rbp)
-  movq $0, -1768(%rbp)
-  movq $0, -1776(%rbp)
-  movq $0, -1784(%rbp)
-  movq $0, -1792(%rbp)
-  movq $0, -1800(%rbp)
-  movq $0, -1808(%rbp)
-  movq $0, -1816(%rbp)
-  movq $0, -1824(%rbp)
-  movq $0, -1832(%rbp)
-  movq $0, -1840(%rbp)
-  movq $0, -1848(%rbp)
-  movq $0, -1856(%rbp)
-  movq $0, -1864(%rbp)
-  movq $0, -1872(%rbp)
-  movq $0, -1880(%rbp)
-  movq $0, -1888(%rbp)
-  movq $0, -1896(%rbp)
-  movq $0, -1904(%rbp)
-  movq $0, -1912(%rbp)
-  movq $0, -1920(%rbp)
-  movq $0, -1928(%rbp)
-  movq $0, -1936(%rbp)
-  movq $0, -1944(%rbp)
-  movq $0, -1952(%rbp)
-  movq $0, -1960(%rbp)
-  movq $0, -1968(%rbp)
-  movq $0, -1976(%rbp)
-  movq $0, -1984(%rbp)
-  movq $0, -1992(%rbp)
-  movq $0, -2000(%rbp)
-  movq $0, -2008(%rbp)
-  movq $0, -2016(%rbp)
-  movq $0, -2024(%rbp)
-  movq $0, -2032(%rbp)
-  movq $0, -2040(%rbp)
-  movq $0, -2048(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -968(%rbp), %r11
+  movl $136, %ecx
+.Lजड़_रजि_अंतराल:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -976(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -984(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -992(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1000(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1008(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1016(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1024(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1032(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1040(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1048(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1056(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1064(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1072(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1080(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1088(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1096(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1128(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1136(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1144(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1152(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1160(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1168(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1176(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1184(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1192(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1200(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1208(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1216(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1224(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1232(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1240(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1248(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1256(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1264(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1272(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1280(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1288(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1296(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1304(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1312(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1320(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1328(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1336(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1344(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1352(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1360(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1368(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1376(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1384(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1392(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1400(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1408(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1416(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1424(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1432(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1440(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1448(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1456(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1464(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1472(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1480(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1488(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1496(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1504(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1512(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1520(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1528(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1536(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1544(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1552(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1560(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1568(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1576(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1584(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1592(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1600(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1608(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1616(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1624(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1632(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1640(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1648(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1656(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1664(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1672(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1680(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1688(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1696(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1704(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1712(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1720(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1728(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1736(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1744(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1752(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1760(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1768(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1776(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1784(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1792(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1800(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1808(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1816(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1824(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1832(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1840(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1848(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1856(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1864(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1872(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1880(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1888(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1896(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1904(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1912(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1920(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1928(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1936(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1944(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1952(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1960(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1968(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1976(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1984(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1992(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2000(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2008(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2016(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2024(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2032(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2040(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2048(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_रजि_अंतराल
   movl %eax, gc_roots_count(%rip)
   movq -488(%rbp), %r11
   movq %r11, -968(%rbp)
@@ -102300,364 +80984,17 @@
   movq %r15, -56(%rbp)
   movq %rcx, -424(%rbp)
   movq %rdx, %rsi
-  movq $0, -792(%rbp)
-  movq $0, -800(%rbp)
-  movq $0, -808(%rbp)
-  movq $0, -816(%rbp)
-  movq $0, -824(%rbp)
-  movq $0, -832(%rbp)
-  movq $0, -840(%rbp)
-  movq $0, -848(%rbp)
-  movq $0, -856(%rbp)
-  movq $0, -864(%rbp)
-  movq $0, -872(%rbp)
-  movq $0, -880(%rbp)
-  movq $0, -888(%rbp)
-  movq $0, -896(%rbp)
-  movq $0, -904(%rbp)
-  movq $0, -912(%rbp)
-  movq $0, -920(%rbp)
-  movq $0, -928(%rbp)
-  movq $0, -936(%rbp)
-  movq $0, -944(%rbp)
-  movq $0, -952(%rbp)
-  movq $0, -960(%rbp)
-  movq $0, -968(%rbp)
-  movq $0, -976(%rbp)
-  movq $0, -984(%rbp)
-  movq $0, -992(%rbp)
-  movq $0, -1000(%rbp)
-  movq $0, -1008(%rbp)
-  movq $0, -1016(%rbp)
-  movq $0, -1024(%rbp)
-  movq $0, -1032(%rbp)
-  movq $0, -1040(%rbp)
-  movq $0, -1048(%rbp)
-  movq $0, -1056(%rbp)
-  movq $0, -1064(%rbp)
-  movq $0, -1072(%rbp)
-  movq $0, -1080(%rbp)
-  movq $0, -1088(%rbp)
-  movq $0, -1096(%rbp)
-  movq $0, -1104(%rbp)
-  movq $0, -1112(%rbp)
-  movq $0, -1120(%rbp)
-  movq $0, -1128(%rbp)
-  movq $0, -1136(%rbp)
-  movq $0, -1144(%rbp)
-  movq $0, -1152(%rbp)
-  movq $0, -1160(%rbp)
-  movq $0, -1168(%rbp)
-  movq $0, -1176(%rbp)
-  movq $0, -1184(%rbp)
-  movq $0, -1192(%rbp)
-  movq $0, -1200(%rbp)
-  movq $0, -1208(%rbp)
-  movq $0, -1216(%rbp)
-  movq $0, -1224(%rbp)
-  movq $0, -1232(%rbp)
-  movq $0, -1240(%rbp)
-  movq $0, -1248(%rbp)
-  movq $0, -1256(%rbp)
-  movq $0, -1264(%rbp)
-  movq $0, -1272(%rbp)
-  movq $0, -1280(%rbp)
-  movq $0, -1288(%rbp)
-  movq $0, -1296(%rbp)
-  movq $0, -1304(%rbp)
-  movq $0, -1312(%rbp)
-  movq $0, -1320(%rbp)
-  movq $0, -1328(%rbp)
-  movq $0, -1336(%rbp)
-  movq $0, -1344(%rbp)
-  movq $0, -1352(%rbp)
-  movq $0, -1360(%rbp)
-  movq $0, -1368(%rbp)
-  movq $0, -1376(%rbp)
-  movq $0, -1384(%rbp)
-  movq $0, -1392(%rbp)
-  movq $0, -1400(%rbp)
-  movq $0, -1408(%rbp)
-  movq $0, -1416(%rbp)
-  movq $0, -1424(%rbp)
-  movq $0, -1432(%rbp)
-  movq $0, -1440(%rbp)
-  movq $0, -1448(%rbp)
-  movq $0, -1456(%rbp)
-  movq $0, -1464(%rbp)
-  movq $0, -1472(%rbp)
-  movq $0, -1480(%rbp)
-  movq $0, -1488(%rbp)
-  movq $0, -1496(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -792(%rbp), %r11
+  movl $89, %ecx
+.Lजड़_रजि_रैखिक_स्कैन:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -800(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -808(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -816(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -824(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -832(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -840(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -848(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -856(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -864(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -872(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -880(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -888(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -896(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -904(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -912(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -920(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -928(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -936(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -944(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -952(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -960(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -968(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -976(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -984(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -992(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1000(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1008(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1016(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1024(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1032(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1040(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1048(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1056(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1064(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1072(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1080(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1088(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1096(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1128(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1136(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1144(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1152(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1160(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1168(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1176(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1184(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1192(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1200(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1208(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1216(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1224(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1232(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1240(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1248(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1256(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1264(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1272(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1280(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1288(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1296(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1304(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1312(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1320(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1328(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1336(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1344(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1352(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1360(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1368(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1376(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1384(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1392(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1400(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1408(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1416(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1424(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1432(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1440(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1448(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1456(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1464(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1472(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1480(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1488(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1496(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_रजि_रैखिक_स्कैन
   movl %eax, gc_roots_count(%rip)
   movq -424(%rbp), %r11
   movq %r11, -792(%rbp)
@@ -103628,28 +81965,17 @@
   movq %r14, -48(%rbp)
   movq %rcx, %rbx
   movq %rdx, %rsi
-  movq $0, -72(%rbp)
-  movq $0, -80(%rbp)
-  movq $0, -88(%rbp)
-  movq $0, -96(%rbp)
-  movq $0, -104(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -72(%rbp), %r11
+  movl $5, %ecx
+.Lजड़_रजि_कोई_मुक्त:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -80(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -88(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -96(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_रजि_कोई_मुक्त
   movl %eax, gc_roots_count(%rip)
   movq %rbx, -72(%rbp)
   movq %rsi, -80(%rbp)
@@ -103761,68 +82087,17 @@
   movq %rcx, -104(%rbp)
   movq %rdx, -88(%rbp)
   movq %r8, -72(%rbp)
-  movq $0, -120(%rbp)
-  movq $0, -128(%rbp)
-  movq $0, -136(%rbp)
-  movq $0, -144(%rbp)
-  movq $0, -152(%rbp)
-  movq $0, -160(%rbp)
-  movq $0, -168(%rbp)
-  movq $0, -176(%rbp)
-  movq $0, -184(%rbp)
-  movq $0, -192(%rbp)
-  movq $0, -200(%rbp)
-  movq $0, -208(%rbp)
-  movq $0, -216(%rbp)
-  movq $0, -224(%rbp)
-  movq $0, -232(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -120(%rbp), %r11
+  movl $15, %ecx
+.Lजड़_रजि_सक्रिय_डालो:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -128(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -136(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -144(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -152(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -160(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -168(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -176(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -184(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -192(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -200(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -208(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -216(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -224(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -232(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_रजि_सक्रिय_डालो
   movl %eax, gc_roots_count(%rip)
   movq -104(%rbp), %r11
   movq %r11, -120(%rbp)
@@ -104026,36 +82301,17 @@
   movq %r15, -56(%rbp)
   movq %rcx, %rbx
   movq %rdx, %rsi
-  movq $0, -80(%rbp)
-  movq $0, -88(%rbp)
-  movq $0, -96(%rbp)
-  movq $0, -104(%rbp)
-  movq $0, -112(%rbp)
-  movq $0, -120(%rbp)
-  movq $0, -128(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -80(%rbp), %r11
+  movl $7, %ecx
+.Lजड़_रजि_सक्रिय_हटाओ:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -88(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -96(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -128(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_रजि_सक्रिय_हटाओ
   movl %eax, gc_roots_count(%rip)
   movq %rbx, -80(%rbp)
 
@@ -104181,72 +82437,17 @@
   movq %r15, -56(%rbp)
   movq %rcx, %rbx
   movq %rdx, -120(%rbp)
-  movq $0, -136(%rbp)
-  movq $0, -144(%rbp)
-  movq $0, -152(%rbp)
-  movq $0, -160(%rbp)
-  movq $0, -168(%rbp)
-  movq $0, -176(%rbp)
-  movq $0, -184(%rbp)
-  movq $0, -192(%rbp)
-  movq $0, -200(%rbp)
-  movq $0, -208(%rbp)
-  movq $0, -216(%rbp)
-  movq $0, -224(%rbp)
-  movq $0, -232(%rbp)
-  movq $0, -240(%rbp)
-  movq $0, -248(%rbp)
-  movq $0, -256(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -136(%rbp), %r11
+  movl $16, %ecx
+.Lजड़_रजि_क्रमबद्ध:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -144(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -152(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -160(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -168(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -176(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -184(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -192(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -200(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -208(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -216(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -224(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -232(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -240(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -248(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -256(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_रजि_क्रमबद्ध
   movl %eax, gc_roots_count(%rip)
   movq %rbx, -136(%rbp)
   movq -120(%rbp), %r11
@@ -104478,32 +82679,17 @@
   movq %rdi, -24(%rbp)
   movq %r12, -32(%rbp)
   movq %rcx, %rbx
-  movq $0, -56(%rbp)
-  movq $0, -64(%rbp)
-  movq $0, -72(%rbp)
-  movq $0, -80(%rbp)
-  movq $0, -88(%rbp)
-  movq $0, -96(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -56(%rbp), %r11
+  movl $6, %ecx
+.Lजड़_रजि_नियतक_कार्य:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -64(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -72(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -80(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -88(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -96(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_रजि_नियतक_कार्य
   movl %eax, gc_roots_count(%rip)
   movq %rbx, -56(%rbp)
 
@@ -105208,540 +83394,17 @@
   movq %rcx, -72(%rbp)
   movq %rdx, -520(%rbp)
   movq %r8, -504(%rbp)
-  movq $0, -952(%rbp)
-  movq $0, -960(%rbp)
-  movq $0, -968(%rbp)
-  movq $0, -976(%rbp)
-  movq $0, -984(%rbp)
-  movq $0, -992(%rbp)
-  movq $0, -1000(%rbp)
-  movq $0, -1008(%rbp)
-  movq $0, -1016(%rbp)
-  movq $0, -1024(%rbp)
-  movq $0, -1032(%rbp)
-  movq $0, -1040(%rbp)
-  movq $0, -1048(%rbp)
-  movq $0, -1056(%rbp)
-  movq $0, -1064(%rbp)
-  movq $0, -1072(%rbp)
-  movq $0, -1080(%rbp)
-  movq $0, -1088(%rbp)
-  movq $0, -1096(%rbp)
-  movq $0, -1104(%rbp)
-  movq $0, -1112(%rbp)
-  movq $0, -1120(%rbp)
-  movq $0, -1128(%rbp)
-  movq $0, -1136(%rbp)
-  movq $0, -1144(%rbp)
-  movq $0, -1152(%rbp)
-  movq $0, -1160(%rbp)
-  movq $0, -1168(%rbp)
-  movq $0, -1176(%rbp)
-  movq $0, -1184(%rbp)
-  movq $0, -1192(%rbp)
-  movq $0, -1200(%rbp)
-  movq $0, -1208(%rbp)
-  movq $0, -1216(%rbp)
-  movq $0, -1224(%rbp)
-  movq $0, -1232(%rbp)
-  movq $0, -1240(%rbp)
-  movq $0, -1248(%rbp)
-  movq $0, -1256(%rbp)
-  movq $0, -1264(%rbp)
-  movq $0, -1272(%rbp)
-  movq $0, -1280(%rbp)
-  movq $0, -1288(%rbp)
-  movq $0, -1296(%rbp)
-  movq $0, -1304(%rbp)
-  movq $0, -1312(%rbp)
-  movq $0, -1320(%rbp)
-  movq $0, -1328(%rbp)
-  movq $0, -1336(%rbp)
-  movq $0, -1344(%rbp)
-  movq $0, -1352(%rbp)
-  movq $0, -1360(%rbp)
-  movq $0, -1368(%rbp)
-  movq $0, -1376(%rbp)
-  movq $0, -1384(%rbp)
-  movq $0, -1392(%rbp)
-  movq $0, -1400(%rbp)
-  movq $0, -1408(%rbp)
-  movq $0, -1416(%rbp)
-  movq $0, -1424(%rbp)
-  movq $0, -1432(%rbp)
-  movq $0, -1440(%rbp)
-  movq $0, -1448(%rbp)
-  movq $0, -1456(%rbp)
-  movq $0, -1464(%rbp)
-  movq $0, -1472(%rbp)
-  movq $0, -1480(%rbp)
-  movq $0, -1488(%rbp)
-  movq $0, -1496(%rbp)
-  movq $0, -1504(%rbp)
-  movq $0, -1512(%rbp)
-  movq $0, -1520(%rbp)
-  movq $0, -1528(%rbp)
-  movq $0, -1536(%rbp)
-  movq $0, -1544(%rbp)
-  movq $0, -1552(%rbp)
-  movq $0, -1560(%rbp)
-  movq $0, -1568(%rbp)
-  movq $0, -1576(%rbp)
-  movq $0, -1584(%rbp)
-  movq $0, -1592(%rbp)
-  movq $0, -1600(%rbp)
-  movq $0, -1608(%rbp)
-  movq $0, -1616(%rbp)
-  movq $0, -1624(%rbp)
-  movq $0, -1632(%rbp)
-  movq $0, -1640(%rbp)
-  movq $0, -1648(%rbp)
-  movq $0, -1656(%rbp)
-  movq $0, -1664(%rbp)
-  movq $0, -1672(%rbp)
-  movq $0, -1680(%rbp)
-  movq $0, -1688(%rbp)
-  movq $0, -1696(%rbp)
-  movq $0, -1704(%rbp)
-  movq $0, -1712(%rbp)
-  movq $0, -1720(%rbp)
-  movq $0, -1728(%rbp)
-  movq $0, -1736(%rbp)
-  movq $0, -1744(%rbp)
-  movq $0, -1752(%rbp)
-  movq $0, -1760(%rbp)
-  movq $0, -1768(%rbp)
-  movq $0, -1776(%rbp)
-  movq $0, -1784(%rbp)
-  movq $0, -1792(%rbp)
-  movq $0, -1800(%rbp)
-  movq $0, -1808(%rbp)
-  movq $0, -1816(%rbp)
-  movq $0, -1824(%rbp)
-  movq $0, -1832(%rbp)
-  movq $0, -1840(%rbp)
-  movq $0, -1848(%rbp)
-  movq $0, -1856(%rbp)
-  movq $0, -1864(%rbp)
-  movq $0, -1872(%rbp)
-  movq $0, -1880(%rbp)
-  movq $0, -1888(%rbp)
-  movq $0, -1896(%rbp)
-  movq $0, -1904(%rbp)
-  movq $0, -1912(%rbp)
-  movq $0, -1920(%rbp)
-  movq $0, -1928(%rbp)
-  movq $0, -1936(%rbp)
-  movq $0, -1944(%rbp)
-  movq $0, -1952(%rbp)
-  movq $0, -1960(%rbp)
-  movq $0, -1968(%rbp)
-  movq $0, -1976(%rbp)
-  movq $0, -1984(%rbp)
-  movq $0, -1992(%rbp)
-  movq $0, -2000(%rbp)
-  movq $0, -2008(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -952(%rbp), %r11
+  movl $133, %ecx
+.Lजड़_रजि_जीसी_जड़ें:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -960(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -968(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -976(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -984(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -992(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1000(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1008(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1016(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1024(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1032(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1040(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1048(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1056(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1064(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1072(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1080(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1088(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1096(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1128(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1136(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1144(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1152(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1160(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1168(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1176(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1184(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1192(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1200(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1208(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1216(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1224(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1232(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1240(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1248(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1256(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1264(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1272(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1280(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1288(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1296(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1304(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1312(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1320(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1328(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1336(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1344(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1352(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1360(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1368(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1376(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1384(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1392(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1400(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1408(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1416(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1424(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1432(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1440(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1448(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1456(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1464(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1472(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1480(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1488(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1496(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1504(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1512(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1520(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1528(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1536(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1544(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1552(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1560(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1568(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1576(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1584(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1592(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1600(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1608(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1616(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1624(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1632(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1640(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1648(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1656(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1664(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1672(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1680(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1688(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1696(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1704(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1712(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1720(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1728(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1736(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1744(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1752(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1760(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1768(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1776(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1784(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1792(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1800(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1808(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1816(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1824(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1832(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1840(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1848(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1856(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1864(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1872(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1880(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1888(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1896(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1904(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1912(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1920(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1928(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1936(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1944(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1952(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1960(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1968(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1976(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1984(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1992(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2000(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2008(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_रजि_जीसी_जड़ें
   movl %eax, gc_roots_count(%rip)
   movq -72(%rbp), %r11
   movq %r11, -952(%rbp)
@@ -107162,28 +84825,17 @@
   movq %r12, -32(%rbp)
   movq %r13, -40(%rbp)
   movq %rcx, %rbx
-  movq $0, -64(%rbp)
-  movq $0, -72(%rbp)
-  movq $0, -80(%rbp)
-  movq $0, -88(%rbp)
-  movq $0, -96(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -64(%rbp), %r11
+  movl $5, %ecx
+.Lजड़_रजि_नियतक_एकक:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -72(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -80(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -88(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -96(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_रजि_नियतक_एकक
   movl %eax, gc_roots_count(%rip)
   movq %rbx, -64(%rbp)
 
@@ -107273,212 +84925,17 @@
   movq %r14, -48(%rbp)
   movq %r15, -56(%rbp)
   movq %rcx, %rbx
-  movq $0, -104(%rbp)
-  movq $0, -112(%rbp)
-  movq $0, -120(%rbp)
-  movq $0, -128(%rbp)
-  movq $0, -136(%rbp)
-  movq $0, -144(%rbp)
-  movq $0, -152(%rbp)
-  movq $0, -160(%rbp)
-  movq $0, -168(%rbp)
-  movq $0, -176(%rbp)
-  movq $0, -184(%rbp)
-  movq $0, -192(%rbp)
-  movq $0, -200(%rbp)
-  movq $0, -208(%rbp)
-  movq $0, -216(%rbp)
-  movq $0, -224(%rbp)
-  movq $0, -232(%rbp)
-  movq $0, -240(%rbp)
-  movq $0, -248(%rbp)
-  movq $0, -256(%rbp)
-  movq $0, -264(%rbp)
-  movq $0, -272(%rbp)
-  movq $0, -280(%rbp)
-  movq $0, -288(%rbp)
-  movq $0, -296(%rbp)
-  movq $0, -304(%rbp)
-  movq $0, -312(%rbp)
-  movq $0, -320(%rbp)
-  movq $0, -328(%rbp)
-  movq $0, -336(%rbp)
-  movq $0, -344(%rbp)
-  movq $0, -352(%rbp)
-  movq $0, -360(%rbp)
-  movq $0, -368(%rbp)
-  movq $0, -376(%rbp)
-  movq $0, -384(%rbp)
-  movq $0, -392(%rbp)
-  movq $0, -400(%rbp)
-  movq $0, -408(%rbp)
-  movq $0, -416(%rbp)
-  movq $0, -424(%rbp)
-  movq $0, -432(%rbp)
-  movq $0, -440(%rbp)
-  movq $0, -448(%rbp)
-  movq $0, -456(%rbp)
-  movq $0, -464(%rbp)
-  movq $0, -472(%rbp)
-  movq $0, -480(%rbp)
-  movq $0, -488(%rbp)
-  movq $0, -496(%rbp)
-  movq $0, -504(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -104(%rbp), %r11
+  movl $51, %ecx
+.Lजड़_रजि_छापो:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -128(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -136(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -144(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -152(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -160(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -168(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -176(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -184(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -192(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -200(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -208(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -216(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -224(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -232(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -240(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -248(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -256(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -264(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -272(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -280(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -288(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -296(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -304(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -312(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -320(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -328(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -336(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -344(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -352(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -360(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -368(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -376(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -384(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -392(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -400(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -408(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -416(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -424(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -432(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -440(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -448(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -456(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -464(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -472(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -480(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -488(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -496(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -504(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_रजि_छापो
   movl %eax, gc_roots_count(%rip)
   movq %rbx, -104(%rbp)
 
@@ -107971,28 +85428,17 @@
   movq %r12, -32(%rbp)
   movq %r13, -40(%rbp)
   movq %rcx, %rbx
-  movq $0, -64(%rbp)
-  movq $0, -72(%rbp)
-  movq $0, -80(%rbp)
-  movq $0, -88(%rbp)
-  movq $0, -96(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -64(%rbp), %r11
+  movl $5, %ecx
+.Lजड़_रजि_पहचान_नक्शा:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -72(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -80(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -88(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -96(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_रजि_पहचान_नक्शा
   movl %eax, gc_roots_count(%rip)
   movq %rbx, -64(%rbp)
 
@@ -108147,32 +85593,17 @@
   movq %r13, -40(%rbp)
   movq %rcx, %rbx
   movq %rdx, %rsi
-  movq $0, -64(%rbp)
-  movq $0, -72(%rbp)
-  movq $0, -80(%rbp)
-  movq $0, -88(%rbp)
-  movq $0, -96(%rbp)
-  movq $0, -104(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -64(%rbp), %r11
+  movl $6, %ecx
+.Lजड़_उगल:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -72(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -80(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -88(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -96(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_उगल
   movl %eax, gc_roots_count(%rip)
   movq %rbx, -64(%rbp)
   movq %rsi, -72(%rbp)
@@ -108246,52 +85677,17 @@
   movq %r13, -40(%rbp)
   movq %rcx, %rbx
   movq %rdx, %rsi
-  movq $0, -64(%rbp)
-  movq $0, -72(%rbp)
-  movq $0, -80(%rbp)
-  movq $0, -88(%rbp)
-  movq $0, -96(%rbp)
-  movq $0, -104(%rbp)
-  movq $0, -112(%rbp)
-  movq $0, -120(%rbp)
-  movq $0, -128(%rbp)
-  movq $0, -136(%rbp)
-  movq $0, -144(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -64(%rbp), %r11
+  movl $11, %ecx
+.Lजड़_उगपं:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -72(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -80(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -88(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -96(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -128(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -136(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -144(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_उगपं
   movl %eax, gc_roots_count(%rip)
   movq %rbx, -64(%rbp)
   movq %rsi, -72(%rbp)
@@ -108487,124 +85883,17 @@
   movq %r14, -48(%rbp)
   movq %r15, -56(%rbp)
   movq %rcx, -72(%rbp)
-  movq $0, -136(%rbp)
-  movq $0, -144(%rbp)
-  movq $0, -152(%rbp)
-  movq $0, -160(%rbp)
-  movq $0, -168(%rbp)
-  movq $0, -176(%rbp)
-  movq $0, -184(%rbp)
-  movq $0, -192(%rbp)
-  movq $0, -200(%rbp)
-  movq $0, -208(%rbp)
-  movq $0, -216(%rbp)
-  movq $0, -224(%rbp)
-  movq $0, -232(%rbp)
-  movq $0, -240(%rbp)
-  movq $0, -248(%rbp)
-  movq $0, -256(%rbp)
-  movq $0, -264(%rbp)
-  movq $0, -272(%rbp)
-  movq $0, -280(%rbp)
-  movq $0, -288(%rbp)
-  movq $0, -296(%rbp)
-  movq $0, -304(%rbp)
-  movq $0, -312(%rbp)
-  movq $0, -320(%rbp)
-  movq $0, -328(%rbp)
-  movq $0, -336(%rbp)
-  movq $0, -344(%rbp)
-  movq $0, -352(%rbp)
-  movq $0, -360(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -136(%rbp), %r11
+  movl $29, %ecx
+.Lजड़_उत्_एस्केप:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -144(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -152(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -160(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -168(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -176(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -184(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -192(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -200(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -208(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -216(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -224(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -232(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -240(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -248(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -256(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -264(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -272(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -280(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -288(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -296(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -304(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -312(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -320(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -328(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -336(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -344(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -352(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -360(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_उत्_एस्केप
   movl %eax, gc_roots_count(%rip)
   movq -72(%rbp), %r11
   movq %r11, -136(%rbp)
@@ -109567,68 +86856,17 @@
   movq %r13, -40(%rbp)
   movq %rcx, %rbx
   movq %rdx, %rsi
-  movq $0, -64(%rbp)
-  movq $0, -72(%rbp)
-  movq $0, -80(%rbp)
-  movq $0, -88(%rbp)
-  movq $0, -96(%rbp)
-  movq $0, -104(%rbp)
-  movq $0, -112(%rbp)
-  movq $0, -120(%rbp)
-  movq $0, -128(%rbp)
-  movq $0, -136(%rbp)
-  movq $0, -144(%rbp)
-  movq $0, -152(%rbp)
-  movq $0, -160(%rbp)
-  movq $0, -168(%rbp)
-  movq $0, -176(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -64(%rbp), %r11
+  movl $15, %ecx
+.Lजड़_उत्_स्थान:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -72(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -80(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -88(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -96(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -128(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -136(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -144(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -152(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -160(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -168(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -176(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_उत्_स्थान
   movl %eax, gc_roots_count(%rip)
   movq %rbx, -64(%rbp)
 
@@ -109962,60 +87200,17 @@
   movq %rcx, %rbx
   movq %rdx, %rsi
   movq %r8, %rdi
-  movq $0, -72(%rbp)
-  movq $0, -80(%rbp)
-  movq $0, -88(%rbp)
-  movq $0, -96(%rbp)
-  movq $0, -104(%rbp)
-  movq $0, -112(%rbp)
-  movq $0, -120(%rbp)
-  movq $0, -128(%rbp)
-  movq $0, -136(%rbp)
-  movq $0, -144(%rbp)
-  movq $0, -152(%rbp)
-  movq $0, -160(%rbp)
-  movq $0, -168(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -72(%rbp), %r11
+  movl $13, %ecx
+.Lजड़_उत्_पूर्ण_भरो:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -80(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -88(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -96(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -128(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -136(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -144(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -152(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -160(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -168(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_उत्_पूर्ण_भरो
   movl %eax, gc_roots_count(%rip)
   movq %rbx, -72(%rbp)
   movq %rdi, -80(%rbp)
@@ -110294,56 +87489,17 @@
   movq %rcx, %rbx
   movq %rdx, %rsi
   movq %r8, %rdi
-  movq $0, -80(%rbp)
-  movq $0, -88(%rbp)
-  movq $0, -96(%rbp)
-  movq $0, -104(%rbp)
-  movq $0, -112(%rbp)
-  movq $0, -120(%rbp)
-  movq $0, -128(%rbp)
-  movq $0, -136(%rbp)
-  movq $0, -144(%rbp)
-  movq $0, -152(%rbp)
-  movq $0, -160(%rbp)
-  movq $0, -168(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -80(%rbp), %r11
+  movl $12, %ecx
+.Lजड़_उत्_जड़_मृत्यु:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -88(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -96(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -128(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -136(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -144(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -152(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -160(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -168(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_उत्_जड़_मृत्यु
   movl %eax, gc_roots_count(%rip)
   movq %rbx, -80(%rbp)
   movq %rsi, -88(%rbp)
@@ -110511,88 +87667,17 @@
   movq %rcx, %rbx
   movq %rdx, %rsi
   movq %r8, %rdi
-  movq $0, -72(%rbp)
-  movq $0, -80(%rbp)
-  movq $0, -88(%rbp)
-  movq $0, -96(%rbp)
-  movq $0, -104(%rbp)
-  movq $0, -112(%rbp)
-  movq $0, -120(%rbp)
-  movq $0, -128(%rbp)
-  movq $0, -136(%rbp)
-  movq $0, -144(%rbp)
-  movq $0, -152(%rbp)
-  movq $0, -160(%rbp)
-  movq $0, -168(%rbp)
-  movq $0, -176(%rbp)
-  movq $0, -184(%rbp)
-  movq $0, -192(%rbp)
-  movq $0, -200(%rbp)
-  movq $0, -208(%rbp)
-  movq $0, -216(%rbp)
-  movq $0, -224(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -72(%rbp), %r11
+  movl $20, %ecx
+.Lजड़_उत्_जड़_संचय:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -80(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -88(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -96(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -128(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -136(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -144(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -152(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -160(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -168(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -176(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -184(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -192(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -200(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -208(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -216(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -224(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_उत्_जड़_संचय
   movl %eax, gc_roots_count(%rip)
   movq %rbx, -72(%rbp)
   movq %rsi, -80(%rbp)
@@ -110830,32 +87915,17 @@
   movq %r12, -32(%rbp)
   movq %rcx, %rbx
   movq %rdx, %rsi
-  movq $0, -56(%rbp)
-  movq $0, -64(%rbp)
-  movq $0, -72(%rbp)
-  movq $0, -80(%rbp)
-  movq $0, -88(%rbp)
-  movq $0, -96(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -56(%rbp), %r11
+  movl $6, %ecx
+.Lजड़_उत्_लेबल:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -64(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -72(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -80(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -88(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -96(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_उत्_लेबल
   movl %eax, gc_roots_count(%rip)
   movq %rbx, -56(%rbp)
   movq %rsi, -64(%rbp)
@@ -110982,1836 +88052,17 @@
   movq %rdx, -104(%rbp)
   movq %r8, -88(%rbp)
   movq %r9, -72(%rbp)
-  movq $0, -168(%rbp)
-  movq $0, -176(%rbp)
-  movq $0, -184(%rbp)
-  movq $0, -192(%rbp)
-  movq $0, -200(%rbp)
-  movq $0, -208(%rbp)
-  movq $0, -216(%rbp)
-  movq $0, -224(%rbp)
-  movq $0, -232(%rbp)
-  movq $0, -240(%rbp)
-  movq $0, -248(%rbp)
-  movq $0, -256(%rbp)
-  movq $0, -264(%rbp)
-  movq $0, -272(%rbp)
-  movq $0, -280(%rbp)
-  movq $0, -288(%rbp)
-  movq $0, -296(%rbp)
-  movq $0, -304(%rbp)
-  movq $0, -312(%rbp)
-  movq $0, -320(%rbp)
-  movq $0, -328(%rbp)
-  movq $0, -336(%rbp)
-  movq $0, -344(%rbp)
-  movq $0, -352(%rbp)
-  movq $0, -360(%rbp)
-  movq $0, -368(%rbp)
-  movq $0, -376(%rbp)
-  movq $0, -384(%rbp)
-  movq $0, -392(%rbp)
-  movq $0, -400(%rbp)
-  movq $0, -408(%rbp)
-  movq $0, -416(%rbp)
-  movq $0, -424(%rbp)
-  movq $0, -432(%rbp)
-  movq $0, -440(%rbp)
-  movq $0, -448(%rbp)
-  movq $0, -456(%rbp)
-  movq $0, -464(%rbp)
-  movq $0, -472(%rbp)
-  movq $0, -480(%rbp)
-  movq $0, -488(%rbp)
-  movq $0, -496(%rbp)
-  movq $0, -504(%rbp)
-  movq $0, -512(%rbp)
-  movq $0, -520(%rbp)
-  movq $0, -528(%rbp)
-  movq $0, -536(%rbp)
-  movq $0, -544(%rbp)
-  movq $0, -552(%rbp)
-  movq $0, -560(%rbp)
-  movq $0, -568(%rbp)
-  movq $0, -576(%rbp)
-  movq $0, -584(%rbp)
-  movq $0, -592(%rbp)
-  movq $0, -600(%rbp)
-  movq $0, -608(%rbp)
-  movq $0, -616(%rbp)
-  movq $0, -624(%rbp)
-  movq $0, -632(%rbp)
-  movq $0, -640(%rbp)
-  movq $0, -648(%rbp)
-  movq $0, -656(%rbp)
-  movq $0, -664(%rbp)
-  movq $0, -672(%rbp)
-  movq $0, -680(%rbp)
-  movq $0, -688(%rbp)
-  movq $0, -696(%rbp)
-  movq $0, -704(%rbp)
-  movq $0, -712(%rbp)
-  movq $0, -720(%rbp)
-  movq $0, -728(%rbp)
-  movq $0, -736(%rbp)
-  movq $0, -744(%rbp)
-  movq $0, -752(%rbp)
-  movq $0, -760(%rbp)
-  movq $0, -768(%rbp)
-  movq $0, -776(%rbp)
-  movq $0, -784(%rbp)
-  movq $0, -792(%rbp)
-  movq $0, -800(%rbp)
-  movq $0, -808(%rbp)
-  movq $0, -816(%rbp)
-  movq $0, -824(%rbp)
-  movq $0, -832(%rbp)
-  movq $0, -840(%rbp)
-  movq $0, -848(%rbp)
-  movq $0, -856(%rbp)
-  movq $0, -864(%rbp)
-  movq $0, -872(%rbp)
-  movq $0, -880(%rbp)
-  movq $0, -888(%rbp)
-  movq $0, -896(%rbp)
-  movq $0, -904(%rbp)
-  movq $0, -912(%rbp)
-  movq $0, -920(%rbp)
-  movq $0, -928(%rbp)
-  movq $0, -936(%rbp)
-  movq $0, -944(%rbp)
-  movq $0, -952(%rbp)
-  movq $0, -960(%rbp)
-  movq $0, -968(%rbp)
-  movq $0, -976(%rbp)
-  movq $0, -984(%rbp)
-  movq $0, -992(%rbp)
-  movq $0, -1000(%rbp)
-  movq $0, -1008(%rbp)
-  movq $0, -1016(%rbp)
-  movq $0, -1024(%rbp)
-  movq $0, -1032(%rbp)
-  movq $0, -1040(%rbp)
-  movq $0, -1048(%rbp)
-  movq $0, -1056(%rbp)
-  movq $0, -1064(%rbp)
-  movq $0, -1072(%rbp)
-  movq $0, -1080(%rbp)
-  movq $0, -1088(%rbp)
-  movq $0, -1096(%rbp)
-  movq $0, -1104(%rbp)
-  movq $0, -1112(%rbp)
-  movq $0, -1120(%rbp)
-  movq $0, -1128(%rbp)
-  movq $0, -1136(%rbp)
-  movq $0, -1144(%rbp)
-  movq $0, -1152(%rbp)
-  movq $0, -1160(%rbp)
-  movq $0, -1168(%rbp)
-  movq $0, -1176(%rbp)
-  movq $0, -1184(%rbp)
-  movq $0, -1192(%rbp)
-  movq $0, -1200(%rbp)
-  movq $0, -1208(%rbp)
-  movq $0, -1216(%rbp)
-  movq $0, -1224(%rbp)
-  movq $0, -1232(%rbp)
-  movq $0, -1240(%rbp)
-  movq $0, -1248(%rbp)
-  movq $0, -1256(%rbp)
-  movq $0, -1264(%rbp)
-  movq $0, -1272(%rbp)
-  movq $0, -1280(%rbp)
-  movq $0, -1288(%rbp)
-  movq $0, -1296(%rbp)
-  movq $0, -1304(%rbp)
-  movq $0, -1312(%rbp)
-  movq $0, -1320(%rbp)
-  movq $0, -1328(%rbp)
-  movq $0, -1336(%rbp)
-  movq $0, -1344(%rbp)
-  movq $0, -1352(%rbp)
-  movq $0, -1360(%rbp)
-  movq $0, -1368(%rbp)
-  movq $0, -1376(%rbp)
-  movq $0, -1384(%rbp)
-  movq $0, -1392(%rbp)
-  movq $0, -1400(%rbp)
-  movq $0, -1408(%rbp)
-  movq $0, -1416(%rbp)
-  movq $0, -1424(%rbp)
-  movq $0, -1432(%rbp)
-  movq $0, -1440(%rbp)
-  movq $0, -1448(%rbp)
-  movq $0, -1456(%rbp)
-  movq $0, -1464(%rbp)
-  movq $0, -1472(%rbp)
-  movq $0, -1480(%rbp)
-  movq $0, -1488(%rbp)
-  movq $0, -1496(%rbp)
-  movq $0, -1504(%rbp)
-  movq $0, -1512(%rbp)
-  movq $0, -1520(%rbp)
-  movq $0, -1528(%rbp)
-  movq $0, -1536(%rbp)
-  movq $0, -1544(%rbp)
-  movq $0, -1552(%rbp)
-  movq $0, -1560(%rbp)
-  movq $0, -1568(%rbp)
-  movq $0, -1576(%rbp)
-  movq $0, -1584(%rbp)
-  movq $0, -1592(%rbp)
-  movq $0, -1600(%rbp)
-  movq $0, -1608(%rbp)
-  movq $0, -1616(%rbp)
-  movq $0, -1624(%rbp)
-  movq $0, -1632(%rbp)
-  movq $0, -1640(%rbp)
-  movq $0, -1648(%rbp)
-  movq $0, -1656(%rbp)
-  movq $0, -1664(%rbp)
-  movq $0, -1672(%rbp)
-  movq $0, -1680(%rbp)
-  movq $0, -1688(%rbp)
-  movq $0, -1696(%rbp)
-  movq $0, -1704(%rbp)
-  movq $0, -1712(%rbp)
-  movq $0, -1720(%rbp)
-  movq $0, -1728(%rbp)
-  movq $0, -1736(%rbp)
-  movq $0, -1744(%rbp)
-  movq $0, -1752(%rbp)
-  movq $0, -1760(%rbp)
-  movq $0, -1768(%rbp)
-  movq $0, -1776(%rbp)
-  movq $0, -1784(%rbp)
-  movq $0, -1792(%rbp)
-  movq $0, -1800(%rbp)
-  movq $0, -1808(%rbp)
-  movq $0, -1816(%rbp)
-  movq $0, -1824(%rbp)
-  movq $0, -1832(%rbp)
-  movq $0, -1840(%rbp)
-  movq $0, -1848(%rbp)
-  movq $0, -1856(%rbp)
-  movq $0, -1864(%rbp)
-  movq $0, -1872(%rbp)
-  movq $0, -1880(%rbp)
-  movq $0, -1888(%rbp)
-  movq $0, -1896(%rbp)
-  movq $0, -1904(%rbp)
-  movq $0, -1912(%rbp)
-  movq $0, -1920(%rbp)
-  movq $0, -1928(%rbp)
-  movq $0, -1936(%rbp)
-  movq $0, -1944(%rbp)
-  movq $0, -1952(%rbp)
-  movq $0, -1960(%rbp)
-  movq $0, -1968(%rbp)
-  movq $0, -1976(%rbp)
-  movq $0, -1984(%rbp)
-  movq $0, -1992(%rbp)
-  movq $0, -2000(%rbp)
-  movq $0, -2008(%rbp)
-  movq $0, -2016(%rbp)
-  movq $0, -2024(%rbp)
-  movq $0, -2032(%rbp)
-  movq $0, -2040(%rbp)
-  movq $0, -2048(%rbp)
-  movq $0, -2056(%rbp)
-  movq $0, -2064(%rbp)
-  movq $0, -2072(%rbp)
-  movq $0, -2080(%rbp)
-  movq $0, -2088(%rbp)
-  movq $0, -2096(%rbp)
-  movq $0, -2104(%rbp)
-  movq $0, -2112(%rbp)
-  movq $0, -2120(%rbp)
-  movq $0, -2128(%rbp)
-  movq $0, -2136(%rbp)
-  movq $0, -2144(%rbp)
-  movq $0, -2152(%rbp)
-  movq $0, -2160(%rbp)
-  movq $0, -2168(%rbp)
-  movq $0, -2176(%rbp)
-  movq $0, -2184(%rbp)
-  movq $0, -2192(%rbp)
-  movq $0, -2200(%rbp)
-  movq $0, -2208(%rbp)
-  movq $0, -2216(%rbp)
-  movq $0, -2224(%rbp)
-  movq $0, -2232(%rbp)
-  movq $0, -2240(%rbp)
-  movq $0, -2248(%rbp)
-  movq $0, -2256(%rbp)
-  movq $0, -2264(%rbp)
-  movq $0, -2272(%rbp)
-  movq $0, -2280(%rbp)
-  movq $0, -2288(%rbp)
-  movq $0, -2296(%rbp)
-  movq $0, -2304(%rbp)
-  movq $0, -2312(%rbp)
-  movq $0, -2320(%rbp)
-  movq $0, -2328(%rbp)
-  movq $0, -2336(%rbp)
-  movq $0, -2344(%rbp)
-  movq $0, -2352(%rbp)
-  movq $0, -2360(%rbp)
-  movq $0, -2368(%rbp)
-  movq $0, -2376(%rbp)
-  movq $0, -2384(%rbp)
-  movq $0, -2392(%rbp)
-  movq $0, -2400(%rbp)
-  movq $0, -2408(%rbp)
-  movq $0, -2416(%rbp)
-  movq $0, -2424(%rbp)
-  movq $0, -2432(%rbp)
-  movq $0, -2440(%rbp)
-  movq $0, -2448(%rbp)
-  movq $0, -2456(%rbp)
-  movq $0, -2464(%rbp)
-  movq $0, -2472(%rbp)
-  movq $0, -2480(%rbp)
-  movq $0, -2488(%rbp)
-  movq $0, -2496(%rbp)
-  movq $0, -2504(%rbp)
-  movq $0, -2512(%rbp)
-  movq $0, -2520(%rbp)
-  movq $0, -2528(%rbp)
-  movq $0, -2536(%rbp)
-  movq $0, -2544(%rbp)
-  movq $0, -2552(%rbp)
-  movq $0, -2560(%rbp)
-  movq $0, -2568(%rbp)
-  movq $0, -2576(%rbp)
-  movq $0, -2584(%rbp)
-  movq $0, -2592(%rbp)
-  movq $0, -2600(%rbp)
-  movq $0, -2608(%rbp)
-  movq $0, -2616(%rbp)
-  movq $0, -2624(%rbp)
-  movq $0, -2632(%rbp)
-  movq $0, -2640(%rbp)
-  movq $0, -2648(%rbp)
-  movq $0, -2656(%rbp)
-  movq $0, -2664(%rbp)
-  movq $0, -2672(%rbp)
-  movq $0, -2680(%rbp)
-  movq $0, -2688(%rbp)
-  movq $0, -2696(%rbp)
-  movq $0, -2704(%rbp)
-  movq $0, -2712(%rbp)
-  movq $0, -2720(%rbp)
-  movq $0, -2728(%rbp)
-  movq $0, -2736(%rbp)
-  movq $0, -2744(%rbp)
-  movq $0, -2752(%rbp)
-  movq $0, -2760(%rbp)
-  movq $0, -2768(%rbp)
-  movq $0, -2776(%rbp)
-  movq $0, -2784(%rbp)
-  movq $0, -2792(%rbp)
-  movq $0, -2800(%rbp)
-  movq $0, -2808(%rbp)
-  movq $0, -2816(%rbp)
-  movq $0, -2824(%rbp)
-  movq $0, -2832(%rbp)
-  movq $0, -2840(%rbp)
-  movq $0, -2848(%rbp)
-  movq $0, -2856(%rbp)
-  movq $0, -2864(%rbp)
-  movq $0, -2872(%rbp)
-  movq $0, -2880(%rbp)
-  movq $0, -2888(%rbp)
-  movq $0, -2896(%rbp)
-  movq $0, -2904(%rbp)
-  movq $0, -2912(%rbp)
-  movq $0, -2920(%rbp)
-  movq $0, -2928(%rbp)
-  movq $0, -2936(%rbp)
-  movq $0, -2944(%rbp)
-  movq $0, -2952(%rbp)
-  movq $0, -2960(%rbp)
-  movq $0, -2968(%rbp)
-  movq $0, -2976(%rbp)
-  movq $0, -2984(%rbp)
-  movq $0, -2992(%rbp)
-  movq $0, -3000(%rbp)
-  movq $0, -3008(%rbp)
-  movq $0, -3016(%rbp)
-  movq $0, -3024(%rbp)
-  movq $0, -3032(%rbp)
-  movq $0, -3040(%rbp)
-  movq $0, -3048(%rbp)
-  movq $0, -3056(%rbp)
-  movq $0, -3064(%rbp)
-  movq $0, -3072(%rbp)
-  movq $0, -3080(%rbp)
-  movq $0, -3088(%rbp)
-  movq $0, -3096(%rbp)
-  movq $0, -3104(%rbp)
-  movq $0, -3112(%rbp)
-  movq $0, -3120(%rbp)
-  movq $0, -3128(%rbp)
-  movq $0, -3136(%rbp)
-  movq $0, -3144(%rbp)
-  movq $0, -3152(%rbp)
-  movq $0, -3160(%rbp)
-  movq $0, -3168(%rbp)
-  movq $0, -3176(%rbp)
-  movq $0, -3184(%rbp)
-  movq $0, -3192(%rbp)
-  movq $0, -3200(%rbp)
-  movq $0, -3208(%rbp)
-  movq $0, -3216(%rbp)
-  movq $0, -3224(%rbp)
-  movq $0, -3232(%rbp)
-  movq $0, -3240(%rbp)
-  movq $0, -3248(%rbp)
-  movq $0, -3256(%rbp)
-  movq $0, -3264(%rbp)
-  movq $0, -3272(%rbp)
-  movq $0, -3280(%rbp)
-  movq $0, -3288(%rbp)
-  movq $0, -3296(%rbp)
-  movq $0, -3304(%rbp)
-  movq $0, -3312(%rbp)
-  movq $0, -3320(%rbp)
-  movq $0, -3328(%rbp)
-  movq $0, -3336(%rbp)
-  movq $0, -3344(%rbp)
-  movq $0, -3352(%rbp)
-  movq $0, -3360(%rbp)
-  movq $0, -3368(%rbp)
-  movq $0, -3376(%rbp)
-  movq $0, -3384(%rbp)
-  movq $0, -3392(%rbp)
-  movq $0, -3400(%rbp)
-  movq $0, -3408(%rbp)
-  movq $0, -3416(%rbp)
-  movq $0, -3424(%rbp)
-  movq $0, -3432(%rbp)
-  movq $0, -3440(%rbp)
-  movq $0, -3448(%rbp)
-  movq $0, -3456(%rbp)
-  movq $0, -3464(%rbp)
-  movq $0, -3472(%rbp)
-  movq $0, -3480(%rbp)
-  movq $0, -3488(%rbp)
-  movq $0, -3496(%rbp)
-  movq $0, -3504(%rbp)
-  movq $0, -3512(%rbp)
-  movq $0, -3520(%rbp)
-  movq $0, -3528(%rbp)
-  movq $0, -3536(%rbp)
-  movq $0, -3544(%rbp)
-  movq $0, -3552(%rbp)
-  movq $0, -3560(%rbp)
-  movq $0, -3568(%rbp)
-  movq $0, -3576(%rbp)
-  movq $0, -3584(%rbp)
-  movq $0, -3592(%rbp)
-  movq $0, -3600(%rbp)
-  movq $0, -3608(%rbp)
-  movq $0, -3616(%rbp)
-  movq $0, -3624(%rbp)
-  movq $0, -3632(%rbp)
-  movq $0, -3640(%rbp)
-  movq $0, -3648(%rbp)
-  movq $0, -3656(%rbp)
-  movq $0, -3664(%rbp)
-  movq $0, -3672(%rbp)
-  movq $0, -3680(%rbp)
-  movq $0, -3688(%rbp)
-  movq $0, -3696(%rbp)
-  movq $0, -3704(%rbp)
-  movq $0, -3712(%rbp)
-  movq $0, -3720(%rbp)
-  movq $0, -3728(%rbp)
-  movq $0, -3736(%rbp)
-  movq $0, -3744(%rbp)
-  movq $0, -3752(%rbp)
-  movq $0, -3760(%rbp)
-  movq $0, -3768(%rbp)
-  movq $0, -3776(%rbp)
-  movq $0, -3784(%rbp)
-  movq $0, -3792(%rbp)
-  movq $0, -3800(%rbp)
-  movq $0, -3808(%rbp)
-  movq $0, -3816(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -168(%rbp), %r11
+  movl $457, %ecx
+.Lजड़_उत्_निर्देश:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -176(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -184(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -192(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -200(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -208(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -216(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -224(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -232(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -240(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -248(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -256(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -264(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -272(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -280(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -288(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -296(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -304(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -312(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -320(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -328(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -336(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -344(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -352(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -360(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -368(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -376(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -384(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -392(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -400(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -408(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -416(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -424(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -432(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -440(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -448(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -456(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -464(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -472(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -480(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -488(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -496(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -504(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -512(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -520(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -528(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -536(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -544(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -552(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -560(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -568(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -576(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -584(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -592(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -600(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -608(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -616(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -624(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -632(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -640(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -648(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -656(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -664(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -672(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -680(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -688(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -696(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -704(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -712(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -720(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -728(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -736(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -744(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -752(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -760(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -768(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -776(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -784(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -792(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -800(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -808(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -816(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -824(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -832(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -840(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -848(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -856(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -864(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -872(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -880(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -888(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -896(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -904(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -912(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -920(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -928(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -936(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -944(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -952(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -960(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -968(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -976(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -984(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -992(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1000(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1008(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1016(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1024(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1032(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1040(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1048(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1056(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1064(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1072(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1080(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1088(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1096(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1128(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1136(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1144(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1152(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1160(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1168(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1176(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1184(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1192(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1200(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1208(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1216(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1224(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1232(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1240(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1248(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1256(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1264(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1272(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1280(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1288(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1296(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1304(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1312(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1320(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1328(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1336(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1344(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1352(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1360(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1368(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1376(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1384(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1392(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1400(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1408(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1416(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1424(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1432(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1440(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1448(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1456(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1464(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1472(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1480(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1488(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1496(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1504(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1512(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1520(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1528(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1536(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1544(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1552(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1560(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1568(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1576(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1584(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1592(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1600(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1608(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1616(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1624(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1632(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1640(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1648(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1656(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1664(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1672(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1680(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1688(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1696(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1704(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1712(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1720(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1728(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1736(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1744(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1752(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1760(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1768(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1776(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1784(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1792(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1800(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1808(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1816(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1824(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1832(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1840(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1848(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1856(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1864(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1872(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1880(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1888(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1896(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1904(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1912(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1920(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1928(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1936(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1944(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1952(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1960(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1968(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1976(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1984(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1992(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2000(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2008(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2016(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2024(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2032(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2040(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2048(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2056(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2064(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2072(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2080(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2088(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2096(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2128(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2136(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2144(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2152(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2160(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2168(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2176(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2184(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2192(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2200(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2208(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2216(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2224(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2232(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2240(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2248(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2256(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2264(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2272(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2280(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2288(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2296(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2304(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2312(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2320(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2328(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2336(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2344(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2352(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2360(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2368(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2376(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2384(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2392(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2400(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2408(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2416(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2424(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2432(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2440(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2448(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2456(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2464(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2472(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2480(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2488(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2496(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2504(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2512(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2520(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2528(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2536(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2544(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2552(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2560(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2568(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2576(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2584(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2592(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2600(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2608(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2616(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2624(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2632(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2640(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2648(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2656(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2664(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2672(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2680(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2688(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2696(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2704(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2712(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2720(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2728(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2736(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2744(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2752(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2760(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2768(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2776(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2784(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2792(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2800(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2808(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2816(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2824(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2832(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2840(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2848(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2856(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2864(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2872(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2880(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2888(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2896(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2904(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2912(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2920(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2928(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2936(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2944(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2952(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2960(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2968(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2976(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2984(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -2992(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3000(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3008(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3016(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3024(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3032(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3040(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3048(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3056(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3064(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3072(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3080(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3088(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3096(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3128(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3136(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3144(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3152(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3160(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3168(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3176(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3184(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3192(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3200(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3208(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3216(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3224(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3232(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3240(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3248(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3256(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3264(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3272(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3280(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3288(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3296(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3304(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3312(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3320(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3328(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3336(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3344(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3352(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3360(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3368(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3376(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3384(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3392(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3400(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3408(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3416(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3424(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3432(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3440(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3448(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3456(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3464(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3472(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3480(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3488(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3496(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3504(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3512(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3520(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3528(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3536(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3544(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3552(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3560(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3568(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3576(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3584(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3592(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3600(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3608(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3616(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3624(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3632(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3640(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3648(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3656(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3664(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3672(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3680(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3688(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3696(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3704(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3712(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3720(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3728(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3736(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3744(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3752(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3760(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3768(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3776(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3784(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3792(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3800(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3808(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -3816(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_उत्_निर्देश
   movl %eax, gc_roots_count(%rip)
   movq -120(%rbp), %r11
   movq %r11, -168(%rbp)
@@ -118492,100 +93743,17 @@
   movq %rdx, %rsi
   movq %r8, %rdi
   movq %r9, -72(%rbp)
-  movq $0, -104(%rbp)
-  movq $0, -112(%rbp)
-  movq $0, -120(%rbp)
-  movq $0, -128(%rbp)
-  movq $0, -136(%rbp)
-  movq $0, -144(%rbp)
-  movq $0, -152(%rbp)
-  movq $0, -160(%rbp)
-  movq $0, -168(%rbp)
-  movq $0, -176(%rbp)
-  movq $0, -184(%rbp)
-  movq $0, -192(%rbp)
-  movq $0, -200(%rbp)
-  movq $0, -208(%rbp)
-  movq $0, -216(%rbp)
-  movq $0, -224(%rbp)
-  movq $0, -232(%rbp)
-  movq $0, -240(%rbp)
-  movq $0, -248(%rbp)
-  movq $0, -256(%rbp)
-  movq $0, -264(%rbp)
-  movq $0, -272(%rbp)
-  movq $0, -280(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -104(%rbp), %r11
+  movl $23, %ecx
+.Lजड़_उत्_रॉ_कॉल:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -128(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -136(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -144(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -152(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -160(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -168(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -176(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -184(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -192(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -200(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -208(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -216(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -224(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -232(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -240(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -248(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -256(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -264(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -272(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -280(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_उत्_रॉ_कॉल
   movl %eax, gc_roots_count(%rip)
   movq %rbx, -104(%rbp)
   movq %rsi, -112(%rbp)
@@ -119728,228 +94896,17 @@
   movq %rdx, %rsi
   movq %r8, %rdi
   movq %r9, %r12
-  movq $0, -88(%rbp)
-  movq $0, -96(%rbp)
-  movq $0, -104(%rbp)
-  movq $0, -112(%rbp)
-  movq $0, -120(%rbp)
-  movq $0, -128(%rbp)
-  movq $0, -136(%rbp)
-  movq $0, -144(%rbp)
-  movq $0, -152(%rbp)
-  movq $0, -160(%rbp)
-  movq $0, -168(%rbp)
-  movq $0, -176(%rbp)
-  movq $0, -184(%rbp)
-  movq $0, -192(%rbp)
-  movq $0, -200(%rbp)
-  movq $0, -208(%rbp)
-  movq $0, -216(%rbp)
-  movq $0, -224(%rbp)
-  movq $0, -232(%rbp)
-  movq $0, -240(%rbp)
-  movq $0, -248(%rbp)
-  movq $0, -256(%rbp)
-  movq $0, -264(%rbp)
-  movq $0, -272(%rbp)
-  movq $0, -280(%rbp)
-  movq $0, -288(%rbp)
-  movq $0, -296(%rbp)
-  movq $0, -304(%rbp)
-  movq $0, -312(%rbp)
-  movq $0, -320(%rbp)
-  movq $0, -328(%rbp)
-  movq $0, -336(%rbp)
-  movq $0, -344(%rbp)
-  movq $0, -352(%rbp)
-  movq $0, -360(%rbp)
-  movq $0, -368(%rbp)
-  movq $0, -376(%rbp)
-  movq $0, -384(%rbp)
-  movq $0, -392(%rbp)
-  movq $0, -400(%rbp)
-  movq $0, -408(%rbp)
-  movq $0, -416(%rbp)
-  movq $0, -424(%rbp)
-  movq $0, -432(%rbp)
-  movq $0, -440(%rbp)
-  movq $0, -448(%rbp)
-  movq $0, -456(%rbp)
-  movq $0, -464(%rbp)
-  movq $0, -472(%rbp)
-  movq $0, -480(%rbp)
-  movq $0, -488(%rbp)
-  movq $0, -496(%rbp)
-  movq $0, -504(%rbp)
-  movq $0, -512(%rbp)
-  movq $0, -520(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -88(%rbp), %r11
+  movl $55, %ecx
+.Lजड़_उत्_स्थिर:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -96(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -128(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -136(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -144(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -152(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -160(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -168(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -176(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -184(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -192(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -200(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -208(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -216(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -224(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -232(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -240(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -248(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -256(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -264(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -272(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -280(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -288(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -296(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -304(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -312(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -320(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -328(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -336(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -344(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -352(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -360(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -368(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -376(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -384(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -392(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -400(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -408(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -416(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -424(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -432(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -440(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -448(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -456(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -464(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -472(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -480(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -488(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -496(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -504(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -512(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -520(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_उत्_स्थिर
   movl %eax, gc_roots_count(%rip)
   movq %rbx, -88(%rbp)
   movq %rsi, -96(%rbp)
@@ -120638,168 +95595,17 @@
   movq %r9, -152(%rbp)
   movq 48(%rbp), %r10
   movq %r10, -88(%rbp)
-  movq $0, -184(%rbp)
-  movq $0, -192(%rbp)
-  movq $0, -200(%rbp)
-  movq $0, -208(%rbp)
-  movq $0, -216(%rbp)
-  movq $0, -224(%rbp)
-  movq $0, -232(%rbp)
-  movq $0, -240(%rbp)
-  movq $0, -248(%rbp)
-  movq $0, -256(%rbp)
-  movq $0, -264(%rbp)
-  movq $0, -272(%rbp)
-  movq $0, -280(%rbp)
-  movq $0, -288(%rbp)
-  movq $0, -296(%rbp)
-  movq $0, -304(%rbp)
-  movq $0, -312(%rbp)
-  movq $0, -320(%rbp)
-  movq $0, -328(%rbp)
-  movq $0, -336(%rbp)
-  movq $0, -344(%rbp)
-  movq $0, -352(%rbp)
-  movq $0, -360(%rbp)
-  movq $0, -368(%rbp)
-  movq $0, -376(%rbp)
-  movq $0, -384(%rbp)
-  movq $0, -392(%rbp)
-  movq $0, -400(%rbp)
-  movq $0, -408(%rbp)
-  movq $0, -416(%rbp)
-  movq $0, -424(%rbp)
-  movq $0, -432(%rbp)
-  movq $0, -440(%rbp)
-  movq $0, -448(%rbp)
-  movq $0, -456(%rbp)
-  movq $0, -464(%rbp)
-  movq $0, -472(%rbp)
-  movq $0, -480(%rbp)
-  movq $0, -488(%rbp)
-  movq $0, -496(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -184(%rbp), %r11
+  movl $40, %ecx
+.Lजड़_उत्_कॉल:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -192(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -200(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -208(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -216(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -224(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -232(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -240(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -248(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -256(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -264(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -272(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -280(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -288(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -296(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -304(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -312(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -320(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -328(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -336(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -344(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -352(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -360(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -368(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -376(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -384(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -392(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -400(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -408(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -416(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -424(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -432(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -440(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -448(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -456(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -464(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -472(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -480(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -488(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -496(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_उत्_कॉल
   movl %eax, gc_roots_count(%rip)
   movq %rbx, -184(%rbp)
   movq -168(%rbp), %r11
@@ -121378,588 +96184,17 @@
   movq %rcx, -72(%rbp)
   movq %rdx, -104(%rbp)
   movq %r8, %rdi
-  movq $0, -120(%rbp)
-  movq $0, -128(%rbp)
-  movq $0, -136(%rbp)
-  movq $0, -144(%rbp)
-  movq $0, -152(%rbp)
-  movq $0, -160(%rbp)
-  movq $0, -168(%rbp)
-  movq $0, -176(%rbp)
-  movq $0, -184(%rbp)
-  movq $0, -192(%rbp)
-  movq $0, -200(%rbp)
-  movq $0, -208(%rbp)
-  movq $0, -216(%rbp)
-  movq $0, -224(%rbp)
-  movq $0, -232(%rbp)
-  movq $0, -240(%rbp)
-  movq $0, -248(%rbp)
-  movq $0, -256(%rbp)
-  movq $0, -264(%rbp)
-  movq $0, -272(%rbp)
-  movq $0, -280(%rbp)
-  movq $0, -288(%rbp)
-  movq $0, -296(%rbp)
-  movq $0, -304(%rbp)
-  movq $0, -312(%rbp)
-  movq $0, -320(%rbp)
-  movq $0, -328(%rbp)
-  movq $0, -336(%rbp)
-  movq $0, -344(%rbp)
-  movq $0, -352(%rbp)
-  movq $0, -360(%rbp)
-  movq $0, -368(%rbp)
-  movq $0, -376(%rbp)
-  movq $0, -384(%rbp)
-  movq $0, -392(%rbp)
-  movq $0, -400(%rbp)
-  movq $0, -408(%rbp)
-  movq $0, -416(%rbp)
-  movq $0, -424(%rbp)
-  movq $0, -432(%rbp)
-  movq $0, -440(%rbp)
-  movq $0, -448(%rbp)
-  movq $0, -456(%rbp)
-  movq $0, -464(%rbp)
-  movq $0, -472(%rbp)
-  movq $0, -480(%rbp)
-  movq $0, -488(%rbp)
-  movq $0, -496(%rbp)
-  movq $0, -504(%rbp)
-  movq $0, -512(%rbp)
-  movq $0, -520(%rbp)
-  movq $0, -528(%rbp)
-  movq $0, -536(%rbp)
-  movq $0, -544(%rbp)
-  movq $0, -552(%rbp)
-  movq $0, -560(%rbp)
-  movq $0, -568(%rbp)
-  movq $0, -576(%rbp)
-  movq $0, -584(%rbp)
-  movq $0, -592(%rbp)
-  movq $0, -600(%rbp)
-  movq $0, -608(%rbp)
-  movq $0, -616(%rbp)
-  movq $0, -624(%rbp)
-  movq $0, -632(%rbp)
-  movq $0, -640(%rbp)
-  movq $0, -648(%rbp)
-  movq $0, -656(%rbp)
-  movq $0, -664(%rbp)
-  movq $0, -672(%rbp)
-  movq $0, -680(%rbp)
-  movq $0, -688(%rbp)
-  movq $0, -696(%rbp)
-  movq $0, -704(%rbp)
-  movq $0, -712(%rbp)
-  movq $0, -720(%rbp)
-  movq $0, -728(%rbp)
-  movq $0, -736(%rbp)
-  movq $0, -744(%rbp)
-  movq $0, -752(%rbp)
-  movq $0, -760(%rbp)
-  movq $0, -768(%rbp)
-  movq $0, -776(%rbp)
-  movq $0, -784(%rbp)
-  movq $0, -792(%rbp)
-  movq $0, -800(%rbp)
-  movq $0, -808(%rbp)
-  movq $0, -816(%rbp)
-  movq $0, -824(%rbp)
-  movq $0, -832(%rbp)
-  movq $0, -840(%rbp)
-  movq $0, -848(%rbp)
-  movq $0, -856(%rbp)
-  movq $0, -864(%rbp)
-  movq $0, -872(%rbp)
-  movq $0, -880(%rbp)
-  movq $0, -888(%rbp)
-  movq $0, -896(%rbp)
-  movq $0, -904(%rbp)
-  movq $0, -912(%rbp)
-  movq $0, -920(%rbp)
-  movq $0, -928(%rbp)
-  movq $0, -936(%rbp)
-  movq $0, -944(%rbp)
-  movq $0, -952(%rbp)
-  movq $0, -960(%rbp)
-  movq $0, -968(%rbp)
-  movq $0, -976(%rbp)
-  movq $0, -984(%rbp)
-  movq $0, -992(%rbp)
-  movq $0, -1000(%rbp)
-  movq $0, -1008(%rbp)
-  movq $0, -1016(%rbp)
-  movq $0, -1024(%rbp)
-  movq $0, -1032(%rbp)
-  movq $0, -1040(%rbp)
-  movq $0, -1048(%rbp)
-  movq $0, -1056(%rbp)
-  movq $0, -1064(%rbp)
-  movq $0, -1072(%rbp)
-  movq $0, -1080(%rbp)
-  movq $0, -1088(%rbp)
-  movq $0, -1096(%rbp)
-  movq $0, -1104(%rbp)
-  movq $0, -1112(%rbp)
-  movq $0, -1120(%rbp)
-  movq $0, -1128(%rbp)
-  movq $0, -1136(%rbp)
-  movq $0, -1144(%rbp)
-  movq $0, -1152(%rbp)
-  movq $0, -1160(%rbp)
-  movq $0, -1168(%rbp)
-  movq $0, -1176(%rbp)
-  movq $0, -1184(%rbp)
-  movq $0, -1192(%rbp)
-  movq $0, -1200(%rbp)
-  movq $0, -1208(%rbp)
-  movq $0, -1216(%rbp)
-  movq $0, -1224(%rbp)
-  movq $0, -1232(%rbp)
-  movq $0, -1240(%rbp)
-  movq $0, -1248(%rbp)
-  movq $0, -1256(%rbp)
-  movq $0, -1264(%rbp)
-  movq $0, -1272(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -120(%rbp), %r11
+  movl $145, %ecx
+.Lजड़_उत्_अंतर्:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -128(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -136(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -144(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -152(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -160(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -168(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -176(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -184(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -192(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -200(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -208(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -216(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -224(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -232(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -240(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -248(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -256(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -264(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -272(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -280(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -288(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -296(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -304(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -312(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -320(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -328(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -336(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -344(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -352(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -360(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -368(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -376(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -384(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -392(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -400(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -408(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -416(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -424(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -432(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -440(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -448(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -456(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -464(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -472(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -480(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -488(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -496(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -504(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -512(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -520(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -528(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -536(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -544(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -552(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -560(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -568(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -576(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -584(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -592(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -600(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -608(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -616(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -624(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -632(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -640(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -648(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -656(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -664(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -672(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -680(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -688(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -696(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -704(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -712(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -720(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -728(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -736(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -744(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -752(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -760(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -768(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -776(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -784(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -792(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -800(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -808(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -816(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -824(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -832(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -840(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -848(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -856(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -864(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -872(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -880(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -888(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -896(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -904(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -912(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -920(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -928(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -936(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -944(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -952(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -960(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -968(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -976(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -984(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -992(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1000(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1008(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1016(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1024(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1032(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1040(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1048(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1056(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1064(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1072(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1080(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1088(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1096(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1128(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1136(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1144(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1152(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1160(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1168(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1176(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1184(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1192(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1200(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1208(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1216(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1224(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1232(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1240(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1248(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1256(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1264(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1272(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_उत्_अंतर्
   movl %eax, gc_roots_count(%rip)
   movq -72(%rbp), %r11
   movq %r11, -120(%rbp)
@@ -124062,160 +98297,17 @@
   movq %rcx, -104(%rbp)
   movq %rdx, -88(%rbp)
   movq %r8, -72(%rbp)
-  movq $0, -216(%rbp)
-  movq $0, -224(%rbp)
-  movq $0, -232(%rbp)
-  movq $0, -240(%rbp)
-  movq $0, -248(%rbp)
-  movq $0, -256(%rbp)
-  movq $0, -264(%rbp)
-  movq $0, -272(%rbp)
-  movq $0, -280(%rbp)
-  movq $0, -288(%rbp)
-  movq $0, -296(%rbp)
-  movq $0, -304(%rbp)
-  movq $0, -312(%rbp)
-  movq $0, -320(%rbp)
-  movq $0, -328(%rbp)
-  movq $0, -336(%rbp)
-  movq $0, -344(%rbp)
-  movq $0, -352(%rbp)
-  movq $0, -360(%rbp)
-  movq $0, -368(%rbp)
-  movq $0, -376(%rbp)
-  movq $0, -384(%rbp)
-  movq $0, -392(%rbp)
-  movq $0, -400(%rbp)
-  movq $0, -408(%rbp)
-  movq $0, -416(%rbp)
-  movq $0, -424(%rbp)
-  movq $0, -432(%rbp)
-  movq $0, -440(%rbp)
-  movq $0, -448(%rbp)
-  movq $0, -456(%rbp)
-  movq $0, -464(%rbp)
-  movq $0, -472(%rbp)
-  movq $0, -480(%rbp)
-  movq $0, -488(%rbp)
-  movq $0, -496(%rbp)
-  movq $0, -504(%rbp)
-  movq $0, -512(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -216(%rbp), %r11
+  movl $38, %ecx
+.Lजड़_उत्_चालें:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -224(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -232(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -240(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -248(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -256(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -264(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -272(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -280(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -288(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -296(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -304(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -312(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -320(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -328(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -336(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -344(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -352(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -360(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -368(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -376(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -384(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -392(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -400(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -408(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -416(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -424(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -432(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -440(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -448(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -456(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -464(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -472(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -480(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -488(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -496(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -504(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -512(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_उत्_चालें
   movl %eax, gc_roots_count(%rip)
   movq -104(%rbp), %r11
   movq %r11, -216(%rbp)
@@ -124748,84 +98840,17 @@
   movq %rdx, %rsi
   movq %r8, %rdi
   movq %r9, %r12
-  movq $0, -80(%rbp)
-  movq $0, -88(%rbp)
-  movq $0, -96(%rbp)
-  movq $0, -104(%rbp)
-  movq $0, -112(%rbp)
-  movq $0, -120(%rbp)
-  movq $0, -128(%rbp)
-  movq $0, -136(%rbp)
-  movq $0, -144(%rbp)
-  movq $0, -152(%rbp)
-  movq $0, -160(%rbp)
-  movq $0, -168(%rbp)
-  movq $0, -176(%rbp)
-  movq $0, -184(%rbp)
-  movq $0, -192(%rbp)
-  movq $0, -200(%rbp)
-  movq $0, -208(%rbp)
-  movq $0, -216(%rbp)
-  movq $0, -224(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -80(%rbp), %r11
+  movl $19, %ecx
+.Lजड़_उत्_एक_चाल:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -88(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -96(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -128(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -136(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -144(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -152(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -160(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -168(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -176(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -184(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -192(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -200(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -208(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -216(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -224(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_उत्_एक_चाल
   movl %eax, gc_roots_count(%rip)
   movq %rbx, -80(%rbp)
   movq %rsi, -88(%rbp)
@@ -125056,28 +99081,17 @@
   movq %r14, -48(%rbp)
   movq %rcx, %rbx
   movq %rdx, %rsi
-  movq $0, -72(%rbp)
-  movq $0, -80(%rbp)
-  movq $0, -88(%rbp)
-  movq $0, -96(%rbp)
-  movq $0, -104(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -72(%rbp), %r11
+  movl $5, %ecx
+.Lजड़_उत्_स्रोत_में:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -80(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -88(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -96(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_उत्_स्रोत_में
   movl %eax, gc_roots_count(%rip)
   movq %rbx, -72(%rbp)
   movq %rsi, -80(%rbp)
@@ -125176,28 +99190,17 @@
   movq %r14, -48(%rbp)
   movq %rcx, %rbx
   movq %rdx, %rsi
-  movq $0, -72(%rbp)
-  movq $0, -80(%rbp)
-  movq $0, -88(%rbp)
-  movq $0, -96(%rbp)
-  movq $0, -104(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -72(%rbp), %r11
+  movl $5, %ecx
+.Lजड़_उत्_सूची_हटाओ:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -80(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -88(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -96(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_उत्_सूची_हटाओ
   movl %eax, gc_roots_count(%rip)
   movq %rbx, -72(%rbp)
 
@@ -125301,148 +99304,17 @@
   movq %rdx, -120(%rbp)
   movq %r8, -104(%rbp)
   movq %r9, %r12
-  movq $0, -168(%rbp)
-  movq $0, -176(%rbp)
-  movq $0, -184(%rbp)
-  movq $0, -192(%rbp)
-  movq $0, -200(%rbp)
-  movq $0, -208(%rbp)
-  movq $0, -216(%rbp)
-  movq $0, -224(%rbp)
-  movq $0, -232(%rbp)
-  movq $0, -240(%rbp)
-  movq $0, -248(%rbp)
-  movq $0, -256(%rbp)
-  movq $0, -264(%rbp)
-  movq $0, -272(%rbp)
-  movq $0, -280(%rbp)
-  movq $0, -288(%rbp)
-  movq $0, -296(%rbp)
-  movq $0, -304(%rbp)
-  movq $0, -312(%rbp)
-  movq $0, -320(%rbp)
-  movq $0, -328(%rbp)
-  movq $0, -336(%rbp)
-  movq $0, -344(%rbp)
-  movq $0, -352(%rbp)
-  movq $0, -360(%rbp)
-  movq $0, -368(%rbp)
-  movq $0, -376(%rbp)
-  movq $0, -384(%rbp)
-  movq $0, -392(%rbp)
-  movq $0, -400(%rbp)
-  movq $0, -408(%rbp)
-  movq $0, -416(%rbp)
-  movq $0, -424(%rbp)
-  movq $0, -432(%rbp)
-  movq $0, -440(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -168(%rbp), %r11
+  movl $35, %ecx
+.Lजड़_उत्_फाई_चालें:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -176(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -184(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -192(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -200(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -208(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -216(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -224(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -232(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -240(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -248(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -256(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -264(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -272(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -280(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -288(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -296(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -304(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -312(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -320(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -328(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -336(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -344(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -352(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -360(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -368(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -376(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -384(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -392(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -400(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -408(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -416(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -424(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -432(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -440(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_उत्_फाई_चालें
   movl %eax, gc_roots_count(%rip)
   movq -136(%rbp), %r11
   movq %r11, -168(%rbp)
@@ -125840,356 +99712,17 @@
   movq %r9, %r12
   movq 48(%rbp), %r10
   movq %r10, %r13
-  movq $0, -152(%rbp)
-  movq $0, -160(%rbp)
-  movq $0, -168(%rbp)
-  movq $0, -176(%rbp)
-  movq $0, -184(%rbp)
-  movq $0, -192(%rbp)
-  movq $0, -200(%rbp)
-  movq $0, -208(%rbp)
-  movq $0, -216(%rbp)
-  movq $0, -224(%rbp)
-  movq $0, -232(%rbp)
-  movq $0, -240(%rbp)
-  movq $0, -248(%rbp)
-  movq $0, -256(%rbp)
-  movq $0, -264(%rbp)
-  movq $0, -272(%rbp)
-  movq $0, -280(%rbp)
-  movq $0, -288(%rbp)
-  movq $0, -296(%rbp)
-  movq $0, -304(%rbp)
-  movq $0, -312(%rbp)
-  movq $0, -320(%rbp)
-  movq $0, -328(%rbp)
-  movq $0, -336(%rbp)
-  movq $0, -344(%rbp)
-  movq $0, -352(%rbp)
-  movq $0, -360(%rbp)
-  movq $0, -368(%rbp)
-  movq $0, -376(%rbp)
-  movq $0, -384(%rbp)
-  movq $0, -392(%rbp)
-  movq $0, -400(%rbp)
-  movq $0, -408(%rbp)
-  movq $0, -416(%rbp)
-  movq $0, -424(%rbp)
-  movq $0, -432(%rbp)
-  movq $0, -440(%rbp)
-  movq $0, -448(%rbp)
-  movq $0, -456(%rbp)
-  movq $0, -464(%rbp)
-  movq $0, -472(%rbp)
-  movq $0, -480(%rbp)
-  movq $0, -488(%rbp)
-  movq $0, -496(%rbp)
-  movq $0, -504(%rbp)
-  movq $0, -512(%rbp)
-  movq $0, -520(%rbp)
-  movq $0, -528(%rbp)
-  movq $0, -536(%rbp)
-  movq $0, -544(%rbp)
-  movq $0, -552(%rbp)
-  movq $0, -560(%rbp)
-  movq $0, -568(%rbp)
-  movq $0, -576(%rbp)
-  movq $0, -584(%rbp)
-  movq $0, -592(%rbp)
-  movq $0, -600(%rbp)
-  movq $0, -608(%rbp)
-  movq $0, -616(%rbp)
-  movq $0, -624(%rbp)
-  movq $0, -632(%rbp)
-  movq $0, -640(%rbp)
-  movq $0, -648(%rbp)
-  movq $0, -656(%rbp)
-  movq $0, -664(%rbp)
-  movq $0, -672(%rbp)
-  movq $0, -680(%rbp)
-  movq $0, -688(%rbp)
-  movq $0, -696(%rbp)
-  movq $0, -704(%rbp)
-  movq $0, -712(%rbp)
-  movq $0, -720(%rbp)
-  movq $0, -728(%rbp)
-  movq $0, -736(%rbp)
-  movq $0, -744(%rbp)
-  movq $0, -752(%rbp)
-  movq $0, -760(%rbp)
-  movq $0, -768(%rbp)
-  movq $0, -776(%rbp)
-  movq $0, -784(%rbp)
-  movq $0, -792(%rbp)
-  movq $0, -800(%rbp)
-  movq $0, -808(%rbp)
-  movq $0, -816(%rbp)
-  movq $0, -824(%rbp)
-  movq $0, -832(%rbp)
-  movq $0, -840(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -152(%rbp), %r11
+  movl $87, %ecx
+.Lजड़_उत्_टर्मिनेटर:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -160(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -168(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -176(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -184(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -192(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -200(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -208(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -216(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -224(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -232(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -240(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -248(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -256(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -264(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -272(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -280(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -288(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -296(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -304(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -312(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -320(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -328(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -336(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -344(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -352(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -360(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -368(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -376(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -384(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -392(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -400(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -408(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -416(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -424(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -432(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -440(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -448(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -456(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -464(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -472(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -480(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -488(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -496(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -504(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -512(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -520(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -528(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -536(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -544(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -552(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -560(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -568(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -576(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -584(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -592(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -600(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -608(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -616(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -624(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -632(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -640(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -648(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -656(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -664(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -672(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -680(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -688(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -696(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -704(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -712(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -720(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -728(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -736(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -744(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -752(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -760(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -768(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -776(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -784(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -792(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -800(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -808(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -816(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -824(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -832(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -840(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_उत्_टर्मिनेटर
   movl %eax, gc_roots_count(%rip)
   movq -72(%rbp), %r11
   movq %r11, -152(%rbp)
@@ -127148,7 +100681,7 @@
 उत्_कार्य:
   pushq %rbp
   movq %rsp, %rbp
-  subq $1520, %rsp
+  subq $1712, %rsp
   movq %rbx, -8(%rbp)
   movq %rsi, -16(%rbp)
   movq %rdi, -24(%rbp)
@@ -127159,592 +100692,17 @@
   movq %rcx, -136(%rbp)
   movq %rdx, -120(%rbp)
   movq %r8, -104(%rbp)
-  movq $0, -344(%rbp)
-  movq $0, -352(%rbp)
-  movq $0, -360(%rbp)
-  movq $0, -368(%rbp)
-  movq $0, -376(%rbp)
-  movq $0, -384(%rbp)
-  movq $0, -392(%rbp)
-  movq $0, -400(%rbp)
-  movq $0, -408(%rbp)
-  movq $0, -416(%rbp)
-  movq $0, -424(%rbp)
-  movq $0, -432(%rbp)
-  movq $0, -440(%rbp)
-  movq $0, -448(%rbp)
-  movq $0, -456(%rbp)
-  movq $0, -464(%rbp)
-  movq $0, -472(%rbp)
-  movq $0, -480(%rbp)
-  movq $0, -488(%rbp)
-  movq $0, -496(%rbp)
-  movq $0, -504(%rbp)
-  movq $0, -512(%rbp)
-  movq $0, -520(%rbp)
-  movq $0, -528(%rbp)
-  movq $0, -536(%rbp)
-  movq $0, -544(%rbp)
-  movq $0, -552(%rbp)
-  movq $0, -560(%rbp)
-  movq $0, -568(%rbp)
-  movq $0, -576(%rbp)
-  movq $0, -584(%rbp)
-  movq $0, -592(%rbp)
-  movq $0, -600(%rbp)
-  movq $0, -608(%rbp)
-  movq $0, -616(%rbp)
-  movq $0, -624(%rbp)
-  movq $0, -632(%rbp)
-  movq $0, -640(%rbp)
-  movq $0, -648(%rbp)
-  movq $0, -656(%rbp)
-  movq $0, -664(%rbp)
-  movq $0, -672(%rbp)
-  movq $0, -680(%rbp)
-  movq $0, -688(%rbp)
-  movq $0, -696(%rbp)
-  movq $0, -704(%rbp)
-  movq $0, -712(%rbp)
-  movq $0, -720(%rbp)
-  movq $0, -728(%rbp)
-  movq $0, -736(%rbp)
-  movq $0, -744(%rbp)
-  movq $0, -752(%rbp)
-  movq $0, -760(%rbp)
-  movq $0, -768(%rbp)
-  movq $0, -776(%rbp)
-  movq $0, -784(%rbp)
-  movq $0, -792(%rbp)
-  movq $0, -800(%rbp)
-  movq $0, -808(%rbp)
-  movq $0, -816(%rbp)
-  movq $0, -824(%rbp)
-  movq $0, -832(%rbp)
-  movq $0, -840(%rbp)
-  movq $0, -848(%rbp)
-  movq $0, -856(%rbp)
-  movq $0, -864(%rbp)
-  movq $0, -872(%rbp)
-  movq $0, -880(%rbp)
-  movq $0, -888(%rbp)
-  movq $0, -896(%rbp)
-  movq $0, -904(%rbp)
-  movq $0, -912(%rbp)
-  movq $0, -920(%rbp)
-  movq $0, -928(%rbp)
-  movq $0, -936(%rbp)
-  movq $0, -944(%rbp)
-  movq $0, -952(%rbp)
-  movq $0, -960(%rbp)
-  movq $0, -968(%rbp)
-  movq $0, -976(%rbp)
-  movq $0, -984(%rbp)
-  movq $0, -992(%rbp)
-  movq $0, -1000(%rbp)
-  movq $0, -1008(%rbp)
-  movq $0, -1016(%rbp)
-  movq $0, -1024(%rbp)
-  movq $0, -1032(%rbp)
-  movq $0, -1040(%rbp)
-  movq $0, -1048(%rbp)
-  movq $0, -1056(%rbp)
-  movq $0, -1064(%rbp)
-  movq $0, -1072(%rbp)
-  movq $0, -1080(%rbp)
-  movq $0, -1088(%rbp)
-  movq $0, -1096(%rbp)
-  movq $0, -1104(%rbp)
-  movq $0, -1112(%rbp)
-  movq $0, -1120(%rbp)
-  movq $0, -1128(%rbp)
-  movq $0, -1136(%rbp)
-  movq $0, -1144(%rbp)
-  movq $0, -1152(%rbp)
-  movq $0, -1160(%rbp)
-  movq $0, -1168(%rbp)
-  movq $0, -1176(%rbp)
-  movq $0, -1184(%rbp)
-  movq $0, -1192(%rbp)
-  movq $0, -1200(%rbp)
-  movq $0, -1208(%rbp)
-  movq $0, -1216(%rbp)
-  movq $0, -1224(%rbp)
-  movq $0, -1232(%rbp)
-  movq $0, -1240(%rbp)
-  movq $0, -1248(%rbp)
-  movq $0, -1256(%rbp)
-  movq $0, -1264(%rbp)
-  movq $0, -1272(%rbp)
-  movq $0, -1280(%rbp)
-  movq $0, -1288(%rbp)
-  movq $0, -1296(%rbp)
-  movq $0, -1304(%rbp)
-  movq $0, -1312(%rbp)
-  movq $0, -1320(%rbp)
-  movq $0, -1328(%rbp)
-  movq $0, -1336(%rbp)
-  movq $0, -1344(%rbp)
-  movq $0, -1352(%rbp)
-  movq $0, -1360(%rbp)
-  movq $0, -1368(%rbp)
-  movq $0, -1376(%rbp)
-  movq $0, -1384(%rbp)
-  movq $0, -1392(%rbp)
-  movq $0, -1400(%rbp)
-  movq $0, -1408(%rbp)
-  movq $0, -1416(%rbp)
-  movq $0, -1424(%rbp)
-  movq $0, -1432(%rbp)
-  movq $0, -1440(%rbp)
-  movq $0, -1448(%rbp)
-  movq $0, -1456(%rbp)
-  movq $0, -1464(%rbp)
-  movq $0, -1472(%rbp)
-  movq $0, -1480(%rbp)
-  movq $0, -1488(%rbp)
-  movq $0, -1496(%rbp)
-  movq $0, -1504(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -344(%rbp), %r11
+  movl $171, %ecx
+.Lजड़_उत्_कार्य:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -352(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -360(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -368(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -376(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -384(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -392(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -400(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -408(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -416(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -424(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -432(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -440(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -448(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -456(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -464(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -472(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -480(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -488(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -496(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -504(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -512(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -520(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -528(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -536(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -544(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -552(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -560(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -568(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -576(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -584(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -592(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -600(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -608(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -616(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -624(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -632(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -640(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -648(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -656(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -664(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -672(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -680(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -688(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -696(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -704(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -712(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -720(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -728(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -736(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -744(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -752(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -760(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -768(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -776(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -784(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -792(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -800(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -808(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -816(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -824(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -832(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -840(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -848(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -856(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -864(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -872(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -880(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -888(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -896(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -904(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -912(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -920(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -928(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -936(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -944(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -952(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -960(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -968(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -976(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -984(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -992(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1000(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1008(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1016(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1024(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1032(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1040(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1048(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1056(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1064(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1072(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1080(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1088(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1096(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1128(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1136(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1144(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1152(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1160(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1168(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1176(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1184(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1192(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1200(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1208(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1216(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1224(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1232(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1240(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1248(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1256(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1264(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1272(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1280(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1288(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1296(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1304(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1312(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1320(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1328(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1336(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1344(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1352(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1360(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1368(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1376(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1384(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1392(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1400(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1408(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1416(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1424(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1432(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1440(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1448(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1456(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1464(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1472(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1480(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1488(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1496(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1504(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_उत्_कार्य
   movl %eax, gc_roots_count(%rip)
   movq -136(%rbp), %r11
   movq %r11, -344(%rbp)
@@ -127799,7 +100757,7 @@
   jmp .L_उत्_कार्य__if_अंत_2
 .L_उत्_कार्य__if_अंत_2:
   movq -88(%rbp), %r11
-  movq %r11, -1424(%rbp)
+  movq %r11, -1624(%rbp)
   movq -104(%rbp), %rcx
   subq $32, %rsp
   call उत्_फ्रेम_आकार
@@ -127990,7 +100948,7 @@
   jmp .L_उत्_कार्य__wh_शर्त_3
 .L_उत्_कार्य__wh_शर्त_3:
   movq -152(%rbp), %r11
-  movq %r11, -1432(%rbp)
+  movq %r11, -1632(%rbp)
   movq -72(%rbp), %rcx
   subq $32, %rsp
   call दैशिक_लंबाई
@@ -128094,7 +101052,7 @@
   jmp .L_उत्_कार्य__wh_शर्त_6
 .L_उत्_कार्य__wh_शर्त_6:
   movq -200(%rbp), %r11
-  movq %r11, -1440(%rbp)
+  movq %r11, -1640(%rbp)
   movq -168(%rbp), %rcx
   subq $32, %rsp
   call दैशिक_लंबाई
@@ -128160,7 +101118,7 @@
   jmp .L_उत्_कार्य__if_अंत_18
 .L_उत्_कार्य__if_अंत_18:
   movq -232(%rbp), %r11
-  movq %r11, -1448(%rbp)
+  movq %r11, -1648(%rbp)
   movq $0, %r12
   movq -232(%rbp), %r10
   cmpq %r12, %r10
@@ -128191,89 +101149,379 @@
   movq %r11, -832(%rbp)
   movq $0, -824(%rbp)
   movq $0, %r12
-  movq %r12, -264(%rbp)
-  jmp .L_उत्_कार्य__wh_शर्त_21
-.L_उत्_कार्य__wh_शर्त_21:
-  movq -264(%rbp), %r11
-  movq %r11, -1456(%rbp)
-  movq -264(%rbp), %r10
-  cmpq -232(%rbp), %r10
-  setl %al
+  movq $4, %r13
+  movq -232(%rbp), %r10
+  cmpq %r13, %r10
+  setle %al
   movzbq %al, %r10
-  movq %r10, %r13
-  movq %r13, %r10
+  movq %r10, %rsi
+  movq %rsi, %r10
   cmpq $0, %r10
   je .L_किनारा_उत्_कार्य_5
-  jmp .L_उत्_कार्य__wh_देह_22
+  jmp .L_उत्_कार्य__if_सत्य_21
 .L_किनारा_उत्_कार्य_5:
-  jmp .L_उत्_कार्य__wh_अंत_23
-.L_उत्_कार्य__wh_अंत_23:
+  jmp .L_उत्_कार्य__if_असत्य_23
+.L_उत्_कार्य__if_असत्य_23:
+  movq $0, %rsi
+  movq -248(%rbp), %rcx
+  movq %rsi, %rdx
+  subq $32, %rsp
+  call सूची_सूचकांक
+  addq $32, %rsp
+  movq %rax, %r13
+  movq %r13, -976(%rbp)
+  movq -216(%rbp), %rcx
+  movq %r13, %rdx
+  subq $32, %rsp
+  call सूची_सूचकांक
+  addq $32, %rsp
+  movq %rax, %rsi
+  movq %rsi, -984(%rbp)
+  movq $0, -976(%rbp)
+  movq -104(%rbp), %rcx
+  movq %rsi, %rdx
+  subq $32, %rsp
+  call उत्_जड़_स्थान
+  addq $32, %rsp
+  movq %rax, %r13
+  movq %r13, -992(%rbp)
+  movq $0, -984(%rbp)
   leaq .LC_str_781(%rip), %rcx
   movq .LC_str_781_len(%rip), %rdx
   subq $32, %rsp
   call पाठ_रचना
   addq $32, %rsp
-  movq %rax, %r13
-  movq %r13, -880(%rbp)
+  movq %rax, %rsi
+  movq %rsi, -1000(%rbp)
   movq -136(%rbp), %rcx
-  movq %r13, %rdx
+  movq %rsi, %rdx
   subq $32, %rsp
   call उगपं
   addq $32, %rsp
-  movq %rax, %rsi
-  movq $0, -880(%rbp)
+  movq %rax, %rdi
+  movq $0, -1000(%rbp)
   leaq .LC_str_782(%rip), %rcx
   movq .LC_str_782_len(%rip), %rdx
   subq $32, %rsp
   call पाठ_रचना
   addq $32, %rsp
   movq %rax, %rsi
-  movq %rsi, -888(%rbp)
+  movq %rsi, -1008(%rbp)
   movq -136(%rbp), %rcx
   movq %rsi, %rdx
   subq $32, %rsp
   call उगपं
   addq $32, %rsp
+  movq %rax, %rdi
+  movq $0, -1008(%rbp)
+  leaq .LC_str_783(%rip), %rcx
+  movq .LC_str_783_len(%rip), %rdx
+  subq $32, %rsp
+  call पाठ_रचना
+  addq $32, %rsp
+  movq %rax, %rsi
+  movq %rsi, -1016(%rbp)
+  movq %rsi, %rcx
+  movq %r13, %rdx
+  subq $32, %rsp
+  call पाठ_जोड़
+  addq $32, %rsp
+  movq %rax, %rdi
+  movq %rdi, -1024(%rbp)
+  movq $0, -992(%rbp)
+  movq $0, -1016(%rbp)
+  leaq .LC_str_655(%rip), %rcx
+  movq .LC_str_655_len(%rip), %rdx
+  subq $32, %rsp
+  call पाठ_रचना
+  addq $32, %rsp
+  movq %rax, %rsi
+  movq %rsi, -1032(%rbp)
+  movq %rdi, %rcx
+  movq %rsi, %rdx
+  subq $32, %rsp
+  call पाठ_जोड़
+  addq $32, %rsp
   movq %rax, %r13
-  movq $0, -888(%rbp)
-  movq $0, %rsi
-  movq %rsi, -280(%rbp)
+  movq %r13, -1040(%rbp)
+  movq $0, -1024(%rbp)
+  movq $0, -1032(%rbp)
+  movq -136(%rbp), %rcx
+  movq %r13, %rdx
+  subq $32, %rsp
+  call उगपं
+  addq $32, %rsp
+  movq %rax, %rsi
+  movq $0, -1040(%rbp)
+  leaq .LC_str_787(%rip), %rcx
+  movq .LC_str_787_len(%rip), %rdx
+  subq $32, %rsp
+  call पाठ_रचना
+  addq $32, %rsp
+  movq %rax, %rsi
+  movq %rsi, -1048(%rbp)
+  movq %rsi, %rcx
+  movq -232(%rbp), %rdx
+  subq $32, %rsp
+  call पाठ_योग_गतिक
+  addq $32, %rsp
+  movq %rax, %rdi
+  movq %rdi, -1056(%rbp)
+  movq $0, -1048(%rbp)
+  leaq .LC_str_788(%rip), %rcx
+  movq .LC_str_788_len(%rip), %rdx
+  subq $32, %rsp
+  call पाठ_रचना
+  addq $32, %rsp
+  movq %rax, %rsi
+  movq %rsi, -1064(%rbp)
+  movq %rdi, %rcx
+  movq %rsi, %rdx
+  subq $32, %rsp
+  call पाठ_जोड़
+  addq $32, %rsp
+  movq %rax, %r13
+  movq %r13, -1072(%rbp)
+  movq $0, -1056(%rbp)
+  movq $0, -1064(%rbp)
+  movq -136(%rbp), %rcx
+  movq %r13, %rdx
+  subq $32, %rsp
+  call उगपं
+  addq $32, %rsp
+  movq %rax, %rsi
+  movq $0, -1072(%rbp)
+  leaq .LC_str_789(%rip), %rcx
+  movq .LC_str_789_len(%rip), %rdx
+  subq $32, %rsp
+  call पाठ_रचना
+  addq $32, %rsp
+  movq %rax, %rsi
+  movq %rsi, -1080(%rbp)
+  movq %rsi, %rcx
+  movq -88(%rbp), %rdx
+  subq $32, %rsp
+  call पाठ_जोड़
+  addq $32, %rsp
+  movq %rax, %rdi
+  movq %rdi, -1088(%rbp)
+  movq $0, -1080(%rbp)
+  leaq .LC_str_135(%rip), %rcx
+  movq .LC_str_135_len(%rip), %rdx
+  subq $32, %rsp
+  call पाठ_रचना
+  addq $32, %rsp
+  movq %rax, %rsi
+  movq %rsi, -1096(%rbp)
+  movq %rdi, %rcx
+  movq %rsi, %rdx
+  subq $32, %rsp
+  call पाठ_जोड़
+  addq $32, %rsp
+  movq %rax, %r13
+  movq %r13, -1104(%rbp)
+  movq $0, -1088(%rbp)
+  movq $0, -1096(%rbp)
+  movq -136(%rbp), %rcx
+  movq %r13, %rdx
+  subq $32, %rsp
+  call उगपं
+  addq $32, %rsp
+  movq %rax, %rsi
+  movq $0, -1104(%rbp)
+  leaq .LC_str_790(%rip), %rcx
+  movq .LC_str_790_len(%rip), %rdx
+  subq $32, %rsp
+  call पाठ_रचना
+  addq $32, %rsp
+  movq %rax, %rsi
+  movq %rsi, -1112(%rbp)
+  movq -136(%rbp), %rcx
+  movq %rsi, %rdx
+  subq $32, %rsp
+  call उगपं
+  addq $32, %rsp
+  movq %rax, %rdi
+  movq $0, -1112(%rbp)
+  leaq .LC_str_784(%rip), %rcx
+  movq .LC_str_784_len(%rip), %rdx
+  subq $32, %rsp
+  call पाठ_रचना
+  addq $32, %rsp
+  movq %rax, %rsi
+  movq %rsi, -1120(%rbp)
+  movq -136(%rbp), %rcx
+  movq %rsi, %rdx
+  subq $32, %rsp
+  call उगपं
+  addq $32, %rsp
+  movq %rax, %rdi
+  movq $0, -1120(%rbp)
+  leaq .LC_str_785(%rip), %rcx
+  movq .LC_str_785_len(%rip), %rdx
+  subq $32, %rsp
+  call पाठ_रचना
+  addq $32, %rsp
+  movq %rax, %rsi
+  movq %rsi, -1128(%rbp)
+  movq -136(%rbp), %rcx
+  movq %rsi, %rdx
+  subq $32, %rsp
+  call उगपं
+  addq $32, %rsp
+  movq %rax, %rdi
+  movq $0, -1128(%rbp)
+  leaq .LC_str_791(%rip), %rcx
+  movq .LC_str_791_len(%rip), %rdx
+  subq $32, %rsp
+  call पाठ_रचना
+  addq $32, %rsp
+  movq %rax, %rsi
+  movq %rsi, -1136(%rbp)
+  movq -136(%rbp), %rcx
+  movq %rsi, %rdx
+  subq $32, %rsp
+  call उगपं
+  addq $32, %rsp
+  movq %rax, %rdi
+  movq $0, -1136(%rbp)
+  leaq .LC_str_792(%rip), %rcx
+  movq .LC_str_792_len(%rip), %rdx
+  subq $32, %rsp
+  call पाठ_रचना
+  addq $32, %rsp
+  movq %rax, %rsi
+  movq %rsi, -1144(%rbp)
+  movq -136(%rbp), %rcx
+  movq %rsi, %rdx
+  subq $32, %rsp
+  call उगपं
+  addq $32, %rsp
+  movq %rax, %rdi
+  movq $0, -1144(%rbp)
+  leaq .LC_str_793(%rip), %rcx
+  movq .LC_str_793_len(%rip), %rdx
+  subq $32, %rsp
+  call पाठ_रचना
+  addq $32, %rsp
+  movq %rax, %rsi
+  movq %rsi, -1152(%rbp)
+  movq %rsi, %rcx
+  movq -88(%rbp), %rdx
+  subq $32, %rsp
+  call पाठ_जोड़
+  addq $32, %rsp
+  movq %rax, %rdi
+  movq %rdi, -1160(%rbp)
+  movq $0, -1152(%rbp)
+  movq -136(%rbp), %rcx
+  movq %rdi, %rdx
+  subq $32, %rsp
+  call उगपं
+  addq $32, %rsp
+  movq %rax, %rsi
+  movq $0, -1160(%rbp)
+  leaq .LC_str_786(%rip), %rcx
+  movq .LC_str_786_len(%rip), %rdx
+  subq $32, %rsp
+  call पाठ_रचना
+  addq $32, %rsp
+  movq %rax, %rsi
+  movq %rsi, -1168(%rbp)
+  movq -136(%rbp), %rcx
+  movq %rsi, %rdx
+  subq $32, %rsp
+  call उगपं
+  addq $32, %rsp
+  movq %rax, %rdi
+  movq $0, -1168(%rbp)
+  jmp .L_उत्_कार्य__if_अंत_22
+.L_उत्_कार्य__if_सत्य_21:
+  movq %r12, -264(%rbp)
   jmp .L_उत्_कार्य__wh_शर्त_24
 .L_उत्_कार्य__wh_शर्त_24:
-  movq -280(%rbp), %r11
-  movq %r11, -1464(%rbp)
-  movq -280(%rbp), %r10
+  movq -264(%rbp), %r11
+  movq %r11, -1656(%rbp)
+  movq -264(%rbp), %r10
   cmpq -232(%rbp), %r10
   setl %al
   movzbq %al, %r10
-  movq %r10, %r13
-  movq %r13, %r10
+  movq %r10, %rdi
+  movq %rdi, %r10
   cmpq $0, %r10
   je .L_किनारा_उत्_कार्य_6
   jmp .L_उत्_कार्य__wh_देह_25
 .L_किनारा_उत्_कार्य_6:
   jmp .L_उत्_कार्य__wh_अंत_26
 .L_उत्_कार्य__wh_अंत_26:
+  leaq .LC_str_781(%rip), %rcx
+  movq .LC_str_781_len(%rip), %rdx
+  subq $32, %rsp
+  call पाठ_रचना
+  addq $32, %rsp
+  movq %rax, %rdi
+  movq %rdi, -880(%rbp)
+  movq -136(%rbp), %rcx
+  movq %rdi, %rdx
+  subq $32, %rsp
+  call उगपं
+  addq $32, %rsp
+  movq %rax, %r12
+  movq $0, -880(%rbp)
+  leaq .LC_str_782(%rip), %rcx
+  movq .LC_str_782_len(%rip), %rdx
+  subq $32, %rsp
+  call पाठ_रचना
+  addq $32, %rsp
+  movq %rax, %rdi
+  movq %rdi, -888(%rbp)
+  movq -136(%rbp), %rcx
+  movq %rdi, %rdx
+  subq $32, %rsp
+  call उगपं
+  addq $32, %rsp
+  movq %rax, %r12
+  movq $0, -888(%rbp)
+  movq $0, %rdi
+  movq %rdi, -280(%rbp)
+  jmp .L_उत्_कार्य__wh_शर्त_27
+.L_उत्_कार्य__wh_शर्त_27:
+  movq -280(%rbp), %r11
+  movq %r11, -1664(%rbp)
+  movq -280(%rbp), %r10
+  cmpq -232(%rbp), %r10
+  setl %al
+  movzbq %al, %r10
+  movq %r10, %r12
+  movq %r12, %r10
+  cmpq $0, %r10
+  je .L_किनारा_उत्_कार्य_7
+  jmp .L_उत्_कार्य__wh_देह_28
+.L_किनारा_उत्_कार्य_7:
+  jmp .L_उत्_कार्य__wh_अंत_29
+.L_उत्_कार्य__wh_अंत_29:
   leaq .LC_str_786(%rip), %rcx
   movq .LC_str_786_len(%rip), %rdx
   subq $32, %rsp
   call पाठ_रचना
   addq $32, %rsp
-  movq %rax, %r13
-  movq %r13, -968(%rbp)
+  movq %rax, %r12
+  movq %r12, -968(%rbp)
   movq -136(%rbp), %rcx
-  movq %r13, %rdx
+  movq %r12, %rdx
   subq $32, %rsp
   call उगपं
   addq $32, %rsp
-  movq %rax, %rdi
+  movq %rax, %r13
   movq $0, -968(%rbp)
-  movq $0, %rdi
-  movq %rdi, -296(%rbp)
-  jmp .L_उत्_कार्य__wh_शर्त_27
-.L_उत्_कार्य__wh_शर्त_27:
+  jmp .L_उत्_कार्य__if_अंत_22
+.L_उत्_कार्य__if_अंत_22:
+  movq $0, %r12
+  movq %r12, -296(%rbp)
+  jmp .L_उत्_कार्य__wh_शर्त_30
+.L_उत्_कार्य__wh_शर्त_30:
   movq -296(%rbp), %r11
-  movq %r11, -1472(%rbp)
+  movq %r11, -1672(%rbp)
   movq -168(%rbp), %rcx
   subq $32, %rsp
   call दैशिक_लंबाई
@@ -128286,11 +101534,11 @@
   movq %r10, %r14
   movq %r14, %r10
   cmpq $0, %r10
-  je .L_किनारा_उत्_कार्य_7
-  jmp .L_उत्_कार्य__wh_देह_28
-.L_किनारा_उत्_कार्य_7:
-  jmp .L_उत्_कार्य__wh_अंत_29
-.L_उत्_कार्य__wh_अंत_29:
+  je .L_किनारा_उत्_कार्य_8
+  jmp .L_उत्_कार्य__wh_देह_31
+.L_किनारा_उत्_कार्य_8:
+  jmp .L_उत्_कार्य__wh_अंत_32
+.L_उत्_कार्य__wh_अंत_32:
   jmp .L_उत्_कार्य__if_अंत_20
 .L_उत्_कार्य__if_अंत_20:
   leaq .LC_str_92(%rip), %rcx
@@ -128299,33 +101547,33 @@
   call पाठ_रचना
   addq $32, %rsp
   movq %rax, %r13
-  movq %r13, -1000(%rbp)
+  movq %r13, -1200(%rbp)
   movq -136(%rbp), %rcx
   movq %r13, %rdx
   subq $32, %rsp
   call उगपं
   addq $32, %rsp
   movq %rax, %r14
-  movq $0, -1000(%rbp)
+  movq $0, -1200(%rbp)
   movq -104(%rbp), %rcx
   subq $32, %rsp
   call अनु_विपक्रम
   addq $32, %rsp
   movq %rax, %r13
-  movq %r13, -1008(%rbp)
+  movq %r13, -1208(%rbp)
   subq $32, %rsp
   call शब्दकोश_रचना
   addq $32, %rsp
   movq %rax, %r14
-  movq %r14, -1016(%rbp)
-  movq %r14, -1016(%rbp)
+  movq %r14, -1216(%rbp)
+  movq %r14, -1216(%rbp)
   leaq .LC_str_768(%rip), %rcx
   movq .LC_str_768_len(%rip), %rdx
   subq $32, %rsp
   call पाठ_रचना
   addq $32, %rsp
   movq %rax, %rbx
-  movq %rbx, -1024(%rbp)
+  movq %rbx, -1224(%rbp)
   movq $0, %r15
   movq %r14, %rcx
   movq %rbx, %rdx
@@ -128333,13 +101581,13 @@
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq $0, -1024(%rbp)
+  movq $0, -1224(%rbp)
   movq $0, %rbx
   movq %rbx, -328(%rbp)
-  jmp .L_उत्_कार्य__wh_शर्त_30
-.L_उत्_कार्य__wh_शर्त_30:
+  jmp .L_उत्_कार्य__wh_शर्त_33
+.L_उत्_कार्य__wh_शर्त_33:
   movq -328(%rbp), %r11
-  movq %r11, -1480(%rbp)
+  movq %r11, -1680(%rbp)
   movq %r13, %rcx
   subq $32, %rsp
   call दैशिक_लंबाई
@@ -128349,253 +101597,253 @@
   cmpq %r15, %r10
   setl %al
   movzbq %al, %r10
-  movq %r10, %r12
-  movq %r12, %r10
+  movq %r10, %rsi
+  movq %rsi, %r10
   cmpq $0, %r10
-  je .L_किनारा_उत्_कार्य_8
-  jmp .L_उत्_कार्य__wh_देह_31
-.L_किनारा_उत्_कार्य_8:
-  jmp .L_उत्_कार्य__wh_अंत_32
-.L_उत्_कार्य__wh_अंत_32:
+  je .L_किनारा_उत्_कार्य_9
+  jmp .L_उत्_कार्य__wh_देह_34
+.L_किनारा_उत्_कार्य_9:
+  jmp .L_उत्_कार्य__wh_अंत_35
+.L_उत्_कार्य__wh_अंत_35:
   movq -88(%rbp), %rcx
   subq $32, %rsp
   call उत्_एपिलॉग
   addq $32, %rsp
-  movq %rax, %r12
-  movq %r12, -1280(%rbp)
+  movq %rax, %rsi
+  movq %rsi, -1480(%rbp)
   leaq .LC_str_135(%rip), %rcx
   movq .LC_str_135_len(%rip), %rdx
   subq $32, %rsp
   call पाठ_रचना
   addq $32, %rsp
   movq %rax, %r15
-  movq %r15, -1288(%rbp)
-  movq %r12, %rcx
-  movq %r15, %rdx
-  subq $32, %rsp
-  call पाठ_योग_गतिक
-  addq $32, %rsp
-  movq %rax, %rsi
-  movq %rsi, -1296(%rbp)
-  movq $0, -1280(%rbp)
-  movq $0, -1288(%rbp)
-  movq -136(%rbp), %rcx
-  movq %rsi, %rdx
-  subq $32, %rsp
-  call उगपं
-  addq $32, %rsp
-  movq %rax, %r12
-  movq $0, -1296(%rbp)
-  movq $0, %rsi
-  movq -232(%rbp), %r10
-  cmpq %rsi, %r10
-  setg %al
-  movzbq %al, %r10
-  movq %r10, %r12
-  movq %r12, %r10
-  cmpq $0, %r10
-  je .L_किनारा_उत्_कार्य_9
-  jmp .L_उत्_कार्य__if_सत्य_41
-.L_किनारा_उत्_कार्य_9:
-  jmp .L_उत्_कार्य__if_अंत_42
-.L_उत्_कार्य__if_सत्य_41:
-  leaq .LC_str_787(%rip), %rcx
-  movq .LC_str_787_len(%rip), %rdx
-  subq $32, %rsp
-  call पाठ_रचना
-  addq $32, %rsp
-  movq %rax, %rsi
-  movq %rsi, -1304(%rbp)
+  movq %r15, -1488(%rbp)
   movq %rsi, %rcx
-  movq -232(%rbp), %rdx
-  subq $32, %rsp
-  call पाठ_योग_गतिक
-  addq $32, %rsp
-  movq %rax, %r12
-  movq %r12, -1312(%rbp)
-  movq $0, -1304(%rbp)
-  leaq .LC_str_788(%rip), %rcx
-  movq .LC_str_788_len(%rip), %rdx
-  subq $32, %rsp
-  call पाठ_रचना
-  addq $32, %rsp
-  movq %rax, %rsi
-  movq %rsi, -1320(%rbp)
-  movq %r12, %rcx
-  movq %rsi, %rdx
-  subq $32, %rsp
-  call पाठ_जोड़
-  addq $32, %rsp
-  movq %rax, %r15
-  movq %r15, -1328(%rbp)
-  movq $0, -1312(%rbp)
-  movq $0, -1320(%rbp)
-  movq -136(%rbp), %rcx
-  movq %r15, %rdx
-  subq $32, %rsp
-  call उगपं
-  addq $32, %rsp
-  movq %rax, %rsi
-  movq $0, -1328(%rbp)
-  jmp .L_उत्_कार्य__if_अंत_42
-.L_उत्_कार्य__if_अंत_42:
-  movq $0, %rsi
-  jmp .L_उत्_कार्य__wh_शर्त_43
-.L_उत्_कार्य__wh_शर्त_43:
-  movq %rsi, -1488(%rbp)
-  movq -72(%rbp), %rcx
-  subq $32, %rsp
-  call दैशिक_लंबाई
-  addq $32, %rsp
-  movq %rax, %r12
-  movq %rsi, %r10
-  cmpq %r12, %r10
-  setl %al
-  movzbq %al, %r10
-  movq %r10, %r15
-  movq %r15, %r10
-  cmpq $0, %r10
-  je .L_किनारा_उत्_कार्य_10
-  jmp .L_उत्_कार्य__wh_देह_44
-.L_किनारा_उत्_कार्य_10:
-  jmp .L_उत्_कार्य__wh_अंत_45
-.L_उत्_कार्य__wh_अंत_45:
-  leaq .LC_str_790(%rip), %rcx
-  movq .LC_str_790_len(%rip), %rdx
-  subq $32, %rsp
-  call पाठ_रचना
-  addq $32, %rsp
-  movq %rax, %r12
-  movq %r12, -1392(%rbp)
-  movq -136(%rbp), %rcx
-  movq %r12, %rdx
-  subq $32, %rsp
-  call उगपं
-  addq $32, %rsp
-  movq %rax, %r15
-  movq $0, -1392(%rbp)
-  leaq .LC_str_791(%rip), %rcx
-  movq .LC_str_791_len(%rip), %rdx
-  subq $32, %rsp
-  call पाठ_रचना
-  addq $32, %rsp
-  movq %rax, %r12
-  movq %r12, -1400(%rbp)
-  movq -136(%rbp), %rcx
-  movq %r12, %rdx
-  subq $32, %rsp
-  call उगपं
-  addq $32, %rsp
-  movq %rax, %r15
-  movq $0, -1400(%rbp)
-  leaq .LC_str_792(%rip), %rcx
-  movq .LC_str_792_len(%rip), %rdx
-  subq $32, %rsp
-  call पाठ_रचना
-  addq $32, %rsp
-  movq %rax, %r12
-  movq %r12, -1408(%rbp)
-  movq -136(%rbp), %rcx
-  movq %r12, %rdx
-  subq $32, %rsp
-  call उगपं
-  addq $32, %rsp
-  movq %rax, %r15
-  movq $0, -1408(%rbp)
-  leaq .LC_str_92(%rip), %rcx
-  movq .LC_str_92_len(%rip), %rdx
-  subq $32, %rsp
-  call पाठ_रचना
-  addq $32, %rsp
-  movq %rax, %r12
-  movq %r12, -1416(%rbp)
-  movq -136(%rbp), %rcx
-  movq %r12, %rdx
-  subq $32, %rsp
-  call उगपं
-  addq $32, %rsp
-  movq %rax, %r15
-  movq $0, -1416(%rbp)
-  movq $0, %r12
-  movq %r12, %rax
-  jmp .L_epilogue_उत्_कार्य
-.L_उत्_कार्य__wh_देह_44:
-  leaq .LC_str_654(%rip), %rcx
-  movq .LC_str_654_len(%rip), %rdx
-  subq $32, %rsp
-  call पाठ_रचना
-  addq $32, %rsp
-  movq %rax, %r12
-  movq %r12, -1336(%rbp)
-  movq %rsi, %rcx
-  subq $32, %rsp
-  call उत्_सुरक्षित_स्थान
-  addq $32, %rsp
-  movq %rax, %r15
-  movq %r15, -1344(%rbp)
-  movq %r12, %rcx
   movq %r15, %rdx
   subq $32, %rsp
   call पाठ_योग_गतिक
   addq $32, %rsp
   movq %rax, %rdi
-  movq %rdi, -1352(%rbp)
-  movq $0, -1336(%rbp)
-  movq $0, -1344(%rbp)
-  leaq .LC_str_789(%rip), %rcx
-  movq .LC_str_789_len(%rip), %rdx
+  movq %rdi, -1496(%rbp)
+  movq $0, -1480(%rbp)
+  movq $0, -1488(%rbp)
+  movq -136(%rbp), %rcx
+  movq %rdi, %rdx
+  subq $32, %rsp
+  call उगपं
+  addq $32, %rsp
+  movq %rax, %rsi
+  movq $0, -1496(%rbp)
+  movq $0, %rsi
+  movq -232(%rbp), %r10
+  cmpq %rsi, %r10
+  setg %al
+  movzbq %al, %r10
+  movq %r10, %rdi
+  movq %rdi, %r10
+  cmpq $0, %r10
+  je .L_किनारा_उत्_कार्य_10
+  jmp .L_उत्_कार्य__if_सत्य_44
+.L_किनारा_उत्_कार्य_10:
+  jmp .L_उत्_कार्य__if_अंत_45
+.L_उत्_कार्य__if_सत्य_44:
+  leaq .LC_str_794(%rip), %rcx
+  movq .LC_str_794_len(%rip), %rdx
   subq $32, %rsp
   call पाठ_रचना
   addq $32, %rsp
-  movq %rax, %r12
-  movq %r12, -1360(%rbp)
+  movq %rax, %rsi
+  movq %rsi, -1504(%rbp)
+  movq %rsi, %rcx
+  movq -232(%rbp), %rdx
+  subq $32, %rsp
+  call पाठ_योग_गतिक
+  addq $32, %rsp
+  movq %rax, %rdi
+  movq %rdi, -1512(%rbp)
+  movq $0, -1504(%rbp)
+  leaq .LC_str_795(%rip), %rcx
+  movq .LC_str_795_len(%rip), %rdx
+  subq $32, %rsp
+  call पाठ_रचना
+  addq $32, %rsp
+  movq %rax, %rsi
+  movq %rsi, -1520(%rbp)
   movq %rdi, %rcx
-  movq %r12, %rdx
+  movq %rsi, %rdx
   subq $32, %rsp
   call पाठ_जोड़
   addq $32, %rsp
   movq %rax, %r15
-  movq %r15, -1368(%rbp)
-  movq $0, -1352(%rbp)
-  movq $0, -1360(%rbp)
+  movq %r15, -1528(%rbp)
+  movq $0, -1512(%rbp)
+  movq $0, -1520(%rbp)
+  movq -136(%rbp), %rcx
+  movq %r15, %rdx
+  subq $32, %rsp
+  call उगपं
+  addq $32, %rsp
+  movq %rax, %rsi
+  movq $0, -1528(%rbp)
+  jmp .L_उत्_कार्य__if_अंत_45
+.L_उत्_कार्य__if_अंत_45:
+  movq $0, %rsi
+  jmp .L_उत्_कार्य__wh_शर्त_46
+.L_उत्_कार्य__wh_शर्त_46:
+  movq %rsi, -1688(%rbp)
+  movq -72(%rbp), %rcx
+  subq $32, %rsp
+  call दैशिक_लंबाई
+  addq $32, %rsp
+  movq %rax, %rdi
+  movq %rsi, %r10
+  cmpq %rdi, %r10
+  setl %al
+  movzbq %al, %r10
+  movq %r10, %r15
+  movq %r15, %r10
+  cmpq $0, %r10
+  je .L_किनारा_उत्_कार्य_11
+  jmp .L_उत्_कार्य__wh_देह_47
+.L_किनारा_उत्_कार्य_11:
+  jmp .L_उत्_कार्य__wh_अंत_48
+.L_उत्_कार्य__wh_अंत_48:
+  leaq .LC_str_797(%rip), %rcx
+  movq .LC_str_797_len(%rip), %rdx
+  subq $32, %rsp
+  call पाठ_रचना
+  addq $32, %rsp
+  movq %rax, %rdi
+  movq %rdi, -1592(%rbp)
+  movq -136(%rbp), %rcx
+  movq %rdi, %rdx
+  subq $32, %rsp
+  call उगपं
+  addq $32, %rsp
+  movq %rax, %r15
+  movq $0, -1592(%rbp)
+  leaq .LC_str_798(%rip), %rcx
+  movq .LC_str_798_len(%rip), %rdx
+  subq $32, %rsp
+  call पाठ_रचना
+  addq $32, %rsp
+  movq %rax, %rdi
+  movq %rdi, -1600(%rbp)
+  movq -136(%rbp), %rcx
+  movq %rdi, %rdx
+  subq $32, %rsp
+  call उगपं
+  addq $32, %rsp
+  movq %rax, %r15
+  movq $0, -1600(%rbp)
+  leaq .LC_str_799(%rip), %rcx
+  movq .LC_str_799_len(%rip), %rdx
+  subq $32, %rsp
+  call पाठ_रचना
+  addq $32, %rsp
+  movq %rax, %rdi
+  movq %rdi, -1608(%rbp)
+  movq -136(%rbp), %rcx
+  movq %rdi, %rdx
+  subq $32, %rsp
+  call उगपं
+  addq $32, %rsp
+  movq %rax, %r15
+  movq $0, -1608(%rbp)
+  leaq .LC_str_92(%rip), %rcx
+  movq .LC_str_92_len(%rip), %rdx
+  subq $32, %rsp
+  call पाठ_रचना
+  addq $32, %rsp
+  movq %rax, %rdi
+  movq %rdi, -1616(%rbp)
+  movq -136(%rbp), %rcx
+  movq %rdi, %rdx
+  subq $32, %rsp
+  call उगपं
+  addq $32, %rsp
+  movq %rax, %r15
+  movq $0, -1616(%rbp)
+  movq $0, %rdi
+  movq %rdi, %rax
+  jmp .L_epilogue_उत्_कार्य
+.L_उत्_कार्य__wh_देह_47:
+  leaq .LC_str_654(%rip), %rcx
+  movq .LC_str_654_len(%rip), %rdx
+  subq $32, %rsp
+  call पाठ_रचना
+  addq $32, %rsp
+  movq %rax, %rdi
+  movq %rdi, -1536(%rbp)
+  movq %rsi, %rcx
+  subq $32, %rsp
+  call उत्_सुरक्षित_स्थान
+  addq $32, %rsp
+  movq %rax, %r15
+  movq %r15, -1544(%rbp)
+  movq %rdi, %rcx
+  movq %r15, %rdx
+  subq $32, %rsp
+  call पाठ_योग_गतिक
+  addq $32, %rsp
+  movq %rax, %r12
+  movq %r12, -1552(%rbp)
+  movq $0, -1536(%rbp)
+  movq $0, -1544(%rbp)
+  leaq .LC_str_796(%rip), %rcx
+  movq .LC_str_796_len(%rip), %rdx
+  subq $32, %rsp
+  call पाठ_रचना
+  addq $32, %rsp
+  movq %rax, %rdi
+  movq %rdi, -1560(%rbp)
+  movq %r12, %rcx
+  movq %rdi, %rdx
+  subq $32, %rsp
+  call पाठ_जोड़
+  addq $32, %rsp
+  movq %rax, %r15
+  movq %r15, -1568(%rbp)
+  movq $0, -1552(%rbp)
+  movq $0, -1560(%rbp)
   movq -72(%rbp), %rcx
   movq %rsi, %rdx
   subq $32, %rsp
   call सूची_सूचकांक
   addq $32, %rsp
   movq %rax, %rdi
-  movq %rdi, -1376(%rbp)
+  movq %rdi, -1576(%rbp)
   movq %r15, %rcx
   movq %rdi, %rdx
   subq $32, %rsp
   call पाठ_योग_गतिक
   addq $32, %rsp
   movq %rax, %r12
-  movq %r12, -1384(%rbp)
-  movq $0, -1368(%rbp)
-  movq $0, -1376(%rbp)
+  movq %r12, -1584(%rbp)
+  movq $0, -1568(%rbp)
+  movq $0, -1576(%rbp)
   movq -136(%rbp), %rcx
   movq %r12, %rdx
   subq $32, %rsp
   call उगपं
   addq $32, %rsp
   movq %rax, %rdi
-  movq $0, -1384(%rbp)
+  movq $0, -1584(%rbp)
   movq $1, %rdi
   movq %rsi, %r10
   addq %rdi, %r10
   movq %r10, %r12
-  movq $0, -1488(%rbp)
+  movq $0, -1688(%rbp)
   movq %r12, %rsi
-  jmp .L_उत्_कार्य__wh_शर्त_43
-.L_उत्_कार्य__wh_देह_31:
+  jmp .L_उत्_कार्य__wh_शर्त_46
+.L_उत्_कार्य__wh_देह_34:
   movq %r13, %rcx
   movq -328(%rbp), %rdx
   subq $32, %rsp
   call सूची_सूचकांक
   addq $32, %rsp
   movq %rax, %rsi
-  movq %rsi, -1032(%rbp)
+  movq %rsi, -1232(%rbp)
   movq -104(%rbp), %rcx
   movq %rsi, %rdx
   subq $32, %rsp
@@ -128603,64 +101851,64 @@
   addq $32, %rsp
   movq %rax, -312(%rbp)
   movq -312(%rbp), %r11
-  movq %r11, -1040(%rbp)
-  movq $0, -1032(%rbp)
+  movq %r11, -1240(%rbp)
+  movq $0, -1232(%rbp)
   movq %r13, %rcx
   movq -328(%rbp), %rdx
   subq $32, %rsp
   call सूची_सूचकांक
   addq $32, %rsp
   movq %rax, %rsi
-  movq %rsi, -1048(%rbp)
+  movq %rsi, -1248(%rbp)
   movq -88(%rbp), %rcx
   movq %rsi, %rdx
   subq $32, %rsp
   call उत्_लेबल
   addq $32, %rsp
   movq %rax, %r12
-  movq %r12, -1056(%rbp)
-  movq $0, -1048(%rbp)
+  movq %r12, -1256(%rbp)
+  movq $0, -1248(%rbp)
   leaq .LC_str_135(%rip), %rcx
   movq .LC_str_135_len(%rip), %rdx
   subq $32, %rsp
   call पाठ_रचना
   addq $32, %rsp
   movq %rax, %rsi
-  movq %rsi, -1064(%rbp)
+  movq %rsi, -1264(%rbp)
   movq %r12, %rcx
   movq %rsi, %rdx
   subq $32, %rsp
   call पाठ_योग_गतिक
   addq $32, %rsp
   movq %rax, %r15
-  movq %r15, -1072(%rbp)
-  movq $0, -1056(%rbp)
-  movq $0, -1064(%rbp)
+  movq %r15, -1272(%rbp)
+  movq $0, -1256(%rbp)
+  movq $0, -1264(%rbp)
   movq -136(%rbp), %rcx
   movq %r15, %rdx
   subq $32, %rsp
   call उगपं
   addq $32, %rsp
   movq %rax, %rsi
-  movq $0, -1072(%rbp)
+  movq $0, -1272(%rbp)
   movq $0, %rsi
-  jmp .L_उत्_कार्य__wh_शर्त_33
-.L_उत्_कार्य__wh_शर्त_33:
-  movq %rsi, -1496(%rbp)
+  jmp .L_उत्_कार्य__wh_शर्त_36
+.L_उत्_कार्य__wh_शर्त_36:
+  movq %rsi, -1696(%rbp)
   leaq .LC_str_427(%rip), %rcx
   movq .LC_str_427_len(%rip), %rdx
   subq $32, %rsp
   call पाठ_रचना
   addq $32, %rsp
   movq %rax, %r12
-  movq %r12, -1080(%rbp)
+  movq %r12, -1280(%rbp)
   movq -312(%rbp), %rcx
   movq %r12, %rdx
   subq $32, %rsp
   call सूची_सूचकांक
   addq $32, %rsp
   movq %rax, %r15
-  movq $0, -1080(%rbp)
+  movq $0, -1280(%rbp)
   movq %r15, %rcx
   subq $32, %rsp
   call दैशिक_लंबाई
@@ -128673,29 +101921,29 @@
   movq %r10, %r15
   movq %r15, %r10
   cmpq $0, %r10
-  je .L_किनारा_उत्_कार्य_11
-  jmp .L_उत्_कार्य__wh_देह_34
-.L_किनारा_उत्_कार्य_11:
-  jmp .L_उत्_कार्य__wh_अंत_35
-.L_उत्_कार्य__wh_अंत_35:
+  je .L_किनारा_उत्_कार्य_12
+  jmp .L_उत्_कार्य__wh_देह_37
+.L_किनारा_उत्_कार्य_12:
+  jmp .L_उत्_कार्य__wh_अंत_38
+.L_उत्_कार्य__wh_अंत_38:
   movq $0, %r12
-  jmp .L_उत्_कार्य__wh_शर्त_36
-.L_उत्_कार्य__wh_शर्त_36:
-  movq %r12, -1504(%rbp)
+  jmp .L_उत्_कार्य__wh_शर्त_39
+.L_उत्_कार्य__wh_शर्त_39:
+  movq %r12, -1704(%rbp)
   leaq .LC_str_428(%rip), %rcx
   movq .LC_str_428_len(%rip), %rdx
   subq $32, %rsp
   call पाठ_रचना
   addq $32, %rsp
   movq %rax, %r15
-  movq %r15, -1128(%rbp)
+  movq %r15, -1328(%rbp)
   movq -312(%rbp), %rcx
   movq %r15, %rdx
   subq $32, %rsp
   call सूची_सूचकांक
   addq $32, %rsp
   movq %rax, %rdi
-  movq $0, -1128(%rbp)
+  movq $0, -1328(%rbp)
   movq %rdi, %rcx
   subq $32, %rsp
   call दैशिक_लंबाई
@@ -128708,11 +101956,11 @@
   movq %r10, %rdi
   movq %rdi, %r10
   cmpq $0, %r10
-  je .L_किनारा_उत्_कार्य_12
-  jmp .L_उत्_कार्य__wh_देह_37
-.L_किनारा_उत्_कार्य_12:
-  jmp .L_उत्_कार्य__wh_अंत_38
-.L_उत्_कार्य__wh_अंत_38:
+  je .L_किनारा_उत्_कार्य_13
+  jmp .L_उत्_कार्य__wh_देह_40
+.L_किनारा_उत्_कार्य_13:
+  jmp .L_उत्_कार्य__wh_अंत_41
+.L_उत्_कार्य__wh_अंत_41:
   subq $8, %rsp
   movq %r14, %r11
   pushq %r11
@@ -128729,31 +101977,31 @@
   addq %rdi, %r10
   movq %r10, %r15
   movq %r15, -328(%rbp)
-  jmp .L_उत्_कार्य__wh_शर्त_30
-.L_उत्_कार्य__wh_देह_37:
+  jmp .L_उत्_कार्य__wh_शर्त_33
+.L_उत्_कार्य__wh_देह_40:
   leaq .LC_str_428(%rip), %rcx
   movq .LC_str_428_len(%rip), %rdx
   subq $32, %rsp
   call पाठ_रचना
   addq $32, %rsp
   movq %rax, %rdi
-  movq %rdi, -1136(%rbp)
+  movq %rdi, -1336(%rbp)
   movq -312(%rbp), %rcx
   movq %rdi, %rdx
   subq $32, %rsp
   call सूची_सूचकांक
   addq $32, %rsp
   movq %rax, %r15
-  movq %r15, -1144(%rbp)
-  movq $0, -1136(%rbp)
+  movq %r15, -1344(%rbp)
+  movq $0, -1336(%rbp)
   movq %r15, %rcx
   movq %r12, %rdx
   subq $32, %rsp
   call सूची_सूचकांक
   addq $32, %rsp
   movq %rax, %rdi
-  movq %rdi, -1152(%rbp)
-  movq $0, -1144(%rbp)
+  movq %rdi, -1352(%rbp)
+  movq $0, -1344(%rbp)
   movq -136(%rbp), %rcx
   movq -104(%rbp), %rdx
   movq -120(%rbp), %r8
@@ -128762,46 +102010,46 @@
   call उत्_निर्देश
   addq $32, %rsp
   movq %rax, %r15
-  movq $0, -1152(%rbp)
+  movq $0, -1352(%rbp)
   leaq .LC_str_428(%rip), %rcx
   movq .LC_str_428_len(%rip), %rdx
   subq $32, %rsp
   call पाठ_रचना
   addq $32, %rsp
   movq %rax, %rdi
-  movq %rdi, -1160(%rbp)
+  movq %rdi, -1360(%rbp)
   movq -312(%rbp), %rcx
   movq %rdi, %rdx
   subq $32, %rsp
   call सूची_सूचकांक
   addq $32, %rsp
   movq %rax, %r15
-  movq %r15, -1168(%rbp)
-  movq $0, -1160(%rbp)
+  movq %r15, -1368(%rbp)
+  movq $0, -1360(%rbp)
   movq %r15, %rcx
   movq %r12, %rdx
   subq $32, %rsp
   call सूची_सूचकांक
   addq $32, %rsp
   movq %rax, %rdi
-  movq %rdi, -1176(%rbp)
-  movq $0, -1168(%rbp)
+  movq %rdi, -1376(%rbp)
+  movq $0, -1368(%rbp)
   leaq .LC_str_424(%rip), %rcx
   movq .LC_str_424_len(%rip), %rdx
   subq $32, %rsp
   call पाठ_रचना
   addq $32, %rsp
   movq %rax, %r15
-  movq %r15, -1184(%rbp)
+  movq %r15, -1384(%rbp)
   movq %rdi, %rcx
   movq %r15, %rdx
   subq $32, %rsp
   call सूची_सूचकांक
   addq $32, %rsp
   movq %rax, %rbx
-  movq %rbx, -1192(%rbp)
-  movq $0, -1176(%rbp)
-  movq $0, -1184(%rbp)
+  movq %rbx, -1392(%rbp)
+  movq $0, -1376(%rbp)
+  movq $0, -1384(%rbp)
   movq $1, %rdi
   movq %rbx, %rcx
   movq %rdi, %rdx
@@ -128809,53 +102057,53 @@
   call सामान्य_अधिक_सम
   addq $32, %rsp
   movq %rax, %r15
-  movq $0, -1192(%rbp)
+  movq $0, -1392(%rbp)
   movq %r15, %r10
   cmpq $0, %r10
-  je .L_किनारा_उत्_कार्य_13
-  jmp .L_उत्_कार्य__if_सत्य_39
-.L_किनारा_उत्_कार्य_13:
-  jmp .L_उत्_कार्य__if_अंत_40
-.L_उत्_कार्य__if_सत्य_39:
+  je .L_किनारा_उत्_कार्य_14
+  jmp .L_उत्_कार्य__if_सत्य_42
+.L_किनारा_उत्_कार्य_14:
+  jmp .L_उत्_कार्य__if_अंत_43
+.L_उत्_कार्य__if_सत्य_42:
   leaq .LC_str_428(%rip), %rcx
   movq .LC_str_428_len(%rip), %rdx
   subq $32, %rsp
   call पाठ_रचना
   addq $32, %rsp
   movq %rax, %rbx
-  movq %rbx, -1200(%rbp)
+  movq %rbx, -1400(%rbp)
   movq -312(%rbp), %rcx
   movq %rbx, %rdx
   subq $32, %rsp
   call सूची_सूचकांक
   addq $32, %rsp
   movq %rax, %rdi
-  movq %rdi, -1208(%rbp)
-  movq $0, -1200(%rbp)
+  movq %rdi, -1408(%rbp)
+  movq $0, -1400(%rbp)
   movq %rdi, %rcx
   movq %r12, %rdx
   subq $32, %rsp
   call सूची_सूचकांक
   addq $32, %rsp
   movq %rax, %rbx
-  movq %rbx, -1216(%rbp)
-  movq $0, -1208(%rbp)
+  movq %rbx, -1416(%rbp)
+  movq $0, -1408(%rbp)
   leaq .LC_str_424(%rip), %rcx
   movq .LC_str_424_len(%rip), %rdx
   subq $32, %rsp
   call पाठ_रचना
   addq $32, %rsp
   movq %rax, %rdi
-  movq %rdi, -1224(%rbp)
+  movq %rdi, -1424(%rbp)
   movq %rbx, %rcx
   movq %rdi, %rdx
   subq $32, %rsp
   call सूची_सूचकांक
   addq $32, %rsp
   movq %rax, %r15
-  movq %r15, -1232(%rbp)
-  movq $0, -1216(%rbp)
-  movq $0, -1224(%rbp)
+  movq %r15, -1432(%rbp)
+  movq $0, -1416(%rbp)
+  movq $0, -1424(%rbp)
   movq -136(%rbp), %rcx
   movq -104(%rbp), %rdx
   movq %r15, %r8
@@ -128863,48 +102111,48 @@
   call उत्_जड़_संचय
   addq $32, %rsp
   movq %rax, %rbx
-  movq $0, -1232(%rbp)
-  jmp .L_उत्_कार्य__if_अंत_40
-.L_उत्_कार्य__if_अंत_40:
+  movq $0, -1432(%rbp)
+  jmp .L_उत्_कार्य__if_अंत_43
+.L_उत्_कार्य__if_अंत_43:
   leaq .LC_str_428(%rip), %rcx
   movq .LC_str_428_len(%rip), %rdx
   subq $32, %rsp
   call पाठ_रचना
   addq $32, %rsp
   movq %rax, %rbx
-  movq %rbx, -1240(%rbp)
+  movq %rbx, -1440(%rbp)
   movq -312(%rbp), %rcx
   movq %rbx, %rdx
   subq $32, %rsp
   call सूची_सूचकांक
   addq $32, %rsp
   movq %rax, %rdi
-  movq %rdi, -1248(%rbp)
-  movq $0, -1240(%rbp)
+  movq %rdi, -1448(%rbp)
+  movq $0, -1440(%rbp)
   movq %rdi, %rcx
   movq %r12, %rdx
   subq $32, %rsp
   call सूची_सूचकांक
   addq $32, %rsp
   movq %rax, %rbx
-  movq %rbx, -1256(%rbp)
-  movq $0, -1248(%rbp)
+  movq %rbx, -1456(%rbp)
+  movq $0, -1448(%rbp)
   leaq .LC_str_608(%rip), %rcx
   movq .LC_str_608_len(%rip), %rdx
   subq $32, %rsp
   call पाठ_रचना
   addq $32, %rsp
   movq %rax, %rdi
-  movq %rdi, -1264(%rbp)
+  movq %rdi, -1464(%rbp)
   movq %rbx, %rcx
   movq %rdi, %rdx
   subq $32, %rsp
   call सूची_सूचकांक
   addq $32, %rsp
   movq %rax, %r15
-  movq %r15, -1272(%rbp)
-  movq $0, -1256(%rbp)
-  movq $0, -1264(%rbp)
+  movq %r15, -1472(%rbp)
+  movq $0, -1456(%rbp)
+  movq $0, -1464(%rbp)
   movq -136(%rbp), %rcx
   movq -104(%rbp), %rdx
   movq %r15, %r8
@@ -128912,54 +102160,54 @@
   call उत्_जड़_मृत्यु
   addq $32, %rsp
   movq %rax, %rbx
-  movq $0, -1272(%rbp)
+  movq $0, -1472(%rbp)
   movq $1, %rbx
   movq %r12, %r10
   addq %rbx, %r10
   movq %r10, %rdi
-  movq $0, -1504(%rbp)
+  movq $0, -1704(%rbp)
   movq %rdi, %r12
-  jmp .L_उत्_कार्य__wh_शर्त_36
-.L_उत्_कार्य__wh_देह_34:
+  jmp .L_उत्_कार्य__wh_शर्त_39
+.L_उत्_कार्य__wh_देह_37:
   leaq .LC_str_427(%rip), %rcx
   movq .LC_str_427_len(%rip), %rdx
   subq $32, %rsp
   call पाठ_रचना
   addq $32, %rsp
   movq %rax, %rbx
-  movq %rbx, -1088(%rbp)
+  movq %rbx, -1288(%rbp)
   movq -312(%rbp), %rcx
   movq %rbx, %rdx
   subq $32, %rsp
   call सूची_सूचकांक
   addq $32, %rsp
   movq %rax, %rdi
-  movq %rdi, -1096(%rbp)
-  movq $0, -1088(%rbp)
+  movq %rdi, -1296(%rbp)
+  movq $0, -1288(%rbp)
   movq %rdi, %rcx
   movq %rsi, %rdx
   subq $32, %rsp
   call सूची_सूचकांक
   addq $32, %rsp
   movq %rax, %rbx
-  movq %rbx, -1104(%rbp)
-  movq $0, -1096(%rbp)
+  movq %rbx, -1304(%rbp)
+  movq $0, -1296(%rbp)
   leaq .LC_str_424(%rip), %rcx
   movq .LC_str_424_len(%rip), %rdx
   subq $32, %rsp
   call पाठ_रचना
   addq $32, %rsp
   movq %rax, %rdi
-  movq %rdi, -1112(%rbp)
+  movq %rdi, -1312(%rbp)
   movq %rbx, %rcx
   movq %rdi, %rdx
   subq $32, %rsp
   call सूची_सूचकांक
   addq $32, %rsp
   movq %rax, %r12
-  movq %r12, -1120(%rbp)
-  movq $0, -1104(%rbp)
-  movq $0, -1112(%rbp)
+  movq %r12, -1320(%rbp)
+  movq $0, -1304(%rbp)
+  movq $0, -1312(%rbp)
   movq -136(%rbp), %rcx
   movq -104(%rbp), %rdx
   movq %r12, %r8
@@ -128967,38 +102215,38 @@
   call उत्_जड़_संचय
   addq $32, %rsp
   movq %rax, %rbx
-  movq $0, -1120(%rbp)
+  movq $0, -1320(%rbp)
   movq $1, %rbx
   movq %rsi, %r10
   addq %rbx, %r10
   movq %r10, %rdi
-  movq $0, -1496(%rbp)
+  movq $0, -1696(%rbp)
   movq %rdi, %rsi
-  jmp .L_उत्_कार्य__wh_शर्त_33
-.L_उत्_कार्य__wh_देह_28:
+  jmp .L_उत्_कार्य__wh_शर्त_36
+.L_उत्_कार्य__wh_देह_31:
   movq -168(%rbp), %rcx
   movq -296(%rbp), %rdx
   subq $32, %rsp
   call सूची_सूचकांक
   addq $32, %rsp
   movq %rax, %rbx
-  movq %rbx, -976(%rbp)
+  movq %rbx, -1176(%rbp)
   leaq .LC_str_424(%rip), %rcx
   movq .LC_str_424_len(%rip), %rdx
   subq $32, %rsp
   call पाठ_रचना
   addq $32, %rsp
   movq %rax, %rsi
-  movq %rsi, -984(%rbp)
+  movq %rsi, -1184(%rbp)
   movq %rbx, %rcx
   movq %rsi, %rdx
   subq $32, %rsp
   call सूची_सूचकांक
   addq $32, %rsp
   movq %rax, %rdi
-  movq %rdi, -992(%rbp)
-  movq $0, -976(%rbp)
-  movq $0, -984(%rbp)
+  movq %rdi, -1192(%rbp)
+  movq $0, -1176(%rbp)
+  movq $0, -1184(%rbp)
   movq -136(%rbp), %rcx
   movq -104(%rbp), %rdx
   movq %rdi, %r8
@@ -129006,15 +102254,15 @@
   call उत्_जड़_संचय
   addq $32, %rsp
   movq %rax, %rbx
-  movq $0, -992(%rbp)
+  movq $0, -1192(%rbp)
   movq $1, %rbx
   movq -296(%rbp), %r10
   addq %rbx, %r10
   movq %r10, %rsi
-  movq $0, -1472(%rbp)
+  movq $0, -1672(%rbp)
   movq %rsi, -296(%rbp)
-  jmp .L_उत्_कार्य__wh_शर्त_27
-.L_उत्_कार्य__wh_देह_25:
+  jmp .L_उत्_कार्य__wh_शर्त_30
+.L_उत्_कार्य__wh_देह_28:
   leaq .LC_str_783(%rip), %rcx
   movq .LC_str_783_len(%rip), %rdx
   subq $32, %rsp
@@ -129109,10 +102357,10 @@
   movq -280(%rbp), %r10
   addq %rbx, %r10
   movq %r10, %rsi
-  movq $0, -1464(%rbp)
+  movq $0, -1664(%rbp)
   movq %rsi, -280(%rbp)
-  jmp .L_उत्_कार्य__wh_शर्त_24
-.L_उत्_कार्य__wh_देह_22:
+  jmp .L_उत्_कार्य__wh_शर्त_27
+.L_उत्_कार्य__wh_देह_25:
   leaq .LC_str_653(%rip), %rcx
   movq .LC_str_653_len(%rip), %rdx
   subq $32, %rsp
@@ -129163,9 +102411,9 @@
   movq -264(%rbp), %r10
   addq %rbx, %r10
   movq %r10, %rsi
-  movq $0, -1456(%rbp)
+  movq $0, -1656(%rbp)
   movq %rsi, -264(%rbp)
-  jmp .L_उत्_कार्य__wh_शर्त_21
+  jmp .L_उत्_कार्य__wh_शर्त_24
 .L_उत्_कार्य__wh_देह_7:
   movq -168(%rbp), %rcx
   movq -200(%rbp), %rdx
@@ -129206,9 +102454,9 @@
   movq %r10, %rdi
   movq %rdi, %r10
   cmpq $0, %r10
-  je .L_किनारा_उत्_कार्य_14
+  je .L_किनारा_उत्_कार्य_15
   jmp .L_उत्_कार्य__if_सत्य_9
-.L_किनारा_उत्_कार्य_14:
+.L_किनारा_उत्_कार्य_15:
   jmp .L_उत्_कार्य__if_असत्य_11
 .L_उत्_कार्य__if_असत्य_11:
   leaq .LC_str_654(%rip), %rcx
@@ -129318,9 +102566,9 @@
   movq $0, -688(%rbp)
   movq %r12, %r10
   cmpq $0, %r10
-  je .L_किनारा_उत्_कार्य_15
+  je .L_किनारा_उत्_कार्य_16
   jmp .L_उत्_कार्य__sc_दायाँ_12
-.L_किनारा_उत्_कार्य_15:
+.L_किनारा_उत्_कार्य_16:
   jmp .L_उत्_कार्य__sc_लघु_13
 .L_उत्_कार्य__sc_लघु_13:
   movq $0, %rsi
@@ -129350,9 +102598,9 @@
 .L_उत्_कार्य__sc_अंत_14:
   movq %rsi, %r10
   cmpq $0, %r10
-  je .L_किनारा_उत्_कार्य_16
+  je .L_किनारा_उत्_कार्य_17
   jmp .L_उत्_कार्य__if_सत्य_15
-.L_किनारा_उत्_कार्य_16:
+.L_किनारा_उत्_कार्य_17:
   jmp .L_उत्_कार्य__if_अंत_16
 .L_उत्_कार्य__if_सत्य_15:
   leaq .LC_str_654(%rip), %rcx
@@ -129418,7 +102666,7 @@
   movq -200(%rbp), %r10
   addq %rbx, %r10
   movq %r10, %rsi
-  movq $0, -1440(%rbp)
+  movq $0, -1640(%rbp)
   movq %rsi, -200(%rbp)
   jmp .L_उत्_कार्य__wh_शर्त_6
 .L_उत्_कार्य__wh_देह_4:
@@ -129487,11 +102735,11 @@
   movq -152(%rbp), %r10
   addq %rbx, %r10
   movq %r10, %rsi
-  movq $0, -1432(%rbp)
+  movq $0, -1632(%rbp)
   movq %rsi, -152(%rbp)
   jmp .L_उत्_कार्य__wh_शर्त_3
 .L_epilogue_उत्_कार्य:
-  subl $146, gc_roots_count(%rip)
+  subl $171, gc_roots_count(%rip)
   movq -8(%rbp), %rbx
   movq -16(%rbp), %rsi
   movq -24(%rbp), %rdi
@@ -129518,432 +102766,17 @@
   movq %r14, -48(%rbp)
   movq %r15, -56(%rbp)
   movq %rcx, -104(%rbp)
-  movq $0, -200(%rbp)
-  movq $0, -208(%rbp)
-  movq $0, -216(%rbp)
-  movq $0, -224(%rbp)
-  movq $0, -232(%rbp)
-  movq $0, -240(%rbp)
-  movq $0, -248(%rbp)
-  movq $0, -256(%rbp)
-  movq $0, -264(%rbp)
-  movq $0, -272(%rbp)
-  movq $0, -280(%rbp)
-  movq $0, -288(%rbp)
-  movq $0, -296(%rbp)
-  movq $0, -304(%rbp)
-  movq $0, -312(%rbp)
-  movq $0, -320(%rbp)
-  movq $0, -328(%rbp)
-  movq $0, -336(%rbp)
-  movq $0, -344(%rbp)
-  movq $0, -352(%rbp)
-  movq $0, -360(%rbp)
-  movq $0, -368(%rbp)
-  movq $0, -376(%rbp)
-  movq $0, -384(%rbp)
-  movq $0, -392(%rbp)
-  movq $0, -400(%rbp)
-  movq $0, -408(%rbp)
-  movq $0, -416(%rbp)
-  movq $0, -424(%rbp)
-  movq $0, -432(%rbp)
-  movq $0, -440(%rbp)
-  movq $0, -448(%rbp)
-  movq $0, -456(%rbp)
-  movq $0, -464(%rbp)
-  movq $0, -472(%rbp)
-  movq $0, -480(%rbp)
-  movq $0, -488(%rbp)
-  movq $0, -496(%rbp)
-  movq $0, -504(%rbp)
-  movq $0, -512(%rbp)
-  movq $0, -520(%rbp)
-  movq $0, -528(%rbp)
-  movq $0, -536(%rbp)
-  movq $0, -544(%rbp)
-  movq $0, -552(%rbp)
-  movq $0, -560(%rbp)
-  movq $0, -568(%rbp)
-  movq $0, -576(%rbp)
-  movq $0, -584(%rbp)
-  movq $0, -592(%rbp)
-  movq $0, -600(%rbp)
-  movq $0, -608(%rbp)
-  movq $0, -616(%rbp)
-  movq $0, -624(%rbp)
-  movq $0, -632(%rbp)
-  movq $0, -640(%rbp)
-  movq $0, -648(%rbp)
-  movq $0, -656(%rbp)
-  movq $0, -664(%rbp)
-  movq $0, -672(%rbp)
-  movq $0, -680(%rbp)
-  movq $0, -688(%rbp)
-  movq $0, -696(%rbp)
-  movq $0, -704(%rbp)
-  movq $0, -712(%rbp)
-  movq $0, -720(%rbp)
-  movq $0, -728(%rbp)
-  movq $0, -736(%rbp)
-  movq $0, -744(%rbp)
-  movq $0, -752(%rbp)
-  movq $0, -760(%rbp)
-  movq $0, -768(%rbp)
-  movq $0, -776(%rbp)
-  movq $0, -784(%rbp)
-  movq $0, -792(%rbp)
-  movq $0, -800(%rbp)
-  movq $0, -808(%rbp)
-  movq $0, -816(%rbp)
-  movq $0, -824(%rbp)
-  movq $0, -832(%rbp)
-  movq $0, -840(%rbp)
-  movq $0, -848(%rbp)
-  movq $0, -856(%rbp)
-  movq $0, -864(%rbp)
-  movq $0, -872(%rbp)
-  movq $0, -880(%rbp)
-  movq $0, -888(%rbp)
-  movq $0, -896(%rbp)
-  movq $0, -904(%rbp)
-  movq $0, -912(%rbp)
-  movq $0, -920(%rbp)
-  movq $0, -928(%rbp)
-  movq $0, -936(%rbp)
-  movq $0, -944(%rbp)
-  movq $0, -952(%rbp)
-  movq $0, -960(%rbp)
-  movq $0, -968(%rbp)
-  movq $0, -976(%rbp)
-  movq $0, -984(%rbp)
-  movq $0, -992(%rbp)
-  movq $0, -1000(%rbp)
-  movq $0, -1008(%rbp)
-  movq $0, -1016(%rbp)
-  movq $0, -1024(%rbp)
-  movq $0, -1032(%rbp)
-  movq $0, -1040(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -200(%rbp), %r11
+  movl $106, %ecx
+.Lजड़_उत्सर्जक_एकक:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -208(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -216(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -224(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -232(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -240(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -248(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -256(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -264(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -272(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -280(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -288(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -296(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -304(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -312(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -320(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -328(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -336(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -344(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -352(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -360(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -368(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -376(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -384(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -392(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -400(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -408(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -416(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -424(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -432(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -440(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -448(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -456(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -464(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -472(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -480(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -488(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -496(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -504(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -512(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -520(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -528(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -536(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -544(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -552(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -560(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -568(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -576(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -584(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -592(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -600(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -608(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -616(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -624(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -632(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -640(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -648(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -656(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -664(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -672(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -680(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -688(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -696(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -704(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -712(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -720(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -728(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -736(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -744(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -752(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -760(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -768(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -776(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -784(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -792(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -800(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -808(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -816(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -824(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -832(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -840(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -848(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -856(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -864(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -872(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -880(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -888(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -896(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -904(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -912(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -920(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -928(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -936(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -944(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -952(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -960(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -968(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -976(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -984(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -992(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1000(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1008(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1016(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1024(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1032(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -1040(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_उत्सर्जक_एकक
   movl %eax, gc_roots_count(%rip)
   movq -104(%rbp), %r11
   movq %r11, -200(%rbp)
@@ -130090,8 +102923,8 @@
   addq $32, %rsp
   movq %rax, %r13
   movq $0, -328(%rbp)
-  leaq .LC_str_793(%rip), %rcx
-  movq .LC_str_793_len(%rip), %rdx
+  leaq .LC_str_800(%rip), %rcx
+  movq .LC_str_800_len(%rip), %rdx
   subq $32, %rsp
   call पाठ_रचना
   addq $32, %rsp
@@ -130104,8 +102937,8 @@
   addq $32, %rsp
   movq %rax, %r13
   movq $0, -336(%rbp)
-  leaq .LC_str_794(%rip), %rcx
-  movq .LC_str_794_len(%rip), %rdx
+  leaq .LC_str_801(%rip), %rcx
+  movq .LC_str_801_len(%rip), %rdx
   subq $32, %rsp
   call पाठ_रचना
   addq $32, %rsp
@@ -130118,8 +102951,8 @@
   addq $32, %rsp
   movq %rax, %r13
   movq $0, -344(%rbp)
-  leaq .LC_str_795(%rip), %rcx
-  movq .LC_str_795_len(%rip), %rdx
+  leaq .LC_str_802(%rip), %rcx
+  movq .LC_str_802_len(%rip), %rdx
   subq $32, %rsp
   call पाठ_रचना
   addq $32, %rsp
@@ -130197,8 +103030,8 @@
 .L_किनारा_उत्सर्जक_एकक_3:
   jmp .L_उत्सर्जक_एकक__wh_अंत_13
 .L_उत्सर्जक_एकक__wh_अंत_13:
-  leaq .LC_str_798(%rip), %rcx
-  movq .LC_str_798_len(%rip), %rdx
+  leaq .LC_str_805(%rip), %rcx
+  movq .LC_str_805_len(%rip), %rdx
   subq $32, %rsp
   call पाठ_रचना
   addq $32, %rsp
@@ -130241,8 +103074,8 @@
 .L_किनारा_उत्सर्जक_एकक_4:
   jmp .L_उत्सर्जक_एकक__if_अंत_15
 .L_उत्सर्जक_एकक__if_सत्य_14:
-  leaq .LC_str_799(%rip), %rcx
-  movq .LC_str_799_len(%rip), %rdx
+  leaq .LC_str_806(%rip), %rcx
+  movq .LC_str_806_len(%rip), %rdx
   subq $32, %rsp
   call पाठ_रचना
   addq $32, %rsp
@@ -130287,8 +103120,8 @@
 .L_किनारा_उत्सर्जक_एकक_5:
   jmp .L_उत्सर्जक_एकक__if_अंत_17
 .L_उत्सर्जक_एकक__if_सत्य_16:
-  leaq .LC_str_800(%rip), %rcx
-  movq .LC_str_800_len(%rip), %rdx
+  leaq .LC_str_807(%rip), %rcx
+  movq .LC_str_807_len(%rip), %rdx
   subq $32, %rsp
   call पाठ_रचना
   addq $32, %rsp
@@ -130330,8 +103163,8 @@
 .L_किनारा_उत्सर्जक_एकक_6:
   jmp .L_उत्सर्जक_एकक__wh_अंत_20
 .L_उत्सर्जक_एकक__wh_अंत_20:
-  leaq .LC_str_802(%rip), %rcx
-  movq .LC_str_802_len(%rip), %rdx
+  leaq .LC_str_809(%rip), %rcx
+  movq .LC_str_809_len(%rip), %rdx
   subq $32, %rsp
   call पाठ_रचना
   addq $32, %rsp
@@ -130344,8 +103177,8 @@
   addq $32, %rsp
   movq %rax, %r15
   movq $0, -568(%rbp)
-  leaq .LC_str_790(%rip), %rcx
-  movq .LC_str_790_len(%rip), %rdx
+  leaq .LC_str_797(%rip), %rcx
+  movq .LC_str_797_len(%rip), %rdx
   subq $32, %rsp
   call पाठ_रचना
   addq $32, %rsp
@@ -130358,8 +103191,8 @@
   addq $32, %rsp
   movq %rax, %r15
   movq $0, -576(%rbp)
-  leaq .LC_str_791(%rip), %rcx
-  movq .LC_str_791_len(%rip), %rdx
+  leaq .LC_str_798(%rip), %rcx
+  movq .LC_str_798_len(%rip), %rdx
   subq $32, %rsp
   call पाठ_रचना
   addq $32, %rsp
@@ -130372,8 +103205,8 @@
   addq $32, %rsp
   movq %rax, %r15
   movq $0, -584(%rbp)
-  leaq .LC_str_792(%rip), %rcx
-  movq .LC_str_792_len(%rip), %rdx
+  leaq .LC_str_799(%rip), %rcx
+  movq .LC_str_799_len(%rip), %rdx
   subq $32, %rsp
   call पाठ_रचना
   addq $32, %rsp
@@ -130420,8 +103253,8 @@
 .L_किनारा_उत्सर्जक_एकक_7:
   jmp .L_उत्सर्जक_एकक__if_अंत_22
 .L_उत्सर्जक_एकक__if_सत्य_21:
-  leaq .LC_str_803(%rip), %rcx
-  movq .LC_str_803_len(%rip), %rdx
+  leaq .LC_str_810(%rip), %rcx
+  movq .LC_str_810_len(%rip), %rdx
   subq $32, %rsp
   call पाठ_रचना
   addq $32, %rsp
@@ -130459,8 +103292,8 @@
 .L_उत्सर्जक_एकक__wh_अंत_25:
   jmp .L_उत्सर्जक_एकक__if_अंत_22
 .L_उत्सर्जक_एकक__if_अंत_22:
-  leaq .LC_str_807(%rip), %rcx
-  movq .LC_str_807_len(%rip), %rdx
+  leaq .LC_str_814(%rip), %rcx
+  movq .LC_str_814_len(%rip), %rdx
   subq $32, %rsp
   call पाठ_रचना
   addq $32, %rsp
@@ -130567,8 +103400,8 @@
   movq %rsi, %rax
   jmp .L_epilogue_उत्सर्जक_एकक
 .L_उत्सर्जक_एकक__wh_देह_30:
-  leaq .LC_str_811(%rip), %rcx
-  movq .LC_str_811_len(%rip), %rdx
+  leaq .LC_str_818(%rip), %rcx
+  movq .LC_str_818_len(%rip), %rdx
   subq $32, %rsp
   call पाठ_रचना
   addq $32, %rsp
@@ -130605,8 +103438,8 @@
   addq $32, %rsp
   movq %rax, %rsi
   movq $0, -848(%rbp)
-  leaq .LC_str_812(%rip), %rcx
-  movq .LC_str_812_len(%rip), %rdx
+  leaq .LC_str_819(%rip), %rcx
+  movq .LC_str_819_len(%rip), %rdx
   subq $32, %rsp
   call पाठ_रचना
   addq $32, %rsp
@@ -130635,8 +103468,8 @@
   movq %rsi, -880(%rbp)
   movq $0, -856(%rbp)
   movq $0, -872(%rbp)
-  leaq .LC_str_813(%rip), %rcx
-  movq .LC_str_813_len(%rip), %rdx
+  leaq .LC_str_820(%rip), %rcx
+  movq .LC_str_820_len(%rip), %rdx
   subq $32, %rsp
   call पाठ_रचना
   addq $32, %rsp
@@ -130658,8 +103491,8 @@
   addq $32, %rsp
   movq %rax, %rbx
   movq $0, -896(%rbp)
-  leaq .LC_str_811(%rip), %rcx
-  movq .LC_str_811_len(%rip), %rdx
+  leaq .LC_str_818(%rip), %rcx
+  movq .LC_str_818_len(%rip), %rdx
   subq $32, %rsp
   call पाठ_रचना
   addq $32, %rsp
@@ -130673,8 +103506,8 @@
   movq %rax, %rsi
   movq %rsi, -912(%rbp)
   movq $0, -904(%rbp)
-  leaq .LC_str_814(%rip), %rcx
-  movq .LC_str_814_len(%rip), %rdx
+  leaq .LC_str_821(%rip), %rcx
+  movq .LC_str_821_len(%rip), %rdx
   subq $32, %rsp
   call पाठ_रचना
   addq $32, %rsp
@@ -130696,8 +103529,8 @@
   addq $32, %rsp
   movq %rax, %rbx
   movq $0, -928(%rbp)
-  leaq .LC_str_815(%rip), %rcx
-  movq .LC_str_815_len(%rip), %rdx
+  leaq .LC_str_822(%rip), %rcx
+  movq .LC_str_822_len(%rip), %rdx
   subq $32, %rsp
   call पाठ_रचना
   addq $32, %rsp
@@ -130741,8 +103574,8 @@
   movq %rsi, %rdi
   jmp .L_उत्सर्जक_एकक__wh_शर्त_29
 .L_उत्सर्जक_एकक__wh_देह_27:
-  leaq .LC_str_808(%rip), %rcx
-  movq .LC_str_808_len(%rip), %rdx
+  leaq .LC_str_815(%rip), %rcx
+  movq .LC_str_815_len(%rip), %rdx
   subq $32, %rsp
   call पाठ_रचना
   addq $32, %rsp
@@ -130755,8 +103588,8 @@
   addq $32, %rsp
   movq %rax, %rsi
   movq $0, -744(%rbp)
-  leaq .LC_str_809(%rip), %rcx
-  movq .LC_str_809_len(%rip), %rdx
+  leaq .LC_str_816(%rip), %rcx
+  movq .LC_str_816_len(%rip), %rdx
   subq $32, %rsp
   call पाठ_रचना
   addq $32, %rsp
@@ -130793,8 +103626,8 @@
   addq $32, %rsp
   movq %rax, %rbx
   movq $0, -776(%rbp)
-  leaq .LC_str_810(%rip), %rcx
-  movq .LC_str_810_len(%rip), %rdx
+  leaq .LC_str_817(%rip), %rcx
+  movq .LC_str_817_len(%rip), %rdx
   subq $32, %rsp
   call पाठ_रचना
   addq $32, %rsp
@@ -130831,8 +103664,8 @@
   movq %rsi, %r13
   jmp .L_उत्सर्जक_एकक__wh_शर्त_26
 .L_उत्सर्जक_एकक__wh_देह_24:
-  leaq .LC_str_804(%rip), %rcx
-  movq .LC_str_804_len(%rip), %rdx
+  leaq .LC_str_811(%rip), %rcx
+  movq .LC_str_811_len(%rip), %rdx
   subq $32, %rsp
   call पाठ_रचना
   addq $32, %rsp
@@ -130877,8 +103710,8 @@
   addq $32, %rsp
   movq %rax, %rbx
   movq $0, -648(%rbp)
-  leaq .LC_str_805(%rip), %rcx
-  movq .LC_str_805_len(%rip), %rdx
+  leaq .LC_str_812(%rip), %rcx
+  movq .LC_str_812_len(%rip), %rdx
   subq $32, %rsp
   call पाठ_रचना
   addq $32, %rsp
@@ -130939,8 +103772,8 @@
   addq $32, %rsp
   movq %rax, %rbx
   movq $0, -704(%rbp)
-  leaq .LC_str_806(%rip), %rcx
-  movq .LC_str_806_len(%rip), %rdx
+  leaq .LC_str_813(%rip), %rcx
+  movq .LC_str_813_len(%rip), %rdx
   subq $32, %rsp
   call पाठ_रचना
   addq $32, %rsp
@@ -130961,8 +103794,8 @@
   movq %rsi, -184(%rbp)
   jmp .L_उत्सर्जक_एकक__wh_शर्त_23
 .L_उत्सर्जक_एकक__wh_देह_19:
-  leaq .LC_str_796(%rip), %rcx
-  movq .LC_str_796_len(%rip), %rdx
+  leaq .LC_str_803(%rip), %rcx
+  movq .LC_str_803_len(%rip), %rdx
   subq $32, %rsp
   call पाठ_रचना
   addq $32, %rsp
@@ -131023,8 +103856,8 @@
   addq $32, %rsp
   movq %rax, %rbx
   movq $0, -552(%rbp)
-  leaq .LC_str_801(%rip), %rcx
-  movq .LC_str_801_len(%rip), %rdx
+  leaq .LC_str_808(%rip), %rcx
+  movq .LC_str_808_len(%rip), %rdx
   subq $32, %rsp
   call पाठ_रचना
   addq $32, %rsp
@@ -131045,8 +103878,8 @@
   movq %rsi, -168(%rbp)
   jmp .L_उत्सर्जक_एकक__wh_शर्त_18
 .L_उत्सर्जक_एकक__wh_देह_12:
-  leaq .LC_str_796(%rip), %rcx
-  movq .LC_str_796_len(%rip), %rdx
+  leaq .LC_str_803(%rip), %rcx
+  movq .LC_str_803_len(%rip), %rdx
   subq $32, %rsp
   call पाठ_रचना
   addq $32, %rsp
@@ -131107,8 +103940,8 @@
   addq $32, %rsp
   movq %rax, %rbx
   movq $0, -432(%rbp)
-  leaq .LC_str_797(%rip), %rcx
-  movq .LC_str_797_len(%rip), %rdx
+  leaq .LC_str_804(%rip), %rcx
+  movq .LC_str_804_len(%rip), %rdx
   subq $32, %rsp
   call पाठ_रचना
   addq $32, %rsp
@@ -131235,28 +104068,17 @@
   movq %r12, -32(%rbp)
   movq %r13, -40(%rbp)
   movq %rcx, %rbx
-  movq $0, -64(%rbp)
-  movq $0, -72(%rbp)
-  movq $0, -80(%rbp)
-  movq $0, -88(%rbp)
-  movq $0, -96(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -64(%rbp), %r11
+  movl $5, %ecx
+.Lजड़_अक्षर_सूची_से_पाठ:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -72(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -80(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -88(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -96(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_अक्षर_सूची_से_पाठ
   movl %eax, gc_roots_count(%rip)
   movq %rbx, -64(%rbp)
 
@@ -131347,476 +104169,17 @@ sutra_main:
   movq %r13, -40(%rbp)
   movq %r14, -48(%rbp)
   movq %r15, -56(%rbp)
-  movq $0, -6168(%rbp)
-  movq $0, -6176(%rbp)
-  movq $0, -6184(%rbp)
-  movq $0, -6192(%rbp)
-  movq $0, -6200(%rbp)
-  movq $0, -6208(%rbp)
-  movq $0, -6216(%rbp)
-  movq $0, -6224(%rbp)
-  movq $0, -6232(%rbp)
-  movq $0, -6240(%rbp)
-  movq $0, -6248(%rbp)
-  movq $0, -6256(%rbp)
-  movq $0, -6264(%rbp)
-  movq $0, -6272(%rbp)
-  movq $0, -6280(%rbp)
-  movq $0, -6288(%rbp)
-  movq $0, -6296(%rbp)
-  movq $0, -6304(%rbp)
-  movq $0, -6312(%rbp)
-  movq $0, -6320(%rbp)
-  movq $0, -6328(%rbp)
-  movq $0, -6336(%rbp)
-  movq $0, -6344(%rbp)
-  movq $0, -6352(%rbp)
-  movq $0, -6360(%rbp)
-  movq $0, -6368(%rbp)
-  movq $0, -6376(%rbp)
-  movq $0, -6384(%rbp)
-  movq $0, -6392(%rbp)
-  movq $0, -6400(%rbp)
-  movq $0, -6408(%rbp)
-  movq $0, -6416(%rbp)
-  movq $0, -6424(%rbp)
-  movq $0, -6432(%rbp)
-  movq $0, -6440(%rbp)
-  movq $0, -6448(%rbp)
-  movq $0, -6456(%rbp)
-  movq $0, -6464(%rbp)
-  movq $0, -6472(%rbp)
-  movq $0, -6480(%rbp)
-  movq $0, -6488(%rbp)
-  movq $0, -6496(%rbp)
-  movq $0, -6504(%rbp)
-  movq $0, -6512(%rbp)
-  movq $0, -6520(%rbp)
-  movq $0, -6528(%rbp)
-  movq $0, -6536(%rbp)
-  movq $0, -6544(%rbp)
-  movq $0, -6552(%rbp)
-  movq $0, -6560(%rbp)
-  movq $0, -6568(%rbp)
-  movq $0, -6576(%rbp)
-  movq $0, -6584(%rbp)
-  movq $0, -6592(%rbp)
-  movq $0, -6600(%rbp)
-  movq $0, -6608(%rbp)
-  movq $0, -6616(%rbp)
-  movq $0, -6624(%rbp)
-  movq $0, -6632(%rbp)
-  movq $0, -6640(%rbp)
-  movq $0, -6648(%rbp)
-  movq $0, -6656(%rbp)
-  movq $0, -6664(%rbp)
-  movq $0, -6672(%rbp)
-  movq $0, -6680(%rbp)
-  movq $0, -6688(%rbp)
-  movq $0, -6696(%rbp)
-  movq $0, -6704(%rbp)
-  movq $0, -6712(%rbp)
-  movq $0, -6720(%rbp)
-  movq $0, -6728(%rbp)
-  movq $0, -6736(%rbp)
-  movq $0, -6744(%rbp)
-  movq $0, -6752(%rbp)
-  movq $0, -6760(%rbp)
-  movq $0, -6768(%rbp)
-  movq $0, -6776(%rbp)
-  movq $0, -6784(%rbp)
-  movq $0, -6792(%rbp)
-  movq $0, -6800(%rbp)
-  movq $0, -6808(%rbp)
-  movq $0, -6816(%rbp)
-  movq $0, -6824(%rbp)
-  movq $0, -6832(%rbp)
-  movq $0, -6840(%rbp)
-  movq $0, -6848(%rbp)
-  movq $0, -6856(%rbp)
-  movq $0, -6864(%rbp)
-  movq $0, -6872(%rbp)
-  movq $0, -6880(%rbp)
-  movq $0, -6888(%rbp)
-  movq $0, -6896(%rbp)
-  movq $0, -6904(%rbp)
-  movq $0, -6912(%rbp)
-  movq $0, -6920(%rbp)
-  movq $0, -6928(%rbp)
-  movq $0, -6936(%rbp)
-  movq $0, -6944(%rbp)
-  movq $0, -6952(%rbp)
-  movq $0, -6960(%rbp)
-  movq $0, -6968(%rbp)
-  movq $0, -6976(%rbp)
-  movq $0, -6984(%rbp)
-  movq $0, -6992(%rbp)
-  movq $0, -7000(%rbp)
-  movq $0, -7008(%rbp)
-  movq $0, -7016(%rbp)
-  movq $0, -7024(%rbp)
-  movq $0, -7032(%rbp)
-  movq $0, -7040(%rbp)
-  movq $0, -7048(%rbp)
-  movq $0, -7056(%rbp)
-  movq $0, -7064(%rbp)
-  movq $0, -7072(%rbp)
-  movq $0, -7080(%rbp)
-  movq $0, -7088(%rbp)
-  movq $0, -7096(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -6168(%rbp), %r11
+  movl $117, %ecx
+.Lजड़_sutra_main:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -6176(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6184(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6192(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6200(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6208(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6216(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6224(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6232(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6240(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6248(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6256(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6264(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6272(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6280(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6288(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6296(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6304(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6312(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6320(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6328(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6336(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6344(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6352(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6360(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6368(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6376(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6384(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6392(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6400(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6408(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6416(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6424(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6432(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6440(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6448(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6456(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6464(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6472(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6480(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6488(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6496(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6504(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6512(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6520(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6528(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6536(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6544(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6552(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6560(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6568(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6576(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6584(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6592(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6600(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6608(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6616(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6624(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6632(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6640(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6648(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6656(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6664(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6672(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6680(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6688(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6696(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6704(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6712(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6720(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6728(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6736(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6744(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6752(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6760(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6768(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6776(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6784(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6792(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6800(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6808(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6816(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6824(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6832(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6840(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6848(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6856(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6864(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6872(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6880(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6888(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6896(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6904(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6912(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6920(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6928(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6936(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6944(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6952(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6960(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6968(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6976(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6984(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -6992(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -7000(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -7008(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -7016(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -7024(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -7032(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -7040(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -7048(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -7056(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -7064(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -7072(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -7080(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -7088(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -7096(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_sutra_main
   movl %eax, gc_roots_count(%rip)
 
 .L_sutra_main__प्रवेश_0:
@@ -131843,8 +104206,8 @@ sutra_main:
 .L_किनारा_sutra_main_0:
   jmp .L_sutra_main__if_असत्य_3
 .L_sutra_main__if_असत्य_3:
-  leaq .LC_str_816(%rip), %rcx
-  movq .LC_str_816_len(%rip), %rdx
+  leaq .LC_str_823(%rip), %rcx
+  movq .LC_str_823_len(%rip), %rdx
   subq $32, %rsp
   call पाठ_रचना
   addq $32, %rsp
@@ -131901,8 +104264,8 @@ sutra_main:
   addq $32, %rsp
   movq %rax, %rbx
   movq %rbx, -6208(%rbp)
-  leaq .LC_str_818(%rip), %rcx
-  movq .LC_str_818_len(%rip), %rdx
+  leaq .LC_str_825(%rip), %rcx
+  movq .LC_str_825_len(%rip), %rdx
   subq $32, %rsp
   call पाठ_रचना
   addq $32, %rsp
@@ -131913,8 +104276,8 @@ sutra_main:
   call गतिशील_छापो
   addq $32, %rsp
   movq $0, -6216(%rbp)
-  leaq .LC_str_819(%rip), %rcx
-  movq .LC_str_819_len(%rip), %rdx
+  leaq .LC_str_826(%rip), %rcx
+  movq .LC_str_826_len(%rip), %rdx
   subq $32, %rsp
   call पाठ_रचना
   addq $32, %rsp
@@ -131933,8 +104296,8 @@ sutra_main:
   call गतिशील_छापो
   addq $32, %rsp
   movq $0, -6232(%rbp)
-  leaq .LC_str_820(%rip), %rcx
-  movq .LC_str_820_len(%rip), %rdx
+  leaq .LC_str_827(%rip), %rcx
+  movq .LC_str_827_len(%rip), %rdx
   subq $32, %rsp
   call पाठ_रचना
   addq $32, %rsp
@@ -131952,8 +104315,8 @@ sutra_main:
   movq %rax, %rdi
   movq %rdi, -6248(%rbp)
   movq $0, -6208(%rbp)
-  leaq .LC_str_821(%rip), %rcx
-  movq .LC_str_821_len(%rip), %rdx
+  leaq .LC_str_828(%rip), %rcx
+  movq .LC_str_828_len(%rip), %rdx
   subq $32, %rsp
   call पाठ_रचना
   addq $32, %rsp
@@ -131977,8 +104340,8 @@ sutra_main:
   call गतिशील_छापो
   addq $32, %rsp
   movq $0, -6264(%rbp)
-  leaq .LC_str_822(%rip), %rcx
-  movq .LC_str_822_len(%rip), %rdx
+  leaq .LC_str_829(%rip), %rcx
+  movq .LC_str_829_len(%rip), %rdx
   subq $32, %rsp
   call पाठ_रचना
   addq $32, %rsp
@@ -132060,8 +104423,8 @@ sutra_main:
   movq %r12, -6320(%rbp)
   movq $0, -6280(%rbp)
   movq $0, -6312(%rbp)
-  leaq .LC_str_823(%rip), %rcx
-  movq .LC_str_823_len(%rip), %rdx
+  leaq .LC_str_830(%rip), %rcx
+  movq .LC_str_830_len(%rip), %rdx
   subq $32, %rsp
   call पाठ_रचना
   addq $32, %rsp
@@ -132072,8 +104435,8 @@ sutra_main:
   call गतिशील_छापो
   addq $32, %rsp
   movq $0, -6328(%rbp)
-  leaq .LC_str_824(%rip), %rcx
-  movq .LC_str_824_len(%rip), %rdx
+  leaq .LC_str_831(%rip), %rcx
+  movq .LC_str_831_len(%rip), %rdx
   subq $32, %rsp
   call पाठ_रचना
   addq $32, %rsp
@@ -132089,8 +104452,8 @@ sutra_main:
   call मूल_सार्थक_विश्लेषण
   addq $32, %rsp
   movq %rax, %rbx
-  leaq .LC_str_825(%rip), %rcx
-  movq .LC_str_825_len(%rip), %rdx
+  leaq .LC_str_832(%rip), %rcx
+  movq .LC_str_832_len(%rip), %rdx
   subq $32, %rsp
   call पाठ_रचना
   addq $32, %rsp
@@ -132101,8 +104464,8 @@ sutra_main:
   call गतिशील_छापो
   addq $32, %rsp
   movq $0, -6344(%rbp)
-  leaq .LC_str_826(%rip), %rcx
-  movq .LC_str_826_len(%rip), %rdx
+  leaq .LC_str_833(%rip), %rcx
+  movq .LC_str_833_len(%rip), %rdx
   subq $32, %rsp
   call पाठ_रचना
   addq $32, %rsp
@@ -132290,8 +104653,8 @@ sutra_main:
   addq $32, %rsp
   movq %rax, %rsi
   movq $0, -6368(%rbp)
-  leaq .LC_str_827(%rip), %rcx
-  movq .LC_str_827_len(%rip), %rdx
+  leaq .LC_str_834(%rip), %rcx
+  movq .LC_str_834_len(%rip), %rdx
   subq $32, %rsp
   call पाठ_रचना
   addq $32, %rsp
@@ -132310,8 +104673,8 @@ sutra_main:
   call गतिशील_छापो
   addq $32, %rsp
   movq $0, -6400(%rbp)
-  leaq .LC_str_828(%rip), %rcx
-  movq .LC_str_828_len(%rip), %rdx
+  leaq .LC_str_835(%rip), %rcx
+  movq .LC_str_835_len(%rip), %rdx
   subq $32, %rsp
   call पाठ_रचना
   addq $32, %rsp
@@ -133035,8 +105398,8 @@ sutra_main:
 .L_किनारा_sutra_main_3:
   jmp .L_sutra_main__if_अंत_10
 .L_sutra_main__if_अंत_10:
-  leaq .LC_str_830(%rip), %rcx
-  movq .LC_str_830_len(%rip), %rdx
+  leaq .LC_str_837(%rip), %rcx
+  movq .LC_str_837_len(%rip), %rdx
   subq $32, %rsp
   call पाठ_रचना
   addq $32, %rsp
@@ -133047,8 +105410,8 @@ sutra_main:
   call गतिशील_छापो
   addq $32, %rsp
   movq $0, -6504(%rbp)
-  leaq .LC_str_831(%rip), %rcx
-  movq .LC_str_831_len(%rip), %rdx
+  leaq .LC_str_838(%rip), %rcx
+  movq .LC_str_838_len(%rip), %rdx
   subq $32, %rsp
   call पाठ_रचना
   addq $32, %rsp
@@ -133071,8 +105434,8 @@ sutra_main:
 .L_किनारा_sutra_main_4:
   jmp .L_sutra_main__if_अंत_12
 .L_sutra_main__if_सत्य_11:
-  leaq .LC_str_832(%rip), %rcx
-  movq .LC_str_832_len(%rip), %rdx
+  leaq .LC_str_839(%rip), %rcx
+  movq .LC_str_839_len(%rip), %rdx
   subq $32, %rsp
   call पाठ_रचना
   addq $32, %rsp
@@ -133584,8 +105947,8 @@ sutra_main:
 .L_sutra_main__if_अंत_16:
   jmp .L_sutra_main__if_अंत_14
 .L_sutra_main__if_अंत_14:
-  leaq .LC_str_834(%rip), %rcx
-  movq .LC_str_834_len(%rip), %rdx
+  leaq .LC_str_841(%rip), %rcx
+  movq .LC_str_841_len(%rip), %rdx
   subq $32, %rsp
   call पाठ_रचना
   addq $32, %rsp
@@ -133608,8 +105971,8 @@ sutra_main:
 .L_किनारा_sutra_main_7:
   jmp .L_sutra_main__if_अंत_18
 .L_sutra_main__if_सत्य_17:
-  leaq .LC_str_835(%rip), %rcx
-  movq .LC_str_835_len(%rip), %rdx
+  leaq .LC_str_842(%rip), %rcx
+  movq .LC_str_842_len(%rip), %rdx
   subq $32, %rsp
   call पाठ_रचना
   addq $32, %rsp
@@ -134086,8 +106449,8 @@ sutra_main:
 .L_sutra_main__if_अंत_22:
   jmp .L_sutra_main__if_अंत_20
 .L_sutra_main__if_अंत_20:
-  leaq .LC_str_837(%rip), %rcx
-  movq .LC_str_837_len(%rip), %rdx
+  leaq .LC_str_844(%rip), %rcx
+  movq .LC_str_844_len(%rip), %rdx
   subq $32, %rsp
   call पाठ_रचना
   addq $32, %rsp
@@ -134110,8 +106473,8 @@ sutra_main:
 .L_किनारा_sutra_main_10:
   jmp .L_sutra_main__if_अंत_24
 .L_sutra_main__if_सत्य_23:
-  leaq .LC_str_838(%rip), %rcx
-  movq .LC_str_838_len(%rip), %rdx
+  leaq .LC_str_845(%rip), %rcx
+  movq .LC_str_845_len(%rip), %rdx
   subq $32, %rsp
   call पाठ_रचना
   addq $32, %rsp
@@ -134616,8 +106979,8 @@ sutra_main:
 .L_sutra_main__if_अंत_28:
   jmp .L_sutra_main__if_अंत_26
 .L_sutra_main__if_अंत_26:
-  leaq .LC_str_840(%rip), %rcx
-  movq .LC_str_840_len(%rip), %rdx
+  leaq .LC_str_847(%rip), %rcx
+  movq .LC_str_847_len(%rip), %rdx
   subq $32, %rsp
   call पाठ_रचना
   addq $32, %rsp
@@ -134799,8 +107162,8 @@ sutra_main:
   addq $32, %rsp
   movq %rax, %rsi
   movq %rsi, -6728(%rbp)
-  leaq .LC_str_841(%rip), %rcx
-  movq .LC_str_841_len(%rip), %rdx
+  leaq .LC_str_848(%rip), %rcx
+  movq .LC_str_848_len(%rip), %rdx
   subq $32, %rsp
   call पाठ_रचना
   addq $32, %rsp
@@ -134945,8 +107308,8 @@ sutra_main:
   addq $32, %rsp
   movq %rax, %rsi
   movq %rsi, -6752(%rbp)
-  leaq .LC_str_842(%rip), %rcx
-  movq .LC_str_842_len(%rip), %rdx
+  leaq .LC_str_849(%rip), %rcx
+  movq .LC_str_849_len(%rip), %rdx
   subq $32, %rsp
   call पाठ_रचना
   addq $32, %rsp
@@ -135077,8 +107440,8 @@ sutra_main:
   addq $32, %rsp
   movq %rax, %rsi
   movq %rsi, -6776(%rbp)
-  leaq .LC_str_843(%rip), %rcx
-  movq .LC_str_843_len(%rip), %rdx
+  leaq .LC_str_850(%rip), %rcx
+  movq .LC_str_850_len(%rip), %rdx
   subq $32, %rsp
   call पाठ_रचना
   addq $32, %rsp
@@ -136232,8 +108595,8 @@ sutra_main:
 .L_किनारा_sutra_main_17:
   jmp .L_sutra_main__if_अंत_38
 .L_sutra_main__if_अंत_38:
-  leaq .LC_str_846(%rip), %rcx
-  movq .LC_str_846_len(%rip), %rdx
+  leaq .LC_str_853(%rip), %rcx
+  movq .LC_str_853_len(%rip), %rdx
   subq $32, %rsp
   call पाठ_रचना
   addq $32, %rsp
@@ -136538,8 +108901,8 @@ sutra_main:
   addq $32, %rsp
   movq %rax, %rsi
   movq $0, -7024(%rbp)
-  leaq .LC_str_847(%rip), %rcx
-  movq .LC_str_847_len(%rip), %rdx
+  leaq .LC_str_854(%rip), %rcx
+  movq .LC_str_854_len(%rip), %rdx
   subq $32, %rsp
   call पाठ_रचना
   addq $32, %rsp
@@ -136559,8 +108922,8 @@ sutra_main:
   call गतिशील_छापो
   addq $32, %rsp
   movq $0, -7040(%rbp)
-  leaq .LC_str_848(%rip), %rcx
-  movq .LC_str_848_len(%rip), %rdx
+  leaq .LC_str_855(%rip), %rcx
+  movq .LC_str_855_len(%rip), %rdx
   subq $32, %rsp
   call पाठ_रचना
   addq $32, %rsp
@@ -136574,8 +108937,8 @@ sutra_main:
   movq $0, %rax
   jmp .L_epilogue_sutra_main
 .L_sutra_main__if_सत्य_37:
-  leaq .LC_str_845(%rip), %rcx
-  movq .LC_str_845_len(%rip), %rdx
+  leaq .LC_str_852(%rip), %rcx
+  movq .LC_str_852_len(%rip), %rdx
   subq $32, %rsp
   call पाठ_रचना
   addq $32, %rsp
@@ -136585,8 +108948,8 @@ sutra_main:
   call फेंको
   addq $32, %rsp
 .L_sutra_main__if_सत्य_35:
-  leaq .LC_str_844(%rip), %rcx
-  movq .LC_str_844_len(%rip), %rdx
+  leaq .LC_str_851(%rip), %rcx
+  movq .LC_str_851_len(%rip), %rdx
   subq $32, %rsp
   call पाठ_रचना
   addq $32, %rsp
@@ -136596,8 +108959,8 @@ sutra_main:
   call फेंको
   addq $32, %rsp
 .L_sutra_main__if_सत्य_27:
-  leaq .LC_str_839(%rip), %rcx
-  movq .LC_str_839_len(%rip), %rdx
+  leaq .LC_str_846(%rip), %rcx
+  movq .LC_str_846_len(%rip), %rdx
   subq $32, %rsp
   call पाठ_रचना
   addq $32, %rsp
@@ -136607,6 +108970,28 @@ sutra_main:
   call फेंको
   addq $32, %rsp
 .L_sutra_main__if_सत्य_21:
+  leaq .LC_str_843(%rip), %rcx
+  movq .LC_str_843_len(%rip), %rdx
+  subq $32, %rsp
+  call पाठ_रचना
+  addq $32, %rsp
+  movq %rax, %rbx
+  movq %rbx, %rcx
+  subq $32, %rsp
+  call फेंको
+  addq $32, %rsp
+.L_sutra_main__if_सत्य_15:
+  leaq .LC_str_840(%rip), %rcx
+  movq .LC_str_840_len(%rip), %rdx
+  subq $32, %rsp
+  call पाठ_रचना
+  addq $32, %rsp
+  movq %rax, %rbx
+  movq %rbx, %rcx
+  subq $32, %rsp
+  call फेंको
+  addq $32, %rsp
+.L_sutra_main__if_सत्य_9:
   leaq .LC_str_836(%rip), %rcx
   movq .LC_str_836_len(%rip), %rdx
   subq $32, %rsp
@@ -136617,31 +109002,9 @@ sutra_main:
   subq $32, %rsp
   call फेंको
   addq $32, %rsp
-.L_sutra_main__if_सत्य_15:
-  leaq .LC_str_833(%rip), %rcx
-  movq .LC_str_833_len(%rip), %rdx
-  subq $32, %rsp
-  call पाठ_रचना
-  addq $32, %rsp
-  movq %rax, %rbx
-  movq %rbx, %rcx
-  subq $32, %rsp
-  call फेंको
-  addq $32, %rsp
-.L_sutra_main__if_सत्य_9:
-  leaq .LC_str_829(%rip), %rcx
-  movq .LC_str_829_len(%rip), %rdx
-  subq $32, %rsp
-  call पाठ_रचना
-  addq $32, %rsp
-  movq %rax, %rbx
-  movq %rbx, %rcx
-  subq $32, %rsp
-  call फेंको
-  addq $32, %rsp
 .L_sutra_main__if_सत्य_4:
-  leaq .LC_str_817(%rip), %rcx
-  movq .LC_str_817_len(%rip), %rdx
+  leaq .LC_str_824(%rip), %rcx
+  movq .LC_str_824_len(%rip), %rdx
   subq $32, %rsp
   call पाठ_रचना
   addq $32, %rsp
@@ -139840,251 +112203,279 @@ main:
 .LC_str_786_len:
   .quad 33
 .LC_str_787:
-  .ascii "  subl $\0"
+  .ascii "  movl $\0"
 .LC_str_787_len:
   .quad 8
 .LC_str_788:
-  .ascii ", gc_roots_count(%rip)\0"
+  .ascii ", %ecx\0"
 .LC_str_788_len:
-  .quad 22
+  .quad 6
 .LC_str_789:
-  .ascii ", %\0"
+  .ascii ".L\340\244\234\340\244\241\340\244\274_\0"
 .LC_str_789_len:
-  .quad 3
+  .quad 12
 .LC_str_790:
-  .ascii "  movq %rbp, %rsp\0"
+  .ascii "  movq $0, (%r11)\0"
 .LC_str_790_len:
   .quad 17
 .LC_str_791:
-  .ascii "  popq %rbp\0"
+  .ascii "  subq $8, %r11\0"
 .LC_str_791_len:
-  .quad 11
+  .quad 15
 .LC_str_792:
-  .ascii "  ret\0"
+  .ascii "  decl %ecx\0"
 .LC_str_792_len:
-  .quad 5
+  .quad 11
 .LC_str_793:
-  .ascii "  .globl main\0"
+  .ascii "  jnz .L\340\244\234\340\244\241\340\244\274_\0"
 .LC_str_793_len:
-  .quad 13
+  .quad 18
 .LC_str_794:
-  .ascii "  .def main; .scl 2; .type 32; .endef\0"
+  .ascii "  subl $\0"
 .LC_str_794_len:
-  .quad 37
+  .quad 8
 .LC_str_795:
-  .ascii "main:\0"
+  .ascii ", gc_roots_count(%rip)\0"
 .LC_str_795_len:
-  .quad 5
-.LC_str_796:
-  .ascii "  leaq sutra_glob_\0"
-.LC_str_796_len:
-  .quad 18
-.LC_str_797:
-  .ascii "  call sutra_gc_push_root\0"
-.LC_str_797_len:
-  .quad 25
-.LC_str_798:
-  .ascii "  call \340\244\270\340\245\202\340\244\244\340\245\215\340\244\260_\340\244\270\340\245\215\340\244\265\340\244\234\340\245\200\340\244\270\340\245\200_\340\244\206\340\244\260\340\244\202\340\244\255\0"
-.LC_str_798_len:
-  .quad 57
-.LC_str_799:
-  .ascii "  call __\340\244\266\340\245\200\340\244\260\340\245\215\340\244\267\0"
-.LC_str_799_len:
-  .quad 24
-.LC_str_800:
-  .ascii "  call sutra_main\0"
-.LC_str_800_len:
-  .quad 17
-.LC_str_801:
-  .ascii "  call sutra_gc_pop_root\0"
-.LC_str_801_len:
-  .quad 24
-.LC_str_802:
-  .ascii "  xorl %eax, %eax\0"
-.LC_str_802_len:
-  .quad 17
-.LC_str_803:
-  .ascii "  .data\0"
-.LC_str_803_len:
-  .quad 7
-.LC_str_804:
-  .ascii "  .globl sutra_glob_\0"
-.LC_str_804_len:
-  .quad 20
-.LC_str_805:
-  .ascii "sutra_glob_\0"
-.LC_str_805_len:
-  .quad 11
-.LC_str_806:
-  .ascii "  .quad 0\0"
-.LC_str_806_len:
-  .quad 9
-.LC_str_807:
-  .ascii "  .section .rdata,\"dr\"\0"
-.LC_str_807_len:
   .quad 22
-.LC_str_808:
-  .ascii "  .align 8\0"
-.LC_str_808_len:
-  .quad 10
-.LC_str_809:
-  .ascii ".LC_dbl_\0"
-.LC_str_809_len:
-  .quad 8
-.LC_str_810:
-  .ascii "  .double \0"
-.LC_str_810_len:
-  .quad 10
-.LC_str_811:
-  .ascii ".LC_str_\0"
-.LC_str_811_len:
-  .quad 8
-.LC_str_812:
-  .ascii "  .ascii \"\0"
-.LC_str_812_len:
-  .quad 10
-.LC_str_813:
-  .ascii "\\0\"\0"
-.LC_str_813_len:
+.LC_str_796:
+  .ascii ", %\0"
+.LC_str_796_len:
   .quad 3
-.LC_str_814:
-  .ascii "_len:\0"
-.LC_str_814_len:
-  .quad 5
-.LC_str_815:
-  .ascii "  .quad \0"
-.LC_str_815_len:
-  .quad 8
-.LC_str_816:
-  .ascii "\340\244\244\340\245\215\340\244\260\340\245\201\340\244\237\340\244\277\340\244\203 \342\200\224 \340\244\270\340\244\236\340\245\215\340\244\232\340\244\277\340\244\225\340\244\276 \340\244\256\340\244\276\340\244\260\340\245\215\340\244\227\340\244\203 \340\244\250 \340\244\250\340\244\277\340\244\260\340\245\215\340\244\246\340\244\277\340\244\267\340\245\215\340\244\237\340\244\203\340\245\244\0"
-.LC_str_816_len:
-  .quad 104
-.LC_str_817:
-  .ascii "\340\244\244\340\245\215\340\244\260\340\245\201\340\244\237\340\244\277\340\244\203 \342\200\224 \340\244\270\340\244\236\340\245\215\340\244\232\340\244\277\340\244\225\340\244\276 \340\244\250 \340\244\252\340\245\215\340\244\260\340\244\276\340\244\252\340\245\215\340\244\244\340\244\276: \0"
-.LC_str_817_len:
-  .quad 78
-.LC_str_818:
-  .ascii "=== \340\244\256\340\245\202\340\244\262 \340\244\270\340\244\202\340\244\225\340\244\262\340\244\250 ===\0"
-.LC_str_818_len:
-  .quad 33
-.LC_str_819:
-  .ascii "\340\244\270\340\244\236\340\245\215\340\244\232\340\244\277\340\244\225\340\244\276: \0"
-.LC_str_819_len:
-  .quad 23
-.LC_str_820:
-  .ascii "1. \340\244\252\340\244\246_\340\244\265\340\244\277\340\244\232\340\245\215\340\244\233\340\245\207\340\244\246\340\244\250...\0"
-.LC_str_820_len:
-  .quad 37
-.LC_str_821:
-  .ascii "   \340\244\252\340\244\246\340\245\213\340\244\202 \340\244\225\340\245\200 \340\244\270\340\244\202\340\244\226\340\245\215\340\244\257\340\244\276: \0"
-.LC_str_821_len:
-  .quad 43
-.LC_str_822:
-  .ascii "2. \340\244\265\340\244\277\340\244\266\340\245\215\340\244\262\340\245\207\340\244\267\340\244\243...\0"
-.LC_str_822_len:
-  .quad 30
-.LC_str_823:
-  .ascii "   \340\244\265\340\244\277\340\244\266\340\245\215\340\244\262\340\245\207\340\244\267\340\244\243 \340\244\270\340\244\202\340\244\252\340\244\250\340\245\215\340\244\250\340\244\256\340\245\215\340\245\244\0"
-.LC_str_823_len:
-  .quad 55
-.LC_str_824:
-  .ascii "2.5 \340\244\270\340\244\276\340\244\260\340\245\215\340\244\245\340\244\225_\340\244\265\340\244\277\340\244\266\340\245\215\340\244\262\340\245\207\340\244\267\340\244\243...\0"
-.LC_str_824_len:
-  .quad 50
-.LC_str_825:
-  .ascii "    \340\244\270\340\244\276\340\244\260\340\245\215\340\244\245\340\244\225_\340\244\265\340\244\277\340\244\266\340\245\215\340\244\262\340\245\207\340\244\267\340\244\243 \340\244\270\340\244\202\340\244\252\340\244\250\340\245\215\340\244\250\340\244\256\340\245\215\340\245\244\0"
-.LC_str_825_len:
-  .quad 75
-.LC_str_826:
-  .ascii "3. IR \340\244\211\340\244\244\340\245\215\340\244\252\340\244\250\340\245\215\340\244\250 (\340\244\250\340\244\277\340\244\256\340\245\215\340\244\250\340\244\225 \342\206\222 \340\244\205\340\244\250\340\245\201\340\244\225\340\245\202\340\244\262\340\244\225 \342\206\222 \340\244\260\340\244\234\340\244\277_\340\244\250\340\244\277\340\244\257\340\244\244\340\244\225 \342\206\222 \340\244\211\340\244\244\340\245\215\340\244\270\340\244\260\340\245\215\340\244\234\340\244\225)...\0"
-.LC_str_826_len:
-  .quad 136
-.LC_str_827:
-  .ascii "4. \340\244\270\340\244\236\340\245\215\340\244\232\340\244\277\340\244\225\340\244\276: \0"
-.LC_str_827_len:
-  .quad 26
-.LC_str_828:
-  .ascii "5. \340\244\270\340\244\202\340\244\257\340\245\213\340\244\234\340\244\250...\0"
-.LC_str_828_len:
-  .quad 24
-.LC_str_829:
-  .ascii "\340\244\244\340\245\215\340\244\260\340\245\201\340\244\237\340\244\277\340\244\203 \342\200\224 \340\244\270\340\244\202\340\244\257\340\245\213\340\244\234\340\244\250 \340\244\265\340\244\277\340\244\253\340\244\262\340\245\244\0"
-.LC_str_829_len:
-  .quad 60
-.LC_str_830:
-  .ascii "   \340\244\270\340\244\202\340\244\257\340\245\213\340\244\234\340\244\250 \340\244\270\340\244\202\340\244\252\340\244\250\340\245\215\340\244\250\340\244\256\340\245\215\340\245\244\0"
-.LC_str_830_len:
-  .quad 49
-.LC_str_831:
-  .ascii "\340\244\270\340\245\215\340\244\265\340\244\270\340\244\202\340\244\225\340\244\262\340\244\225/\340\244\250\340\244\277\340\244\260\340\245\215\340\244\256\340\244\276\340\244\243/\340\244\244\340\244\262.s\0"
-.LC_str_831_len:
-  .quad 55
-.LC_str_832:
-  .ascii "\340\244\250\340\244\277\340\244\260\340\245\215\340\244\256\340\244\276\340\244\243/\340\244\244\340\244\262.s\0"
-.LC_str_832_len:
-  .quad 30
-.LC_str_833:
-  .ascii "\340\244\244\340\245\215\340\244\260\340\245\201\340\244\237\340\244\277\340\244\203 \342\200\224 \340\244\244\340\244\262.s \340\244\270\340\244\202\340\244\257\340\245\213\340\244\234\340\244\250 \340\244\265\340\244\277\340\244\253\340\244\262\340\245\244\0"
-.LC_str_833_len:
-  .quad 69
-.LC_str_834:
-  .ascii "\340\244\270\340\245\215\340\244\265\340\244\270\340\244\202\340\244\225\340\244\262\340\244\225/\340\244\250\340\244\277\340\244\260\340\245\215\340\244\256\340\244\276\340\244\243/\340\244\256\340\245\202\340\244\262_\340\244\260\340\244\250\340\244\237\340\244\276\340\244\207\340\244\256.s\0"
-.LC_str_834_len:
-  .quad 77
-.LC_str_835:
-  .ascii "\340\244\250\340\244\277\340\244\260\340\245\215\340\244\256\340\244\276\340\244\243/\340\244\256\340\245\202\340\244\262_\340\244\260\340\244\250\340\244\237\340\244\276\340\244\207\340\244\256.s\0"
-.LC_str_835_len:
-  .quad 52
-.LC_str_836:
-  .ascii "\340\244\244\340\245\215\340\244\260\340\245\201\340\244\237\340\244\277\340\244\203 \342\200\224 \340\244\256\340\245\202\340\244\262_\340\244\260\340\244\250\340\244\237\340\244\276\340\244\207\340\244\256.s \340\244\270\340\244\202\340\244\257\340\245\213\340\244\234\340\244\250 \340\244\265\340\244\277\340\244\253\340\244\262\340\245\244\0"
-.LC_str_836_len:
-  .quad 91
-.LC_str_837:
-  .ascii "\340\244\270\340\245\215\340\244\265\340\244\270\340\244\202\340\244\225\340\244\262\340\244\225/\340\244\250\340\244\277\340\244\260\340\245\215\340\244\256\340\244\276\340\244\243/\340\244\256\340\245\202\340\244\262_\340\244\206\340\244\265\340\244\202\340\244\237\340\244\225.s\0"
-.LC_str_837_len:
-  .quad 74
-.LC_str_838:
-  .ascii "\340\244\250\340\244\277\340\244\260\340\245\215\340\244\256\340\244\276\340\244\243/\340\244\256\340\245\202\340\244\262_\340\244\206\340\244\265\340\244\202\340\244\237\340\244\225.s\0"
-.LC_str_838_len:
-  .quad 49
-.LC_str_839:
-  .ascii "\340\244\244\340\245\215\340\244\260\340\245\201\340\244\237\340\244\277\340\244\203 \342\200\224 \340\244\256\340\245\202\340\244\262_\340\244\206\340\244\265\340\244\202\340\244\237\340\244\225.s \340\244\270\340\244\202\340\244\257\340\245\213\340\244\234\340\244\250 \340\244\265\340\244\277\340\244\253\340\244\262\340\245\244\0"
-.LC_str_839_len:
-  .quad 88
-.LC_str_840:
-  .ascii "6. \340\244\262\340\244\277\340\244\202\340\244\225...\0"
-.LC_str_840_len:
-  .quad 18
-.LC_str_841:
-  .ascii "sutra_floor.o\0"
-.LC_str_841_len:
-  .quad 13
-.LC_str_842:
-  .ascii "sutra_srt.o\0"
-.LC_str_842_len:
+.LC_str_797:
+  .ascii "  movq %rbp, %rsp\0"
+.LC_str_797_len:
+  .quad 17
+.LC_str_798:
+  .ascii "  popq %rbp\0"
+.LC_str_798_len:
   .quad 11
-.LC_str_843:
-  .ascii "sutra_alloc.o\0"
-.LC_str_843_len:
+.LC_str_799:
+  .ascii "  ret\0"
+.LC_str_799_len:
+  .quad 5
+.LC_str_800:
+  .ascii "  .globl main\0"
+.LC_str_800_len:
   .quad 13
-.LC_str_844:
-  .ascii "\340\244\244\340\245\215\340\244\260\340\245\201\340\244\237\340\244\277\340\244\203 \342\200\224 \340\244\262\340\244\277\340\244\202\340\244\225 \340\244\265\340\244\277\340\244\253\340\244\262 (linker exit != 0)\340\245\244\0"
-.LC_str_844_len:
-  .quad 73
-.LC_str_845:
-  .ascii "\340\244\244\340\245\215\340\244\260\340\245\201\340\244\237\340\244\277\340\244\203 \342\200\224 \340\244\262\340\244\277\340\244\202\340\244\225 \340\244\265\340\244\277\340\244\253\340\244\262 (\340\244\225\340\245\213\340\244\210 .exe \340\244\250\340\244\271\340\245\200\340\244\202)\340\245\244\0"
-.LC_str_845_len:
-  .quad 84
-.LC_str_846:
-  .ascii "   \340\244\262\340\244\277\340\244\202\340\244\225 \340\244\270\340\244\202\340\244\252\340\244\250\340\245\215\340\244\250\340\244\256\340\245\215\340\245\244\0"
-.LC_str_846_len:
-  .quad 43
-.LC_str_847:
-  .ascii "7. \340\244\205\340\244\202\340\244\244\340\244\277\340\244\256: \0"
-.LC_str_847_len:
+.LC_str_801:
+  .ascii "  .def main; .scl 2; .type 32; .endef\0"
+.LC_str_801_len:
+  .quad 37
+.LC_str_802:
+  .ascii "main:\0"
+.LC_str_802_len:
+  .quad 5
+.LC_str_803:
+  .ascii "  leaq sutra_glob_\0"
+.LC_str_803_len:
+  .quad 18
+.LC_str_804:
+  .ascii "  call sutra_gc_push_root\0"
+.LC_str_804_len:
+  .quad 25
+.LC_str_805:
+  .ascii "  call \340\244\270\340\245\202\340\244\244\340\245\215\340\244\260_\340\244\270\340\245\215\340\244\265\340\244\234\340\245\200\340\244\270\340\245\200_\340\244\206\340\244\260\340\244\202\340\244\255\0"
+.LC_str_805_len:
+  .quad 57
+.LC_str_806:
+  .ascii "  call __\340\244\266\340\245\200\340\244\260\340\245\215\340\244\267\0"
+.LC_str_806_len:
+  .quad 24
+.LC_str_807:
+  .ascii "  call sutra_main\0"
+.LC_str_807_len:
+  .quad 17
+.LC_str_808:
+  .ascii "  call sutra_gc_pop_root\0"
+.LC_str_808_len:
+  .quad 24
+.LC_str_809:
+  .ascii "  xorl %eax, %eax\0"
+.LC_str_809_len:
+  .quad 17
+.LC_str_810:
+  .ascii "  .data\0"
+.LC_str_810_len:
+  .quad 7
+.LC_str_811:
+  .ascii "  .globl sutra_glob_\0"
+.LC_str_811_len:
   .quad 20
+.LC_str_812:
+  .ascii "sutra_glob_\0"
+.LC_str_812_len:
+  .quad 11
+.LC_str_813:
+  .ascii "  .quad 0\0"
+.LC_str_813_len:
+  .quad 9
+.LC_str_814:
+  .ascii "  .section .rdata,\"dr\"\0"
+.LC_str_814_len:
+  .quad 22
+.LC_str_815:
+  .ascii "  .align 8\0"
+.LC_str_815_len:
+  .quad 10
+.LC_str_816:
+  .ascii ".LC_dbl_\0"
+.LC_str_816_len:
+  .quad 8
+.LC_str_817:
+  .ascii "  .double \0"
+.LC_str_817_len:
+  .quad 10
+.LC_str_818:
+  .ascii ".LC_str_\0"
+.LC_str_818_len:
+  .quad 8
+.LC_str_819:
+  .ascii "  .ascii \"\0"
+.LC_str_819_len:
+  .quad 10
+.LC_str_820:
+  .ascii "\\0\"\0"
+.LC_str_820_len:
+  .quad 3
+.LC_str_821:
+  .ascii "_len:\0"
+.LC_str_821_len:
+  .quad 5
+.LC_str_822:
+  .ascii "  .quad \0"
+.LC_str_822_len:
+  .quad 8
+.LC_str_823:
+  .ascii "\340\244\244\340\245\215\340\244\260\340\245\201\340\244\237\340\244\277\340\244\203 \342\200\224 \340\244\270\340\244\236\340\245\215\340\244\232\340\244\277\340\244\225\340\244\276 \340\244\256\340\244\276\340\244\260\340\245\215\340\244\227\340\244\203 \340\244\250 \340\244\250\340\244\277\340\244\260\340\245\215\340\244\246\340\244\277\340\244\267\340\245\215\340\244\237\340\244\203\340\245\244\0"
+.LC_str_823_len:
+  .quad 104
+.LC_str_824:
+  .ascii "\340\244\244\340\245\215\340\244\260\340\245\201\340\244\237\340\244\277\340\244\203 \342\200\224 \340\244\270\340\244\236\340\245\215\340\244\232\340\244\277\340\244\225\340\244\276 \340\244\250 \340\244\252\340\245\215\340\244\260\340\244\276\340\244\252\340\245\215\340\244\244\340\244\276: \0"
+.LC_str_824_len:
+  .quad 78
+.LC_str_825:
+  .ascii "=== \340\244\256\340\245\202\340\244\262 \340\244\270\340\244\202\340\244\225\340\244\262\340\244\250 ===\0"
+.LC_str_825_len:
+  .quad 33
+.LC_str_826:
+  .ascii "\340\244\270\340\244\236\340\245\215\340\244\232\340\244\277\340\244\225\340\244\276: \0"
+.LC_str_826_len:
+  .quad 23
+.LC_str_827:
+  .ascii "1. \340\244\252\340\244\246_\340\244\265\340\244\277\340\244\232\340\245\215\340\244\233\340\245\207\340\244\246\340\244\250...\0"
+.LC_str_827_len:
+  .quad 37
+.LC_str_828:
+  .ascii "   \340\244\252\340\244\246\340\245\213\340\244\202 \340\244\225\340\245\200 \340\244\270\340\244\202\340\244\226\340\245\215\340\244\257\340\244\276: \0"
+.LC_str_828_len:
+  .quad 43
+.LC_str_829:
+  .ascii "2. \340\244\265\340\244\277\340\244\266\340\245\215\340\244\262\340\245\207\340\244\267\340\244\243...\0"
+.LC_str_829_len:
+  .quad 30
+.LC_str_830:
+  .ascii "   \340\244\265\340\244\277\340\244\266\340\245\215\340\244\262\340\245\207\340\244\267\340\244\243 \340\244\270\340\244\202\340\244\252\340\244\250\340\245\215\340\244\250\340\244\256\340\245\215\340\245\244\0"
+.LC_str_830_len:
+  .quad 55
+.LC_str_831:
+  .ascii "2.5 \340\244\270\340\244\276\340\244\260\340\245\215\340\244\245\340\244\225_\340\244\265\340\244\277\340\244\266\340\245\215\340\244\262\340\245\207\340\244\267\340\244\243...\0"
+.LC_str_831_len:
+  .quad 50
+.LC_str_832:
+  .ascii "    \340\244\270\340\244\276\340\244\260\340\245\215\340\244\245\340\244\225_\340\244\265\340\244\277\340\244\266\340\245\215\340\244\262\340\245\207\340\244\267\340\244\243 \340\244\270\340\244\202\340\244\252\340\244\250\340\245\215\340\244\250\340\244\256\340\245\215\340\245\244\0"
+.LC_str_832_len:
+  .quad 75
+.LC_str_833:
+  .ascii "3. IR \340\244\211\340\244\244\340\245\215\340\244\252\340\244\250\340\245\215\340\244\250 (\340\244\250\340\244\277\340\244\256\340\245\215\340\244\250\340\244\225 \342\206\222 \340\244\205\340\244\250\340\245\201\340\244\225\340\245\202\340\244\262\340\244\225 \342\206\222 \340\244\260\340\244\234\340\244\277_\340\244\250\340\244\277\340\244\257\340\244\244\340\244\225 \342\206\222 \340\244\211\340\244\244\340\245\215\340\244\270\340\244\260\340\245\215\340\244\234\340\244\225)...\0"
+.LC_str_833_len:
+  .quad 136
+.LC_str_834:
+  .ascii "4. \340\244\270\340\244\236\340\245\215\340\244\232\340\244\277\340\244\225\340\244\276: \0"
+.LC_str_834_len:
+  .quad 26
+.LC_str_835:
+  .ascii "5. \340\244\270\340\244\202\340\244\257\340\245\213\340\244\234\340\244\250...\0"
+.LC_str_835_len:
+  .quad 24
+.LC_str_836:
+  .ascii "\340\244\244\340\245\215\340\244\260\340\245\201\340\244\237\340\244\277\340\244\203 \342\200\224 \340\244\270\340\244\202\340\244\257\340\245\213\340\244\234\340\244\250 \340\244\265\340\244\277\340\244\253\340\244\262\340\245\244\0"
+.LC_str_836_len:
+  .quad 60
+.LC_str_837:
+  .ascii "   \340\244\270\340\244\202\340\244\257\340\245\213\340\244\234\340\244\250 \340\244\270\340\244\202\340\244\252\340\244\250\340\245\215\340\244\250\340\244\256\340\245\215\340\245\244\0"
+.LC_str_837_len:
+  .quad 49
+.LC_str_838:
+  .ascii "\340\244\270\340\245\215\340\244\265\340\244\270\340\244\202\340\244\225\340\244\262\340\244\225/\340\244\250\340\244\277\340\244\260\340\245\215\340\244\256\340\244\276\340\244\243/\340\244\244\340\244\262.s\0"
+.LC_str_838_len:
+  .quad 55
+.LC_str_839:
+  .ascii "\340\244\250\340\244\277\340\244\260\340\245\215\340\244\256\340\244\276\340\244\243/\340\244\244\340\244\262.s\0"
+.LC_str_839_len:
+  .quad 30
+.LC_str_840:
+  .ascii "\340\244\244\340\245\215\340\244\260\340\245\201\340\244\237\340\244\277\340\244\203 \342\200\224 \340\244\244\340\244\262.s \340\244\270\340\244\202\340\244\257\340\245\213\340\244\234\340\244\250 \340\244\265\340\244\277\340\244\253\340\244\262\340\245\244\0"
+.LC_str_840_len:
+  .quad 69
+.LC_str_841:
+  .ascii "\340\244\270\340\245\215\340\244\265\340\244\270\340\244\202\340\244\225\340\244\262\340\244\225/\340\244\250\340\244\277\340\244\260\340\245\215\340\244\256\340\244\276\340\244\243/\340\244\256\340\245\202\340\244\262_\340\244\260\340\244\250\340\244\237\340\244\276\340\244\207\340\244\256.s\0"
+.LC_str_841_len:
+  .quad 77
+.LC_str_842:
+  .ascii "\340\244\250\340\244\277\340\244\260\340\245\215\340\244\256\340\244\276\340\244\243/\340\244\256\340\245\202\340\244\262_\340\244\260\340\244\250\340\244\237\340\244\276\340\244\207\340\244\256.s\0"
+.LC_str_842_len:
+  .quad 52
+.LC_str_843:
+  .ascii "\340\244\244\340\245\215\340\244\260\340\245\201\340\244\237\340\244\277\340\244\203 \342\200\224 \340\244\256\340\245\202\340\244\262_\340\244\260\340\244\250\340\244\237\340\244\276\340\244\207\340\244\256.s \340\244\270\340\244\202\340\244\257\340\245\213\340\244\234\340\244\250 \340\244\265\340\244\277\340\244\253\340\244\262\340\245\244\0"
+.LC_str_843_len:
+  .quad 91
+.LC_str_844:
+  .ascii "\340\244\270\340\245\215\340\244\265\340\244\270\340\244\202\340\244\225\340\244\262\340\244\225/\340\244\250\340\244\277\340\244\260\340\245\215\340\244\256\340\244\276\340\244\243/\340\244\256\340\245\202\340\244\262_\340\244\206\340\244\265\340\244\202\340\244\237\340\244\225.s\0"
+.LC_str_844_len:
+  .quad 74
+.LC_str_845:
+  .ascii "\340\244\250\340\244\277\340\244\260\340\245\215\340\244\256\340\244\276\340\244\243/\340\244\256\340\245\202\340\244\262_\340\244\206\340\244\265\340\244\202\340\244\237\340\244\225.s\0"
+.LC_str_845_len:
+  .quad 49
+.LC_str_846:
+  .ascii "\340\244\244\340\245\215\340\244\260\340\245\201\340\244\237\340\244\277\340\244\203 \342\200\224 \340\244\256\340\245\202\340\244\262_\340\244\206\340\244\265\340\244\202\340\244\237\340\244\225.s \340\244\270\340\244\202\340\244\257\340\245\213\340\244\234\340\244\250 \340\244\265\340\244\277\340\244\253\340\244\262\340\245\244\0"
+.LC_str_846_len:
+  .quad 88
+.LC_str_847:
+  .ascii "6. \340\244\262\340\244\277\340\244\202\340\244\225...\0"
+.LC_str_847_len:
+  .quad 18
 .LC_str_848:
-  .ascii "=== \340\244\256\340\245\202\340\244\262 \340\244\270\340\244\202\340\244\225\340\244\262\340\244\250 \340\244\270\340\244\253\340\244\262! ===\0"
+  .ascii "sutra_floor.o\0"
 .LC_str_848_len:
+  .quad 13
+.LC_str_849:
+  .ascii "sutra_srt.o\0"
+.LC_str_849_len:
+  .quad 11
+.LC_str_850:
+  .ascii "sutra_alloc.o\0"
+.LC_str_850_len:
+  .quad 13
+.LC_str_851:
+  .ascii "\340\244\244\340\245\215\340\244\260\340\245\201\340\244\237\340\244\277\340\244\203 \342\200\224 \340\244\262\340\244\277\340\244\202\340\244\225 \340\244\265\340\244\277\340\244\253\340\244\262 (linker exit != 0)\340\245\244\0"
+.LC_str_851_len:
+  .quad 73
+.LC_str_852:
+  .ascii "\340\244\244\340\245\215\340\244\260\340\245\201\340\244\237\340\244\277\340\244\203 \342\200\224 \340\244\262\340\244\277\340\244\202\340\244\225 \340\244\265\340\244\277\340\244\253\340\244\262 (\340\244\225\340\245\213\340\244\210 .exe \340\244\250\340\244\271\340\245\200\340\244\202)\340\245\244\0"
+.LC_str_852_len:
+  .quad 84
+.LC_str_853:
+  .ascii "   \340\244\262\340\244\277\340\244\202\340\244\225 \340\244\270\340\244\202\340\244\252\340\244\250\340\245\215\340\244\250\340\244\256\340\245\215\340\245\244\0"
+.LC_str_853_len:
+  .quad 43
+.LC_str_854:
+  .ascii "7. \340\244\205\340\244\202\340\244\244\340\244\277\340\244\256: \0"
+.LC_str_854_len:
+  .quad 20
+.LC_str_855:
+  .ascii "=== \340\244\256\340\245\202\340\244\262 \340\244\270\340\244\202\340\244\225\340\244\262\340\244\250 \340\244\270\340\244\253\340\244\262! ===\0"
+.LC_str_855_len:
   .quad 44
 
