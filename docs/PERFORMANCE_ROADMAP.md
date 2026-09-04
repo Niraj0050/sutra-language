@@ -615,6 +615,27 @@ fileIO — हर एक designed, अब बिना regression।
    seed **137585→138433**। fixed point कायम; verify_ir 52/2,
    run_suites 52/2 + stdlib 10/1, `52_bitwise` interp==native।
 
+## 4. अनुकूलक-सुधार (optimizer / perf)
+
+**§4a — बड़ा-immediate उत्सर्जक fix + बिटवार/एकल const-fold** (commit `988b649`, 2026-09-04)।
+   दो हिस्से:
+   - **उत्सर्जक (latent bug fix):** `movq $imm, mem` का immediate x86-64 पर
+     केवल sign-extended **32-बिट** है। कोई भी folded स्थिरांक ±2³¹ के बाहर
+     memory-स्लॉट में → `as` hard error ("operand type mismatch")। पहले से
+     मौजूद bug — `1000000 * 1000000` अभी भी 10¹² में fold होता और build
+     तोड़ता; किसी test ने छुआ नहीं था। `उत्_पूर्ण_भरो`: बाहर-रेंज मान +
+     memory-गंतव्य → `movabsq $imm64, %r10` फिर `movq %r10, mem`
+     (register-गंतव्य पर `as` खुद `movabs` चुनता)।
+   - **अनुकूलक (const-fold विस्तार):** `स्थिर_तह` अब fold करता है —
+     `अंतर्_बिट_{और,या,भेद,उलट,बाम_सरक,दक्षिण_सरक}` स्थिर operands पर
+     (संकलन-काल मूल्यांकन §3a/§3b के `बिट_*` बिल्टिन से) + एकल `ऋणात्मक` /
+     `नकार` स्थिर पर। साझा `स्थिर_में_बदलो` helper।
+   `अनुकूलक_परीक्षण` +3 केस (bitwise fold · unary fold · >2³¹ fold);
+   नया `tests/compiler/53_const_fold.सूत्र` (execute होता; interp==native;
+   folded मान 2⁵² तक — movabsq पथ exercise करता)।
+   seed **138433→140090**। fixed point + Gen1(split)==Gen2==Gen3;
+   tests/compiler **53/2**, stdlib 10/1 (41/44/18_stdlib known, शून्य regression)।
+
 **2b. मानक पुस्तकालय (`पुस्तकालय/`) — सूत्र में** (commits `07205ac` + `c07ba45`, 2026-09-01)।
    Phase 2 रोककर पहले लाइब्रेरी (Niraj का निर्णय)। **12 मॉड्यूल**, कोई C
    नहीं, interp/native समान (`tests/stdlib/` 8 फ़ाइलें):
