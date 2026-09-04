@@ -548,8 +548,21 @@ fileIO — हर एक designed, अब बिना regression।
    fixed point 135884; Gen1(split)==Gen2 + Gen2==Gen3; 51/2 + 10/1;
    pow/exception/div0/gc_status/string/list/dict सब interp==native।
 
-बचा — **Level 2: custom `_start` / `-nostdlib`** (binary अभी gcc की crt2.o से
-   `api-ms-win-crt-*` link करता — हमारे code से नहीं) — ~1-2 chunk।
+**§2s — Level 2: अपना PE प्रवेश-बिंदु, `-nostdlib` — freestanding** (commit `76ec419`, 2026-09-04)।
+   binary अब gcc की `crt2.o` (`__tmainCRTStartup`) नहीं लिंक करता। `तल.s` में
+   अपना `mainCRTStartup` (16-संरेखो → `main` बुलाओ → उसका `eax` लेकर
+   `ExitProcess`)। CRT init कुछ नहीं चाहिए — stdio हैंडल हर बार
+   `GetStdHandle`, heap = `VirtualAlloc`, कोई global ctor / SEH / `.cfi` /
+   `.eh_frame` हमारे codegen में (सत्यापित: seed में 0)। नाम `mainCRTStartup`
+   = ld का console-default entry → कोई `-e` झंडा नहीं। सब 4 link-कमांड
+   (`bootstrap.ps1` · `verify_ir_selfhost.sh` · `verify_emit*.sh` · संकलक का
+   अपना emitted linker-कमांड) → `-nostdlib -lkernel32 -lshell32`। seed
+   **135884→136031**।
+   **परिणाम: हर सूत्र binary सिर्फ़ `KERNEL32.dll` + `SHELL32.dll` import करता**
+   — 7 `api-ms-win-crt-*.dll` गए। `sutrac.exe` खुद freestanding। fixed point
+   136031; verify_ir 51/2 + suites 10/1।
+   **Runtime self-independence पूर्ण — binary का हर बाइट या हमारा code या
+   हाथ से बुलाया genuine Win32 API।** gcc अब विशुद्ध `as` + `ld`।
 
 **2b. मानक पुस्तकालय (`पुस्तकालय/`) — सूत्र में** (commits `07205ac` + `c07ba45`, 2026-09-01)।
    Phase 2 रोककर पहले लाइब्रेरी (Niraj का निर्णय)। **12 मॉड्यूल**, कोई C
