@@ -52,9 +52,10 @@ Copy-Item (Join-Path $seedDir "मूल_आवंटक.s") "_alloc.s" -Force
 if ($LASTEXITCODE -ne 0) { throw "as failed (मूल_आवंटक.s)" }
 Remove-Item "_floor.s", "_srt.s", "_alloc.s" -ErrorAction SilentlyContinue
 
-Write-Host "== 2/4  link seed compiler (gcc as ld; -nostdlib, own entry) ==" -ForegroundColor Cyan
-& $gcc -m64 -nostdlib "_seed.o" "sutra_alloc.o" "sutra_srt.o" "sutra_floor.o" -lkernel32 -lshell32 -o "seed_sutrac.exe"
-if ($LASTEXITCODE -ne 0) { throw "link failed" }
+Write-Host "== 2/4  link seed compiler (gcc as ld; -nostdlib, own entry, --no-undefined) ==" -ForegroundColor Cyan
+Remove-Item "seed_sutrac.exe" -ErrorAction SilentlyContinue
+& $gcc -m64 -nostdlib "-Wl,--no-undefined" "_seed.o" "sutra_alloc.o" "sutra_srt.o" "sutra_floor.o" -lkernel32 -lshell32 -o "seed_sutrac.exe"
+if ($LASTEXITCODE -ne 0 -or -not (Test-Path "seed_sutrac.exe")) { throw "link failed" }
 Remove-Item "_seed.s", "_seed.o" -ErrorAction SilentlyContinue
 Write-Host "   seed compiler ready: seed_sutrac.exe (zero C — तल.s + मूल_रनटाइम.s + मूल_आवंटक.s)" -ForegroundColor Green
 

@@ -14,7 +14,7 @@ BACK="स्वसंकलक/पश्च_चालक.सूत्र_native.
 W=/tmp/irsh; mkdir -p "$W"
 
 link() { cp "$1" "$W/x.s"; as -o "$W/x.o" "$W/x.s" || return 1
-         gcc -m64 -nostdlib "$W/x.o" $RT -lkernel32 -lshell32 -o "$2" || return 1; }
+         gcc -m64 -nostdlib -Wl,--no-undefined "$W/x.o" $RT -lkernel32 -lshell32 -o "$2" || return 1; }
 
 echo "== Gen1: split-compile $SRC =="
 [ -x "$FRONT" ] || ./sutrac.exe स्वसंकलक/अग्र_चालक.सूत्र >/dev/null 2>&1
