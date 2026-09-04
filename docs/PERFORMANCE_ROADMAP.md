@@ -597,6 +597,24 @@ fileIO — हर एक designed, अब बिना regression।
    ⚠ fresh clone में `संकलक/src` नहीं (gitignored) → वहाँ C++ host + `verify_*`
    oracle नहीं; `bootstrap.ps1` (शून्य C++) फिर भी चलता।
 
+**§3c — `-nostdlib` लिंक सख़्त: `--no-undefined` + exit-कोड जाँच** (commit `239da7d`, 2026-09-04)।
+   कंपाइलर का अपना build-driver (`मूल_संकलन.सूत्र`) लिंक के बाद सिर्फ़
+   `सञ्चिका_अस्ति(.exe)` जाँचता था → पिछली रन की **बासी `.exe` = झूठी
+   "सफलता"** भले ही `as`/linker अभी-अभी विफल हुआ हो। यही अंधा-धब्बा
+   `bootstrap.ps1` में भी।
+   - `मूल_संकलन.सूत्र`: हर `as` step + final link से पहले `del /q` से बासी
+     `.o`/`.exe` हटाओ, फिर `कमांड_चलाओ(...) != 0` (child exit-कोड, §2o में
+     wired) जाँचो — विफलता पर `प्रक्षेपः`।
+   - चारों लिंक-कमांड (`मूल_संकलन.सूत्र`, `bootstrap.ps1`,
+     `verify_ir_selfhost.sh`, `verify_emit{,_full}.sh`) अब
+     `-Wl,--no-undefined` पास करते। PE executable लिंक default में ही
+     अनसुलझे प्रतीक पर त्रुटि देता; explicit flag इसे future flag-drift से
+     बचाता + मंशा साफ़ दिखाता।
+   - `bootstrap.ps1`: पहले `Remove-Item seed_sutrac.exe`, फिर लिंक-परिणाम
+     पर `Test-Path` guard।
+   seed **137585→138433**। fixed point कायम; verify_ir 52/2,
+   run_suites 52/2 + stdlib 10/1, `52_bitwise` interp==native।
+
 **2b. मानक पुस्तकालय (`पुस्तकालय/`) — सूत्र में** (commits `07205ac` + `c07ba45`, 2026-09-01)।
    Phase 2 रोककर पहले लाइब्रेरी (Niraj का निर्णय)। **12 मॉड्यूल**, कोई C
    नहीं, interp/native समान (`tests/stdlib/` 8 फ़ाइलें):
