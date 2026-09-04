@@ -636,6 +636,30 @@ fileIO — हर एक designed, अब बिना regression।
    seed **138433→140090**। fixed point + Gen1(split)==Gen2==Gen3;
    tests/compiler **53/2**, stdlib 10/1 (41/44/18_stdlib known, शून्य regression)।
 
+**§4b — prologue GC-root पंजीकरण लूप** (commit `597d3e4`, 2026-09-04)।
+   `उत्_कार्य` का prologue हर GC-जड़ के लिए **4 सीधी निर्देश** देता था —
+   `movq $0, slot` (शून्य) + `leaq slot,%r11 ; movq %r11,(gc_roots[rax]) ;
+   incl %eax` (पंजीकरण)। बहुत pointer-locals सुरक्षा-बिंदु पार जीवित →
+   सैकड़ों prologue निर्देश। `पद_विच्छेदन` (lexer) में **123 जड़ें** →
+   ~492 निर्देश सिर्फ़ जड़-सेटअप में।
+   जड़-स्लॉट सन्निहित हैं (`रजि_जीसी_जड़ें` क्रमशः `ढेर, ढेर+8, …` देता;
+   उच्च ऑफ = नीचा पता)। **>4 जड़ों पर एक ही fused लूप** — प्रति स्लॉट
+   शून्य + पंजीकरण, `subq $8` walk, `decl %ecx ; jnz` — जड़-गिनती चाहे
+   जो हो, **~10 निर्देश**। ≤4 जड़ें सीधी रहती (कोई शाखा नहीं)।
+   रजिस्टर: `%eax`/`%r10`/`%r11`/`%ecx` — regalloc pool
+   (rbx,rsi,rdi,r12-r15) से बाहर + prologue-बिंदु पर मुक्त (params घर आ
+   चुके)। लेबल `.Lजड़_<fn>` प्रति-फलन unique।
+   **असर:** compiler का अपना `.s` **140090 → 112481 पंक्ति (−20%)**;
+   `sutrac.exe` **793552 → 629200 बाइट (−21%)**; `विश्लेषक.सूत्र` `.s`
+   39301 → 30774 (−22%)। pointer/string/object-heavy कोड सब तेज़ +
+   छोटा; शुद्ध-numeric कोड अछूता (उसमें GC-जड़ नहीं)।
+   seed **140090→112481**। fixed point + Gen1(split)==Gen2==Gen3;
+   tests/compiler 53/2, stdlib 10/1; GC tests (circular/repeated/realloc)
+   पास (जड़-scan सही)।
+   **⚠ स्थानीय-CSE आज़माया + छोड़ा:** local scalar-CSE सही था पर compiler
+   में शून्य hit (redundancy `पढ़_क्षेत्र`/कॉल में, शुद्ध-अंकगणित में नहीं)
+   + हल्का समय-खर्च। GVN + memory-effect ट्रैकिंग चाहिए — बाद के लिए।
+
 **2b. मानक पुस्तकालय (`पुस्तकालय/`) — सूत्र में** (commits `07205ac` + `c07ba45`, 2026-09-01)।
    Phase 2 रोककर पहले लाइब्रेरी (Niraj का निर्णय)। **12 मॉड्यूल**, कोई C
    नहीं, interp/native समान (`tests/stdlib/` 8 फ़ाइलें):
