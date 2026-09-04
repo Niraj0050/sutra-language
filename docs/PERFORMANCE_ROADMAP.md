@@ -523,7 +523,7 @@ fileIO — हर एक designed, अब बिना regression।
    33_array_ops / 29 / 50_dict_literal / 34_class_param / 40_floats /
    49_exceptions सब interp==native।
 
-**§2r — `sutra_runtime.c` DELETED — Level 1 पूर्ण** (commit `TBD`, 2026-09-04)।
+**§2r — `sutra_runtime.c` DELETED — Level 1 पूर्ण** (commit `463c7ab`, 2026-09-04)।
    अंतिम C-भाग हटा:
    - **stderr-तल** → `तल.s` `सूत्र_तल_त्रुटि` (STD_ERROR_HANDLE WriteFile)।
      `sutra_float_div` का `call sutra_throw_div_by_zero` → `call भाजन_शून्य_फेंको`।
