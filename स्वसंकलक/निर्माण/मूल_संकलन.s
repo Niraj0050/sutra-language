@@ -62744,13 +62744,14 @@
 बीज_सरल:
   pushq %rbp
   movq %rsp, %rbp
-  subq $192, %rsp
+  subq $240, %rsp
   movq %rbx, -8(%rbp)
   movq %rsi, -16(%rbp)
   movq %rdi, -24(%rbp)
   movq %r12, -32(%rbp)
   movq %r13, -40(%rbp)
   movq %r14, -48(%rbp)
+  movq %r15, -56(%rbp)
   movq %rcx, %rbx
   movq %rdx, %rsi
   movq %r8, %rdi
@@ -62759,8 +62760,8 @@
   movq %r10, %r13
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
-  leaq -72(%rbp), %r11
-  movl $14, %ecx
+  leaq -80(%rbp), %r11
+  movl $20, %ecx
 .Lजड़_बीज_सरल:
   movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
@@ -62769,14 +62770,62 @@
   decl %ecx
   jnz .Lजड़_बीज_सरल
   movl %eax, gc_roots_count(%rip)
-  movq %rsi, -72(%rbp)
-  movq %rdi, -80(%rbp)
-  movq %r12, -88(%rbp)
-  movq %r13, -96(%rbp)
+  movq %rbx, -80(%rbp)
+  movq %rsi, -88(%rbp)
+  movq %rdi, -96(%rbp)
+  movq %r12, -104(%rbp)
+  movq %r13, -112(%rbp)
 
 .L_बीज_सरल__प्रवेश_0:
+  movq .LC_strtab+3456(%rip), %r10
+  movq %r10, %r14
+  movq %r14, -120(%rbp)
+  movq %rbx, %rcx
+  movq %r14, %rdx
+  subq $32, %rsp
+  call सूची_सूचकांक
+  addq $32, %rsp
+  movq %rax, %r15
+  movq %r15, -128(%rbp)
+  movq $0, -80(%rbp)
+  movq $0, -120(%rbp)
+  movq .LC_strtab+3624(%rip), %r10
+  movq %r10, %rbx
+  movq %rbx, -136(%rbp)
+  movq %r15, %rcx
+  movq %rbx, %rdx
+  subq $32, %rsp
+  call सूची_सूचकांक
+  addq $32, %rsp
+  movq %rax, %r14
+  movq %r14, -144(%rbp)
+  movq $0, -128(%rbp)
+  movq $0, -136(%rbp)
+  movq .LC_strtab+3520(%rip), %r10
+  movq %r10, %rbx
+  movq %rbx, -152(%rbp)
+  movq %r14, %rcx
+  movq %rbx, %rdx
+  subq $32, %rsp
+  call पाठ_तुल्य
+  addq $32, %rsp
+  movq %rax, %r15
+  movq %r15, %r10
+  cmpq $0, %r10
+  sete %al
+  movzbq %al, %r10
+  movq %r10, %r15
+  movq $0, -144(%rbp)
+  movq $0, -152(%rbp)
+  movq %r15, %r10
+  cmpq $0, %r10
+  je .L_किनारा_बीज_सरल_0
+  jmp .L_बीज_सरल__if_सत्य_1
+.L_किनारा_बीज_सरल_0:
+  jmp .L_बीज_सरल__if_अंत_2
+.L_बीज_सरल__if_अंत_2:
   movq $0, %rbx
-  movq %rbx, -104(%rbp)
+  movq %rbx, -160(%rbp)
   movq %rdi, %rcx
   movq %rbx, %rdx
   subq $32, %rsp
@@ -62788,38 +62837,38 @@
   sete %al
   movzbq %al, %r10
   movq %r10, %r14
-  movq $0, -104(%rbp)
+  movq $0, -160(%rbp)
   movq %r14, %r10
   cmpq $0, %r10
-  je .L_किनारा_बीज_सरल_0
-  jmp .L_बीज_सरल__if_सत्य_1
-.L_किनारा_बीज_सरल_0:
-  jmp .L_बीज_सरल__if_अंत_2
-.L_बीज_सरल__if_सत्य_1:
+  je .L_किनारा_बीज_सरल_1
+  jmp .L_बीज_सरल__if_सत्य_3
+.L_किनारा_बीज_सरल_1:
+  jmp .L_बीज_सरल__if_अंत_4
+.L_बीज_सरल__if_सत्य_3:
   movq .LC_strtab+3456(%rip), %r10
   movq %r10, %rbx
-  movq %rbx, -112(%rbp)
+  movq %rbx, -168(%rbp)
   movq %rdi, %rcx
   movq %rbx, %rdx
   subq $32, %rsp
   call सूची_सूचकांक
   addq $32, %rsp
   movq %rax, %r14
-  movq %r14, -120(%rbp)
-  movq $0, -80(%rbp)
-  movq $0, -112(%rbp)
+  movq %r14, -176(%rbp)
+  movq $0, -96(%rbp)
+  movq $0, -168(%rbp)
   movq .LC_strtab+424(%rip), %r10
   movq %r10, %rbx
-  movq %rbx, -128(%rbp)
+  movq %rbx, -184(%rbp)
   movq %r14, %rcx
   movq %rbx, %rdx
   subq $32, %rsp
   call सूची_सूचकांक
   addq $32, %rsp
   movq %rax, %rdi
-  movq %rdi, -136(%rbp)
-  movq $0, -120(%rbp)
-  movq $0, -128(%rbp)
+  movq %rdi, -192(%rbp)
+  movq $0, -176(%rbp)
+  movq $0, -184(%rbp)
   movq .LC_strtab+3872(%rip), %r10
   movq %r10, %rbx
   movq %rsi, %rcx
@@ -62830,14 +62879,14 @@
   movq %rax, %r14
   movq %r14, %r10
   cmpq $0, %r10
-  je .L_किनारा_बीज_सरल_1
-  jmp .L_बीज_सरल__sc_दायाँ_3
-.L_किनारा_बीज_सरल_1:
-  jmp .L_बीज_सरल__sc_लघु_4
-.L_बीज_सरल__sc_लघु_4:
+  je .L_किनारा_बीज_सरल_2
+  jmp .L_बीज_सरल__sc_दायाँ_5
+.L_किनारा_बीज_सरल_2:
+  jmp .L_बीज_सरल__sc_लघु_6
+.L_बीज_सरल__sc_लघु_6:
   movq $0, %rbx
-  jmp .L_बीज_सरल__sc_अंत_5
-.L_बीज_सरल__sc_दायाँ_3:
+  jmp .L_बीज_सरल__sc_अंत_7
+.L_बीज_सरल__sc_दायाँ_5:
   movq $0, %rbx
   movq %rdi, %r10
   cmpq %rbx, %r10
@@ -62845,15 +62894,15 @@
   movzbq %al, %r10
   movq %r10, %r14
   movq %r14, %rbx
-  jmp .L_बीज_सरल__sc_अंत_5
-.L_बीज_सरल__sc_अंत_5:
+  jmp .L_बीज_सरल__sc_अंत_7
+.L_बीज_सरल__sc_अंत_7:
   movq %rbx, %r10
   cmpq $0, %r10
-  je .L_किनारा_बीज_सरल_2
-  jmp .L_बीज_सरल__if_सत्य_6
-.L_किनारा_बीज_सरल_2:
-  jmp .L_बीज_सरल__if_अंत_7
-.L_बीज_सरल__if_अंत_7:
+  je .L_किनारा_बीज_सरल_3
+  jmp .L_बीज_सरल__if_सत्य_8
+.L_किनारा_बीज_सरल_3:
+  jmp .L_बीज_सरल__if_अंत_9
+.L_बीज_सरल__if_अंत_9:
   movq .LC_strtab+3888(%rip), %r10
   movq %r10, %rbx
   movq %rsi, %rcx
@@ -62864,35 +62913,35 @@
   movq %rax, %r14
   movq %r14, %r10
   cmpq $0, %r10
-  je .L_किनारा_बीज_सरल_3
-  jmp .L_बीज_सरल__sc_दायाँ_8
-.L_किनारा_बीज_सरल_3:
-  jmp .L_बीज_सरल__sc_लघु_9
-.L_बीज_सरल__sc_लघु_9:
+  je .L_किनारा_बीज_सरल_4
+  jmp .L_बीज_सरल__sc_दायाँ_10
+.L_किनारा_बीज_सरल_4:
+  jmp .L_बीज_सरल__sc_लघु_11
+.L_बीज_सरल__sc_लघु_11:
   movq $0, %rbx
-  jmp .L_बीज_सरल__sc_अंत_10
-.L_बीज_सरल__sc_दायाँ_8:
+  jmp .L_बीज_सरल__sc_अंत_12
+.L_बीज_सरल__sc_दायाँ_10:
   movq $1, %rbx
   movq %rdi, %r10
   cmpq %rbx, %r10
   sete %al
   movzbq %al, %r10
   movq %r10, %r14
-  movq $0, -136(%rbp)
+  movq $0, -192(%rbp)
   movq %r14, %rbx
-  jmp .L_बीज_सरल__sc_अंत_10
-.L_बीज_सरल__sc_अंत_10:
+  jmp .L_बीज_सरल__sc_अंत_12
+.L_बीज_सरल__sc_अंत_12:
   movq %rbx, %r10
   cmpq $0, %r10
-  je .L_किनारा_बीज_सरल_4
-  jmp .L_बीज_सरल__if_सत्य_11
-.L_किनारा_बीज_सरल_4:
-  jmp .L_बीज_सरल__if_अंत_12
-.L_बीज_सरल__if_अंत_12:
-  jmp .L_बीज_सरल__if_अंत_2
-.L_बीज_सरल__if_अंत_2:
+  je .L_किनारा_बीज_सरल_5
+  jmp .L_बीज_सरल__if_सत्य_13
+.L_किनारा_बीज_सरल_5:
+  jmp .L_बीज_सरल__if_अंत_14
+.L_बीज_सरल__if_अंत_14:
+  jmp .L_बीज_सरल__if_अंत_4
+.L_बीज_सरल__if_अंत_4:
   movq $0, %rbx
-  movq %rbx, -144(%rbp)
+  movq %rbx, -200(%rbp)
   movq %r12, %rcx
   movq %rbx, %rdx
   subq $32, %rsp
@@ -62904,38 +62953,38 @@
   sete %al
   movzbq %al, %r10
   movq %r10, %rdi
-  movq $0, -144(%rbp)
+  movq $0, -200(%rbp)
   movq %rdi, %r10
   cmpq $0, %r10
-  je .L_किनारा_बीज_सरल_5
-  jmp .L_बीज_सरल__if_सत्य_13
-.L_किनारा_बीज_सरल_5:
-  jmp .L_बीज_सरल__if_अंत_14
-.L_बीज_सरल__if_सत्य_13:
+  je .L_किनारा_बीज_सरल_6
+  jmp .L_बीज_सरल__if_सत्य_15
+.L_किनारा_बीज_सरल_6:
+  jmp .L_बीज_सरल__if_अंत_16
+.L_बीज_सरल__if_सत्य_15:
   movq .LC_strtab+3456(%rip), %r10
   movq %r10, %rbx
-  movq %rbx, -152(%rbp)
+  movq %rbx, -208(%rbp)
   movq %r12, %rcx
   movq %rbx, %rdx
   subq $32, %rsp
   call सूची_सूचकांक
   addq $32, %rsp
   movq %rax, %rdi
-  movq %rdi, -160(%rbp)
-  movq $0, -88(%rbp)
-  movq $0, -152(%rbp)
+  movq %rdi, -216(%rbp)
+  movq $0, -104(%rbp)
+  movq $0, -208(%rbp)
   movq .LC_strtab+424(%rip), %r10
   movq %r10, %rbx
-  movq %rbx, -168(%rbp)
+  movq %rbx, -224(%rbp)
   movq %rdi, %rcx
   movq %rbx, %rdx
   subq $32, %rsp
   call सूची_सूचकांक
   addq $32, %rsp
   movq %rax, %r12
-  movq %r12, -176(%rbp)
-  movq $0, -160(%rbp)
-  movq $0, -168(%rbp)
+  movq %r12, -232(%rbp)
+  movq $0, -216(%rbp)
+  movq $0, -224(%rbp)
   movq .LC_strtab+3872(%rip), %r10
   movq %r10, %rbx
   movq %rsi, %rcx
@@ -62946,14 +62995,14 @@
   movq %rax, %rdi
   movq %rdi, %r10
   cmpq $0, %r10
-  je .L_किनारा_बीज_सरल_6
-  jmp .L_बीज_सरल__sc_दायाँ_15
-.L_किनारा_बीज_सरल_6:
-  jmp .L_बीज_सरल__sc_लघु_16
-.L_बीज_सरल__sc_लघु_16:
+  je .L_किनारा_बीज_सरल_7
+  jmp .L_बीज_सरल__sc_दायाँ_17
+.L_किनारा_बीज_सरल_7:
+  jmp .L_बीज_सरल__sc_लघु_18
+.L_बीज_सरल__sc_लघु_18:
   movq $0, %rbx
-  jmp .L_बीज_सरल__sc_अंत_17
-.L_बीज_सरल__sc_दायाँ_15:
+  jmp .L_बीज_सरल__sc_अंत_19
+.L_बीज_सरल__sc_दायाँ_17:
   movq $0, %rbx
   movq %r12, %r10
   cmpq %rbx, %r10
@@ -62961,15 +63010,15 @@
   movzbq %al, %r10
   movq %r10, %rdi
   movq %rdi, %rbx
-  jmp .L_बीज_सरल__sc_अंत_17
-.L_बीज_सरल__sc_अंत_17:
+  jmp .L_बीज_सरल__sc_अंत_19
+.L_बीज_सरल__sc_अंत_19:
   movq %rbx, %r10
   cmpq $0, %r10
-  je .L_किनारा_बीज_सरल_7
-  jmp .L_बीज_सरल__if_सत्य_18
-.L_किनारा_बीज_सरल_7:
-  jmp .L_बीज_सरल__if_अंत_19
-.L_बीज_सरल__if_अंत_19:
+  je .L_किनारा_बीज_सरल_8
+  jmp .L_बीज_सरल__if_सत्य_20
+.L_किनारा_बीज_सरल_8:
+  jmp .L_बीज_सरल__if_अंत_21
+.L_बीज_सरल__if_अंत_21:
   movq .LC_strtab+3880(%rip), %r10
   movq %r10, %rbx
   movq %rsi, %rcx
@@ -62980,14 +63029,14 @@
   movq %rax, %rdi
   movq %rdi, %r10
   cmpq $0, %r10
-  je .L_किनारा_बीज_सरल_8
-  jmp .L_बीज_सरल__sc_दायाँ_20
-.L_किनारा_बीज_सरल_8:
-  jmp .L_बीज_सरल__sc_लघु_21
-.L_बीज_सरल__sc_लघु_21:
+  je .L_किनारा_बीज_सरल_9
+  jmp .L_बीज_सरल__sc_दायाँ_22
+.L_किनारा_बीज_सरल_9:
+  jmp .L_बीज_सरल__sc_लघु_23
+.L_बीज_सरल__sc_लघु_23:
   movq $0, %rbx
-  jmp .L_बीज_सरल__sc_अंत_22
-.L_बीज_सरल__sc_दायाँ_20:
+  jmp .L_बीज_सरल__sc_अंत_24
+.L_बीज_सरल__sc_दायाँ_22:
   movq $0, %rbx
   movq %r12, %r10
   cmpq %rbx, %r10
@@ -62995,15 +63044,15 @@
   movzbq %al, %r10
   movq %r10, %rdi
   movq %rdi, %rbx
-  jmp .L_बीज_सरल__sc_अंत_22
-.L_बीज_सरल__sc_अंत_22:
+  jmp .L_बीज_सरल__sc_अंत_24
+.L_बीज_सरल__sc_अंत_24:
   movq %rbx, %r10
   cmpq $0, %r10
-  je .L_किनारा_बीज_सरल_9
-  jmp .L_बीज_सरल__if_सत्य_23
-.L_किनारा_बीज_सरल_9:
-  jmp .L_बीज_सरल__if_अंत_24
-.L_बीज_सरल__if_अंत_24:
+  je .L_किनारा_बीज_सरल_10
+  jmp .L_बीज_सरल__if_सत्य_25
+.L_किनारा_बीज_सरल_10:
+  jmp .L_बीज_सरल__if_अंत_26
+.L_बीज_सरल__if_अंत_26:
   movq .LC_strtab+3888(%rip), %r10
   movq %r10, %rbx
   movq %rsi, %rcx
@@ -63012,40 +63061,40 @@
   call पाठ_तुल्य
   addq $32, %rsp
   movq %rax, %rdi
-  movq $0, -72(%rbp)
+  movq $0, -88(%rbp)
   movq %rdi, %r10
   cmpq $0, %r10
-  je .L_किनारा_बीज_सरल_10
-  jmp .L_बीज_सरल__sc_दायाँ_25
-.L_किनारा_बीज_सरल_10:
-  jmp .L_बीज_सरल__sc_लघु_26
-.L_बीज_सरल__sc_लघु_26:
+  je .L_किनारा_बीज_सरल_11
+  jmp .L_बीज_सरल__sc_दायाँ_27
+.L_किनारा_बीज_सरल_11:
+  jmp .L_बीज_सरल__sc_लघु_28
+.L_बीज_सरल__sc_लघु_28:
   movq $0, %rbx
-  jmp .L_बीज_सरल__sc_अंत_27
-.L_बीज_सरल__sc_दायाँ_25:
+  jmp .L_बीज_सरल__sc_अंत_29
+.L_बीज_सरल__sc_दायाँ_27:
   movq $1, %rbx
   movq %r12, %r10
   cmpq %rbx, %r10
   sete %al
   movzbq %al, %r10
   movq %r10, %rsi
-  movq $0, -176(%rbp)
+  movq $0, -232(%rbp)
   movq %rsi, %rbx
-  jmp .L_बीज_सरल__sc_अंत_27
-.L_बीज_सरल__sc_अंत_27:
+  jmp .L_बीज_सरल__sc_अंत_29
+.L_बीज_सरल__sc_अंत_29:
   movq %rbx, %r10
   cmpq $0, %r10
-  je .L_किनारा_बीज_सरल_11
-  jmp .L_बीज_सरल__if_सत्य_28
-.L_किनारा_बीज_सरल_11:
-  jmp .L_बीज_सरल__if_अंत_29
-.L_बीज_सरल__if_अंत_29:
-  jmp .L_बीज_सरल__if_अंत_14
-.L_बीज_सरल__if_अंत_14:
+  je .L_किनारा_बीज_सरल_12
+  jmp .L_बीज_सरल__if_सत्य_30
+.L_किनारा_बीज_सरल_12:
+  jmp .L_बीज_सरल__if_अंत_31
+.L_बीज_सरल__if_अंत_31:
+  jmp .L_बीज_सरल__if_अंत_16
+.L_बीज_सरल__if_अंत_16:
   movq $-1, %rbx
   movq %rbx, %rax
   jmp .L_epilogue_बीज_सरल
-.L_बीज_सरल__if_सत्य_28:
+.L_बीज_सरल__if_सत्य_30:
   movq $0, %rbx
   movq %r13, %rcx
   movq %rbx, %rdx
@@ -63055,7 +63104,7 @@
   movq %rax, %rsi
   movq %rsi, %rax
   jmp .L_epilogue_बीज_सरल
-.L_बीज_सरल__if_सत्य_23:
+.L_बीज_सरल__if_सत्य_25:
   movq $0, %rbx
   movq %r13, %rcx
   movq %rbx, %rdx
@@ -63065,7 +63114,7 @@
   movq %rax, %rsi
   movq %rsi, %rax
   jmp .L_epilogue_बीज_सरल
-.L_बीज_सरल__if_सत्य_18:
+.L_बीज_सरल__if_सत्य_20:
   movq $0, %rbx
   movq %r13, %rcx
   movq %rbx, %rdx
@@ -63075,7 +63124,7 @@
   movq %rax, %rsi
   movq %rsi, %rax
   jmp .L_epilogue_बीज_सरल
-.L_बीज_सरल__if_सत्य_11:
+.L_बीज_सरल__if_सत्य_13:
   movq $1, %rbx
   movq %r13, %rcx
   movq %rbx, %rdx
@@ -63085,7 +63134,7 @@
   movq %rax, %rsi
   movq %rsi, %rax
   jmp .L_epilogue_बीज_सरल
-.L_बीज_सरल__if_सत्य_6:
+.L_बीज_सरल__if_सत्य_8:
   movq $1, %rbx
   movq %r13, %rcx
   movq %rbx, %rdx
@@ -63093,17 +63142,22 @@
   call सूची_सूचकांक
   addq $32, %rsp
   movq %rax, %rsi
-  movq $0, -96(%rbp)
+  movq $0, -112(%rbp)
   movq %rsi, %rax
+  jmp .L_epilogue_बीज_सरल
+.L_बीज_सरल__if_सत्य_1:
+  movq $-1, %rbx
+  movq %rbx, %rax
   jmp .L_epilogue_बीज_सरल
 .L_epilogue_बीज_सरल:
-  subl $14, gc_roots_count(%rip)
+  subl $20, gc_roots_count(%rip)
   movq -8(%rbp), %rbx
   movq -16(%rbp), %rsi
   movq -24(%rbp), %rdi
   movq -32(%rbp), %r12
   movq -40(%rbp), %r13
   movq -48(%rbp), %r14
+  movq -56(%rbp), %r15
   movq %rbp, %rsp
   popq %rbp
   ret
