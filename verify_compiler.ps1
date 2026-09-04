@@ -5,7 +5,10 @@ Write-Host "========================================================" -Foregroun
 Write-Host "       Sutra Native Compiler Verification Tool" -ForegroundColor Cyan
 Write-Host "========================================================" -ForegroundColor Cyan
 
-$sutraExe = Resolve-Path ".\sutra.exe"
+$sutraExe = Resolve-Path ".\sutra.exe"        # interpreter (reference output)
+$nativeCompiler = Resolve-Path ".\sutrac.exe" # self-hosted native compiler (`sutra.exe build`
+                                               # is retired — its C++ codegen predates the
+                                               # freestanding तल.s runtime and now conflicts with it)
 $compilerDir = "tests\compiler"
 $total = 0
 $passed = 0
@@ -34,7 +37,7 @@ foreach ($test in $positiveTests) {
     $interpreterExit = $LASTEXITCODE
     
     # Compile natively
-    $compileOut = & $sutraExe build $relPath 2>&1 | Out-String
+    $compileOut = & $nativeCompiler $relPath 2>&1 | Out-String
     $compileExit = $LASTEXITCODE
     
     if ($compileExit -ne 0) {
@@ -44,7 +47,7 @@ foreach ($test in $positiveTests) {
         continue
     }
     
-    $nativeExe = Join-Path $compilerDir "$($name)_native.exe"
+    $nativeExe = Join-Path $compilerDir "$($test.Name)_native.exe"
     if (-not (Test-Path $nativeExe)) {
         Write-Host "  [FAIL] $name (Native executable not found)" -ForegroundColor Red
         $failed++
@@ -97,7 +100,7 @@ if ($negativeTests.Count -gt 0) {
         $relPath = "$compilerDir\negative\$($test.Name)"
         
         # Compile natively
-        $compileOut = & $sutraExe build $relPath 2>&1 | Out-String
+        $compileOut = & $nativeCompiler $relPath 2>&1 | Out-String
         $compileExit = $LASTEXITCODE
         
         if ($compileExit -ne 0) {
@@ -106,7 +109,7 @@ if ($negativeTests.Count -gt 0) {
             continue
         }
         
-        $nativeExe = Join-Path "$compilerDir\negative" "$($test.BaseName)_native.exe"
+        $nativeExe = Join-Path "$compilerDir\negative" "$($test.Name)_native.exe"
         if (-not (Test-Path $nativeExe)) {
             Write-Host "  [FAIL] $name (Native executable not found)" -ForegroundColor Red
             $failed++

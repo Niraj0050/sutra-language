@@ -13,7 +13,7 @@ $env:PATH = "C:\msys64\ucrt64\bin;$env:PATH"
 Set-Location $PSScriptRoot
 
 if (-not $Compiler) {
-    $Compiler = Join-Path $PSScriptRoot "स्वसंकलक\मूल_संकलन_native.exe"
+    $Compiler = Join-Path $PSScriptRoot "sutrac.exe"
 }
 if (-not (Test-Path $Compiler)) { throw "compiler not found: $Compiler  (build it first, e.g. bootstrap.ps1)" }
 

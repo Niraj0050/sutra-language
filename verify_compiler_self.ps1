@@ -5,7 +5,7 @@ Write-Host "========================================================" -Foregroun
 Write-Host "       Sutra Self-Hosted Compiler Verification Tool" -ForegroundColor Cyan
 Write-Host "========================================================" -ForegroundColor Cyan
 
-$sutraExe = Resolve-Path ".\sutra_self.exe"
+$sutraExe = Resolve-Path ".\sutrac.exe"
 $compilerDir = "tests\compiler"
 $total = 0
 $passed = 0
