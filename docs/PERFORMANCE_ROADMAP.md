@@ -915,6 +915,38 @@ GVN/LICM/cross-call CSE — सब के लिए नींव बनेगी
   बनाओ — अभी अन्वेषित नहीं)। seed अपरिवर्तित (101110), पूरा self-host
   fixed-point + bootstrap.ps1 दोनों हरे।
 
+- **🟡 फलन-इनलाइनिंग v1 — logic बनी + सत्यापित, पर wiring blocked**
+  (commit `3aabb16`, 2026-09-05)। सूत्र बनाम `g++ -O2` benchmark में सबसे
+  बड़ा नापा गया अंतर यही निकला — `fib(35)` में ~30 करोड़ recursive calls,
+  हर एक पूरा call-overhead (stack frame, argument marshalling) भरता, कोई
+  inlining नहीं। नया `स्वसंकलक/अंतर्वेशन.सूत्र`: same-module,
+  non-recursive, single-basic-block callee (≤20 निर्देश) को call-site पर
+  सीधे splice करता — कोई नया ब्लॉक/CFG/phi नहीं चाहिए, बस निर्देश-क्लोन +
+  fresh ids + पैरामीटर→argument rename + `अनु_हर_उपयोग_बदलो` से
+  परिणाम-rewrite। Splice के बाद बदले हुए काॅलर पर `अनुकूलक_कार्य` फिर
+  चलती ताकि constant argument सीधे inlined body से होकर fold हो जाए
+  (structural tests में confirmed — const argument वाला call पूरा एक
+  `स्थिर` में fold हो गया)। 6 tests (असली parser, लूप_अनुकूलन_परीक्षण जैसी
+  शैली): मूल splice, दो स्वतंत्र call-site, self-recursion negative,
+  multi-block negative (v1-सीमा), oversized-callee negative — सब पास।
+  `verify_ir.ps1` 7/7, कहीं wire नहीं — seed byte-identical (101110)।
+  **अस्थायी रूप से `मूल_संकलन.सूत्र`+`अग्र_चालक.सूत्र` में wire करके मापा**
+  (M4-B जैसा ही तरीका): self-compile time **~9.3s → ~17.9s (लगभग दोगुना,
+  +92%)** — साफ़ regression, तुरंत `git checkout` से revert किया (कमिट
+  नहीं हुआ)। जड़ अभी isolate नहीं की (M4-B जितनी गहराई से नहीं खोजा), पर
+  सबसे संभावित कारण: हर सफल splice के बाद पूरा `अनुकूलक_कार्य` (mem2reg
+  दोबारा + 5-दौर const-fold/jump-thread/DCE fixpoint) दोबारा चलाना —
+  compiler में बहुतेरे फलन कम-से-कम एक helper इनलाइन पाते, तो लगभग हर
+  फलन पर पूरा optimizer pipeline दो बार चल रहा है। **संभावित सस्ता fix
+  (अगले सत्र के लिए, अभी आज़माया नहीं)**: स्लॉट पहले ही promote हो चुके
+  हैं तो splice के बाद `स्लॉट_उन्नयन` दोबारा चलाने की ज़रूरत नहीं — सिर्फ़
+  हल्का cleanup (स्थिर_तह+जाओ_सरल+मृत_कोड_हटाओ, बिना mem2reg के, या सिर्फ़
+  प्रभावित ब्लॉक्स पर) चलाना काफ़ी हो सकता है। **Unwired छोड़ा गया**
+  (M1-4A/M4-B जैसा ही अनुशासन — दूसरी बार अब measure-first discipline ने
+  regression पकड़ा, न कि सिर्फ़ एक बार का इत्तेफ़ाक़)। seed अपरिवर्तित
+  (101110), पूरा self-host fixed-point + bootstrap.ps1 दोनों हरे revert
+  के बाद भी।
+
 **2b. मानक पुस्तकालय (`पुस्तकालय/`) — सूत्र में** (commits `07205ac` + `c07ba45`, 2026-09-01)।
    Phase 2 रोककर पहले लाइब्रेरी (Niraj का निर्णय)। **12 मॉड्यूल**, कोई C
    नहीं, interp/native समान (`tests/stdlib/` 8 फ़ाइलें):
