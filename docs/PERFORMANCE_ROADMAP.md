@@ -1159,6 +1159,47 @@ pure-सूत्र backend `sutra build` का default रहता है।
 है (`as` जैसा), dependency नहीं।
 - **Milestone: `--release` builds clang-tier — यहीं "C++ से टक्कर"**
 
+**✅ Increment 1 — standalone LLVM code-generator DONE, अभी wire नहीं**
+(commit `51fb2c3`, 2026-09-05)। `sutra build --release` की तरफ़ पहला
+असली कदम — एक correctness-सत्यापित IR→LLVM-IR-पाठ जनरेटर, standalone
+(मूल_संकलन.सूत्र की pipeline में wire नहीं), उसी regression corpus पर
+जाँचा जिस पर x86 backend।
+- **नई फ़ाइलें**: `स्वसंकलक/एलएलवीएम_उत्सर्जक.सूत्र` (मध्यम IR एकक →
+  `.ll` पाठ; `उत्सर्जक_एकक` जैसा ही input-contract), `स्वसंकलक/
+  एलएलवीएम_चालक.सूत्र` (पश्च_चालक जैसा driver — अग्र_चालक की IR-पाठ पढ़ता),
+  `verify_ir_llvm.sh` (verify_ir_selfhost.sh का tests/compiler-loop —
+  अग्र_चालक → एलएलवीएम_चालक → `llc -filetype=obj` → वही `gcc -nostdlib`
+  link जो मूल_संकलन.सूत्र करता → चला → `sutra.exe run` से diff)।
+- **GC**: `रजि_नियतक_कार्य` black-box reuse — सिर्फ़ उसका GC-root-चयन
+  (जीसी_जड़ें/जीसी_जड़_नक्शा/जीसी_मृत्यु_पद) लिया, रजिस्टर-नियतन अनदेखा
+  (LLVM अपना करता)। shadow-stack scheme x86 जैसा ही — वही `gc_roots[]`
+  ABI, per-def slot-store, death null-store, per-return pop। संग्राहक +
+  तीनों runtime `.o` (तल/मूल_रनटाइम/मूल_आवंटक) बिलकुल अछूते, LLVM object
+  उन्हीं से link होता।
+- **डिज़ाइन**: एकसमान i64 value-model (हर सूत्र मान = LLVM i64 raw word,
+  केवल शून्य→void; inttoptr पुल सिर्फ़ GEP/load/store पर) — LLVM की phi/
+  call type-consistency ज़रूरत को पूरी तरह टालता ("मान" phi जो एक edge
+  पर पाठ merge करे वो भी all-i64)। फाई सीधे LLVM `phi` बनता — x86 की
+  parallel-move/cycle-break/edge-splitting मशीनरी यहाँ अनावश्यक।
+  दशमलव अंकगणित अभी भी `sutra_float_*` runtime कॉल (x86 से byte-parity)।
+  mingw target हर `main`-नाम फलन में `call @__main` घुसाता → सूत्र में
+  C++ static ctor नहीं, तो emitter एक no-op `@__main` stub देता।
+- **Toolchain**: `pacman -S mingw-w64-ucrt-x86_64-clang` + `-llvm`
+  (llc/clang, MSYS2 ucrt64 — वही provider जो as/gcc)। Triple
+  `x86_64-w64-windows-gnu`।
+- **सत्यापन**: `tests/compiler` **54/54** LLVM path से (interpreter-
+  byte-match, GC-stress/exception/bitwise समेत); `tests/stdlib` 10/11
+  (सिर्फ़ `18_stdlib` — वही पूर्व-मौजूद tagged-value सीमा जो x86 भी fail
+  करता, backend bug नहीं)। कोई मौजूदा फ़ाइल नहीं छुई — मूल_संकलन.सूत्र/
+  अग्र_चालक.सूत्र/frozen seed byte-identical, तो x86 self-host fixed
+  point अप्रभावित; `verify_ir.ps1` 10/10 कायम।
+- **आगे (अगले increments)**: `--release` flag wiring (पुस्तकालय/तर्क.सूत्र
+  के argparse से); `g++ -O2` बनाम x86 backend बनाम LLVM backend perf
+  मापन — "कितना C++ gap बंद होता" — यही असली payoff, correctness के
+  बाद; native `fadd` (autovec headroom), किसी भी LLVM-विशिष्ट opt।
+  विधि_बुलाओ/परिवर्तन/नव_पाठ(byte-form) — निम्नक आज भी emit नहीं करता,
+  तो x86 जैसा ही दायरा।
+
 ### Phase 6 — domain performance। ongoing
 SIMD + autovec, tensor types, GPU (SPIR-V / PTX IR से emit),
 WASM backend (web), async runtime।
