@@ -1193,12 +1193,32 @@ pure-सूत्र backend `sutra build` का default रहता है।
   करता, backend bug नहीं)। कोई मौजूदा फ़ाइल नहीं छुई — मूल_संकलन.सूत्र/
   अग्र_चालक.सूत्र/frozen seed byte-identical, तो x86 self-host fixed
   point अप्रभावित; `verify_ir.ps1` 10/10 कायम।
+- **⚡ PERF मापा** (commit `deb0922`, native `.exe`, 5-run min):
+
+  | benchmark | सूत्र x86 backend | सूत्र LLVM backend | `gcc -O2` |
+  |---|---|---|---|
+  | `fib(35)` (recursion) | 0.635s | **0.054s** | 0.031s |
+  | tight loop 2×10⁸ (`योग += इ%7`) | 0.589s | **0.218s** | 0.279s |
+
+  LLVM backend = **~12x** faster than सूत्र's own x86 backend on `fib`
+  (gap to `gcc -O2` ~20x → **~1.7x**), and **~2.7x** faster on the loop
+  — *beating* `gcc -O2` there. यही roadmap का "`--release` builds
+  clang-tier — यहीं C++ से टक्कर" milestone, इन patterns पर असल में
+  पहुँचा।
+  **Unlock**: पहली माप में `फिब(अ-1)+फिब(अ-2)` का `+` `पाठ_योग_गतिक`
+  (dynamic-add runtime कॉल) बन रहा था — return-type-inference call-tag
+  update करता पर downstream अंकगणित की विधि नहीं (x86 backend में भी वही,
+  पर वहाँ कोई downstream optimizer नहीं जो block हो)। छोटा emitter
+  refinement (commit `deb0922`): दोनों operand सिद्ध रूप से पूर्ण/बूल हों
+  तो "मान"-विधि पर भी native `add`/`icmp` — इससे fib **0.575s→0.054s**
+  (clang -O2 अब pure recursion के आर-पार देख पाता)। tests/compiler 54/54
+  कायम।
+
 - **आगे (अगले increments)**: `--release` flag wiring (पुस्तकालय/तर्क.सूत्र
-  के argparse से); `g++ -O2` बनाम x86 backend बनाम LLVM backend perf
-  मापन — "कितना C++ gap बंद होता" — यही असली payoff, correctness के
-  बाद; native `fadd` (autovec headroom), किसी भी LLVM-विशिष्ट opt।
-  विधि_बुलाओ/परिवर्तन/नव_पाठ(byte-form) — निम्नक आज भी emit नहीं करता,
-  तो x86 जैसा ही दायरा।
+  के argparse से); native `fadd`/`fcmp` (float autovec headroom); IR-
+  स्तर पर return-type/विधि की पूरी re-derivation (अभी emitter सिर्फ़
+  spot-fix करता); किसी भी LLVM-विशिष्ट opt। विधि_बुलाओ/परिवर्तन/नव_पाठ
+  (byte-form) — निम्नक आज भी emit नहीं करता, तो x86 जैसा ही दायरा।
 
 ### Phase 6 — domain performance। ongoing
 SIMD + autovec, tensor types, GPU (SPIR-V / PTX IR से emit),
