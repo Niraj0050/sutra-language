@@ -1015,6 +1015,36 @@ GVN/LICM/cross-call CSE — सब के लिए नींव बनेगी
   `लूप_अनुकूलन.सूत्र`) — worklist redesign या कोई और सस्ता रास्ता मिलने
   पर फिर से आज़माया जा सकता है।
 
+- **✅ Self-tail-call optimization (TCO) — बनी और असल में WIRE हुई**
+  (commit `daf0b63` module, `bccf9e6` wiring, 2026-09-05)। fib(35)
+  (non-tail) benchmark ने ~21x gap दिखाया था, पर inlining v1 जानबूझकर
+  self-recursion नहीं छूता — यह उसका पूरक: जब पुनरावर्ती कॉल पुच्छ-स्थिति
+  में हो (`परत् फलन(...);`, कॉल के बाद कुछ नहीं), उसे argument-rebind +
+  loop-header पर जाओ में बदल देता — call-overhead खत्म, stack-गहराई
+  O(1)। नया `स्वसंकलक/पुच्छ_अनुकूलन.सूत्र`: सिर्फ़ self-recursion (mutual
+  नहीं), सच्ची पुच्छ-स्थिति (कॉल खंड की आख़िरी निर्देश + नतीजे का उपयोग
+  ठीक 1), entry-खंड कभी candidate नहीं (कोई base-case वाला विकृत मामला
+  अलग रखा)। कई tail-call स्थल सही ढंग से एक ही loop-header पर मिलते।
+  **मापा** (inlining जैसा ही तरीका, wire करने से पहले):
+  - **Runtime payoff**: accumulator-शैली benchmark (50,000 बाहरी दौर ×
+    1000-गहरी पुच्छ-पुनरावृत्ति हर बार) — बिना TCO **~0.40s** → साथ
+    **~0.11s**, **~3.6x speedup**। दोनों का output बिल्कुल मैच।
+  - **गुणात्मक सुरक्षा-जीत भी**: 20 लाख-गहरी सीधी recursion बिना TCO के
+    **crash (stack overflow)** होती, TCO के साथ तुरंत सही चलती — यह
+    सिर्फ़ गति नहीं, पहले-crash-होने-वाला प्रोग्राम अब काम करने लगा।
+  - **Self-compile लागत**: पहले/बाद एक ही समय पर लगातार मापा (ambient
+    machine-load अलग करने को) — **~+5%** — inlining के ~+74-92% से
+    कहीं कम, matches समझ में आता है क्योंकि TCO सिर्फ़ उन थोड़े-से फलनों
+    को छूता जिनमें असल में self-tail-call हो, हर छोटे helper-call वाले
+    फलन को नहीं (inlining जितना)।
+  **निर्णय: wire किया** (inlining जैसा ही standard — फ़ायदा सीधे मापा,
+  लागत से कहीं बड़ा)। पूर्ण सत्यापन: `verify_ir.ps1` 8/8; self-host
+  fixed point **140113 lines** (134245 से — TCO के phi/loop-header
+  overhead वाले फलनों से अपेक्षित वृद्धि); `tests/compiler` 54/54 (कोई
+  regression नहीं); `tests/stdlib` 10/11 (असंबंधित पूर्व-सीमा); bitwise
+  interp==native कायम। **seed ताज़ा किया** (134245→**140113**), दोबारा
+  `bootstrap.ps1` से पुष्टि — `[OK]`।
+
 **2b. मानक पुस्तकालय (`पुस्तकालय/`) — सूत्र में** (commits `07205ac` + `c07ba45`, 2026-09-01)।
    Phase 2 रोककर पहले लाइब्रेरी (Niraj का निर्णय)। **12 मॉड्यूल**, कोई C
    नहीं, interp/native समान (`tests/stdlib/` 8 फ़ाइलें):
