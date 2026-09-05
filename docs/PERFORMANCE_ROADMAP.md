@@ -1076,6 +1076,51 @@ GVN/LICM/cross-call CSE — सब के लिए नींव बनेगी
   lines** (140113 से); `tests/compiler` 54/54; `tests/stdlib` 10/11;
   bitwise कायम; seed ताज़ा (140113→**140721**), दोबारा bootstrap `[OK]`।
 
+- **⏸️ Bounded self-recursive inlining (गहन_अंतर्वेशन) — बनी, मापी, wire
+  नहीं की** (commit `972b062`, 2026-09-05)। fib(35)-शैली non-tail
+  self-recursion अभी भी अछूता गैप था — inlining v1 self-recursion
+  जानबूझकर छोड़ता, TCO सिर्फ़ पुच्छ-स्थिति छूता। नया
+  `स्वसंकलक/गहन_अंतर्वेशन.सूत्र`: self-recursive फलन की अपनी multi-block
+  देह (fib खुद यदि/अन्यथा है, single-block v1-अंतर्वेशन के दायरे से बाहर)
+  को उसके अपने ≤2 self-recursive कॉल-स्थल में splice करता, ठीक एक स्तर
+  गहराई तक — असली CFG-सर्जरी: कॉलर-खंड को कॉल पर तोड़ो, callee के मूल
+  (pre-splice) ब्लॉक-सेट का पूरा snapshot क्लोन करो, हर क्लोन किए `वापस`
+  को नए "जारी" continuation-ब्लॉक पर phi से मिलाओ। कोई fixpoint नहीं —
+  हमेशा *मूल* (pre-splice) block-snapshot से क्लोन, गहराई-1 हार्ड-बाउंड।
+  **टेस्टिंग में एक असली bug मिला+ठीक किया**: `गअ_स्थल_बदलो` असली खंड को
+  जगह पर mutate करता (split करके), पर पहला snapshot सिर्फ़ block-level
+  था — व्यक्तिगत निर्देश-dict (जैसे merge वाला "योग") अब भी साझा थे, तो
+  एक candidate के `अनु_हर_उपयोग_बदलो` का जगह-पर operand-rewrite अगले
+  candidate की क्लोनिंग को बिगाड़ देता (SSA dominance तोड़कर — एक block
+  का value दूसरे में इस्तेमाल होता जो उसे dominate ही नहीं करता)। ठीक
+  किया: सारे candidate पहले split+clone हों, रीनेम सबसे आख़िर में एक
+  साथ लागू हो।
+  **मापा** (temporarily wire करके — fib(35) native, 5-दौर औसत, + एक
+  3-तरफ़ा-branch self-recursive आकार पर `sutra.exe run` से तुलना करके
+  सुधार सत्यापित):
+  - **Runtime payoff**: fib(35) — बिना **~0.384s** → साथ **~0.378s**
+    — **~1.5%, measurement-noise के अंदर**, असल में नगण्य।
+  - **Self-compile लागत**: **~13.55s → ~14.01s, +3.4%** — TCO/
+    return-type-inference से कहीं ज़्यादा (यह pass CFG क्लोन करता, सिर्फ़
+    टैग नहीं पढ़ता)।
+  **क्यों इतना कम फ़ायदा** — योजना का अपना पहले से लिखा अनुमान सही
+  निकला: यह pass कॉल-गिनती को tree में एक स्तर पीछे धकेलता (हर invocation
+  अब 2 स्तर का काम करती, आधे invocation में), पर टोटल leaf-तक-पहुँचने
+  वाले calls नहीं घटते। इस compiler का calling-convention पहले से ही
+  इतना सस्ता है (register-based args, न्यूनतम frame overhead) कि आधे
+  call-overhead को स्किप करने से भी wall-clock पर लगभग कोई फ़र्क नहीं
+  पड़ता — ठीक वैसे ही जैसे GCC/Clang का `-O2` भी fib पर deep recursive
+  expansion नहीं करता, उनकी गति भी register allocation से आती, unrolling
+  से नहीं।
+  **निर्णय: wire नहीं किया** — cost (+3.4%) फ़ायदे (~1.5%, noise के
+  अंदर) से साफ़ बड़ी है, ठीक LICM/points-to जैसा case। Standalone module
+  committed, तैयार, अगर calling-convention कभी और महंगा हुआ (जैसे कोई
+  बड़ा safepoint/GC-root overhead जुड़े) तो दोबारा मापा जा सकता है।
+  पूर्ण सत्यापन (wire करके, फिर revert से पहले): `verify_ir.ps1` 10/10;
+  self-host fixed point (Gen1==Gen2==Gen3, 144581 lines); `tests/compiler`
+  54/54; `tests/stdlib` 10/11 (असंबंधित पूर्व-सीमा)। Revert के बाद seed
+  byte-अपरिवर्तित (कभी छुआ ही नहीं गया)।
+
 **2b. मानक पुस्तकालय (`पुस्तकालय/`) — सूत्र में** (commits `07205ac` + `c07ba45`, 2026-09-01)।
    Phase 2 रोककर पहले लाइब्रेरी (Niraj का निर्णय)। **12 मॉड्यूल**, कोई C
    नहीं, interp/native समान (`tests/stdlib/` 8 फ़ाइलें):
