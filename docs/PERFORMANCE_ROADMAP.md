@@ -868,12 +868,29 @@ GVN/LICM/cross-call CSE — सब के लिए नींव बनेगी
   के plain `बिं_फलन_विश्लेषण(फलन)` को भी उतना ही फ़ायदा देती।
   **13 नए checks — सब पहली बार में पास (M1/M2 जैसा कोई bug नहीं मिला इस
   बार)।** `verify_ir.ps1` 5/5, कहीं wire नहीं — seed byte-identical (101110)।
-- **⏳ Milestone 4 — किसी असली optimization में wire करो।** §4g LICM को
-  फिर आज़माओ (अब "लूप में कॉल = mत छुओ" की जगह "लूप में कॉल जो *इस
-  specific* आधार को लिख सकता है = मत छुओ" — बिं_उपनाम_हो_सकता से), या
-  cross-block memory-read CSE। **यहीं पहली बार असली सुरक्षा-जोखिम शुरू
-  होता — self-hosting compiler पर लगाने से पहले संपूर्ण tests/compiler +
-  tests/stdlib + bootstrap fixed-point ज़रूरी, हर कदम पर।**
+- **✅ Milestone 4 भाग A — written-sites सारांश** (commit `1168ec0`,
+  2026-09-05)। हर फलन के लिए `प्रत्यक्ष_लेखन` — वो abstract sites जो यह
+  फलन *transitively* (अपने calls के ज़रिए भी) लिख सकता है — ताकि भविष्य
+  का LICM "लूप में कोई भी कॉल = मत छुओ" की जगह "लूप में कोई कॉल जो *इस
+  specific* आधार को लिख सकता है = मत छुओ" पूछ सके (§4g की असफलता की सीधी
+  जड़ यही अंधी रूढ़िवादिता थी)।
+  `लिख_अनुक्रम`/`लिख_क्षेत्र` का आधार सीधे जुड़ता; library कॉल के लिए M3 की
+  effect-table का `लेखन` field इस्तेमाल होता; module-भीतरी callee के लिए
+  पिछले दौर का (Jacobi) `लिखे_स्थल[नाम]` जुड़ता; genuinely unknown कॉल
+  रूढ़िवादी रूप से ⊤ जोड़ देता। `लिखे_स्थल` को module fixpoint में
+  वापसी_बिंदु/पैरा_बिंदु जैसे ही **replace-not-union Jacobi pattern** से
+  थ्रेड किया (M2 की गलती दोहराने से बचने के लिए सोच-समझकर, बिना किसी नए
+  bug के)। नया query API: `कग_लेखन_छू_सकता(विश्लेषण, आईडी)`।
+  **8 नए checks (12-15)** — सीधा लेखन, library-कॉल लेखन, transitive
+  module-भीतरी लेखन, अपरिचित-कॉल रूढ़िवादिता — सब पहली बार में पास (कुल
+  30/30)। `verify_ir.ps1` 5/5, कहीं wire नहीं — seed byte-identical
+  (101110), पूरा self-host fixed point + bootstrap.ps1 हरा।
+- **⏳ Milestone 4 भाग B — किसी असली optimization में wire करो।** §4g LICM
+  को फिर आज़माओ, अब `कग_लेखन_छू_सकता`/`बिं_उपनाम_हो_सकता` से per-loop
+  per-value सटीक जाँच के साथ, या cross-block memory-read CSE। **यहीं
+  पहली बार असली सुरक्षा-जोखिम शुरू होता — self-hosting compiler पर लगाने
+  से पहले संपूर्ण tests/compiler + tests/stdlib + bootstrap fixed-point
+  ज़रूरी, हर कदम पर।**
 
 **2b. मानक पुस्तकालय (`पुस्तकालय/`) — सूत्र में** (commits `07205ac` + `c07ba45`, 2026-09-01)।
    Phase 2 रोककर पहले लाइब्रेरी (Niraj का निर्णय)। **12 मॉड्यूल**, कोई C
