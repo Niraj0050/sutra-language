@@ -962,13 +962,33 @@ GVN/LICM/cross-call CSE — सब के लिए नींव बनेगी
   GC, generational नहीं) जुड़कर सेकंडों में बदल जाती।
   **महत्वपूर्ण संदर्भ**: यह लागत सिर्फ़ *compiler खुद को compile करने*
   में लगती — compiler से बने साधारण उपयोगकर्ता प्रोग्राम की runtime speed
-  पर इसका सीधा असर नहीं (वो फ़ायदा अलग से मापना बाकी है — अभी सिर्फ़
-  correctness + compile-cost मापा, किसी असली प्रोग्राम पर runtime-speedup
-  नहीं)। **Unwired छोड़ा गया**
-  (M1-4A/M4-B जैसा ही अनुशासन — दूसरी बार अब measure-first discipline ने
-  regression पकड़ा, न कि सिर्फ़ एक बार का इत्तेफ़ाक़)। seed अपरिवर्तित
-  (101110), पूरा self-host fixed-point + bootstrap.ps1 दोनों हरे revert
-  के बाद भी।
+  पर इसका सीधा असर नहीं।
+
+- **✅ फलन-इनलाइनिंग — असल में WIRE हुई** (commit `3a09dd1`, 2026-09-05)।
+  ऊपर की cost सिर्फ़ compile-time थी — असली सवाल था: क्या यह किसी असली
+  compiled प्रोग्राम को तेज़ बनाती? **मापा गया** — छोटा helper-function
+  benchmark (`कार्य वर्गफल(अ){परत् अ*अ;}`+`कार्य जोड़दो(...)` एक 5×10⁸-दौर
+  लूप के अंदर, दोनों compiler-वैरिएंट से native compile करके time किया):
+  **बिना inlining ~3.2s → inlining के साथ ~0.71s — ~4.5x runtime speedup**।
+  `g++ -O2` उसी प्रोग्राम पर ~0.24s — inlining अकेले C++ का gap **~13x से
+  ~3x** तक ले आया। दोनों binaries का output बिल्कुल मैच (overflow-wrapped
+  value तक)।
+  **निर्णय: इस बार wiring commit की** — पिछले सभी मामलों (M4-B का LICM,
+  खुद इसी pass का पहला प्रयास) में "unwired छोड़ो" इसलिए चुना गया था
+  क्योंकि फ़ायदा या तो साबित नहीं था या लागत के मुक़ाबले साफ़ नहीं दिखा।
+  यहाँ फ़ायदा सीधे मापा गया और लागत से कहीं बड़ा है — यही standard
+  compile-time-बनाम-runtime-speed trade-off है जो हर mainstream
+  optimizing compiler (GCC/Clang/Rust) मानता है: compiler खुद को बनाने
+  में ज़्यादा वक़्त, पर हर बना हुआ प्रोग्राम हमेशा के लिए तेज़।
+  **पूर्ण सत्यापन**: `verify_ir.ps1` 7/7; पूरा self-host fixed point
+  **134245 lines** पर पहुँचा (101110 से — inlining हर call-site पर कोड
+  duplicate करता, यह वृद्धि अपेक्षित); `tests/compiler` 54/54 (कोई
+  regression नहीं — correctness बरक़रार); `tests/stdlib` 10/11
+  (पूर्व-मौजूद `18_stdlib` सीमा, असंबंधित); bitwise interp==native कायम।
+  **seed ताज़ा किया** (`स्वसंकलक/निर्माण/मूल_संकलन.s`, 101110→**134245**)
+  और दोबारा `bootstrap.ps1` से पुष्टि — नई जमी हुई seed से भी fixed point
+  `[OK]`। **§4/§5 का यह पहला बदलाव है जो असल में डिफ़ॉल्ट pipeline में
+  स्थायी रूप से जुड़ा** (M1-4A + M4-B + LICM सब standalone/unwired रहे)।
 
 **2b. मानक पुस्तकालय (`पुस्तकालय/`) — सूत्र में** (commits `07205ac` + `c07ba45`, 2026-09-01)।
    Phase 2 रोककर पहले लाइब्रेरी (Niraj का निर्णय)। **12 मॉड्यूल**, कोई C
