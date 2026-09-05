@@ -1214,10 +1214,28 @@ pure-सूत्र backend `sutra build` का default रहता है।
   (clang -O2 अब pure recursion के आर-पार देख पाता)। tests/compiler 54/54
   कायम।
 
-- **आगे (अगले increments)**: `--release` flag wiring (पुस्तकालय/तर्क.सूत्र
-  के argparse से); native `fadd`/`fcmp` (float autovec headroom); IR-
-  स्तर पर return-type/विधि की पूरी re-derivation (अभी emitter सिर्फ़
-  spot-fix करता); किसी भी LLVM-विशिष्ट opt। विधि_बुलाओ/परिवर्तन/नव_पाठ
+- **✅ `--release` WIRED** (commit `da301d8`, 2026-09-05, Niraj का निर्णय)।
+  `sutrac.exe --release prog.सूत्र` अब सीधे LLVM path चलाता — IR →
+  `एलएलवीएम_उत्सर्जक_एकक` → `.ll` → `clang -O2 -c` → वही `gcc -nostdlib`
+  link। ध्वज-स्कैन minimal (argparse lib नहीं)।
+  **पुष्टि पहले**: `clang -O2` (सिर्फ़ `llc` नहीं) GC सुरक्षित रखता —
+  पूरी tests/compiler **54/54** `clang -O2 -c` से (GC-stress/circular/
+  realloc समेत); `gc_roots[]`+count `external global` + root-स्लॉट
+  alloca address-taken तो clang shadow-stack bookkeeping DCE नहीं कर
+  पाता। Self-host fixed point wired driver से कायम (Gen2==Gen3
+  **174447 lines**, 140721 से — ~1300-पंक्ति `एलएलवीएम_उत्सर्जक.सूत्र` अब
+  sutrac.exe के अपने build-graph में), Gen1(split)==Gen2, verify_ir.ps1
+  10/10। Seed ताज़ा (140721→**174447**), दोबारा `bootstrap.ps1` `[OK]`।
+  **लागत** (back-to-back, वही wired sutrac.exe, सिर्फ़ source अलग):
+  self-compile **~14s→~20s (+42%)** — एक-बार-प्रति-compiler-rebuild कर;
+  सामान्य `sutrac.exe foo.सूत्र` अप्रभावित (LLVM कोड binary में बस बैठा
+  रहता)। inlining wire करने जैसा ही निर्णय (+74-92% self-compile, 4.5x
+  payoff के लिए) — यहाँ payoff बड़ा (fib 12x, loop gcc -O2 से तेज़)।
+
+- **आगे (अगले increments)**: native `fadd`/`fcmp` (float autovec
+  headroom); IR-स्तर पर return-type/विधि की पूरी re-derivation (अभी
+  emitter सिर्फ़ spot-fix करता); GVN/CSE जो अब LLVM मुफ़्त देता उसका
+  लाभ x86 पर भी; किसी भी LLVM-विशिष्ट opt। विधि_बुलाओ/परिवर्तन/नव_पाठ
   (byte-form) — निम्नक आज भी emit नहीं करता, तो x86 जैसा ही दायरा।
 
 ### Phase 6 — domain performance। ongoing
