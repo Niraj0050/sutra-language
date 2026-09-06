@@ -354,7 +354,7 @@
 पाठ_कोडबिंदु_गणना:
   pushq %rbp
   movq %rsp, %rbp
-  subq $96, %rsp
+  subq $80, %rsp
   movq %rbx, -8(%rbp)
   movq %rsi, -16(%rbp)
   movq %rdi, -24(%rbp)
@@ -363,17 +363,6 @@
   movq %r14, -48(%rbp)
   movq %r15, -56(%rbp)
   movq %rcx, %rbx
-  movq $0, -80(%rbp)
-  movq $0, -88(%rbp)
-  movl gc_roots_count(%rip), %eax
-  leaq gc_roots(%rip), %r10
-  leaq -80(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -88(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  movl %eax, gc_roots_count(%rip)
 
 .L_पाठ_कोडबिंदु_गणना__प्रवेश_0:
   movq $0, %rsi
@@ -396,8 +385,6 @@
   movq $0, %r12
   jmp .L_पाठ_कोडबिंदु_गणना__wh_शर्त_3
 .L_पाठ_कोडबिंदु_गणना__wh_शर्त_3:
-  movq %rsi, -80(%rbp)
-  movq %r12, -88(%rbp)
   movq %rsi, %r10
   cmpq %rdi, %r10
   setl %al
@@ -554,7 +541,6 @@
   movq %rsi, %r10
   addq %r13, %r10
   movq %r10, %r14
-  movq $0, -80(%rbp)
   movq %r14, %rsi
   jmp .L_पाठ_कोडबिंदु_गणना__if_अंत_7
 .L_पाठ_कोडबिंदु_गणना__if_अंत_7:
@@ -562,7 +548,6 @@
   movq %r12, %r10
   addq %r13, %r10
   movq %r10, %r14
-  movq $0, -88(%rbp)
   movq %r14, %r12
   jmp .L_पाठ_कोडबिंदु_गणना__wh_शर्त_3
 .L_पाठ_कोडबिंदु_गणना__if_सत्य_1:
@@ -570,7 +555,6 @@
   movq %rbx, %rax
   jmp .L_epilogue_पाठ_कोडबिंदु_गणना
 .L_epilogue_पाठ_कोडबिंदु_गणना:
-  subl $2, gc_roots_count(%rip)
   movq -8(%rbp), %rbx
   movq -16(%rbp), %rsi
   movq -24(%rbp), %rdi
@@ -588,7 +572,7 @@
 पाठ_तुल्य:
   pushq %rbp
   movq %rsp, %rbp
-  subq $96, %rsp
+  subq $80, %rsp
   movq %rbx, -8(%rbp)
   movq %rsi, -16(%rbp)
   movq %rdi, -24(%rbp)
@@ -598,13 +582,6 @@
   movq %r15, -56(%rbp)
   movq %rcx, %rbx
   movq %rdx, %rsi
-  movq $0, -80(%rbp)
-  movl gc_roots_count(%rip), %eax
-  leaq gc_roots(%rip), %r10
-  leaq -80(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  movl %eax, gc_roots_count(%rip)
 
 .L_पाठ_तुल्य__प्रवेश_0:
   movq %rbx, %r10
@@ -732,7 +709,6 @@
   movq $0, %rdi
   jmp .L_पाठ_तुल्य__wh_शर्त_20
 .L_पाठ_तुल्य__wh_शर्त_20:
-  movq %rdi, -80(%rbp)
   movq %rdi, %r10
   cmpq %r12, %r10
   setl %al
@@ -777,7 +753,6 @@
   movq %rdi, %r10
   addq %r13, %r10
   movq %r10, %r14
-  movq $0, -80(%rbp)
   movq %r14, %rdi
   jmp .L_पाठ_तुल्य__wh_शर्त_20
 .L_पाठ_तुल्य__if_सत्य_23:
@@ -805,7 +780,6 @@
   movq %rbx, %rax
   jmp .L_epilogue_पाठ_तुल्य
 .L_epilogue_पाठ_तुल्य:
-  subl $1, gc_roots_count(%rip)
   movq -8(%rbp), %rbx
   movq -16(%rbp), %rsi
   movq -24(%rbp), %rdi
@@ -1302,7 +1276,7 @@
 पाठ_कोडबिंदु_तुलना:
   pushq %rbp
   movq %rsp, %rbp
-  subq $176, %rsp
+  subq $144, %rsp
   movq %rbx, -8(%rbp)
   movq %rsi, -16(%rbp)
   movq %rdi, -24(%rbp)
@@ -1312,25 +1286,6 @@
   movq %r15, -56(%rbp)
   movq %rcx, %rbx
   movq %rdx, -104(%rbp)
-  movq $0, -136(%rbp)
-  movq $0, -144(%rbp)
-  movq $0, -152(%rbp)
-  movq $0, -160(%rbp)
-  movl gc_roots_count(%rip), %eax
-  leaq gc_roots(%rip), %r10
-  leaq -136(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -144(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -152(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -160(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  movl %eax, gc_roots_count(%rip)
 
 .L_पाठ_कोडबिंदु_तुलना__प्रवेश_0:
   movq %rbx, %r10
@@ -1379,8 +1334,6 @@
   movq $0, %r14
   jmp .L_पाठ_कोडबिंदु_तुलना__wh_शर्त_7
 .L_पाठ_कोडबिंदु_तुलना__wh_शर्त_7:
-  movq %rdi, -136(%rbp)
-  movq %r14, -144(%rbp)
   movq %rdi, %r10
   cmpq -88(%rbp), %r10
   setl %al
@@ -1485,7 +1438,6 @@
   movq $1, %r12
   jmp .L_पाठ_कोडबिंदु_तुलना__if_अंत_14
 .L_पाठ_कोडबिंदु_तुलना__if_अंत_14:
-  movq %r12, -152(%rbp)
   movq $16, %r13
   movq %r13, %r10
   addq %r14, %r10
@@ -1518,7 +1470,6 @@
   movq $1, %rsi
   jmp .L_पाठ_कोडबिंदु_तुलना__if_अंत_16
 .L_पाठ_कोडबिंदु_तुलना__if_अंत_16:
-  movq %rsi, -160(%rbp)
   movq %rbx, %rcx
   movq %rdi, %rdx
   movq %r12, %r8
@@ -1546,13 +1497,9 @@
   movq %rdi, %r10
   addq %r12, %r10
   movq %r10, %r15
-  movq $0, -136(%rbp)
-  movq $0, -152(%rbp)
   movq %r14, %r10
   addq %rsi, %r10
   movq %r10, %rdi
-  movq $0, -144(%rbp)
-  movq $0, -160(%rbp)
   movq %rdi, %r14
   movq %r15, %rdi
   jmp .L_पाठ_कोडबिंदु_तुलना__wh_शर्त_7
@@ -1587,7 +1534,6 @@
   movq %rbx, %rax
   jmp .L_epilogue_पाठ_कोडबिंदु_तुलना
 .L_epilogue_पाठ_कोडबिंदु_तुलना:
-  subl $4, gc_roots_count(%rip)
   movq -8(%rbp), %rbx
   movq -16(%rbp), %rsi
   movq -24(%rbp), %rdi
@@ -2017,13 +1963,9 @@
   movq %r13, -40(%rbp)
   movq %rcx, %rbx
   movq $0, -64(%rbp)
-  movq $0, -72(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -64(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -72(%rbp), %r11
   movq %r11, (%r10,%rax,8)
   incl %eax
   movl %eax, gc_roots_count(%rip)
@@ -2046,7 +1988,6 @@
   movq $4, %rsi
   jmp .L_पाठ_आवंटित__if_अंत_2
 .L_पाठ_आवंटित__if_अंत_2:
-  movq %rsi, -72(%rbp)
   movq $16, %rdi
   movq %rdi, %r10
   addq %rsi, %r10
@@ -2069,7 +2010,6 @@
   movq %rsi, %r8
   movq %r8, (%r10,%r11)
   movq %rsi, %r13
-  movq $0, -72(%rbp)
   movq $8, %rsi
   movq %r12, %r10
   movq %rsi, %r11
@@ -2089,7 +2029,7 @@
   movq %r12, %rax
   jmp .L_epilogue_पाठ_आवंटित
 .L_epilogue_पाठ_आवंटित:
-  subl $2, gc_roots_count(%rip)
+  subl $1, gc_roots_count(%rip)
   movq -8(%rbp), %rbx
   movq -16(%rbp), %rsi
   movq -24(%rbp), %rdi
@@ -2105,7 +2045,7 @@
 खंड_प्रतिलिपि:
   pushq %rbp
   movq %rsp, %rbp
-  subq $144, %rsp
+  subq $128, %rsp
   movq %rbx, -8(%rbp)
   movq %rsi, -16(%rbp)
   movq %rdi, -24(%rbp)
@@ -2119,23 +2059,11 @@
   movq %r9, -88(%rbp)
   movq 48(%rbp), %r10
   movq %r10, -72(%rbp)
-  movq $0, -120(%rbp)
-  movq $0, -128(%rbp)
-  movl gc_roots_count(%rip), %eax
-  leaq gc_roots(%rip), %r10
-  leaq -120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -128(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  movl %eax, gc_roots_count(%rip)
 
 .L_खंड_प्रतिलिपि__प्रवेश_0:
   movq $0, %r14
   jmp .L_खंड_प्रतिलिपि__wh_शर्त_1
 .L_खंड_प्रतिलिपि__wh_शर्त_1:
-  movq %r14, -120(%rbp)
   movq $8, %r15
   movq %r14, %r10
   addq %r15, %r10
@@ -2153,7 +2081,6 @@
   movq %r14, %r13
   jmp .L_खंड_प्रतिलिपि__wh_शर्त_4
 .L_खंड_प्रतिलिपि__wh_शर्त_4:
-  movq %r13, -128(%rbp)
   movq %r13, %r10
   cmpq -72(%rbp), %r10
   setl %al
@@ -2187,7 +2114,6 @@
   movq %r13, %r10
   addq %rdi, %r10
   movq %r10, %r12
-  movq $0, -128(%rbp)
   movq %r12, %r13
   jmp .L_खंड_प्रतिलिपि__wh_शर्त_4
 .L_खंड_प्रतिलिपि__wh_देह_2:
@@ -2210,11 +2136,9 @@
   movq %r14, %r10
   addq %rdi, %r10
   movq %r10, %r12
-  movq $0, -120(%rbp)
   movq %r12, %r14
   jmp .L_खंड_प्रतिलिपि__wh_शर्त_1
 .L_epilogue_खंड_प्रतिलिपि:
-  subl $2, gc_roots_count(%rip)
   movq -8(%rbp), %rbx
   movq -16(%rbp), %rsi
   movq -24(%rbp), %rdi
@@ -2768,7 +2692,7 @@
 संख्या_से_पाठ:
   pushq %rbp
   movq %rsp, %rbp
-  subq $144, %rsp
+  subq $112, %rsp
   movq %rbx, -8(%rbp)
   movq %rsi, -16(%rbp)
   movq %rdi, -24(%rbp)
@@ -2778,21 +2702,9 @@
   movq %r15, -56(%rbp)
   movq %rcx, -72(%rbp)
   movq $0, -104(%rbp)
-  movq $0, -112(%rbp)
-  movq $0, -120(%rbp)
-  movq $0, -128(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -128(%rbp), %r11
   movq %r11, (%r10,%rax,8)
   incl %eax
   movl %eax, gc_roots_count(%rip)
@@ -2856,7 +2768,6 @@
   movq %r14, %r12
   jmp .L_संख्या_से_पाठ__if_अंत_6
 .L_संख्या_से_पाठ__if_अंत_6:
-  movq %r13, -112(%rbp)
   movq $1, %r14
   movq %rsi, %r10
   subq %r14, %r10
@@ -2865,8 +2776,6 @@
   movq %r15, %r12
   jmp .L_संख्या_से_पाठ__wh_शर्त_7
 .L_संख्या_से_पाठ__wh_शर्त_7:
-  movq %rsi, -120(%rbp)
-  movq %r12, -128(%rbp)
   movq $0, %r14
   movq %rsi, %r10
   cmpq %r14, %r10
@@ -2926,12 +2835,10 @@
   cqto
   idivq %r10
   movq %rax, %rdi
-  movq $0, -120(%rbp)
   movq $1, %rbx
   movq %r12, %r10
   subq %rbx, %r10
   movq %r10, %rsi
-  movq $0, -128(%rbp)
   movq %rsi, %r12
   movq %rdi, %rsi
   jmp .L_संख्या_से_पाठ__wh_शर्त_7
@@ -2949,7 +2856,7 @@
   movq -72(%rbp), %rax
   jmp .L_epilogue_संख्या_से_पाठ
 .L_epilogue_संख्या_से_पाठ:
-  subl $4, gc_roots_count(%rip)
+  subl $1, gc_roots_count(%rip)
   movq -8(%rbp), %rbx
   movq -16(%rbp), %rsi
   movq -24(%rbp), %rdi
@@ -3731,7 +3638,7 @@
 पाठ_उपखंड:
   pushq %rbp
   movq %rsp, %rbp
-  subq $176, %rsp
+  subq $144, %rsp
   movq %rbx, -8(%rbp)
   movq %rsi, -16(%rbp)
   movq %rdi, -24(%rbp)
@@ -3742,17 +3649,12 @@
   movq %rcx, -72(%rbp)
   movq %rdx, %rsi
   movq %r8, -120(%rbp)
+  movq $0, -136(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -136(%rbp), %r11
-  movl $5, %ecx
-.Lजड़_पाठ_उपखंड:
-  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  subq $8, %r11
-  decl %ecx
-  jnz .Lजड़_पाठ_उपखंड
   movl %eax, gc_roots_count(%rip)
 
 .L_पाठ_उपखंड__प्रवेश_0:
@@ -3859,9 +3761,6 @@
   movq %r11, %r15
   jmp .L_पाठ_उपखंड__wh_शर्त_17
 .L_पाठ_उपखंड__wh_शर्त_17:
-  movq %rbx, -136(%rbp)
-  movq %r14, -144(%rbp)
-  movq %r15, -152(%rbp)
   movq %r15, %r10
   cmpq -88(%rbp), %r10
   setl %al
@@ -3888,12 +3787,9 @@
   call अक्षर_बाइट_चौड़ाई
   addq $32, %rsp
   movq %rax, %r12
-  movq %r15, %rcx
-  movq %r12, %rdx
-  subq $32, %rsp
-  call पाठ_योग_गतिक
-  addq $32, %rsp
-  movq %rax, %r13
+  movq %r15, %r10
+  addq %r12, %r10
+  movq %r10, %r13
   movq %r14, %r10
   cmpq %rsi, %r10
   sete %al
@@ -3923,7 +3819,6 @@
   movq %r14, %r10
   addq %r12, %r10
   movq %r10, %rdi
-  movq $0, -144(%rbp)
   movq %r13, %r15
   movq %rdi, %r14
   jmp .L_पाठ_उपखंड__wh_शर्त_17
@@ -3931,7 +3826,6 @@
   movq %r15, %rsi
   jmp .L_पाठ_उपखंड__wh_अंत_19
 .L_पाठ_उपखंड__wh_अंत_19:
-  movq %rbx, -160(%rbp)
   movq -120(%rbp), %r10
   cmpq -104(%rbp), %r10
   sete %al
@@ -3955,13 +3849,12 @@
   call पाठ_आवंटित
   addq $32, %rsp
   movq %rax, %rsi
-  movq %rsi, -168(%rbp)
+  movq %rsi, -136(%rbp)
   movq $16, %r12
   movq $16, %r13
   movq %r13, %r10
   addq %rbx, %r10
   movq %r10, %r14
-  movq $0, -160(%rbp)
   subq $8, %rsp
   movq %rdi, %r11
   pushq %r11
@@ -4027,7 +3920,7 @@
   movq %rsi, %rax
   jmp .L_epilogue_पाठ_उपखंड
 .L_epilogue_पाठ_उपखंड:
-  subl $5, gc_roots_count(%rip)
+  subl $1, gc_roots_count(%rip)
   movq -8(%rbp), %rbx
   movq -16(%rbp), %rsi
   movq -24(%rbp), %rdi
@@ -4953,7 +4846,7 @@
 पाठ_अक्षर_रूप:
   pushq %rbp
   movq %rsp, %rbp
-  subq $128, %rsp
+  subq $112, %rsp
   movq %rbx, -8(%rbp)
   movq %rsi, -16(%rbp)
   movq %rdi, -24(%rbp)
@@ -4964,17 +4857,9 @@
   movq %rcx, %rbx
   movq %rdx, %rsi
   movq $0, -104(%rbp)
-  movq $0, -112(%rbp)
-  movq $0, -120(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -120(%rbp), %r11
   movq %r11, (%r10,%rax,8)
   incl %eax
   movl %eax, gc_roots_count(%rip)
@@ -5006,7 +4891,6 @@
   movq $0, %r13
   jmp .L_पाठ_अक्षर_रूप__wh_शर्त_3
 .L_पाठ_अक्षर_रूप__wh_शर्त_3:
-  movq %r13, -112(%rbp)
   movq %r13, %r10
   cmpq -88(%rbp), %r10
   setl %al
@@ -5137,7 +5021,6 @@
   movq %r12, %rdi
   jmp .L_पाठ_अक्षर_रूप__if_अंत_21
 .L_पाठ_अक्षर_रूप__if_अंत_21:
-  movq %rdi, -120(%rbp)
   movq $16, %r12
   movq %r12, %r10
   addq %r13, %r10
@@ -5147,12 +5030,10 @@
   movq %rdi, %r8
   movb %r8b, (%r10,%r11)
   movq %rdi, %r12
-  movq $0, -120(%rbp)
   movq $1, %rdi
   movq %r13, %r10
   addq %rdi, %r10
   movq %r10, %r12
-  movq $0, -112(%rbp)
   movq %r12, %r13
   jmp .L_पाठ_अक्षर_रूप__wh_शर्त_3
 .L_पाठ_अक्षर_रूप__if_सत्य_1:
@@ -5165,7 +5046,7 @@
   movq %rsi, %rax
   jmp .L_epilogue_पाठ_अक्षर_रूप
 .L_epilogue_पाठ_अक्षर_रूप:
-  subl $3, gc_roots_count(%rip)
+  subl $1, gc_roots_count(%rip)
   movq -8(%rbp), %rbx
   movq -16(%rbp), %rsi
   movq -24(%rbp), %rdi
@@ -5475,7 +5356,7 @@
 कोष_हैश:
   pushq %rbp
   movq %rsp, %rbp
-  subq $80, %rsp
+  subq $64, %rsp
   movq %rbx, -8(%rbp)
   movq %rsi, -16(%rbp)
   movq %rdi, -24(%rbp)
@@ -5483,13 +5364,6 @@
   movq %r13, -40(%rbp)
   movq %r14, -48(%rbp)
   movq %rcx, %rbx
-  movq $0, -72(%rbp)
-  movl gc_roots_count(%rip), %eax
-  leaq gc_roots(%rip), %r10
-  leaq -72(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  movl %eax, gc_roots_count(%rip)
 
 .L_कोष_हैश__प्रवेश_0:
   movq $65536, %rsi
@@ -5527,7 +5401,6 @@
   movq $0, %r12
   jmp .L_कोष_हैश__wh_शर्त_5
 .L_कोष_हैश__wh_शर्त_5:
-  movq %r12, -72(%rbp)
   movq %r12, %r10
   cmpq %rdi, %r10
   setl %al
@@ -5566,7 +5439,6 @@
   movq %r12, %r10
   addq %rsi, %r10
   movq %r10, %r13
-  movq $0, -72(%rbp)
   movq %r13, %r12
   movq %r14, %rsi
   jmp .L_कोष_हैश__wh_शर्त_5
@@ -5583,7 +5455,6 @@
   movq %rbx, %rax
   jmp .L_epilogue_कोष_हैश
 .L_epilogue_कोष_हैश:
-  subl $1, gc_roots_count(%rip)
   movq -8(%rbp), %rbx
   movq -16(%rbp), %rsi
   movq -24(%rbp), %rdi
@@ -5600,7 +5471,7 @@
 कोष_स्लॉट:
   pushq %rbp
   movq %rsp, %rbp
-  subq $96, %rsp
+  subq $112, %rsp
   movq %rbx, -8(%rbp)
   movq %rsi, -16(%rbp)
   movq %rdi, -24(%rbp)
@@ -5610,13 +5481,6 @@
   movq %r15, -56(%rbp)
   movq %rcx, %rbx
   movq %rdx, %rsi
-  movq $0, -88(%rbp)
-  movl gc_roots_count(%rip), %eax
-  leaq gc_roots(%rip), %r10
-  leaq -88(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  movl %eax, gc_roots_count(%rip)
 
 .L_कोष_स्लॉट__प्रवेश_0:
   movq $32, %rdi
@@ -5633,7 +5497,7 @@
   movq %rbx, %r10
   movq %rdi, %r11
   movq (%r10,%r11), %r10
-  movq %r10, %r14
+  movq %r10, -88(%rbp)
   movq %rsi, %rcx
   subq $32, %rsp
   call कोष_हैश
@@ -5663,50 +5527,52 @@
   movq %r10, %rbx
   jmp .L_कोष_स्लॉट__if_अंत_2
 .L_कोष_स्लॉट__if_अंत_2:
+  movq $0, %rdi
   movq %rbx, -72(%rbp)
   jmp .L_कोष_स्लॉट__wh_शर्त_3
 .L_कोष_स्लॉट__wh_शर्त_3:
-  movq -72(%rbp), %r11
-  movq %r11, -88(%rbp)
-  movq $1, %rdi
   movq %rdi, %r10
+  cmpq %r12, %r10
+  setl %al
+  movzbq %al, %r10
+  movq %r10, %r15
+  movq %r15, %r10
   cmpq $0, %r10
   je .L_कोष_स्लॉट__wh_अंत_5
   jmp .L_कोष_स्लॉट__wh_देह_4
 .L_कोष_स्लॉट__wh_अंत_5:
-  movq $0, %rdi
-  movq %rdi, %rax
+  movq -72(%rbp), %rax
   jmp .L_epilogue_कोष_स्लॉट
 .L_कोष_स्लॉट__wh_देह_4:
-  movq $8, %rdi
+  movq $8, %r15
   movq -72(%rbp), %r10
-  imulq %rdi, %r10
-  movq %r10, %r15
+  imulq %r15, %r10
+  movq %r10, %rbx
   movq %r13, %r10
-  movq %r15, %r11
+  movq %rbx, %r11
   movq (%r10,%r11), %r10
-  movq %r10, %rdi
-  movq $0, %r15
-  movq %rdi, %r10
-  cmpq %r15, %r10
+  movq %r10, %r15
+  movq $0, %rbx
+  movq %r15, %r10
+  cmpq %rbx, %r10
   sete %al
   movzbq %al, %r10
-  movq %r10, %rbx
-  movq %rbx, %r10
+  movq %r10, %r14
+  movq %r14, %r10
   cmpq $0, %r10
   je .L_कोष_स्लॉट__if_अंत_7
   jmp .L_कोष_स्लॉट__if_सत्य_6
 .L_कोष_स्लॉट__if_अंत_7:
   movq $1, %rbx
-  movq %rdi, %r10
-  subq %rbx, %r10
-  movq %r10, %r15
-  movq $16, %rbx
   movq %r15, %r10
-  imulq %rbx, %r10
-  movq %r10, %rdi
+  subq %rbx, %r10
+  movq %r10, %r14
+  movq $16, %rbx
   movq %r14, %r10
-  movq %rdi, %r11
+  imulq %rbx, %r10
+  movq %r10, %r15
+  movq -88(%rbp), %r10
+  movq %r15, %r11
   movq (%r10,%r11), %r10
   movq %r10, %rbx
   movq %rbx, %rcx
@@ -5714,8 +5580,8 @@
   subq $32, %rsp
   call पाठ_तुल्य
   addq $32, %rsp
-  movq %rax, %rdi
-  movq %rdi, %r10
+  movq %rax, %r14
+  movq %r14, %r10
   cmpq $0, %r10
   je .L_कोष_स्लॉट__if_अंत_9
   jmp .L_कोष_स्लॉट__if_सत्य_8
@@ -5723,8 +5589,8 @@
   movq $1, %rbx
   movq -72(%rbp), %r10
   addq %rbx, %r10
-  movq %r10, %rdi
-  movq %rdi, %r10
+  movq %r10, %r14
+  movq %r14, %r10
   cmpq %r12, %r10
   setge %al
   movzbq %al, %r10
@@ -5734,12 +5600,17 @@
   je .L_किनारा_कोष_स्लॉट_1
   jmp .L_कोष_स्लॉट__if_सत्य_10
 .L_किनारा_कोष_स्लॉट_1:
-  movq %rdi, %rbx
+  movq %r14, %rbx
   jmp .L_कोष_स्लॉट__if_अंत_11
 .L_कोष_स्लॉट__if_सत्य_10:
   movq $0, %rbx
   jmp .L_कोष_स्लॉट__if_अंत_11
 .L_कोष_स्लॉट__if_अंत_11:
+  movq $1, %r14
+  movq %rdi, %r10
+  addq %r14, %r10
+  movq %r10, %r15
+  movq %r15, %rdi
   movq %rbx, -72(%rbp)
   jmp .L_कोष_स्लॉट__wh_शर्त_3
 .L_कोष_स्लॉट__if_सत्य_8:
@@ -5749,7 +5620,6 @@
   movq -72(%rbp), %rax
   jmp .L_epilogue_कोष_स्लॉट
 .L_epilogue_कोष_स्लॉट:
-  subl $1, gc_roots_count(%rip)
   movq -8(%rbp), %rbx
   movq -16(%rbp), %rsi
   movq -24(%rbp), %rdi
@@ -5767,7 +5637,7 @@
 कोष_सूचकांक_भरो:
   pushq %rbp
   movq %rsp, %rbp
-  subq $128, %rsp
+  subq $112, %rsp
   movq %rbx, -8(%rbp)
   movq %rsi, -16(%rbp)
   movq %rdi, -24(%rbp)
@@ -5776,17 +5646,6 @@
   movq %r14, -48(%rbp)
   movq %r15, -56(%rbp)
   movq %rcx, %rbx
-  movq $0, -104(%rbp)
-  movq $0, -112(%rbp)
-  movl gc_roots_count(%rip), %eax
-  leaq gc_roots(%rip), %r10
-  leaq -104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  movl %eax, gc_roots_count(%rip)
 
 .L_कोष_सूचकांक_भरो__प्रवेश_0:
   movq $32, %rsi
@@ -5813,8 +5672,6 @@
   movq %rbx, -72(%rbp)
   jmp .L_कोष_सूचकांक_भरो__wh_शर्त_1
 .L_कोष_सूचकांक_भरो__wh_शर्त_1:
-  movq -72(%rbp), %r11
-  movq %r11, -104(%rbp)
   movq -72(%rbp), %r10
   cmpq -88(%rbp), %r10
   setl %al
@@ -5868,7 +5725,6 @@
 .L_कोष_सूचकांक_भरो__if_अंत_5:
   jmp .L_कोष_सूचकांक_भरो__wh_शर्त_6
 .L_कोष_सूचकांक_भरो__wh_शर्त_6:
-  movq %rbx, -112(%rbp)
   movq $8, %rsi
   movq %rbx, %r10
   imulq %rsi, %r10
@@ -5912,7 +5768,6 @@
   movq %rbx, %r10
   addq %rsi, %r10
   movq %r10, %r14
-  movq $0, -112(%rbp)
   movq %r14, %r10
   cmpq %rdi, %r10
   setge %al
@@ -5931,7 +5786,6 @@
 .L_कोष_सूचकांक_भरो__if_अंत_10:
   jmp .L_कोष_सूचकांक_भरो__wh_शर्त_6
 .L_epilogue_कोष_सूचकांक_भरो:
-  subl $2, gc_roots_count(%rip)
   movq -8(%rbp), %rbx
   movq -16(%rbp), %rsi
   movq -24(%rbp), %rdi
@@ -6063,7 +5917,7 @@
 शब्दकोश_पाओ:
   pushq %rbp
   movq %rsp, %rbp
-  subq $64, %rsp
+  subq $80, %rsp
   movq %rbx, -8(%rbp)
   movq %rsi, -16(%rbp)
   movq %rdi, -24(%rbp)
@@ -6071,6 +5925,13 @@
   movq %r13, -40(%rbp)
   movq %rcx, %rbx
   movq %rdx, %rsi
+  movq $0, -64(%rbp)
+  movl gc_roots_count(%rip), %eax
+  leaq gc_roots(%rip), %r10
+  leaq -64(%rbp), %r11
+  movq %r11, (%r10,%rax,8)
+  incl %eax
+  movl %eax, gc_roots_count(%rip)
 
 .L_शब्दकोश_पाओ__प्रवेश_0:
   movq $0, %rdi
@@ -6106,6 +5967,7 @@
   call कोष_स्लॉट
   addq $32, %rsp
   movq %rax, %rdi
+  movq %rdi, -64(%rbp)
   movq $24, %rsi
   movq %rbx, %r10
   movq %rsi, %r11
@@ -6115,6 +5977,7 @@
   movq %rdi, %r10
   imulq %rsi, %r10
   movq %r10, %r13
+  movq $0, -64(%rbp)
   movq %r12, %r10
   movq %r13, %r11
   movq (%r10,%r11), %r10
@@ -6166,6 +6029,7 @@
   movq %rbx, %rax
   jmp .L_epilogue_शब्दकोश_पाओ
 .L_epilogue_शब्दकोश_पाओ:
+  subl $1, gc_roots_count(%rip)
   movq -8(%rbp), %rbx
   movq -16(%rbp), %rsi
   movq -24(%rbp), %rdi
@@ -6181,7 +6045,7 @@
 शब्दकोश_कुंजी_है:
   pushq %rbp
   movq %rsp, %rbp
-  subq $64, %rsp
+  subq $80, %rsp
   movq %rbx, -8(%rbp)
   movq %rsi, -16(%rbp)
   movq %rdi, -24(%rbp)
@@ -6189,6 +6053,13 @@
   movq %r13, -40(%rbp)
   movq %rcx, %rbx
   movq %rdx, %rsi
+  movq $0, -64(%rbp)
+  movl gc_roots_count(%rip), %eax
+  leaq gc_roots(%rip), %r10
+  leaq -64(%rbp), %r11
+  movq %r11, (%r10,%rax,8)
+  incl %eax
+  movl %eax, gc_roots_count(%rip)
 
 .L_शब्दकोश_कुंजी_है__प्रवेश_0:
   movq $0, %rdi
@@ -6224,6 +6095,7 @@
   call कोष_स्लॉट
   addq $32, %rsp
   movq %rax, %rdi
+  movq %rdi, -64(%rbp)
   movq $24, %rsi
   movq %rbx, %r10
   movq %rsi, %r11
@@ -6233,6 +6105,7 @@
   movq %rdi, %r10
   imulq %rbx, %r10
   movq %r10, %rsi
+  movq $0, -64(%rbp)
   movq %r12, %r10
   movq %rsi, %r11
   movq (%r10,%r11), %r10
@@ -6264,6 +6137,7 @@
   movq %rbx, %rax
   jmp .L_epilogue_शब्दकोश_कुंजी_है
 .L_epilogue_शब्दकोश_कुंजी_है:
+  subl $1, gc_roots_count(%rip)
   movq -8(%rbp), %rbx
   movq -16(%rbp), %rsi
   movq -24(%rbp), %rdi
@@ -6279,7 +6153,7 @@
 शब्दकोश_सेट:
   pushq %rbp
   movq %rsp, %rbp
-  subq $128, %rsp
+  subq $144, %rsp
   movq %rbx, -8(%rbp)
   movq %rsi, -16(%rbp)
   movq %rdi, -24(%rbp)
@@ -6290,20 +6164,17 @@
   movq %rcx, %rbx
   movq %rdx, %rsi
   movq %r8, -72(%rbp)
-  movq $0, -104(%rbp)
-  movq $0, -112(%rbp)
-  movq $0, -120(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -104(%rbp), %r11
+  movl $5, %ecx
+.Lजड़_शब्दकोश_सेट:
+  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  leaq -112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_शब्दकोश_सेट
   movl %eax, gc_roots_count(%rip)
 
 .L_शब्दकोश_सेट__प्रवेश_0:
@@ -6340,6 +6211,7 @@
   call कोष_स्लॉट
   addq $32, %rsp
   movq %rax, %r12
+  movq %r12, -104(%rbp)
   movq $24, %r14
   movq %rbx, %r10
   movq %r14, %r11
@@ -6349,6 +6221,7 @@
   movq %r12, %r10
   imulq %r14, %r10
   movq %r10, %rdi
+  movq $0, -104(%rbp)
   movq %r15, %r10
   movq %rdi, %r11
   movq (%r10,%r11), %r10
@@ -6402,7 +6275,7 @@
   call सूत्र_पुनः_आवंटन
   addq $32, %rsp
   movq %rax, %rdi
-  movq %rdi, -104(%rbp)
+  movq %rdi, -112(%rbp)
   movq $8, %r12
   movq %rbx, %r10
   movq %r12, %r11
@@ -6415,7 +6288,7 @@
   movq %rdi, %r8
   movq %r8, (%r10,%r11)
   movq %rdi, %r14
-  movq $0, -104(%rbp)
+  movq $0, -112(%rbp)
   jmp .L_शब्दकोश_सेट__if_अंत_8
 .L_शब्दकोश_सेट__if_अंत_8:
   movq $16, %rdi
@@ -6493,11 +6366,13 @@
   call कोष_स्लॉट
   addq $32, %rsp
   movq %rax, %rdi
+  movq %rdi, -128(%rbp)
   movq $8, %rsi
   movq %rdi, %r10
   imulq %rsi, %r10
   movq %r10, %r15
-  movq %r15, -120(%rbp)
+  movq %r15, -136(%rbp)
+  movq $0, -128(%rbp)
   movq $1, %rsi
   movq %r13, %r10
   addq %rsi, %r10
@@ -6507,7 +6382,7 @@
   movq %rdi, %r8
   movq %r8, (%r10,%r11)
   movq %rdi, %rsi
-  movq $0, -120(%rbp)
+  movq $0, -136(%rbp)
   jmp .L_शब्दकोश_सेट__if_अंत_10
 .L_शब्दकोश_सेट__if_सत्य_9:
   movq $2, %rsi
@@ -6525,14 +6400,14 @@
   call सूत्र_आवंटन
   addq $32, %rsp
   movq %rax, %rdi
-  movq %rdi, -112(%rbp)
+  movq %rdi, -120(%rbp)
   movq $24, %rsi
   movq %rbx, %r10
   movq %rsi, %r11
   movq %rdi, %r8
   movq %r8, (%r10,%r11)
   movq %rdi, %r13
-  movq $0, -112(%rbp)
+  movq $0, -120(%rbp)
   movq $32, %rsi
   movq $2, %rdi
   movq %r12, %r10
@@ -6595,7 +6470,7 @@
   call फेंको
   addq $32, %rsp
 .L_epilogue_शब्दकोश_सेट:
-  subl $3, gc_roots_count(%rip)
+  subl $5, gc_roots_count(%rip)
   movq -8(%rbp), %rbx
   movq -16(%rbp), %rsi
   movq -24(%rbp), %rdi
@@ -6613,7 +6488,7 @@
 शब्दकोश_हटाओ:
   pushq %rbp
   movq %rsp, %rbp
-  subq $192, %rsp
+  subq $160, %rsp
   movq %rbx, -8(%rbp)
   movq %rsi, -16(%rbp)
   movq %rdi, -24(%rbp)
@@ -6623,25 +6498,6 @@
   movq %r15, -56(%rbp)
   movq %rcx, -72(%rbp)
   movq %rdx, %rsi
-  movq $0, -152(%rbp)
-  movq $0, -160(%rbp)
-  movq $0, -168(%rbp)
-  movq $0, -176(%rbp)
-  movl gc_roots_count(%rip), %eax
-  leaq gc_roots(%rip), %r10
-  leaq -152(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -160(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -168(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -176(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  movl %eax, gc_roots_count(%rip)
 
 .L_शब्दकोश_हटाओ__प्रवेश_0:
   movq $0, %rdi
@@ -6713,11 +6569,6 @@
   movq %r15, %rsi
   jmp .L_शब्दकोश_हटाओ__wh_शर्त_7
 .L_शब्दकोश_हटाओ__wh_शर्त_7:
-  movq %rsi, -152(%rbp)
-  movq -104(%rbp), %r11
-  movq %r11, -160(%rbp)
-  movq -88(%rbp), %r11
-  movq %r11, -168(%rbp)
   movq $1, %rbx
   movq %r12, %r10
   subq %rbx, %r10
@@ -6750,7 +6601,6 @@
   movq $0, %rbx
   jmp .L_शब्दकोश_हटाओ__wh_शर्त_10
 .L_शब्दकोश_हटाओ__wh_शर्त_10:
-  movq %rbx, -176(%rbp)
   movq %rbx, %r10
   cmpq %rdi, %r10
   setl %al
@@ -6783,7 +6633,6 @@
   movq %rbx, %r10
   addq %r13, %r10
   movq %r10, %r14
-  movq $0, -176(%rbp)
   movq %r14, %rbx
   jmp .L_शब्दकोश_हटाओ__wh_शर्त_10
 .L_शब्दकोश_हटाओ__wh_देह_8:
@@ -6841,7 +6690,6 @@
   movq %rsi, %r10
   addq %rbx, %r10
   movq %r10, %rdi
-  movq $0, -152(%rbp)
   movq %rdi, %rsi
   jmp .L_शब्दकोश_हटाओ__wh_शर्त_7
 .L_शब्दकोश_हटाओ__if_सत्य_5:
@@ -6854,7 +6702,6 @@
   movq -72(%rbp), %rax
   jmp .L_epilogue_शब्दकोश_हटाओ
 .L_epilogue_शब्दकोश_हटाओ:
-  subl $4, gc_roots_count(%rip)
   movq -8(%rbp), %rbx
   movq -16(%rbp), %rsi
   movq -24(%rbp), %rdi
@@ -6944,13 +6791,9 @@
   movq %rcx, %rbx
   movq %rdx, %rsi
   movq $0, -80(%rbp)
-  movq $0, -88(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -80(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -88(%rbp), %r11
   movq %r11, (%r10,%rax,8)
   incl %eax
   movl %eax, gc_roots_count(%rip)
@@ -7012,7 +6855,6 @@
   movq %r14, %rdi
   jmp .L_सूची_जोड़__if_अंत_6
 .L_सूची_जोड़__if_अंत_6:
-  movq %rdi, -88(%rbp)
   movq $16, %r12
   movq $8, %r14
   movq %rdi, %r10
@@ -7034,7 +6876,6 @@
   movq %rdi, %r8
   movq %r8, (%r10,%r11)
   movq %rdi, %r15
-  movq $0, -88(%rbp)
   movq $8, %rdi
   movq $1, %r14
   movq %r13, %r10
@@ -7102,7 +6943,7 @@
   call फेंको
   addq $32, %rsp
 .L_epilogue_सूची_जोड़:
-  subl $2, gc_roots_count(%rip)
+  subl $1, gc_roots_count(%rip)
   movq -8(%rbp), %rbx
   movq -16(%rbp), %rsi
   movq -24(%rbp), %rdi
@@ -7130,13 +6971,9 @@
   movq %r15, -56(%rbp)
   movq %rcx, %rbx
   movq $0, -80(%rbp)
-  movq $0, -88(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -80(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -88(%rbp), %r11
   movq %r11, (%r10,%rax,8)
   incl %eax
   movl %eax, gc_roots_count(%rip)
@@ -7259,7 +7096,6 @@
   movq $4, %rsi
   jmp .L_सूची_निकाल__if_अंत_10
 .L_सूची_निकाल__if_अंत_10:
-  movq %rsi, -88(%rbp)
   movq $16, %rdi
   movq $8, %r12
   movq %rsi, %r10
@@ -7281,7 +7117,6 @@
   movq %rsi, %r8
   movq %r8, (%r10,%r11)
   movq %rsi, %r12
-  movq $0, -88(%rbp)
   subq $32, %rsp
   call सूत्र_जीसी_छोड़ो
   addq $32, %rsp
@@ -7311,7 +7146,7 @@
   call फेंको
   addq $32, %rsp
 .L_epilogue_सूची_निकाल:
-  subl $2, gc_roots_count(%rip)
+  subl $1, gc_roots_count(%rip)
   movq -8(%rbp), %rbx
   movq -16(%rbp), %rsi
   movq -24(%rbp), %rdi
@@ -7329,7 +7164,7 @@
 सूची_डाल:
   pushq %rbp
   movq %rsp, %rbp
-  subq $160, %rsp
+  subq $144, %rsp
   movq %rbx, -8(%rbp)
   movq %rsi, -16(%rbp)
   movq %rdi, -24(%rbp)
@@ -7342,20 +7177,12 @@
   movq %r8, -104(%rbp)
   movq $0, -120(%rbp)
   movq $0, -128(%rbp)
-  movq $0, -136(%rbp)
-  movq $0, -144(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -120(%rbp), %r11
   movq %r11, (%r10,%rax,8)
   incl %eax
   leaq -128(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -136(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -144(%rbp), %r11
   movq %r11, (%r10,%rax,8)
   incl %eax
   movl %eax, gc_roots_count(%rip)
@@ -7446,7 +7273,6 @@
   movq %r14, %r12
   jmp .L_सूची_डाल__if_अंत_11
 .L_सूची_डाल__if_अंत_11:
-  movq %r12, -128(%rbp)
   movq $16, %r13
   movq $8, %r14
   movq %r12, %r10
@@ -7468,7 +7294,6 @@
   movq %r12, %r8
   movq %r8, (%r10,%r11)
   movq %r12, %r14
-  movq $0, -128(%rbp)
   subq $32, %rsp
   call सूत्र_जीसी_छोड़ो
   addq $32, %rsp
@@ -7477,11 +7302,10 @@
   jmp .L_सूची_डाल__if_अंत_9
 .L_सूची_डाल__if_अंत_9:
   movq -88(%rbp), %r11
-  movq %r11, -136(%rbp)
+  movq %r11, -128(%rbp)
   movq -72(%rbp), %r12
   jmp .L_सूची_डाल__wh_शर्त_12
 .L_सूची_डाल__wh_शर्त_12:
-  movq %r12, -144(%rbp)
   movq %r12, %r10
   cmpq %rsi, %r10
   setg %al
@@ -7551,7 +7375,6 @@
   movq %r12, %r10
   subq %rbx, %r10
   movq %r10, %rdi
-  movq $0, -144(%rbp)
   movq %rdi, %r12
   jmp .L_सूची_डाल__wh_शर्त_12
 .L_सूची_डाल__if_सत्य_6:
@@ -7577,7 +7400,7 @@
   call फेंको
   addq $32, %rsp
 .L_epilogue_सूची_डाल:
-  subl $4, gc_roots_count(%rip)
+  subl $2, gc_roots_count(%rip)
   movq -8(%rbp), %rbx
   movq -16(%rbp), %rsi
   movq -24(%rbp), %rdi
@@ -7595,7 +7418,7 @@
 सूची_हटा:
   pushq %rbp
   movq %rsp, %rbp
-  subq $128, %rsp
+  subq $112, %rsp
   movq %rbx, -8(%rbp)
   movq %rsi, -16(%rbp)
   movq %rdi, -24(%rbp)
@@ -7606,17 +7429,9 @@
   movq %rcx, %rbx
   movq %rdx, %rsi
   movq $0, -104(%rbp)
-  movq $0, -112(%rbp)
-  movq $0, -120(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -120(%rbp), %r11
   movq %r11, (%r10,%rax,8)
   incl %eax
   movl %eax, gc_roots_count(%rip)
@@ -7671,7 +7486,6 @@
 .L_सूची_हटा__if_अंत_7:
   jmp .L_सूची_हटा__wh_शर्त_8
 .L_सूची_हटा__wh_शर्त_8:
-  movq %rsi, -112(%rbp)
   movq $1, %rdi
   movq -72(%rbp), %r10
   subq %rdi, %r10
@@ -7771,7 +7585,6 @@
   movq $4, %rdi
   jmp .L_सूची_हटा__if_अंत_16
 .L_सूची_हटा__if_अंत_16:
-  movq %rdi, -120(%rbp)
   movq $16, %r13
   movq $8, %r14
   movq %rdi, %r10
@@ -7793,7 +7606,6 @@
   movq %rdi, %r8
   movq %r8, (%r10,%r11)
   movq %rdi, %r15
-  movq $0, -120(%rbp)
   subq $32, %rsp
   call सूत्र_जीसी_छोड़ो
   addq $32, %rsp
@@ -7834,7 +7646,6 @@
   movq %rsi, %r10
   addq %rdi, %r10
   movq %r10, %r12
-  movq $0, -112(%rbp)
   movq %r12, %rsi
   jmp .L_सूची_हटा__wh_शर्त_8
 .L_सूची_हटा__if_सत्य_6:
@@ -7860,7 +7671,7 @@
   call फेंको
   addq $32, %rsp
 .L_epilogue_सूची_हटा:
-  subl $3, gc_roots_count(%rip)
+  subl $1, gc_roots_count(%rip)
   movq -8(%rbp), %rbx
   movq -16(%rbp), %rsi
   movq -24(%rbp), %rdi
@@ -7878,7 +7689,7 @@
 सूची_जोड़ो_दो:
   pushq %rbp
   movq %rsp, %rbp
-  subq $176, %rsp
+  subq $144, %rsp
   movq %rbx, -8(%rbp)
   movq %rsi, -16(%rbp)
   movq %rdi, -24(%rbp)
@@ -7888,17 +7699,12 @@
   movq %r15, -56(%rbp)
   movq %rcx, %rbx
   movq %rdx, -120(%rbp)
+  movq $0, -136(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -136(%rbp), %r11
-  movl $5, %ecx
-.Lजड़_सूची_जोड़ो_दो:
-  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  subq $8, %r11
-  decl %ecx
-  jnz .Lजड़_सूची_जोड़ो_दो
   movl %eax, gc_roots_count(%rip)
 
 .L_सूची_जोड़ो_दो__प्रवेश_0:
@@ -7925,8 +7731,6 @@
   movq %r12, -104(%rbp)
   jmp .L_सूची_जोड़ो_दो__if_अंत_2
 .L_सूची_जोड़ो_दो__if_अंत_2:
-  movq -104(%rbp), %r11
-  movq %r11, -136(%rbp)
   movq $0, %r12
   movq $0, %r13
   movq -120(%rbp), %r10
@@ -7950,8 +7754,6 @@
   movq %r13, -72(%rbp)
   jmp .L_सूची_जोड़ो_दो__if_अंत_4
 .L_सूची_जोड़ो_दो__if_अंत_4:
-  movq -72(%rbp), %r11
-  movq %r11, -144(%rbp)
   subq $32, %rsp
   call सूत्र_जीसी_दबाओ
   addq $32, %rsp
@@ -7975,7 +7777,7 @@
   addq $32, %rsp
   movq %rax, -88(%rbp)
   movq -88(%rbp), %r11
-  movq %r11, -168(%rbp)
+  movq %r11, -136(%rbp)
   movq $0, %r12
   movq -88(%rbp), %r10
   movq %r12, %r11
@@ -7991,7 +7793,6 @@
   movq $0, %r12
   jmp .L_सूची_जोड़ो_दो__wh_शर्त_5
 .L_सूची_जोड़ो_दो__wh_शर्त_5:
-  movq %r12, -152(%rbp)
   movq %r12, %r10
   cmpq -104(%rbp), %r10
   setl %al
@@ -8005,7 +7806,6 @@
   movq $0, %r13
   jmp .L_सूची_जोड़ो_दो__wh_शर्त_8
 .L_सूची_जोड़ो_दो__wh_शर्त_8:
-  movq %r13, -160(%rbp)
   movq %r13, %r10
   cmpq -72(%rbp), %r10
   setl %al
@@ -8055,7 +7855,6 @@
   movq %r13, %r10
   addq %rsi, %r10
   movq %r10, %rdi
-  movq $0, -160(%rbp)
   movq %rdi, %r13
   jmp .L_सूची_जोड़ो_दो__wh_शर्त_8
 .L_सूची_जोड़ो_दो__wh_देह_6:
@@ -8088,11 +7887,10 @@
   movq %r12, %r10
   addq %rsi, %r10
   movq %r10, %rdi
-  movq $0, -152(%rbp)
   movq %rdi, %r12
   jmp .L_सूची_जोड़ो_दो__wh_शर्त_5
 .L_epilogue_सूची_जोड़ो_दो:
-  subl $5, gc_roots_count(%rip)
+  subl $1, gc_roots_count(%rip)
   movq -8(%rbp), %rbx
   movq -16(%rbp), %rsi
   movq -24(%rbp), %rdi
@@ -8110,7 +7908,7 @@
 सूची_खोज:
   pushq %rbp
   movq %rsp, %rbp
-  subq $96, %rsp
+  subq $80, %rsp
   movq %rbx, -8(%rbp)
   movq %rsi, -16(%rbp)
   movq %rdi, -24(%rbp)
@@ -8120,13 +7918,6 @@
   movq %r15, -56(%rbp)
   movq %rcx, %rbx
   movq %rdx, %rsi
-  movq $0, -80(%rbp)
-  movl gc_roots_count(%rip), %eax
-  leaq gc_roots(%rip), %r10
-  leaq -80(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  movl %eax, gc_roots_count(%rip)
 
 .L_सूची_खोज__प्रवेश_0:
   movq $0, %rdi
@@ -8148,7 +7939,6 @@
   movq $0, %rdi
   jmp .L_सूची_खोज__wh_शर्त_3
 .L_सूची_खोज__wh_शर्त_3:
-  movq %rdi, -80(%rbp)
   movq %rdi, %r10
   cmpq %r12, %r10
   setl %al
@@ -8199,7 +7989,6 @@
   movq %rbx, %rax
   jmp .L_epilogue_सूची_खोज
 .L_epilogue_सूची_खोज:
-  subl $1, gc_roots_count(%rip)
   movq -8(%rbp), %rbx
   movq -16(%rbp), %rsi
   movq -24(%rbp), %rdi
@@ -8229,19 +8018,11 @@
   movq %rdx, %rsi
   movq %r8, %rdi
   movq %r9, -72(%rbp)
-  movq $0, -88(%rbp)
-  movl gc_roots_count(%rip), %eax
-  leaq gc_roots(%rip), %r10
-  leaq -88(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  movl %eax, gc_roots_count(%rip)
 
 .L_पाठ_बाइट_मिलान__प्रवेश_0:
   movq $0, %r13
   jmp .L_पाठ_बाइट_मिलान__wh_शर्त_1
 .L_पाठ_बाइट_मिलान__wh_शर्त_1:
-  movq %r13, -88(%rbp)
   movq %r13, %r10
   cmpq -72(%rbp), %r10
   setl %al
@@ -8289,7 +8070,6 @@
   movq %r13, %r10
   addq %r12, %r10
   movq %r10, %r14
-  movq $0, -88(%rbp)
   movq %r14, %r13
   jmp .L_पाठ_बाइट_मिलान__wh_शर्त_1
 .L_पाठ_बाइट_मिलान__if_सत्य_4:
@@ -8297,7 +8077,6 @@
   movq %rbx, %rax
   jmp .L_epilogue_पाठ_बाइट_मिलान
 .L_epilogue_पाठ_बाइट_मिलान:
-  subl $1, gc_roots_count(%rip)
   movq -8(%rbp), %rbx
   movq -16(%rbp), %rsi
   movq -24(%rbp), %rdi
@@ -8315,7 +8094,7 @@
 पाठ_कोडबिंदु_पूर्व:
   pushq %rbp
   movq %rsp, %rbp
-  subq $96, %rsp
+  subq $64, %rsp
   movq %rbx, -8(%rbp)
   movq %rsi, -16(%rbp)
   movq %rdi, -24(%rbp)
@@ -8324,25 +8103,12 @@
   movq %r14, -48(%rbp)
   movq %rcx, %rbx
   movq %rdx, %rsi
-  movq $0, -72(%rbp)
-  movq $0, -80(%rbp)
-  movl gc_roots_count(%rip), %eax
-  leaq gc_roots(%rip), %r10
-  leaq -72(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -80(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  movl %eax, gc_roots_count(%rip)
 
 .L_पाठ_कोडबिंदु_पूर्व__प्रवेश_0:
   movq $0, %rdi
   movq $0, %r12
   jmp .L_पाठ_कोडबिंदु_पूर्व__wh_शर्त_1
 .L_पाठ_कोडबिंदु_पूर्व__wh_शर्त_1:
-  movq %rdi, -72(%rbp)
-  movq %r12, -80(%rbp)
   movq %r12, %r10
   cmpq %rsi, %r10
   setl %al
@@ -8369,23 +8135,17 @@
   call अक्षर_बाइट_चौड़ाई
   addq $32, %rsp
   movq %rax, %r14
-  movq %r12, %rcx
-  movq %r14, %rdx
-  subq $32, %rsp
-  call पाठ_योग_गतिक
-  addq $32, %rsp
-  movq %rax, %r13
-  movq $0, -80(%rbp)
+  movq %r12, %r10
+  addq %r14, %r10
+  movq %r10, %r13
   movq $1, %r12
   movq %rdi, %r10
   addq %r12, %r10
   movq %r10, %r14
-  movq $0, -72(%rbp)
   movq %r13, %r12
   movq %r14, %rdi
   jmp .L_पाठ_कोडबिंदु_पूर्व__wh_शर्त_1
 .L_epilogue_पाठ_कोडबिंदु_पूर्व:
-  subl $2, gc_roots_count(%rip)
   movq -8(%rbp), %rbx
   movq -16(%rbp), %rsi
   movq -24(%rbp), %rdi
@@ -8402,7 +8162,7 @@
 पाठ_कोडबिंदु_खोज:
   pushq %rbp
   movq %rsp, %rbp
-  subq $96, %rsp
+  subq $80, %rsp
   movq %rbx, -8(%rbp)
   movq %rsi, -16(%rbp)
   movq %rdi, -24(%rbp)
@@ -8412,13 +8172,6 @@
   movq %r15, -56(%rbp)
   movq %rcx, %rbx
   movq %rdx, %rsi
-  movq $0, -80(%rbp)
-  movl gc_roots_count(%rip), %eax
-  leaq gc_roots(%rip), %r10
-  leaq -80(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  movl %eax, gc_roots_count(%rip)
 
 .L_पाठ_कोडबिंदु_खोज__प्रवेश_0:
   movq $8, %rdi
@@ -8445,7 +8198,6 @@
   movq $0, %rdi
   jmp .L_पाठ_कोडबिंदु_खोज__wh_शर्त_3
 .L_पाठ_कोडबिंदु_खोज__wh_शर्त_3:
-  movq %rdi, -80(%rbp)
   movq %rdi, %r10
   addq %r13, %r10
   movq %r10, %r14
@@ -8489,7 +8241,6 @@
   call पाठ_कोडबिंदु_पूर्व
   addq $32, %rsp
   movq %rax, %rsi
-  movq $0, -80(%rbp)
   movq %rsi, %rax
   jmp .L_epilogue_पाठ_कोडबिंदु_खोज
 .L_पाठ_कोडबिंदु_खोज__if_सत्य_1:
@@ -8504,7 +8255,6 @@
   call फेंको
   addq $32, %rsp
 .L_epilogue_पाठ_कोडबिंदु_खोज:
-  subl $1, gc_roots_count(%rip)
   movq -8(%rbp), %rbx
   movq -16(%rbp), %rsi
   movq -24(%rbp), %rdi
@@ -8522,7 +8272,7 @@
 पाठ_बदल:
   pushq %rbp
   movq %rsp, %rbp
-  subq $144, %rsp
+  subq $128, %rsp
   movq %rbx, -8(%rbp)
   movq %rsi, -16(%rbp)
   movq %rdi, -24(%rbp)
@@ -8534,13 +8284,9 @@
   movq %rdx, %rsi
   movq %r8, %rdi
   movq $0, -120(%rbp)
-  movq $0, -128(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -128(%rbp), %r11
   movq %r11, (%r10,%rax,8)
   incl %eax
   movl %eax, gc_roots_count(%rip)
@@ -8620,7 +8366,6 @@
   movq $0, %rbx
   jmp .L_पाठ_बदल__wh_शर्त_11
 .L_पाठ_बदल__wh_शर्त_11:
-  movq %rbx, -128(%rbp)
   movq %rbx, %r10
   addq -88(%rbp), %r10
   movq %r10, %r12
@@ -8716,7 +8461,6 @@
   movq %rdi, %r10
   addq %rbx, %r10
   movq %r10, %r13
-  movq $0, -128(%rbp)
   movq %r13, %r10
   addq -88(%rbp), %r10
   movq %r10, %rbx
@@ -8756,7 +8500,7 @@
   call फेंको
   addq $32, %rsp
 .L_epilogue_पाठ_बदल:
-  subl $2, gc_roots_count(%rip)
+  subl $1, gc_roots_count(%rip)
   movq -8(%rbp), %rbx
   movq -16(%rbp), %rsi
   movq -24(%rbp), %rdi
@@ -8774,7 +8518,7 @@
 पाठ_विभाजन:
   pushq %rbp
   movq %rsp, %rbp
-  subq $288, %rsp
+  subq $240, %rsp
   movq %rbx, -8(%rbp)
   movq %rsi, -16(%rbp)
   movq %rdi, -24(%rbp)
@@ -8784,17 +8528,16 @@
   movq %r15, -56(%rbp)
   movq %rcx, -120(%rbp)
   movq %rdx, -104(%rbp)
+  movq $0, -216(%rbp)
+  movq $0, -224(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -216(%rbp), %r11
-  movl $9, %ecx
-.Lजड़_पाठ_विभाजन:
-  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  subq $8, %r11
-  decl %ecx
-  jnz .Lजड़_पाठ_विभाजन
+  leaq -224(%rbp), %r11
+  movq %r11, (%r10,%rax,8)
+  incl %eax
   movl %eax, gc_roots_count(%rip)
 
 .L_पाठ_विभाजन__प्रवेश_0:
@@ -8853,10 +8596,6 @@
   movq %rdi, -152(%rbp)
   jmp .L_पाठ_विभाजन__wh_शर्त_8
 .L_पाठ_विभाजन__wh_शर्त_8:
-  movq -152(%rbp), %r11
-  movq %r11, -216(%rbp)
-  movq -136(%rbp), %r11
-  movq %r11, -224(%rbp)
   movq -136(%rbp), %r10
   addq -72(%rbp), %r10
   movq %r10, %r15
@@ -8890,7 +8629,7 @@
   addq $32, %rsp
   movq %rax, -168(%rbp)
   movq -168(%rbp), %r11
-  movq %r11, -272(%rbp)
+  movq %r11, -216(%rbp)
   movq $0, %r12
   movq -168(%rbp), %r10
   movq %r12, %r11
@@ -8907,8 +8646,6 @@
   movq $0, %r15
   jmp .L_पाठ_विभाजन__wh_शर्त_14
 .L_पाठ_विभाजन__wh_शर्त_14:
-  movq %r12, -232(%rbp)
-  movq %r15, -240(%rbp)
   movq %r15, %r10
   cmpq -88(%rbp), %r10
   setle %al
@@ -8923,7 +8660,6 @@
   movq %r15, %rbx
   jmp .L_पाठ_विभाजन__wh_शर्त_17
 .L_पाठ_विभाजन__wh_शर्त_17:
-  movq %rbx, -248(%rbp)
   movq %rbx, %r10
   addq -72(%rbp), %r10
   movq %r10, %r14
@@ -8964,8 +8700,6 @@
   movq %rsi, -200(%rbp)
   jmp .L_पाठ_विभाजन__wh_अंत_19
 .L_पाठ_विभाजन__wh_अंत_19:
-  movq -200(%rbp), %r11
-  movq %r11, -256(%rbp)
   movq $0, %rdi
   movq -200(%rbp), %r10
   cmpq %rdi, %r10
@@ -8984,8 +8718,6 @@
   movq %r11, -184(%rbp)
   jmp .L_पाठ_विभाजन__if_अंत_23
 .L_पाठ_विभाजन__if_अंत_23:
-  movq -184(%rbp), %r11
-  movq %r11, -264(%rbp)
   movq -184(%rbp), %r10
   subq %r15, %r10
   movq %r10, %rdi
@@ -8994,13 +8726,12 @@
   call पाठ_आवंटित
   addq $32, %rsp
   movq %rax, %r14
-  movq %r14, -280(%rbp)
+  movq %r14, -224(%rbp)
   movq $16, %r13
   movq $16, %rbx
   movq %rbx, %r10
   addq %r15, %r10
   movq %r10, %rsi
-  movq $0, -240(%rbp)
   subq $8, %rsp
   movq %rdi, %r11
   pushq %r11
@@ -9025,19 +8756,17 @@
   movq %r14, %r8
   movq %r8, (%r10,%r11)
   movq %r14, %rbx
-  movq $0, -280(%rbp)
+  movq $0, -224(%rbp)
   movq $1, %rbx
   movq %r12, %r10
   addq %rbx, %r10
   movq %r10, %rsi
-  movq $0, -232(%rbp)
   movq $0, %rbx
   movq -200(%rbp), %r10
   cmpq %rbx, %r10
   sete %al
   movzbq %al, %r10
   movq %r10, %rdi
-  movq $0, -256(%rbp)
   movq %rdi, %r10
   cmpq $0, %r10
   je .L_पाठ_विभाजन__if_अंत_25
@@ -9046,7 +8775,6 @@
   movq -184(%rbp), %r10
   addq -72(%rbp), %r10
   movq %r10, %rbx
-  movq $0, -264(%rbp)
   movq %rbx, %r15
   movq %rsi, %r12
   jmp .L_पाठ_विभाजन__wh_शर्त_14
@@ -9082,11 +8810,9 @@
   movq -152(%rbp), %r10
   addq %rbx, %r10
   movq %r10, %rsi
-  movq $0, -216(%rbp)
   movq -136(%rbp), %r10
   addq -72(%rbp), %r10
   movq %r10, %rbx
-  movq $0, -224(%rbp)
   movq %rbx, %r11
   movq %rsi, %rbx
   movq %r11, %rsi
@@ -9118,7 +8844,7 @@
   call फेंको
   addq $32, %rsp
 .L_epilogue_पाठ_विभाजन:
-  subl $9, gc_roots_count(%rip)
+  subl $2, gc_roots_count(%rip)
   movq -8(%rbp), %rbx
   movq -16(%rbp), %rsi
   movq -24(%rbp), %rdi
@@ -9136,7 +8862,7 @@
 पाठ_संयोग:
   pushq %rbp
   movq %rsp, %rbp
-  subq $240, %rsp
+  subq $192, %rsp
   movq %rbx, -8(%rbp)
   movq %rsi, -16(%rbp)
   movq %rdi, -24(%rbp)
@@ -9146,17 +8872,12 @@
   movq %r15, -56(%rbp)
   movq %rcx, -120(%rbp)
   movq %rdx, -104(%rbp)
+  movq $0, -184(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -184(%rbp), %r11
-  movl $6, %ecx
-.Lजड़_पाठ_संयोग:
-  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  subq $8, %r11
-  decl %ecx
-  jnz .Lजड़_पाठ_संयोग
   movl %eax, gc_roots_count(%rip)
 
 .L_पाठ_संयोग__प्रवेश_0:
@@ -9199,18 +8920,12 @@
   movq %r13, -72(%rbp)
   jmp .L_पाठ_संयोग__if_अंत_4
 .L_पाठ_संयोग__if_अंत_4:
-  movq -72(%rbp), %r11
-  movq %r11, -192(%rbp)
   movq $0, %r13
   movq $0, %r14
   movq %r14, -136(%rbp)
   movq %r13, -152(%rbp)
   jmp .L_पाठ_संयोग__wh_शर्त_5
 .L_पाठ_संयोग__wh_शर्त_5:
-  movq -152(%rbp), %r11
-  movq %r11, -200(%rbp)
-  movq -136(%rbp), %r11
-  movq %r11, -208(%rbp)
   movq -136(%rbp), %r10
   cmpq -88(%rbp), %r10
   setl %al
@@ -9235,8 +8950,6 @@
   movq %r11, %r12
   jmp .L_पाठ_संयोग__wh_शर्त_12
 .L_पाठ_संयोग__wh_शर्त_12:
-  movq %rdi, -216(%rbp)
-  movq %r12, -224(%rbp)
   movq %rdi, %r10
   cmpq -88(%rbp), %r10
   setl %al
@@ -9286,7 +8999,6 @@
   movq %r12, %r10
   addq %r14, %r10
   movq %r10, %rbx
-  movq $0, -224(%rbp)
   movq $1, %rsi
   movq %rdi, %r10
   addq %rsi, %r10
@@ -9344,7 +9056,6 @@
   movq %rdi, %r10
   addq %rsi, %r10
   movq %r10, %r12
-  movq $0, -216(%rbp)
   movq %r12, %rdi
   movq %rbx, %r12
   jmp .L_पाठ_संयोग__wh_शर्त_12
@@ -9380,7 +9091,6 @@
   movq -152(%rbp), %r10
   addq %rdi, %r10
   movq %r10, %rbx
-  movq $0, -200(%rbp)
   movq $1, %rsi
   movq -136(%rbp), %r10
   addq %rsi, %r10
@@ -9407,7 +9117,6 @@
   movq -136(%rbp), %r10
   addq %rsi, %r10
   movq %r10, %rdi
-  movq $0, -208(%rbp)
   movq %rdi, -136(%rbp)
   movq %rbx, -152(%rbp)
   jmp .L_पाठ_संयोग__wh_शर्त_5
@@ -9432,7 +9141,7 @@
   movq %rsi, %rax
   jmp .L_epilogue_पाठ_संयोग
 .L_epilogue_पाठ_संयोग:
-  subl $6, gc_roots_count(%rip)
+  subl $1, gc_roots_count(%rip)
   movq -8(%rbp), %rbx
   movq -16(%rbp), %rsi
   movq -24(%rbp), %rdi
@@ -9685,7 +9394,7 @@
 पाठ_छाँट:
   pushq %rbp
   movq %rsp, %rbp
-  subq $208, %rsp
+  subq $144, %rsp
   movq %rbx, -8(%rbp)
   movq %rsi, -16(%rbp)
   movq %rdi, -24(%rbp)
@@ -9694,17 +9403,12 @@
   movq %r14, -48(%rbp)
   movq %r15, -56(%rbp)
   movq %rcx, -88(%rbp)
+  movq $0, -136(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -136(%rbp), %r11
-  movl $9, %ecx
-.Lजड़_पाठ_छाँट:
-  movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
   incl %eax
-  subq $8, %r11
-  decl %ecx
-  jnz .Lजड़_पाठ_छाँट
   movl %eax, gc_roots_count(%rip)
 
 .L_पाठ_छाँट__प्रवेश_0:
@@ -9730,8 +9434,6 @@
   movq %r13, -104(%rbp)
   jmp .L_पाठ_छाँट__wh_शर्त_3
 .L_पाठ_छाँट__wh_शर्त_3:
-  movq -104(%rbp), %r11
-  movq %r11, -136(%rbp)
   movq -104(%rbp), %r10
   cmpq -72(%rbp), %r10
   setl %al
@@ -9778,9 +9480,6 @@
   movq $1, %rdi
   jmp .L_पाठ_छाँट__if_अंत_7
 .L_पाठ_छाँट__if_अंत_7:
-  movq %rdi, -144(%rbp)
-  movq %r14, -152(%rbp)
-  movq %r15, -160(%rbp)
   movq -88(%rbp), %rcx
   movq -104(%rbp), %rdx
   movq %rdi, %r8
@@ -9806,7 +9505,6 @@
   movq -104(%rbp), %r10
   addq %rdi, %r10
   movq %r10, %rbx
-  movq $0, -144(%rbp)
   movq %rbx, -104(%rbp)
   jmp .L_पाठ_छाँट__wh_शर्त_3
 .L_पाठ_छाँट__if_सत्य_8:
@@ -9816,8 +9514,6 @@
   movq %r11, -120(%rbp)
   jmp .L_पाठ_छाँट__wh_अंत_5
 .L_पाठ_छाँट__wh_अंत_5:
-  movq -120(%rbp), %r11
-  movq %r11, -168(%rbp)
   movq $0, %rdi
   movq %rsi, %r10
   cmpq %rdi, %r10
@@ -9833,8 +9529,6 @@
   movq -120(%rbp), %rsi
   jmp .L_पाठ_छाँट__wh_शर्त_12
 .L_पाठ_छाँट__wh_शर्त_12:
-  movq %rsi, -176(%rbp)
-  movq %rdi, -184(%rbp)
   movq %rsi, %r10
   cmpq -72(%rbp), %r10
   setl %al
@@ -9853,7 +9547,7 @@
   call पाठ_आवंटित
   addq $32, %rsp
   movq %rax, %r13
-  movq %r13, -200(%rbp)
+  movq %r13, -136(%rbp)
   movq $16, %r14
   movq $16, %r15
   movq %r15, %r10
@@ -9905,7 +9599,6 @@
   movq $1, %rbx
   jmp .L_पाठ_छाँट__if_अंत_16
 .L_पाठ_छाँट__if_अंत_16:
-  movq %rbx, -192(%rbp)
   movq -88(%rbp), %rcx
   movq %rsi, %rdx
   movq %rbx, %r8
@@ -9938,8 +9631,6 @@
   movq %rsi, %r10
   addq %rbx, %r10
   movq %r10, %r12
-  movq $0, -176(%rbp)
-  movq $0, -192(%rbp)
   movq %r12, %rsi
   jmp .L_पाठ_छाँट__wh_शर्त_12
 .L_पाठ_छाँट__if_सत्य_10:
@@ -9961,7 +9652,7 @@
   movq %rsi, %rax
   jmp .L_epilogue_पाठ_छाँट
 .L_epilogue_पाठ_छाँट:
-  subl $9, gc_roots_count(%rip)
+  subl $1, gc_roots_count(%rip)
   movq -8(%rbp), %rbx
   movq -16(%rbp), %rsi
   movq -24(%rbp), %rdi
@@ -10724,7 +10415,7 @@
 सञ्चिका_लिखो_रन:
   pushq %rbp
   movq %rsp, %rbp
-  subq $128, %rsp
+  subq $112, %rsp
   movq %rbx, -8(%rbp)
   movq %rsi, -16(%rbp)
   movq %rdi, -24(%rbp)
@@ -10737,7 +10428,6 @@
   movq $0, -88(%rbp)
   movq $0, -96(%rbp)
   movq $0, -104(%rbp)
-  movq $0, -112(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -88(%rbp), %r11
@@ -10747,9 +10437,6 @@
   movq %r11, (%r10,%rax,8)
   incl %eax
   leaq -104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -112(%rbp), %r11
   movq %r11, (%r10,%rax,8)
   incl %eax
   movl %eax, gc_roots_count(%rip)
@@ -10896,7 +10583,6 @@
   movq $0, %rbx
   jmp .L_सञ्चिका_लिखो_रन__wh_अंत_12
 .L_सञ्चिका_लिखो_रन__wh_अंत_12:
-  movq %rbx, -112(%rbp)
   movq %rdi, %rcx
   subq $32, %rsp
   call सूत्र_तल_हैंडल_बंद
@@ -10909,7 +10595,6 @@
   sete %al
   movzbq %al, %r10
   movq %r10, %rdi
-  movq $0, -112(%rbp)
   movq %rdi, %r10
   cmpq $0, %r10
   je .L_सञ्चिका_लिखो_रन__if_अंत_16
@@ -10946,7 +10631,7 @@
   movq %rbx, %rax
   jmp .L_epilogue_सञ्चिका_लिखो_रन
 .L_epilogue_सञ्चिका_लिखो_रन:
-  subl $4, gc_roots_count(%rip)
+  subl $3, gc_roots_count(%rip)
   movq -8(%rbp), %rbx
   movq -16(%rbp), %rsi
   movq -24(%rbp), %rdi
@@ -11235,7 +10920,7 @@
 तर्क_सूची_रन:
   pushq %rbp
   movq %rsp, %rbp
-  subq $144, %rsp
+  subq $128, %rsp
   movq %rbx, -8(%rbp)
   movq %rsi, -16(%rbp)
   movq %rdi, -24(%rbp)
@@ -11246,7 +10931,6 @@
   movq $0, -104(%rbp)
   movq $0, -112(%rbp)
   movq $0, -120(%rbp)
-  movq $0, -128(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -104(%rbp), %r11
@@ -11256,9 +10940,6 @@
   movq %r11, (%r10,%rax,8)
   incl %eax
   leaq -120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -128(%rbp), %r11
   movq %r11, (%r10,%rax,8)
   incl %eax
   movl %eax, gc_roots_count(%rip)
@@ -11290,7 +10971,7 @@
   addq $32, %rsp
   movq %rax, -72(%rbp)
   movq -72(%rbp), %r11
-  movq %r11, -120(%rbp)
+  movq %r11, -112(%rbp)
   movq $0, %rsi
   movq -72(%rbp), %r10
   movq %rsi, %r11
@@ -11307,8 +10988,6 @@
   movq %rbx, -88(%rbp)
   jmp .L_तर्क_सूची_रन__wh_शर्त_1
 .L_तर्क_सूची_रन__wh_शर्त_1:
-  movq -88(%rbp), %r11
-  movq %r11, -104(%rbp)
   movq sutra_glob_तर्क_गण(%rip), %r10
   movq %r10, %rsi
   movq -88(%rbp), %r10
@@ -11369,7 +11048,7 @@
   movq $0, %rsi
   jmp .L_तर्क_सूची_रन__if_अंत_5
 .L_तर्क_सूची_रन__if_अंत_5:
-  movq %rsi, -112(%rbp)
+  movq %rsi, -104(%rbp)
   movq $16, %rdi
   movq $8, %r13
   movq -88(%rbp), %r10
@@ -11385,7 +11064,7 @@
   call पाठ_आवंटित
   addq $32, %rsp
   movq %rax, %r14
-  movq %r14, -128(%rbp)
+  movq %r14, -120(%rbp)
   movq $16, %r15
   movq $16, %r12
   movq %rdi, %r10
@@ -11403,22 +11082,21 @@
   call खंड_प्रतिलिपि
   addq $48, %rsp
   movq %rax, %r12
-  movq $0, -112(%rbp)
+  movq $0, -104(%rbp)
   movq -72(%rbp), %r10
   movq %r13, %r11
   movq %r14, %r8
   movq %r8, (%r10,%r11)
   movq %r14, %rbx
-  movq $0, -128(%rbp)
+  movq $0, -120(%rbp)
   movq $1, %rbx
   movq -88(%rbp), %r10
   addq %rbx, %r10
   movq %r10, %rsi
-  movq $0, -104(%rbp)
   movq %rsi, -88(%rbp)
   jmp .L_तर्क_सूची_रन__wh_शर्त_1
 .L_epilogue_तर्क_सूची_रन:
-  subl $4, gc_roots_count(%rip)
+  subl $3, gc_roots_count(%rip)
   movq -8(%rbp), %rbx
   movq -16(%rbp), %rsi
   movq -24(%rbp), %rdi
@@ -11436,7 +11114,7 @@
 दशमलव_प्रारूप:
   pushq %rbp
   movq %rsp, %rbp
-  subq $224, %rsp
+  subq $176, %rsp
   movq %rbx, -8(%rbp)
   movq %rsi, -16(%rbp)
   movq %rdi, -24(%rbp)
@@ -11446,18 +11124,6 @@
   movq %r15, -56(%rbp)
   movq %rcx, %rbx
   movq %rdx, -72(%rbp)
-  movl gc_roots_count(%rip), %eax
-  leaq gc_roots(%rip), %r10
-  leaq -168(%rbp), %r11
-  movl $6, %ecx
-.Lजड़_दशमलव_प्रारूप:
-  movq $0, (%r11)
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  subq $8, %r11
-  decl %ecx
-  jnz .Lजड़_दशमलव_प्रारूप
-  movl %eax, gc_roots_count(%rip)
 
 .L_दशमलव_प्रारूप__प्रवेश_0:
   movq $0, %rdi
@@ -11508,10 +11174,6 @@
   movq %rdi, -88(%rbp)
   jmp .L_दशमलव_प्रारूप__if_अंत_4
 .L_दशमलव_प्रारूप__if_अंत_4:
-  movq -88(%rbp), %r11
-  movq %r11, -168(%rbp)
-  movq -104(%rbp), %r11
-  movq %r11, -176(%rbp)
   movq -104(%rbp), %rcx
   movq -104(%rbp), %rdx
   subq $32, %rsp
@@ -11591,7 +11253,6 @@
   movq %r11, %r14
   jmp .L_दशमलव_प्रारूप__wh_शर्त_17
 .L_दशमलव_प्रारूप__wh_शर्त_17:
-  movq %r13, -184(%rbp)
   movq $0, %rsi
   movq %r13, %r10
   cmpq %rsi, %r10
@@ -11633,7 +11294,6 @@
   cqto
   idivq %r10
   movq %rax, %rdi
-  movq $0, -184(%rbp)
   movq %rsi, %r14
   movq %rdi, %r13
   jmp .L_दशमलव_प्रारूप__wh_शर्त_17
@@ -11651,7 +11311,6 @@
   movq %rsi, %rbx
   jmp .L_दशमलव_प्रारूप__if_अंत_15
 .L_दशमलव_प्रारूप__if_अंत_15:
-  movq %rbx, -192(%rbp)
   movq $100000, %rsi
   movq %r15, %rax
   movq %rsi, %r10
@@ -11809,7 +11468,6 @@
   movq $5, %rsi
   jmp .L_दशमलव_प्रारूप__if_अंत_31
 .L_दशमलव_प्रारूप__if_अंत_31:
-  movq %rsi, -200(%rbp)
   movq $0, %r14
   movq %rsi, %r10
   cmpq %r14, %r10
@@ -11833,7 +11491,6 @@
   movq %rbx, %r10
   addq %r14, %r10
   movq %r10, %r15
-  movq $0, -192(%rbp)
   movq $48, %rbx
   movq %rbx, %r10
   addq %rdi, %r10
@@ -11911,7 +11568,6 @@
   movq %r15, %r10
   addq %rsi, %r10
   movq %r10, %rbx
-  movq $0, -200(%rbp)
   movq $1, %rsi
   movq %rbx, %r10
   addq %rsi, %r10
@@ -11927,7 +11583,6 @@
   call sutra_math_round_f
   addq $32, %rsp
   movq %rax, %rbx
-  movq $0, -176(%rbp)
   movq %rbx, %rcx
   subq $32, %rsp
   call अंक_गणना
@@ -11949,7 +11604,6 @@
 .L_दशमलव_प्रारूप__if_अंत_10:
   jmp .L_दशमलव_प्रारूप__wh_शर्त_11
 .L_दशमलव_प्रारूप__wh_शर्त_11:
-  movq %rbx, -208(%rbp)
   movq $0, %r12
   movq %rbx, %r10
   cmpq %r12, %r10
@@ -11992,7 +11646,6 @@
   cqto
   idivq %r10
   movq %rax, %r12
-  movq $0, -208(%rbp)
   movq %r13, %rdi
   movq %r12, %rbx
   jmp .L_दशमलव_प्रारूप__wh_शर्त_11
@@ -12020,7 +11673,6 @@
   movq -88(%rbp), %r10
   addq %rbx, %r10
   movq %r10, %rsi
-  movq $0, -168(%rbp)
   movq $110, %rbx
   movq -72(%rbp), %r10
   movq %rsi, %r11
@@ -12069,7 +11721,6 @@
   movq %rbx, %rax
   jmp .L_epilogue_दशमलव_प्रारूप
 .L_epilogue_दशमलव_प्रारूप:
-  subl $6, gc_roots_count(%rip)
   movq -8(%rbp), %rbx
   movq -16(%rbp), %rsi
   movq -24(%rbp), %rdi
@@ -12498,7 +12149,7 @@
 पाठ_सूचकांक:
   pushq %rbp
   movq %rsp, %rbp
-  subq $144, %rsp
+  subq $128, %rsp
   movq %rbx, -8(%rbp)
   movq %rsi, -16(%rbp)
   movq %rdi, -24(%rbp)
@@ -12510,20 +12161,12 @@
   movq %rdx, %rsi
   movq $0, -104(%rbp)
   movq $0, -112(%rbp)
-  movq $0, -120(%rbp)
-  movq $0, -128(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -104(%rbp), %r11
   movq %r11, (%r10,%rax,8)
   incl %eax
   leaq -112(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -128(%rbp), %r11
   movq %r11, (%r10,%rax,8)
   incl %eax
   movl %eax, gc_roots_count(%rip)
@@ -12624,9 +12267,6 @@
   movq %rbx, -88(%rbp)
   jmp .L_पाठ_सूचकांक__wh_शर्त_11
 .L_पाठ_सूचकांक__wh_शर्त_11:
-  movq -88(%rbp), %r11
-  movq %r11, -112(%rbp)
-  movq %rdi, -120(%rbp)
   movq -88(%rbp), %r10
   cmpq %r12, %r10
   setl %al
@@ -12661,12 +12301,9 @@
   call अक्षर_बाइट_चौड़ाई
   addq $32, %rsp
   movq %rax, %r15
-  movq -88(%rbp), %rcx
-  movq %r15, %rdx
-  subq $32, %rsp
-  call पाठ_योग_गतिक
-  addq $32, %rsp
-  movq %rax, %r13
+  movq -88(%rbp), %r10
+  addq %r15, %r10
+  movq %r10, %r13
   movq %rdi, %r10
   cmpq %rsi, %r10
   sete %al
@@ -12689,7 +12326,6 @@
   movq %r10, sutra_glob_पसू_कैश_स(%rip)
   movq %rdi, %r10
   movq %r10, sutra_glob_पसू_कैश_क(%rip)
-  movq $0, -120(%rbp)
   movq -88(%rbp), %r10
   movq %r10, sutra_glob_पसू_कैश_ब(%rip)
   movq %r14, %r10
@@ -12703,13 +12339,12 @@
   call पाठ_आवंटित
   addq $32, %rsp
   movq %rax, %rsi
-  movq %rsi, -128(%rbp)
+  movq %rsi, -112(%rbp)
   movq $16, %rdi
   movq $16, %r12
   movq %r12, %r10
   addq -88(%rbp), %r10
   movq %r10, %r13
-  movq $0, -112(%rbp)
   subq $8, %rsp
   movq %rbx, %r11
   pushq %r11
@@ -12746,7 +12381,7 @@
   call फेंको
   addq $32, %rsp
 .L_epilogue_पाठ_सूचकांक:
-  subl $4, gc_roots_count(%rip)
+  subl $2, gc_roots_count(%rip)
   movq -8(%rbp), %rbx
   movq -16(%rbp), %rsi
   movq -24(%rbp), %rdi
@@ -13062,7 +12697,7 @@
 पाठ_तुल्य_तेज़:
   pushq %rbp
   movq %rsp, %rbp
-  subq $96, %rsp
+  subq $80, %rsp
   movq %rbx, -8(%rbp)
   movq %rsi, -16(%rbp)
   movq %rdi, -24(%rbp)
@@ -13072,13 +12707,6 @@
   movq %r15, -56(%rbp)
   movq %rcx, %rbx
   movq %rdx, %rsi
-  movq $0, -80(%rbp)
-  movl gc_roots_count(%rip), %eax
-  leaq gc_roots(%rip), %r10
-  leaq -80(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  movl %eax, gc_roots_count(%rip)
 
 .L_पाठ_तुल्य_तेज़__प्रवेश_0:
   movq %rbx, %r10
@@ -13142,7 +12770,6 @@
   movq $0, %rdi
   jmp .L_पाठ_तुल्य_तेज़__wh_शर्त_10
 .L_पाठ_तुल्य_तेज़__wh_शर्त_10:
-  movq %rdi, -80(%rbp)
   movq %rdi, %r10
   cmpq %r12, %r10
   setl %al
@@ -13187,7 +12814,6 @@
   movq %rdi, %r10
   addq %r13, %r10
   movq %r10, %r14
-  movq $0, -80(%rbp)
   movq %r14, %rdi
   jmp .L_पाठ_तुल्य_तेज़__wh_शर्त_10
 .L_पाठ_तुल्य_तेज़__if_सत्य_13:
@@ -13207,7 +12833,6 @@
   movq %rbx, %rax
   jmp .L_epilogue_पाठ_तुल्य_तेज़
 .L_epilogue_पाठ_तुल्य_तेज़:
-  subl $1, gc_roots_count(%rip)
   movq -8(%rbp), %rbx
   movq -16(%rbp), %rsi
   movq -24(%rbp), %rdi
@@ -13225,7 +12850,7 @@
 पाठ_लंबाई_तेज़:
   pushq %rbp
   movq %rsp, %rbp
-  subq $96, %rsp
+  subq $80, %rsp
   movq %rbx, -8(%rbp)
   movq %rsi, -16(%rbp)
   movq %rdi, -24(%rbp)
@@ -13234,17 +12859,6 @@
   movq %r14, -48(%rbp)
   movq %r15, -56(%rbp)
   movq %rcx, %rbx
-  movq $0, -80(%rbp)
-  movq $0, -88(%rbp)
-  movl gc_roots_count(%rip), %eax
-  leaq gc_roots(%rip), %r10
-  leaq -80(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -88(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  movl %eax, gc_roots_count(%rip)
 
 .L_पाठ_लंबाई_तेज़__प्रवेश_0:
   movq $0, %rsi
@@ -13267,8 +12881,6 @@
   movq $0, %r12
   jmp .L_पाठ_लंबाई_तेज़__wh_शर्त_3
 .L_पाठ_लंबाई_तेज़__wh_शर्त_3:
-  movq %rsi, -80(%rbp)
-  movq %r12, -88(%rbp)
   movq %rsi, %r10
   cmpq %rdi, %r10
   setl %al
@@ -13425,7 +13037,6 @@
   movq %rsi, %r10
   addq %r13, %r10
   movq %r10, %r14
-  movq $0, -80(%rbp)
   movq %r14, %rsi
   jmp .L_पाठ_लंबाई_तेज़__if_अंत_7
 .L_पाठ_लंबाई_तेज़__if_अंत_7:
@@ -13433,7 +13044,6 @@
   movq %r12, %r10
   addq %r13, %r10
   movq %r10, %r14
-  movq $0, -88(%rbp)
   movq %r14, %r12
   jmp .L_पाठ_लंबाई_तेज़__wh_शर्त_3
 .L_पाठ_लंबाई_तेज़__if_सत्य_1:
@@ -13441,7 +13051,6 @@
   movq %rbx, %rax
   jmp .L_epilogue_पाठ_लंबाई_तेज़
 .L_epilogue_पाठ_लंबाई_तेज़:
-  subl $2, gc_roots_count(%rip)
   movq -8(%rbp), %rbx
   movq -16(%rbp), %rsi
   movq -24(%rbp), %rdi
@@ -13717,7 +13326,7 @@
 पाठ_योग_गतिक:
   pushq %rbp
   movq %rsp, %rbp
-  subq $96, %rsp
+  subq $64, %rsp
   movq %rbx, -8(%rbp)
   movq %rsi, -16(%rbp)
   movq %rdi, -24(%rbp)
@@ -13726,17 +13335,6 @@
   movq %r14, -48(%rbp)
   movq %rcx, %rbx
   movq %rdx, %rsi
-  movq $0, -72(%rbp)
-  movq $0, -80(%rbp)
-  movl gc_roots_count(%rip), %eax
-  leaq gc_roots(%rip), %r10
-  leaq -72(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -80(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  movl %eax, gc_roots_count(%rip)
 
 .L_पाठ_योग_गतिक__प्रवेश_0:
   movq %rbx, %rcx
@@ -13804,7 +13402,6 @@
   movq %rdi, %rbx
   jmp .L_पाठ_योग_गतिक__if_अंत_7
 .L_पाठ_योग_गतिक__if_अंत_7:
-  movq %rbx, -72(%rbp)
   movq $0, %rdi
   movq %r12, %r10
   cmpq %rdi, %r10
@@ -13826,19 +13423,15 @@
   movq %rdi, %rsi
   jmp .L_पाठ_योग_गतिक__if_अंत_9
 .L_पाठ_योग_गतिक__if_अंत_9:
-  movq %rsi, -80(%rbp)
   movq %rbx, %rcx
   movq %rsi, %rdx
   subq $32, %rsp
   call पाठ_जोड़
   addq $32, %rsp
   movq %rax, %rdi
-  movq $0, -72(%rbp)
-  movq $0, -80(%rbp)
   movq %rdi, %rax
   jmp .L_epilogue_पाठ_योग_गतिक
 .L_epilogue_पाठ_योग_गतिक:
-  subl $2, gc_roots_count(%rip)
   movq -8(%rbp), %rbx
   movq -16(%rbp), %rsi
   movq -24(%rbp), %rdi
@@ -13936,7 +13529,7 @@
 शब्दकोश_कुंजियाँ_रन:
   pushq %rbp
   movq %rsp, %rbp
-  subq $112, %rsp
+  subq $96, %rsp
   movq %rbx, -8(%rbp)
   movq %rsi, -16(%rbp)
   movq %rdi, -24(%rbp)
@@ -13947,16 +13540,12 @@
   movq %rcx, %rbx
   movq $0, -80(%rbp)
   movq $0, -88(%rbp)
-  movq $0, -96(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -80(%rbp), %r11
   movq %r11, (%r10,%rax,8)
   incl %eax
   leaq -88(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -96(%rbp), %r11
   movq %r11, (%r10,%rax,8)
   incl %eax
   movl %eax, gc_roots_count(%rip)
@@ -14002,7 +13591,7 @@
   call सूत्र_आवंटन
   addq $32, %rsp
   movq %rax, %r13
-  movq %r13, -96(%rbp)
+  movq %r13, -88(%rbp)
   movq $0, %rbx
   movq %r13, %r10
   movq %rbx, %r11
@@ -14018,7 +13607,6 @@
   movq $0, %rbx
   jmp .L_शब्दकोश_कुंजियाँ_रन__wh_शर्त_3
 .L_शब्दकोश_कुंजियाँ_रन__wh_शर्त_3:
-  movq %rbx, -80(%rbp)
   movq %rbx, %r10
   cmpq %rdi, %r10
   setl %al
@@ -14061,7 +13649,6 @@
   movq %rbx, %r10
   addq %rsi, %r10
   movq %r10, %r14
-  movq $0, -80(%rbp)
   movq %r14, %rbx
   jmp .L_शब्दकोश_कुंजियाँ_रन__wh_शर्त_3
 .L_शब्दकोश_कुंजियाँ_रन__if_सत्य_1:
@@ -14081,7 +13668,7 @@
   call सूत्र_आवंटन
   addq $32, %rsp
   movq %rax, %r12
-  movq %r12, -88(%rbp)
+  movq %r12, -80(%rbp)
   movq $0, %rsi
   movq %r12, %r10
   movq %rsi, %r11
@@ -14097,7 +13684,7 @@
   movq %r12, %rax
   jmp .L_epilogue_शब्दकोश_कुंजियाँ_रन
 .L_epilogue_शब्दकोश_कुंजियाँ_रन:
-  subl $3, gc_roots_count(%rip)
+  subl $2, gc_roots_count(%rip)
   movq -8(%rbp), %rbx
   movq -16(%rbp), %rsi
   movq -24(%rbp), %rdi
@@ -14425,7 +14012,7 @@
 जीसी_अंक_बफ:
   pushq %rbp
   movq %rsp, %rbp
-  subq $192, %rsp
+  subq $160, %rsp
   movq %rbx, -8(%rbp)
   movq %rsi, -16(%rbp)
   movq %rdi, -24(%rbp)
@@ -14435,18 +14022,6 @@
   movq %r15, -56(%rbp)
   movq %rcx, -72(%rbp)
   movq %rdx, -104(%rbp)
-  movl gc_roots_count(%rip), %eax
-  leaq gc_roots(%rip), %r10
-  leaq -152(%rbp), %r11
-  movl $5, %ecx
-.Lजड़_जीसी_अंक_बफ:
-  movq $0, (%r11)
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  subq $8, %r11
-  decl %ecx
-  jnz .Lजड़_जीसी_अंक_बफ
-  movl %eax, gc_roots_count(%rip)
 
 .L_जीसी_अंक_बफ__प्रवेश_0:
   movq $0, %rdi
@@ -14466,12 +14041,6 @@
   movq %rdi, -136(%rbp)
   jmp .L_जीसी_अंक_बफ__wh_शर्त_3
 .L_जीसी_अंक_बफ__wh_शर्त_3:
-  movq -136(%rbp), %r11
-  movq %r11, -152(%rbp)
-  movq -120(%rbp), %r11
-  movq %r11, -160(%rbp)
-  movq -88(%rbp), %r11
-  movq %r11, -168(%rbp)
   movq $0, %r14
   movq -120(%rbp), %r10
   cmpq %r14, %r10
@@ -14487,8 +14056,6 @@
   movq -104(%rbp), %r14
   jmp .L_जीसी_अंक_बफ__wh_शर्त_6
 .L_जीसी_अंक_बफ__wh_शर्त_6:
-  movq %r14, -176(%rbp)
-  movq %r15, -184(%rbp)
   movq $0, %rbx
   movq %r15, %r10
   cmpq %rbx, %r10
@@ -14536,12 +14103,10 @@
   cqto
   idivq %r10
   movq %rax, %rsi
-  movq $0, -176(%rbp)
   movq $1, %rbx
   movq %r15, %r10
   subq %rbx, %r10
   movq %r10, %rdi
-  movq $0, -184(%rbp)
   movq %rdi, %r15
   movq %rsi, %r14
   jmp .L_जीसी_अंक_बफ__wh_शर्त_6
@@ -14550,14 +14115,12 @@
   movq -136(%rbp), %r10
   addq %rbx, %r10
   movq %r10, %rsi
-  movq $0, -152(%rbp)
   movq $10, %rbx
   movq -120(%rbp), %rax
   movq %rbx, %r10
   cqto
   idivq %r10
   movq %rax, %rdi
-  movq $0, -160(%rbp)
   movq %rdi, -120(%rbp)
   movq %rsi, -136(%rbp)
   jmp .L_जीसी_अंक_बफ__wh_शर्त_3
@@ -14577,7 +14140,6 @@
   movq %rsi, %rax
   jmp .L_epilogue_जीसी_अंक_बफ
 .L_epilogue_जीसी_अंक_बफ:
-  subl $5, gc_roots_count(%rip)
   movq -8(%rbp), %rbx
   movq -16(%rbp), %rsi
   movq -24(%rbp), %rdi
@@ -15551,7 +15113,7 @@
 लघुगणक_रन:
   pushq %rbp
   movq %rsp, %rbp
-  subq $144, %rsp
+  subq $128, %rsp
   movq %rbx, -8(%rbp)
   movq %rsi, -16(%rbp)
   movq %rdi, -24(%rbp)
@@ -15563,7 +15125,6 @@
   movq $0, -104(%rbp)
   movq $0, -112(%rbp)
   movq $0, -120(%rbp)
-  movq $0, -128(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq -104(%rbp), %r11
@@ -15573,9 +15134,6 @@
   movq %r11, (%r10,%rax,8)
   incl %eax
   leaq -120(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -128(%rbp), %r11
   movq %r11, (%r10,%rax,8)
   incl %eax
   movl %eax, gc_roots_count(%rip)
@@ -15695,7 +15253,6 @@
 .L_लघुगणक_रन__wh_शर्त_5:
   movq %rsi, -112(%rbp)
   movq %r12, -120(%rbp)
-  movq %r13, -128(%rbp)
   movq $40, %r14
   movq %r13, %r10
   cmpq %r14, %r10
@@ -15766,7 +15323,6 @@
   movq %r13, %r10
   addq %rsi, %r10
   movq %r10, %r12
-  movq $0, -128(%rbp)
   movq %r12, %r13
   movq %rbx, %r12
   movq %rdi, %rsi
@@ -15777,7 +15333,7 @@
   movq %rbx, %rax
   jmp .L_epilogue_लघुगणक_रन
 .L_epilogue_लघुगणक_रन:
-  subl $4, gc_roots_count(%rip)
+  subl $3, gc_roots_count(%rip)
   movq -8(%rbp), %rbx
   movq -16(%rbp), %rsi
   movq -24(%rbp), %rdi
@@ -15795,7 +15351,7 @@
 घातांकी_रन:
   pushq %rbp
   movq %rsp, %rbp
-  subq $112, %rsp
+  subq $96, %rsp
   movq %rbx, -8(%rbp)
   movq %rsi, -16(%rbp)
   movq %rdi, -24(%rbp)
@@ -15804,21 +15360,6 @@
   movq %r14, -48(%rbp)
   movq %r15, -56(%rbp)
   movq %rcx, %rbx
-  movq $0, -88(%rbp)
-  movq $0, -96(%rbp)
-  movq $0, -104(%rbp)
-  movl gc_roots_count(%rip), %eax
-  leaq gc_roots(%rip), %r10
-  leaq -88(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -96(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  leaq -104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  movl %eax, gc_roots_count(%rip)
 
 .L_घातांकी_रन__प्रवेश_0:
   subq $32, %rsp
@@ -15870,7 +15411,6 @@
   movq $-1000, %rdi
   jmp .L_घातांकी_रन__if_अंत_4
 .L_घातांकी_रन__if_अंत_4:
-  movq %rdi, -88(%rbp)
   movq .LC_dbl_6(%rip), %r10
   movq %r10, %r12
   movq %rdi, %rcx
@@ -15897,8 +15437,6 @@
   movq $1, %r14
   jmp .L_घातांकी_रन__wh_शर्त_5
 .L_घातांकी_रन__wh_शर्त_5:
-  movq %r13, -96(%rbp)
-  movq %r14, -104(%rbp)
   movq $20, %r15
   movq %r14, %r10
   cmpq %r15, %r10
@@ -15949,18 +15487,15 @@
   call sutra_float_add
   addq $32, %rsp
   movq %rax, %rbx
-  movq $0, -96(%rbp)
   movq $1, %r12
   movq %r14, %r10
   addq %r12, %r10
   movq %r10, %r13
-  movq $0, -104(%rbp)
   movq %r13, %r14
   movq %rbx, %r13
   movq %r15, %rbx
   jmp .L_घातांकी_रन__wh_शर्त_5
 .L_epilogue_घातांकी_रन:
-  subl $3, gc_roots_count(%rip)
   movq -8(%rbp), %rbx
   movq -16(%rbp), %rsi
   movq -24(%rbp), %rdi
