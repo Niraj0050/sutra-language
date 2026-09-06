@@ -12886,6 +12886,403 @@
   ret
 
   .text
+  .globl पाठ_तुल्य_तेज़
+  .def पाठ_तुल्य_तेज़; .scl 2; .type 32; .endef
+पाठ_तुल्य_तेज़:
+  pushq %rbp
+  movq %rsp, %rbp
+  subq $96, %rsp
+  movq %rbx, -8(%rbp)
+  movq %rsi, -16(%rbp)
+  movq %rdi, -24(%rbp)
+  movq %r12, -32(%rbp)
+  movq %r13, -40(%rbp)
+  movq %r14, -48(%rbp)
+  movq %r15, -56(%rbp)
+  movq %rcx, %rbx
+  movq %rdx, %rsi
+  movq $0, -80(%rbp)
+  movl gc_roots_count(%rip), %eax
+  leaq gc_roots(%rip), %r10
+  leaq -80(%rbp), %r11
+  movq %r11, (%r10,%rax,8)
+  incl %eax
+  movl %eax, gc_roots_count(%rip)
+
+.L_पाठ_तुल्य_तेज़__प्रवेश_0:
+  movq %rbx, %r10
+  cmpq %rsi, %r10
+  sete %al
+  movzbq %al, %r10
+  movq %r10, %rdi
+  movq %rdi, %r10
+  cmpq $0, %r10
+  je .L_पाठ_तुल्य_तेज़__if_अंत_2
+  jmp .L_पाठ_तुल्य_तेज़__if_सत्य_1
+.L_पाठ_तुल्य_तेज़__if_अंत_2:
+  movq $0, %rdi
+  movq %rbx, %r10
+  cmpq %rdi, %r10
+  sete %al
+  movzbq %al, %r10
+  movq %r10, %r12
+  movq %r12, %r10
+  cmpq $0, %r10
+  je .L_पाठ_तुल्य_तेज़__sc_दायाँ_3
+  jmp .L_पाठ_तुल्य_तेज़__sc_लघु_4
+.L_पाठ_तुल्य_तेज़__sc_दायाँ_3:
+  movq $0, %rdi
+  movq %rsi, %r10
+  cmpq %rdi, %r10
+  sete %al
+  movzbq %al, %r10
+  movq %r10, %r12
+  movq %r12, %rdi
+  jmp .L_पाठ_तुल्य_तेज़__sc_अंत_5
+.L_पाठ_तुल्य_तेज़__sc_लघु_4:
+  movq $1, %rdi
+  jmp .L_पाठ_तुल्य_तेज़__sc_अंत_5
+.L_पाठ_तुल्य_तेज़__sc_अंत_5:
+  movq %rdi, %r10
+  cmpq $0, %r10
+  je .L_पाठ_तुल्य_तेज़__if_अंत_7
+  jmp .L_पाठ_तुल्य_तेज़__if_सत्य_6
+.L_पाठ_तुल्य_तेज़__if_अंत_7:
+  movq $8, %rdi
+  movq %rbx, %r10
+  movq %rdi, %r11
+  movq (%r10,%r11), %r10
+  movq %r10, %r12
+  movq $8, %rdi
+  movq %rsi, %r10
+  movq %rdi, %r11
+  movq (%r10,%r11), %r10
+  movq %r10, %r13
+  movq %r12, %r10
+  cmpq %r13, %r10
+  setne %al
+  movzbq %al, %r10
+  movq %r10, %rdi
+  movq %rdi, %r10
+  cmpq $0, %r10
+  je .L_पाठ_तुल्य_तेज़__if_अंत_9
+  jmp .L_पाठ_तुल्य_तेज़__if_सत्य_8
+.L_पाठ_तुल्य_तेज़__if_अंत_9:
+  movq $0, %rdi
+  jmp .L_पाठ_तुल्य_तेज़__wh_शर्त_10
+.L_पाठ_तुल्य_तेज़__wh_शर्त_10:
+  movq %rdi, -80(%rbp)
+  movq %rdi, %r10
+  cmpq %r12, %r10
+  setl %al
+  movzbq %al, %r10
+  movq %r10, %r13
+  movq %r13, %r10
+  cmpq $0, %r10
+  je .L_पाठ_तुल्य_तेज़__wh_अंत_12
+  jmp .L_पाठ_तुल्य_तेज़__wh_देह_11
+.L_पाठ_तुल्य_तेज़__wh_अंत_12:
+  movq $1, %r13
+  movq %r13, %rax
+  jmp .L_epilogue_पाठ_तुल्य_तेज़
+.L_पाठ_तुल्य_तेज़__wh_देह_11:
+  movq $16, %r13
+  movq %r13, %r10
+  addq %rdi, %r10
+  movq %r10, %r14
+  movq %rbx, %r10
+  movq %r14, %r11
+  movzbq (%r10,%r11), %r10
+  movq %r10, %r13
+  movq $16, %r14
+  movq %r14, %r10
+  addq %rdi, %r10
+  movq %r10, %r15
+  movq %rsi, %r10
+  movq %r15, %r11
+  movzbq (%r10,%r11), %r10
+  movq %r10, %r14
+  movq %r13, %r10
+  cmpq %r14, %r10
+  setne %al
+  movzbq %al, %r10
+  movq %r10, %r15
+  movq %r15, %r10
+  cmpq $0, %r10
+  je .L_पाठ_तुल्य_तेज़__if_अंत_14
+  jmp .L_पाठ_तुल्य_तेज़__if_सत्य_13
+.L_पाठ_तुल्य_तेज़__if_अंत_14:
+  movq $1, %r13
+  movq %rdi, %r10
+  addq %r13, %r10
+  movq %r10, %r14
+  movq $0, -80(%rbp)
+  movq %r14, %rdi
+  jmp .L_पाठ_तुल्य_तेज़__wh_शर्त_10
+.L_पाठ_तुल्य_तेज़__if_सत्य_13:
+  movq $0, %rbx
+  movq %rbx, %rax
+  jmp .L_epilogue_पाठ_तुल्य_तेज़
+.L_पाठ_तुल्य_तेज़__if_सत्य_8:
+  movq $0, %rbx
+  movq %rbx, %rax
+  jmp .L_epilogue_पाठ_तुल्य_तेज़
+.L_पाठ_तुल्य_तेज़__if_सत्य_6:
+  movq $0, %rbx
+  movq %rbx, %rax
+  jmp .L_epilogue_पाठ_तुल्य_तेज़
+.L_पाठ_तुल्य_तेज़__if_सत्य_1:
+  movq $1, %rbx
+  movq %rbx, %rax
+  jmp .L_epilogue_पाठ_तुल्य_तेज़
+.L_epilogue_पाठ_तुल्य_तेज़:
+  subl $1, gc_roots_count(%rip)
+  movq -8(%rbp), %rbx
+  movq -16(%rbp), %rsi
+  movq -24(%rbp), %rdi
+  movq -32(%rbp), %r12
+  movq -40(%rbp), %r13
+  movq -48(%rbp), %r14
+  movq -56(%rbp), %r15
+  movq %rbp, %rsp
+  popq %rbp
+  ret
+
+  .text
+  .globl पाठ_लंबाई_तेज़
+  .def पाठ_लंबाई_तेज़; .scl 2; .type 32; .endef
+पाठ_लंबाई_तेज़:
+  pushq %rbp
+  movq %rsp, %rbp
+  subq $96, %rsp
+  movq %rbx, -8(%rbp)
+  movq %rsi, -16(%rbp)
+  movq %rdi, -24(%rbp)
+  movq %r12, -32(%rbp)
+  movq %r13, -40(%rbp)
+  movq %r14, -48(%rbp)
+  movq %r15, -56(%rbp)
+  movq %rcx, %rbx
+  movq $0, -80(%rbp)
+  movq $0, -88(%rbp)
+  movl gc_roots_count(%rip), %eax
+  leaq gc_roots(%rip), %r10
+  leaq -80(%rbp), %r11
+  movq %r11, (%r10,%rax,8)
+  incl %eax
+  leaq -88(%rbp), %r11
+  movq %r11, (%r10,%rax,8)
+  incl %eax
+  movl %eax, gc_roots_count(%rip)
+
+.L_पाठ_लंबाई_तेज़__प्रवेश_0:
+  movq $0, %rsi
+  movq %rbx, %r10
+  cmpq %rsi, %r10
+  sete %al
+  movzbq %al, %r10
+  movq %r10, %rdi
+  movq %rdi, %r10
+  cmpq $0, %r10
+  je .L_पाठ_लंबाई_तेज़__if_अंत_2
+  jmp .L_पाठ_लंबाई_तेज़__if_सत्य_1
+.L_पाठ_लंबाई_तेज़__if_अंत_2:
+  movq $8, %rsi
+  movq %rbx, %r10
+  movq %rsi, %r11
+  movq (%r10,%r11), %r10
+  movq %r10, %rdi
+  movq $0, %rsi
+  movq $0, %r12
+  jmp .L_पाठ_लंबाई_तेज़__wh_शर्त_3
+.L_पाठ_लंबाई_तेज़__wh_शर्त_3:
+  movq %rsi, -80(%rbp)
+  movq %r12, -88(%rbp)
+  movq %rsi, %r10
+  cmpq %rdi, %r10
+  setl %al
+  movzbq %al, %r10
+  movq %r10, %r13
+  movq %r13, %r10
+  cmpq $0, %r10
+  je .L_पाठ_लंबाई_तेज़__wh_अंत_5
+  jmp .L_पाठ_लंबाई_तेज़__wh_देह_4
+.L_पाठ_लंबाई_तेज़__wh_अंत_5:
+  movq %r12, %rax
+  jmp .L_epilogue_पाठ_लंबाई_तेज़
+.L_पाठ_लंबाई_तेज़__wh_देह_4:
+  movq $16, %r13
+  movq %r13, %r10
+  addq %rsi, %r10
+  movq %r10, %r14
+  movq %rbx, %r10
+  movq %r14, %r11
+  movzbq (%r10,%r11), %r10
+  movq %r10, %r13
+  movq $128, %r14
+  movq %r13, %r10
+  cmpq %r14, %r10
+  setl %al
+  movzbq %al, %r10
+  movq %r10, %r15
+  movq %r15, %r10
+  cmpq $0, %r10
+  je .L_पाठ_लंबाई_तेज़__if_असत्य_8
+  jmp .L_पाठ_लंबाई_तेज़__if_सत्य_6
+.L_पाठ_लंबाई_तेज़__if_असत्य_8:
+  movq $192, %r14
+  movq %r13, %r10
+  cmpq %r14, %r10
+  setge %al
+  movzbq %al, %r10
+  movq %r10, %r15
+  movq %r15, %r10
+  cmpq $0, %r10
+  je .L_पाठ_लंबाई_तेज़__sc_लघु_10
+  jmp .L_पाठ_लंबाई_तेज़__sc_दायाँ_9
+.L_पाठ_लंबाई_तेज़__sc_लघु_10:
+  movq $0, %r14
+  jmp .L_पाठ_लंबाई_तेज़__sc_अंत_11
+.L_पाठ_लंबाई_तेज़__sc_दायाँ_9:
+  movq $224, %r14
+  movq %r13, %r10
+  cmpq %r14, %r10
+  setl %al
+  movzbq %al, %r10
+  movq %r10, %r15
+  movq %r15, %r14
+  jmp .L_पाठ_लंबाई_तेज़__sc_अंत_11
+.L_पाठ_लंबाई_तेज़__sc_अंत_11:
+  movq %r14, %r10
+  cmpq $0, %r10
+  je .L_पाठ_लंबाई_तेज़__if_असत्य_14
+  jmp .L_पाठ_लंबाई_तेज़__if_सत्य_12
+.L_पाठ_लंबाई_तेज़__if_असत्य_14:
+  movq $224, %r14
+  movq %r13, %r10
+  cmpq %r14, %r10
+  setge %al
+  movzbq %al, %r10
+  movq %r10, %r15
+  movq %r15, %r10
+  cmpq $0, %r10
+  je .L_पाठ_लंबाई_तेज़__sc_लघु_16
+  jmp .L_पाठ_लंबाई_तेज़__sc_दायाँ_15
+.L_पाठ_लंबाई_तेज़__sc_लघु_16:
+  movq $0, %r14
+  jmp .L_पाठ_लंबाई_तेज़__sc_अंत_17
+.L_पाठ_लंबाई_तेज़__sc_दायाँ_15:
+  movq $240, %r14
+  movq %r13, %r10
+  cmpq %r14, %r10
+  setl %al
+  movzbq %al, %r10
+  movq %r10, %r15
+  movq %r15, %r14
+  jmp .L_पाठ_लंबाई_तेज़__sc_अंत_17
+.L_पाठ_लंबाई_तेज़__sc_अंत_17:
+  movq %r14, %r10
+  cmpq $0, %r10
+  je .L_पाठ_लंबाई_तेज़__if_असत्य_20
+  jmp .L_पाठ_लंबाई_तेज़__if_सत्य_18
+.L_पाठ_लंबाई_तेज़__if_असत्य_20:
+  movq $240, %r14
+  movq %r13, %r10
+  cmpq %r14, %r10
+  setge %al
+  movzbq %al, %r10
+  movq %r10, %r15
+  movq %r15, %r10
+  cmpq $0, %r10
+  je .L_पाठ_लंबाई_तेज़__sc_लघु_22
+  jmp .L_पाठ_लंबाई_तेज़__sc_दायाँ_21
+.L_पाठ_लंबाई_तेज़__sc_लघु_22:
+  movq $0, %r14
+  movq %r14, %r13
+  jmp .L_पाठ_लंबाई_तेज़__sc_अंत_23
+.L_पाठ_लंबाई_तेज़__sc_दायाँ_21:
+  movq $248, %r14
+  movq %r13, %r10
+  cmpq %r14, %r10
+  setl %al
+  movzbq %al, %r10
+  movq %r10, %r15
+  movq %r15, %r13
+  jmp .L_पाठ_लंबाई_तेज़__sc_अंत_23
+.L_पाठ_लंबाई_तेज़__sc_अंत_23:
+  movq %r13, %r10
+  cmpq $0, %r10
+  je .L_पाठ_लंबाई_तेज़__if_असत्य_26
+  jmp .L_पाठ_लंबाई_तेज़__if_सत्य_24
+.L_पाठ_लंबाई_तेज़__if_असत्य_26:
+  movq $1, %r13
+  movq %rsi, %r10
+  addq %r13, %r10
+  movq %r10, %r14
+  movq %r14, %r13
+  jmp .L_पाठ_लंबाई_तेज़__if_अंत_25
+.L_पाठ_लंबाई_तेज़__if_सत्य_24:
+  movq $4, %r13
+  movq %rsi, %r10
+  addq %r13, %r10
+  movq %r10, %r14
+  movq %r14, %r13
+  jmp .L_पाठ_लंबाई_तेज़__if_अंत_25
+.L_पाठ_लंबाई_तेज़__if_अंत_25:
+  jmp .L_पाठ_लंबाई_तेज़__if_अंत_19
+.L_पाठ_लंबाई_तेज़__if_सत्य_18:
+  movq $3, %r13
+  movq %rsi, %r10
+  addq %r13, %r10
+  movq %r10, %r14
+  movq %r14, %r13
+  jmp .L_पाठ_लंबाई_तेज़__if_अंत_19
+.L_पाठ_लंबाई_तेज़__if_अंत_19:
+  jmp .L_पाठ_लंबाई_तेज़__if_अंत_13
+.L_पाठ_लंबाई_तेज़__if_सत्य_12:
+  movq $2, %r13
+  movq %rsi, %r10
+  addq %r13, %r10
+  movq %r10, %r14
+  movq %r14, %r13
+  jmp .L_पाठ_लंबाई_तेज़__if_अंत_13
+.L_पाठ_लंबाई_तेज़__if_अंत_13:
+  movq %r13, %rsi
+  jmp .L_पाठ_लंबाई_तेज़__if_अंत_7
+.L_पाठ_लंबाई_तेज़__if_सत्य_6:
+  movq $1, %r13
+  movq %rsi, %r10
+  addq %r13, %r10
+  movq %r10, %r14
+  movq $0, -80(%rbp)
+  movq %r14, %rsi
+  jmp .L_पाठ_लंबाई_तेज़__if_अंत_7
+.L_पाठ_लंबाई_तेज़__if_अंत_7:
+  movq $1, %r13
+  movq %r12, %r10
+  addq %r13, %r10
+  movq %r10, %r14
+  movq $0, -88(%rbp)
+  movq %r14, %r12
+  jmp .L_पाठ_लंबाई_तेज़__wh_शर्त_3
+.L_पाठ_लंबाई_तेज़__if_सत्य_1:
+  movq $0, %rbx
+  movq %rbx, %rax
+  jmp .L_epilogue_पाठ_लंबाई_तेज़
+.L_epilogue_पाठ_लंबाई_तेज़:
+  subl $2, gc_roots_count(%rip)
+  movq -8(%rbp), %rbx
+  movq -16(%rbp), %rsi
+  movq -24(%rbp), %rdi
+  movq -32(%rbp), %r12
+  movq -40(%rbp), %r13
+  movq -48(%rbp), %r14
+  movq -56(%rbp), %r15
+  movq %rbp, %rsp
+  popq %rbp
+  ret
+
+  .text
   .globl सूची_लंबाई_तेज़
   .def सूची_लंबाई_तेज़; .scl 2; .type 32; .endef
 सूची_लंबाई_तेज़:
