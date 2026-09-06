@@ -1280,8 +1280,32 @@ pure-सूत्र backend `sutra build` का default रहता है।
   default; self-host fixed point 176128→**179796 lines**, Gen1==Gen2;
   verify_ir.ps1 10/10; stdlib 10/11।
 
-- **आगे**: #2c container-access specialization (barrier का असली हटाव);
-  #3 partial escape analysis + scalar replacement (`बिंदु_विश्लेषण.सूत्र`
+- **✅ Front #2c — statically-typed सूची access fast paths** (commit
+  `ced73a7`, 2026-09-06)। `सूची_सूचकांक`/`सूची_सूचकांक_सेट`/`दैशिक_लंबाई`
+  हर बार runtime type-dispatch + bounds-check + throw-setup करते
+  (64+ निर्देश, clang inline-threshold से ऊपर) — तो #2b (runtime as
+  bitcode) के बाद भी hot loop का `स[इ]`/`लंबाई(स)` opaque कॉल रहता।
+  नए slim list-only helpers `मूल_रनटाइम.सूत्र` में — `सूची_लंबाई_तेज़`
+  (एक header-read), `सूची_तत्व_तेज़`/`सूची_तत्व_सेट_तेज़` (header-read +
+  bounds-check + element load/store, वही throw संदेश)। छोटे → clang -O2
+  inline करता → header-read loop से hoist, bounds-check अक्सर fold,
+  element-access सादा `getelementptr`+`load`। emitter तब route करता जब
+  base निश्चित रूप से सूची — `पढ़/लिख_अनुक्रम` के `आधार_प्रकार` से, raw
+  type-tag से, या नए per-function "known-सूची" fixpoint set से
+  (नव_सूची/सूची_रचना परिणाम + सूची-typed access bases, phi और
+  `स = जोड़ें(स, x)` से propagate)। पाठ indexing (UTF-8 codepoint walk)
+  + dict/dynamic अछूते — वो सच में general path चाहते।
+  **मापा** (100k × sum-of-2000-element list, native `.exe`, 5-run min):
+  x86 **22.2s → --release 1.13s (~20x)** vs `gcc -O2` 0.041s। #2c से
+  पहले इसका --release build ~24s था — x86 backend से बमुश्किल बेहतर।
+  gcc से अब भी दूर यहाँ (gcc का stack-array + loop-invariant sum
+  hoisting), पर यही list/string barrier-हटाव है जो #2a/#2b ने setup
+  किया पर अकेले नहीं दे सके। tests/compiler 54/54 via --release +
+  54/54 default; self-host fixed point 179796→**181747 lines**;
+  verify_ir.ps1 10/10; stdlib 10/11।
+
+- **आगे**: #2d string-op fast paths (पाठ अभी general path पर); #3
+  partial escape analysis + scalar replacement (`बिंदु_विश्लेषण.सूत्र`
   parked = head start); #4 whole-program devirt + aggressive inline;
   #5 PGO by default; #6 generational GC / Perceus। विधि_बुलाओ/परिवर्तन/
   नव_पाठ(byte-form) — निम्नक आज भी emit नहीं करता, तो x86 जैसा ही दायरा।
