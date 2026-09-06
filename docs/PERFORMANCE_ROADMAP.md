@@ -1490,17 +1490,34 @@ pure-सूत्र backend `sutra build` का default रहता है।
   |---|---|---|---|
   | list-sum 100k×2000 | 0.028 → **0.023s** | 0.024s | **gcc से तेज़** |
   | fib(35) | 0.036 → **0.031s** | 0.023s | 1.35x (था 1.55x) |
-  | dict-loop 3M×3 | 0.19 → **0.106s** | 0.007s | ~16x — clang inlined
-    `कोष_स्लॉट` probe को accumulator loop से hoist नहीं करता (call जिसका
-    अंदर लूप है, result loop-carried accumulator में — LLVM की सीमा) |
+  | dict-loop 3M×3 | 0.19 → 0.106 → **0.0095s** | 0.007s | **1.44x
+    (near parity)** — देखो अगली प्रविष्टि |
   fixed point + Gen1==Gen2; verify_ir 10/10; verify_compiler 56/56;
-  verify_ir_llvm + verify_release 54/54; verify_emit 16/16। seed **178944**।
+  verify_ir_llvm + verify_release 54/54; verify_emit 16/16।
 
-- **बचा हुआ**:
-  - **dict-लूप constant-key hoist ~16x** — LLVM LICM उस pattern को hoist
-    नहीं करता। शायद: `कोष_स्लॉट` को loop-रहित (linear-probe unroll या
-    perfect-hash छोटे dict के लिए), या सूत्र-side LICM (`लूप_अनुकूलन` wire)।
-  - **string-build O(n²)** (`स = स + "x"`) — rope/builder प्रकार चाहिए।
+- **✅ `कोष_स्लॉट` linear-probe unroll** (commit `8d551ff`, 2026-09-06)।
+  clang `शब्दकोश_पाओ` को inline करता पर inlined `कोष_स्लॉट` probe *loop*
+  को accumulator loop से hoist नहीं करता (LLVM LICM loop-invariant loop
+  hoisting नहीं करता — GCC करता)। common path को loop-रहित बनाना हल है।
+  `कोष_स्लॉट` अब पहले 8 probe एक const-trip loop में unroll करता (clang
+  पूर्ण unroll → सीधी-रेखा early-return) + हक्षम-बँधा fallback दुर्लभ
+  बड़े-table 8-टकराव के लिए। हर probe = `कोष_प्रोब1` (छोटा,
+  `memory(read) nounwind willreturn`, safe-call + define-attr सूचियों में)।
+  हक्षम सदा 2 की घात → `% हक्षम` → `बिट_और(x, हक्षम-1)` (`and`, न `srem`)।
+  load-factor ≤ 0.75 → छोटे dict (हक्षम ≤ 8) 8 unrolled probes में हल →
+  सीधी-रेखा, loop-invariant → clang की per-instr LICM पूरा lookup hoist
+  करती → accumulator loop collapse। disasm में सत्यापित:
+  `कुल += म["क"]+म["ख"]+म["ग"]` 3M बार → 3 hoisted `कोष_स्लॉट` कॉल +
+  एक `imulq $3000000` — बिलकुल gcc का transform।
+  **मापा** (`--release`, 6-run min, vs `gcc -O2`): dict-loop 3-key
+  **0.106 → 0.0095s** (gcc 0.0066s — **1.44x**); 50-key dict भी collapse
+  (0.0096s)। semantics अपरिवर्तित (वही probe क्रम, वही परिणाम)। GC
+  stress 43/45/46/47 + dict-value-through-`संग्रह_करो()` pास,
+  `--release` == default। fixed point + Gen1==Gen2; verify_compiler
+  56/56; seed 178944→**179001**।
+
+- **बचा हुआ**: **string-build O(n²)** (`स = स + "x"`) — rope/builder प्रकार
+  चाहिए (यह लूप-optimization नहीं, algorithmic)।
 - **आगे**: #5 PGO by default; #6 generational GC / Perceus।
   विधि_बुलाओ/परिवर्तन/नव_पाठ(byte-form) — निम्नक आज भी emit नहीं करता।
 
