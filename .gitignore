@@ -28,6 +28,8 @@ compile_commands.json
 *_native.exe
 *.tmp
 स्वसंकलक/*.cpp
+sutra_*.ll
+sutra_*.bc
 स्वसंकलक/*.exe
 स्वसंकलक/*.gdb
 स्वसंकलक/tokens.txt
