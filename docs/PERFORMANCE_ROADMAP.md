@@ -1458,14 +1458,50 @@ pure-सूत्र backend `sutra build` का default रहता है।
   fixed point + Gen1==Gen2==Gen3; verify_ir 10/10; verify_compiler 56/56;
   verify_ir_llvm + verify_release 54/54; verify_emit 16/16।
 
-- **बचा हुआ container gap** (अलग काम, annotation नहीं):
-  - **dict-लूप ~21x** (`म["क"]` लूप में — `शब्दकोश_पाओ` slim fast-path नहीं
-    + opaque कॉल LICM रोकता)। चाहिए: `शब्दकोश_पाओ_तेज़` (#2c-शैली) +
-    dict-value-type अनुमान (`प्रकार_प्रसार` का dict-विस्तार)।
-  - **string-build O(n²)** (`स = स + "x"` हर बार पूरी copy) — चाहिए
-    rope/builder प्रकार या in-place-grow, न कि alias annotation।
-- **आगे**: dict fast-paths (सबसे बड़ी बची container gap); #5 PGO by
-  default; #6 generational GC / Perceus।
+- **✅ dict fast paths + safepoint/GC-root reduction** (commit `d88d59a`,
+  2026-09-06)। dict-लूप gap (~21x) का पीछा करते तीन सामान्य जीत मिलीं:
+  **(1) `मध्यम_जीसी_सुरक्षित_कॉल`** — जो runtime helper कभी allocate/
+  collect/throw नहीं करता (`कोष_स्लॉट`, `पाठ_तुल्य`, `रन_क्या_*`, length
+  helpers…) उसका `बुलाओ` अब safepoint नहीं → `रजि_नियतक` उसके आर-पार
+  जीवित मान root नहीं करता। compiler-wide: seed **191332 → 178944**
+  (~12K कम asm लाइन), list-sum + fib भी तेज़। **(2) पाठ-साहित्य root
+  elision** — `स्थिर` पाठ परिणाम `.LC_strtab` की स्थायी GC-जड़ से बँधा
+  (दोनों backend), तो उसकी स्थानीय प्रति फिर से root करना व्यर्थ — और लूप
+  में वह store/clear जोड़ी clang की LICM रोकती। `रजि_नियतक` अब उसे छोड़ता
+  जब एकक स्थायी तालिका उपयोग करता (`फलन["_स्थिर_पाठ_स्थायी"]`, हर emitter
+  सेट करता)। **(3) `प्रकार_प्रसार` dict value-type अनुमान** — सूची
+  element उप-विश्लेषण शब्दकोश तक बढ़ा: locally-born all-int dict का
+  `म["क"]` → "पूर्ण" → `कुल += म["क"]` native `add`, root नहीं।
+  dict-विशिष्ट: emitter known-शब्दकोश `पढ़_अनुक्रम` को सीधा `शब्दकोश_पाओ`
+  (throw-रहित, `memory(read)`) भेजता — polymorphic `सूची_सूचकांक` की जगह
+  (जो list-शाखा में throw करता → not willreturn → clang hoist नहीं कर
+  सकता); `कोष_स्लॉट` probe `यावत् (सत्य)` → `हक्षम`-bounded; शुद्ध helper
+  *परिभाषाओं* पर भी `memory(read) nounwind willreturn` एक सत्यापित
+  throw-रहित allowlist (`एउ_परिभाषा_गुण`) के लिए। `प्रकार_प्रसार` अब
+  अंत में (अंतर्वेशन के बाद) चलता + `पश्च_चालक` में deserialize के बाद
+  दोबारा — serialization कुछ upgraded टैग खोता, तो बिना re-run के split
+  पथ `स्लॉट_उन्नयन` को 2 अतिरिक्त roots देता (Gen1 != Gen2)। अब Gen1 ==
+  Gen2 फिर से।
+  **सुदृढ़ता**: safepoint allowlist = सत्यापित non-allocating फलन;
+  GC stress 43/45/46/47 + हाथ से बने live-through-`संग्रह_करो()` (dict
+  values, list-in-list) सब pास, `--release` == default backend।
+  **मापा** (`--release`, 6-run min, vs `gcc -O2`):
+  | bench | पहले → अब | gcc | |
+  |---|---|---|---|
+  | list-sum 100k×2000 | 0.028 → **0.023s** | 0.024s | **gcc से तेज़** |
+  | fib(35) | 0.036 → **0.031s** | 0.023s | 1.35x (था 1.55x) |
+  | dict-loop 3M×3 | 0.19 → **0.106s** | 0.007s | ~16x — clang inlined
+    `कोष_स्लॉट` probe को accumulator loop से hoist नहीं करता (call जिसका
+    अंदर लूप है, result loop-carried accumulator में — LLVM की सीमा) |
+  fixed point + Gen1==Gen2; verify_ir 10/10; verify_compiler 56/56;
+  verify_ir_llvm + verify_release 54/54; verify_emit 16/16। seed **178944**।
+
+- **बचा हुआ**:
+  - **dict-लूप constant-key hoist ~16x** — LLVM LICM उस pattern को hoist
+    नहीं करता। शायद: `कोष_स्लॉट` को loop-रहित (linear-probe unroll या
+    perfect-hash छोटे dict के लिए), या सूत्र-side LICM (`लूप_अनुकूलन` wire)।
+  - **string-build O(n²)** (`स = स + "x"`) — rope/builder प्रकार चाहिए।
+- **आगे**: #5 PGO by default; #6 generational GC / Perceus।
   विधि_बुलाओ/परिवर्तन/नव_पाठ(byte-form) — निम्नक आज भी emit नहीं करता।
 
 ### Phase 6 — domain performance। ongoing
