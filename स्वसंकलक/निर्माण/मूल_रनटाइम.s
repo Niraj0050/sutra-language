@@ -2594,6 +2594,395 @@
   ret
 
   .text
+  .globl निर्माता_नया
+  .def निर्माता_नया; .scl 2; .type 32; .endef
+निर्माता_नया:
+  pushq %rbp
+  movq %rsp, %rbp
+  subq $64, %rsp
+  movq %rbx, -8(%rbp)
+  movq %rsi, -16(%rbp)
+  movq %rdi, -24(%rbp)
+  movq %r12, -32(%rbp)
+  movq $0, -56(%rbp)
+  movl gc_roots_count(%rip), %eax
+  leaq gc_roots(%rip), %r10
+  leaq -56(%rbp), %r11
+  movq %r11, (%r10,%rax,8)
+  incl %eax
+  movl %eax, gc_roots_count(%rip)
+
+.L_निर्माता_नया__प्रवेश_0:
+  movq $16, %rbx
+  movq %rbx, %rcx
+  subq $32, %rsp
+  call पाठ_आवंटित
+  addq $32, %rsp
+  movq %rax, %rsi
+  movq %rsi, -56(%rbp)
+  movq $8, %rbx
+  movq $0, %rdi
+  movq %rsi, %r10
+  movq %rbx, %r11
+  movq %rdi, %r8
+  movq %r8, (%r10,%r11)
+  movq %rdi, %r12
+  movq $16, %rbx
+  movq $0, %rdi
+  movq %rsi, %r10
+  movq %rbx, %r11
+  movq %rdi, %r8
+  movb %r8b, (%r10,%r11)
+  movq %rdi, %r12
+  movq %rsi, %rax
+  jmp .L_epilogue_निर्माता_नया
+.L_epilogue_निर्माता_नया:
+  subl $1, gc_roots_count(%rip)
+  movq -8(%rbp), %rbx
+  movq -16(%rbp), %rsi
+  movq -24(%rbp), %rdi
+  movq -32(%rbp), %r12
+  movq %rbp, %rsp
+  popq %rbp
+  ret
+
+  .text
+  .globl निर्माता_जोड़
+  .def निर्माता_जोड़; .scl 2; .type 32; .endef
+निर्माता_जोड़:
+  pushq %rbp
+  movq %rsp, %rbp
+  subq $128, %rsp
+  movq %rbx, -8(%rbp)
+  movq %rsi, -16(%rbp)
+  movq %rdi, -24(%rbp)
+  movq %r12, -32(%rbp)
+  movq %r13, -40(%rbp)
+  movq %r14, -48(%rbp)
+  movq %r15, -56(%rbp)
+  movq %rcx, -72(%rbp)
+  movq %rdx, %rsi
+  movq $0, -104(%rbp)
+  movq $0, -112(%rbp)
+  movl gc_roots_count(%rip), %eax
+  leaq gc_roots(%rip), %r10
+  leaq -104(%rbp), %r11
+  movq %r11, (%r10,%rax,8)
+  incl %eax
+  leaq -112(%rbp), %r11
+  movq %r11, (%r10,%rax,8)
+  incl %eax
+  movl %eax, gc_roots_count(%rip)
+
+.L_निर्माता_जोड़__प्रवेश_0:
+  movq $0, %rdi
+  movq %rsi, %r10
+  cmpq %rdi, %r10
+  sete %al
+  movzbq %al, %r10
+  movq %r10, %r12
+  movq %r12, %r10
+  cmpq $0, %r10
+  je .L_निर्माता_जोड़__if_अंत_2
+  jmp .L_निर्माता_जोड़__if_सत्य_1
+.L_निर्माता_जोड़__if_अंत_2:
+  movq %rsi, %rcx
+  subq $32, %rsp
+  call रन_क्या_पाठ
+  addq $32, %rsp
+  movq %rax, %rdi
+  movq %rdi, %r10
+  cmpq $0, %r10
+  sete %al
+  movzbq %al, %r10
+  movq %r10, %r12
+  movq %r12, %r10
+  cmpq $0, %r10
+  je .L_निर्माता_जोड़__if_अंत_4
+  jmp .L_निर्माता_जोड़__if_सत्य_3
+.L_निर्माता_जोड़__if_अंत_4:
+  movq $8, %rdi
+  movq %rsi, %r10
+  movq %rdi, %r11
+  movq (%r10,%r11), %r10
+  movq %r10, %r12
+  movq $0, %rdi
+  movq %r12, %r10
+  cmpq %rdi, %r10
+  sete %al
+  movzbq %al, %r10
+  movq %r10, %r13
+  movq %r13, %r10
+  cmpq $0, %r10
+  je .L_निर्माता_जोड़__if_अंत_6
+  jmp .L_निर्माता_जोड़__if_सत्य_5
+.L_निर्माता_जोड़__if_अंत_6:
+  movq $8, %rdi
+  movq -72(%rbp), %r10
+  movq %rdi, %r11
+  movq (%r10,%r11), %r10
+  movq %r10, %r13
+  movq %r13, %r10
+  addq %r12, %r10
+  movq %r10, -88(%rbp)
+  movq $0, %r14
+  movq -72(%rbp), %r10
+  movq %r14, %r11
+  movq (%r10,%r11), %r10
+  movq %r10, %r15
+  movq -88(%rbp), %r10
+  cmpq %r15, %r10
+  setg %al
+  movzbq %al, %r10
+  movq %r10, %r14
+  movq %r14, %r10
+  cmpq $0, %r10
+  je .L_किनारा_निर्माता_जोड़_0
+  jmp .L_निर्माता_जोड़__if_सत्य_7
+.L_किनारा_निर्माता_जोड़_0:
+  movq -72(%rbp), %rbx
+  jmp .L_निर्माता_जोड़__if_अंत_8
+.L_निर्माता_जोड़__if_सत्य_7:
+  movq $2, %r14
+  movq %r15, %r10
+  imulq %r14, %r10
+  movq %r10, %rbx
+  movq %rbx, %r10
+  cmpq -88(%rbp), %r10
+  setl %al
+  movzbq %al, %r10
+  movq %r10, %r14
+  movq %r14, %r10
+  cmpq $0, %r10
+  je .L_किनारा_निर्माता_जोड़_1
+  jmp .L_निर्माता_जोड़__if_सत्य_9
+.L_किनारा_निर्माता_जोड़_1:
+  jmp .L_निर्माता_जोड़__if_अंत_10
+.L_निर्माता_जोड़__if_सत्य_9:
+  movq -88(%rbp), %rbx
+  jmp .L_निर्माता_जोड़__if_अंत_10
+.L_निर्माता_जोड़__if_अंत_10:
+  subq $32, %rsp
+  call सूत्र_जीसी_दबाओ
+  addq $32, %rsp
+  movq %rax, %r14
+  movq $16, %r14
+  movq %r14, %r10
+  addq %rbx, %r10
+  movq %r10, %r15
+  movq $1, %r14
+  movq %r15, %r10
+  addq %r14, %r10
+  movq %r10, %rdi
+  movq -72(%rbp), %rcx
+  movq %rdi, %rdx
+  subq $32, %rsp
+  call सूत्र_पुनः_आवंटन
+  addq $32, %rsp
+  movq %rax, %r14
+  movq %r14, -104(%rbp)
+  movq $0, %rdi
+  movq %r14, %r10
+  movq %rdi, %r11
+  movq %rbx, %r8
+  movq %r8, (%r10,%r11)
+  movq %rbx, %r15
+  subq $32, %rsp
+  call सूत्र_जीसी_छोड़ो
+  addq $32, %rsp
+  movq %rax, %rbx
+  movq %r14, %rbx
+  jmp .L_निर्माता_जोड़__if_अंत_8
+.L_निर्माता_जोड़__if_अंत_8:
+  movq %rbx, -112(%rbp)
+  movq $16, %rdi
+  movq %rdi, %r10
+  addq %r13, %r10
+  movq %r10, %r14
+  movq $16, %rdi
+  subq $8, %rsp
+  movq %r12, %r11
+  pushq %r11
+  movq %rbx, %rcx
+  movq %r14, %rdx
+  movq %rsi, %r8
+  movq %rdi, %r9
+  subq $32, %rsp
+  call खंड_प्रतिलिपि
+  addq $48, %rsp
+  movq %rax, %r13
+  movq $8, %rsi
+  movq %rbx, %r10
+  movq %rsi, %r11
+  movq -88(%rbp), %r8
+  movq %r8, (%r10,%r11)
+  movq -88(%rbp), %rdi
+  movq $16, %rsi
+  movq %rsi, %r10
+  addq -88(%rbp), %r10
+  movq %r10, %rdi
+  movq $0, %rsi
+  movq %rbx, %r10
+  movq %rdi, %r11
+  movq %rsi, %r8
+  movb %r8b, (%r10,%r11)
+  movq %rsi, %r12
+  movq %rbx, %rax
+  jmp .L_epilogue_निर्माता_जोड़
+.L_निर्माता_जोड़__if_सत्य_5:
+  movq -72(%rbp), %rax
+  jmp .L_epilogue_निर्माता_जोड़
+.L_निर्माता_जोड़__if_सत्य_3:
+  movq -72(%rbp), %rax
+  jmp .L_epilogue_निर्माता_जोड़
+.L_निर्माता_जोड़__if_सत्य_1:
+  movq -72(%rbp), %rax
+  jmp .L_epilogue_निर्माता_जोड़
+.L_epilogue_निर्माता_जोड़:
+  subl $2, gc_roots_count(%rip)
+  movq -8(%rbp), %rbx
+  movq -16(%rbp), %rsi
+  movq -24(%rbp), %rdi
+  movq -32(%rbp), %r12
+  movq -40(%rbp), %r13
+  movq -48(%rbp), %r14
+  movq -56(%rbp), %r15
+  movq %rbp, %rsp
+  popq %rbp
+  ret
+
+  .text
+  .globl निर्माता_अक्षर
+  .def निर्माता_अक्षर; .scl 2; .type 32; .endef
+निर्माता_अक्षर:
+  pushq %rbp
+  movq %rsp, %rbp
+  subq $64, %rsp
+  movq %rbx, -8(%rbp)
+  movq %rsi, -16(%rbp)
+  movq %rdi, -24(%rbp)
+  movq %rcx, %rbx
+  movq %rdx, %rsi
+  movq $0, -48(%rbp)
+  movl gc_roots_count(%rip), %eax
+  leaq gc_roots(%rip), %r10
+  leaq -48(%rbp), %r11
+  movq %r11, (%r10,%rax,8)
+  incl %eax
+  movl %eax, gc_roots_count(%rip)
+
+.L_निर्माता_अक्षर__प्रवेश_0:
+  movq %rsi, %rcx
+  subq $32, %rsp
+  call अक्षर_बना
+  addq $32, %rsp
+  movq %rax, %rdi
+  movq %rdi, -48(%rbp)
+  movq %rbx, %rcx
+  movq %rdi, %rdx
+  subq $32, %rsp
+  call निर्माता_जोड़
+  addq $32, %rsp
+  movq %rax, %rsi
+  movq $0, -48(%rbp)
+  movq %rsi, %rax
+  jmp .L_epilogue_निर्माता_अक्षर
+.L_epilogue_निर्माता_अक्षर:
+  subl $1, gc_roots_count(%rip)
+  movq -8(%rbp), %rbx
+  movq -16(%rbp), %rsi
+  movq -24(%rbp), %rdi
+  movq %rbp, %rsp
+  popq %rbp
+  ret
+
+  .text
+  .globl निर्माता_लंबाई
+  .def निर्माता_लंबाई; .scl 2; .type 32; .endef
+निर्माता_लंबाई:
+  pushq %rbp
+  movq %rsp, %rbp
+  subq $48, %rsp
+  movq %rbx, -8(%rbp)
+  movq %rsi, -16(%rbp)
+  movq %rdi, -24(%rbp)
+  movq %rcx, %rbx
+
+.L_निर्माता_लंबाई__प्रवेश_0:
+  movq $0, %rsi
+  movq %rbx, %r10
+  cmpq %rsi, %r10
+  sete %al
+  movzbq %al, %r10
+  movq %r10, %rdi
+  movq %rdi, %r10
+  cmpq $0, %r10
+  je .L_निर्माता_लंबाई__if_अंत_2
+  jmp .L_निर्माता_लंबाई__if_सत्य_1
+.L_निर्माता_लंबाई__if_अंत_2:
+  movq %rbx, %rcx
+  subq $32, %rsp
+  call पाठ_कोडबिंदु_गणना
+  addq $32, %rsp
+  movq %rax, %rsi
+  movq %rsi, %rax
+  jmp .L_epilogue_निर्माता_लंबाई
+.L_निर्माता_लंबाई__if_सत्य_1:
+  movq $0, %rbx
+  movq %rbx, %rax
+  jmp .L_epilogue_निर्माता_लंबाई
+.L_epilogue_निर्माता_लंबाई:
+  movq -8(%rbp), %rbx
+  movq -16(%rbp), %rsi
+  movq -24(%rbp), %rdi
+  movq %rbp, %rsp
+  popq %rbp
+  ret
+
+  .text
+  .globl निर्माता_पाठ
+  .def निर्माता_पाठ; .scl 2; .type 32; .endef
+निर्माता_पाठ:
+  pushq %rbp
+  movq %rsp, %rbp
+  subq $48, %rsp
+  movq %rbx, -8(%rbp)
+  movq %rsi, -16(%rbp)
+  movq %rdi, -24(%rbp)
+  movq %rcx, %rbx
+
+.L_निर्माता_पाठ__प्रवेश_0:
+  movq $0, %rsi
+  movq %rbx, %r10
+  cmpq %rsi, %r10
+  sete %al
+  movzbq %al, %r10
+  movq %r10, %rdi
+  movq %rdi, %r10
+  cmpq $0, %r10
+  je .L_निर्माता_पाठ__if_अंत_2
+  jmp .L_निर्माता_पाठ__if_सत्य_1
+.L_निर्माता_पाठ__if_अंत_2:
+  movq %rbx, %rax
+  jmp .L_epilogue_निर्माता_पाठ
+.L_निर्माता_पाठ__if_सत्य_1:
+  movq $0, %rbx
+  movq %rbx, %rcx
+  subq $32, %rsp
+  call पाठ_आवंटित
+  addq $32, %rsp
+  movq %rax, %rsi
+  movq %rsi, %rax
+  jmp .L_epilogue_निर्माता_पाठ
+.L_epilogue_निर्माता_पाठ:
+  movq -8(%rbp), %rbx
+  movq -16(%rbp), %rsi
+  movq -24(%rbp), %rdi
+  movq %rbp, %rsp
+  popq %rbp
+  ret
+
+  .text
   .globl अंक_गणना
   .def अंक_गणना; .scl 2; .type 32; .endef
 अंक_गणना:
