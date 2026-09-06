@@ -1329,10 +1329,53 @@ pure-सूत्र backend `sutra build` का default रहता है।
   access + tighter loop)। tests/compiler 54/54 via --release + 54/54
   default; self-host 181747→**182319**।
 
-- **आगे**: #3 partial escape analysis + scalar replacement
-  (`बिंदु_विश्लेषण.सूत्र` parked = head start; string-build loops में
-  `स = स + piece` का allocation churn यहीं); #4 whole-program devirt +
-  aggressive inline; #5 PGO by default; #6 generational GC / Perceus।
+- **✅ Front #3 — lexer byte-cursor + byte-decode** (commit `c15ca1e`,
+  2026-09-06)। मूल स्कोप "partial escape analysis + scalar replacement"
+  था, पर 3-agent जाँच ने premise कमज़ोर पाया — compiler में O(n²)
+  string-build पहले ही 3 ad-hoc chunk-list builders से workaround हो
+  चुका, ज़्यादातर छोटे `[a,b]` lists IR instruction operand-lists में
+  escape करते (scalar-replace नहीं होते), और full escape analysis
+  GC-correctness-critical (precise shadow stack raw machine stack कभी
+  scan नहीं करता → गलत-elided root = use-after-free) — कम बचा value,
+  ऊँचा risk। Niraj ने "lexer + StringBuilder cleanup" चुना।
+  असली बची churn lexer में थी (`स्वसंकलक/लेखक.सूत्र`, हर compile पर
+  ~12K लाइन re-tokenize): (a) `अक्षरम्_दृश्यताम्`/`अक्षरम्_अग्रिमम्` हर
+  source char को `स्रोत[i]` → `पाठ_सूचकांक` → `पाठ_प्रति` से decode
+  करते — प्रति char एक ताज़ा 1-4 बाइट `पाठ` आवंटन (~6M आवंटन/self-compile),
+  peek/advance जोड़ी दो बार, और हर `स्रोत[i+1]` lookahead ने sequential
+  cache को cursor से आगे छोड़ा → अगली read offset 0 से rescan। अब दोनों
+  UTF-8 सीधे बाइट से decode करते (`लेखक_कोडबिंदु` / `अक्षरम्_अग्रिमम्` में
+  inline) एक byte-cursor `अवस्था["बाइट_अनु"]` से जो runtime की
+  `पाठ_सूचकांक` walk वाली lead-byte width-table से codepoint index के
+  साथ lockstep। नया `अक्षरम्_दृश्यताम्_आगे` दोनों source-index lookahead
+  की जगह। (b) `पहचान_लिखो`/`संख्या_लिखो` token text को `पद_पाठ = पद_पाठ +
+  char` लूप (O(L²) copies) से बनाते — अब scan किए span का एक
+  `पाठ_उपखंड_बाइट` byte-slice (नया whitelisted runtime helper:
+  bounds-checked `पाठ_प्रति` wrapper, O(span), कोई codepoint-गणना नहीं —
+  `पाठ_उपखंड` प्रति कॉल दो whole-source walks करता)। `संख्या_लिखो`
+  देवनागरी अंक तभी normalize करता (`अंक_सामान्य`) जब slice में सच में
+  ≥128 बाइट — सामान्य ASCII केस zero-realloc।
+  **codegen-neutral** — token stream अपरिवर्तित, `.s` byte-identical
+  (verified: पुरानी `लेखक.सूत्र` pre-#3 और post-change compilers से एक ही
+  assembly), line/column tracking अछूता।
+  **मापा** (full self-compile, native `.exe`, back-to-back min): pre-#3
+  **19.1s → 17.74s (~7% तेज़, steady ±0.1s)**। Isolated lexer microbench
+  (`पद_विच्छेदन` × 120 on `विश्लेषक.सूत्र`): 21.8s → 20.8s। बड़ा
+  self-compile delta lookahead cache-rescan हटने से। **सीख**: lexer का
+  char-scan उतना bottleneck नहीं था जितना सोचा — असली lexer लागत
+  token-object निर्माण (प्रति token 4-key `शब्दकोश`) है, जो #3 नहीं
+  छूता। byte-slice अकेले (byte-decode बिना) हल्का lexer regression है
+  (प्रति-char `बाइट_अनु` bookkeeping छोटे-token O(L²) से महँगा) — दोनों
+  साथ land हुए।
+  tests/compiler 54/54 via --release + 54/54 default + 54/54 LLVM;
+  self-host fixed point 182319→**183538**; verify_ir 10/10;
+  verify_compiler 56/56 (+negatives); verify_emit 16/16।
+  StringBuilder consolidation (`पाठ_संचायक.सूत्र`) — plan का commit 3,
+  explicitly zero-perf — deferred।
+
+- **आगे**: lexer token-objects (प्रति-token dict → flat/interned) असली
+  lexer churn है; #4 whole-program devirt + aggressive inline; #5 PGO by
+  default; #6 generational GC / Perceus।
   विधि_बुलाओ/परिवर्तन/नव_पाठ(byte-form) — निम्नक आज भी emit नहीं करता।
 
 ### Phase 6 — domain performance। ongoing
