@@ -1516,8 +1516,39 @@ pure-सूत्र backend `sutra build` का default रहता है।
   `--release` == default। fixed point + Gen1==Gen2; verify_compiler
   56/56; seed 178944→**179001**।
 
-- **बचा हुआ**: **string-build O(n²)** (`स = स + "x"`) — rope/builder प्रकार
-  चाहिए (यह लूप-optimization नहीं, algorithmic)।
+- **✅ पाठ_निर्माता string builder + पाठ_संचायक auto-transform** (commits
+  `9e64e5f` + `6483b2b`, 2026-09-06)। `पाठ स = ""; यावत् { स = स + x; }`
+  O(n²) था — `पाठ_जोड़` हर चक्कर पूरा संचायक copy करता।
+  **(a) runtime `पाठ_निर्माता`** (`9e64e5f`): opt-in builder — `निर्माता_नया`
+  (cap=16 len=0 पाठ-ब्लॉक), `निर्माता_जोड़` (जगह हो तो in-place append, वही
+  pointer; वरना 2x realloc via `सूत्र_पुनः_आवंटन` — amortized O(1)),
+  `निर्माता_अक्षर`/`निर्माता_लंबाई`/`निर्माता_पाठ` (zero-copy finalize)।
+  builder एक सामान्य spare-cap पाठ-ब्लॉक ही है (हर पाठ-op `len` पढ़ता, `cap`
+  नहीं) → हर जगह वैध पाठ। नया `tests/stdlib/निर्माता_परीक्षण.सूत्र` (12 checks:
+  realloc-crossing, देवनागरी, GC-through-build)। मापा: `स = स + "x"` ×20000
+  0.47s → `निर्माता_जोड़` 0.011s (**44x**)।
+  **(b) IR pass `पाठ_संचायक`** (`6483b2b`): mem2reg के बाद `P = phi[INIT, R];
+  R = योग(P, X) [विधि पाठ]` को `R = बुलाओ निर्माता_जोड़(P, X)` में बदल देता —
+  जब संचायक escape/alias साबित न हो। guards: 2-स्रोत phi जिसका एक स्रोत R;
+  INIT = `""` साहित्य जिसका `स्थिर` निर्देश केवल एक-उपयोग; P और R का हर
+  उपयोग या तो चेन-योग/phi या "उपभोक्ता पाठक" (लंबाई/छापो/सूचकांक/तुलना/
+  पाठ-fn)। कोई escape (जोड़ें/लिख_अनुक्रम/परत्/user-कॉल/दूसरा योग-on-P) →
+  छोड़ो (पाठ_जोड़ रहता, O(n²) पर सही)। **जगह-पर रूपांतरण** — R का opcode
+  पलटता, `स्थिर ""` वही id पर `बुलाओ निर्माता_नया` बनता (कोई नया id/phi-
+  surgery नहीं → serialization-identical; पहला version जो नया निर्देश
+  डालता था Gen1≠Gen2 spill drift लाया)। wired: अंतर्वेशन के बाद,
+  प्रकार_प्रसार से पहले, `मूल_संकलन.सूत्र` + `अग्र_चालक.सूत्र` में।
+  **सुदृढ़ता सत्यापित**: alias (`त = स` mid-loop), list/user-fn escape,
+  दो संचायक एक loop, mid-loop concat re-read, non-`""` init, 3000-iter
+  GC-pressure build — सब सही (रूपांतरित या सुरक्षित छोड़ा)। compiler के
+  अपने संचायक (`अक्षर_सूची_से_पाठ` आदि) रूपांतरित, fixed point कायम।
+  मापा: **वही naive स्रोत `स = स + "x"` ×20000 0.466s → 0.010s (47x),
+  शून्य कोड बदलाव**। केवल `""` init handle (सामान्य केस); non-empty prefix
+  पाठ_जोड़ रखता। seed 179001→179255→**182213**।
+
+- **बचा हुआ**: कुछ बड़ा नहीं — scalar/list/dict/string-build सब C++ tier
+  पर या पास। बचे adversarial केस (hand-tuned SIMD, escape-defeating) —
+  #5 PGO / #6 gen GC / SIMD-autovec (Phase 6) से आगे।
 - **आगे**: #5 PGO by default; #6 generational GC / Perceus।
   विधि_बुलाओ/परिवर्तन/नव_पाठ(byte-form) — निम्नक आज भी emit नहीं करता।
 
