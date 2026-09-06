@@ -1412,14 +1412,60 @@ pure-सूत्र backend `sutra build` का default रहता है।
   self-host fixed point 183538→**187953**; Gen1==Gen2==Gen3; verify_ir
   10/10; verify_compiler 56/56; verify_ir_llvm + verify_release 54/54;
   verify_emit 16/16; stdlib suites `--release` clean।
-  **स्थिति: scalar/compute कोड (int/float/recursion/str==) C++ tier पर या
-  आगे; container/alloc-heavy अब ~5.7x (था ~31x)।** बचा container gap =
-  #6 (gen GC — heap object को stack-सिद्ध करना) या #7 (`noalias`/
-  `llvm.assume` — clang को loop-invariance बताना)।
+  **स्थिति (#4 के बाद): scalar/compute C++ tier; list-sum ~5.7x।**
 
-- **आगे**: #5 PGO by default; #6 generational GC / Perceus (container gap);
-  #7 language-invariant annotations (`nsw`/`noalias`/`llvm.assume` —
-  container gap का सस्ता हिस्सा)।
+- **✅ Front #7 (जो असल में काम आया) — `प्रकार_प्रसार` IR pass** (commit
+  `8eb4ef2`, 2026-09-06)। मूल योजना "noalias/llvm.assume annotations" थी,
+  पर list-sum के optimized disasm ने असली जड़ दिखाई: **`रजि_नियतक` लूप-
+  संचायक (`कुल`, `क`) को GC-root करता** क्योंकि mem2reg हर phi को "मान"
+  देता और "मान" GC-tapped है। तो हर hot-loop चक्कर में shadow-stack के
+  3 store/clear निर्देश — और clang ऐसा लूप hoist/collapse नहीं कर सकता जो
+  loop-varying मानों से memory लिखता है, चाहे वह dead memory हो। `.ll` से
+  हाथ से वे stores हटाने पर list-sum 0.138s→0.028s गया।
+  नया `स्वसंकलक/प्रकार_प्रसार.सूत्र`, `मूल_संकलन.सूत्र` + `अग्र_चालक.सूत्र`
+  में `परत्_प्रकार_अनुमान_एकक` के ठीक बाद wired (mem2reg हो चुका, `रजि_नियतक`/
+  emit से पहले)। प्रति फलन एक आशावादी monotone fixpoint — हर मान "पूर्ण-
+  जैसा" जब तक सिद्ध न हो अन्यथा। बीज (`मध्यम_जीसी_टैप्ड` — वही predicate
+  `रजि_नियतक` उपयोग करता): कोई भी ठोस pointer-टैग, पैरामीटर, या अपारदर्शी
+  उत्पादक (`बुलाओ`/`पढ़_वैश्विक`/`पढ़_स्लॉट`/`नव_*`/`विधि_बुलाओ`/`परिवर्तन`
+  tag "मान")। सूची element उप-विश्लेषण (`स्थानीय` born-local + `सूचि_बुरी`
+  कोई गैर-int insert + escape) से all-int सूची का `स[क]` भी typed। बचे
+  derived मान (phi / योग-अंतर-गुणा-भाग-शेष / पात्र पढ़_अनुक्रम) →
+  `प्रकार="पूर्ण"` + अंकगणित पर `अंश.विधि="पूर्ण"` → `रजि_नियतक` उन्हें
+  root नहीं करता (दोनों backend) + दोनों emitter native `add`/`i64`
+  निकालते (यह fib-only emitter hack को असली pass बनाता; x86 `योग` के पास
+  पहले यह पथ था ही नहीं)।
+  **सुदृढ़ता**: monotone toward "not-int" = sound over-approx; `मध्यम_जीसी_टैप्ड`
+  बीज मतलब कुछ भी जो ठोस रूप से pointer (पैरामीटर, `नव_*`, वर्ग-typed मान,
+  heap-लौटाती कॉल) पकड़ा जाता, कभी un-root नहीं। **verified**: GC stress
+  43/45/46/47, dynamic stress 41/42, और हाथ से बने test जहाँ live object
+  loop-carried phi + list-in-list से `संग्रह_करो()` झेलते — सब सही,
+  `--release` output == default backend।
+  **मापा** (`--release`, native `.exe`, min, vs freshly-built `gcc -O2`):
+  | bench | सूत्र | gcc -O2 | अनुपात |
+  |---|---|---|---|
+  | int loop (2e8) | 0.012s | 0.068s | **0.18x (5.6x तेज़)** |
+  | double loop (5e7) | 0.065s | 0.061s | **1.07x (parity)** |
+  | str== loop (5e7) | 0.012s | 0.013s | **parity** |
+  | fib(35) recursion | 0.036s | 0.023s | 1.55x |
+  | **list-sum 100k×2000** | **0.028s** | 0.024s | **1.15x (parity)** |
+  list-sum पूरा arc: x86 22.2s → pre-#4 1.29s → #4 0.135s → **this 0.028s**।
+  inner loop अब 4 निर्देश, शून्य memory-write; clang उसे पूरा SSE-
+  vectorize करता (`paddq %xmm`, 16 elem/iter), bounds-check hoisted।
+  बचा 15%: LLVM outer लूप collapse नहीं करता (gcc का transform, LLVM में
+  नहीं — annotation से नहीं आता)। seed 187953→**191332** (pass एक module
+  जोड़ता पर पूरे compiler में GC-roots हटाता — net)।
+  fixed point + Gen1==Gen2==Gen3; verify_ir 10/10; verify_compiler 56/56;
+  verify_ir_llvm + verify_release 54/54; verify_emit 16/16।
+
+- **बचा हुआ container gap** (अलग काम, annotation नहीं):
+  - **dict-लूप ~21x** (`म["क"]` लूप में — `शब्दकोश_पाओ` slim fast-path नहीं
+    + opaque कॉल LICM रोकता)। चाहिए: `शब्दकोश_पाओ_तेज़` (#2c-शैली) +
+    dict-value-type अनुमान (`प्रकार_प्रसार` का dict-विस्तार)।
+  - **string-build O(n²)** (`स = स + "x"` हर बार पूरी copy) — चाहिए
+    rope/builder प्रकार या in-place-grow, न कि alias annotation।
+- **आगे**: dict fast-paths (सबसे बड़ी बची container gap); #5 PGO by
+  default; #6 generational GC / Perceus।
   विधि_बुलाओ/परिवर्तन/नव_पाठ(byte-form) — निम्नक आज भी emit नहीं करता।
 
 ### Phase 6 — domain performance। ongoing
