@@ -1254,13 +1254,37 @@ pure-सूत्र backend `sutra build` का default रहता है।
   **176128 lines** (174447 से), Gen1(split)==Gen2, verify_ir.ps1 10/10;
   seed ताज़ा, re-bootstrap `[OK]`।
 
-- **आगे (अगले increments)**: #2 runtime as LLVM bitcode + purity
-  attributes (helper-call optimization-barrier class — जैसे `पाठ_योग_गतिक`
-  generalized); #3 partial escape analysis + scalar replacement
-  (`बिंदु_विश्लेषण.सूत्र` parked = head start); #4 whole-program devirt +
-  aggressive inline; #5 PGO by default; #6 generational GC / Perceus।
-  विधि_बुलाओ/परिवर्तन/नव_पाठ(byte-form) — निम्नक आज भी emit नहीं करता,
-  तो x86 जैसा ही दायरा।
+- **✅ Front #2 — runtime as bitcode + purity attributes** (commit
+  `7d20171`, 2026-09-06)। `--release` अब runtime मॉड्यूल
+  (`मूल_रनटाइम.सूत्र`/`मूल_आवंटक.सूत्र`) को भी in-process LLVM IR में
+  compile करता, `llvm-link` से user मॉड्यूल के साथ merge करता, फिर
+  whole-module `clang -O2` — runtime अब clang के optimizer को एक इकाई
+  के रूप में मिलता, frozen opaque `.o` नहीं। `तल.s` (hand asm) अब भी
+  `sutra_floor.o`; `sutra_srt.o`/`sutra_alloc.o` --release में नहीं बनते
+  (कोड merged `.bc` में)। शुद्ध helper declares पर `memory(read)`/
+  `memory(none)` + `nounwind willreturn` attributes।
+  **असली correctness fix साथ में**: "पूर्णतः-undef phi" elimination —
+  सूत्र का mem2reg कभी ऐसा phi छोड़ देता जिसके सारे source undef हों;
+  x86 का edge-move सहन कर लेता पर LLVM verifier "does not dominate all
+  uses" से reject करता। emitter अब fixpoint से all-undef set निकालता,
+  वो phi emit नहीं करता, उनका हर संदर्भ `undef` कर देता — यही
+  `मूल_आवंटक.सूत्र` को LLVM backend से compile होने देता।
+  **ईमानदार माप**: #2b runtime को *optimizable* बनाता पर स्वतः inlining
+  का लाभ सीमित — `सूची_सूचकांक` 64-निर्देश फलन (type dispatch + bounds
+  check + throw path), clang की inline-threshold से ऊपर, तो hot loop
+  का `स[इ]` अब भी उसे कॉल करता। benchmark में दिखने वाला barrier-हटाव
+  emitter-side container-access specialization चाहता (ज्ञात सूची/पाठ
+  base के लिए header-read/element-load inline) — अगला कदम **#2c**।
+  regression नहीं: `fib(35)` --release अब भी 0.054s। tests/compiler
+  **54/54 via `sutrac.exe --release`** (नया `verify_release.sh`) + 54/54
+  default; self-host fixed point 176128→**179796 lines**, Gen1==Gen2;
+  verify_ir.ps1 10/10; stdlib 10/11।
+
+- **आगे**: #2c container-access specialization (barrier का असली हटाव);
+  #3 partial escape analysis + scalar replacement (`बिंदु_विश्लेषण.सूत्र`
+  parked = head start); #4 whole-program devirt + aggressive inline;
+  #5 PGO by default; #6 generational GC / Perceus। विधि_बुलाओ/परिवर्तन/
+  नव_पाठ(byte-form) — निम्नक आज भी emit नहीं करता, तो x86 जैसा ही दायरा।
 
 ### Phase 6 — domain performance। ongoing
 SIMD + autovec, tensor types, GPU (SPIR-V / PTX IR से emit),
