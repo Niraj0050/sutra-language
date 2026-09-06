@@ -1373,9 +1373,53 @@ pure-सूत्र backend `sutra build` का default रहता है।
   StringBuilder consolidation (`पाठ_संचायक.सूत्र`) — plan का commit 3,
   explicitly zero-perf — deferred।
 
-- **आगे**: lexer token-objects (प्रति-token dict → flat/interned) असली
-  lexer churn है; #4 whole-program devirt + aggressive inline; #5 PGO by
-  default; #6 generational GC / Perceus।
+- **✅ Front #4 — whole-program visibility + optimistic int-type inference**
+  (commits `a281044` + `bfbb2e7`, 2026-09-06)। दो हिस्से:
+  **(a) internal linkage + `-O3`** (`a281044`): सूत्र पूरा प्रोग्राम एक बार
+  संकलित करता (TU boundary नहीं — MLton शैली), तो `llvm-link` के बाद
+  merged module में `@main` के सिवा कोई user फलन बाहर से नहीं बुलाया जाता →
+  user-program मॉड्यूल की हर फलन `define internal` → clang -O3 DCE +
+  विशेषीकरण + aggressive inline कर सकता। runtime मॉड्यूल external रहते
+  (उनके प्रतीक llvm-link के समय user `declare` satisfy करने पड़ते;
+  `internal` तब invisible)। clang step `-O2`→`-O3`। **Devirtualization
+  (#4 का दूसरा आधा) सूत्र के लिए no-op** — method कॉल lowering पर ही
+  monomorphize होते (`obj.m()` → सीधा `बुलाओ वर्ग_Class_m`, कोई vtable/
+  dynamic dispatch नहीं)। मापा: list-sum 1.165→1.031s (~12%),
+  loop-invariant str== 0.016→0.013s (~19%, = gcc -O2)। pure compute flat।
+  **(b) `एउ_पूर्णत्व_अनुमान`** (`bfbb2e7`): container gap की असली जड़ —
+  mem2reg हर phi को "मान" (dynamic) type देता, तो लूप-संचायक
+  `कुल = कुल + x` → `call @पाठ_योग_गतिक` (opaque dynamic-add) जो clang की
+  पूरी loop LICM रोक देता। नया आशावादी monotone fixpoint: हर मान
+  "पूर्ण/बूल-जैसा" जब तक सिद्ध न हो अन्यथा (ठोस गैर-पूर्ण कच्चा-टैग,
+  अपारदर्शी उत्पादक बुलाओ/पढ़_वैश्विक/नव_*, अ-टाइप पैरामीटर, गैर-स्थानीय
+  या गैर-पूर्ण-तत्व सूची से पढ़_अनुक्रम, ऐसे स्रोत से phi/अंकगणित)।
+  बचे derived मान → कच्चा "मान"→"पूर्ण" उन्नत → मौजूदा emitter पथ
+  (`एउ_पूर्ण_जैसा`) native `add i64`/`icmp` निकालता। सूची element-type
+  उप-विश्लेषण (स्थानीय-जन्म + हर insert पूर्ण + कभी escape नहीं) से
+  all-int सूची का `स[क]` भी पूर्ण। सुदृढ़: monotone (केवल "मान नहीं" की
+  ओर) → dynamic मानों का sound over-approx; untyped-param add / mixed
+  lists / escape सब dynamic रहते, सही output।
+  **मापा** (`--release`, 5-run min, vs `gcc -O2` freshly built):
+  | bench | सूत्र | gcc -O2 | अनुपात |
+  |---|---|---|---|
+  | int loop (2e8 `s+=i`) | 0.014s | 0.068s | **0.2x (5x तेज़)** |
+  | double loop (5e7) | 0.065s | 0.061s | **1.05x (parity)** |
+  | fib(35) recursion | 0.038s | 0.023s | 1.6x |
+  | list-sum 100k×2000 | **1.288→0.135s** | 0.024s | ~31x→**~5.7x** |
+  list-sum inner loop अब `%v30 = add i64 %v50, %v29` (था
+  `call @पाठ_योग_गतिक`)। बचा gap: gcc malloc'd array को loop-invariant
+  सिद्ध कर पूरा inner sum collapse करता; clang GC-object पर conservative।
+  self-host fixed point 183538→**187953**; Gen1==Gen2==Gen3; verify_ir
+  10/10; verify_compiler 56/56; verify_ir_llvm + verify_release 54/54;
+  verify_emit 16/16; stdlib suites `--release` clean।
+  **स्थिति: scalar/compute कोड (int/float/recursion/str==) C++ tier पर या
+  आगे; container/alloc-heavy अब ~5.7x (था ~31x)।** बचा container gap =
+  #6 (gen GC — heap object को stack-सिद्ध करना) या #7 (`noalias`/
+  `llvm.assume` — clang को loop-invariance बताना)।
+
+- **आगे**: #5 PGO by default; #6 generational GC / Perceus (container gap);
+  #7 language-invariant annotations (`nsw`/`noalias`/`llvm.assume` —
+  container gap का सस्ता हिस्सा)।
   विधि_बुलाओ/परिवर्तन/नव_पाठ(byte-form) — निम्नक आज भी emit नहीं करता।
 
 ### Phase 6 — domain performance। ongoing
