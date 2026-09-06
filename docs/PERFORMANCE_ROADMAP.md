@@ -1232,11 +1232,35 @@ pure-सूत्र backend `sutra build` का default रहता है।
   रहता)। inlining wire करने जैसा ही निर्णय (+74-92% self-compile, 4.5x
   payoff के लिए) — यहाँ payoff बड़ा (fib 12x, loop gcc -O2 से तेज़)।
 
-- **आगे (अगले increments)**: native `fadd`/`fcmp` (float autovec
-  headroom); IR-स्तर पर return-type/विधि की पूरी re-derivation (अभी
-  emitter सिर्फ़ spot-fix करता); GVN/CSE जो अब LLVM मुफ़्त देता उसका
-  लाभ x86 पर भी; किसी भी LLVM-विशिष्ट opt। विधि_बुलाओ/परिवर्तन/नव_पाठ
-  (byte-form) — निम्नक आज भी emit नहीं करता, तो x86 जैसा ही दायरा।
+- **✅ Front #1 — native double codegen** (commit `1cee490`, 2026-09-06)।
+  दशमलव अंकगणित/तुलना अब `sutra_float_*` runtime helpers से नहीं जाती —
+  दशमलव value-model में i64 ही रहता, emitter सिर्फ़ हर float-ऑप के इर्द-गिर्द
+  `bitcast i64↔double` करता (`fadd`/`fsub`/`fmul` + ordered `fcmp`
+  oeq/une/olt/…, तल.s के ucomisd+sete/setnp से byte-मिलाया)। int→float
+  `बुलाओ sutra_int_to_float` → `sitofp`; उल्टा → `fptosi`। float भाग अभी
+  भी `sutra_float_div` (उसमें explicit div-by-zero throw है)। LLVM
+  bitcast-जोड़े coalesce कर देता (i64→double→i64 identity), तो असली
+  `double` SSA देखता — optimize/schedule/(reduction-निर्भरता न हो तो)
+  vectorize।
+  **मापा** (native `.exe`, 5-run min):
+  - pure-double loop (`अ*=k; ब+=अ*0.5`, 5e7): x86 0.284s → **LLVM
+    0.064s (~4.4x)** vs `gcc -O2` 0.060s — **parity**।
+  - mixed int/float (`योग += इ*0.5 - 1.5`, 5e7): x86 0.468s → **LLVM
+    0.137s (~3.4x)** vs `gcc -O2` 0.072s — ~1.9x, बाकी gcc का बेहतर
+    per-iteration `sitofp` strength-reduction (clang -O3/-march=native/
+    -ffast-math से नहीं बंद होता)।
+  Verification: tests/compiler 54/54 LLVM path; stdlib + float-heavy
+  12/13 (सिर्फ़ 18_stdlib); self-host fixed point Gen2==Gen3
+  **176128 lines** (174447 से), Gen1(split)==Gen2, verify_ir.ps1 10/10;
+  seed ताज़ा, re-bootstrap `[OK]`।
+
+- **आगे (अगले increments)**: #2 runtime as LLVM bitcode + purity
+  attributes (helper-call optimization-barrier class — जैसे `पाठ_योग_गतिक`
+  generalized); #3 partial escape analysis + scalar replacement
+  (`बिंदु_विश्लेषण.सूत्र` parked = head start); #4 whole-program devirt +
+  aggressive inline; #5 PGO by default; #6 generational GC / Perceus।
+  विधि_बुलाओ/परिवर्तन/नव_पाठ(byte-form) — निम्नक आज भी emit नहीं करता,
+  तो x86 जैसा ही दायरा।
 
 ### Phase 6 — domain performance। ongoing
 SIMD + autovec, tensor types, GPU (SPIR-V / PTX IR से emit),
