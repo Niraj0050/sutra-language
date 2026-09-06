@@ -1304,11 +1304,36 @@ pure-सूत्र backend `sutra build` का default रहता है।
   54/54 default; self-host fixed point 179796→**181747 lines**;
   verify_ir.ps1 10/10; stdlib 10/11।
 
-- **आगे**: #2d string-op fast paths (पाठ अभी general path पर); #3
-  partial escape analysis + scalar replacement (`बिंदु_विश्लेषण.सूत्र`
-  parked = head start); #4 whole-program devirt + aggressive inline;
-  #5 PGO by default; #6 generational GC / Perceus। विधि_बुलाओ/परिवर्तन/
-  नव_पाठ(byte-form) — निम्नक आज भी emit नहीं करता, तो x86 जैसा ही दायरा।
+- **✅ Front #2d — statically-typed पाठ op fast paths** (commit
+  `00d2660`, 2026-09-06)। #2c जैसा ही, strings के लिए। नए slim helpers:
+  `पाठ_तुल्य_तेज़` (pointer-eq/null fast-out + length compare + byte
+  loop, कोई `अंतर्_क्या_पाठ` नहीं → clang inline + idiom-recognize),
+  `पाठ_लंबाई_तेज़` (codepoint-walk बिना type-branch, `memory(read)
+  willreturn` → fixed string scan करने वाले loop से clang hoist करता,
+  O(n) walk per-iteration की जगह एक बार)। UTF-8 codepoint length
+  inherently O(n) — header में cached count का slot नहीं, और 16-बाइट
+  object header चौड़ा करना पूरे runtime + दोनों backend को छूता।
+  **safety-gated routing**: string `==`/`!=` → `पाठ_तुल्य_तेज़` केवल तब
+  जब दोनों operand सच में पाठ (निम्नक की विधि="पाठ", या दोनों raw tag
+  "पाठ")। "मान"→"पाठ" reroute (dynamic operand, int हो सकता) guarded
+  `पाठ_तुल्य` पर रहता — एक first-cut ने वहाँ भी fast path लगाया था और
+  list-of-strings element compare (elements "मान"-typed) ने int को
+  string header माना → crash, पकड़ा। string `<`/`>`/`<=`/`>=`
+  (codepoint compare) + `पाठ[i]` (UTF-8 index) general path पर —
+  genuinely O(n)।
+  **मापा** (native `.exe`, 5-run min): loop-invariant `str==` (दोनों
+  static पाठ, len-12) x86 0.279s → **--release 0.018s** vs `gcc -O2`
+  0.013s — near parity (clang पूरा comparison hoist करता); varied
+  `str==` (list[i%6] == literal, non-hoistable) x86 2.378s →
+  **--release 0.084s** vs gcc 0.042s (~2x — ज़्यादातर #2c का list
+  access + tighter loop)। tests/compiler 54/54 via --release + 54/54
+  default; self-host 181747→**182319**।
+
+- **आगे**: #3 partial escape analysis + scalar replacement
+  (`बिंदु_विश्लेषण.सूत्र` parked = head start; string-build loops में
+  `स = स + piece` का allocation churn यहीं); #4 whole-program devirt +
+  aggressive inline; #5 PGO by default; #6 generational GC / Perceus।
+  विधि_बुलाओ/परिवर्तन/नव_पाठ(byte-form) — निम्नक आज भी emit नहीं करता।
 
 ### Phase 6 — domain performance। ongoing
 SIMD + autovec, tensor types, GPU (SPIR-V / PTX IR से emit),
