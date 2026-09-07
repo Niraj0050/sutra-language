@@ -164832,12 +164832,771 @@
   ret
 
   .text
+  .globl मस_बिन
+  .def मस_बिन; .scl 2; .type 32; .endef
+मस_बिन:
+  pushq %rbp
+  movq %rsp, %rbp
+  subq $320, %rsp
+  movq %rbx, -8(%rbp)
+  movq %rsi, -16(%rbp)
+  movq %rdi, -24(%rbp)
+  movq %r12, -32(%rbp)
+  movq %r13, -40(%rbp)
+  movq %r14, -48(%rbp)
+  movq %r15, -56(%rbp)
+  movq $0, -312(%rbp)
+  movl gc_roots_count(%rip), %eax
+  leaq gc_roots(%rip), %r10
+  leaq -312(%rbp), %r11
+  movq %r11, (%r10,%rax,8)
+  incl %eax
+  movl %eax, gc_roots_count(%rip)
+
+.L_मस_बिन__प्रवेश_0:
+  movq $67, %rbx
+  movq $58, %rsi
+  movq $92, %rdi
+  movq $109, %r12
+  movq $115, %r13
+  movq $121, %r14
+  movq $115, %r15
+  movq $54, -72(%rbp)
+  movq $52, -88(%rbp)
+  movq $92, -104(%rbp)
+  movq $117, -120(%rbp)
+  movq $99, -136(%rbp)
+  movq $114, -152(%rbp)
+  movq $116, -168(%rbp)
+  movq $54, -184(%rbp)
+  movq $52, -200(%rbp)
+  movq $92, -216(%rbp)
+  movq $98, -232(%rbp)
+  movq $105, -248(%rbp)
+  movq $110, -264(%rbp)
+  movq $92, -280(%rbp)
+  movq $21, %rcx
+  subq $32, %rsp
+  call सूची_रचना
+  addq $32, %rsp
+  movq %rax, -296(%rbp)
+  movq -296(%rbp), %r11
+  movq %r11, -312(%rbp)
+  movq -296(%rbp), %rcx
+  movq $0, %rdx
+  movq %rbx, %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -296(%rbp), %rcx
+  movq $1, %rdx
+  movq %rsi, %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -296(%rbp), %rcx
+  movq $2, %rdx
+  movq %rdi, %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -296(%rbp), %rcx
+  movq $3, %rdx
+  movq %r12, %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -296(%rbp), %rcx
+  movq $4, %rdx
+  movq %r13, %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -296(%rbp), %rcx
+  movq $5, %rdx
+  movq %r14, %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -296(%rbp), %rcx
+  movq $6, %rdx
+  movq %r15, %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -296(%rbp), %rcx
+  movq $7, %rdx
+  movq -72(%rbp), %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -296(%rbp), %rcx
+  movq $8, %rdx
+  movq -88(%rbp), %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -296(%rbp), %rcx
+  movq $9, %rdx
+  movq -104(%rbp), %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -296(%rbp), %rcx
+  movq $10, %rdx
+  movq -120(%rbp), %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -296(%rbp), %rcx
+  movq $11, %rdx
+  movq -136(%rbp), %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -296(%rbp), %rcx
+  movq $12, %rdx
+  movq -152(%rbp), %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -296(%rbp), %rcx
+  movq $13, %rdx
+  movq -168(%rbp), %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -296(%rbp), %rcx
+  movq $14, %rdx
+  movq -184(%rbp), %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -296(%rbp), %rcx
+  movq $15, %rdx
+  movq -200(%rbp), %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -296(%rbp), %rcx
+  movq $16, %rdx
+  movq -216(%rbp), %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -296(%rbp), %rcx
+  movq $17, %rdx
+  movq -232(%rbp), %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -296(%rbp), %rcx
+  movq $18, %rdx
+  movq -248(%rbp), %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -296(%rbp), %rcx
+  movq $19, %rdx
+  movq -264(%rbp), %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -296(%rbp), %rcx
+  movq $20, %rdx
+  movq -280(%rbp), %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -296(%rbp), %r11
+  movq %r11, -312(%rbp)
+  movq -296(%rbp), %rcx
+  subq $32, %rsp
+  call अक्षर_सूची_से_पाठ
+  addq $32, %rsp
+  movq %rax, %rbx
+  movq $0, -312(%rbp)
+  movq %rbx, %rax
+  jmp .L_epilogue_मस_बिन
+.L_epilogue_मस_बिन:
+  subl $1, gc_roots_count(%rip)
+  movq -8(%rbp), %rbx
+  movq -16(%rbp), %rsi
+  movq -24(%rbp), %rdi
+  movq -32(%rbp), %r12
+  movq -40(%rbp), %r13
+  movq -48(%rbp), %r14
+  movq -56(%rbp), %r15
+  movq %rbp, %rsp
+  popq %rbp
+  ret
+
+  .text
+  .globl पीजीओ_संकलन
+  .def पीजीओ_संकलन; .scl 2; .type 32; .endef
+पीजीओ_संकलन:
+  pushq %rbp
+  movq %rsp, %rbp
+  subq $320, %rsp
+  movq %rbx, -8(%rbp)
+  movq %rsi, -16(%rbp)
+  movq %rdi, -24(%rbp)
+  movq %r12, -32(%rbp)
+  movq %r13, -40(%rbp)
+  movq %r14, -48(%rbp)
+  movq %r15, -56(%rbp)
+  movq %rcx, %rbx
+  movq %rdx, %rsi
+  movq %r8, %rdi
+  movl gc_roots_count(%rip), %eax
+  leaq gc_roots(%rip), %r10
+  leaq -80(%rbp), %r11
+  movl $30, %ecx
+.Lजड़_पीजीओ_संकलन:
+  movq $0, (%r11)
+  movq %r11, (%r10,%rax,8)
+  incl %eax
+  subq $8, %r11
+  decl %ecx
+  jnz .Lजड़_पीजीओ_संकलन
+  movl %eax, gc_roots_count(%rip)
+  movq %rbx, -80(%rbp)
+  movq %rsi, -88(%rbp)
+  movq %rdi, -96(%rbp)
+
+.L_पीजीओ_संकलन__प्रवेश_0:
+  subq $32, %rsp
+  call मस_बिन
+  addq $32, %rsp
+  movq %rax, %r12
+  movq %r12, -104(%rbp)
+  movq .LC_strtab+8800(%rip), %r10
+  movq %r10, %r13
+  movq %r12, %rcx
+  movq %r13, %rdx
+  subq $32, %rsp
+  call पाठ_योग_गतिक
+  addq $32, %rsp
+  movq %rax, %r14
+  movq %r14, -112(%rbp)
+  movq $0, -104(%rbp)
+  movq .LC_strtab+8808(%rip), %r10
+  movq %r10, %r12
+  movq %r12, %rcx
+  subq $32, %rsp
+  call समादेश_चलाओ_रन
+  addq $32, %rsp
+  movq %rax, %r13
+  movq .LC_strtab+8816(%rip), %r10
+  movq %r10, %r12
+  movq %r12, %rcx
+  subq $32, %rsp
+  call समादेश_चलाओ_रन
+  addq $32, %rsp
+  movq %rax, %r13
+  movq .LC_strtab+8824(%rip), %r10
+  movq %r10, %r12
+  movq %r12, %rcx
+  subq $32, %rsp
+  call गतिशील_छापो
+  addq $32, %rsp
+  movq .LC_strtab+8832(%rip), %r10
+  movq %r10, %r12
+  movq %r14, %rcx
+  movq %r12, %rdx
+  subq $32, %rsp
+  call पाठ_जोड़
+  addq $32, %rsp
+  movq %rax, %r13
+  movq %r13, -120(%rbp)
+  movq %r13, %rcx
+  movq %rbx, %rdx
+  subq $32, %rsp
+  call पाठ_जोड़
+  addq $32, %rsp
+  movq %rax, %r12
+  movq %r12, -128(%rbp)
+  movq $0, -120(%rbp)
+  movq .LC_strtab+8840(%rip), %r10
+  movq %r10, %r13
+  movq %r12, %rcx
+  movq %r13, %rdx
+  subq $32, %rsp
+  call पाठ_जोड़
+  addq $32, %rsp
+  movq %rax, %r15
+  movq %r15, -136(%rbp)
+  movq $0, -128(%rbp)
+  movq %r15, %rcx
+  subq $32, %rsp
+  call समादेश_चलाओ_रन
+  addq $32, %rsp
+  movq %rax, %r12
+  movq %r12, -144(%rbp)
+  movq $0, -136(%rbp)
+  movq $0, %r13
+  movq %r12, %rcx
+  movq %r13, %rdx
+  subq $32, %rsp
+  call पाठ_तुल्य
+  addq $32, %rsp
+  movq %rax, %r15
+  movq %r15, %r10
+  cmpq $0, %r10
+  sete %al
+  movzbq %al, %r10
+  movq %r10, %r15
+  movq $0, -144(%rbp)
+  movq %r15, %r10
+  cmpq $0, %r10
+  je .L_पीजीओ_संकलन__if_अंत_2
+  jmp .L_पीजीओ_संकलन__if_सत्य_1
+.L_पीजीओ_संकलन__if_अंत_2:
+  movq .LC_strtab+8856(%rip), %r10
+  movq %r10, %r12
+  movq %r12, %rcx
+  subq $32, %rsp
+  call सञ्चिका_है_रन
+  addq $32, %rsp
+  movq %rax, %r13
+  movq %r13, %r10
+  cmpq $0, %r10
+  sete %al
+  movzbq %al, %r10
+  movq %r10, %r15
+  movq %r15, %r10
+  cmpq $0, %r10
+  je .L_किनारा_पीजीओ_संकलन_0
+  jmp .L_पीजीओ_संकलन__if_सत्य_3
+.L_किनारा_पीजीओ_संकलन_0:
+  jmp .L_पीजीओ_संकलन__if_अंत_4
+.L_पीजीओ_संकलन__if_सत्य_3:
+  movq .LC_strtab+8864(%rip), %r10
+  movq %r10, %r12
+  jmp .L_पीजीओ_संकलन__if_अंत_4
+.L_पीजीओ_संकलन__if_अंत_4:
+  movq %r12, -304(%rbp)
+  movq .LC_strtab+8872(%rip), %r10
+  movq %r10, %r13
+  movq %r12, %rcx
+  subq $32, %rsp
+  call सञ्चिका_पढ़ो_रन
+  addq $32, %rsp
+  movq %rax, %r15
+  movq %r15, -152(%rbp)
+  movq $0, -304(%rbp)
+  movq %r13, %rcx
+  movq %r15, %rdx
+  subq $32, %rsp
+  call सञ्चिका_लिखो_रन
+  addq $32, %rsp
+  movq %rax, %r12
+  movq $0, -152(%rbp)
+  subq $32, %rsp
+  call मस_बिन
+  addq $32, %rsp
+  movq %rax, %r12
+  movq %r12, -160(%rbp)
+  movq .LC_strtab+8880(%rip), %r10
+  movq %r10, %r13
+  movq %r12, %rcx
+  movq %r13, %rdx
+  subq $32, %rsp
+  call पाठ_योग_गतिक
+  addq $32, %rsp
+  movq %rax, %r15
+  movq %r15, -168(%rbp)
+  movq $0, -160(%rbp)
+  movq %r15, %rcx
+  subq $32, %rsp
+  call समादेश_चलाओ_रन
+  addq $32, %rsp
+  movq %rax, %r12
+  movq %r12, -176(%rbp)
+  movq $0, -168(%rbp)
+  movq $0, %r13
+  movq %r12, %rcx
+  movq %r13, %rdx
+  subq $32, %rsp
+  call पाठ_तुल्य
+  addq $32, %rsp
+  movq %rax, %r15
+  movq %r15, %r10
+  cmpq $0, %r10
+  sete %al
+  movzbq %al, %r10
+  movq %r10, %r15
+  movq $0, -176(%rbp)
+  movq %r15, %r10
+  cmpq $0, %r10
+  je .L_पीजीओ_संकलन__if_अंत_6
+  jmp .L_पीजीओ_संकलन__if_सत्य_5
+.L_पीजीओ_संकलन__if_अंत_6:
+  movq .LC_strtab+8896(%rip), %r10
+  movq %r10, %r12
+  movq %r14, %rcx
+  movq %r12, %rdx
+  subq $32, %rsp
+  call पाठ_जोड़
+  addq $32, %rsp
+  movq %rax, %r13
+  movq %r13, -184(%rbp)
+  movq %r13, %rcx
+  subq $32, %rsp
+  call समादेश_चलाओ_रन
+  addq $32, %rsp
+  movq %rax, %r12
+  movq %r12, -192(%rbp)
+  movq $0, -184(%rbp)
+  movq $0, %r13
+  movq %r12, %rcx
+  movq %r13, %rdx
+  subq $32, %rsp
+  call पाठ_तुल्य
+  addq $32, %rsp
+  movq %rax, %r15
+  movq %r15, %r10
+  cmpq $0, %r10
+  sete %al
+  movzbq %al, %r10
+  movq %r10, %r15
+  movq $0, -192(%rbp)
+  movq %r15, %r10
+  cmpq $0, %r10
+  je .L_पीजीओ_संकलन__if_अंत_8
+  jmp .L_पीजीओ_संकलन__if_सत्य_7
+.L_पीजीओ_संकलन__if_अंत_8:
+  movq $46, %r12
+  movq $92, %r13
+  movq $2, %rcx
+  subq $32, %rsp
+  call सूची_रचना
+  addq $32, %rsp
+  movq %rax, %r15
+  movq %r15, -200(%rbp)
+  movq %r15, %rcx
+  movq $0, %rdx
+  movq %r12, %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq %r15, %rcx
+  movq $1, %rdx
+  movq %r13, %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq %r15, -200(%rbp)
+  movq %r15, %rcx
+  subq $32, %rsp
+  call अक्षर_सूची_से_पाठ
+  addq $32, %rsp
+  movq %rax, %r12
+  movq %r12, -208(%rbp)
+  movq $0, -200(%rbp)
+  movq .LC_strtab+8912(%rip), %r10
+  movq %r10, %r13
+  movq %r12, %rcx
+  movq %r13, %rdx
+  subq $32, %rsp
+  call पाठ_योग_गतिक
+  addq $32, %rsp
+  movq %rax, %r15
+  movq %r15, -216(%rbp)
+  movq $0, -208(%rbp)
+  movq .LC_strtab+696(%rip), %r10
+  movq %r10, %r12
+  movq %rdi, %rcx
+  movq %r12, %rdx
+  subq $32, %rsp
+  call पाठ_तुल्य
+  addq $32, %rsp
+  movq %rax, %r13
+  movq %r13, %r10
+  cmpq $0, %r10
+  sete %al
+  movzbq %al, %r10
+  movq %r10, %r13
+  movq %r13, %r10
+  cmpq $0, %r10
+  je .L_किनारा_पीजीओ_संकलन_1
+  jmp .L_पीजीओ_संकलन__if_सत्य_9
+.L_किनारा_पीजीओ_संकलन_1:
+  movq %r15, %rdi
+  jmp .L_पीजीओ_संकलन__if_अंत_10
+.L_पीजीओ_संकलन__if_सत्य_9:
+  movq .LC_strtab+2384(%rip), %r10
+  movq %r10, %r12
+  movq %r15, %rcx
+  movq %r12, %rdx
+  subq $32, %rsp
+  call पाठ_जोड़
+  addq $32, %rsp
+  movq %rax, %r13
+  movq %r13, -224(%rbp)
+  movq $0, -216(%rbp)
+  movq %r13, %rcx
+  movq %rdi, %rdx
+  subq $32, %rsp
+  call पाठ_जोड़
+  addq $32, %rsp
+  movq %rax, %r12
+  movq $0, -96(%rbp)
+  movq $0, -224(%rbp)
+  movq %r12, %rdi
+  jmp .L_पीजीओ_संकलन__if_अंत_10
+.L_पीजीओ_संकलन__if_अंत_10:
+  movq %rdi, -312(%rbp)
+  movq .LC_strtab+8920(%rip), %r10
+  movq %r10, %r12
+  movq %r12, %rcx
+  movq %rdi, %rdx
+  subq $32, %rsp
+  call पाठ_जोड़
+  addq $32, %rsp
+  movq %rax, %r13
+  movq %r13, -232(%rbp)
+  movq %r13, %rcx
+  subq $32, %rsp
+  call गतिशील_छापो
+  addq $32, %rsp
+  movq $0, -232(%rbp)
+  movq %rdi, %rcx
+  subq $32, %rsp
+  call समादेश_चलाओ_रन
+  addq $32, %rsp
+  movq %rax, %r12
+  movq $0, -312(%rbp)
+  movq .LC_strtab+8928(%rip), %r10
+  movq %r10, %rdi
+  movq %rdi, %rcx
+  subq $32, %rsp
+  call गतिशील_छापो
+  addq $32, %rsp
+  subq $32, %rsp
+  call मस_बिन
+  addq $32, %rsp
+  movq %rax, %rdi
+  movq %rdi, -240(%rbp)
+  movq .LC_strtab+8936(%rip), %r10
+  movq %r10, %r12
+  movq %rdi, %rcx
+  movq %r12, %rdx
+  subq $32, %rsp
+  call पाठ_योग_गतिक
+  addq $32, %rsp
+  movq %rax, %r13
+  movq %r13, -248(%rbp)
+  movq $0, -240(%rbp)
+  movq %r13, %rcx
+  subq $32, %rsp
+  call समादेश_चलाओ_रन
+  addq $32, %rsp
+  movq %rax, %rdi
+  movq %rdi, -256(%rbp)
+  movq $0, -248(%rbp)
+  movq $0, %r12
+  movq %rdi, %rcx
+  movq %r12, %rdx
+  subq $32, %rsp
+  call पाठ_तुल्य
+  addq $32, %rsp
+  movq %rax, %r13
+  movq %r13, %r10
+  cmpq $0, %r10
+  sete %al
+  movzbq %al, %r10
+  movq %r10, %r13
+  movq $0, -256(%rbp)
+  movq %r13, %r10
+  cmpq $0, %r10
+  je .L_पीजीओ_संकलन__sc_दायाँ_11
+  jmp .L_पीजीओ_संकलन__sc_लघु_12
+.L_पीजीओ_संकलन__sc_दायाँ_11:
+  movq .LC_strtab+8944(%rip), %r10
+  movq %r10, %rdi
+  movq %rdi, %rcx
+  subq $32, %rsp
+  call सञ्चिका_है_रन
+  addq $32, %rsp
+  movq %rax, %r12
+  movq %r12, %r10
+  cmpq $0, %r10
+  sete %al
+  movzbq %al, %r10
+  movq %r10, %rdi
+  jmp .L_पीजीओ_संकलन__sc_अंत_13
+.L_पीजीओ_संकलन__sc_लघु_12:
+  movq $1, %rdi
+  jmp .L_पीजीओ_संकलन__sc_अंत_13
+.L_पीजीओ_संकलन__sc_अंत_13:
+  movq %rdi, %r10
+  cmpq $0, %r10
+  je .L_पीजीओ_संकलन__if_अंत_15
+  jmp .L_पीजीओ_संकलन__if_सत्य_14
+.L_पीजीओ_संकलन__if_अंत_15:
+  movq .LC_strtab+8960(%rip), %r10
+  movq %r10, %rdi
+  movq %rdi, %rcx
+  subq $32, %rsp
+  call गतिशील_छापो
+  addq $32, %rsp
+  movq .LC_strtab+8968(%rip), %r10
+  movq %r10, %rdi
+  movq %r14, %rcx
+  movq %rdi, %rdx
+  subq $32, %rsp
+  call पाठ_जोड़
+  addq $32, %rsp
+  movq %rax, %r12
+  movq %r12, -264(%rbp)
+  movq $0, -112(%rbp)
+  movq %r12, %rcx
+  movq %rbx, %rdx
+  subq $32, %rsp
+  call पाठ_जोड़
+  addq $32, %rsp
+  movq %rax, %rdi
+  movq %rdi, -272(%rbp)
+  movq $0, -80(%rbp)
+  movq $0, -264(%rbp)
+  movq .LC_strtab+8976(%rip), %r10
+  movq %r10, %rbx
+  movq %rdi, %rcx
+  movq %rbx, %rdx
+  subq $32, %rsp
+  call पाठ_जोड़
+  addq $32, %rsp
+  movq %rax, %r12
+  movq %r12, -280(%rbp)
+  movq $0, -272(%rbp)
+  movq %r12, %rcx
+  movq %rsi, %rdx
+  subq $32, %rsp
+  call पाठ_जोड़
+  addq $32, %rsp
+  movq %rax, %rbx
+  movq %rbx, -288(%rbp)
+  movq $0, -280(%rbp)
+  movq %rbx, %rcx
+  subq $32, %rsp
+  call समादेश_चलाओ_रन
+  addq $32, %rsp
+  movq %rax, %rdi
+  movq %rdi, -296(%rbp)
+  movq $0, -288(%rbp)
+  movq $0, %rbx
+  movq %rdi, %rcx
+  movq %rbx, %rdx
+  subq $32, %rsp
+  call पाठ_तुल्य
+  addq $32, %rsp
+  movq %rax, %r12
+  movq %r12, %r10
+  cmpq $0, %r10
+  sete %al
+  movzbq %al, %r10
+  movq %r10, %r12
+  movq $0, -296(%rbp)
+  movq %r12, %r10
+  cmpq $0, %r10
+  je .L_पीजीओ_संकलन__sc_दायाँ_16
+  jmp .L_पीजीओ_संकलन__sc_लघु_17
+.L_पीजीओ_संकलन__sc_दायाँ_16:
+  movq %rsi, %rcx
+  subq $32, %rsp
+  call सञ्चिका_है_रन
+  addq $32, %rsp
+  movq %rax, %rbx
+  movq $0, -88(%rbp)
+  movq %rbx, %r10
+  cmpq $0, %r10
+  sete %al
+  movzbq %al, %r10
+  movq %r10, %rsi
+  movq %rsi, %rbx
+  jmp .L_पीजीओ_संकलन__sc_अंत_18
+.L_पीजीओ_संकलन__sc_लघु_17:
+  movq $1, %rbx
+  jmp .L_पीजीओ_संकलन__sc_अंत_18
+.L_पीजीओ_संकलन__sc_अंत_18:
+  movq %rbx, %r10
+  cmpq $0, %r10
+  je .L_पीजीओ_संकलन__if_अंत_20
+  jmp .L_पीजीओ_संकलन__if_सत्य_19
+.L_पीजीओ_संकलन__if_अंत_20:
+  movq .LC_strtab+8992(%rip), %r10
+  movq %r10, %rbx
+  movq %rbx, %rcx
+  subq $32, %rsp
+  call समादेश_चलाओ_रन
+  addq $32, %rsp
+  movq %rax, %rsi
+  movq .LC_strtab+8816(%rip), %r10
+  movq %r10, %rbx
+  movq %rbx, %rcx
+  subq $32, %rsp
+  call समादेश_चलाओ_रन
+  addq $32, %rsp
+  movq %rax, %rsi
+  movq $0, %rbx
+  movq %rbx, %rax
+  jmp .L_epilogue_पीजीओ_संकलन
+.L_पीजीओ_संकलन__if_सत्य_19:
+  movq .LC_strtab+8984(%rip), %r10
+  movq %r10, %rbx
+  movq %rbx, %rcx
+  subq $32, %rsp
+  call फेंको
+  addq $32, %rsp
+.L_पीजीओ_संकलन__if_सत्य_14:
+  movq .LC_strtab+8952(%rip), %r10
+  movq %r10, %rbx
+  movq %rbx, %rcx
+  subq $32, %rsp
+  call फेंको
+  addq $32, %rsp
+.L_पीजीओ_संकलन__if_सत्य_7:
+  movq .LC_strtab+8904(%rip), %r10
+  movq %r10, %rbx
+  movq %rbx, %rcx
+  subq $32, %rsp
+  call फेंको
+  addq $32, %rsp
+.L_पीजीओ_संकलन__if_सत्य_5:
+  movq .LC_strtab+8888(%rip), %r10
+  movq %r10, %rbx
+  movq %rbx, %rcx
+  subq $32, %rsp
+  call फेंको
+  addq $32, %rsp
+.L_पीजीओ_संकलन__if_सत्य_1:
+  movq .LC_strtab+8848(%rip), %r10
+  movq %r10, %rbx
+  movq %rbx, %rcx
+  subq $32, %rsp
+  call फेंको
+  addq $32, %rsp
+.L_epilogue_पीजीओ_संकलन:
+  subl $30, gc_roots_count(%rip)
+  movq -8(%rbp), %rbx
+  movq -16(%rbp), %rsi
+  movq -24(%rbp), %rdi
+  movq -32(%rbp), %r12
+  movq -40(%rbp), %r13
+  movq -48(%rbp), %r14
+  movq -56(%rbp), %r15
+  movq %rbp, %rsp
+  popq %rbp
+  ret
+
+  .text
   .globl sutra_main
   .def sutra_main; .scl 2; .type 32; .endef
 sutra_main:
   pushq %rbp
   movq %rsp, %rbp
-  subq $9344, %rsp
+  subq $9392, %rsp
   movq %rbx, -8(%rbp)
   movq %rsi, -16(%rbp)
   movq %rdi, -24(%rbp)
@@ -164847,8 +165606,8 @@ sutra_main:
   movq %r15, -56(%rbp)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
-  leaq -8376(%rbp), %r11
-  movl $120, %ecx
+  leaq -8424(%rbp), %r11
+  movl $121, %ecx
 .Lजड़_sutra_main:
   movq $0, (%r11)
   movq %r11, (%r10,%rax,8)
@@ -164866,156 +165625,197 @@ sutra_main:
   addq $32, %rsp
   movq %rax, -72(%rbp)
   movq -72(%rbp), %r11
-  movq %r11, -8376(%rbp)
+  movq %r11, -8424(%rbp)
   movq $0, %rdi
-  movq $1, %r12
-  movq %r12, -88(%rbp)
-  movq %rdi, -120(%rbp)
-  movq %rbx, -104(%rbp)
+  movq $0, %r12
+  movq .LC_strtab+696(%rip), %r10
+  movq %r10, %r13
+  movq $1, %r14
+  movq %r14, -88(%rbp)
+  movq %r13, -104(%rbp)
+  movq %r12, -120(%rbp)
+  movq %rdi, -152(%rbp)
+  movq %rbx, -136(%rbp)
   jmp .L_sutra_main__wh_शर्त_1
 .L_sutra_main__wh_शर्त_1:
+  movq -136(%rbp), %r11
+  movq %r11, -9328(%rbp)
   movq -104(%rbp), %r11
-  movq %r11, -9280(%rbp)
+  movq %r11, -9336(%rbp)
   movq -72(%rbp), %rcx
   subq $32, %rsp
   call दैशिक_लंबाई
   addq $32, %rsp
-  movq %rax, %r13
+  movq %rax, %r15
   movq -88(%rbp), %r10
-  cmpq %r13, %r10
+  cmpq %r15, %r10
   setl %al
   movzbq %al, %r10
-  movq %r10, %r14
-  movq %r14, %r10
+  movq %r10, %rsi
+  movq %rsi, %r10
   cmpq $0, %r10
   je .L_sutra_main__wh_अंत_3
   jmp .L_sutra_main__wh_देह_2
 .L_sutra_main__wh_अंत_3:
+  movq -120(%rbp), %r10
+  cmpq $0, %r10
+  je .L_sutra_main__sc_लघु_18
+  jmp .L_sutra_main__sc_दायाँ_17
+.L_sutra_main__sc_लघु_18:
+  movq $0, %rsi
+  jmp .L_sutra_main__sc_अंत_19
+.L_sutra_main__sc_दायाँ_17:
+  movq -152(%rbp), %r10
+  cmpq $0, %r10
+  sete %al
+  movzbq %al, %r10
+  movq %r10, %rsi
+  jmp .L_sutra_main__sc_अंत_19
+.L_sutra_main__sc_अंत_19:
+  movq %rsi, %r10
+  cmpq $0, %r10
+  je .L_किनारा_sutra_main_0
+  jmp .L_sutra_main__if_सत्य_20
+.L_किनारा_sutra_main_0:
+  movq -120(%rbp), %r11
+  movq %r11, -168(%rbp)
+  jmp .L_sutra_main__if_अंत_21
+.L_sutra_main__if_सत्य_20:
+  movq .LC_strtab+9024(%rip), %r10
+  movq %r10, %rsi
+  movq %rsi, %rcx
+  subq $32, %rsp
+  call गतिशील_छापो
+  addq $32, %rsp
+  movq $0, %rsi
+  movq %rsi, -168(%rbp)
+  jmp .L_sutra_main__if_अंत_21
+.L_sutra_main__if_अंत_21:
   movq .LC_strtab+696(%rip), %r10
-  movq %r10, %r13
-  movq -104(%rbp), %rcx
-  movq %r13, %rdx
+  movq %r10, %r15
+  movq -136(%rbp), %rcx
+  movq %r15, %rdx
   subq $32, %rsp
   call पाठ_तुल्य
   addq $32, %rsp
   movq %rax, %r14
   movq %r14, %r10
   cmpq $0, %r10
-  je .L_sutra_main__if_अंत_10
-  jmp .L_sutra_main__if_सत्य_9
-.L_sutra_main__if_अंत_10:
-  movq -104(%rbp), %rcx
+  je .L_sutra_main__if_अंत_23
+  jmp .L_sutra_main__if_सत्य_22
+.L_sutra_main__if_अंत_23:
+  movq -136(%rbp), %rcx
   subq $32, %rsp
   call सञ्चिका_है_रन
   addq $32, %rsp
-  movq %rax, %r13
-  movq %r13, %r10
+  movq %rax, %r14
+  movq %r14, %r10
   cmpq $0, %r10
   sete %al
   movzbq %al, %r10
-  movq %r10, %r14
-  movq %r14, %r10
+  movq %r10, %r15
+  movq %r15, %r10
   cmpq $0, %r10
-  je .L_sutra_main__if_अंत_12
-  jmp .L_sutra_main__if_सत्य_11
-.L_sutra_main__if_अंत_12:
-  movq -104(%rbp), %rcx
+  je .L_sutra_main__if_अंत_25
+  jmp .L_sutra_main__if_सत्य_24
+.L_sutra_main__if_अंत_25:
+  movq -136(%rbp), %rcx
   subq $32, %rsp
   call सञ्चिका_पढ़ो_रन
   addq $32, %rsp
-  movq %rax, %r13
-  movq %r13, -8400(%rbp)
-  movq .LC_strtab+8824(%rip), %r10
-  movq %r10, %r14
-  movq %r14, %rcx
-  subq $32, %rsp
-  call गतिशील_छापो
-  addq $32, %rsp
-  movq .LC_strtab+8832(%rip), %r10
-  movq %r10, %r14
-  movq %r14, %rcx
-  movq -104(%rbp), %rdx
-  subq $32, %rsp
-  call पाठ_जोड़
-  addq $32, %rsp
-  movq %rax, %r15
-  movq %r15, -8408(%rbp)
+  movq %rax, %r14
+  movq %r14, -8448(%rbp)
+  movq .LC_strtab+9048(%rip), %r10
+  movq %r10, %r15
   movq %r15, %rcx
   subq $32, %rsp
   call गतिशील_छापो
   addq $32, %rsp
-  movq $0, -8408(%rbp)
-  movq .LC_strtab+8840(%rip), %r10
-  movq %r10, %r14
-  movq %r14, %rcx
+  movq .LC_strtab+9056(%rip), %r10
+  movq %r10, %r15
+  movq %r15, %rcx
+  movq -136(%rbp), %rdx
+  subq $32, %rsp
+  call पाठ_जोड़
+  addq $32, %rsp
+  movq %rax, %r13
+  movq %r13, -8456(%rbp)
+  movq %r13, %rcx
   subq $32, %rsp
   call गतिशील_छापो
   addq $32, %rsp
+  movq $0, -8456(%rbp)
+  movq .LC_strtab+9064(%rip), %r10
+  movq %r10, %r13
   movq %r13, %rcx
+  subq $32, %rsp
+  call गतिशील_छापो
+  addq $32, %rsp
+  movq %r14, %rcx
   subq $32, %rsp
   call पद_विच्छेदन
   addq $32, %rsp
-  movq %rax, %r14
-  movq %r14, -8416(%rbp)
-  movq $0, -8400(%rbp)
-  movq .LC_strtab+8848(%rip), %r10
-  movq %r10, %r13
-  movq %r14, %rcx
+  movq %rax, %r13
+  movq %r13, -8464(%rbp)
+  movq $0, -8448(%rbp)
+  movq .LC_strtab+9072(%rip), %r10
+  movq %r10, %r14
+  movq %r13, %rcx
   subq $32, %rsp
   call दैशिक_लंबाई
   addq $32, %rsp
   movq %rax, %r15
-  movq %r13, %rcx
+  movq %r14, %rcx
   movq %r15, %rdx
   subq $32, %rsp
   call पाठ_योग_गतिक
   addq $32, %rsp
-  movq %rax, %rsi
-  movq %rsi, -8424(%rbp)
-  movq %rsi, %rcx
+  movq %rax, %r12
+  movq %r12, -8472(%rbp)
+  movq %r12, %rcx
   subq $32, %rsp
   call गतिशील_छापो
   addq $32, %rsp
-  movq $0, -8424(%rbp)
-  movq .LC_strtab+8856(%rip), %r10
-  movq %r10, %rsi
-  movq %rsi, %rcx
+  movq $0, -8472(%rbp)
+  movq .LC_strtab+9080(%rip), %r10
+  movq %r10, %r12
+  movq %r12, %rcx
   subq $32, %rsp
   call गतिशील_छापो
   addq $32, %rsp
   subq $32, %rsp
   call शब्दकोश_रचना
   addq $32, %rsp
-  movq %rax, %rsi
-  movq %rsi, -8432(%rbp)
-  movq %rsi, -8432(%rbp)
+  movq %rax, %r12
+  movq %r12, -8480(%rbp)
+  movq %r12, -8480(%rbp)
   movq .LC_strtab+1808(%rip), %r10
-  movq %r10, %r13
-  movq %rsi, %rcx
-  movq %r13, %rdx
-  movq %r14, %r8
+  movq %r10, %r14
+  movq %r12, %rcx
+  movq %r14, %rdx
+  movq %r13, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
   movq .LC_strtab+704(%rip), %r10
-  movq %r10, %r13
+  movq %r10, %r14
   movq $0, %r15
-  movq %rsi, %rcx
-  movq %r13, %rdx
+  movq %r12, %rcx
+  movq %r14, %rdx
   movq %r15, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
   movq .LC_strtab+1800(%rip), %r10
-  movq %r10, %r13
-  movq %r14, %rcx
+  movq %r10, %r14
+  movq %r13, %rcx
   subq $32, %rsp
   call दैशिक_लंबाई
   addq $32, %rsp
   movq %rax, %r15
-  movq $0, -8416(%rbp)
-  movq %rsi, %rcx
-  movq %r13, %rdx
+  movq $0, -8464(%rbp)
+  movq %r12, %rcx
+  movq %r14, %rdx
   movq %r15, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
@@ -165024,27 +165824,27 @@ sutra_main:
   call शब्दकोश_रचना
   addq $32, %rsp
   movq %rax, %r13
-  movq %r13, -8440(%rbp)
-  movq %r13, -8440(%rbp)
-  movq %rsi, %rcx
+  movq %r13, -8488(%rbp)
+  movq %r13, -8488(%rbp)
+  movq %r12, %rcx
   movq %r13, %rdx
-  movq -104(%rbp), %r8
+  movq -136(%rbp), %r8
   subq $32, %rsp
   call प्रोग्राम_पार्स
   addq $32, %rsp
   movq %rax, %r14
-  movq %r14, -8448(%rbp)
-  movq $0, -8432(%rbp)
-  movq $0, -8440(%rbp)
-  movq .LC_strtab+8864(%rip), %r10
-  movq %r10, %rsi
-  movq %rsi, %rcx
+  movq %r14, -8496(%rbp)
+  movq $0, -8480(%rbp)
+  movq $0, -8488(%rbp)
+  movq .LC_strtab+9088(%rip), %r10
+  movq %r10, %r12
+  movq %r12, %rcx
   subq $32, %rsp
   call गतिशील_छापो
   addq $32, %rsp
-  movq .LC_strtab+8872(%rip), %r10
-  movq %r10, %rsi
-  movq %rsi, %rcx
+  movq .LC_strtab+9096(%rip), %r10
+  movq %r10, %r12
+  movq %r12, %rcx
   subq $32, %rsp
   call गतिशील_छापो
   addq $32, %rsp
@@ -165052,68 +165852,68 @@ sutra_main:
   subq $32, %rsp
   call मूल_सार्थक_विश्लेषण
   addq $32, %rsp
-  movq %rax, %rsi
-  movq .LC_strtab+8880(%rip), %r10
-  movq %r10, %rsi
-  movq %rsi, %rcx
+  movq %rax, %r12
+  movq .LC_strtab+9104(%rip), %r10
+  movq %r10, %r12
+  movq %r12, %rcx
   subq $32, %rsp
   call गतिशील_छापो
   addq $32, %rsp
-  movq -120(%rbp), %r10
+  movq -152(%rbp), %r10
   cmpq $0, %r10
-  je .L_sutra_main__if_असत्य_15
-  jmp .L_sutra_main__if_सत्य_13
-.L_sutra_main__if_असत्य_15:
-  movq .LC_strtab+8896(%rip), %r10
-  movq %r10, %rsi
-  movq %rsi, %rcx
+  je .L_sutra_main__if_असत्य_28
+  jmp .L_sutra_main__if_सत्य_26
+.L_sutra_main__if_असत्य_28:
+  movq .LC_strtab+9120(%rip), %r10
+  movq %r10, %r12
+  movq %r12, %rcx
   subq $32, %rsp
   call गतिशील_छापो
   addq $32, %rsp
-  jmp .L_sutra_main__if_अंत_14
-.L_sutra_main__if_सत्य_13:
-  movq .LC_strtab+8888(%rip), %r10
-  movq %r10, %rsi
-  movq %rsi, %rcx
+  jmp .L_sutra_main__if_अंत_27
+.L_sutra_main__if_सत्य_26:
+  movq .LC_strtab+9112(%rip), %r10
+  movq %r10, %r12
+  movq %r12, %rcx
   subq $32, %rsp
   call गतिशील_छापो
   addq $32, %rsp
-  jmp .L_sutra_main__if_अंत_14
-.L_sutra_main__if_अंत_14:
+  jmp .L_sutra_main__if_अंत_27
+.L_sutra_main__if_अंत_27:
   movq %r14, %rcx
   subq $32, %rsp
   call निम्नक_एकक
   addq $32, %rsp
-  movq %rax, -136(%rbp)
-  movq -136(%rbp), %r11
-  movq %r11, -8456(%rbp)
-  movq $0, -8448(%rbp)
-  movq -136(%rbp), %rcx
+  movq %rax, -184(%rbp)
+  movq -184(%rbp), %r11
+  movq %r11, -8504(%rbp)
+  movq $0, -8496(%rbp)
+  movq -184(%rbp), %rcx
   subq $32, %rsp
   call अनुकूलक_एकक
   addq $32, %rsp
   movq %rax, %r13
-  movq -136(%rbp), %rcx
+  movq -184(%rbp), %rcx
   subq $32, %rsp
   call परत्_प्रकार_अनुमान_एकक
   addq $32, %rsp
   movq %rax, %r13
-  movq -136(%rbp), %rcx
+  movq -184(%rbp), %rcx
   subq $32, %rsp
   call पुच्छ_अनुकूलन_एकक
   addq $32, %rsp
   movq %rax, %r13
-  movq -136(%rbp), %rcx
+  movq -184(%rbp), %rcx
   subq $32, %rsp
   call अंतर्वेशन_एकक
   addq $32, %rsp
   movq %rax, %r13
-  movq -136(%rbp), %rcx
+  movq -184(%rbp), %rcx
   subq $32, %rsp
   call पाठ_संचायक_एकक
   addq $32, %rsp
   movq %rax, %r13
-  movq -136(%rbp), %rcx
+  movq -184(%rbp), %rcx
   subq $32, %rsp
   call प्रकार_प्रसार_एकक
   addq $32, %rsp
@@ -165121,153 +165921,153 @@ sutra_main:
   movq $115, %r13
   movq $117, %r14
   movq $116, %r15
-  movq $114, %r12
-  movq $97, %rbx
-  movq $95, %rdi
-  movq $110, %rsi
-  movq $97, -152(%rbp)
-  movq $116, -168(%rbp)
-  movq $105, -184(%rbp)
-  movq $118, -200(%rbp)
-  movq $101, -216(%rbp)
-  movq $95, -232(%rbp)
-  movq $116, -248(%rbp)
+  movq $114, %rbx
+  movq $97, %rdi
+  movq $95, %rsi
+  movq $110, %r12
+  movq $97, -200(%rbp)
+  movq $116, -216(%rbp)
+  movq $105, -232(%rbp)
+  movq $118, -248(%rbp)
   movq $101, -264(%rbp)
-  movq $109, -280(%rbp)
-  movq $112, -296(%rbp)
-  movq $46, -312(%rbp)
-  movq $111, -328(%rbp)
+  movq $95, -280(%rbp)
+  movq $116, -296(%rbp)
+  movq $101, -312(%rbp)
+  movq $109, -328(%rbp)
+  movq $112, -344(%rbp)
+  movq $46, -360(%rbp)
+  movq $111, -376(%rbp)
   movq $19, %rcx
   subq $32, %rsp
   call सूची_रचना
   addq $32, %rsp
-  movq %rax, -344(%rbp)
-  movq -344(%rbp), %r11
-  movq %r11, -8464(%rbp)
-  movq -344(%rbp), %rcx
+  movq %rax, -392(%rbp)
+  movq -392(%rbp), %r11
+  movq %r11, -8512(%rbp)
+  movq -392(%rbp), %rcx
   movq $0, %rdx
   movq %r13, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -344(%rbp), %rcx
+  movq -392(%rbp), %rcx
   movq $1, %rdx
   movq %r14, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -344(%rbp), %rcx
+  movq -392(%rbp), %rcx
   movq $2, %rdx
   movq %r15, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -344(%rbp), %rcx
+  movq -392(%rbp), %rcx
   movq $3, %rdx
-  movq %r12, %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -344(%rbp), %rcx
-  movq $4, %rdx
   movq %rbx, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -344(%rbp), %rcx
-  movq $5, %rdx
+  movq -392(%rbp), %rcx
+  movq $4, %rdx
   movq %rdi, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -344(%rbp), %rcx
-  movq $6, %rdx
+  movq -392(%rbp), %rcx
+  movq $5, %rdx
   movq %rsi, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -344(%rbp), %rcx
+  movq -392(%rbp), %rcx
+  movq $6, %rdx
+  movq %r12, %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -392(%rbp), %rcx
   movq $7, %rdx
-  movq -152(%rbp), %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -344(%rbp), %rcx
-  movq $8, %rdx
-  movq -168(%rbp), %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -344(%rbp), %rcx
-  movq $9, %rdx
-  movq -184(%rbp), %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -344(%rbp), %rcx
-  movq $10, %rdx
   movq -200(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -344(%rbp), %rcx
-  movq $11, %rdx
+  movq -392(%rbp), %rcx
+  movq $8, %rdx
   movq -216(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -344(%rbp), %rcx
-  movq $12, %rdx
+  movq -392(%rbp), %rcx
+  movq $9, %rdx
   movq -232(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -344(%rbp), %rcx
-  movq $13, %rdx
+  movq -392(%rbp), %rcx
+  movq $10, %rdx
   movq -248(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -344(%rbp), %rcx
-  movq $14, %rdx
+  movq -392(%rbp), %rcx
+  movq $11, %rdx
   movq -264(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -344(%rbp), %rcx
-  movq $15, %rdx
+  movq -392(%rbp), %rcx
+  movq $12, %rdx
   movq -280(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -344(%rbp), %rcx
-  movq $16, %rdx
+  movq -392(%rbp), %rcx
+  movq $13, %rdx
   movq -296(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -344(%rbp), %rcx
-  movq $17, %rdx
+  movq -392(%rbp), %rcx
+  movq $14, %rdx
   movq -312(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -344(%rbp), %rcx
-  movq $18, %rdx
+  movq -392(%rbp), %rcx
+  movq $15, %rdx
   movq -328(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -344(%rbp), %r11
-  movq %r11, -8464(%rbp)
-  movq -344(%rbp), %rcx
+  movq -392(%rbp), %rcx
+  movq $16, %rdx
+  movq -344(%rbp), %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -392(%rbp), %rcx
+  movq $17, %rdx
+  movq -360(%rbp), %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -392(%rbp), %rcx
+  movq $18, %rdx
+  movq -376(%rbp), %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -392(%rbp), %r11
+  movq %r11, -8512(%rbp)
+  movq -392(%rbp), %rcx
   subq $32, %rsp
   call अक्षर_सूची_से_पाठ
   addq $32, %rsp
-  movq %rax, -360(%rbp)
-  movq -360(%rbp), %r11
-  movq %r11, -8472(%rbp)
-  movq $0, -8464(%rbp)
+  movq %rax, -408(%rbp)
+  movq -408(%rbp), %r11
+  movq %r11, -8520(%rbp)
+  movq $0, -8512(%rbp)
   movq $100, %rsi
   movq $101, %rdi
   movq $108, %r12
@@ -165275,257 +166075,257 @@ sutra_main:
   movq $47, %r14
   movq $113, %r15
   movq $32, %rbx
-  movq $115, -376(%rbp)
-  movq $117, -392(%rbp)
-  movq $116, -408(%rbp)
-  movq $114, -424(%rbp)
-  movq $97, -440(%rbp)
-  movq $95, -456(%rbp)
-  movq $110, -472(%rbp)
+  movq $115, -424(%rbp)
+  movq $117, -440(%rbp)
+  movq $116, -456(%rbp)
+  movq $114, -472(%rbp)
   movq $97, -488(%rbp)
-  movq $116, -504(%rbp)
-  movq $105, -520(%rbp)
-  movq $118, -536(%rbp)
-  movq $101, -552(%rbp)
-  movq $95, -568(%rbp)
-  movq $116, -584(%rbp)
+  movq $95, -504(%rbp)
+  movq $110, -520(%rbp)
+  movq $97, -536(%rbp)
+  movq $116, -552(%rbp)
+  movq $105, -568(%rbp)
+  movq $118, -584(%rbp)
   movq $101, -600(%rbp)
-  movq $109, -616(%rbp)
-  movq $112, -632(%rbp)
-  movq $46, -648(%rbp)
-  movq $111, -664(%rbp)
-  movq $32, -680(%rbp)
-  movq $50, -696(%rbp)
-  movq $62, -712(%rbp)
-  movq $110, -728(%rbp)
-  movq $117, -744(%rbp)
-  movq $108, -760(%rbp)
+  movq $95, -616(%rbp)
+  movq $116, -632(%rbp)
+  movq $101, -648(%rbp)
+  movq $109, -664(%rbp)
+  movq $112, -680(%rbp)
+  movq $46, -696(%rbp)
+  movq $111, -712(%rbp)
+  movq $32, -728(%rbp)
+  movq $50, -744(%rbp)
+  movq $62, -760(%rbp)
+  movq $110, -776(%rbp)
+  movq $117, -792(%rbp)
+  movq $108, -808(%rbp)
   movq $32, %rcx
   subq $32, %rsp
   call सूची_रचना
   addq $32, %rsp
-  movq %rax, -776(%rbp)
-  movq -776(%rbp), %r11
-  movq %r11, -8480(%rbp)
-  movq -776(%rbp), %rcx
+  movq %rax, -824(%rbp)
+  movq -824(%rbp), %r11
+  movq %r11, -8528(%rbp)
+  movq -824(%rbp), %rcx
   movq $0, %rdx
   movq %rsi, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -776(%rbp), %rcx
+  movq -824(%rbp), %rcx
   movq $1, %rdx
   movq %rdi, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -776(%rbp), %rcx
+  movq -824(%rbp), %rcx
   movq $2, %rdx
   movq %r12, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -776(%rbp), %rcx
+  movq -824(%rbp), %rcx
   movq $3, %rdx
   movq %r13, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -776(%rbp), %rcx
+  movq -824(%rbp), %rcx
   movq $4, %rdx
   movq %r14, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -776(%rbp), %rcx
+  movq -824(%rbp), %rcx
   movq $5, %rdx
   movq %r15, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -776(%rbp), %rcx
+  movq -824(%rbp), %rcx
   movq $6, %rdx
   movq %rbx, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -776(%rbp), %rcx
+  movq -824(%rbp), %rcx
   movq $7, %rdx
-  movq -376(%rbp), %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -776(%rbp), %rcx
-  movq $8, %rdx
-  movq -392(%rbp), %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -776(%rbp), %rcx
-  movq $9, %rdx
-  movq -408(%rbp), %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -776(%rbp), %rcx
-  movq $10, %rdx
   movq -424(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -776(%rbp), %rcx
-  movq $11, %rdx
+  movq -824(%rbp), %rcx
+  movq $8, %rdx
   movq -440(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -776(%rbp), %rcx
-  movq $12, %rdx
+  movq -824(%rbp), %rcx
+  movq $9, %rdx
   movq -456(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -776(%rbp), %rcx
-  movq $13, %rdx
+  movq -824(%rbp), %rcx
+  movq $10, %rdx
   movq -472(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -776(%rbp), %rcx
-  movq $14, %rdx
+  movq -824(%rbp), %rcx
+  movq $11, %rdx
   movq -488(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -776(%rbp), %rcx
-  movq $15, %rdx
+  movq -824(%rbp), %rcx
+  movq $12, %rdx
   movq -504(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -776(%rbp), %rcx
-  movq $16, %rdx
+  movq -824(%rbp), %rcx
+  movq $13, %rdx
   movq -520(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -776(%rbp), %rcx
-  movq $17, %rdx
+  movq -824(%rbp), %rcx
+  movq $14, %rdx
   movq -536(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -776(%rbp), %rcx
-  movq $18, %rdx
+  movq -824(%rbp), %rcx
+  movq $15, %rdx
   movq -552(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -776(%rbp), %rcx
-  movq $19, %rdx
+  movq -824(%rbp), %rcx
+  movq $16, %rdx
   movq -568(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -776(%rbp), %rcx
-  movq $20, %rdx
+  movq -824(%rbp), %rcx
+  movq $17, %rdx
   movq -584(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -776(%rbp), %rcx
-  movq $21, %rdx
+  movq -824(%rbp), %rcx
+  movq $18, %rdx
   movq -600(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -776(%rbp), %rcx
-  movq $22, %rdx
+  movq -824(%rbp), %rcx
+  movq $19, %rdx
   movq -616(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -776(%rbp), %rcx
-  movq $23, %rdx
+  movq -824(%rbp), %rcx
+  movq $20, %rdx
   movq -632(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -776(%rbp), %rcx
-  movq $24, %rdx
+  movq -824(%rbp), %rcx
+  movq $21, %rdx
   movq -648(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -776(%rbp), %rcx
-  movq $25, %rdx
+  movq -824(%rbp), %rcx
+  movq $22, %rdx
   movq -664(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -776(%rbp), %rcx
-  movq $26, %rdx
+  movq -824(%rbp), %rcx
+  movq $23, %rdx
   movq -680(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -776(%rbp), %rcx
-  movq $27, %rdx
+  movq -824(%rbp), %rcx
+  movq $24, %rdx
   movq -696(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -776(%rbp), %rcx
-  movq $28, %rdx
+  movq -824(%rbp), %rcx
+  movq $25, %rdx
   movq -712(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -776(%rbp), %rcx
-  movq $29, %rdx
+  movq -824(%rbp), %rcx
+  movq $26, %rdx
   movq -728(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -776(%rbp), %rcx
-  movq $30, %rdx
+  movq -824(%rbp), %rcx
+  movq $27, %rdx
   movq -744(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -776(%rbp), %rcx
-  movq $31, %rdx
+  movq -824(%rbp), %rcx
+  movq $28, %rdx
   movq -760(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -776(%rbp), %r11
-  movq %r11, -8480(%rbp)
-  movq -776(%rbp), %rcx
+  movq -824(%rbp), %rcx
+  movq $29, %rdx
+  movq -776(%rbp), %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -824(%rbp), %rcx
+  movq $30, %rdx
+  movq -792(%rbp), %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -824(%rbp), %rcx
+  movq $31, %rdx
+  movq -808(%rbp), %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -824(%rbp), %r11
+  movq %r11, -8528(%rbp)
+  movq -824(%rbp), %rcx
   subq $32, %rsp
   call अक्षर_सूची_से_पाठ
   addq $32, %rsp
   movq %rax, %rbx
-  movq %rbx, -8488(%rbp)
-  movq $0, -8480(%rbp)
+  movq %rbx, -8536(%rbp)
+  movq $0, -8528(%rbp)
   movq %rbx, %rcx
   subq $32, %rsp
   call समादेश_चलाओ_रन
   addq $32, %rsp
   movq %rax, %rsi
-  movq $0, -8488(%rbp)
-  movq -120(%rbp), %r10
+  movq $0, -8536(%rbp)
+  movq -152(%rbp), %r10
   cmpq $0, %r10
-  je .L_sutra_main__if_असत्य_18
-  jmp .L_sutra_main__if_सत्य_16
-.L_sutra_main__if_असत्य_18:
-  movq -136(%rbp), %rcx
+  je .L_sutra_main__if_असत्य_31
+  jmp .L_sutra_main__if_सत्य_29
+.L_sutra_main__if_असत्य_31:
+  movq -184(%rbp), %rcx
   subq $32, %rsp
   call उत्सर्जक_एकक
   addq $32, %rsp
-  movq %rax, -792(%rbp)
-  movq -792(%rbp), %r11
-  movq %r11, -8760(%rbp)
+  movq %rax, -840(%rbp)
+  movq -840(%rbp), %r11
+  movq %r11, -8808(%rbp)
   movq $115, %rsi
   movq $117, %rdi
   movq $116, %r12
@@ -165533,171 +166333,171 @@ sutra_main:
   movq $97, %r14
   movq $95, %r15
   movq $110, %rbx
-  movq $97, -808(%rbp)
-  movq $116, -824(%rbp)
-  movq $105, -840(%rbp)
-  movq $118, -856(%rbp)
-  movq $101, -872(%rbp)
-  movq $95, -888(%rbp)
-  movq $116, -904(%rbp)
+  movq $97, -856(%rbp)
+  movq $116, -872(%rbp)
+  movq $105, -888(%rbp)
+  movq $118, -904(%rbp)
   movq $101, -920(%rbp)
-  movq $109, -936(%rbp)
-  movq $112, -952(%rbp)
-  movq $46, -968(%rbp)
-  movq $115, -984(%rbp)
+  movq $95, -936(%rbp)
+  movq $116, -952(%rbp)
+  movq $101, -968(%rbp)
+  movq $109, -984(%rbp)
+  movq $112, -1000(%rbp)
+  movq $46, -1016(%rbp)
+  movq $115, -1032(%rbp)
   movq $19, %rcx
   subq $32, %rsp
   call सूची_रचना
   addq $32, %rsp
-  movq %rax, -1000(%rbp)
-  movq -1000(%rbp), %r11
-  movq %r11, -8768(%rbp)
-  movq -1000(%rbp), %rcx
+  movq %rax, -1048(%rbp)
+  movq -1048(%rbp), %r11
+  movq %r11, -8816(%rbp)
+  movq -1048(%rbp), %rcx
   movq $0, %rdx
   movq %rsi, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -1000(%rbp), %rcx
+  movq -1048(%rbp), %rcx
   movq $1, %rdx
   movq %rdi, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -1000(%rbp), %rcx
+  movq -1048(%rbp), %rcx
   movq $2, %rdx
   movq %r12, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -1000(%rbp), %rcx
+  movq -1048(%rbp), %rcx
   movq $3, %rdx
   movq %r13, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -1000(%rbp), %rcx
+  movq -1048(%rbp), %rcx
   movq $4, %rdx
   movq %r14, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -1000(%rbp), %rcx
+  movq -1048(%rbp), %rcx
   movq $5, %rdx
   movq %r15, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -1000(%rbp), %rcx
+  movq -1048(%rbp), %rcx
   movq $6, %rdx
   movq %rbx, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -1000(%rbp), %rcx
+  movq -1048(%rbp), %rcx
   movq $7, %rdx
-  movq -808(%rbp), %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -1000(%rbp), %rcx
-  movq $8, %rdx
-  movq -824(%rbp), %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -1000(%rbp), %rcx
-  movq $9, %rdx
-  movq -840(%rbp), %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -1000(%rbp), %rcx
-  movq $10, %rdx
   movq -856(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -1000(%rbp), %rcx
-  movq $11, %rdx
+  movq -1048(%rbp), %rcx
+  movq $8, %rdx
   movq -872(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -1000(%rbp), %rcx
-  movq $12, %rdx
+  movq -1048(%rbp), %rcx
+  movq $9, %rdx
   movq -888(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -1000(%rbp), %rcx
-  movq $13, %rdx
+  movq -1048(%rbp), %rcx
+  movq $10, %rdx
   movq -904(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -1000(%rbp), %rcx
-  movq $14, %rdx
+  movq -1048(%rbp), %rcx
+  movq $11, %rdx
   movq -920(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -1000(%rbp), %rcx
-  movq $15, %rdx
+  movq -1048(%rbp), %rcx
+  movq $12, %rdx
   movq -936(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -1000(%rbp), %rcx
-  movq $16, %rdx
+  movq -1048(%rbp), %rcx
+  movq $13, %rdx
   movq -952(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -1000(%rbp), %rcx
-  movq $17, %rdx
+  movq -1048(%rbp), %rcx
+  movq $14, %rdx
   movq -968(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -1000(%rbp), %rcx
-  movq $18, %rdx
+  movq -1048(%rbp), %rcx
+  movq $15, %rdx
   movq -984(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -1000(%rbp), %r11
-  movq %r11, -8768(%rbp)
-  movq -1000(%rbp), %rcx
+  movq -1048(%rbp), %rcx
+  movq $16, %rdx
+  movq -1000(%rbp), %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -1048(%rbp), %rcx
+  movq $17, %rdx
+  movq -1016(%rbp), %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -1048(%rbp), %rcx
+  movq $18, %rdx
+  movq -1032(%rbp), %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -1048(%rbp), %r11
+  movq %r11, -8816(%rbp)
+  movq -1048(%rbp), %rcx
   subq $32, %rsp
   call अक्षर_सूची_से_पाठ
   addq $32, %rsp
-  movq %rax, -1016(%rbp)
-  movq -1016(%rbp), %r11
-  movq %r11, -8776(%rbp)
-  movq $0, -8768(%rbp)
-  movq -1016(%rbp), %rcx
-  movq -792(%rbp), %rdx
+  movq %rax, -1064(%rbp)
+  movq -1064(%rbp), %r11
+  movq %r11, -8824(%rbp)
+  movq $0, -8816(%rbp)
+  movq -1064(%rbp), %rcx
+  movq -840(%rbp), %rdx
   subq $32, %rsp
   call सञ्चिका_लिखो_रन
   addq $32, %rsp
   movq %rax, %rsi
-  movq $0, -8760(%rbp)
-  movq .LC_strtab+8952(%rip), %r10
+  movq $0, -8808(%rbp)
+  movq .LC_strtab+9184(%rip), %r10
   movq %r10, %rsi
   movq %rsi, %rcx
-  movq -1016(%rbp), %rdx
+  movq -1064(%rbp), %rdx
   subq $32, %rsp
   call पाठ_योग_गतिक
   addq $32, %rsp
   movq %rax, %rdi
-  movq %rdi, -8784(%rbp)
+  movq %rdi, -8832(%rbp)
   movq %rdi, %rcx
   subq $32, %rsp
   call गतिशील_छापो
   addq $32, %rsp
-  movq $0, -8784(%rbp)
-  movq .LC_strtab+8960(%rip), %r10
+  movq $0, -8832(%rbp)
+  movq .LC_strtab+9192(%rip), %r10
   movq %r10, %rsi
   movq %rsi, %rcx
   subq $32, %rsp
@@ -165710,240 +166510,240 @@ sutra_main:
   movq $115, %r14
   movq $121, %r15
   movq $115, %rbx
-  movq $54, -1032(%rbp)
-  movq $52, -1048(%rbp)
-  movq $92, -1064(%rbp)
-  movq $117, -1080(%rbp)
-  movq $99, -1096(%rbp)
-  movq $114, -1112(%rbp)
-  movq $116, -1128(%rbp)
-  movq $54, -1144(%rbp)
-  movq $52, -1160(%rbp)
-  movq $92, -1176(%rbp)
-  movq $98, -1192(%rbp)
-  movq $105, -1208(%rbp)
-  movq $110, -1224(%rbp)
-  movq $92, -1240(%rbp)
-  movq $97, -1256(%rbp)
-  movq $115, -1272(%rbp)
-  movq $46, -1288(%rbp)
-  movq $101, -1304(%rbp)
-  movq $120, -1320(%rbp)
-  movq $101, -1336(%rbp)
-  movq $32, -1352(%rbp)
-  movq $45, -1368(%rbp)
-  movq $111, -1384(%rbp)
+  movq $54, -1080(%rbp)
+  movq $52, -1096(%rbp)
+  movq $92, -1112(%rbp)
+  movq $117, -1128(%rbp)
+  movq $99, -1144(%rbp)
+  movq $114, -1160(%rbp)
+  movq $116, -1176(%rbp)
+  movq $54, -1192(%rbp)
+  movq $52, -1208(%rbp)
+  movq $92, -1224(%rbp)
+  movq $98, -1240(%rbp)
+  movq $105, -1256(%rbp)
+  movq $110, -1272(%rbp)
+  movq $92, -1288(%rbp)
+  movq $97, -1304(%rbp)
+  movq $115, -1320(%rbp)
+  movq $46, -1336(%rbp)
+  movq $101, -1352(%rbp)
+  movq $120, -1368(%rbp)
+  movq $101, -1384(%rbp)
   movq $32, -1400(%rbp)
+  movq $45, -1416(%rbp)
+  movq $111, -1432(%rbp)
+  movq $32, -1448(%rbp)
   movq $31, %rcx
   subq $32, %rsp
   call सूची_रचना
   addq $32, %rsp
-  movq %rax, -1416(%rbp)
-  movq -1416(%rbp), %r11
-  movq %r11, -8792(%rbp)
-  movq -1416(%rbp), %rcx
+  movq %rax, -1464(%rbp)
+  movq -1464(%rbp), %r11
+  movq %r11, -8840(%rbp)
+  movq -1464(%rbp), %rcx
   movq $0, %rdx
   movq %rsi, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -1416(%rbp), %rcx
+  movq -1464(%rbp), %rcx
   movq $1, %rdx
   movq %rdi, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -1416(%rbp), %rcx
+  movq -1464(%rbp), %rcx
   movq $2, %rdx
   movq %r12, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -1416(%rbp), %rcx
+  movq -1464(%rbp), %rcx
   movq $3, %rdx
   movq %r13, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -1416(%rbp), %rcx
+  movq -1464(%rbp), %rcx
   movq $4, %rdx
   movq %r14, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -1416(%rbp), %rcx
+  movq -1464(%rbp), %rcx
   movq $5, %rdx
   movq %r15, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -1416(%rbp), %rcx
+  movq -1464(%rbp), %rcx
   movq $6, %rdx
   movq %rbx, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -1416(%rbp), %rcx
+  movq -1464(%rbp), %rcx
   movq $7, %rdx
-  movq -1032(%rbp), %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -1416(%rbp), %rcx
-  movq $8, %rdx
-  movq -1048(%rbp), %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -1416(%rbp), %rcx
-  movq $9, %rdx
-  movq -1064(%rbp), %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -1416(%rbp), %rcx
-  movq $10, %rdx
   movq -1080(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -1416(%rbp), %rcx
-  movq $11, %rdx
+  movq -1464(%rbp), %rcx
+  movq $8, %rdx
   movq -1096(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -1416(%rbp), %rcx
-  movq $12, %rdx
+  movq -1464(%rbp), %rcx
+  movq $9, %rdx
   movq -1112(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -1416(%rbp), %rcx
-  movq $13, %rdx
+  movq -1464(%rbp), %rcx
+  movq $10, %rdx
   movq -1128(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -1416(%rbp), %rcx
-  movq $14, %rdx
+  movq -1464(%rbp), %rcx
+  movq $11, %rdx
   movq -1144(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -1416(%rbp), %rcx
-  movq $15, %rdx
+  movq -1464(%rbp), %rcx
+  movq $12, %rdx
   movq -1160(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -1416(%rbp), %rcx
-  movq $16, %rdx
+  movq -1464(%rbp), %rcx
+  movq $13, %rdx
   movq -1176(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -1416(%rbp), %rcx
-  movq $17, %rdx
+  movq -1464(%rbp), %rcx
+  movq $14, %rdx
   movq -1192(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -1416(%rbp), %rcx
-  movq $18, %rdx
+  movq -1464(%rbp), %rcx
+  movq $15, %rdx
   movq -1208(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -1416(%rbp), %rcx
-  movq $19, %rdx
+  movq -1464(%rbp), %rcx
+  movq $16, %rdx
   movq -1224(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -1416(%rbp), %rcx
-  movq $20, %rdx
+  movq -1464(%rbp), %rcx
+  movq $17, %rdx
   movq -1240(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -1416(%rbp), %rcx
-  movq $21, %rdx
+  movq -1464(%rbp), %rcx
+  movq $18, %rdx
   movq -1256(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -1416(%rbp), %rcx
-  movq $22, %rdx
+  movq -1464(%rbp), %rcx
+  movq $19, %rdx
   movq -1272(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -1416(%rbp), %rcx
-  movq $23, %rdx
+  movq -1464(%rbp), %rcx
+  movq $20, %rdx
   movq -1288(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -1416(%rbp), %rcx
-  movq $24, %rdx
+  movq -1464(%rbp), %rcx
+  movq $21, %rdx
   movq -1304(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -1416(%rbp), %rcx
-  movq $25, %rdx
+  movq -1464(%rbp), %rcx
+  movq $22, %rdx
   movq -1320(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -1416(%rbp), %rcx
-  movq $26, %rdx
+  movq -1464(%rbp), %rcx
+  movq $23, %rdx
   movq -1336(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -1416(%rbp), %rcx
-  movq $27, %rdx
+  movq -1464(%rbp), %rcx
+  movq $24, %rdx
   movq -1352(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -1416(%rbp), %rcx
-  movq $28, %rdx
+  movq -1464(%rbp), %rcx
+  movq $25, %rdx
   movq -1368(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -1416(%rbp), %rcx
-  movq $29, %rdx
+  movq -1464(%rbp), %rcx
+  movq $26, %rdx
   movq -1384(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -1416(%rbp), %rcx
-  movq $30, %rdx
+  movq -1464(%rbp), %rcx
+  movq $27, %rdx
   movq -1400(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -1416(%rbp), %r11
-  movq %r11, -8792(%rbp)
-  movq -1416(%rbp), %rcx
+  movq -1464(%rbp), %rcx
+  movq $28, %rdx
+  movq -1416(%rbp), %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -1464(%rbp), %rcx
+  movq $29, %rdx
+  movq -1432(%rbp), %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -1464(%rbp), %rcx
+  movq $30, %rdx
+  movq -1448(%rbp), %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -1464(%rbp), %r11
+  movq %r11, -8840(%rbp)
+  movq -1464(%rbp), %rcx
   subq $32, %rsp
   call अक्षर_सूची_से_पाठ
   addq $32, %rsp
   movq %rax, %rbx
-  movq %rbx, -8800(%rbp)
-  movq $0, -8792(%rbp)
+  movq %rbx, -8848(%rbp)
+  movq $0, -8840(%rbp)
   movq %rbx, %rcx
-  movq -360(%rbp), %rdx
+  movq -408(%rbp), %rdx
   subq $32, %rsp
   call पाठ_योग_गतिक
   addq $32, %rsp
   movq %rax, %rsi
-  movq %rsi, -8808(%rbp)
-  movq $0, -8800(%rbp)
+  movq %rsi, -8856(%rbp)
+  movq $0, -8848(%rbp)
   movq .LC_strtab+2384(%rip), %r10
   movq %r10, %rbx
   movq %rsi, %rcx
@@ -165952,24 +166752,24 @@ sutra_main:
   call पाठ_योग_गतिक
   addq $32, %rsp
   movq %rax, %rdi
-  movq %rdi, -8816(%rbp)
-  movq $0, -8808(%rbp)
+  movq %rdi, -8864(%rbp)
+  movq $0, -8856(%rbp)
   movq %rdi, %rcx
-  movq -1016(%rbp), %rdx
+  movq -1064(%rbp), %rdx
   subq $32, %rsp
   call पाठ_योग_गतिक
   addq $32, %rsp
   movq %rax, %rbx
-  movq %rbx, -8824(%rbp)
-  movq $0, -8776(%rbp)
-  movq $0, -8816(%rbp)
+  movq %rbx, -8872(%rbp)
+  movq $0, -8824(%rbp)
+  movq $0, -8864(%rbp)
   movq %rbx, %rcx
   subq $32, %rsp
   call समादेश_चलाओ_रन
   addq $32, %rsp
   movq %rax, %rsi
-  movq %rsi, -8832(%rbp)
-  movq $0, -8824(%rbp)
+  movq %rsi, -8880(%rbp)
+  movq $0, -8872(%rbp)
   movq $0, %rbx
   movq %rsi, %rcx
   movq %rbx, %rdx
@@ -165982,13 +166782,13 @@ sutra_main:
   sete %al
   movzbq %al, %r10
   movq %r10, %rdi
-  movq $0, -8832(%rbp)
+  movq $0, -8880(%rbp)
   movq %rdi, %r10
   cmpq $0, %r10
-  je .L_sutra_main__sc_दायाँ_29
-  jmp .L_sutra_main__sc_लघु_30
-.L_sutra_main__sc_दायाँ_29:
-  movq -360(%rbp), %rcx
+  je .L_sutra_main__sc_दायाँ_45
+  jmp .L_sutra_main__sc_लघु_46
+.L_sutra_main__sc_दायाँ_45:
+  movq -408(%rbp), %rcx
   subq $32, %rsp
   call सञ्चिका_है_रन
   addq $32, %rsp
@@ -165999,23 +166799,23 @@ sutra_main:
   movzbq %al, %r10
   movq %r10, %rsi
   movq %rsi, %rbx
-  jmp .L_sutra_main__sc_अंत_31
-.L_sutra_main__sc_लघु_30:
+  jmp .L_sutra_main__sc_अंत_47
+.L_sutra_main__sc_लघु_46:
   movq $1, %rbx
-  jmp .L_sutra_main__sc_अंत_31
-.L_sutra_main__sc_अंत_31:
+  jmp .L_sutra_main__sc_अंत_47
+.L_sutra_main__sc_अंत_47:
   movq %rbx, %r10
   cmpq $0, %r10
-  je .L_sutra_main__if_अंत_17
-  jmp .L_sutra_main__if_सत्य_32
-.L_sutra_main__if_सत्य_32:
-  movq .LC_strtab+8968(%rip), %r10
+  je .L_sutra_main__if_अंत_30
+  jmp .L_sutra_main__if_सत्य_48
+.L_sutra_main__if_सत्य_48:
+  movq .LC_strtab+9200(%rip), %r10
   movq %r10, %rbx
   movq %rbx, %rcx
   subq $32, %rsp
   call फेंको
   addq $32, %rsp
-.L_sutra_main__if_सत्य_16:
+.L_sutra_main__if_सत्य_29:
   movq $115, %rbx
   movq $117, %rsi
   movq $116, %rdi
@@ -166023,156 +166823,156 @@ sutra_main:
   movq $97, %r13
   movq $95, %r14
   movq $110, %r15
-  movq $97, -1432(%rbp)
-  movq $116, -1448(%rbp)
-  movq $105, -1464(%rbp)
-  movq $118, -1480(%rbp)
-  movq $101, -1496(%rbp)
-  movq $95, -1512(%rbp)
-  movq $116, -1528(%rbp)
+  movq $97, -1480(%rbp)
+  movq $116, -1496(%rbp)
+  movq $105, -1512(%rbp)
+  movq $118, -1528(%rbp)
   movq $101, -1544(%rbp)
-  movq $109, -1560(%rbp)
-  movq $112, -1576(%rbp)
-  movq $46, -1592(%rbp)
-  movq $108, -1608(%rbp)
-  movq $108, -1624(%rbp)
+  movq $95, -1560(%rbp)
+  movq $116, -1576(%rbp)
+  movq $101, -1592(%rbp)
+  movq $109, -1608(%rbp)
+  movq $112, -1624(%rbp)
+  movq $46, -1640(%rbp)
+  movq $108, -1656(%rbp)
+  movq $108, -1672(%rbp)
   movq $20, %rcx
   subq $32, %rsp
   call सूची_रचना
   addq $32, %rsp
-  movq %rax, -1640(%rbp)
-  movq -1640(%rbp), %r11
-  movq %r11, -8496(%rbp)
-  movq -1640(%rbp), %rcx
+  movq %rax, -1688(%rbp)
+  movq -1688(%rbp), %r11
+  movq %r11, -8544(%rbp)
+  movq -1688(%rbp), %rcx
   movq $0, %rdx
   movq %rbx, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -1640(%rbp), %rcx
+  movq -1688(%rbp), %rcx
   movq $1, %rdx
   movq %rsi, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -1640(%rbp), %rcx
+  movq -1688(%rbp), %rcx
   movq $2, %rdx
   movq %rdi, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -1640(%rbp), %rcx
+  movq -1688(%rbp), %rcx
   movq $3, %rdx
   movq %r12, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -1640(%rbp), %rcx
+  movq -1688(%rbp), %rcx
   movq $4, %rdx
   movq %r13, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -1640(%rbp), %rcx
+  movq -1688(%rbp), %rcx
   movq $5, %rdx
   movq %r14, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -1640(%rbp), %rcx
+  movq -1688(%rbp), %rcx
   movq $6, %rdx
   movq %r15, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -1640(%rbp), %rcx
+  movq -1688(%rbp), %rcx
   movq $7, %rdx
-  movq -1432(%rbp), %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -1640(%rbp), %rcx
-  movq $8, %rdx
-  movq -1448(%rbp), %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -1640(%rbp), %rcx
-  movq $9, %rdx
-  movq -1464(%rbp), %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -1640(%rbp), %rcx
-  movq $10, %rdx
   movq -1480(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -1640(%rbp), %rcx
-  movq $11, %rdx
+  movq -1688(%rbp), %rcx
+  movq $8, %rdx
   movq -1496(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -1640(%rbp), %rcx
-  movq $12, %rdx
+  movq -1688(%rbp), %rcx
+  movq $9, %rdx
   movq -1512(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -1640(%rbp), %rcx
-  movq $13, %rdx
+  movq -1688(%rbp), %rcx
+  movq $10, %rdx
   movq -1528(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -1640(%rbp), %rcx
-  movq $14, %rdx
+  movq -1688(%rbp), %rcx
+  movq $11, %rdx
   movq -1544(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -1640(%rbp), %rcx
-  movq $15, %rdx
+  movq -1688(%rbp), %rcx
+  movq $12, %rdx
   movq -1560(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -1640(%rbp), %rcx
-  movq $16, %rdx
+  movq -1688(%rbp), %rcx
+  movq $13, %rdx
   movq -1576(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -1640(%rbp), %rcx
-  movq $17, %rdx
+  movq -1688(%rbp), %rcx
+  movq $14, %rdx
   movq -1592(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -1640(%rbp), %rcx
-  movq $18, %rdx
+  movq -1688(%rbp), %rcx
+  movq $15, %rdx
   movq -1608(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -1640(%rbp), %rcx
-  movq $19, %rdx
+  movq -1688(%rbp), %rcx
+  movq $16, %rdx
   movq -1624(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -1640(%rbp), %r11
-  movq %r11, -8496(%rbp)
-  movq -1640(%rbp), %rcx
+  movq -1688(%rbp), %rcx
+  movq $17, %rdx
+  movq -1640(%rbp), %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -1688(%rbp), %rcx
+  movq $18, %rdx
+  movq -1656(%rbp), %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -1688(%rbp), %rcx
+  movq $19, %rdx
+  movq -1672(%rbp), %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -1688(%rbp), %r11
+  movq %r11, -8544(%rbp)
+  movq -1688(%rbp), %rcx
   subq $32, %rsp
   call अक्षर_सूची_से_पाठ
   addq $32, %rsp
-  movq %rax, -1656(%rbp)
-  movq -1656(%rbp), %r11
-  movq %r11, -8504(%rbp)
-  movq $0, -8496(%rbp)
+  movq %rax, -1704(%rbp)
+  movq -1704(%rbp), %r11
+  movq %r11, -8552(%rbp)
+  movq $0, -8544(%rbp)
   movq $115, %rsi
   movq $117, %rdi
   movq $116, %r12
@@ -166180,93 +166980,93 @@ sutra_main:
   movq $97, %r14
   movq $95, %r15
   movq $114, %rbx
-  movq $116, -1672(%rbp)
-  movq $46, -1688(%rbp)
-  movq $108, -1704(%rbp)
-  movq $108, -1720(%rbp)
+  movq $116, -1720(%rbp)
+  movq $46, -1736(%rbp)
+  movq $108, -1752(%rbp)
+  movq $108, -1768(%rbp)
   movq $11, %rcx
   subq $32, %rsp
   call सूची_रचना
   addq $32, %rsp
-  movq %rax, -1736(%rbp)
-  movq -1736(%rbp), %r11
-  movq %r11, -8512(%rbp)
-  movq -1736(%rbp), %rcx
+  movq %rax, -1784(%rbp)
+  movq -1784(%rbp), %r11
+  movq %r11, -8560(%rbp)
+  movq -1784(%rbp), %rcx
   movq $0, %rdx
   movq %rsi, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -1736(%rbp), %rcx
+  movq -1784(%rbp), %rcx
   movq $1, %rdx
   movq %rdi, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -1736(%rbp), %rcx
+  movq -1784(%rbp), %rcx
   movq $2, %rdx
   movq %r12, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -1736(%rbp), %rcx
+  movq -1784(%rbp), %rcx
   movq $3, %rdx
   movq %r13, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -1736(%rbp), %rcx
+  movq -1784(%rbp), %rcx
   movq $4, %rdx
   movq %r14, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -1736(%rbp), %rcx
+  movq -1784(%rbp), %rcx
   movq $5, %rdx
   movq %r15, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -1736(%rbp), %rcx
+  movq -1784(%rbp), %rcx
   movq $6, %rdx
   movq %rbx, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -1736(%rbp), %rcx
+  movq -1784(%rbp), %rcx
   movq $7, %rdx
-  movq -1672(%rbp), %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -1736(%rbp), %rcx
-  movq $8, %rdx
-  movq -1688(%rbp), %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -1736(%rbp), %rcx
-  movq $9, %rdx
-  movq -1704(%rbp), %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -1736(%rbp), %rcx
-  movq $10, %rdx
   movq -1720(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -1736(%rbp), %r11
-  movq %r11, -8512(%rbp)
-  movq -1736(%rbp), %rcx
+  movq -1784(%rbp), %rcx
+  movq $8, %rdx
+  movq -1736(%rbp), %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -1784(%rbp), %rcx
+  movq $9, %rdx
+  movq -1752(%rbp), %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -1784(%rbp), %rcx
+  movq $10, %rdx
+  movq -1768(%rbp), %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -1784(%rbp), %r11
+  movq %r11, -8560(%rbp)
+  movq -1784(%rbp), %rcx
   subq $32, %rsp
   call अक्षर_सूची_से_पाठ
   addq $32, %rsp
-  movq %rax, -1752(%rbp)
-  movq -1752(%rbp), %r11
-  movq %r11, -8520(%rbp)
-  movq $0, -8512(%rbp)
+  movq %rax, -1800(%rbp)
+  movq -1800(%rbp), %r11
+  movq %r11, -8568(%rbp)
+  movq $0, -8560(%rbp)
   movq $115, %rsi
   movq $117, %rdi
   movq $116, %r12
@@ -166274,93 +167074,93 @@ sutra_main:
   movq $97, %r14
   movq $95, %r15
   movq $97, %rbx
-  movq $108, -1768(%rbp)
-  movq $46, -1784(%rbp)
-  movq $108, -1800(%rbp)
   movq $108, -1816(%rbp)
+  movq $46, -1832(%rbp)
+  movq $108, -1848(%rbp)
+  movq $108, -1864(%rbp)
   movq $11, %rcx
   subq $32, %rsp
   call सूची_रचना
   addq $32, %rsp
-  movq %rax, -1832(%rbp)
-  movq -1832(%rbp), %r11
-  movq %r11, -8528(%rbp)
-  movq -1832(%rbp), %rcx
+  movq %rax, -1880(%rbp)
+  movq -1880(%rbp), %r11
+  movq %r11, -8576(%rbp)
+  movq -1880(%rbp), %rcx
   movq $0, %rdx
   movq %rsi, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -1832(%rbp), %rcx
+  movq -1880(%rbp), %rcx
   movq $1, %rdx
   movq %rdi, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -1832(%rbp), %rcx
+  movq -1880(%rbp), %rcx
   movq $2, %rdx
   movq %r12, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -1832(%rbp), %rcx
+  movq -1880(%rbp), %rcx
   movq $3, %rdx
   movq %r13, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -1832(%rbp), %rcx
+  movq -1880(%rbp), %rcx
   movq $4, %rdx
   movq %r14, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -1832(%rbp), %rcx
+  movq -1880(%rbp), %rcx
   movq $5, %rdx
   movq %r15, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -1832(%rbp), %rcx
+  movq -1880(%rbp), %rcx
   movq $6, %rdx
   movq %rbx, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -1832(%rbp), %rcx
+  movq -1880(%rbp), %rcx
   movq $7, %rdx
-  movq -1768(%rbp), %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -1832(%rbp), %rcx
-  movq $8, %rdx
-  movq -1784(%rbp), %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -1832(%rbp), %rcx
-  movq $9, %rdx
-  movq -1800(%rbp), %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -1832(%rbp), %rcx
-  movq $10, %rdx
   movq -1816(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -1832(%rbp), %r11
-  movq %r11, -8528(%rbp)
-  movq -1832(%rbp), %rcx
+  movq -1880(%rbp), %rcx
+  movq $8, %rdx
+  movq -1832(%rbp), %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -1880(%rbp), %rcx
+  movq $9, %rdx
+  movq -1848(%rbp), %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -1880(%rbp), %rcx
+  movq $10, %rdx
+  movq -1864(%rbp), %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -1880(%rbp), %r11
+  movq %r11, -8576(%rbp)
+  movq -1880(%rbp), %rcx
   subq $32, %rsp
   call अक्षर_सूची_से_पाठ
   addq $32, %rsp
-  movq %rax, -1848(%rbp)
-  movq -1848(%rbp), %r11
-  movq %r11, -8536(%rbp)
-  movq $0, -8528(%rbp)
+  movq %rax, -1896(%rbp)
+  movq -1896(%rbp), %r11
+  movq %r11, -8584(%rbp)
+  movq $0, -8576(%rbp)
   movq $115, %rsi
   movq $117, %rdi
   movq $116, %r12
@@ -166368,221 +167168,221 @@ sutra_main:
   movq $97, %r14
   movq $95, %r15
   movq $110, %rbx
-  movq $97, -1864(%rbp)
-  movq $116, -1880(%rbp)
-  movq $105, -1896(%rbp)
-  movq $118, -1912(%rbp)
-  movq $101, -1928(%rbp)
-  movq $95, -1944(%rbp)
-  movq $116, -1960(%rbp)
+  movq $97, -1912(%rbp)
+  movq $116, -1928(%rbp)
+  movq $105, -1944(%rbp)
+  movq $118, -1960(%rbp)
   movq $101, -1976(%rbp)
-  movq $109, -1992(%rbp)
-  movq $112, -2008(%rbp)
-  movq $46, -2024(%rbp)
-  movq $98, -2040(%rbp)
-  movq $99, -2056(%rbp)
+  movq $95, -1992(%rbp)
+  movq $116, -2008(%rbp)
+  movq $101, -2024(%rbp)
+  movq $109, -2040(%rbp)
+  movq $112, -2056(%rbp)
+  movq $46, -2072(%rbp)
+  movq $98, -2088(%rbp)
+  movq $99, -2104(%rbp)
   movq $20, %rcx
   subq $32, %rsp
   call सूची_रचना
   addq $32, %rsp
-  movq %rax, -2072(%rbp)
-  movq -2072(%rbp), %r11
-  movq %r11, -8544(%rbp)
-  movq -2072(%rbp), %rcx
+  movq %rax, -2120(%rbp)
+  movq -2120(%rbp), %r11
+  movq %r11, -8592(%rbp)
+  movq -2120(%rbp), %rcx
   movq $0, %rdx
   movq %rsi, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -2072(%rbp), %rcx
+  movq -2120(%rbp), %rcx
   movq $1, %rdx
   movq %rdi, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -2072(%rbp), %rcx
+  movq -2120(%rbp), %rcx
   movq $2, %rdx
   movq %r12, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -2072(%rbp), %rcx
+  movq -2120(%rbp), %rcx
   movq $3, %rdx
   movq %r13, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -2072(%rbp), %rcx
+  movq -2120(%rbp), %rcx
   movq $4, %rdx
   movq %r14, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -2072(%rbp), %rcx
+  movq -2120(%rbp), %rcx
   movq $5, %rdx
   movq %r15, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -2072(%rbp), %rcx
+  movq -2120(%rbp), %rcx
   movq $6, %rdx
   movq %rbx, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -2072(%rbp), %rcx
+  movq -2120(%rbp), %rcx
   movq $7, %rdx
-  movq -1864(%rbp), %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -2072(%rbp), %rcx
-  movq $8, %rdx
-  movq -1880(%rbp), %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -2072(%rbp), %rcx
-  movq $9, %rdx
-  movq -1896(%rbp), %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -2072(%rbp), %rcx
-  movq $10, %rdx
   movq -1912(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -2072(%rbp), %rcx
-  movq $11, %rdx
+  movq -2120(%rbp), %rcx
+  movq $8, %rdx
   movq -1928(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -2072(%rbp), %rcx
-  movq $12, %rdx
+  movq -2120(%rbp), %rcx
+  movq $9, %rdx
   movq -1944(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -2072(%rbp), %rcx
-  movq $13, %rdx
+  movq -2120(%rbp), %rcx
+  movq $10, %rdx
   movq -1960(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -2072(%rbp), %rcx
-  movq $14, %rdx
+  movq -2120(%rbp), %rcx
+  movq $11, %rdx
   movq -1976(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -2072(%rbp), %rcx
-  movq $15, %rdx
+  movq -2120(%rbp), %rcx
+  movq $12, %rdx
   movq -1992(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -2072(%rbp), %rcx
-  movq $16, %rdx
+  movq -2120(%rbp), %rcx
+  movq $13, %rdx
   movq -2008(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -2072(%rbp), %rcx
-  movq $17, %rdx
+  movq -2120(%rbp), %rcx
+  movq $14, %rdx
   movq -2024(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -2072(%rbp), %rcx
-  movq $18, %rdx
+  movq -2120(%rbp), %rcx
+  movq $15, %rdx
   movq -2040(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -2072(%rbp), %rcx
-  movq $19, %rdx
+  movq -2120(%rbp), %rcx
+  movq $16, %rdx
   movq -2056(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -2072(%rbp), %r11
-  movq %r11, -8544(%rbp)
-  movq -2072(%rbp), %rcx
+  movq -2120(%rbp), %rcx
+  movq $17, %rdx
+  movq -2072(%rbp), %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -2120(%rbp), %rcx
+  movq $18, %rdx
+  movq -2088(%rbp), %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -2120(%rbp), %rcx
+  movq $19, %rdx
+  movq -2104(%rbp), %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -2120(%rbp), %r11
+  movq %r11, -8592(%rbp)
+  movq -2120(%rbp), %rcx
   subq $32, %rsp
   call अक्षर_सूची_से_पाठ
   addq $32, %rsp
-  movq %rax, -2088(%rbp)
-  movq -2088(%rbp), %r11
-  movq %r11, -8552(%rbp)
-  movq $0, -8544(%rbp)
-  movq -136(%rbp), %rcx
+  movq %rax, -2136(%rbp)
+  movq -2136(%rbp), %r11
+  movq %r11, -8600(%rbp)
+  movq $0, -8592(%rbp)
+  movq -184(%rbp), %rcx
   subq $32, %rsp
   call एलएलवीएम_उत्सर्जक_एकक
   addq $32, %rsp
   movq %rax, %rsi
-  movq %rsi, -8560(%rbp)
-  movq $0, -8456(%rbp)
-  movq -1656(%rbp), %rcx
+  movq %rsi, -8608(%rbp)
+  movq $0, -8504(%rbp)
+  movq -1704(%rbp), %rcx
   movq %rsi, %rdx
   subq $32, %rsp
   call सञ्चिका_लिखो_रन
   addq $32, %rsp
   movq %rax, %rdi
-  movq $0, -8560(%rbp)
-  movq .LC_strtab+8904(%rip), %r10
+  movq $0, -8608(%rbp)
+  movq .LC_strtab+9128(%rip), %r10
   movq %r10, %rsi
   movq %rsi, %rcx
   subq $32, %rsp
   call गतिशील_छापो
   addq $32, %rsp
-  movq .LC_strtab+8912(%rip), %r10
+  movq .LC_strtab+9136(%rip), %r10
   movq %r10, %rsi
   movq %rsi, %rcx
   subq $32, %rsp
   call रिलीज़_निर्माण_पथ
   addq $32, %rsp
   movq %rax, %rdi
-  movq %rdi, -8568(%rbp)
+  movq %rdi, -8616(%rbp)
   movq %rdi, %rcx
   subq $32, %rsp
   call रिलीज़_स्रोत_एलएल
   addq $32, %rsp
   movq %rax, %rsi
-  movq %rsi, -8576(%rbp)
-  movq $0, -8568(%rbp)
-  movq -1752(%rbp), %rcx
+  movq %rsi, -8624(%rbp)
+  movq $0, -8616(%rbp)
+  movq -1800(%rbp), %rcx
   movq %rsi, %rdx
   subq $32, %rsp
   call सञ्चिका_लिखो_रन
   addq $32, %rsp
   movq %rax, %rdi
-  movq $0, -8576(%rbp)
-  movq .LC_strtab+8920(%rip), %r10
+  movq $0, -8624(%rbp)
+  movq .LC_strtab+9144(%rip), %r10
   movq %r10, %rsi
   movq %rsi, %rcx
   subq $32, %rsp
   call रिलीज़_निर्माण_पथ
   addq $32, %rsp
   movq %rax, %rdi
-  movq %rdi, -8584(%rbp)
+  movq %rdi, -8632(%rbp)
   movq %rdi, %rcx
   subq $32, %rsp
   call रिलीज़_स्रोत_एलएल
   addq $32, %rsp
   movq %rax, %rsi
-  movq %rsi, -8592(%rbp)
-  movq $0, -8584(%rbp)
-  movq -1848(%rbp), %rcx
+  movq %rsi, -8640(%rbp)
+  movq $0, -8632(%rbp)
+  movq -1896(%rbp), %rcx
   movq %rsi, %rdx
   subq $32, %rsp
   call सञ्चिका_लिखो_रन
   addq $32, %rsp
   movq %rax, %rdi
-  movq $0, -8592(%rbp)
-  movq .LC_strtab+8928(%rip), %r10
+  movq $0, -8640(%rbp)
+  movq .LC_strtab+9152(%rip), %r10
   movq %r10, %rsi
   movq %rsi, %rcx
   subq $32, %rsp
@@ -166595,269 +167395,269 @@ sutra_main:
   movq $115, %r14
   movq $121, %r15
   movq $115, %rbx
-  movq $54, -2104(%rbp)
-  movq $52, -2120(%rbp)
-  movq $92, -2136(%rbp)
-  movq $117, -2152(%rbp)
-  movq $99, -2168(%rbp)
-  movq $114, -2184(%rbp)
-  movq $116, -2200(%rbp)
-  movq $54, -2216(%rbp)
-  movq $52, -2232(%rbp)
-  movq $92, -2248(%rbp)
-  movq $98, -2264(%rbp)
-  movq $105, -2280(%rbp)
-  movq $110, -2296(%rbp)
-  movq $92, -2312(%rbp)
-  movq $108, -2328(%rbp)
-  movq $108, -2344(%rbp)
-  movq $118, -2360(%rbp)
-  movq $109, -2376(%rbp)
-  movq $45, -2392(%rbp)
-  movq $108, -2408(%rbp)
-  movq $105, -2424(%rbp)
-  movq $110, -2440(%rbp)
-  movq $107, -2456(%rbp)
-  movq $46, -2472(%rbp)
-  movq $101, -2488(%rbp)
-  movq $120, -2504(%rbp)
-  movq $101, -2520(%rbp)
-  movq $32, -2536(%rbp)
+  movq $54, -2152(%rbp)
+  movq $52, -2168(%rbp)
+  movq $92, -2184(%rbp)
+  movq $117, -2200(%rbp)
+  movq $99, -2216(%rbp)
+  movq $114, -2232(%rbp)
+  movq $116, -2248(%rbp)
+  movq $54, -2264(%rbp)
+  movq $52, -2280(%rbp)
+  movq $92, -2296(%rbp)
+  movq $98, -2312(%rbp)
+  movq $105, -2328(%rbp)
+  movq $110, -2344(%rbp)
+  movq $92, -2360(%rbp)
+  movq $108, -2376(%rbp)
+  movq $108, -2392(%rbp)
+  movq $118, -2408(%rbp)
+  movq $109, -2424(%rbp)
+  movq $45, -2440(%rbp)
+  movq $108, -2456(%rbp)
+  movq $105, -2472(%rbp)
+  movq $110, -2488(%rbp)
+  movq $107, -2504(%rbp)
+  movq $46, -2520(%rbp)
+  movq $101, -2536(%rbp)
+  movq $120, -2552(%rbp)
+  movq $101, -2568(%rbp)
+  movq $32, -2584(%rbp)
   movq $35, %rcx
   subq $32, %rsp
   call सूची_रचना
   addq $32, %rsp
-  movq %rax, -2552(%rbp)
-  movq -2552(%rbp), %r11
-  movq %r11, -8600(%rbp)
-  movq -2552(%rbp), %rcx
+  movq %rax, -2600(%rbp)
+  movq -2600(%rbp), %r11
+  movq %r11, -8648(%rbp)
+  movq -2600(%rbp), %rcx
   movq $0, %rdx
   movq %rsi, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -2552(%rbp), %rcx
+  movq -2600(%rbp), %rcx
   movq $1, %rdx
   movq %rdi, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -2552(%rbp), %rcx
+  movq -2600(%rbp), %rcx
   movq $2, %rdx
   movq %r12, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -2552(%rbp), %rcx
+  movq -2600(%rbp), %rcx
   movq $3, %rdx
   movq %r13, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -2552(%rbp), %rcx
+  movq -2600(%rbp), %rcx
   movq $4, %rdx
   movq %r14, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -2552(%rbp), %rcx
+  movq -2600(%rbp), %rcx
   movq $5, %rdx
   movq %r15, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -2552(%rbp), %rcx
+  movq -2600(%rbp), %rcx
   movq $6, %rdx
   movq %rbx, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -2552(%rbp), %rcx
+  movq -2600(%rbp), %rcx
   movq $7, %rdx
-  movq -2104(%rbp), %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -2552(%rbp), %rcx
-  movq $8, %rdx
-  movq -2120(%rbp), %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -2552(%rbp), %rcx
-  movq $9, %rdx
-  movq -2136(%rbp), %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -2552(%rbp), %rcx
-  movq $10, %rdx
   movq -2152(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -2552(%rbp), %rcx
-  movq $11, %rdx
+  movq -2600(%rbp), %rcx
+  movq $8, %rdx
   movq -2168(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -2552(%rbp), %rcx
-  movq $12, %rdx
+  movq -2600(%rbp), %rcx
+  movq $9, %rdx
   movq -2184(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -2552(%rbp), %rcx
-  movq $13, %rdx
+  movq -2600(%rbp), %rcx
+  movq $10, %rdx
   movq -2200(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -2552(%rbp), %rcx
-  movq $14, %rdx
+  movq -2600(%rbp), %rcx
+  movq $11, %rdx
   movq -2216(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -2552(%rbp), %rcx
-  movq $15, %rdx
+  movq -2600(%rbp), %rcx
+  movq $12, %rdx
   movq -2232(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -2552(%rbp), %rcx
-  movq $16, %rdx
+  movq -2600(%rbp), %rcx
+  movq $13, %rdx
   movq -2248(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -2552(%rbp), %rcx
-  movq $17, %rdx
+  movq -2600(%rbp), %rcx
+  movq $14, %rdx
   movq -2264(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -2552(%rbp), %rcx
-  movq $18, %rdx
+  movq -2600(%rbp), %rcx
+  movq $15, %rdx
   movq -2280(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -2552(%rbp), %rcx
-  movq $19, %rdx
+  movq -2600(%rbp), %rcx
+  movq $16, %rdx
   movq -2296(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -2552(%rbp), %rcx
-  movq $20, %rdx
+  movq -2600(%rbp), %rcx
+  movq $17, %rdx
   movq -2312(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -2552(%rbp), %rcx
-  movq $21, %rdx
+  movq -2600(%rbp), %rcx
+  movq $18, %rdx
   movq -2328(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -2552(%rbp), %rcx
-  movq $22, %rdx
+  movq -2600(%rbp), %rcx
+  movq $19, %rdx
   movq -2344(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -2552(%rbp), %rcx
-  movq $23, %rdx
+  movq -2600(%rbp), %rcx
+  movq $20, %rdx
   movq -2360(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -2552(%rbp), %rcx
-  movq $24, %rdx
+  movq -2600(%rbp), %rcx
+  movq $21, %rdx
   movq -2376(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -2552(%rbp), %rcx
-  movq $25, %rdx
+  movq -2600(%rbp), %rcx
+  movq $22, %rdx
   movq -2392(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -2552(%rbp), %rcx
-  movq $26, %rdx
+  movq -2600(%rbp), %rcx
+  movq $23, %rdx
   movq -2408(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -2552(%rbp), %rcx
-  movq $27, %rdx
+  movq -2600(%rbp), %rcx
+  movq $24, %rdx
   movq -2424(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -2552(%rbp), %rcx
-  movq $28, %rdx
+  movq -2600(%rbp), %rcx
+  movq $25, %rdx
   movq -2440(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -2552(%rbp), %rcx
-  movq $29, %rdx
+  movq -2600(%rbp), %rcx
+  movq $26, %rdx
   movq -2456(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -2552(%rbp), %rcx
-  movq $30, %rdx
+  movq -2600(%rbp), %rcx
+  movq $27, %rdx
   movq -2472(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -2552(%rbp), %rcx
-  movq $31, %rdx
+  movq -2600(%rbp), %rcx
+  movq $28, %rdx
   movq -2488(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -2552(%rbp), %rcx
-  movq $32, %rdx
+  movq -2600(%rbp), %rcx
+  movq $29, %rdx
   movq -2504(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -2552(%rbp), %rcx
-  movq $33, %rdx
+  movq -2600(%rbp), %rcx
+  movq $30, %rdx
   movq -2520(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -2552(%rbp), %rcx
-  movq $34, %rdx
+  movq -2600(%rbp), %rcx
+  movq $31, %rdx
   movq -2536(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -2552(%rbp), %r11
-  movq %r11, -8600(%rbp)
-  movq -2552(%rbp), %rcx
+  movq -2600(%rbp), %rcx
+  movq $32, %rdx
+  movq -2552(%rbp), %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -2600(%rbp), %rcx
+  movq $33, %rdx
+  movq -2568(%rbp), %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -2600(%rbp), %rcx
+  movq $34, %rdx
+  movq -2584(%rbp), %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -2600(%rbp), %r11
+  movq %r11, -8648(%rbp)
+  movq -2600(%rbp), %rcx
   subq $32, %rsp
   call अक्षर_सूची_से_पाठ
   addq $32, %rsp
   movq %rax, %rbx
-  movq %rbx, -8608(%rbp)
-  movq $0, -8600(%rbp)
+  movq %rbx, -8656(%rbp)
+  movq $0, -8648(%rbp)
   movq %rbx, %rcx
-  movq -1656(%rbp), %rdx
+  movq -1704(%rbp), %rdx
   subq $32, %rsp
   call पाठ_योग_गतिक
   addq $32, %rsp
   movq %rax, %rsi
-  movq %rsi, -8616(%rbp)
-  movq $0, -8504(%rbp)
-  movq $0, -8608(%rbp)
+  movq %rsi, -8664(%rbp)
+  movq $0, -8552(%rbp)
+  movq $0, -8656(%rbp)
   movq .LC_strtab+2384(%rip), %r10
   movq %r10, %rbx
   movq %rsi, %rcx
@@ -166866,17 +167666,17 @@ sutra_main:
   call पाठ_योग_गतिक
   addq $32, %rsp
   movq %rax, %rdi
-  movq %rdi, -8624(%rbp)
-  movq $0, -8616(%rbp)
+  movq %rdi, -8672(%rbp)
+  movq $0, -8664(%rbp)
   movq %rdi, %rcx
-  movq -1752(%rbp), %rdx
+  movq -1800(%rbp), %rdx
   subq $32, %rsp
   call पाठ_योग_गतिक
   addq $32, %rsp
   movq %rax, %rbx
-  movq %rbx, -8632(%rbp)
-  movq $0, -8520(%rbp)
-  movq $0, -8624(%rbp)
+  movq %rbx, -8680(%rbp)
+  movq $0, -8568(%rbp)
+  movq $0, -8672(%rbp)
   movq .LC_strtab+2384(%rip), %r10
   movq %r10, %rsi
   movq %rbx, %rcx
@@ -166885,17 +167685,17 @@ sutra_main:
   call पाठ_जोड़
   addq $32, %rsp
   movq %rax, %rdi
-  movq %rdi, -8640(%rbp)
-  movq $0, -8632(%rbp)
+  movq %rdi, -8688(%rbp)
+  movq $0, -8680(%rbp)
   movq %rdi, %rcx
-  movq -1848(%rbp), %rdx
+  movq -1896(%rbp), %rdx
   subq $32, %rsp
   call पाठ_योग_गतिक
   addq $32, %rsp
   movq %rax, %rbx
-  movq %rbx, -8648(%rbp)
-  movq $0, -8536(%rbp)
-  movq $0, -8640(%rbp)
+  movq %rbx, -8696(%rbp)
+  movq $0, -8584(%rbp)
+  movq $0, -8688(%rbp)
   movq $32, %rsi
   movq $45, %rdi
   movq $111, %r12
@@ -166905,7 +167705,7 @@ sutra_main:
   call सूची_रचना
   addq $32, %rsp
   movq %rax, %r14
-  movq %r14, -8656(%rbp)
+  movq %r14, -8704(%rbp)
   movq %r14, %rcx
   movq $0, %rdx
   movq %rsi, %r8
@@ -166930,38 +167730,38 @@ sutra_main:
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq %r14, -8656(%rbp)
+  movq %r14, -8704(%rbp)
   movq %r14, %rcx
   subq $32, %rsp
   call अक्षर_सूची_से_पाठ
   addq $32, %rsp
   movq %rax, %rsi
-  movq %rsi, -8664(%rbp)
-  movq $0, -8656(%rbp)
+  movq %rsi, -8712(%rbp)
+  movq $0, -8704(%rbp)
   movq %rbx, %rcx
   movq %rsi, %rdx
   subq $32, %rsp
   call पाठ_योग_गतिक
   addq $32, %rsp
   movq %rax, %rdi
-  movq %rdi, -8672(%rbp)
-  movq $0, -8648(%rbp)
-  movq $0, -8664(%rbp)
+  movq %rdi, -8720(%rbp)
+  movq $0, -8696(%rbp)
+  movq $0, -8712(%rbp)
   movq %rdi, %rcx
-  movq -2088(%rbp), %rdx
+  movq -2136(%rbp), %rdx
   subq $32, %rsp
   call पाठ_योग_गतिक
   addq $32, %rsp
   movq %rax, %rbx
-  movq %rbx, -8680(%rbp)
-  movq $0, -8672(%rbp)
+  movq %rbx, -8728(%rbp)
+  movq $0, -8720(%rbp)
   movq %rbx, %rcx
   subq $32, %rsp
   call समादेश_चलाओ_रन
   addq $32, %rsp
   movq %rax, %rsi
-  movq %rsi, -8688(%rbp)
-  movq $0, -8680(%rbp)
+  movq %rsi, -8736(%rbp)
+  movq $0, -8728(%rbp)
   movq $0, %rbx
   movq %rsi, %rcx
   movq %rbx, %rdx
@@ -166974,13 +167774,13 @@ sutra_main:
   sete %al
   movzbq %al, %r10
   movq %r10, %rdi
-  movq $0, -8688(%rbp)
+  movq $0, -8736(%rbp)
   movq %rdi, %r10
   cmpq $0, %r10
-  je .L_sutra_main__sc_दायाँ_19
-  jmp .L_sutra_main__sc_लघु_20
-.L_sutra_main__sc_दायाँ_19:
-  movq -2088(%rbp), %rcx
+  je .L_sutra_main__sc_दायाँ_32
+  jmp .L_sutra_main__sc_लघु_33
+.L_sutra_main__sc_दायाँ_32:
+  movq -2136(%rbp), %rcx
   subq $32, %rsp
   call सञ्चिका_है_रन
   addq $32, %rsp
@@ -166991,16 +167791,21 @@ sutra_main:
   movzbq %al, %r10
   movq %r10, %rsi
   movq %rsi, %rbx
-  jmp .L_sutra_main__sc_अंत_21
-.L_sutra_main__sc_लघु_20:
+  jmp .L_sutra_main__sc_अंत_34
+.L_sutra_main__sc_लघु_33:
   movq $1, %rbx
-  jmp .L_sutra_main__sc_अंत_21
-.L_sutra_main__sc_अंत_21:
+  jmp .L_sutra_main__sc_अंत_34
+.L_sutra_main__sc_अंत_34:
   movq %rbx, %r10
   cmpq $0, %r10
-  je .L_sutra_main__if_अंत_23
-  jmp .L_sutra_main__if_सत्य_22
-.L_sutra_main__if_अंत_23:
+  je .L_sutra_main__if_अंत_36
+  jmp .L_sutra_main__if_सत्य_35
+.L_sutra_main__if_अंत_36:
+  movq -168(%rbp), %r10
+  cmpq $0, %r10
+  je .L_sutra_main__if_असत्य_39
+  jmp .L_sutra_main__if_सत्य_37
+.L_sutra_main__if_असत्य_39:
   movq $67, %rbx
   movq $58, %rsi
   movq $92, %rdi
@@ -167008,290 +167813,289 @@ sutra_main:
   movq $115, %r13
   movq $121, %r14
   movq $115, %r15
-  movq $54, -2568(%rbp)
-  movq $52, -2584(%rbp)
-  movq $92, -2600(%rbp)
-  movq $117, -2616(%rbp)
-  movq $99, -2632(%rbp)
-  movq $114, -2648(%rbp)
-  movq $116, -2664(%rbp)
-  movq $54, -2680(%rbp)
-  movq $52, -2696(%rbp)
-  movq $92, -2712(%rbp)
-  movq $98, -2728(%rbp)
-  movq $105, -2744(%rbp)
-  movq $110, -2760(%rbp)
-  movq $92, -2776(%rbp)
-  movq $99, -2792(%rbp)
-  movq $108, -2808(%rbp)
-  movq $97, -2824(%rbp)
-  movq $110, -2840(%rbp)
-  movq $103, -2856(%rbp)
-  movq $46, -2872(%rbp)
-  movq $101, -2888(%rbp)
-  movq $120, -2904(%rbp)
-  movq $101, -2920(%rbp)
-  movq $32, -2936(%rbp)
-  movq $45, -2952(%rbp)
-  movq $79, -2968(%rbp)
-  movq $51, -2984(%rbp)
-  movq $32, -3000(%rbp)
-  movq $45, -3016(%rbp)
-  movq $99, -3032(%rbp)
+  movq $54, -2616(%rbp)
+  movq $52, -2632(%rbp)
+  movq $92, -2648(%rbp)
+  movq $117, -2664(%rbp)
+  movq $99, -2680(%rbp)
+  movq $114, -2696(%rbp)
+  movq $116, -2712(%rbp)
+  movq $54, -2728(%rbp)
+  movq $52, -2744(%rbp)
+  movq $92, -2760(%rbp)
+  movq $98, -2776(%rbp)
+  movq $105, -2792(%rbp)
+  movq $110, -2808(%rbp)
+  movq $92, -2824(%rbp)
+  movq $99, -2840(%rbp)
+  movq $108, -2856(%rbp)
+  movq $97, -2872(%rbp)
+  movq $110, -2888(%rbp)
+  movq $103, -2904(%rbp)
+  movq $46, -2920(%rbp)
+  movq $101, -2936(%rbp)
+  movq $120, -2952(%rbp)
+  movq $101, -2968(%rbp)
+  movq $32, -2984(%rbp)
+  movq $45, -3000(%rbp)
+  movq $79, -3016(%rbp)
+  movq $51, -3032(%rbp)
   movq $32, -3048(%rbp)
+  movq $45, -3064(%rbp)
+  movq $99, -3080(%rbp)
+  movq $32, -3096(%rbp)
   movq $38, %rcx
   subq $32, %rsp
   call सूची_रचना
   addq $32, %rsp
-  movq %rax, -3064(%rbp)
-  movq -3064(%rbp), %r11
-  movq %r11, -8696(%rbp)
-  movq -3064(%rbp), %rcx
+  movq %rax, -3112(%rbp)
+  movq -3112(%rbp), %r11
+  movq %r11, -8744(%rbp)
+  movq -3112(%rbp), %rcx
   movq $0, %rdx
   movq %rbx, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -3064(%rbp), %rcx
+  movq -3112(%rbp), %rcx
   movq $1, %rdx
   movq %rsi, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -3064(%rbp), %rcx
+  movq -3112(%rbp), %rcx
   movq $2, %rdx
   movq %rdi, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -3064(%rbp), %rcx
+  movq -3112(%rbp), %rcx
   movq $3, %rdx
   movq %r12, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -3064(%rbp), %rcx
+  movq -3112(%rbp), %rcx
   movq $4, %rdx
   movq %r13, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -3064(%rbp), %rcx
+  movq -3112(%rbp), %rcx
   movq $5, %rdx
   movq %r14, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -3064(%rbp), %rcx
+  movq -3112(%rbp), %rcx
   movq $6, %rdx
   movq %r15, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -3064(%rbp), %rcx
+  movq -3112(%rbp), %rcx
   movq $7, %rdx
-  movq -2568(%rbp), %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -3064(%rbp), %rcx
-  movq $8, %rdx
-  movq -2584(%rbp), %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -3064(%rbp), %rcx
-  movq $9, %rdx
-  movq -2600(%rbp), %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -3064(%rbp), %rcx
-  movq $10, %rdx
   movq -2616(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -3064(%rbp), %rcx
-  movq $11, %rdx
+  movq -3112(%rbp), %rcx
+  movq $8, %rdx
   movq -2632(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -3064(%rbp), %rcx
-  movq $12, %rdx
+  movq -3112(%rbp), %rcx
+  movq $9, %rdx
   movq -2648(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -3064(%rbp), %rcx
-  movq $13, %rdx
+  movq -3112(%rbp), %rcx
+  movq $10, %rdx
   movq -2664(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -3064(%rbp), %rcx
-  movq $14, %rdx
+  movq -3112(%rbp), %rcx
+  movq $11, %rdx
   movq -2680(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -3064(%rbp), %rcx
-  movq $15, %rdx
+  movq -3112(%rbp), %rcx
+  movq $12, %rdx
   movq -2696(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -3064(%rbp), %rcx
-  movq $16, %rdx
+  movq -3112(%rbp), %rcx
+  movq $13, %rdx
   movq -2712(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -3064(%rbp), %rcx
-  movq $17, %rdx
+  movq -3112(%rbp), %rcx
+  movq $14, %rdx
   movq -2728(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -3064(%rbp), %rcx
-  movq $18, %rdx
+  movq -3112(%rbp), %rcx
+  movq $15, %rdx
   movq -2744(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -3064(%rbp), %rcx
-  movq $19, %rdx
+  movq -3112(%rbp), %rcx
+  movq $16, %rdx
   movq -2760(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -3064(%rbp), %rcx
-  movq $20, %rdx
+  movq -3112(%rbp), %rcx
+  movq $17, %rdx
   movq -2776(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -3064(%rbp), %rcx
-  movq $21, %rdx
+  movq -3112(%rbp), %rcx
+  movq $18, %rdx
   movq -2792(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -3064(%rbp), %rcx
-  movq $22, %rdx
+  movq -3112(%rbp), %rcx
+  movq $19, %rdx
   movq -2808(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -3064(%rbp), %rcx
-  movq $23, %rdx
+  movq -3112(%rbp), %rcx
+  movq $20, %rdx
   movq -2824(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -3064(%rbp), %rcx
-  movq $24, %rdx
+  movq -3112(%rbp), %rcx
+  movq $21, %rdx
   movq -2840(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -3064(%rbp), %rcx
-  movq $25, %rdx
+  movq -3112(%rbp), %rcx
+  movq $22, %rdx
   movq -2856(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -3064(%rbp), %rcx
-  movq $26, %rdx
+  movq -3112(%rbp), %rcx
+  movq $23, %rdx
   movq -2872(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -3064(%rbp), %rcx
-  movq $27, %rdx
+  movq -3112(%rbp), %rcx
+  movq $24, %rdx
   movq -2888(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -3064(%rbp), %rcx
-  movq $28, %rdx
+  movq -3112(%rbp), %rcx
+  movq $25, %rdx
   movq -2904(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -3064(%rbp), %rcx
-  movq $29, %rdx
+  movq -3112(%rbp), %rcx
+  movq $26, %rdx
   movq -2920(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -3064(%rbp), %rcx
-  movq $30, %rdx
+  movq -3112(%rbp), %rcx
+  movq $27, %rdx
   movq -2936(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -3064(%rbp), %rcx
-  movq $31, %rdx
+  movq -3112(%rbp), %rcx
+  movq $28, %rdx
   movq -2952(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -3064(%rbp), %rcx
-  movq $32, %rdx
+  movq -3112(%rbp), %rcx
+  movq $29, %rdx
   movq -2968(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -3064(%rbp), %rcx
-  movq $33, %rdx
+  movq -3112(%rbp), %rcx
+  movq $30, %rdx
   movq -2984(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -3064(%rbp), %rcx
-  movq $34, %rdx
+  movq -3112(%rbp), %rcx
+  movq $31, %rdx
   movq -3000(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -3064(%rbp), %rcx
-  movq $35, %rdx
+  movq -3112(%rbp), %rcx
+  movq $32, %rdx
   movq -3016(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -3064(%rbp), %rcx
-  movq $36, %rdx
+  movq -3112(%rbp), %rcx
+  movq $33, %rdx
   movq -3032(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -3064(%rbp), %rcx
-  movq $37, %rdx
+  movq -3112(%rbp), %rcx
+  movq $34, %rdx
   movq -3048(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -3064(%rbp), %r11
-  movq %r11, -8696(%rbp)
-  movq -3064(%rbp), %rcx
+  movq -3112(%rbp), %rcx
+  movq $35, %rdx
+  movq -3064(%rbp), %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -3112(%rbp), %rcx
+  movq $36, %rdx
+  movq -3080(%rbp), %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -3112(%rbp), %rcx
+  movq $37, %rdx
+  movq -3096(%rbp), %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -3112(%rbp), %r11
+  movq %r11, -8744(%rbp)
+  movq -3112(%rbp), %rcx
   subq $32, %rsp
   call अक्षर_सूची_से_पाठ
   addq $32, %rsp
   movq %rax, %rbx
-  movq %rbx, -8704(%rbp)
-  movq $0, -8696(%rbp)
+  movq %rbx, -8752(%rbp)
+  movq $0, -8744(%rbp)
   movq %rbx, %rcx
-  movq -2088(%rbp), %rdx
+  movq -2136(%rbp), %rdx
   subq $32, %rsp
   call पाठ_योग_गतिक
   addq $32, %rsp
   movq %rax, %rsi
-  movq %rsi, -8712(%rbp)
-  movq $0, -8552(%rbp)
-  movq $0, -8704(%rbp)
+  movq %rsi, -8760(%rbp)
+  movq $0, -8752(%rbp)
   movq $32, %rbx
   movq $45, %rdi
   movq $111, %r12
@@ -167301,7 +168105,7 @@ sutra_main:
   call सूची_रचना
   addq $32, %rsp
   movq %rax, %r14
-  movq %r14, -8720(%rbp)
+  movq %r14, -8768(%rbp)
   movq %r14, %rcx
   movq $0, %rdx
   movq %rbx, %r8
@@ -167326,38 +168130,38 @@ sutra_main:
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq %r14, -8720(%rbp)
+  movq %r14, -8768(%rbp)
   movq %r14, %rcx
   subq $32, %rsp
   call अक्षर_सूची_से_पाठ
   addq $32, %rsp
   movq %rax, %rbx
-  movq %rbx, -8728(%rbp)
-  movq $0, -8720(%rbp)
+  movq %rbx, -8776(%rbp)
+  movq $0, -8768(%rbp)
   movq %rsi, %rcx
   movq %rbx, %rdx
   subq $32, %rsp
   call पाठ_योग_गतिक
   addq $32, %rsp
   movq %rax, %rdi
-  movq %rdi, -8736(%rbp)
-  movq $0, -8712(%rbp)
-  movq $0, -8728(%rbp)
+  movq %rdi, -8784(%rbp)
+  movq $0, -8760(%rbp)
+  movq $0, -8776(%rbp)
   movq %rdi, %rcx
-  movq -360(%rbp), %rdx
+  movq -408(%rbp), %rdx
   subq $32, %rsp
   call पाठ_योग_गतिक
   addq $32, %rsp
   movq %rax, %rbx
-  movq %rbx, -8744(%rbp)
-  movq $0, -8736(%rbp)
+  movq %rbx, -8792(%rbp)
+  movq $0, -8784(%rbp)
   movq %rbx, %rcx
   subq $32, %rsp
   call समादेश_चलाओ_रन
   addq $32, %rsp
   movq %rax, %rsi
-  movq %rsi, -8752(%rbp)
-  movq $0, -8744(%rbp)
+  movq %rsi, -8800(%rbp)
+  movq $0, -8792(%rbp)
   movq $0, %rbx
   movq %rsi, %rcx
   movq %rbx, %rdx
@@ -167370,13 +168174,13 @@ sutra_main:
   sete %al
   movzbq %al, %r10
   movq %r10, %rdi
-  movq $0, -8752(%rbp)
+  movq $0, -8800(%rbp)
   movq %rdi, %r10
   cmpq $0, %r10
-  je .L_sutra_main__sc_दायाँ_24
-  jmp .L_sutra_main__sc_लघु_25
-.L_sutra_main__sc_दायाँ_24:
-  movq -360(%rbp), %rcx
+  je .L_sutra_main__sc_दायाँ_40
+  jmp .L_sutra_main__sc_लघु_41
+.L_sutra_main__sc_दायाँ_40:
+  movq -408(%rbp), %rcx
   subq $32, %rsp
   call सञ्चिका_है_रन
   addq $32, %rsp
@@ -167387,840 +168191,46 @@ sutra_main:
   movzbq %al, %r10
   movq %r10, %rsi
   movq %rsi, %rbx
-  jmp .L_sutra_main__sc_अंत_26
-.L_sutra_main__sc_लघु_25:
+  jmp .L_sutra_main__sc_अंत_42
+.L_sutra_main__sc_लघु_41:
   movq $1, %rbx
-  jmp .L_sutra_main__sc_अंत_26
-.L_sutra_main__sc_अंत_26:
+  jmp .L_sutra_main__sc_अंत_42
+.L_sutra_main__sc_अंत_42:
   movq %rbx, %r10
   cmpq $0, %r10
-  je .L_sutra_main__if_अंत_17
-  jmp .L_sutra_main__if_सत्य_27
-.L_sutra_main__if_अंत_17:
-  movq .LC_strtab+8976(%rip), %r10
+  je .L_sutra_main__if_अंत_30
+  jmp .L_sutra_main__if_सत्य_43
+.L_sutra_main__if_सत्य_43:
+  movq .LC_strtab+9176(%rip), %r10
+  movq %r10, %rbx
+  movq %rbx, %rcx
+  subq $32, %rsp
+  call फेंको
+  addq $32, %rsp
+.L_sutra_main__if_सत्य_37:
+  movq .LC_strtab+9168(%rip), %r10
   movq %r10, %rbx
   movq %rbx, %rcx
   subq $32, %rsp
   call गतिशील_छापो
   addq $32, %rsp
-  movq .LC_strtab+8984(%rip), %r10
+  movq -2136(%rbp), %rcx
+  movq -408(%rbp), %rdx
+  movq -104(%rbp), %r8
+  subq $32, %rsp
+  call पीजीओ_संकलन
+  addq $32, %rsp
+  movq %rax, %rbx
+  movq $0, -8600(%rbp)
+  jmp .L_sutra_main__if_अंत_30
+.L_sutra_main__if_अंत_30:
+  movq .LC_strtab+9208(%rip), %r10
   movq %r10, %rbx
   movq %rbx, %rcx
   subq $32, %rsp
-  call सञ्चिका_है_रन
+  call गतिशील_छापो
   addq $32, %rsp
-  movq %rax, %rsi
-  movq %rsi, %r10
-  cmpq $0, %r10
-  sete %al
-  movzbq %al, %r10
-  movq %r10, %rdi
-  movq %rdi, %r10
-  cmpq $0, %r10
-  je .L_किनारा_sutra_main_0
-  jmp .L_sutra_main__if_सत्य_34
-.L_किनारा_sutra_main_0:
-  jmp .L_sutra_main__if_अंत_35
-.L_sutra_main__if_सत्य_34:
-  movq .LC_strtab+8992(%rip), %r10
-  movq %r10, %rbx
-  jmp .L_sutra_main__if_अंत_35
-.L_sutra_main__if_अंत_35:
-  movq %rbx, -9288(%rbp)
-  movq %rbx, %rcx
-  subq $32, %rsp
-  call सञ्चिका_है_रन
-  addq $32, %rsp
-  movq %rax, %rsi
-  movq %rsi, %r10
-  cmpq $0, %r10
-  je .L_sutra_main__if_अंत_37
-  jmp .L_sutra_main__if_सत्य_36
-.L_sutra_main__if_सत्य_36:
-  movq %rbx, %rcx
-  subq $32, %rsp
-  call सञ्चिका_पढ़ो_रन
-  addq $32, %rsp
-  movq %rax, -3080(%rbp)
-  movq -3080(%rbp), %r11
-  movq %r11, -8840(%rbp)
-  movq $0, -9288(%rbp)
-  movq $115, %rbx
-  movq $102, %rdi
-  movq $108, %r12
-  movq $111, %r13
-  movq $111, %r14
-  movq $114, %r15
-  movq $95, %rsi
-  movq $116, -3096(%rbp)
-  movq $101, -3112(%rbp)
-  movq $109, -3128(%rbp)
-  movq $112, -3144(%rbp)
-  movq $46, -3160(%rbp)
-  movq $115, -3176(%rbp)
-  movq $13, %rcx
-  subq $32, %rsp
-  call सूची_रचना
-  addq $32, %rsp
-  movq %rax, -3192(%rbp)
-  movq -3192(%rbp), %r11
-  movq %r11, -8848(%rbp)
-  movq -3192(%rbp), %rcx
-  movq $0, %rdx
-  movq %rbx, %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -3192(%rbp), %rcx
-  movq $1, %rdx
-  movq %rdi, %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -3192(%rbp), %rcx
-  movq $2, %rdx
-  movq %r12, %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -3192(%rbp), %rcx
-  movq $3, %rdx
-  movq %r13, %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -3192(%rbp), %rcx
-  movq $4, %rdx
-  movq %r14, %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -3192(%rbp), %rcx
-  movq $5, %rdx
-  movq %r15, %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -3192(%rbp), %rcx
-  movq $6, %rdx
-  movq %rsi, %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -3192(%rbp), %rcx
-  movq $7, %rdx
-  movq -3096(%rbp), %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -3192(%rbp), %rcx
-  movq $8, %rdx
-  movq -3112(%rbp), %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -3192(%rbp), %rcx
-  movq $9, %rdx
-  movq -3128(%rbp), %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -3192(%rbp), %rcx
-  movq $10, %rdx
-  movq -3144(%rbp), %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -3192(%rbp), %rcx
-  movq $11, %rdx
-  movq -3160(%rbp), %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -3192(%rbp), %rcx
-  movq $12, %rdx
-  movq -3176(%rbp), %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -3192(%rbp), %r11
-  movq %r11, -8848(%rbp)
-  movq -3192(%rbp), %rcx
-  subq $32, %rsp
-  call अक्षर_सूची_से_पाठ
-  addq $32, %rsp
-  movq %rax, -3208(%rbp)
-  movq -3208(%rbp), %r11
-  movq %r11, -8856(%rbp)
-  movq $0, -8848(%rbp)
-  movq -3208(%rbp), %rcx
-  movq -3080(%rbp), %rdx
-  subq $32, %rsp
-  call सञ्चिका_लिखो_रन
-  addq $32, %rsp
-  movq %rax, %rsi
-  movq $0, -8840(%rbp)
-  movq $67, %rsi
-  movq $58, %rdi
-  movq $92, %r12
-  movq $109, %r13
-  movq $115, %r14
-  movq $121, %r15
-  movq $115, %rbx
-  movq $54, -3224(%rbp)
-  movq $52, -3240(%rbp)
-  movq $92, -3256(%rbp)
-  movq $117, -3272(%rbp)
-  movq $99, -3288(%rbp)
-  movq $114, -3304(%rbp)
-  movq $116, -3320(%rbp)
-  movq $54, -3336(%rbp)
-  movq $52, -3352(%rbp)
-  movq $92, -3368(%rbp)
-  movq $98, -3384(%rbp)
-  movq $105, -3400(%rbp)
-  movq $110, -3416(%rbp)
-  movq $92, -3432(%rbp)
-  movq $97, -3448(%rbp)
-  movq $115, -3464(%rbp)
-  movq $46, -3480(%rbp)
-  movq $101, -3496(%rbp)
-  movq $120, -3512(%rbp)
-  movq $101, -3528(%rbp)
-  movq $32, -3544(%rbp)
-  movq $45, -3560(%rbp)
-  movq $111, -3576(%rbp)
-  movq $32, -3592(%rbp)
-  movq $115, -3608(%rbp)
-  movq $117, -3624(%rbp)
-  movq $116, -3640(%rbp)
-  movq $114, -3656(%rbp)
-  movq $97, -3672(%rbp)
-  movq $95, -3688(%rbp)
-  movq $102, -3704(%rbp)
-  movq $108, -3720(%rbp)
-  movq $111, -3736(%rbp)
-  movq $111, -3752(%rbp)
-  movq $114, -3768(%rbp)
-  movq $46, -3784(%rbp)
-  movq $111, -3800(%rbp)
-  movq $32, -3816(%rbp)
-  movq $45, %rcx
-  subq $32, %rsp
-  call सूची_रचना
-  addq $32, %rsp
-  movq %rax, -3832(%rbp)
-  movq -3832(%rbp), %r11
-  movq %r11, -8864(%rbp)
-  movq -3832(%rbp), %rcx
-  movq $0, %rdx
-  movq %rsi, %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -3832(%rbp), %rcx
-  movq $1, %rdx
-  movq %rdi, %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -3832(%rbp), %rcx
-  movq $2, %rdx
-  movq %r12, %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -3832(%rbp), %rcx
-  movq $3, %rdx
-  movq %r13, %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -3832(%rbp), %rcx
-  movq $4, %rdx
-  movq %r14, %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -3832(%rbp), %rcx
-  movq $5, %rdx
-  movq %r15, %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -3832(%rbp), %rcx
-  movq $6, %rdx
-  movq %rbx, %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -3832(%rbp), %rcx
-  movq $7, %rdx
-  movq -3224(%rbp), %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -3832(%rbp), %rcx
-  movq $8, %rdx
-  movq -3240(%rbp), %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -3832(%rbp), %rcx
-  movq $9, %rdx
-  movq -3256(%rbp), %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -3832(%rbp), %rcx
-  movq $10, %rdx
-  movq -3272(%rbp), %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -3832(%rbp), %rcx
-  movq $11, %rdx
-  movq -3288(%rbp), %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -3832(%rbp), %rcx
-  movq $12, %rdx
-  movq -3304(%rbp), %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -3832(%rbp), %rcx
-  movq $13, %rdx
-  movq -3320(%rbp), %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -3832(%rbp), %rcx
-  movq $14, %rdx
-  movq -3336(%rbp), %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -3832(%rbp), %rcx
-  movq $15, %rdx
-  movq -3352(%rbp), %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -3832(%rbp), %rcx
-  movq $16, %rdx
-  movq -3368(%rbp), %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -3832(%rbp), %rcx
-  movq $17, %rdx
-  movq -3384(%rbp), %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -3832(%rbp), %rcx
-  movq $18, %rdx
-  movq -3400(%rbp), %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -3832(%rbp), %rcx
-  movq $19, %rdx
-  movq -3416(%rbp), %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -3832(%rbp), %rcx
-  movq $20, %rdx
-  movq -3432(%rbp), %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -3832(%rbp), %rcx
-  movq $21, %rdx
-  movq -3448(%rbp), %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -3832(%rbp), %rcx
-  movq $22, %rdx
-  movq -3464(%rbp), %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -3832(%rbp), %rcx
-  movq $23, %rdx
-  movq -3480(%rbp), %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -3832(%rbp), %rcx
-  movq $24, %rdx
-  movq -3496(%rbp), %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -3832(%rbp), %rcx
-  movq $25, %rdx
-  movq -3512(%rbp), %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -3832(%rbp), %rcx
-  movq $26, %rdx
-  movq -3528(%rbp), %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -3832(%rbp), %rcx
-  movq $27, %rdx
-  movq -3544(%rbp), %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -3832(%rbp), %rcx
-  movq $28, %rdx
-  movq -3560(%rbp), %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -3832(%rbp), %rcx
-  movq $29, %rdx
-  movq -3576(%rbp), %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -3832(%rbp), %rcx
-  movq $30, %rdx
-  movq -3592(%rbp), %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -3832(%rbp), %rcx
-  movq $31, %rdx
-  movq -3608(%rbp), %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -3832(%rbp), %rcx
-  movq $32, %rdx
-  movq -3624(%rbp), %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -3832(%rbp), %rcx
-  movq $33, %rdx
-  movq -3640(%rbp), %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -3832(%rbp), %rcx
-  movq $34, %rdx
-  movq -3656(%rbp), %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -3832(%rbp), %rcx
-  movq $35, %rdx
-  movq -3672(%rbp), %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -3832(%rbp), %rcx
-  movq $36, %rdx
-  movq -3688(%rbp), %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -3832(%rbp), %rcx
-  movq $37, %rdx
-  movq -3704(%rbp), %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -3832(%rbp), %rcx
-  movq $38, %rdx
-  movq -3720(%rbp), %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -3832(%rbp), %rcx
-  movq $39, %rdx
-  movq -3736(%rbp), %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -3832(%rbp), %rcx
-  movq $40, %rdx
-  movq -3752(%rbp), %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -3832(%rbp), %rcx
-  movq $41, %rdx
-  movq -3768(%rbp), %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -3832(%rbp), %rcx
-  movq $42, %rdx
-  movq -3784(%rbp), %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -3832(%rbp), %rcx
-  movq $43, %rdx
-  movq -3800(%rbp), %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -3832(%rbp), %rcx
-  movq $44, %rdx
-  movq -3816(%rbp), %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -3832(%rbp), %r11
-  movq %r11, -8864(%rbp)
-  movq -3832(%rbp), %rcx
-  subq $32, %rsp
-  call अक्षर_सूची_से_पाठ
-  addq $32, %rsp
-  movq %rax, %rbx
-  movq %rbx, -8872(%rbp)
-  movq $0, -8864(%rbp)
-  movq %rbx, %rcx
-  movq -3208(%rbp), %rdx
-  subq $32, %rsp
-  call पाठ_योग_गतिक
-  addq $32, %rsp
-  movq %rax, %rsi
-  movq %rsi, -8880(%rbp)
-  movq $0, -8856(%rbp)
-  movq $0, -8872(%rbp)
-  movq %rsi, %rcx
-  subq $32, %rsp
-  call समादेश_चलाओ_रन
-  addq $32, %rsp
-  movq %rax, %rbx
-  movq %rbx, -8888(%rbp)
-  movq $0, -8880(%rbp)
-  movq $0, %rsi
-  movq %rbx, %rcx
-  movq %rsi, %rdx
-  subq $32, %rsp
-  call पाठ_तुल्य
-  addq $32, %rsp
-  movq %rax, %rdi
-  movq %rdi, %r10
-  cmpq $0, %r10
-  sete %al
-  movzbq %al, %r10
-  movq %r10, %rdi
-  movq $0, -8888(%rbp)
-  movq %rdi, %r10
-  cmpq $0, %r10
-  je .L_sutra_main__if_अंत_37
-  jmp .L_sutra_main__if_सत्य_38
-.L_sutra_main__if_अंत_37:
-  movq -120(%rbp), %r10
-  cmpq $0, %r10
-  je .L_sutra_main__if_अंत_41
-  jmp .L_sutra_main__if_सत्य_40
-.L_sutra_main__if_सत्य_40:
-  movq $100, %rbx
-  movq $101, %rsi
-  movq $108, %rdi
-  movq $32, %r12
-  movq $47, %r13
-  movq $113, %r14
-  movq $32, %r15
-  movq $115, -3848(%rbp)
-  movq $117, -3864(%rbp)
-  movq $116, -3880(%rbp)
-  movq $114, -3896(%rbp)
-  movq $97, -3912(%rbp)
-  movq $95, -3928(%rbp)
-  movq $115, -3944(%rbp)
-  movq $114, -3960(%rbp)
-  movq $116, -3976(%rbp)
-  movq $46, -3992(%rbp)
-  movq $111, -4008(%rbp)
-  movq $32, -4024(%rbp)
-  movq $115, -4040(%rbp)
-  movq $117, -4056(%rbp)
-  movq $116, -4072(%rbp)
-  movq $114, -4088(%rbp)
-  movq $97, -4104(%rbp)
-  movq $95, -4120(%rbp)
-  movq $97, -4136(%rbp)
-  movq $108, -4152(%rbp)
-  movq $108, -4168(%rbp)
-  movq $111, -4184(%rbp)
-  movq $99, -4200(%rbp)
-  movq $46, -4216(%rbp)
-  movq $111, -4232(%rbp)
-  movq $32, -4248(%rbp)
-  movq $50, -4264(%rbp)
-  movq $62, -4280(%rbp)
-  movq $110, -4296(%rbp)
-  movq $117, -4312(%rbp)
-  movq $108, -4328(%rbp)
-  movq $38, %rcx
-  subq $32, %rsp
-  call सूची_रचना
-  addq $32, %rsp
-  movq %rax, -4344(%rbp)
-  movq -4344(%rbp), %r11
-  movq %r11, -8896(%rbp)
-  movq -4344(%rbp), %rcx
-  movq $0, %rdx
-  movq %rbx, %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -4344(%rbp), %rcx
-  movq $1, %rdx
-  movq %rsi, %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -4344(%rbp), %rcx
-  movq $2, %rdx
-  movq %rdi, %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -4344(%rbp), %rcx
-  movq $3, %rdx
-  movq %r12, %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -4344(%rbp), %rcx
-  movq $4, %rdx
-  movq %r13, %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -4344(%rbp), %rcx
-  movq $5, %rdx
-  movq %r14, %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -4344(%rbp), %rcx
-  movq $6, %rdx
-  movq %r15, %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -4344(%rbp), %rcx
-  movq $7, %rdx
-  movq -3848(%rbp), %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -4344(%rbp), %rcx
-  movq $8, %rdx
-  movq -3864(%rbp), %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -4344(%rbp), %rcx
-  movq $9, %rdx
-  movq -3880(%rbp), %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -4344(%rbp), %rcx
-  movq $10, %rdx
-  movq -3896(%rbp), %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -4344(%rbp), %rcx
-  movq $11, %rdx
-  movq -3912(%rbp), %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -4344(%rbp), %rcx
-  movq $12, %rdx
-  movq -3928(%rbp), %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -4344(%rbp), %rcx
-  movq $13, %rdx
-  movq -3944(%rbp), %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -4344(%rbp), %rcx
-  movq $14, %rdx
-  movq -3960(%rbp), %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -4344(%rbp), %rcx
-  movq $15, %rdx
-  movq -3976(%rbp), %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -4344(%rbp), %rcx
-  movq $16, %rdx
-  movq -3992(%rbp), %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -4344(%rbp), %rcx
-  movq $17, %rdx
-  movq -4008(%rbp), %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -4344(%rbp), %rcx
-  movq $18, %rdx
-  movq -4024(%rbp), %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -4344(%rbp), %rcx
-  movq $19, %rdx
-  movq -4040(%rbp), %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -4344(%rbp), %rcx
-  movq $20, %rdx
-  movq -4056(%rbp), %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -4344(%rbp), %rcx
-  movq $21, %rdx
-  movq -4072(%rbp), %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -4344(%rbp), %rcx
-  movq $22, %rdx
-  movq -4088(%rbp), %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -4344(%rbp), %rcx
-  movq $23, %rdx
-  movq -4104(%rbp), %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -4344(%rbp), %rcx
-  movq $24, %rdx
-  movq -4120(%rbp), %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -4344(%rbp), %rcx
-  movq $25, %rdx
-  movq -4136(%rbp), %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -4344(%rbp), %rcx
-  movq $26, %rdx
-  movq -4152(%rbp), %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -4344(%rbp), %rcx
-  movq $27, %rdx
-  movq -4168(%rbp), %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -4344(%rbp), %rcx
-  movq $28, %rdx
-  movq -4184(%rbp), %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -4344(%rbp), %rcx
-  movq $29, %rdx
-  movq -4200(%rbp), %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -4344(%rbp), %rcx
-  movq $30, %rdx
-  movq -4216(%rbp), %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -4344(%rbp), %rcx
-  movq $31, %rdx
-  movq -4232(%rbp), %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -4344(%rbp), %rcx
-  movq $32, %rdx
-  movq -4248(%rbp), %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -4344(%rbp), %rcx
-  movq $33, %rdx
-  movq -4264(%rbp), %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -4344(%rbp), %rcx
-  movq $34, %rdx
-  movq -4280(%rbp), %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -4344(%rbp), %rcx
-  movq $35, %rdx
-  movq -4296(%rbp), %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -4344(%rbp), %rcx
-  movq $36, %rdx
-  movq -4312(%rbp), %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -4344(%rbp), %rcx
-  movq $37, %rdx
-  movq -4328(%rbp), %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -4344(%rbp), %r11
-  movq %r11, -8896(%rbp)
-  movq -4344(%rbp), %rcx
-  subq $32, %rsp
-  call अक्षर_सूची_से_पाठ
-  addq $32, %rsp
-  movq %rax, %rbx
-  movq %rbx, -8904(%rbp)
-  movq $0, -8896(%rbp)
-  movq %rbx, %rcx
-  subq $32, %rsp
-  call समादेश_चलाओ_रन
-  addq $32, %rsp
-  movq %rax, %rsi
-  movq $0, -8904(%rbp)
-  jmp .L_sutra_main__if_अंत_41
-.L_sutra_main__if_अंत_41:
-  movq .LC_strtab+9008(%rip), %r10
+  movq .LC_strtab+8856(%rip), %r10
   movq %r10, %rbx
   movq %rbx, %rcx
   subq $32, %rsp
@@ -168235,142 +168245,148 @@ sutra_main:
   movq %rdi, %r10
   cmpq $0, %r10
   je .L_किनारा_sutra_main_1
-  jmp .L_sutra_main__if_सत्य_42
+  jmp .L_sutra_main__if_सत्य_50
 .L_किनारा_sutra_main_1:
-  jmp .L_sutra_main__if_अंत_43
-.L_sutra_main__if_सत्य_42:
-  movq .LC_strtab+9016(%rip), %r10
+  jmp .L_sutra_main__if_अंत_51
+.L_sutra_main__if_सत्य_50:
+  movq .LC_strtab+8864(%rip), %r10
   movq %r10, %rbx
-  jmp .L_sutra_main__if_अंत_43
-.L_sutra_main__if_अंत_43:
-  movq %rbx, -9296(%rbp)
-  movq -120(%rbp), %r10
-  cmpq $0, %r10
-  sete %al
-  movzbq %al, %r10
-  movq %r10, %rsi
-  movq %rsi, %r10
-  cmpq $0, %r10
-  je .L_sutra_main__sc_लघु_45
-  jmp .L_sutra_main__sc_दायाँ_44
-.L_sutra_main__sc_लघु_45:
-  movq $0, %rsi
-  jmp .L_sutra_main__sc_अंत_46
-.L_sutra_main__sc_दायाँ_44:
+  jmp .L_sutra_main__if_अंत_51
+.L_sutra_main__if_अंत_51:
+  movq %rbx, -9344(%rbp)
   movq %rbx, %rcx
   subq $32, %rsp
   call सञ्चिका_है_रन
   addq $32, %rsp
   movq %rax, %rsi
-  jmp .L_sutra_main__sc_अंत_46
-.L_sutra_main__sc_अंत_46:
   movq %rsi, %r10
   cmpq $0, %r10
-  je .L_sutra_main__if_अंत_48
-  jmp .L_sutra_main__if_सत्य_47
-.L_sutra_main__if_सत्य_47:
+  je .L_sutra_main__if_अंत_53
+  jmp .L_sutra_main__if_सत्य_52
+.L_sutra_main__if_सत्य_52:
   movq %rbx, %rcx
   subq $32, %rsp
   call सञ्चिका_पढ़ो_रन
   addq $32, %rsp
-  movq %rax, -4360(%rbp)
-  movq -4360(%rbp), %r11
-  movq %r11, -8912(%rbp)
-  movq $0, -9296(%rbp)
+  movq %rax, -3128(%rbp)
+  movq -3128(%rbp), %r11
+  movq %r11, -8888(%rbp)
+  movq $0, -9344(%rbp)
   movq $115, %rbx
-  movq $114, %rdi
-  movq $116, %r12
-  movq $95, %r13
-  movq $116, %r14
-  movq $101, %r15
-  movq $109, %rsi
-  movq $112, -4376(%rbp)
-  movq $46, -4392(%rbp)
-  movq $115, -4408(%rbp)
-  movq $10, %rcx
+  movq $102, %rdi
+  movq $108, %r12
+  movq $111, %r13
+  movq $111, %r14
+  movq $114, %r15
+  movq $95, %rsi
+  movq $116, -3144(%rbp)
+  movq $101, -3160(%rbp)
+  movq $109, -3176(%rbp)
+  movq $112, -3192(%rbp)
+  movq $46, -3208(%rbp)
+  movq $115, -3224(%rbp)
+  movq $13, %rcx
   subq $32, %rsp
   call सूची_रचना
   addq $32, %rsp
-  movq %rax, -4424(%rbp)
-  movq -4424(%rbp), %r11
-  movq %r11, -8920(%rbp)
-  movq -4424(%rbp), %rcx
+  movq %rax, -3240(%rbp)
+  movq -3240(%rbp), %r11
+  movq %r11, -8896(%rbp)
+  movq -3240(%rbp), %rcx
   movq $0, %rdx
   movq %rbx, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -4424(%rbp), %rcx
+  movq -3240(%rbp), %rcx
   movq $1, %rdx
   movq %rdi, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -4424(%rbp), %rcx
+  movq -3240(%rbp), %rcx
   movq $2, %rdx
   movq %r12, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -4424(%rbp), %rcx
+  movq -3240(%rbp), %rcx
   movq $3, %rdx
   movq %r13, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -4424(%rbp), %rcx
+  movq -3240(%rbp), %rcx
   movq $4, %rdx
   movq %r14, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -4424(%rbp), %rcx
+  movq -3240(%rbp), %rcx
   movq $5, %rdx
   movq %r15, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -4424(%rbp), %rcx
+  movq -3240(%rbp), %rcx
   movq $6, %rdx
   movq %rsi, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -4424(%rbp), %rcx
+  movq -3240(%rbp), %rcx
   movq $7, %rdx
-  movq -4376(%rbp), %r8
+  movq -3144(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -4424(%rbp), %rcx
+  movq -3240(%rbp), %rcx
   movq $8, %rdx
-  movq -4392(%rbp), %r8
+  movq -3160(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -4424(%rbp), %rcx
+  movq -3240(%rbp), %rcx
   movq $9, %rdx
-  movq -4408(%rbp), %r8
+  movq -3176(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -4424(%rbp), %r11
-  movq %r11, -8920(%rbp)
-  movq -4424(%rbp), %rcx
+  movq -3240(%rbp), %rcx
+  movq $10, %rdx
+  movq -3192(%rbp), %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -3240(%rbp), %rcx
+  movq $11, %rdx
+  movq -3208(%rbp), %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -3240(%rbp), %rcx
+  movq $12, %rdx
+  movq -3224(%rbp), %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -3240(%rbp), %r11
+  movq %r11, -8896(%rbp)
+  movq -3240(%rbp), %rcx
   subq $32, %rsp
   call अक्षर_सूची_से_पाठ
   addq $32, %rsp
-  movq %rax, -4440(%rbp)
-  movq -4440(%rbp), %r11
-  movq %r11, -8928(%rbp)
-  movq $0, -8920(%rbp)
-  movq -4440(%rbp), %rcx
-  movq -4360(%rbp), %rdx
+  movq %rax, -3256(%rbp)
+  movq -3256(%rbp), %r11
+  movq %r11, -8904(%rbp)
+  movq $0, -8896(%rbp)
+  movq -3256(%rbp), %rcx
+  movq -3128(%rbp), %rdx
   subq $32, %rsp
   call सञ्चिका_लिखो_रन
   addq $32, %rsp
   movq %rax, %rsi
-  movq $0, -8912(%rbp)
+  movq $0, -8888(%rbp)
   movq $67, %rsi
   movq $58, %rdi
   movq $92, %r12
@@ -168378,332 +168394,346 @@ sutra_main:
   movq $115, %r14
   movq $121, %r15
   movq $115, %rbx
-  movq $54, -4456(%rbp)
-  movq $52, -4472(%rbp)
-  movq $92, -4488(%rbp)
-  movq $117, -4504(%rbp)
-  movq $99, -4520(%rbp)
-  movq $114, -4536(%rbp)
-  movq $116, -4552(%rbp)
-  movq $54, -4568(%rbp)
-  movq $52, -4584(%rbp)
-  movq $92, -4600(%rbp)
-  movq $98, -4616(%rbp)
-  movq $105, -4632(%rbp)
-  movq $110, -4648(%rbp)
-  movq $92, -4664(%rbp)
-  movq $97, -4680(%rbp)
-  movq $115, -4696(%rbp)
-  movq $46, -4712(%rbp)
-  movq $101, -4728(%rbp)
-  movq $120, -4744(%rbp)
-  movq $101, -4760(%rbp)
-  movq $32, -4776(%rbp)
-  movq $45, -4792(%rbp)
-  movq $111, -4808(%rbp)
-  movq $32, -4824(%rbp)
-  movq $115, -4840(%rbp)
-  movq $117, -4856(%rbp)
-  movq $116, -4872(%rbp)
-  movq $114, -4888(%rbp)
-  movq $97, -4904(%rbp)
-  movq $95, -4920(%rbp)
-  movq $115, -4936(%rbp)
-  movq $114, -4952(%rbp)
-  movq $116, -4968(%rbp)
-  movq $46, -4984(%rbp)
-  movq $111, -5000(%rbp)
-  movq $32, -5016(%rbp)
-  movq $43, %rcx
+  movq $54, -3272(%rbp)
+  movq $52, -3288(%rbp)
+  movq $92, -3304(%rbp)
+  movq $117, -3320(%rbp)
+  movq $99, -3336(%rbp)
+  movq $114, -3352(%rbp)
+  movq $116, -3368(%rbp)
+  movq $54, -3384(%rbp)
+  movq $52, -3400(%rbp)
+  movq $92, -3416(%rbp)
+  movq $98, -3432(%rbp)
+  movq $105, -3448(%rbp)
+  movq $110, -3464(%rbp)
+  movq $92, -3480(%rbp)
+  movq $97, -3496(%rbp)
+  movq $115, -3512(%rbp)
+  movq $46, -3528(%rbp)
+  movq $101, -3544(%rbp)
+  movq $120, -3560(%rbp)
+  movq $101, -3576(%rbp)
+  movq $32, -3592(%rbp)
+  movq $45, -3608(%rbp)
+  movq $111, -3624(%rbp)
+  movq $32, -3640(%rbp)
+  movq $115, -3656(%rbp)
+  movq $117, -3672(%rbp)
+  movq $116, -3688(%rbp)
+  movq $114, -3704(%rbp)
+  movq $97, -3720(%rbp)
+  movq $95, -3736(%rbp)
+  movq $102, -3752(%rbp)
+  movq $108, -3768(%rbp)
+  movq $111, -3784(%rbp)
+  movq $111, -3800(%rbp)
+  movq $114, -3816(%rbp)
+  movq $46, -3832(%rbp)
+  movq $111, -3848(%rbp)
+  movq $32, -3864(%rbp)
+  movq $45, %rcx
   subq $32, %rsp
   call सूची_रचना
   addq $32, %rsp
-  movq %rax, -5032(%rbp)
-  movq -5032(%rbp), %r11
-  movq %r11, -8936(%rbp)
-  movq -5032(%rbp), %rcx
+  movq %rax, -3880(%rbp)
+  movq -3880(%rbp), %r11
+  movq %r11, -8912(%rbp)
+  movq -3880(%rbp), %rcx
   movq $0, %rdx
   movq %rsi, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -5032(%rbp), %rcx
+  movq -3880(%rbp), %rcx
   movq $1, %rdx
   movq %rdi, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -5032(%rbp), %rcx
+  movq -3880(%rbp), %rcx
   movq $2, %rdx
   movq %r12, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -5032(%rbp), %rcx
+  movq -3880(%rbp), %rcx
   movq $3, %rdx
   movq %r13, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -5032(%rbp), %rcx
+  movq -3880(%rbp), %rcx
   movq $4, %rdx
   movq %r14, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -5032(%rbp), %rcx
+  movq -3880(%rbp), %rcx
   movq $5, %rdx
   movq %r15, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -5032(%rbp), %rcx
+  movq -3880(%rbp), %rcx
   movq $6, %rdx
   movq %rbx, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -5032(%rbp), %rcx
+  movq -3880(%rbp), %rcx
   movq $7, %rdx
-  movq -4456(%rbp), %r8
+  movq -3272(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -5032(%rbp), %rcx
+  movq -3880(%rbp), %rcx
   movq $8, %rdx
-  movq -4472(%rbp), %r8
+  movq -3288(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -5032(%rbp), %rcx
+  movq -3880(%rbp), %rcx
   movq $9, %rdx
-  movq -4488(%rbp), %r8
+  movq -3304(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -5032(%rbp), %rcx
+  movq -3880(%rbp), %rcx
   movq $10, %rdx
-  movq -4504(%rbp), %r8
+  movq -3320(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -5032(%rbp), %rcx
+  movq -3880(%rbp), %rcx
   movq $11, %rdx
-  movq -4520(%rbp), %r8
+  movq -3336(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -5032(%rbp), %rcx
+  movq -3880(%rbp), %rcx
   movq $12, %rdx
-  movq -4536(%rbp), %r8
+  movq -3352(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -5032(%rbp), %rcx
+  movq -3880(%rbp), %rcx
   movq $13, %rdx
-  movq -4552(%rbp), %r8
+  movq -3368(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -5032(%rbp), %rcx
+  movq -3880(%rbp), %rcx
   movq $14, %rdx
-  movq -4568(%rbp), %r8
+  movq -3384(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -5032(%rbp), %rcx
+  movq -3880(%rbp), %rcx
   movq $15, %rdx
-  movq -4584(%rbp), %r8
+  movq -3400(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -5032(%rbp), %rcx
+  movq -3880(%rbp), %rcx
   movq $16, %rdx
-  movq -4600(%rbp), %r8
+  movq -3416(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -5032(%rbp), %rcx
+  movq -3880(%rbp), %rcx
   movq $17, %rdx
-  movq -4616(%rbp), %r8
+  movq -3432(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -5032(%rbp), %rcx
+  movq -3880(%rbp), %rcx
   movq $18, %rdx
-  movq -4632(%rbp), %r8
+  movq -3448(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -5032(%rbp), %rcx
+  movq -3880(%rbp), %rcx
   movq $19, %rdx
-  movq -4648(%rbp), %r8
+  movq -3464(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -5032(%rbp), %rcx
+  movq -3880(%rbp), %rcx
   movq $20, %rdx
-  movq -4664(%rbp), %r8
+  movq -3480(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -5032(%rbp), %rcx
+  movq -3880(%rbp), %rcx
   movq $21, %rdx
-  movq -4680(%rbp), %r8
+  movq -3496(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -5032(%rbp), %rcx
+  movq -3880(%rbp), %rcx
   movq $22, %rdx
-  movq -4696(%rbp), %r8
+  movq -3512(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -5032(%rbp), %rcx
+  movq -3880(%rbp), %rcx
   movq $23, %rdx
-  movq -4712(%rbp), %r8
+  movq -3528(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -5032(%rbp), %rcx
+  movq -3880(%rbp), %rcx
   movq $24, %rdx
-  movq -4728(%rbp), %r8
+  movq -3544(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -5032(%rbp), %rcx
+  movq -3880(%rbp), %rcx
   movq $25, %rdx
-  movq -4744(%rbp), %r8
+  movq -3560(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -5032(%rbp), %rcx
+  movq -3880(%rbp), %rcx
   movq $26, %rdx
-  movq -4760(%rbp), %r8
+  movq -3576(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -5032(%rbp), %rcx
+  movq -3880(%rbp), %rcx
   movq $27, %rdx
-  movq -4776(%rbp), %r8
+  movq -3592(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -5032(%rbp), %rcx
+  movq -3880(%rbp), %rcx
   movq $28, %rdx
-  movq -4792(%rbp), %r8
+  movq -3608(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -5032(%rbp), %rcx
+  movq -3880(%rbp), %rcx
   movq $29, %rdx
-  movq -4808(%rbp), %r8
+  movq -3624(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -5032(%rbp), %rcx
+  movq -3880(%rbp), %rcx
   movq $30, %rdx
-  movq -4824(%rbp), %r8
+  movq -3640(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -5032(%rbp), %rcx
+  movq -3880(%rbp), %rcx
   movq $31, %rdx
-  movq -4840(%rbp), %r8
+  movq -3656(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -5032(%rbp), %rcx
+  movq -3880(%rbp), %rcx
   movq $32, %rdx
-  movq -4856(%rbp), %r8
+  movq -3672(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -5032(%rbp), %rcx
+  movq -3880(%rbp), %rcx
   movq $33, %rdx
-  movq -4872(%rbp), %r8
+  movq -3688(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -5032(%rbp), %rcx
+  movq -3880(%rbp), %rcx
   movq $34, %rdx
-  movq -4888(%rbp), %r8
+  movq -3704(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -5032(%rbp), %rcx
+  movq -3880(%rbp), %rcx
   movq $35, %rdx
-  movq -4904(%rbp), %r8
+  movq -3720(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -5032(%rbp), %rcx
+  movq -3880(%rbp), %rcx
   movq $36, %rdx
-  movq -4920(%rbp), %r8
+  movq -3736(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -5032(%rbp), %rcx
+  movq -3880(%rbp), %rcx
   movq $37, %rdx
-  movq -4936(%rbp), %r8
+  movq -3752(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -5032(%rbp), %rcx
+  movq -3880(%rbp), %rcx
   movq $38, %rdx
-  movq -4952(%rbp), %r8
+  movq -3768(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -5032(%rbp), %rcx
+  movq -3880(%rbp), %rcx
   movq $39, %rdx
-  movq -4968(%rbp), %r8
+  movq -3784(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -5032(%rbp), %rcx
+  movq -3880(%rbp), %rcx
   movq $40, %rdx
-  movq -4984(%rbp), %r8
+  movq -3800(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -5032(%rbp), %rcx
+  movq -3880(%rbp), %rcx
   movq $41, %rdx
-  movq -5000(%rbp), %r8
+  movq -3816(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -5032(%rbp), %rcx
+  movq -3880(%rbp), %rcx
   movq $42, %rdx
-  movq -5016(%rbp), %r8
+  movq -3832(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -5032(%rbp), %r11
-  movq %r11, -8936(%rbp)
-  movq -5032(%rbp), %rcx
+  movq -3880(%rbp), %rcx
+  movq $43, %rdx
+  movq -3848(%rbp), %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -3880(%rbp), %rcx
+  movq $44, %rdx
+  movq -3864(%rbp), %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -3880(%rbp), %r11
+  movq %r11, -8912(%rbp)
+  movq -3880(%rbp), %rcx
   subq $32, %rsp
   call अक्षर_सूची_से_पाठ
   addq $32, %rsp
   movq %rax, %rbx
-  movq %rbx, -8944(%rbp)
-  movq $0, -8936(%rbp)
+  movq %rbx, -8920(%rbp)
+  movq $0, -8912(%rbp)
   movq %rbx, %rcx
-  movq -4440(%rbp), %rdx
+  movq -3256(%rbp), %rdx
   subq $32, %rsp
   call पाठ_योग_गतिक
   addq $32, %rsp
   movq %rax, %rsi
-  movq %rsi, -8952(%rbp)
-  movq $0, -8928(%rbp)
-  movq $0, -8944(%rbp)
+  movq %rsi, -8928(%rbp)
+  movq $0, -8904(%rbp)
+  movq $0, -8920(%rbp)
   movq %rsi, %rcx
   subq $32, %rsp
   call समादेश_चलाओ_रन
   addq $32, %rsp
   movq %rax, %rbx
-  movq %rbx, -8960(%rbp)
-  movq $0, -8952(%rbp)
+  movq %rbx, -8936(%rbp)
+  movq $0, -8928(%rbp)
   movq $0, %rsi
   movq %rbx, %rcx
   movq %rsi, %rdx
@@ -168716,13 +168746,308 @@ sutra_main:
   sete %al
   movzbq %al, %r10
   movq %r10, %rdi
-  movq $0, -8960(%rbp)
+  movq $0, -8936(%rbp)
   movq %rdi, %r10
   cmpq $0, %r10
-  je .L_sutra_main__if_अंत_48
-  jmp .L_sutra_main__if_सत्य_49
-.L_sutra_main__if_अंत_48:
-  movq .LC_strtab+9032(%rip), %r10
+  je .L_sutra_main__if_अंत_53
+  jmp .L_sutra_main__if_सत्य_54
+.L_sutra_main__if_अंत_53:
+  movq -152(%rbp), %r10
+  cmpq $0, %r10
+  je .L_sutra_main__if_अंत_57
+  jmp .L_sutra_main__if_सत्य_56
+.L_sutra_main__if_सत्य_56:
+  movq $100, %rbx
+  movq $101, %rsi
+  movq $108, %rdi
+  movq $32, %r12
+  movq $47, %r13
+  movq $113, %r14
+  movq $32, %r15
+  movq $115, -3896(%rbp)
+  movq $117, -3912(%rbp)
+  movq $116, -3928(%rbp)
+  movq $114, -3944(%rbp)
+  movq $97, -3960(%rbp)
+  movq $95, -3976(%rbp)
+  movq $115, -3992(%rbp)
+  movq $114, -4008(%rbp)
+  movq $116, -4024(%rbp)
+  movq $46, -4040(%rbp)
+  movq $111, -4056(%rbp)
+  movq $32, -4072(%rbp)
+  movq $115, -4088(%rbp)
+  movq $117, -4104(%rbp)
+  movq $116, -4120(%rbp)
+  movq $114, -4136(%rbp)
+  movq $97, -4152(%rbp)
+  movq $95, -4168(%rbp)
+  movq $97, -4184(%rbp)
+  movq $108, -4200(%rbp)
+  movq $108, -4216(%rbp)
+  movq $111, -4232(%rbp)
+  movq $99, -4248(%rbp)
+  movq $46, -4264(%rbp)
+  movq $111, -4280(%rbp)
+  movq $32, -4296(%rbp)
+  movq $50, -4312(%rbp)
+  movq $62, -4328(%rbp)
+  movq $110, -4344(%rbp)
+  movq $117, -4360(%rbp)
+  movq $108, -4376(%rbp)
+  movq $38, %rcx
+  subq $32, %rsp
+  call सूची_रचना
+  addq $32, %rsp
+  movq %rax, -4392(%rbp)
+  movq -4392(%rbp), %r11
+  movq %r11, -8944(%rbp)
+  movq -4392(%rbp), %rcx
+  movq $0, %rdx
+  movq %rbx, %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -4392(%rbp), %rcx
+  movq $1, %rdx
+  movq %rsi, %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -4392(%rbp), %rcx
+  movq $2, %rdx
+  movq %rdi, %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -4392(%rbp), %rcx
+  movq $3, %rdx
+  movq %r12, %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -4392(%rbp), %rcx
+  movq $4, %rdx
+  movq %r13, %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -4392(%rbp), %rcx
+  movq $5, %rdx
+  movq %r14, %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -4392(%rbp), %rcx
+  movq $6, %rdx
+  movq %r15, %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -4392(%rbp), %rcx
+  movq $7, %rdx
+  movq -3896(%rbp), %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -4392(%rbp), %rcx
+  movq $8, %rdx
+  movq -3912(%rbp), %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -4392(%rbp), %rcx
+  movq $9, %rdx
+  movq -3928(%rbp), %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -4392(%rbp), %rcx
+  movq $10, %rdx
+  movq -3944(%rbp), %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -4392(%rbp), %rcx
+  movq $11, %rdx
+  movq -3960(%rbp), %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -4392(%rbp), %rcx
+  movq $12, %rdx
+  movq -3976(%rbp), %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -4392(%rbp), %rcx
+  movq $13, %rdx
+  movq -3992(%rbp), %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -4392(%rbp), %rcx
+  movq $14, %rdx
+  movq -4008(%rbp), %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -4392(%rbp), %rcx
+  movq $15, %rdx
+  movq -4024(%rbp), %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -4392(%rbp), %rcx
+  movq $16, %rdx
+  movq -4040(%rbp), %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -4392(%rbp), %rcx
+  movq $17, %rdx
+  movq -4056(%rbp), %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -4392(%rbp), %rcx
+  movq $18, %rdx
+  movq -4072(%rbp), %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -4392(%rbp), %rcx
+  movq $19, %rdx
+  movq -4088(%rbp), %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -4392(%rbp), %rcx
+  movq $20, %rdx
+  movq -4104(%rbp), %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -4392(%rbp), %rcx
+  movq $21, %rdx
+  movq -4120(%rbp), %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -4392(%rbp), %rcx
+  movq $22, %rdx
+  movq -4136(%rbp), %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -4392(%rbp), %rcx
+  movq $23, %rdx
+  movq -4152(%rbp), %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -4392(%rbp), %rcx
+  movq $24, %rdx
+  movq -4168(%rbp), %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -4392(%rbp), %rcx
+  movq $25, %rdx
+  movq -4184(%rbp), %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -4392(%rbp), %rcx
+  movq $26, %rdx
+  movq -4200(%rbp), %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -4392(%rbp), %rcx
+  movq $27, %rdx
+  movq -4216(%rbp), %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -4392(%rbp), %rcx
+  movq $28, %rdx
+  movq -4232(%rbp), %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -4392(%rbp), %rcx
+  movq $29, %rdx
+  movq -4248(%rbp), %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -4392(%rbp), %rcx
+  movq $30, %rdx
+  movq -4264(%rbp), %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -4392(%rbp), %rcx
+  movq $31, %rdx
+  movq -4280(%rbp), %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -4392(%rbp), %rcx
+  movq $32, %rdx
+  movq -4296(%rbp), %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -4392(%rbp), %rcx
+  movq $33, %rdx
+  movq -4312(%rbp), %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -4392(%rbp), %rcx
+  movq $34, %rdx
+  movq -4328(%rbp), %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -4392(%rbp), %rcx
+  movq $35, %rdx
+  movq -4344(%rbp), %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -4392(%rbp), %rcx
+  movq $36, %rdx
+  movq -4360(%rbp), %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -4392(%rbp), %rcx
+  movq $37, %rdx
+  movq -4376(%rbp), %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -4392(%rbp), %r11
+  movq %r11, -8944(%rbp)
+  movq -4392(%rbp), %rcx
+  subq $32, %rsp
+  call अक्षर_सूची_से_पाठ
+  addq $32, %rsp
+  movq %rax, %rbx
+  movq %rbx, -8952(%rbp)
+  movq $0, -8944(%rbp)
+  movq %rbx, %rcx
+  subq $32, %rsp
+  call समादेश_चलाओ_रन
+  addq $32, %rsp
+  movq %rax, %rsi
+  movq $0, -8952(%rbp)
+  jmp .L_sutra_main__if_अंत_57
+.L_sutra_main__if_अंत_57:
+  movq .LC_strtab+9224(%rip), %r10
   movq %r10, %rbx
   movq %rbx, %rcx
   subq $32, %rsp
@@ -168737,156 +169062,142 @@ sutra_main:
   movq %rdi, %r10
   cmpq $0, %r10
   je .L_किनारा_sutra_main_2
-  jmp .L_sutra_main__if_सत्य_51
+  jmp .L_sutra_main__if_सत्य_58
 .L_किनारा_sutra_main_2:
-  jmp .L_sutra_main__if_अंत_52
-.L_sutra_main__if_सत्य_51:
-  movq .LC_strtab+9040(%rip), %r10
+  jmp .L_sutra_main__if_अंत_59
+.L_sutra_main__if_सत्य_58:
+  movq .LC_strtab+9232(%rip), %r10
   movq %r10, %rbx
-  jmp .L_sutra_main__if_अंत_52
-.L_sutra_main__if_अंत_52:
-  movq %rbx, -9304(%rbp)
-  movq -120(%rbp), %r10
+  jmp .L_sutra_main__if_अंत_59
+.L_sutra_main__if_अंत_59:
+  movq %rbx, -9352(%rbp)
+  movq -152(%rbp), %r10
   cmpq $0, %r10
   sete %al
   movzbq %al, %r10
   movq %r10, %rsi
   movq %rsi, %r10
   cmpq $0, %r10
-  je .L_sutra_main__sc_लघु_54
-  jmp .L_sutra_main__sc_दायाँ_53
-.L_sutra_main__sc_लघु_54:
+  je .L_sutra_main__sc_लघु_61
+  jmp .L_sutra_main__sc_दायाँ_60
+.L_sutra_main__sc_लघु_61:
   movq $0, %rsi
-  jmp .L_sutra_main__sc_अंत_55
-.L_sutra_main__sc_दायाँ_53:
+  jmp .L_sutra_main__sc_अंत_62
+.L_sutra_main__sc_दायाँ_60:
   movq %rbx, %rcx
   subq $32, %rsp
   call सञ्चिका_है_रन
   addq $32, %rsp
   movq %rax, %rsi
-  jmp .L_sutra_main__sc_अंत_55
-.L_sutra_main__sc_अंत_55:
+  jmp .L_sutra_main__sc_अंत_62
+.L_sutra_main__sc_अंत_62:
   movq %rsi, %r10
   cmpq $0, %r10
-  je .L_sutra_main__if_अंत_57
-  jmp .L_sutra_main__if_सत्य_56
-.L_sutra_main__if_सत्य_56:
+  je .L_sutra_main__if_अंत_64
+  jmp .L_sutra_main__if_सत्य_63
+.L_sutra_main__if_सत्य_63:
   movq %rbx, %rcx
   subq $32, %rsp
   call सञ्चिका_पढ़ो_रन
   addq $32, %rsp
-  movq %rax, -5048(%rbp)
-  movq -5048(%rbp), %r11
-  movq %r11, -8968(%rbp)
-  movq $0, -9304(%rbp)
-  movq $97, %rbx
-  movq $108, %rdi
-  movq $108, %r12
-  movq $111, %r13
-  movq $99, %r14
-  movq $95, %r15
-  movq $116, %rsi
-  movq $101, -5064(%rbp)
-  movq $109, -5080(%rbp)
-  movq $112, -5096(%rbp)
-  movq $46, -5112(%rbp)
-  movq $115, -5128(%rbp)
-  movq $12, %rcx
+  movq %rax, -4408(%rbp)
+  movq -4408(%rbp), %r11
+  movq %r11, -8960(%rbp)
+  movq $0, -9352(%rbp)
+  movq $115, %rbx
+  movq $114, %rdi
+  movq $116, %r12
+  movq $95, %r13
+  movq $116, %r14
+  movq $101, %r15
+  movq $109, %rsi
+  movq $112, -4424(%rbp)
+  movq $46, -4440(%rbp)
+  movq $115, -4456(%rbp)
+  movq $10, %rcx
   subq $32, %rsp
   call सूची_रचना
   addq $32, %rsp
-  movq %rax, -5144(%rbp)
-  movq -5144(%rbp), %r11
-  movq %r11, -8976(%rbp)
-  movq -5144(%rbp), %rcx
+  movq %rax, -4472(%rbp)
+  movq -4472(%rbp), %r11
+  movq %r11, -8968(%rbp)
+  movq -4472(%rbp), %rcx
   movq $0, %rdx
   movq %rbx, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -5144(%rbp), %rcx
+  movq -4472(%rbp), %rcx
   movq $1, %rdx
   movq %rdi, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -5144(%rbp), %rcx
+  movq -4472(%rbp), %rcx
   movq $2, %rdx
   movq %r12, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -5144(%rbp), %rcx
+  movq -4472(%rbp), %rcx
   movq $3, %rdx
   movq %r13, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -5144(%rbp), %rcx
+  movq -4472(%rbp), %rcx
   movq $4, %rdx
   movq %r14, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -5144(%rbp), %rcx
+  movq -4472(%rbp), %rcx
   movq $5, %rdx
   movq %r15, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -5144(%rbp), %rcx
+  movq -4472(%rbp), %rcx
   movq $6, %rdx
   movq %rsi, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -5144(%rbp), %rcx
+  movq -4472(%rbp), %rcx
   movq $7, %rdx
-  movq -5064(%rbp), %r8
+  movq -4424(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -5144(%rbp), %rcx
+  movq -4472(%rbp), %rcx
   movq $8, %rdx
-  movq -5080(%rbp), %r8
+  movq -4440(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -5144(%rbp), %rcx
+  movq -4472(%rbp), %rcx
   movq $9, %rdx
-  movq -5096(%rbp), %r8
+  movq -4456(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -5144(%rbp), %rcx
-  movq $10, %rdx
-  movq -5112(%rbp), %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -5144(%rbp), %rcx
-  movq $11, %rdx
-  movq -5128(%rbp), %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -5144(%rbp), %r11
-  movq %r11, -8976(%rbp)
-  movq -5144(%rbp), %rcx
+  movq -4472(%rbp), %r11
+  movq %r11, -8968(%rbp)
+  movq -4472(%rbp), %rcx
   subq $32, %rsp
   call अक्षर_सूची_से_पाठ
   addq $32, %rsp
-  movq %rax, -5160(%rbp)
-  movq -5160(%rbp), %r11
-  movq %r11, -8984(%rbp)
-  movq $0, -8976(%rbp)
-  movq -5160(%rbp), %rcx
-  movq -5048(%rbp), %rdx
+  movq %rax, -4488(%rbp)
+  movq -4488(%rbp), %r11
+  movq %r11, -8976(%rbp)
+  movq $0, -8968(%rbp)
+  movq -4488(%rbp), %rcx
+  movq -4408(%rbp), %rdx
   subq $32, %rsp
   call सञ्चिका_लिखो_रन
   addq $32, %rsp
   movq %rax, %rsi
-  movq $0, -8968(%rbp)
+  movq $0, -8960(%rbp)
   movq $67, %rsi
   movq $58, %rdi
   movq $92, %r12
@@ -168894,346 +169205,332 @@ sutra_main:
   movq $115, %r14
   movq $121, %r15
   movq $115, %rbx
-  movq $54, -5176(%rbp)
-  movq $52, -5192(%rbp)
-  movq $92, -5208(%rbp)
-  movq $117, -5224(%rbp)
-  movq $99, -5240(%rbp)
-  movq $114, -5256(%rbp)
-  movq $116, -5272(%rbp)
-  movq $54, -5288(%rbp)
-  movq $52, -5304(%rbp)
-  movq $92, -5320(%rbp)
-  movq $98, -5336(%rbp)
-  movq $105, -5352(%rbp)
-  movq $110, -5368(%rbp)
-  movq $92, -5384(%rbp)
-  movq $97, -5400(%rbp)
-  movq $115, -5416(%rbp)
-  movq $46, -5432(%rbp)
-  movq $101, -5448(%rbp)
-  movq $120, -5464(%rbp)
-  movq $101, -5480(%rbp)
-  movq $32, -5496(%rbp)
-  movq $45, -5512(%rbp)
-  movq $111, -5528(%rbp)
-  movq $32, -5544(%rbp)
-  movq $115, -5560(%rbp)
-  movq $117, -5576(%rbp)
-  movq $116, -5592(%rbp)
-  movq $114, -5608(%rbp)
-  movq $97, -5624(%rbp)
-  movq $95, -5640(%rbp)
-  movq $97, -5656(%rbp)
-  movq $108, -5672(%rbp)
-  movq $108, -5688(%rbp)
-  movq $111, -5704(%rbp)
-  movq $99, -5720(%rbp)
-  movq $46, -5736(%rbp)
-  movq $111, -5752(%rbp)
-  movq $32, -5768(%rbp)
-  movq $45, %rcx
+  movq $54, -4504(%rbp)
+  movq $52, -4520(%rbp)
+  movq $92, -4536(%rbp)
+  movq $117, -4552(%rbp)
+  movq $99, -4568(%rbp)
+  movq $114, -4584(%rbp)
+  movq $116, -4600(%rbp)
+  movq $54, -4616(%rbp)
+  movq $52, -4632(%rbp)
+  movq $92, -4648(%rbp)
+  movq $98, -4664(%rbp)
+  movq $105, -4680(%rbp)
+  movq $110, -4696(%rbp)
+  movq $92, -4712(%rbp)
+  movq $97, -4728(%rbp)
+  movq $115, -4744(%rbp)
+  movq $46, -4760(%rbp)
+  movq $101, -4776(%rbp)
+  movq $120, -4792(%rbp)
+  movq $101, -4808(%rbp)
+  movq $32, -4824(%rbp)
+  movq $45, -4840(%rbp)
+  movq $111, -4856(%rbp)
+  movq $32, -4872(%rbp)
+  movq $115, -4888(%rbp)
+  movq $117, -4904(%rbp)
+  movq $116, -4920(%rbp)
+  movq $114, -4936(%rbp)
+  movq $97, -4952(%rbp)
+  movq $95, -4968(%rbp)
+  movq $115, -4984(%rbp)
+  movq $114, -5000(%rbp)
+  movq $116, -5016(%rbp)
+  movq $46, -5032(%rbp)
+  movq $111, -5048(%rbp)
+  movq $32, -5064(%rbp)
+  movq $43, %rcx
   subq $32, %rsp
   call सूची_रचना
   addq $32, %rsp
-  movq %rax, -5784(%rbp)
-  movq -5784(%rbp), %r11
-  movq %r11, -8992(%rbp)
-  movq -5784(%rbp), %rcx
+  movq %rax, -5080(%rbp)
+  movq -5080(%rbp), %r11
+  movq %r11, -8984(%rbp)
+  movq -5080(%rbp), %rcx
   movq $0, %rdx
   movq %rsi, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -5784(%rbp), %rcx
+  movq -5080(%rbp), %rcx
   movq $1, %rdx
   movq %rdi, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -5784(%rbp), %rcx
+  movq -5080(%rbp), %rcx
   movq $2, %rdx
   movq %r12, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -5784(%rbp), %rcx
+  movq -5080(%rbp), %rcx
   movq $3, %rdx
   movq %r13, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -5784(%rbp), %rcx
+  movq -5080(%rbp), %rcx
   movq $4, %rdx
   movq %r14, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -5784(%rbp), %rcx
+  movq -5080(%rbp), %rcx
   movq $5, %rdx
   movq %r15, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -5784(%rbp), %rcx
+  movq -5080(%rbp), %rcx
   movq $6, %rdx
   movq %rbx, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -5784(%rbp), %rcx
+  movq -5080(%rbp), %rcx
   movq $7, %rdx
-  movq -5176(%rbp), %r8
+  movq -4504(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -5784(%rbp), %rcx
+  movq -5080(%rbp), %rcx
   movq $8, %rdx
-  movq -5192(%rbp), %r8
+  movq -4520(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -5784(%rbp), %rcx
+  movq -5080(%rbp), %rcx
   movq $9, %rdx
-  movq -5208(%rbp), %r8
+  movq -4536(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -5784(%rbp), %rcx
+  movq -5080(%rbp), %rcx
   movq $10, %rdx
-  movq -5224(%rbp), %r8
+  movq -4552(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -5784(%rbp), %rcx
+  movq -5080(%rbp), %rcx
   movq $11, %rdx
-  movq -5240(%rbp), %r8
+  movq -4568(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -5784(%rbp), %rcx
+  movq -5080(%rbp), %rcx
   movq $12, %rdx
-  movq -5256(%rbp), %r8
+  movq -4584(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -5784(%rbp), %rcx
+  movq -5080(%rbp), %rcx
   movq $13, %rdx
-  movq -5272(%rbp), %r8
+  movq -4600(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -5784(%rbp), %rcx
+  movq -5080(%rbp), %rcx
   movq $14, %rdx
-  movq -5288(%rbp), %r8
+  movq -4616(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -5784(%rbp), %rcx
+  movq -5080(%rbp), %rcx
   movq $15, %rdx
-  movq -5304(%rbp), %r8
+  movq -4632(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -5784(%rbp), %rcx
+  movq -5080(%rbp), %rcx
   movq $16, %rdx
-  movq -5320(%rbp), %r8
+  movq -4648(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -5784(%rbp), %rcx
+  movq -5080(%rbp), %rcx
   movq $17, %rdx
-  movq -5336(%rbp), %r8
+  movq -4664(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -5784(%rbp), %rcx
+  movq -5080(%rbp), %rcx
   movq $18, %rdx
-  movq -5352(%rbp), %r8
+  movq -4680(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -5784(%rbp), %rcx
+  movq -5080(%rbp), %rcx
   movq $19, %rdx
-  movq -5368(%rbp), %r8
+  movq -4696(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -5784(%rbp), %rcx
+  movq -5080(%rbp), %rcx
   movq $20, %rdx
-  movq -5384(%rbp), %r8
+  movq -4712(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -5784(%rbp), %rcx
+  movq -5080(%rbp), %rcx
   movq $21, %rdx
-  movq -5400(%rbp), %r8
+  movq -4728(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -5784(%rbp), %rcx
+  movq -5080(%rbp), %rcx
   movq $22, %rdx
-  movq -5416(%rbp), %r8
+  movq -4744(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -5784(%rbp), %rcx
+  movq -5080(%rbp), %rcx
   movq $23, %rdx
-  movq -5432(%rbp), %r8
+  movq -4760(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -5784(%rbp), %rcx
+  movq -5080(%rbp), %rcx
   movq $24, %rdx
-  movq -5448(%rbp), %r8
+  movq -4776(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -5784(%rbp), %rcx
+  movq -5080(%rbp), %rcx
   movq $25, %rdx
-  movq -5464(%rbp), %r8
+  movq -4792(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -5784(%rbp), %rcx
+  movq -5080(%rbp), %rcx
   movq $26, %rdx
-  movq -5480(%rbp), %r8
+  movq -4808(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -5784(%rbp), %rcx
+  movq -5080(%rbp), %rcx
   movq $27, %rdx
-  movq -5496(%rbp), %r8
+  movq -4824(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -5784(%rbp), %rcx
+  movq -5080(%rbp), %rcx
   movq $28, %rdx
-  movq -5512(%rbp), %r8
+  movq -4840(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -5784(%rbp), %rcx
+  movq -5080(%rbp), %rcx
   movq $29, %rdx
-  movq -5528(%rbp), %r8
+  movq -4856(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -5784(%rbp), %rcx
+  movq -5080(%rbp), %rcx
   movq $30, %rdx
-  movq -5544(%rbp), %r8
+  movq -4872(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -5784(%rbp), %rcx
+  movq -5080(%rbp), %rcx
   movq $31, %rdx
-  movq -5560(%rbp), %r8
+  movq -4888(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -5784(%rbp), %rcx
+  movq -5080(%rbp), %rcx
   movq $32, %rdx
-  movq -5576(%rbp), %r8
+  movq -4904(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -5784(%rbp), %rcx
+  movq -5080(%rbp), %rcx
   movq $33, %rdx
-  movq -5592(%rbp), %r8
+  movq -4920(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -5784(%rbp), %rcx
+  movq -5080(%rbp), %rcx
   movq $34, %rdx
-  movq -5608(%rbp), %r8
+  movq -4936(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -5784(%rbp), %rcx
+  movq -5080(%rbp), %rcx
   movq $35, %rdx
-  movq -5624(%rbp), %r8
+  movq -4952(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -5784(%rbp), %rcx
+  movq -5080(%rbp), %rcx
   movq $36, %rdx
-  movq -5640(%rbp), %r8
+  movq -4968(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -5784(%rbp), %rcx
+  movq -5080(%rbp), %rcx
   movq $37, %rdx
-  movq -5656(%rbp), %r8
+  movq -4984(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -5784(%rbp), %rcx
+  movq -5080(%rbp), %rcx
   movq $38, %rdx
-  movq -5672(%rbp), %r8
+  movq -5000(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -5784(%rbp), %rcx
+  movq -5080(%rbp), %rcx
   movq $39, %rdx
-  movq -5688(%rbp), %r8
+  movq -5016(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -5784(%rbp), %rcx
+  movq -5080(%rbp), %rcx
   movq $40, %rdx
-  movq -5704(%rbp), %r8
+  movq -5032(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -5784(%rbp), %rcx
+  movq -5080(%rbp), %rcx
   movq $41, %rdx
-  movq -5720(%rbp), %r8
+  movq -5048(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -5784(%rbp), %rcx
+  movq -5080(%rbp), %rcx
   movq $42, %rdx
-  movq -5736(%rbp), %r8
+  movq -5064(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -5784(%rbp), %rcx
-  movq $43, %rdx
-  movq -5752(%rbp), %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -5784(%rbp), %rcx
-  movq $44, %rdx
-  movq -5768(%rbp), %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -5784(%rbp), %r11
-  movq %r11, -8992(%rbp)
-  movq -5784(%rbp), %rcx
+  movq -5080(%rbp), %r11
+  movq %r11, -8984(%rbp)
+  movq -5080(%rbp), %rcx
   subq $32, %rsp
   call अक्षर_सूची_से_पाठ
   addq $32, %rsp
   movq %rax, %rbx
-  movq %rbx, -9000(%rbp)
-  movq $0, -8992(%rbp)
+  movq %rbx, -8992(%rbp)
+  movq $0, -8984(%rbp)
   movq %rbx, %rcx
-  movq -5160(%rbp), %rdx
+  movq -4488(%rbp), %rdx
   subq $32, %rsp
   call पाठ_योग_गतिक
   addq $32, %rsp
   movq %rax, %rsi
-  movq %rsi, -9008(%rbp)
-  movq $0, -8984(%rbp)
-  movq $0, -9000(%rbp)
+  movq %rsi, -9000(%rbp)
+  movq $0, -8976(%rbp)
+  movq $0, -8992(%rbp)
   movq %rsi, %rcx
   subq $32, %rsp
   call समादेश_चलाओ_रन
   addq $32, %rsp
   movq %rax, %rbx
-  movq %rbx, -9016(%rbp)
-  movq $0, -9008(%rbp)
+  movq %rbx, -9008(%rbp)
+  movq $0, -9000(%rbp)
   movq $0, %rsi
   movq %rbx, %rcx
   movq %rsi, %rdx
@@ -169246,13 +169543,543 @@ sutra_main:
   sete %al
   movzbq %al, %r10
   movq %r10, %rdi
-  movq $0, -9016(%rbp)
+  movq $0, -9008(%rbp)
   movq %rdi, %r10
   cmpq $0, %r10
-  je .L_sutra_main__if_अंत_57
-  jmp .L_sutra_main__if_सत्य_58
-.L_sutra_main__if_अंत_57:
-  movq .LC_strtab+9056(%rip), %r10
+  je .L_sutra_main__if_अंत_64
+  jmp .L_sutra_main__if_सत्य_65
+.L_sutra_main__if_अंत_64:
+  movq .LC_strtab+9248(%rip), %r10
+  movq %r10, %rbx
+  movq %rbx, %rcx
+  subq $32, %rsp
+  call सञ्चिका_है_रन
+  addq $32, %rsp
+  movq %rax, %rsi
+  movq %rsi, %r10
+  cmpq $0, %r10
+  sete %al
+  movzbq %al, %r10
+  movq %r10, %rdi
+  movq %rdi, %r10
+  cmpq $0, %r10
+  je .L_किनारा_sutra_main_3
+  jmp .L_sutra_main__if_सत्य_67
+.L_किनारा_sutra_main_3:
+  jmp .L_sutra_main__if_अंत_68
+.L_sutra_main__if_सत्य_67:
+  movq .LC_strtab+9256(%rip), %r10
+  movq %r10, %rbx
+  jmp .L_sutra_main__if_अंत_68
+.L_sutra_main__if_अंत_68:
+  movq %rbx, -9360(%rbp)
+  movq -152(%rbp), %r10
+  cmpq $0, %r10
+  sete %al
+  movzbq %al, %r10
+  movq %r10, %rsi
+  movq %rsi, %r10
+  cmpq $0, %r10
+  je .L_sutra_main__sc_लघु_70
+  jmp .L_sutra_main__sc_दायाँ_69
+.L_sutra_main__sc_लघु_70:
+  movq $0, %rsi
+  jmp .L_sutra_main__sc_अंत_71
+.L_sutra_main__sc_दायाँ_69:
+  movq %rbx, %rcx
+  subq $32, %rsp
+  call सञ्चिका_है_रन
+  addq $32, %rsp
+  movq %rax, %rsi
+  jmp .L_sutra_main__sc_अंत_71
+.L_sutra_main__sc_अंत_71:
+  movq %rsi, %r10
+  cmpq $0, %r10
+  je .L_sutra_main__if_अंत_73
+  jmp .L_sutra_main__if_सत्य_72
+.L_sutra_main__if_सत्य_72:
+  movq %rbx, %rcx
+  subq $32, %rsp
+  call सञ्चिका_पढ़ो_रन
+  addq $32, %rsp
+  movq %rax, -5096(%rbp)
+  movq -5096(%rbp), %r11
+  movq %r11, -9016(%rbp)
+  movq $0, -9360(%rbp)
+  movq $97, %rbx
+  movq $108, %rdi
+  movq $108, %r12
+  movq $111, %r13
+  movq $99, %r14
+  movq $95, %r15
+  movq $116, %rsi
+  movq $101, -5112(%rbp)
+  movq $109, -5128(%rbp)
+  movq $112, -5144(%rbp)
+  movq $46, -5160(%rbp)
+  movq $115, -5176(%rbp)
+  movq $12, %rcx
+  subq $32, %rsp
+  call सूची_रचना
+  addq $32, %rsp
+  movq %rax, -5192(%rbp)
+  movq -5192(%rbp), %r11
+  movq %r11, -9024(%rbp)
+  movq -5192(%rbp), %rcx
+  movq $0, %rdx
+  movq %rbx, %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -5192(%rbp), %rcx
+  movq $1, %rdx
+  movq %rdi, %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -5192(%rbp), %rcx
+  movq $2, %rdx
+  movq %r12, %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -5192(%rbp), %rcx
+  movq $3, %rdx
+  movq %r13, %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -5192(%rbp), %rcx
+  movq $4, %rdx
+  movq %r14, %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -5192(%rbp), %rcx
+  movq $5, %rdx
+  movq %r15, %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -5192(%rbp), %rcx
+  movq $6, %rdx
+  movq %rsi, %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -5192(%rbp), %rcx
+  movq $7, %rdx
+  movq -5112(%rbp), %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -5192(%rbp), %rcx
+  movq $8, %rdx
+  movq -5128(%rbp), %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -5192(%rbp), %rcx
+  movq $9, %rdx
+  movq -5144(%rbp), %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -5192(%rbp), %rcx
+  movq $10, %rdx
+  movq -5160(%rbp), %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -5192(%rbp), %rcx
+  movq $11, %rdx
+  movq -5176(%rbp), %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -5192(%rbp), %r11
+  movq %r11, -9024(%rbp)
+  movq -5192(%rbp), %rcx
+  subq $32, %rsp
+  call अक्षर_सूची_से_पाठ
+  addq $32, %rsp
+  movq %rax, -5208(%rbp)
+  movq -5208(%rbp), %r11
+  movq %r11, -9032(%rbp)
+  movq $0, -9024(%rbp)
+  movq -5208(%rbp), %rcx
+  movq -5096(%rbp), %rdx
+  subq $32, %rsp
+  call सञ्चिका_लिखो_रन
+  addq $32, %rsp
+  movq %rax, %rsi
+  movq $0, -9016(%rbp)
+  movq $67, %rsi
+  movq $58, %rdi
+  movq $92, %r12
+  movq $109, %r13
+  movq $115, %r14
+  movq $121, %r15
+  movq $115, %rbx
+  movq $54, -5224(%rbp)
+  movq $52, -5240(%rbp)
+  movq $92, -5256(%rbp)
+  movq $117, -5272(%rbp)
+  movq $99, -5288(%rbp)
+  movq $114, -5304(%rbp)
+  movq $116, -5320(%rbp)
+  movq $54, -5336(%rbp)
+  movq $52, -5352(%rbp)
+  movq $92, -5368(%rbp)
+  movq $98, -5384(%rbp)
+  movq $105, -5400(%rbp)
+  movq $110, -5416(%rbp)
+  movq $92, -5432(%rbp)
+  movq $97, -5448(%rbp)
+  movq $115, -5464(%rbp)
+  movq $46, -5480(%rbp)
+  movq $101, -5496(%rbp)
+  movq $120, -5512(%rbp)
+  movq $101, -5528(%rbp)
+  movq $32, -5544(%rbp)
+  movq $45, -5560(%rbp)
+  movq $111, -5576(%rbp)
+  movq $32, -5592(%rbp)
+  movq $115, -5608(%rbp)
+  movq $117, -5624(%rbp)
+  movq $116, -5640(%rbp)
+  movq $114, -5656(%rbp)
+  movq $97, -5672(%rbp)
+  movq $95, -5688(%rbp)
+  movq $97, -5704(%rbp)
+  movq $108, -5720(%rbp)
+  movq $108, -5736(%rbp)
+  movq $111, -5752(%rbp)
+  movq $99, -5768(%rbp)
+  movq $46, -5784(%rbp)
+  movq $111, -5800(%rbp)
+  movq $32, -5816(%rbp)
+  movq $45, %rcx
+  subq $32, %rsp
+  call सूची_रचना
+  addq $32, %rsp
+  movq %rax, -5832(%rbp)
+  movq -5832(%rbp), %r11
+  movq %r11, -9040(%rbp)
+  movq -5832(%rbp), %rcx
+  movq $0, %rdx
+  movq %rsi, %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -5832(%rbp), %rcx
+  movq $1, %rdx
+  movq %rdi, %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -5832(%rbp), %rcx
+  movq $2, %rdx
+  movq %r12, %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -5832(%rbp), %rcx
+  movq $3, %rdx
+  movq %r13, %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -5832(%rbp), %rcx
+  movq $4, %rdx
+  movq %r14, %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -5832(%rbp), %rcx
+  movq $5, %rdx
+  movq %r15, %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -5832(%rbp), %rcx
+  movq $6, %rdx
+  movq %rbx, %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -5832(%rbp), %rcx
+  movq $7, %rdx
+  movq -5224(%rbp), %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -5832(%rbp), %rcx
+  movq $8, %rdx
+  movq -5240(%rbp), %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -5832(%rbp), %rcx
+  movq $9, %rdx
+  movq -5256(%rbp), %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -5832(%rbp), %rcx
+  movq $10, %rdx
+  movq -5272(%rbp), %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -5832(%rbp), %rcx
+  movq $11, %rdx
+  movq -5288(%rbp), %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -5832(%rbp), %rcx
+  movq $12, %rdx
+  movq -5304(%rbp), %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -5832(%rbp), %rcx
+  movq $13, %rdx
+  movq -5320(%rbp), %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -5832(%rbp), %rcx
+  movq $14, %rdx
+  movq -5336(%rbp), %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -5832(%rbp), %rcx
+  movq $15, %rdx
+  movq -5352(%rbp), %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -5832(%rbp), %rcx
+  movq $16, %rdx
+  movq -5368(%rbp), %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -5832(%rbp), %rcx
+  movq $17, %rdx
+  movq -5384(%rbp), %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -5832(%rbp), %rcx
+  movq $18, %rdx
+  movq -5400(%rbp), %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -5832(%rbp), %rcx
+  movq $19, %rdx
+  movq -5416(%rbp), %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -5832(%rbp), %rcx
+  movq $20, %rdx
+  movq -5432(%rbp), %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -5832(%rbp), %rcx
+  movq $21, %rdx
+  movq -5448(%rbp), %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -5832(%rbp), %rcx
+  movq $22, %rdx
+  movq -5464(%rbp), %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -5832(%rbp), %rcx
+  movq $23, %rdx
+  movq -5480(%rbp), %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -5832(%rbp), %rcx
+  movq $24, %rdx
+  movq -5496(%rbp), %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -5832(%rbp), %rcx
+  movq $25, %rdx
+  movq -5512(%rbp), %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -5832(%rbp), %rcx
+  movq $26, %rdx
+  movq -5528(%rbp), %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -5832(%rbp), %rcx
+  movq $27, %rdx
+  movq -5544(%rbp), %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -5832(%rbp), %rcx
+  movq $28, %rdx
+  movq -5560(%rbp), %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -5832(%rbp), %rcx
+  movq $29, %rdx
+  movq -5576(%rbp), %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -5832(%rbp), %rcx
+  movq $30, %rdx
+  movq -5592(%rbp), %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -5832(%rbp), %rcx
+  movq $31, %rdx
+  movq -5608(%rbp), %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -5832(%rbp), %rcx
+  movq $32, %rdx
+  movq -5624(%rbp), %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -5832(%rbp), %rcx
+  movq $33, %rdx
+  movq -5640(%rbp), %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -5832(%rbp), %rcx
+  movq $34, %rdx
+  movq -5656(%rbp), %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -5832(%rbp), %rcx
+  movq $35, %rdx
+  movq -5672(%rbp), %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -5832(%rbp), %rcx
+  movq $36, %rdx
+  movq -5688(%rbp), %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -5832(%rbp), %rcx
+  movq $37, %rdx
+  movq -5704(%rbp), %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -5832(%rbp), %rcx
+  movq $38, %rdx
+  movq -5720(%rbp), %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -5832(%rbp), %rcx
+  movq $39, %rdx
+  movq -5736(%rbp), %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -5832(%rbp), %rcx
+  movq $40, %rdx
+  movq -5752(%rbp), %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -5832(%rbp), %rcx
+  movq $41, %rdx
+  movq -5768(%rbp), %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -5832(%rbp), %rcx
+  movq $42, %rdx
+  movq -5784(%rbp), %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -5832(%rbp), %rcx
+  movq $43, %rdx
+  movq -5800(%rbp), %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -5832(%rbp), %rcx
+  movq $44, %rdx
+  movq -5816(%rbp), %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -5832(%rbp), %r11
+  movq %r11, -9040(%rbp)
+  movq -5832(%rbp), %rcx
+  subq $32, %rsp
+  call अक्षर_सूची_से_पाठ
+  addq $32, %rsp
+  movq %rax, %rbx
+  movq %rbx, -9048(%rbp)
+  movq $0, -9040(%rbp)
+  movq %rbx, %rcx
+  movq -5208(%rbp), %rdx
+  subq $32, %rsp
+  call पाठ_योग_गतिक
+  addq $32, %rsp
+  movq %rax, %rsi
+  movq %rsi, -9056(%rbp)
+  movq $0, -9032(%rbp)
+  movq $0, -9048(%rbp)
+  movq %rsi, %rcx
+  subq $32, %rsp
+  call समादेश_चलाओ_रन
+  addq $32, %rsp
+  movq %rax, %rbx
+  movq %rbx, -9064(%rbp)
+  movq $0, -9056(%rbp)
+  movq $0, %rsi
+  movq %rbx, %rcx
+  movq %rsi, %rdx
+  subq $32, %rsp
+  call पाठ_तुल्य
+  addq $32, %rsp
+  movq %rax, %rdi
+  movq %rdi, %r10
+  cmpq $0, %r10
+  sete %al
+  movzbq %al, %r10
+  movq %r10, %rdi
+  movq $0, -9064(%rbp)
+  movq %rdi, %r10
+  cmpq $0, %r10
+  je .L_sutra_main__if_अंत_73
+  jmp .L_sutra_main__if_सत्य_74
+.L_sutra_main__if_अंत_73:
+  movq .LC_strtab+9272(%rip), %r10
   movq %r10, %rbx
   movq %rbx, %rcx
   subq $32, %rsp
@@ -169265,301 +170092,166 @@ sutra_main:
   movq $97, %r13
   movq $95, %r14
   movq $110, %r15
-  movq $97, -5800(%rbp)
-  movq $116, -5816(%rbp)
-  movq $105, -5832(%rbp)
-  movq $118, -5848(%rbp)
-  movq $101, -5864(%rbp)
-  movq $95, -5880(%rbp)
-  movq $116, -5896(%rbp)
+  movq $97, -5848(%rbp)
+  movq $116, -5864(%rbp)
+  movq $105, -5880(%rbp)
+  movq $118, -5896(%rbp)
   movq $101, -5912(%rbp)
-  movq $109, -5928(%rbp)
-  movq $112, -5944(%rbp)
-  movq $46, -5960(%rbp)
-  movq $101, -5976(%rbp)
-  movq $120, -5992(%rbp)
-  movq $101, -6008(%rbp)
+  movq $95, -5928(%rbp)
+  movq $116, -5944(%rbp)
+  movq $101, -5960(%rbp)
+  movq $109, -5976(%rbp)
+  movq $112, -5992(%rbp)
+  movq $46, -6008(%rbp)
+  movq $101, -6024(%rbp)
+  movq $120, -6040(%rbp)
+  movq $101, -6056(%rbp)
   movq $21, %rcx
   subq $32, %rsp
   call सूची_रचना
   addq $32, %rsp
-  movq %rax, -6024(%rbp)
-  movq -6024(%rbp), %r11
-  movq %r11, -9024(%rbp)
-  movq -6024(%rbp), %rcx
+  movq %rax, -6072(%rbp)
+  movq -6072(%rbp), %r11
+  movq %r11, -9072(%rbp)
+  movq -6072(%rbp), %rcx
   movq $0, %rdx
   movq %rbx, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -6024(%rbp), %rcx
+  movq -6072(%rbp), %rcx
   movq $1, %rdx
   movq %rsi, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -6024(%rbp), %rcx
+  movq -6072(%rbp), %rcx
   movq $2, %rdx
   movq %rdi, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -6024(%rbp), %rcx
+  movq -6072(%rbp), %rcx
   movq $3, %rdx
   movq %r12, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -6024(%rbp), %rcx
+  movq -6072(%rbp), %rcx
   movq $4, %rdx
   movq %r13, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -6024(%rbp), %rcx
+  movq -6072(%rbp), %rcx
   movq $5, %rdx
   movq %r14, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -6024(%rbp), %rcx
+  movq -6072(%rbp), %rcx
   movq $6, %rdx
   movq %r15, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -6024(%rbp), %rcx
+  movq -6072(%rbp), %rcx
   movq $7, %rdx
-  movq -5800(%rbp), %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -6024(%rbp), %rcx
-  movq $8, %rdx
-  movq -5816(%rbp), %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -6024(%rbp), %rcx
-  movq $9, %rdx
-  movq -5832(%rbp), %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -6024(%rbp), %rcx
-  movq $10, %rdx
   movq -5848(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -6024(%rbp), %rcx
-  movq $11, %rdx
+  movq -6072(%rbp), %rcx
+  movq $8, %rdx
   movq -5864(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -6024(%rbp), %rcx
-  movq $12, %rdx
+  movq -6072(%rbp), %rcx
+  movq $9, %rdx
   movq -5880(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -6024(%rbp), %rcx
-  movq $13, %rdx
+  movq -6072(%rbp), %rcx
+  movq $10, %rdx
   movq -5896(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -6024(%rbp), %rcx
-  movq $14, %rdx
+  movq -6072(%rbp), %rcx
+  movq $11, %rdx
   movq -5912(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -6024(%rbp), %rcx
-  movq $15, %rdx
+  movq -6072(%rbp), %rcx
+  movq $12, %rdx
   movq -5928(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -6024(%rbp), %rcx
-  movq $16, %rdx
+  movq -6072(%rbp), %rcx
+  movq $13, %rdx
   movq -5944(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -6024(%rbp), %rcx
-  movq $17, %rdx
+  movq -6072(%rbp), %rcx
+  movq $14, %rdx
   movq -5960(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -6024(%rbp), %rcx
-  movq $18, %rdx
+  movq -6072(%rbp), %rcx
+  movq $15, %rdx
   movq -5976(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -6024(%rbp), %rcx
-  movq $19, %rdx
+  movq -6072(%rbp), %rcx
+  movq $16, %rdx
   movq -5992(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -6024(%rbp), %rcx
-  movq $20, %rdx
+  movq -6072(%rbp), %rcx
+  movq $17, %rdx
   movq -6008(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -6024(%rbp), %r11
-  movq %r11, -9024(%rbp)
-  movq -6024(%rbp), %rcx
-  subq $32, %rsp
-  call अक्षर_सूची_से_पाठ
-  addq $32, %rsp
-  movq %rax, -6040(%rbp)
-  movq -6040(%rbp), %r11
-  movq %r11, -9032(%rbp)
-  movq $0, -9024(%rbp)
-  movq .LC_strtab+696(%rip), %r10
-  movq %r10, %rsi
-  movq .LC_strtab+9064(%rip), %r10
-  movq %r10, %rdi
-  movq %rdi, %rcx
-  subq $32, %rsp
-  call सञ्चिका_है_रन
-  addq $32, %rsp
-  movq %rax, %r12
-  movq %r12, %r10
-  cmpq $0, %r10
-  je .L_किनारा_sutra_main_3
-  jmp .L_sutra_main__if_सत्य_60
-.L_किनारा_sutra_main_3:
-  movq %rsi, -6184(%rbp)
-  jmp .L_sutra_main__if_अंत_61
-.L_sutra_main__if_सत्य_60:
-  movq $115, %rsi
-  movq $117, %rdi
-  movq $116, %r12
-  movq $114, %r13
-  movq $97, %r14
-  movq $95, %r15
-  movq $102, %rbx
-  movq $108, -6056(%rbp)
-  movq $111, -6072(%rbp)
-  movq $111, -6088(%rbp)
-  movq $114, -6104(%rbp)
-  movq $46, -6120(%rbp)
-  movq $111, -6136(%rbp)
-  movq $32, -6152(%rbp)
-  movq $14, %rcx
-  subq $32, %rsp
-  call सूची_रचना
-  addq $32, %rsp
-  movq %rax, -6168(%rbp)
-  movq -6168(%rbp), %r11
-  movq %r11, -9040(%rbp)
-  movq -6168(%rbp), %rcx
-  movq $0, %rdx
-  movq %rsi, %r8
+  movq -6072(%rbp), %rcx
+  movq $18, %rdx
+  movq -6024(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -6168(%rbp), %rcx
-  movq $1, %rdx
-  movq %rdi, %r8
+  movq -6072(%rbp), %rcx
+  movq $19, %rdx
+  movq -6040(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -6168(%rbp), %rcx
-  movq $2, %rdx
-  movq %r12, %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -6168(%rbp), %rcx
-  movq $3, %rdx
-  movq %r13, %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -6168(%rbp), %rcx
-  movq $4, %rdx
-  movq %r14, %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -6168(%rbp), %rcx
-  movq $5, %rdx
-  movq %r15, %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -6168(%rbp), %rcx
-  movq $6, %rdx
-  movq %rbx, %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -6168(%rbp), %rcx
-  movq $7, %rdx
+  movq -6072(%rbp), %rcx
+  movq $20, %rdx
   movq -6056(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -6168(%rbp), %rcx
-  movq $8, %rdx
-  movq -6072(%rbp), %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -6168(%rbp), %rcx
-  movq $9, %rdx
-  movq -6088(%rbp), %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -6168(%rbp), %rcx
-  movq $10, %rdx
-  movq -6104(%rbp), %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -6168(%rbp), %rcx
-  movq $11, %rdx
-  movq -6120(%rbp), %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -6168(%rbp), %rcx
-  movq $12, %rdx
-  movq -6136(%rbp), %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -6168(%rbp), %rcx
-  movq $13, %rdx
-  movq -6152(%rbp), %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -6168(%rbp), %r11
-  movq %r11, -9040(%rbp)
-  movq -6168(%rbp), %rcx
+  movq -6072(%rbp), %r11
+  movq %r11, -9072(%rbp)
+  movq -6072(%rbp), %rcx
   subq $32, %rsp
   call अक्षर_सूची_से_पाठ
   addq $32, %rsp
-  movq %rax, %rbx
-  movq $0, -9040(%rbp)
-  movq %rbx, -6184(%rbp)
-  jmp .L_sutra_main__if_अंत_61
-.L_sutra_main__if_अंत_61:
-  movq -6184(%rbp), %r11
-  movq %r11, -9312(%rbp)
+  movq %rax, -6088(%rbp)
+  movq -6088(%rbp), %r11
+  movq %r11, -9080(%rbp)
+  movq $0, -9072(%rbp)
   movq .LC_strtab+696(%rip), %r10
   movq %r10, %rsi
-  movq .LC_strtab+9072(%rip), %r10
+  movq .LC_strtab+9280(%rip), %r10
   movq %r10, %rdi
   movq %rdi, %rcx
   subq $32, %rsp
@@ -169569,118 +170261,132 @@ sutra_main:
   movq %r12, %r10
   cmpq $0, %r10
   je .L_किनारा_sutra_main_4
-  jmp .L_sutra_main__if_सत्य_62
+  jmp .L_sutra_main__if_सत्य_76
 .L_किनारा_sutra_main_4:
-  movq %rsi, -6296(%rbp)
-  jmp .L_sutra_main__if_अंत_63
-.L_sutra_main__if_सत्य_62:
+  movq %rsi, -6232(%rbp)
+  jmp .L_sutra_main__if_अंत_77
+.L_sutra_main__if_सत्य_76:
   movq $115, %rsi
   movq $117, %rdi
   movq $116, %r12
   movq $114, %r13
   movq $97, %r14
   movq $95, %r15
-  movq $115, %rbx
-  movq $114, -6200(%rbp)
-  movq $116, -6216(%rbp)
-  movq $46, -6232(%rbp)
-  movq $111, -6248(%rbp)
-  movq $32, -6264(%rbp)
-  movq $12, %rcx
+  movq $102, %rbx
+  movq $108, -6104(%rbp)
+  movq $111, -6120(%rbp)
+  movq $111, -6136(%rbp)
+  movq $114, -6152(%rbp)
+  movq $46, -6168(%rbp)
+  movq $111, -6184(%rbp)
+  movq $32, -6200(%rbp)
+  movq $14, %rcx
   subq $32, %rsp
   call सूची_रचना
   addq $32, %rsp
-  movq %rax, -6280(%rbp)
-  movq -6280(%rbp), %r11
-  movq %r11, -9048(%rbp)
-  movq -6280(%rbp), %rcx
+  movq %rax, -6216(%rbp)
+  movq -6216(%rbp), %r11
+  movq %r11, -9088(%rbp)
+  movq -6216(%rbp), %rcx
   movq $0, %rdx
   movq %rsi, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -6280(%rbp), %rcx
+  movq -6216(%rbp), %rcx
   movq $1, %rdx
   movq %rdi, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -6280(%rbp), %rcx
+  movq -6216(%rbp), %rcx
   movq $2, %rdx
   movq %r12, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -6280(%rbp), %rcx
+  movq -6216(%rbp), %rcx
   movq $3, %rdx
   movq %r13, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -6280(%rbp), %rcx
+  movq -6216(%rbp), %rcx
   movq $4, %rdx
   movq %r14, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -6280(%rbp), %rcx
+  movq -6216(%rbp), %rcx
   movq $5, %rdx
   movq %r15, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -6280(%rbp), %rcx
+  movq -6216(%rbp), %rcx
   movq $6, %rdx
   movq %rbx, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -6280(%rbp), %rcx
+  movq -6216(%rbp), %rcx
   movq $7, %rdx
+  movq -6104(%rbp), %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -6216(%rbp), %rcx
+  movq $8, %rdx
+  movq -6120(%rbp), %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -6216(%rbp), %rcx
+  movq $9, %rdx
+  movq -6136(%rbp), %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -6216(%rbp), %rcx
+  movq $10, %rdx
+  movq -6152(%rbp), %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -6216(%rbp), %rcx
+  movq $11, %rdx
+  movq -6168(%rbp), %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -6216(%rbp), %rcx
+  movq $12, %rdx
+  movq -6184(%rbp), %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -6216(%rbp), %rcx
+  movq $13, %rdx
   movq -6200(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -6280(%rbp), %rcx
-  movq $8, %rdx
-  movq -6216(%rbp), %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -6280(%rbp), %rcx
-  movq $9, %rdx
-  movq -6232(%rbp), %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -6280(%rbp), %rcx
-  movq $10, %rdx
-  movq -6248(%rbp), %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -6280(%rbp), %rcx
-  movq $11, %rdx
-  movq -6264(%rbp), %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -6280(%rbp), %r11
-  movq %r11, -9048(%rbp)
-  movq -6280(%rbp), %rcx
+  movq -6216(%rbp), %r11
+  movq %r11, -9088(%rbp)
+  movq -6216(%rbp), %rcx
   subq $32, %rsp
   call अक्षर_सूची_से_पाठ
   addq $32, %rsp
   movq %rax, %rbx
-  movq $0, -9048(%rbp)
-  movq %rbx, -6296(%rbp)
-  jmp .L_sutra_main__if_अंत_63
-.L_sutra_main__if_अंत_63:
-  movq -6296(%rbp), %r11
-  movq %r11, -9320(%rbp)
+  movq $0, -9088(%rbp)
+  movq %rbx, -6232(%rbp)
+  jmp .L_sutra_main__if_अंत_77
+.L_sutra_main__if_अंत_77:
+  movq -6232(%rbp), %r11
+  movq %r11, -9368(%rbp)
   movq .LC_strtab+696(%rip), %r10
   movq %r10, %rsi
-  movq .LC_strtab+9080(%rip), %r10
+  movq .LC_strtab+9288(%rip), %r10
   movq %r10, %rdi
   movq %rdi, %rcx
   subq $32, %rsp
@@ -169690,11 +170396,132 @@ sutra_main:
   movq %r12, %r10
   cmpq $0, %r10
   je .L_किनारा_sutra_main_5
-  jmp .L_sutra_main__if_सत्य_64
+  jmp .L_sutra_main__if_सत्य_78
 .L_किनारा_sutra_main_5:
-  movq %rsi, -6440(%rbp)
-  jmp .L_sutra_main__if_अंत_65
-.L_sutra_main__if_सत्य_64:
+  movq %rsi, -6344(%rbp)
+  jmp .L_sutra_main__if_अंत_79
+.L_sutra_main__if_सत्य_78:
+  movq $115, %rsi
+  movq $117, %rdi
+  movq $116, %r12
+  movq $114, %r13
+  movq $97, %r14
+  movq $95, %r15
+  movq $115, %rbx
+  movq $114, -6248(%rbp)
+  movq $116, -6264(%rbp)
+  movq $46, -6280(%rbp)
+  movq $111, -6296(%rbp)
+  movq $32, -6312(%rbp)
+  movq $12, %rcx
+  subq $32, %rsp
+  call सूची_रचना
+  addq $32, %rsp
+  movq %rax, -6328(%rbp)
+  movq -6328(%rbp), %r11
+  movq %r11, -9096(%rbp)
+  movq -6328(%rbp), %rcx
+  movq $0, %rdx
+  movq %rsi, %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -6328(%rbp), %rcx
+  movq $1, %rdx
+  movq %rdi, %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -6328(%rbp), %rcx
+  movq $2, %rdx
+  movq %r12, %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -6328(%rbp), %rcx
+  movq $3, %rdx
+  movq %r13, %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -6328(%rbp), %rcx
+  movq $4, %rdx
+  movq %r14, %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -6328(%rbp), %rcx
+  movq $5, %rdx
+  movq %r15, %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -6328(%rbp), %rcx
+  movq $6, %rdx
+  movq %rbx, %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -6328(%rbp), %rcx
+  movq $7, %rdx
+  movq -6248(%rbp), %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -6328(%rbp), %rcx
+  movq $8, %rdx
+  movq -6264(%rbp), %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -6328(%rbp), %rcx
+  movq $9, %rdx
+  movq -6280(%rbp), %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -6328(%rbp), %rcx
+  movq $10, %rdx
+  movq -6296(%rbp), %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -6328(%rbp), %rcx
+  movq $11, %rdx
+  movq -6312(%rbp), %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -6328(%rbp), %r11
+  movq %r11, -9096(%rbp)
+  movq -6328(%rbp), %rcx
+  subq $32, %rsp
+  call अक्षर_सूची_से_पाठ
+  addq $32, %rsp
+  movq %rax, %rbx
+  movq $0, -9096(%rbp)
+  movq %rbx, -6344(%rbp)
+  jmp .L_sutra_main__if_अंत_79
+.L_sutra_main__if_अंत_79:
+  movq -6344(%rbp), %r11
+  movq %r11, -9376(%rbp)
+  movq .LC_strtab+696(%rip), %r10
+  movq %r10, %rsi
+  movq .LC_strtab+9296(%rip), %r10
+  movq %r10, %rdi
+  movq %rdi, %rcx
+  subq $32, %rsp
+  call सञ्चिका_है_रन
+  addq $32, %rsp
+  movq %rax, %r12
+  movq %r12, %r10
+  cmpq $0, %r10
+  je .L_किनारा_sutra_main_6
+  jmp .L_sutra_main__if_सत्य_80
+.L_किनारा_sutra_main_6:
+  movq %rsi, -6488(%rbp)
+  jmp .L_sutra_main__if_अंत_81
+.L_sutra_main__if_सत्य_80:
   movq $115, %rsi
   movq $117, %rdi
   movq $116, %r12
@@ -169702,117 +170529,117 @@ sutra_main:
   movq $97, %r14
   movq $95, %r15
   movq $97, %rbx
-  movq $108, -6312(%rbp)
-  movq $108, -6328(%rbp)
-  movq $111, -6344(%rbp)
-  movq $99, -6360(%rbp)
-  movq $46, -6376(%rbp)
+  movq $108, -6360(%rbp)
+  movq $108, -6376(%rbp)
   movq $111, -6392(%rbp)
-  movq $32, -6408(%rbp)
+  movq $99, -6408(%rbp)
+  movq $46, -6424(%rbp)
+  movq $111, -6440(%rbp)
+  movq $32, -6456(%rbp)
   movq $14, %rcx
   subq $32, %rsp
   call सूची_रचना
   addq $32, %rsp
-  movq %rax, -6424(%rbp)
-  movq -6424(%rbp), %r11
-  movq %r11, -9056(%rbp)
-  movq -6424(%rbp), %rcx
+  movq %rax, -6472(%rbp)
+  movq -6472(%rbp), %r11
+  movq %r11, -9104(%rbp)
+  movq -6472(%rbp), %rcx
   movq $0, %rdx
   movq %rsi, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -6424(%rbp), %rcx
+  movq -6472(%rbp), %rcx
   movq $1, %rdx
   movq %rdi, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -6424(%rbp), %rcx
+  movq -6472(%rbp), %rcx
   movq $2, %rdx
   movq %r12, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -6424(%rbp), %rcx
+  movq -6472(%rbp), %rcx
   movq $3, %rdx
   movq %r13, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -6424(%rbp), %rcx
+  movq -6472(%rbp), %rcx
   movq $4, %rdx
   movq %r14, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -6424(%rbp), %rcx
+  movq -6472(%rbp), %rcx
   movq $5, %rdx
   movq %r15, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -6424(%rbp), %rcx
+  movq -6472(%rbp), %rcx
   movq $6, %rdx
   movq %rbx, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -6424(%rbp), %rcx
+  movq -6472(%rbp), %rcx
   movq $7, %rdx
-  movq -6312(%rbp), %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -6424(%rbp), %rcx
-  movq $8, %rdx
-  movq -6328(%rbp), %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -6424(%rbp), %rcx
-  movq $9, %rdx
-  movq -6344(%rbp), %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -6424(%rbp), %rcx
-  movq $10, %rdx
   movq -6360(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -6424(%rbp), %rcx
-  movq $11, %rdx
+  movq -6472(%rbp), %rcx
+  movq $8, %rdx
   movq -6376(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -6424(%rbp), %rcx
-  movq $12, %rdx
+  movq -6472(%rbp), %rcx
+  movq $9, %rdx
   movq -6392(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -6424(%rbp), %rcx
-  movq $13, %rdx
+  movq -6472(%rbp), %rcx
+  movq $10, %rdx
   movq -6408(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -6424(%rbp), %r11
-  movq %r11, -9056(%rbp)
-  movq -6424(%rbp), %rcx
+  movq -6472(%rbp), %rcx
+  movq $11, %rdx
+  movq -6424(%rbp), %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -6472(%rbp), %rcx
+  movq $12, %rdx
+  movq -6440(%rbp), %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -6472(%rbp), %rcx
+  movq $13, %rdx
+  movq -6456(%rbp), %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -6472(%rbp), %r11
+  movq %r11, -9104(%rbp)
+  movq -6472(%rbp), %rcx
   subq $32, %rsp
   call अक्षर_सूची_से_पाठ
   addq $32, %rsp
   movq %rax, %rbx
-  movq $0, -9056(%rbp)
-  movq %rbx, -6440(%rbp)
-  jmp .L_sutra_main__if_अंत_65
-.L_sutra_main__if_अंत_65:
-  movq -6440(%rbp), %r11
-  movq %r11, -9328(%rbp)
+  movq $0, -9104(%rbp)
+  movq %rbx, -6488(%rbp)
+  jmp .L_sutra_main__if_अंत_81
+.L_sutra_main__if_अंत_81:
+  movq -6488(%rbp), %r11
+  movq %r11, -9384(%rbp)
   movq $67, %rsi
   movq $58, %rdi
   movq $92, %r12
@@ -169820,457 +170647,457 @@ sutra_main:
   movq $115, %r14
   movq $121, %r15
   movq $115, %rbx
-  movq $54, -6456(%rbp)
-  movq $52, -6472(%rbp)
-  movq $92, -6488(%rbp)
-  movq $117, -6504(%rbp)
-  movq $99, -6520(%rbp)
-  movq $114, -6536(%rbp)
-  movq $116, -6552(%rbp)
-  movq $54, -6568(%rbp)
-  movq $52, -6584(%rbp)
-  movq $92, -6600(%rbp)
-  movq $98, -6616(%rbp)
-  movq $105, -6632(%rbp)
-  movq $110, -6648(%rbp)
-  movq $92, -6664(%rbp)
-  movq $103, -6680(%rbp)
-  movq $99, -6696(%rbp)
-  movq $99, -6712(%rbp)
-  movq $46, -6728(%rbp)
-  movq $101, -6744(%rbp)
-  movq $120, -6760(%rbp)
-  movq $101, -6776(%rbp)
-  movq $32, -6792(%rbp)
-  movq $45, -6808(%rbp)
-  movq $109, -6824(%rbp)
-  movq $54, -6840(%rbp)
-  movq $52, -6856(%rbp)
-  movq $32, -6872(%rbp)
-  movq $45, -6888(%rbp)
-  movq $110, -6904(%rbp)
-  movq $111, -6920(%rbp)
-  movq $115, -6936(%rbp)
-  movq $116, -6952(%rbp)
-  movq $100, -6968(%rbp)
-  movq $108, -6984(%rbp)
-  movq $105, -7000(%rbp)
-  movq $98, -7016(%rbp)
-  movq $32, -7032(%rbp)
-  movq $45, -7048(%rbp)
-  movq $87, -7064(%rbp)
-  movq $108, -7080(%rbp)
-  movq $44, -7096(%rbp)
-  movq $45, -7112(%rbp)
-  movq $45, -7128(%rbp)
-  movq $110, -7144(%rbp)
-  movq $111, -7160(%rbp)
+  movq $54, -6504(%rbp)
+  movq $52, -6520(%rbp)
+  movq $92, -6536(%rbp)
+  movq $117, -6552(%rbp)
+  movq $99, -6568(%rbp)
+  movq $114, -6584(%rbp)
+  movq $116, -6600(%rbp)
+  movq $54, -6616(%rbp)
+  movq $52, -6632(%rbp)
+  movq $92, -6648(%rbp)
+  movq $98, -6664(%rbp)
+  movq $105, -6680(%rbp)
+  movq $110, -6696(%rbp)
+  movq $92, -6712(%rbp)
+  movq $103, -6728(%rbp)
+  movq $99, -6744(%rbp)
+  movq $99, -6760(%rbp)
+  movq $46, -6776(%rbp)
+  movq $101, -6792(%rbp)
+  movq $120, -6808(%rbp)
+  movq $101, -6824(%rbp)
+  movq $32, -6840(%rbp)
+  movq $45, -6856(%rbp)
+  movq $109, -6872(%rbp)
+  movq $54, -6888(%rbp)
+  movq $52, -6904(%rbp)
+  movq $32, -6920(%rbp)
+  movq $45, -6936(%rbp)
+  movq $110, -6952(%rbp)
+  movq $111, -6968(%rbp)
+  movq $115, -6984(%rbp)
+  movq $116, -7000(%rbp)
+  movq $100, -7016(%rbp)
+  movq $108, -7032(%rbp)
+  movq $105, -7048(%rbp)
+  movq $98, -7064(%rbp)
+  movq $32, -7080(%rbp)
+  movq $45, -7096(%rbp)
+  movq $87, -7112(%rbp)
+  movq $108, -7128(%rbp)
+  movq $44, -7144(%rbp)
+  movq $45, -7160(%rbp)
   movq $45, -7176(%rbp)
-  movq $117, -7192(%rbp)
-  movq $110, -7208(%rbp)
-  movq $100, -7224(%rbp)
-  movq $101, -7240(%rbp)
-  movq $102, -7256(%rbp)
-  movq $105, -7272(%rbp)
-  movq $110, -7288(%rbp)
-  movq $101, -7304(%rbp)
-  movq $100, -7320(%rbp)
-  movq $32, -7336(%rbp)
+  movq $110, -7192(%rbp)
+  movq $111, -7208(%rbp)
+  movq $45, -7224(%rbp)
+  movq $117, -7240(%rbp)
+  movq $110, -7256(%rbp)
+  movq $100, -7272(%rbp)
+  movq $101, -7288(%rbp)
+  movq $102, -7304(%rbp)
+  movq $105, -7320(%rbp)
+  movq $110, -7336(%rbp)
+  movq $101, -7352(%rbp)
+  movq $100, -7368(%rbp)
+  movq $32, -7384(%rbp)
   movq $63, %rcx
   subq $32, %rsp
   call सूची_रचना
   addq $32, %rsp
-  movq %rax, -7352(%rbp)
-  movq -7352(%rbp), %r11
-  movq %r11, -9064(%rbp)
-  movq -7352(%rbp), %rcx
+  movq %rax, -7400(%rbp)
+  movq -7400(%rbp), %r11
+  movq %r11, -9112(%rbp)
+  movq -7400(%rbp), %rcx
   movq $0, %rdx
   movq %rsi, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -7352(%rbp), %rcx
+  movq -7400(%rbp), %rcx
   movq $1, %rdx
   movq %rdi, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -7352(%rbp), %rcx
+  movq -7400(%rbp), %rcx
   movq $2, %rdx
   movq %r12, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -7352(%rbp), %rcx
+  movq -7400(%rbp), %rcx
   movq $3, %rdx
   movq %r13, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -7352(%rbp), %rcx
+  movq -7400(%rbp), %rcx
   movq $4, %rdx
   movq %r14, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -7352(%rbp), %rcx
+  movq -7400(%rbp), %rcx
   movq $5, %rdx
   movq %r15, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -7352(%rbp), %rcx
+  movq -7400(%rbp), %rcx
   movq $6, %rdx
   movq %rbx, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -7352(%rbp), %rcx
+  movq -7400(%rbp), %rcx
   movq $7, %rdx
-  movq -6456(%rbp), %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -7352(%rbp), %rcx
-  movq $8, %rdx
-  movq -6472(%rbp), %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -7352(%rbp), %rcx
-  movq $9, %rdx
-  movq -6488(%rbp), %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -7352(%rbp), %rcx
-  movq $10, %rdx
   movq -6504(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -7352(%rbp), %rcx
-  movq $11, %rdx
+  movq -7400(%rbp), %rcx
+  movq $8, %rdx
   movq -6520(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -7352(%rbp), %rcx
-  movq $12, %rdx
+  movq -7400(%rbp), %rcx
+  movq $9, %rdx
   movq -6536(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -7352(%rbp), %rcx
-  movq $13, %rdx
+  movq -7400(%rbp), %rcx
+  movq $10, %rdx
   movq -6552(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -7352(%rbp), %rcx
-  movq $14, %rdx
+  movq -7400(%rbp), %rcx
+  movq $11, %rdx
   movq -6568(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -7352(%rbp), %rcx
-  movq $15, %rdx
+  movq -7400(%rbp), %rcx
+  movq $12, %rdx
   movq -6584(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -7352(%rbp), %rcx
-  movq $16, %rdx
+  movq -7400(%rbp), %rcx
+  movq $13, %rdx
   movq -6600(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -7352(%rbp), %rcx
-  movq $17, %rdx
+  movq -7400(%rbp), %rcx
+  movq $14, %rdx
   movq -6616(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -7352(%rbp), %rcx
-  movq $18, %rdx
+  movq -7400(%rbp), %rcx
+  movq $15, %rdx
   movq -6632(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -7352(%rbp), %rcx
-  movq $19, %rdx
+  movq -7400(%rbp), %rcx
+  movq $16, %rdx
   movq -6648(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -7352(%rbp), %rcx
-  movq $20, %rdx
+  movq -7400(%rbp), %rcx
+  movq $17, %rdx
   movq -6664(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -7352(%rbp), %rcx
-  movq $21, %rdx
+  movq -7400(%rbp), %rcx
+  movq $18, %rdx
   movq -6680(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -7352(%rbp), %rcx
-  movq $22, %rdx
+  movq -7400(%rbp), %rcx
+  movq $19, %rdx
   movq -6696(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -7352(%rbp), %rcx
-  movq $23, %rdx
+  movq -7400(%rbp), %rcx
+  movq $20, %rdx
   movq -6712(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -7352(%rbp), %rcx
-  movq $24, %rdx
+  movq -7400(%rbp), %rcx
+  movq $21, %rdx
   movq -6728(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -7352(%rbp), %rcx
-  movq $25, %rdx
+  movq -7400(%rbp), %rcx
+  movq $22, %rdx
   movq -6744(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -7352(%rbp), %rcx
-  movq $26, %rdx
+  movq -7400(%rbp), %rcx
+  movq $23, %rdx
   movq -6760(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -7352(%rbp), %rcx
-  movq $27, %rdx
+  movq -7400(%rbp), %rcx
+  movq $24, %rdx
   movq -6776(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -7352(%rbp), %rcx
-  movq $28, %rdx
+  movq -7400(%rbp), %rcx
+  movq $25, %rdx
   movq -6792(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -7352(%rbp), %rcx
-  movq $29, %rdx
+  movq -7400(%rbp), %rcx
+  movq $26, %rdx
   movq -6808(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -7352(%rbp), %rcx
-  movq $30, %rdx
+  movq -7400(%rbp), %rcx
+  movq $27, %rdx
   movq -6824(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -7352(%rbp), %rcx
-  movq $31, %rdx
+  movq -7400(%rbp), %rcx
+  movq $28, %rdx
   movq -6840(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -7352(%rbp), %rcx
-  movq $32, %rdx
+  movq -7400(%rbp), %rcx
+  movq $29, %rdx
   movq -6856(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -7352(%rbp), %rcx
-  movq $33, %rdx
+  movq -7400(%rbp), %rcx
+  movq $30, %rdx
   movq -6872(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -7352(%rbp), %rcx
-  movq $34, %rdx
+  movq -7400(%rbp), %rcx
+  movq $31, %rdx
   movq -6888(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -7352(%rbp), %rcx
-  movq $35, %rdx
+  movq -7400(%rbp), %rcx
+  movq $32, %rdx
   movq -6904(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -7352(%rbp), %rcx
-  movq $36, %rdx
+  movq -7400(%rbp), %rcx
+  movq $33, %rdx
   movq -6920(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -7352(%rbp), %rcx
-  movq $37, %rdx
+  movq -7400(%rbp), %rcx
+  movq $34, %rdx
   movq -6936(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -7352(%rbp), %rcx
-  movq $38, %rdx
+  movq -7400(%rbp), %rcx
+  movq $35, %rdx
   movq -6952(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -7352(%rbp), %rcx
-  movq $39, %rdx
+  movq -7400(%rbp), %rcx
+  movq $36, %rdx
   movq -6968(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -7352(%rbp), %rcx
-  movq $40, %rdx
+  movq -7400(%rbp), %rcx
+  movq $37, %rdx
   movq -6984(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -7352(%rbp), %rcx
-  movq $41, %rdx
+  movq -7400(%rbp), %rcx
+  movq $38, %rdx
   movq -7000(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -7352(%rbp), %rcx
-  movq $42, %rdx
+  movq -7400(%rbp), %rcx
+  movq $39, %rdx
   movq -7016(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -7352(%rbp), %rcx
-  movq $43, %rdx
+  movq -7400(%rbp), %rcx
+  movq $40, %rdx
   movq -7032(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -7352(%rbp), %rcx
-  movq $44, %rdx
+  movq -7400(%rbp), %rcx
+  movq $41, %rdx
   movq -7048(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -7352(%rbp), %rcx
-  movq $45, %rdx
+  movq -7400(%rbp), %rcx
+  movq $42, %rdx
   movq -7064(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -7352(%rbp), %rcx
-  movq $46, %rdx
+  movq -7400(%rbp), %rcx
+  movq $43, %rdx
   movq -7080(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -7352(%rbp), %rcx
-  movq $47, %rdx
+  movq -7400(%rbp), %rcx
+  movq $44, %rdx
   movq -7096(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -7352(%rbp), %rcx
-  movq $48, %rdx
+  movq -7400(%rbp), %rcx
+  movq $45, %rdx
   movq -7112(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -7352(%rbp), %rcx
-  movq $49, %rdx
+  movq -7400(%rbp), %rcx
+  movq $46, %rdx
   movq -7128(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -7352(%rbp), %rcx
-  movq $50, %rdx
+  movq -7400(%rbp), %rcx
+  movq $47, %rdx
   movq -7144(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -7352(%rbp), %rcx
-  movq $51, %rdx
+  movq -7400(%rbp), %rcx
+  movq $48, %rdx
   movq -7160(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -7352(%rbp), %rcx
-  movq $52, %rdx
+  movq -7400(%rbp), %rcx
+  movq $49, %rdx
   movq -7176(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -7352(%rbp), %rcx
-  movq $53, %rdx
+  movq -7400(%rbp), %rcx
+  movq $50, %rdx
   movq -7192(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -7352(%rbp), %rcx
-  movq $54, %rdx
+  movq -7400(%rbp), %rcx
+  movq $51, %rdx
   movq -7208(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -7352(%rbp), %rcx
-  movq $55, %rdx
+  movq -7400(%rbp), %rcx
+  movq $52, %rdx
   movq -7224(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -7352(%rbp), %rcx
-  movq $56, %rdx
+  movq -7400(%rbp), %rcx
+  movq $53, %rdx
   movq -7240(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -7352(%rbp), %rcx
-  movq $57, %rdx
+  movq -7400(%rbp), %rcx
+  movq $54, %rdx
   movq -7256(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -7352(%rbp), %rcx
-  movq $58, %rdx
+  movq -7400(%rbp), %rcx
+  movq $55, %rdx
   movq -7272(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -7352(%rbp), %rcx
-  movq $59, %rdx
+  movq -7400(%rbp), %rcx
+  movq $56, %rdx
   movq -7288(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -7352(%rbp), %rcx
-  movq $60, %rdx
+  movq -7400(%rbp), %rcx
+  movq $57, %rdx
   movq -7304(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -7352(%rbp), %rcx
-  movq $61, %rdx
+  movq -7400(%rbp), %rcx
+  movq $58, %rdx
   movq -7320(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -7352(%rbp), %rcx
-  movq $62, %rdx
+  movq -7400(%rbp), %rcx
+  movq $59, %rdx
   movq -7336(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -7352(%rbp), %r11
-  movq %r11, -9064(%rbp)
-  movq -7352(%rbp), %rcx
+  movq -7400(%rbp), %rcx
+  movq $60, %rdx
+  movq -7352(%rbp), %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -7400(%rbp), %rcx
+  movq $61, %rdx
+  movq -7368(%rbp), %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -7400(%rbp), %rcx
+  movq $62, %rdx
+  movq -7384(%rbp), %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -7400(%rbp), %r11
+  movq %r11, -9112(%rbp)
+  movq -7400(%rbp), %rcx
   subq $32, %rsp
   call अक्षर_सूची_से_पाठ
   addq $32, %rsp
-  movq %rax, -7368(%rbp)
-  movq -7368(%rbp), %r11
-  movq %r11, -9072(%rbp)
-  movq $0, -9064(%rbp)
+  movq %rax, -7416(%rbp)
+  movq -7416(%rbp), %r11
+  movq %r11, -9120(%rbp)
+  movq $0, -9112(%rbp)
   movq $45, %rsi
   movq $108, %rdi
   movq $107, %r12
@@ -170278,192 +171105,192 @@ sutra_main:
   movq $114, %r14
   movq $110, %r15
   movq $101, %rbx
-  movq $108, -7384(%rbp)
-  movq $51, -7400(%rbp)
-  movq $50, -7416(%rbp)
-  movq $32, -7432(%rbp)
-  movq $45, -7448(%rbp)
-  movq $108, -7464(%rbp)
-  movq $115, -7480(%rbp)
-  movq $104, -7496(%rbp)
-  movq $101, -7512(%rbp)
-  movq $108, -7528(%rbp)
-  movq $108, -7544(%rbp)
-  movq $51, -7560(%rbp)
-  movq $50, -7576(%rbp)
-  movq $32, -7592(%rbp)
-  movq $45, -7608(%rbp)
-  movq $111, -7624(%rbp)
+  movq $108, -7432(%rbp)
+  movq $51, -7448(%rbp)
+  movq $50, -7464(%rbp)
+  movq $32, -7480(%rbp)
+  movq $45, -7496(%rbp)
+  movq $108, -7512(%rbp)
+  movq $115, -7528(%rbp)
+  movq $104, -7544(%rbp)
+  movq $101, -7560(%rbp)
+  movq $108, -7576(%rbp)
+  movq $108, -7592(%rbp)
+  movq $51, -7608(%rbp)
+  movq $50, -7624(%rbp)
   movq $32, -7640(%rbp)
+  movq $45, -7656(%rbp)
+  movq $111, -7672(%rbp)
+  movq $32, -7688(%rbp)
   movq $24, %rcx
   subq $32, %rsp
   call सूची_रचना
   addq $32, %rsp
-  movq %rax, -7656(%rbp)
-  movq -7656(%rbp), %r11
-  movq %r11, -9080(%rbp)
-  movq -7656(%rbp), %rcx
+  movq %rax, -7704(%rbp)
+  movq -7704(%rbp), %r11
+  movq %r11, -9128(%rbp)
+  movq -7704(%rbp), %rcx
   movq $0, %rdx
   movq %rsi, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -7656(%rbp), %rcx
+  movq -7704(%rbp), %rcx
   movq $1, %rdx
   movq %rdi, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -7656(%rbp), %rcx
+  movq -7704(%rbp), %rcx
   movq $2, %rdx
   movq %r12, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -7656(%rbp), %rcx
+  movq -7704(%rbp), %rcx
   movq $3, %rdx
   movq %r13, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -7656(%rbp), %rcx
+  movq -7704(%rbp), %rcx
   movq $4, %rdx
   movq %r14, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -7656(%rbp), %rcx
+  movq -7704(%rbp), %rcx
   movq $5, %rdx
   movq %r15, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -7656(%rbp), %rcx
+  movq -7704(%rbp), %rcx
   movq $6, %rdx
   movq %rbx, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -7656(%rbp), %rcx
+  movq -7704(%rbp), %rcx
   movq $7, %rdx
-  movq -7384(%rbp), %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -7656(%rbp), %rcx
-  movq $8, %rdx
-  movq -7400(%rbp), %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -7656(%rbp), %rcx
-  movq $9, %rdx
-  movq -7416(%rbp), %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -7656(%rbp), %rcx
-  movq $10, %rdx
   movq -7432(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -7656(%rbp), %rcx
-  movq $11, %rdx
+  movq -7704(%rbp), %rcx
+  movq $8, %rdx
   movq -7448(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -7656(%rbp), %rcx
-  movq $12, %rdx
+  movq -7704(%rbp), %rcx
+  movq $9, %rdx
   movq -7464(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -7656(%rbp), %rcx
-  movq $13, %rdx
+  movq -7704(%rbp), %rcx
+  movq $10, %rdx
   movq -7480(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -7656(%rbp), %rcx
-  movq $14, %rdx
+  movq -7704(%rbp), %rcx
+  movq $11, %rdx
   movq -7496(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -7656(%rbp), %rcx
-  movq $15, %rdx
+  movq -7704(%rbp), %rcx
+  movq $12, %rdx
   movq -7512(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -7656(%rbp), %rcx
-  movq $16, %rdx
+  movq -7704(%rbp), %rcx
+  movq $13, %rdx
   movq -7528(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -7656(%rbp), %rcx
-  movq $17, %rdx
+  movq -7704(%rbp), %rcx
+  movq $14, %rdx
   movq -7544(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -7656(%rbp), %rcx
-  movq $18, %rdx
+  movq -7704(%rbp), %rcx
+  movq $15, %rdx
   movq -7560(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -7656(%rbp), %rcx
-  movq $19, %rdx
+  movq -7704(%rbp), %rcx
+  movq $16, %rdx
   movq -7576(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -7656(%rbp), %rcx
-  movq $20, %rdx
+  movq -7704(%rbp), %rcx
+  movq $17, %rdx
   movq -7592(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -7656(%rbp), %rcx
-  movq $21, %rdx
+  movq -7704(%rbp), %rcx
+  movq $18, %rdx
   movq -7608(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -7656(%rbp), %rcx
-  movq $22, %rdx
+  movq -7704(%rbp), %rcx
+  movq $19, %rdx
   movq -7624(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -7656(%rbp), %rcx
-  movq $23, %rdx
+  movq -7704(%rbp), %rcx
+  movq $20, %rdx
   movq -7640(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -7656(%rbp), %r11
-  movq %r11, -9080(%rbp)
-  movq -7656(%rbp), %rcx
+  movq -7704(%rbp), %rcx
+  movq $21, %rdx
+  movq -7656(%rbp), %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -7704(%rbp), %rcx
+  movq $22, %rdx
+  movq -7672(%rbp), %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -7704(%rbp), %rcx
+  movq $23, %rdx
+  movq -7688(%rbp), %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -7704(%rbp), %r11
+  movq %r11, -9128(%rbp)
+  movq -7704(%rbp), %rcx
   subq $32, %rsp
   call अक्षर_सूची_से_पाठ
   addq $32, %rsp
   movq %rax, %rbx
-  movq %rbx, -9088(%rbp)
-  movq $0, -9080(%rbp)
-  movq -7368(%rbp), %rcx
-  movq -360(%rbp), %rdx
+  movq %rbx, -9136(%rbp)
+  movq $0, -9128(%rbp)
+  movq -7416(%rbp), %rcx
+  movq -408(%rbp), %rdx
   subq $32, %rsp
   call पाठ_योग_गतिक
   addq $32, %rsp
   movq %rax, %rsi
-  movq %rsi, -9096(%rbp)
-  movq $0, -8472(%rbp)
-  movq $0, -9072(%rbp)
+  movq %rsi, -9144(%rbp)
+  movq $0, -8520(%rbp)
+  movq $0, -9120(%rbp)
   movq .LC_strtab+2384(%rip), %r10
   movq %r10, %rdi
   movq %rsi, %rcx
@@ -170472,53 +171299,53 @@ sutra_main:
   call पाठ_योग_गतिक
   addq $32, %rsp
   movq %rax, %r12
-  movq %r12, -9104(%rbp)
-  movq $0, -9096(%rbp)
+  movq %r12, -9152(%rbp)
+  movq $0, -9144(%rbp)
   movq %r12, %rcx
-  movq -6440(%rbp), %rdx
+  movq -6488(%rbp), %rdx
   subq $32, %rsp
   call पाठ_जोड़
   addq $32, %rsp
   movq %rax, %rsi
-  movq %rsi, -9112(%rbp)
-  movq $0, -9104(%rbp)
-  movq $0, -9328(%rbp)
+  movq %rsi, -9160(%rbp)
+  movq $0, -9152(%rbp)
+  movq $0, -9384(%rbp)
   movq %rsi, %rcx
-  movq -6296(%rbp), %rdx
+  movq -6344(%rbp), %rdx
   subq $32, %rsp
   call पाठ_जोड़
   addq $32, %rsp
   movq %rax, %rdi
-  movq %rdi, -9120(%rbp)
-  movq $0, -9112(%rbp)
-  movq $0, -9320(%rbp)
+  movq %rdi, -9168(%rbp)
+  movq $0, -9160(%rbp)
+  movq $0, -9376(%rbp)
   movq %rdi, %rcx
-  movq -6184(%rbp), %rdx
+  movq -6232(%rbp), %rdx
   subq $32, %rsp
   call पाठ_जोड़
   addq $32, %rsp
   movq %rax, %rsi
-  movq %rsi, -9128(%rbp)
-  movq $0, -9120(%rbp)
-  movq $0, -9312(%rbp)
+  movq %rsi, -9176(%rbp)
+  movq $0, -9168(%rbp)
+  movq $0, -9368(%rbp)
   movq %rsi, %rcx
   movq %rbx, %rdx
   subq $32, %rsp
   call पाठ_योग_गतिक
   addq $32, %rsp
   movq %rax, %rdi
-  movq %rdi, -9136(%rbp)
-  movq $0, -9088(%rbp)
-  movq $0, -9128(%rbp)
+  movq %rdi, -9184(%rbp)
+  movq $0, -9136(%rbp)
+  movq $0, -9176(%rbp)
   movq %rdi, %rcx
-  movq -6040(%rbp), %rdx
+  movq -6088(%rbp), %rdx
   subq $32, %rsp
   call पाठ_योग_गतिक
   addq $32, %rsp
-  movq %rax, -7672(%rbp)
-  movq -7672(%rbp), %r11
-  movq %r11, -9144(%rbp)
-  movq $0, -9136(%rbp)
+  movq %rax, -7720(%rbp)
+  movq -7720(%rbp), %r11
+  movq %r11, -9192(%rbp)
+  movq $0, -9184(%rbp)
   movq $100, %rsi
   movq $101, %rdi
   movq $108, %r12
@@ -170526,266 +171353,266 @@ sutra_main:
   movq $47, %r14
   movq $113, %r15
   movq $32, %rbx
-  movq $115, -7688(%rbp)
-  movq $117, -7704(%rbp)
-  movq $116, -7720(%rbp)
-  movq $114, -7736(%rbp)
-  movq $97, -7752(%rbp)
-  movq $95, -7768(%rbp)
-  movq $110, -7784(%rbp)
+  movq $115, -7736(%rbp)
+  movq $117, -7752(%rbp)
+  movq $116, -7768(%rbp)
+  movq $114, -7784(%rbp)
   movq $97, -7800(%rbp)
-  movq $116, -7816(%rbp)
-  movq $105, -7832(%rbp)
-  movq $118, -7848(%rbp)
-  movq $101, -7864(%rbp)
-  movq $95, -7880(%rbp)
-  movq $116, -7896(%rbp)
+  movq $95, -7816(%rbp)
+  movq $110, -7832(%rbp)
+  movq $97, -7848(%rbp)
+  movq $116, -7864(%rbp)
+  movq $105, -7880(%rbp)
+  movq $118, -7896(%rbp)
   movq $101, -7912(%rbp)
-  movq $109, -7928(%rbp)
-  movq $112, -7944(%rbp)
-  movq $46, -7960(%rbp)
-  movq $101, -7976(%rbp)
-  movq $120, -7992(%rbp)
-  movq $101, -8008(%rbp)
-  movq $32, -8024(%rbp)
-  movq $50, -8040(%rbp)
-  movq $62, -8056(%rbp)
-  movq $110, -8072(%rbp)
-  movq $117, -8088(%rbp)
-  movq $108, -8104(%rbp)
+  movq $95, -7928(%rbp)
+  movq $116, -7944(%rbp)
+  movq $101, -7960(%rbp)
+  movq $109, -7976(%rbp)
+  movq $112, -7992(%rbp)
+  movq $46, -8008(%rbp)
+  movq $101, -8024(%rbp)
+  movq $120, -8040(%rbp)
+  movq $101, -8056(%rbp)
+  movq $32, -8072(%rbp)
+  movq $50, -8088(%rbp)
+  movq $62, -8104(%rbp)
+  movq $110, -8120(%rbp)
+  movq $117, -8136(%rbp)
+  movq $108, -8152(%rbp)
   movq $34, %rcx
   subq $32, %rsp
   call सूची_रचना
   addq $32, %rsp
-  movq %rax, -8120(%rbp)
-  movq -8120(%rbp), %r11
-  movq %r11, -9152(%rbp)
-  movq -8120(%rbp), %rcx
+  movq %rax, -8168(%rbp)
+  movq -8168(%rbp), %r11
+  movq %r11, -9200(%rbp)
+  movq -8168(%rbp), %rcx
   movq $0, %rdx
   movq %rsi, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -8120(%rbp), %rcx
+  movq -8168(%rbp), %rcx
   movq $1, %rdx
   movq %rdi, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -8120(%rbp), %rcx
+  movq -8168(%rbp), %rcx
   movq $2, %rdx
   movq %r12, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -8120(%rbp), %rcx
+  movq -8168(%rbp), %rcx
   movq $3, %rdx
   movq %r13, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -8120(%rbp), %rcx
+  movq -8168(%rbp), %rcx
   movq $4, %rdx
   movq %r14, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -8120(%rbp), %rcx
+  movq -8168(%rbp), %rcx
   movq $5, %rdx
   movq %r15, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -8120(%rbp), %rcx
+  movq -8168(%rbp), %rcx
   movq $6, %rdx
   movq %rbx, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -8120(%rbp), %rcx
+  movq -8168(%rbp), %rcx
   movq $7, %rdx
-  movq -7688(%rbp), %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -8120(%rbp), %rcx
-  movq $8, %rdx
-  movq -7704(%rbp), %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -8120(%rbp), %rcx
-  movq $9, %rdx
-  movq -7720(%rbp), %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -8120(%rbp), %rcx
-  movq $10, %rdx
   movq -7736(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -8120(%rbp), %rcx
-  movq $11, %rdx
+  movq -8168(%rbp), %rcx
+  movq $8, %rdx
   movq -7752(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -8120(%rbp), %rcx
-  movq $12, %rdx
+  movq -8168(%rbp), %rcx
+  movq $9, %rdx
   movq -7768(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -8120(%rbp), %rcx
-  movq $13, %rdx
+  movq -8168(%rbp), %rcx
+  movq $10, %rdx
   movq -7784(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -8120(%rbp), %rcx
-  movq $14, %rdx
+  movq -8168(%rbp), %rcx
+  movq $11, %rdx
   movq -7800(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -8120(%rbp), %rcx
-  movq $15, %rdx
+  movq -8168(%rbp), %rcx
+  movq $12, %rdx
   movq -7816(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -8120(%rbp), %rcx
-  movq $16, %rdx
+  movq -8168(%rbp), %rcx
+  movq $13, %rdx
   movq -7832(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -8120(%rbp), %rcx
-  movq $17, %rdx
+  movq -8168(%rbp), %rcx
+  movq $14, %rdx
   movq -7848(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -8120(%rbp), %rcx
-  movq $18, %rdx
+  movq -8168(%rbp), %rcx
+  movq $15, %rdx
   movq -7864(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -8120(%rbp), %rcx
-  movq $19, %rdx
+  movq -8168(%rbp), %rcx
+  movq $16, %rdx
   movq -7880(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -8120(%rbp), %rcx
-  movq $20, %rdx
+  movq -8168(%rbp), %rcx
+  movq $17, %rdx
   movq -7896(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -8120(%rbp), %rcx
-  movq $21, %rdx
+  movq -8168(%rbp), %rcx
+  movq $18, %rdx
   movq -7912(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -8120(%rbp), %rcx
-  movq $22, %rdx
+  movq -8168(%rbp), %rcx
+  movq $19, %rdx
   movq -7928(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -8120(%rbp), %rcx
-  movq $23, %rdx
+  movq -8168(%rbp), %rcx
+  movq $20, %rdx
   movq -7944(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -8120(%rbp), %rcx
-  movq $24, %rdx
+  movq -8168(%rbp), %rcx
+  movq $21, %rdx
   movq -7960(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -8120(%rbp), %rcx
-  movq $25, %rdx
+  movq -8168(%rbp), %rcx
+  movq $22, %rdx
   movq -7976(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -8120(%rbp), %rcx
-  movq $26, %rdx
+  movq -8168(%rbp), %rcx
+  movq $23, %rdx
   movq -7992(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -8120(%rbp), %rcx
-  movq $27, %rdx
+  movq -8168(%rbp), %rcx
+  movq $24, %rdx
   movq -8008(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -8120(%rbp), %rcx
-  movq $28, %rdx
+  movq -8168(%rbp), %rcx
+  movq $25, %rdx
   movq -8024(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -8120(%rbp), %rcx
-  movq $29, %rdx
+  movq -8168(%rbp), %rcx
+  movq $26, %rdx
   movq -8040(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -8120(%rbp), %rcx
-  movq $30, %rdx
+  movq -8168(%rbp), %rcx
+  movq $27, %rdx
   movq -8056(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -8120(%rbp), %rcx
-  movq $31, %rdx
+  movq -8168(%rbp), %rcx
+  movq $28, %rdx
   movq -8072(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -8120(%rbp), %rcx
-  movq $32, %rdx
+  movq -8168(%rbp), %rcx
+  movq $29, %rdx
   movq -8088(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -8120(%rbp), %rcx
-  movq $33, %rdx
+  movq -8168(%rbp), %rcx
+  movq $30, %rdx
   movq -8104(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -8120(%rbp), %r11
-  movq %r11, -9152(%rbp)
-  movq -8120(%rbp), %rcx
+  movq -8168(%rbp), %rcx
+  movq $31, %rdx
+  movq -8120(%rbp), %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -8168(%rbp), %rcx
+  movq $32, %rdx
+  movq -8136(%rbp), %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -8168(%rbp), %rcx
+  movq $33, %rdx
+  movq -8152(%rbp), %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -8168(%rbp), %r11
+  movq %r11, -9200(%rbp)
+  movq -8168(%rbp), %rcx
   subq $32, %rsp
   call अक्षर_सूची_से_पाठ
   addq $32, %rsp
   movq %rax, %rbx
-  movq %rbx, -9160(%rbp)
-  movq $0, -9152(%rbp)
+  movq %rbx, -9208(%rbp)
+  movq $0, -9200(%rbp)
   movq %rbx, %rcx
   subq $32, %rsp
   call समादेश_चलाओ_रन
   addq $32, %rsp
   movq %rax, %rsi
-  movq $0, -9160(%rbp)
-  movq -7672(%rbp), %rcx
+  movq $0, -9208(%rbp)
+  movq -7720(%rbp), %rcx
   subq $32, %rsp
   call समादेश_चलाओ_रन
   addq $32, %rsp
   movq %rax, %rbx
-  movq %rbx, -9168(%rbp)
-  movq $0, -9144(%rbp)
+  movq %rbx, -9216(%rbp)
+  movq $0, -9192(%rbp)
   movq $0, %rsi
   movq %rbx, %rcx
   movq %rsi, %rdx
@@ -170798,13 +171625,13 @@ sutra_main:
   sete %al
   movzbq %al, %r10
   movq %r10, %rdi
-  movq $0, -9168(%rbp)
+  movq $0, -9216(%rbp)
   movq %rdi, %r10
   cmpq $0, %r10
-  je .L_sutra_main__if_अंत_67
-  jmp .L_sutra_main__if_सत्य_66
-.L_sutra_main__if_अंत_67:
-  movq -6040(%rbp), %rcx
+  je .L_sutra_main__if_अंत_83
+  jmp .L_sutra_main__if_सत्य_82
+.L_sutra_main__if_अंत_83:
+  movq -6088(%rbp), %rcx
   subq $32, %rsp
   call सञ्चिका_है_रन
   addq $32, %rsp
@@ -170816,10 +171643,10 @@ sutra_main:
   movq %r10, %rsi
   movq %rsi, %r10
   cmpq $0, %r10
-  je .L_sutra_main__if_अंत_69
-  jmp .L_sutra_main__if_सत्य_68
-.L_sutra_main__if_अंत_69:
-  movq .LC_strtab+9104(%rip), %r10
+  je .L_sutra_main__if_अंत_85
+  jmp .L_sutra_main__if_सत्य_84
+.L_sutra_main__if_अंत_85:
+  movq .LC_strtab+9320(%rip), %r10
   movq %r10, %rbx
   movq %rbx, %rcx
   subq $32, %rsp
@@ -170832,101 +171659,101 @@ sutra_main:
   movq $105, %r13
   movq $118, %r14
   movq $101, %r15
-  movq $46, -8136(%rbp)
-  movq $101, -8152(%rbp)
-  movq $120, -8168(%rbp)
-  movq $101, -8184(%rbp)
+  movq $46, -8184(%rbp)
+  movq $101, -8200(%rbp)
+  movq $120, -8216(%rbp)
+  movq $101, -8232(%rbp)
   movq $11, %rcx
   subq $32, %rsp
   call सूची_रचना
   addq $32, %rsp
-  movq %rax, -8200(%rbp)
-  movq -8200(%rbp), %r11
-  movq %r11, -9176(%rbp)
-  movq -8200(%rbp), %rcx
+  movq %rax, -8248(%rbp)
+  movq -8248(%rbp), %r11
+  movq %r11, -9224(%rbp)
+  movq -8248(%rbp), %rcx
   movq $0, %rdx
   movq %rbx, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -8200(%rbp), %rcx
+  movq -8248(%rbp), %rcx
   movq $1, %rdx
   movq %rsi, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -8200(%rbp), %rcx
+  movq -8248(%rbp), %rcx
   movq $2, %rdx
   movq %rdi, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -8200(%rbp), %rcx
+  movq -8248(%rbp), %rcx
   movq $3, %rdx
   movq %r12, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -8200(%rbp), %rcx
+  movq -8248(%rbp), %rcx
   movq $4, %rdx
   movq %r13, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -8200(%rbp), %rcx
+  movq -8248(%rbp), %rcx
   movq $5, %rdx
   movq %r14, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -8200(%rbp), %rcx
+  movq -8248(%rbp), %rcx
   movq $6, %rdx
   movq %r15, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -8200(%rbp), %rcx
+  movq -8248(%rbp), %rcx
   movq $7, %rdx
-  movq -8136(%rbp), %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -8200(%rbp), %rcx
-  movq $8, %rdx
-  movq -8152(%rbp), %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -8200(%rbp), %rcx
-  movq $9, %rdx
-  movq -8168(%rbp), %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -8200(%rbp), %rcx
-  movq $10, %rdx
   movq -8184(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -8200(%rbp), %r11
-  movq %r11, -9176(%rbp)
-  movq -8200(%rbp), %rcx
+  movq -8248(%rbp), %rcx
+  movq $8, %rdx
+  movq -8200(%rbp), %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -8248(%rbp), %rcx
+  movq $9, %rdx
+  movq -8216(%rbp), %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -8248(%rbp), %rcx
+  movq $10, %rdx
+  movq -8232(%rbp), %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -8248(%rbp), %r11
+  movq %r11, -9224(%rbp)
+  movq -8248(%rbp), %rcx
   subq $32, %rsp
   call अक्षर_सूची_से_पाठ
   addq $32, %rsp
   movq %rax, %rbx
-  movq %rbx, -9184(%rbp)
-  movq $0, -9176(%rbp)
-  movq -104(%rbp), %rcx
+  movq %rbx, -9232(%rbp)
+  movq $0, -9224(%rbp)
+  movq -136(%rbp), %rcx
   movq %rbx, %rdx
   subq $32, %rsp
   call पाठ_योग_गतिक
   addq $32, %rsp
-  movq %rax, -8216(%rbp)
-  movq -8216(%rbp), %r11
-  movq %r11, -9192(%rbp)
-  movq $0, -9184(%rbp)
+  movq %rax, -8264(%rbp)
+  movq -8264(%rbp), %r11
+  movq %r11, -9240(%rbp)
+  movq $0, -9232(%rbp)
   movq $99, %rbx
   movq $109, %rdi
   movq $100, %r12
@@ -170934,129 +171761,129 @@ sutra_main:
   movq $47, %r14
   movq $99, %r15
   movq $32, %rsi
-  movq $99, -8232(%rbp)
-  movq $111, -8248(%rbp)
-  movq $112, -8264(%rbp)
-  movq $121, -8280(%rbp)
-  movq $32, -8296(%rbp)
-  movq $47, -8312(%rbp)
+  movq $99, -8280(%rbp)
+  movq $111, -8296(%rbp)
+  movq $112, -8312(%rbp)
   movq $121, -8328(%rbp)
   movq $32, -8344(%rbp)
+  movq $47, -8360(%rbp)
+  movq $121, -8376(%rbp)
+  movq $32, -8392(%rbp)
   movq $15, %rcx
   subq $32, %rsp
   call सूची_रचना
   addq $32, %rsp
-  movq %rax, -8360(%rbp)
-  movq -8360(%rbp), %r11
-  movq %r11, -9200(%rbp)
-  movq -8360(%rbp), %rcx
+  movq %rax, -8408(%rbp)
+  movq -8408(%rbp), %r11
+  movq %r11, -9248(%rbp)
+  movq -8408(%rbp), %rcx
   movq $0, %rdx
   movq %rbx, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -8360(%rbp), %rcx
+  movq -8408(%rbp), %rcx
   movq $1, %rdx
   movq %rdi, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -8360(%rbp), %rcx
+  movq -8408(%rbp), %rcx
   movq $2, %rdx
   movq %r12, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -8360(%rbp), %rcx
+  movq -8408(%rbp), %rcx
   movq $3, %rdx
   movq %r13, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -8360(%rbp), %rcx
+  movq -8408(%rbp), %rcx
   movq $4, %rdx
   movq %r14, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -8360(%rbp), %rcx
+  movq -8408(%rbp), %rcx
   movq $5, %rdx
   movq %r15, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -8360(%rbp), %rcx
+  movq -8408(%rbp), %rcx
   movq $6, %rdx
   movq %rsi, %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -8360(%rbp), %rcx
+  movq -8408(%rbp), %rcx
   movq $7, %rdx
-  movq -8232(%rbp), %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -8360(%rbp), %rcx
-  movq $8, %rdx
-  movq -8248(%rbp), %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -8360(%rbp), %rcx
-  movq $9, %rdx
-  movq -8264(%rbp), %r8
-  subq $32, %rsp
-  call सूची_सूचकांक_सेट
-  addq $32, %rsp
-  movq -8360(%rbp), %rcx
-  movq $10, %rdx
   movq -8280(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -8360(%rbp), %rcx
-  movq $11, %rdx
+  movq -8408(%rbp), %rcx
+  movq $8, %rdx
   movq -8296(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -8360(%rbp), %rcx
-  movq $12, %rdx
+  movq -8408(%rbp), %rcx
+  movq $9, %rdx
   movq -8312(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -8360(%rbp), %rcx
-  movq $13, %rdx
+  movq -8408(%rbp), %rcx
+  movq $10, %rdx
   movq -8328(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -8360(%rbp), %rcx
-  movq $14, %rdx
+  movq -8408(%rbp), %rcx
+  movq $11, %rdx
   movq -8344(%rbp), %r8
   subq $32, %rsp
   call सूची_सूचकांक_सेट
   addq $32, %rsp
-  movq -8360(%rbp), %r11
-  movq %r11, -9200(%rbp)
-  movq -8360(%rbp), %rcx
+  movq -8408(%rbp), %rcx
+  movq $12, %rdx
+  movq -8360(%rbp), %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -8408(%rbp), %rcx
+  movq $13, %rdx
+  movq -8376(%rbp), %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -8408(%rbp), %rcx
+  movq $14, %rdx
+  movq -8392(%rbp), %r8
+  subq $32, %rsp
+  call सूची_सूचकांक_सेट
+  addq $32, %rsp
+  movq -8408(%rbp), %r11
+  movq %r11, -9248(%rbp)
+  movq -8408(%rbp), %rcx
   subq $32, %rsp
   call अक्षर_सूची_से_पाठ
   addq $32, %rsp
   movq %rax, %rbx
-  movq %rbx, -9208(%rbp)
-  movq $0, -9200(%rbp)
+  movq %rbx, -9256(%rbp)
+  movq $0, -9248(%rbp)
   movq %rbx, %rcx
-  movq -6040(%rbp), %rdx
+  movq -6088(%rbp), %rdx
   subq $32, %rsp
   call पाठ_योग_गतिक
   addq $32, %rsp
   movq %rax, %rsi
-  movq %rsi, -9216(%rbp)
-  movq $0, -9032(%rbp)
-  movq $0, -9208(%rbp)
+  movq %rsi, -9264(%rbp)
+  movq $0, -9080(%rbp)
+  movq $0, -9256(%rbp)
   movq .LC_strtab+2384(%rip), %r10
   movq %r10, %rbx
   movq %rsi, %rcx
@@ -171065,70 +171892,70 @@ sutra_main:
   call पाठ_योग_गतिक
   addq $32, %rsp
   movq %rax, %rdi
-  movq %rdi, -9224(%rbp)
-  movq $0, -9216(%rbp)
+  movq %rdi, -9272(%rbp)
+  movq $0, -9264(%rbp)
   movq $34, %rbx
   movq %rbx, %rcx
   subq $32, %rsp
   call अक्षर_बना
   addq $32, %rsp
   movq %rax, %rsi
-  movq %rsi, -9232(%rbp)
+  movq %rsi, -9280(%rbp)
   movq %rdi, %rcx
   movq %rsi, %rdx
   subq $32, %rsp
   call पाठ_योग_गतिक
   addq $32, %rsp
   movq %rax, %rbx
-  movq %rbx, -9240(%rbp)
-  movq $0, -9224(%rbp)
-  movq $0, -9232(%rbp)
+  movq %rbx, -9288(%rbp)
+  movq $0, -9272(%rbp)
+  movq $0, -9280(%rbp)
   movq %rbx, %rcx
-  movq -8216(%rbp), %rdx
+  movq -8264(%rbp), %rdx
   subq $32, %rsp
   call पाठ_जोड़
   addq $32, %rsp
   movq %rax, %rsi
-  movq %rsi, -9248(%rbp)
-  movq $0, -9240(%rbp)
+  movq %rsi, -9296(%rbp)
+  movq $0, -9288(%rbp)
   movq $34, %rbx
   movq %rbx, %rcx
   subq $32, %rsp
   call अक्षर_बना
   addq $32, %rsp
   movq %rax, %rdi
-  movq %rdi, -9256(%rbp)
+  movq %rdi, -9304(%rbp)
   movq %rsi, %rcx
   movq %rdi, %rdx
   subq $32, %rsp
   call पाठ_योग_गतिक
   addq $32, %rsp
   movq %rax, %rbx
-  movq %rbx, -9264(%rbp)
-  movq $0, -9248(%rbp)
-  movq $0, -9256(%rbp)
+  movq %rbx, -9312(%rbp)
+  movq $0, -9296(%rbp)
+  movq $0, -9304(%rbp)
   movq %rbx, %rcx
   subq $32, %rsp
   call समादेश_चलाओ_रन
   addq $32, %rsp
   movq %rax, %rsi
-  movq $0, -9264(%rbp)
-  movq .LC_strtab+9112(%rip), %r10
+  movq $0, -9312(%rbp)
+  movq .LC_strtab+9328(%rip), %r10
   movq %r10, %rbx
   movq %rbx, %rcx
-  movq -8216(%rbp), %rdx
+  movq -8264(%rbp), %rdx
   subq $32, %rsp
   call पाठ_जोड़
   addq $32, %rsp
   movq %rax, %rsi
-  movq %rsi, -9272(%rbp)
-  movq $0, -9192(%rbp)
+  movq %rsi, -9320(%rbp)
+  movq $0, -9240(%rbp)
   movq %rsi, %rcx
   subq $32, %rsp
   call गतिशील_छापो
   addq $32, %rsp
-  movq $0, -9272(%rbp)
-  movq .LC_strtab+9120(%rip), %r10
+  movq $0, -9320(%rbp)
+  movq .LC_strtab+9336(%rip), %r10
   movq %r10, %rbx
   movq %rbx, %rcx
   subq $32, %rsp
@@ -171136,74 +171963,67 @@ sutra_main:
   addq $32, %rsp
   movq $0, %rax
   jmp .L_epilogue_sutra_main
-.L_sutra_main__if_सत्य_68:
-  movq .LC_strtab+9096(%rip), %r10
+.L_sutra_main__if_सत्य_84:
+  movq .LC_strtab+9312(%rip), %r10
   movq %r10, %rbx
   movq %rbx, %rcx
   subq $32, %rsp
   call फेंको
   addq $32, %rsp
-.L_sutra_main__if_सत्य_66:
-  movq .LC_strtab+9088(%rip), %r10
+.L_sutra_main__if_सत्य_82:
+  movq .LC_strtab+9304(%rip), %r10
   movq %r10, %rbx
   movq %rbx, %rcx
   subq $32, %rsp
   call फेंको
   addq $32, %rsp
-.L_sutra_main__if_सत्य_58:
-  movq .LC_strtab+9048(%rip), %r10
+.L_sutra_main__if_सत्य_74:
+  movq .LC_strtab+9264(%rip), %r10
   movq %r10, %rbx
   movq %rbx, %rcx
   subq $32, %rsp
   call फेंको
   addq $32, %rsp
-.L_sutra_main__if_सत्य_49:
-  movq .LC_strtab+9024(%rip), %r10
+.L_sutra_main__if_सत्य_65:
+  movq .LC_strtab+9240(%rip), %r10
   movq %r10, %rbx
   movq %rbx, %rcx
   subq $32, %rsp
   call फेंको
   addq $32, %rsp
-.L_sutra_main__if_सत्य_38:
-  movq .LC_strtab+9000(%rip), %r10
+.L_sutra_main__if_सत्य_54:
+  movq .LC_strtab+9216(%rip), %r10
   movq %r10, %rbx
   movq %rbx, %rcx
   subq $32, %rsp
   call फेंको
   addq $32, %rsp
-.L_sutra_main__if_सत्य_27:
-  movq .LC_strtab+8944(%rip), %r10
+.L_sutra_main__if_सत्य_35:
+  movq .LC_strtab+9160(%rip), %r10
   movq %r10, %rbx
   movq %rbx, %rcx
   subq $32, %rsp
   call फेंको
   addq $32, %rsp
+.L_sutra_main__if_सत्य_24:
+  movq .LC_strtab+9040(%rip), %r10
+  movq %r10, %rbx
+  movq %rbx, %rcx
+  movq -136(%rbp), %rdx
+  subq $32, %rsp
+  call पाठ_जोड़
+  addq $32, %rsp
+  movq %rax, %rsi
+  movq %rsi, -8440(%rbp)
+  movq %rsi, %rcx
+  subq $32, %rsp
+  call गतिशील_छापो
+  addq $32, %rsp
+  movq $0, -8440(%rbp)
+  movq $0, %rax
+  jmp .L_epilogue_sutra_main
 .L_sutra_main__if_सत्य_22:
-  movq .LC_strtab+8936(%rip), %r10
-  movq %r10, %rbx
-  movq %rbx, %rcx
-  subq $32, %rsp
-  call फेंको
-  addq $32, %rsp
-.L_sutra_main__if_सत्य_11:
-  movq .LC_strtab+8816(%rip), %r10
-  movq %r10, %rbx
-  movq %rbx, %rcx
-  movq -104(%rbp), %rdx
-  subq $32, %rsp
-  call पाठ_जोड़
-  addq $32, %rsp
-  movq %rax, %rsi
-  movq %rsi, -8392(%rbp)
-  movq %rsi, %rcx
-  subq $32, %rsp
-  call गतिशील_छापो
-  addq $32, %rsp
-  movq $0, -8392(%rbp)
-  movq $0, %rax
-  jmp .L_epilogue_sutra_main
-.L_sutra_main__if_सत्य_9:
-  movq .LC_strtab+8808(%rip), %r10
+  movq .LC_strtab+9032(%rip), %r10
   movq %r10, %rbx
   movq %rbx, %rcx
   subq $32, %rsp
@@ -171218,8 +172038,8 @@ sutra_main:
   call सूची_सूचकांक
   addq $32, %rsp
   movq %rax, %rbx
-  movq %rbx, -8384(%rbp)
-  movq .LC_strtab+8800(%rip), %r10
+  movq %rbx, -8432(%rbp)
+  movq .LC_strtab+9000(%rip), %r10
   movq %r10, %rsi
   movq %rbx, %rcx
   movq %rsi, %rdx
@@ -171232,6 +172052,32 @@ sutra_main:
   je .L_sutra_main__if_असत्य_6
   jmp .L_sutra_main__if_सत्य_4
 .L_sutra_main__if_असत्य_6:
+  movq .LC_strtab+9008(%rip), %r10
+  movq %r10, %rsi
+  movq %rbx, %rcx
+  movq %rsi, %rdx
+  subq $32, %rsp
+  call पाठ_तुल्य
+  addq $32, %rsp
+  movq %rax, %rdi
+  movq %rdi, %r10
+  cmpq $0, %r10
+  je .L_sutra_main__if_असत्य_9
+  jmp .L_sutra_main__if_सत्य_7
+.L_sutra_main__if_असत्य_9:
+  movq .LC_strtab+9016(%rip), %r10
+  movq %r10, %rsi
+  movq %rbx, %rcx
+  movq %rsi, %rdx
+  subq $32, %rsp
+  call पाठ_तुल्य
+  addq $32, %rsp
+  movq %rax, %rdi
+  movq %rdi, %r10
+  cmpq $0, %r10
+  je .L_sutra_main__if_असत्य_12
+  jmp .L_sutra_main__if_सत्य_10
+.L_sutra_main__if_असत्य_12:
   movq %rbx, %rcx
   subq $32, %rsp
   call दैशिक_लंबाई
@@ -171245,32 +172091,91 @@ sutra_main:
   movq %r10, %r12
   movq %r12, %r10
   cmpq $0, %r10
-  je .L_किनारा_sutra_main_6
-  jmp .L_sutra_main__if_सत्य_7
-.L_किनारा_sutra_main_6:
+  je .L_किनारा_sutra_main_7
+  jmp .L_sutra_main__if_सत्य_15
+.L_किनारा_sutra_main_7:
+  movq -136(%rbp), %rbx
+  jmp .L_sutra_main__if_अंत_16
+.L_sutra_main__if_सत्य_15:
+  jmp .L_sutra_main__if_अंत_16
+.L_sutra_main__if_अंत_16:
+  movq -88(%rbp), %rdi
+  movq -104(%rbp), %rsi
+  jmp .L_sutra_main__if_अंत_11
+.L_sutra_main__if_सत्य_10:
+  movq $1, %rbx
+  movq -88(%rbp), %r10
+  addq %rbx, %r10
+  movq %r10, %rsi
+  movq -72(%rbp), %rcx
+  subq $32, %rsp
+  call दैशिक_लंबाई
+  addq $32, %rsp
+  movq %rax, %rbx
+  movq %rsi, %r10
+  cmpq %rbx, %r10
+  setl %al
+  movzbq %al, %r10
+  movq %r10, %rdi
+  movq %rdi, %r10
+  cmpq $0, %r10
+  je .L_किनारा_sutra_main_8
+  jmp .L_sutra_main__if_सत्य_13
+.L_किनारा_sutra_main_8:
   movq -104(%rbp), %rbx
+  jmp .L_sutra_main__if_अंत_14
+.L_sutra_main__if_सत्य_13:
+  movq -72(%rbp), %rcx
+  movq %rsi, %rdx
+  subq $32, %rsp
+  call सूची_सूचकांक
+  addq $32, %rsp
+  movq %rax, %rbx
+  jmp .L_sutra_main__if_अंत_14
+.L_sutra_main__if_अंत_14:
+  movq %rsi, %rdi
+  movq %rbx, %rsi
+  movq -136(%rbp), %rbx
+  jmp .L_sutra_main__if_अंत_11
+.L_sutra_main__if_अंत_11:
+  movq %rdi, %r12
+  movq %rsi, %rdi
+  movq -120(%rbp), %rsi
   jmp .L_sutra_main__if_अंत_8
 .L_sutra_main__if_सत्य_7:
+  movq $1, %rbx
+  movq -88(%rbp), %r12
+  movq -104(%rbp), %rdi
+  movq %rbx, %rsi
+  movq -136(%rbp), %rbx
   jmp .L_sutra_main__if_अंत_8
 .L_sutra_main__if_अंत_8:
-  movq -120(%rbp), %rsi
+  movq %r12, %r13
+  movq %rdi, %r12
+  movq %rsi, %rdi
+  movq -152(%rbp), %rsi
   jmp .L_sutra_main__if_अंत_5
 .L_sutra_main__if_सत्य_4:
   movq $1, %rbx
+  movq -88(%rbp), %r13
+  movq -104(%rbp), %r12
+  movq -120(%rbp), %rdi
   movq %rbx, %rsi
-  movq -104(%rbp), %rbx
+  movq -136(%rbp), %rbx
   jmp .L_sutra_main__if_अंत_5
 .L_sutra_main__if_अंत_5:
-  movq $1, %rdi
-  movq -88(%rbp), %r10
-  addq %rdi, %r10
-  movq %r10, %r12
-  movq %r12, -88(%rbp)
-  movq %rsi, -120(%rbp)
-  movq %rbx, -104(%rbp)
+  movq $1, %r14
+  movq %r13, %r10
+  addq %r14, %r10
+  movq %r10, %r15
+  movq %r15, -88(%rbp)
+  movq %r12, -104(%rbp)
+  movq %rdi, -120(%rbp)
+  movq %rsi, -152(%rbp)
+  movq %rbx, -136(%rbp)
   jmp .L_sutra_main__wh_शर्त_1
 .L_epilogue_sutra_main:
-  subl $120, gc_roots_count(%rip)
+  subl $121, gc_roots_count(%rip)
   movq -8(%rbp), %rbx
   movq -16(%rbp), %rsi
   movq -24(%rbp), %rdi
@@ -175853,10 +176758,118 @@ sutra_main:
   movq .LC_str_1140_len(%rip), %rdx
   call पाठ_रचना
   movq %rax, .LC_strtab+9120(%rip)
+  leaq .LC_str_1141(%rip), %rcx
+  movq .LC_str_1141_len(%rip), %rdx
+  call पाठ_रचना
+  movq %rax, .LC_strtab+9128(%rip)
+  leaq .LC_str_1142(%rip), %rcx
+  movq .LC_str_1142_len(%rip), %rdx
+  call पाठ_रचना
+  movq %rax, .LC_strtab+9136(%rip)
+  leaq .LC_str_1143(%rip), %rcx
+  movq .LC_str_1143_len(%rip), %rdx
+  call पाठ_रचना
+  movq %rax, .LC_strtab+9144(%rip)
+  leaq .LC_str_1144(%rip), %rcx
+  movq .LC_str_1144_len(%rip), %rdx
+  call पाठ_रचना
+  movq %rax, .LC_strtab+9152(%rip)
+  leaq .LC_str_1145(%rip), %rcx
+  movq .LC_str_1145_len(%rip), %rdx
+  call पाठ_रचना
+  movq %rax, .LC_strtab+9160(%rip)
+  leaq .LC_str_1146(%rip), %rcx
+  movq .LC_str_1146_len(%rip), %rdx
+  call पाठ_रचना
+  movq %rax, .LC_strtab+9168(%rip)
+  leaq .LC_str_1147(%rip), %rcx
+  movq .LC_str_1147_len(%rip), %rdx
+  call पाठ_रचना
+  movq %rax, .LC_strtab+9176(%rip)
+  leaq .LC_str_1148(%rip), %rcx
+  movq .LC_str_1148_len(%rip), %rdx
+  call पाठ_रचना
+  movq %rax, .LC_strtab+9184(%rip)
+  leaq .LC_str_1149(%rip), %rcx
+  movq .LC_str_1149_len(%rip), %rdx
+  call पाठ_रचना
+  movq %rax, .LC_strtab+9192(%rip)
+  leaq .LC_str_1150(%rip), %rcx
+  movq .LC_str_1150_len(%rip), %rdx
+  call पाठ_रचना
+  movq %rax, .LC_strtab+9200(%rip)
+  leaq .LC_str_1151(%rip), %rcx
+  movq .LC_str_1151_len(%rip), %rdx
+  call पाठ_रचना
+  movq %rax, .LC_strtab+9208(%rip)
+  leaq .LC_str_1152(%rip), %rcx
+  movq .LC_str_1152_len(%rip), %rdx
+  call पाठ_रचना
+  movq %rax, .LC_strtab+9216(%rip)
+  leaq .LC_str_1153(%rip), %rcx
+  movq .LC_str_1153_len(%rip), %rdx
+  call पाठ_रचना
+  movq %rax, .LC_strtab+9224(%rip)
+  leaq .LC_str_1154(%rip), %rcx
+  movq .LC_str_1154_len(%rip), %rdx
+  call पाठ_रचना
+  movq %rax, .LC_strtab+9232(%rip)
+  leaq .LC_str_1155(%rip), %rcx
+  movq .LC_str_1155_len(%rip), %rdx
+  call पाठ_रचना
+  movq %rax, .LC_strtab+9240(%rip)
+  leaq .LC_str_1156(%rip), %rcx
+  movq .LC_str_1156_len(%rip), %rdx
+  call पाठ_रचना
+  movq %rax, .LC_strtab+9248(%rip)
+  leaq .LC_str_1157(%rip), %rcx
+  movq .LC_str_1157_len(%rip), %rdx
+  call पाठ_रचना
+  movq %rax, .LC_strtab+9256(%rip)
+  leaq .LC_str_1158(%rip), %rcx
+  movq .LC_str_1158_len(%rip), %rdx
+  call पाठ_रचना
+  movq %rax, .LC_strtab+9264(%rip)
+  leaq .LC_str_1159(%rip), %rcx
+  movq .LC_str_1159_len(%rip), %rdx
+  call पाठ_रचना
+  movq %rax, .LC_strtab+9272(%rip)
+  leaq .LC_str_1160(%rip), %rcx
+  movq .LC_str_1160_len(%rip), %rdx
+  call पाठ_रचना
+  movq %rax, .LC_strtab+9280(%rip)
+  leaq .LC_str_1161(%rip), %rcx
+  movq .LC_str_1161_len(%rip), %rdx
+  call पाठ_रचना
+  movq %rax, .LC_strtab+9288(%rip)
+  leaq .LC_str_1162(%rip), %rcx
+  movq .LC_str_1162_len(%rip), %rdx
+  call पाठ_रचना
+  movq %rax, .LC_strtab+9296(%rip)
+  leaq .LC_str_1163(%rip), %rcx
+  movq .LC_str_1163_len(%rip), %rdx
+  call पाठ_रचना
+  movq %rax, .LC_strtab+9304(%rip)
+  leaq .LC_str_1164(%rip), %rcx
+  movq .LC_str_1164_len(%rip), %rdx
+  call पाठ_रचना
+  movq %rax, .LC_strtab+9312(%rip)
+  leaq .LC_str_1165(%rip), %rcx
+  movq .LC_str_1165_len(%rip), %rdx
+  call पाठ_रचना
+  movq %rax, .LC_strtab+9320(%rip)
+  leaq .LC_str_1166(%rip), %rcx
+  movq .LC_str_1166_len(%rip), %rdx
+  call पाठ_रचना
+  movq %rax, .LC_strtab+9328(%rip)
+  leaq .LC_str_1167(%rip), %rcx
+  movq .LC_str_1167_len(%rip), %rdx
+  call पाठ_रचना
+  movq %rax, .LC_strtab+9336(%rip)
   movl gc_roots_count(%rip), %eax
   leaq gc_roots(%rip), %r10
   leaq .LC_strtab(%rip), %r11
-  movl $1141, %ecx
+  movl $1168, %ecx
 .Lस्ट्रटैब_जड़:
   movq %r11, (%r10,%rax,8)
   incl %eax
@@ -180285,172 +181298,280 @@ main:
 .LC_str_1099_len:
   .quad 22
 .LC_str_1100:
-  .ascii "--release\0"
+  .ascii "clang.exe \0"
 .LC_str_1100_len:
-  .quad 9
+  .quad 10
 .LC_str_1101:
-  .ascii "\340\244\244\340\245\215\340\244\260\340\245\201\340\244\237\340\244\277\340\244\203 \342\200\224 \340\244\270\340\244\236\340\245\215\340\244\232\340\244\277\340\244\225\340\244\276 \340\244\256\340\244\276\340\244\260\340\245\215\340\244\227\340\244\203 \340\244\250 \340\244\250\340\244\277\340\244\260\340\245\215\340\244\246\340\244\277\340\244\267\340\245\215\340\244\237\340\244\203\340\245\244\0"
+  .ascii "del /q pgo_inst.o pgo_inst.exe pgo_floor.s pgo_floor.o pgo.profdata 2>nul\0"
 .LC_str_1101_len:
-  .quad 104
-.LC_str_1102:
-  .ascii "\340\244\244\340\245\215\340\244\260\340\245\201\340\244\237\340\244\277\340\244\203 \342\200\224 \340\244\270\340\244\236\340\245\215\340\244\232\340\244\277\340\244\225\340\244\276 \340\244\250 \340\244\252\340\245\215\340\244\260\340\244\276\340\244\252\340\245\215\340\244\244\340\244\276: \0"
-.LC_str_1102_len:
-  .quad 78
-.LC_str_1103:
-  .ascii "=== \340\244\256\340\245\202\340\244\262 \340\244\270\340\244\202\340\244\225\340\244\262\340\244\250 ===\0"
-.LC_str_1103_len:
-  .quad 33
-.LC_str_1104:
-  .ascii "\340\244\270\340\244\236\340\245\215\340\244\232\340\244\277\340\244\225\340\244\276: \0"
-.LC_str_1104_len:
-  .quad 23
-.LC_str_1105:
-  .ascii "1. \340\244\252\340\244\246_\340\244\265\340\244\277\340\244\232\340\245\215\340\244\233\340\245\207\340\244\246\340\244\250...\0"
-.LC_str_1105_len:
-  .quad 37
-.LC_str_1106:
-  .ascii "   \340\244\252\340\244\246\340\245\213\340\244\202 \340\244\225\340\245\200 \340\244\270\340\244\202\340\244\226\340\245\215\340\244\257\340\244\276: \0"
-.LC_str_1106_len:
-  .quad 43
-.LC_str_1107:
-  .ascii "2. \340\244\265\340\244\277\340\244\266\340\245\215\340\244\262\340\245\207\340\244\267\340\244\243...\0"
-.LC_str_1107_len:
-  .quad 30
-.LC_str_1108:
-  .ascii "   \340\244\265\340\244\277\340\244\266\340\245\215\340\244\262\340\245\207\340\244\267\340\244\243 \340\244\270\340\244\202\340\244\252\340\244\250\340\245\215\340\244\250\340\244\256\340\245\215\340\245\244\0"
-.LC_str_1108_len:
-  .quad 55
-.LC_str_1109:
-  .ascii "2.5 \340\244\270\340\244\276\340\244\260\340\245\215\340\244\245\340\244\225_\340\244\265\340\244\277\340\244\266\340\245\215\340\244\262\340\245\207\340\244\267\340\244\243...\0"
-.LC_str_1109_len:
-  .quad 50
-.LC_str_1110:
-  .ascii "    \340\244\270\340\244\276\340\244\260\340\245\215\340\244\245\340\244\225_\340\244\265\340\244\277\340\244\266\340\245\215\340\244\262\340\245\207\340\244\267\340\244\243 \340\244\270\340\244\202\340\244\252\340\244\250\340\245\215\340\244\250\340\244\256\340\245\215\340\245\244\0"
-.LC_str_1110_len:
-  .quad 75
-.LC_str_1111:
-  .ascii "3. IR \340\244\211\340\244\244\340\245\215\340\244\252\340\244\250\340\245\215\340\244\250 (--release \342\206\222 LLVM backend)...\0"
-.LC_str_1111_len:
-  .quad 59
-.LC_str_1112:
-  .ascii "3. IR \340\244\211\340\244\244\340\245\215\340\244\252\340\244\250\340\245\215\340\244\250 (\340\244\250\340\244\277\340\244\256\340\245\215\340\244\250\340\244\225 \342\206\222 \340\244\205\340\244\250\340\245\201\340\244\225\340\245\202\340\244\262\340\244\225 \342\206\222 \340\244\260\340\244\234\340\244\277_\340\244\250\340\244\277\340\244\257\340\244\244\340\244\225 \342\206\222 \340\244\211\340\244\244\340\245\215\340\244\270\340\244\260\340\245\215\340\244\234\340\244\225)...\0"
-.LC_str_1112_len:
-  .quad 136
-.LC_str_1113:
-  .ascii "4. runtime \340\244\256\340\245\211\340\244\241\340\245\215\340\244\257\340\245\202\340\244\262 \342\206\222 LLVM IR...\0"
-.LC_str_1113_len:
-  .quad 47
-.LC_str_1114:
-  .ascii "\340\244\256\340\245\202\340\244\262_\340\244\260\340\244\250\340\244\237\340\244\276\340\244\207\340\244\256.\340\244\270\340\245\202\340\244\244\340\245\215\340\244\260\0"
-.LC_str_1114_len:
-  .quad 44
-.LC_str_1115:
-  .ascii "\340\244\256\340\245\202\340\244\262_\340\244\206\340\244\265\340\244\202\340\244\237\340\244\225.\340\244\270\340\245\202\340\244\244\340\245\215\340\244\260\0"
-.LC_str_1115_len:
-  .quad 41
-.LC_str_1116:
-  .ascii "5. llvm-link + clang -O2...\0"
-.LC_str_1116_len:
-  .quad 27
-.LC_str_1117:
-  .ascii "\340\244\244\340\245\215\340\244\260\340\245\201\340\244\237\340\244\277\340\244\203 \342\200\224 llvm-link \340\244\265\340\244\277\340\244\253\340\244\262\340\245\244\0"
-.LC_str_1117_len:
-  .quad 51
-.LC_str_1118:
-  .ascii "\340\244\244\340\245\215\340\244\260\340\245\201\340\244\237\340\244\277\340\244\203 \342\200\224 clang \340\244\270\340\244\202\340\244\257\340\245\213\340\244\234\340\244\250 \340\244\265\340\244\277\340\244\253\340\244\262\340\245\244\0"
-.LC_str_1118_len:
-  .quad 66
-.LC_str_1119:
-  .ascii "4. \340\244\270\340\244\236\340\245\215\340\244\232\340\244\277\340\244\225\340\244\276: \0"
-.LC_str_1119_len:
-  .quad 26
-.LC_str_1120:
-  .ascii "5. \340\244\270\340\244\202\340\244\257\340\245\213\340\244\234\340\244\250...\0"
-.LC_str_1120_len:
-  .quad 24
-.LC_str_1121:
-  .ascii "\340\244\244\340\245\215\340\244\260\340\245\201\340\244\237\340\244\277\340\244\203 \342\200\224 \340\244\270\340\244\202\340\244\257\340\245\213\340\244\234\340\244\250 \340\244\265\340\244\277\340\244\253\340\244\262\340\245\244\0"
-.LC_str_1121_len:
-  .quad 60
-.LC_str_1122:
-  .ascii "   \340\244\270\340\244\202\340\244\257\340\245\213\340\244\234\340\244\250 \340\244\270\340\244\202\340\244\252\340\244\250\340\245\215\340\244\250\340\244\256\340\245\215\340\245\244\0"
-.LC_str_1122_len:
-  .quad 49
-.LC_str_1123:
-  .ascii "\340\244\270\340\245\215\340\244\265\340\244\270\340\244\202\340\244\225\340\244\262\340\244\225/\340\244\250\340\244\277\340\244\260\340\245\215\340\244\256\340\244\276\340\244\243/\340\244\244\340\244\262.s\0"
-.LC_str_1123_len:
-  .quad 55
-.LC_str_1124:
-  .ascii "\340\244\250\340\244\277\340\244\260\340\245\215\340\244\256\340\244\276\340\244\243/\340\244\244\340\244\262.s\0"
-.LC_str_1124_len:
-  .quad 30
-.LC_str_1125:
-  .ascii "\340\244\244\340\245\215\340\244\260\340\245\201\340\244\237\340\244\277\340\244\203 \342\200\224 \340\244\244\340\244\262.s \340\244\270\340\244\202\340\244\257\340\245\213\340\244\234\340\244\250 \340\244\265\340\244\277\340\244\253\340\244\262\340\245\244\0"
-.LC_str_1125_len:
-  .quad 69
-.LC_str_1126:
-  .ascii "\340\244\270\340\245\215\340\244\265\340\244\270\340\244\202\340\244\225\340\244\262\340\244\225/\340\244\250\340\244\277\340\244\260\340\245\215\340\244\256\340\244\276\340\244\243/\340\244\256\340\245\202\340\244\262_\340\244\260\340\244\250\340\244\237\340\244\276\340\244\207\340\244\256.s\0"
-.LC_str_1126_len:
-  .quad 77
-.LC_str_1127:
-  .ascii "\340\244\250\340\244\277\340\244\260\340\245\215\340\244\256\340\244\276\340\244\243/\340\244\256\340\245\202\340\244\262_\340\244\260\340\244\250\340\244\237\340\244\276\340\244\207\340\244\256.s\0"
-.LC_str_1127_len:
-  .quad 52
-.LC_str_1128:
-  .ascii "\340\244\244\340\245\215\340\244\260\340\245\201\340\244\237\340\244\277\340\244\203 \342\200\224 \340\244\256\340\245\202\340\244\262_\340\244\260\340\244\250\340\244\237\340\244\276\340\244\207\340\244\256.s \340\244\270\340\244\202\340\244\257\340\245\213\340\244\234\340\244\250 \340\244\265\340\244\277\340\244\253\340\244\262\340\245\244\0"
-.LC_str_1128_len:
-  .quad 91
-.LC_str_1129:
-  .ascii "\340\244\270\340\245\215\340\244\265\340\244\270\340\244\202\340\244\225\340\244\262\340\244\225/\340\244\250\340\244\277\340\244\260\340\245\215\340\244\256\340\244\276\340\244\243/\340\244\256\340\245\202\340\244\262_\340\244\206\340\244\265\340\244\202\340\244\237\340\244\225.s\0"
-.LC_str_1129_len:
-  .quad 74
-.LC_str_1130:
-  .ascii "\340\244\250\340\244\277\340\244\260\340\245\215\340\244\256\340\244\276\340\244\243/\340\244\256\340\245\202\340\244\262_\340\244\206\340\244\265\340\244\202\340\244\237\340\244\225.s\0"
-.LC_str_1130_len:
-  .quad 49
-.LC_str_1131:
-  .ascii "\340\244\244\340\245\215\340\244\260\340\245\201\340\244\237\340\244\277\340\244\203 \342\200\224 \340\244\256\340\245\202\340\244\262_\340\244\206\340\244\265\340\244\202\340\244\237\340\244\225.s \340\244\270\340\244\202\340\244\257\340\245\213\340\244\234\340\244\250 \340\244\265\340\244\277\340\244\253\340\244\262\340\245\244\0"
-.LC_str_1131_len:
-  .quad 88
-.LC_str_1132:
-  .ascii "6. \340\244\262\340\244\277\340\244\202\340\244\225...\0"
-.LC_str_1132_len:
-  .quad 18
-.LC_str_1133:
-  .ascii "sutra_floor.o\0"
-.LC_str_1133_len:
-  .quad 13
-.LC_str_1134:
-  .ascii "sutra_srt.o\0"
-.LC_str_1134_len:
-  .quad 11
-.LC_str_1135:
-  .ascii "sutra_alloc.o\0"
-.LC_str_1135_len:
-  .quad 13
-.LC_str_1136:
-  .ascii "\340\244\244\340\245\215\340\244\260\340\245\201\340\244\237\340\244\277\340\244\203 \342\200\224 \340\244\262\340\244\277\340\244\202\340\244\225 \340\244\265\340\244\277\340\244\253\340\244\262 (linker exit != 0)\340\245\244\0"
-.LC_str_1136_len:
   .quad 73
-.LC_str_1137:
-  .ascii "\340\244\244\340\245\215\340\244\260\340\245\201\340\244\237\340\244\277\340\244\203 \342\200\224 \340\244\262\340\244\277\340\244\202\340\244\225 \340\244\265\340\244\277\340\244\253\340\244\262 (\340\244\225\340\245\213\340\244\210 .exe \340\244\250\340\244\271\340\245\200\340\244\202)\340\245\244\0"
-.LC_str_1137_len:
-  .quad 84
-.LC_str_1138:
-  .ascii "   \340\244\262\340\244\277\340\244\202\340\244\225 \340\244\270\340\244\202\340\244\252\340\244\250\340\245\215\340\244\250\340\244\256\340\245\215\340\245\244\0"
-.LC_str_1138_len:
+.LC_str_1102:
+  .ascii "if exist pgo_prof rd /s /q pgo_prof\0"
+.LC_str_1102_len:
+  .quad 35
+.LC_str_1103:
+  .ascii "   PGO 1/4: instrumented \340\244\270\340\244\202\340\244\225\340\244\262\340\244\250 + \340\244\262\340\244\277\340\244\202\340\244\225...\0"
+.LC_str_1103_len:
+  .quad 58
+.LC_str_1104:
+  .ascii "-O3 -fprofile-generate=pgo_prof -c \0"
+.LC_str_1104_len:
+  .quad 35
+.LC_str_1105:
+  .ascii " -o pgo_inst.o\0"
+.LC_str_1105_len:
+  .quad 14
+.LC_str_1106:
+  .ascii "\340\244\244\340\245\215\340\244\260\340\245\201\340\244\237\340\244\277\340\244\203 \342\200\224 PGO instrument \340\244\270\340\244\202\340\244\225\340\244\262\340\244\250 \340\244\265\340\244\277\340\244\253\340\244\262\340\245\244\0"
+.LC_str_1106_len:
+  .quad 72
+.LC_str_1107:
+  .ascii "\340\244\270\340\245\215\340\244\265\340\244\270\340\244\202\340\244\225\340\244\262\340\244\225/\340\244\250\340\244\277\340\244\260\340\245\215\340\244\256\340\244\276\340\244\243/\340\244\244\340\244\262.s\0"
+.LC_str_1107_len:
+  .quad 55
+.LC_str_1108:
+  .ascii "\340\244\250\340\244\277\340\244\260\340\245\215\340\244\256\340\244\276\340\244\243/\340\244\244\340\244\262.s\0"
+.LC_str_1108_len:
+  .quad 30
+.LC_str_1109:
+  .ascii "pgo_floor.s\0"
+.LC_str_1109_len:
+  .quad 11
+.LC_str_1110:
+  .ascii "as.exe -o pgo_floor.o pgo_floor.s\0"
+.LC_str_1110_len:
+  .quad 33
+.LC_str_1111:
+  .ascii "\340\244\244\340\245\215\340\244\260\340\245\201\340\244\237\340\244\277\340\244\203 \342\200\224 PGO \340\244\244\340\244\262.s \340\244\270\340\244\202\340\244\257\340\245\213\340\244\234\340\244\250 \340\244\265\340\244\277\340\244\253\340\244\262\340\245\244\0"
+.LC_str_1111_len:
+  .quad 73
+.LC_str_1112:
+  .ascii "-fprofile-generate=pgo_prof pgo_inst.o pgo_floor.o -lkernel32 -lshell32 -Wl,--allow-multiple-definition -o pgo_inst.exe\0"
+.LC_str_1112_len:
+  .quad 119
+.LC_str_1113:
+  .ascii "\340\244\244\340\245\215\340\244\260\340\245\201\340\244\237\340\244\277\340\244\203 \342\200\224 PGO instrumented \340\244\262\340\244\277\340\244\202\340\244\225 \340\244\265\340\244\277\340\244\253\340\244\262\340\245\244\0"
+.LC_str_1113_len:
+  .quad 71
+.LC_str_1114:
+  .ascii "pgo_inst.exe\0"
+.LC_str_1114_len:
+  .quad 12
+.LC_str_1115:
+  .ascii "   PGO 2/4: \340\244\252\340\245\215\340\244\260\340\244\266\340\244\277\340\244\225\340\245\215\340\244\267\340\244\243 \340\244\260\340\244\250 \342\200\224 \0"
+.LC_str_1115_len:
+  .quad 51
+.LC_str_1116:
+  .ascii "   PGO 3/4: llvm-profdata merge...\0"
+.LC_str_1116_len:
+  .quad 34
+.LC_str_1117:
+  .ascii "llvm-profdata.exe merge -output=pgo.profdata pgo_prof\0"
+.LC_str_1117_len:
+  .quad 53
+.LC_str_1118:
+  .ascii "pgo.profdata\0"
+.LC_str_1118_len:
+  .quad 12
+.LC_str_1119:
+  .ascii "\340\244\244\340\245\215\340\244\260\340\245\201\340\244\237\340\244\277\340\244\203 \342\200\224 PGO merge \340\244\265\340\244\277\340\244\253\340\244\262 (\340\244\225\340\245\213\340\244\210 .profraw \340\244\250\340\244\271\340\245\200\340\244\202? --pgo-run \340\244\252\340\245\215\340\244\260\340\244\266\340\244\277\340\244\225\340\245\215\340\244\267\340\244\243 \340\244\225\340\244\256\340\244\276\340\244\202\340\244\241 \340\244\234\340\244\276\340\244\201\340\244\232\340\245\213)\340\245\244\0"
+.LC_str_1119_len:
+  .quad 156
+.LC_str_1120:
+  .ascii "   PGO 4/4: -fprofile-use \340\244\252\340\245\201\340\244\250\340\244\203-\340\244\270\340\244\202\340\244\225\340\244\262\340\244\250...\0"
+.LC_str_1120_len:
+  .quad 57
+.LC_str_1121:
+  .ascii "-O3 -fprofile-use=pgo.profdata -Wno-profile-instr-unprofiled -c \0"
+.LC_str_1121_len:
+  .quad 64
+.LC_str_1122:
+  .ascii " -o \0"
+.LC_str_1122_len:
+  .quad 4
+.LC_str_1123:
+  .ascii "\340\244\244\340\245\215\340\244\260\340\245\201\340\244\237\340\244\277\340\244\203 \342\200\224 PGO \340\244\205\340\244\202\340\244\244\340\244\277\340\244\256 \340\244\270\340\244\202\340\244\225\340\244\262\340\244\250 \340\244\265\340\244\277\340\244\253\340\244\262\340\245\244\0"
+.LC_str_1123_len:
+  .quad 77
+.LC_str_1124:
+  .ascii "del /q pgo_inst.o pgo_inst.exe pgo_floor.s pgo_floor.o 2>nul\0"
+.LC_str_1124_len:
+  .quad 60
+.LC_str_1125:
+  .ascii "--release\0"
+.LC_str_1125_len:
+  .quad 9
+.LC_str_1126:
+  .ascii "--pgo\0"
+.LC_str_1126_len:
+  .quad 5
+.LC_str_1127:
+  .ascii "--pgo-run\0"
+.LC_str_1127_len:
+  .quad 9
+.LC_str_1128:
+  .ascii "\340\244\232\340\245\207\340\244\244\340\244\276\340\244\265\340\244\250\340\245\200: --pgo \340\244\225\340\245\213 --release \340\244\232\340\244\276\340\244\271\340\244\277\340\244\217 \342\200\224 \340\244\205\340\244\250\340\244\246\340\245\207\340\244\226\340\244\276 \340\244\225\340\244\277\340\244\257\340\244\276\340\245\244\0"
+.LC_str_1128_len:
+  .quad 100
+.LC_str_1129:
+  .ascii "\340\244\244\340\245\215\340\244\260\340\245\201\340\244\237\340\244\277\340\244\203 \342\200\224 \340\244\270\340\244\236\340\245\215\340\244\232\340\244\277\340\244\225\340\244\276 \340\244\256\340\244\276\340\244\260\340\245\215\340\244\227\340\244\203 \340\244\250 \340\244\250\340\244\277\340\244\260\340\245\215\340\244\246\340\244\277\340\244\267\340\245\215\340\244\237\340\244\203\340\245\244\0"
+.LC_str_1129_len:
+  .quad 104
+.LC_str_1130:
+  .ascii "\340\244\244\340\245\215\340\244\260\340\245\201\340\244\237\340\244\277\340\244\203 \342\200\224 \340\244\270\340\244\236\340\245\215\340\244\232\340\244\277\340\244\225\340\244\276 \340\244\250 \340\244\252\340\245\215\340\244\260\340\244\276\340\244\252\340\245\215\340\244\244\340\244\276: \0"
+.LC_str_1130_len:
+  .quad 78
+.LC_str_1131:
+  .ascii "=== \340\244\256\340\245\202\340\244\262 \340\244\270\340\244\202\340\244\225\340\244\262\340\244\250 ===\0"
+.LC_str_1131_len:
+  .quad 33
+.LC_str_1132:
+  .ascii "\340\244\270\340\244\236\340\245\215\340\244\232\340\244\277\340\244\225\340\244\276: \0"
+.LC_str_1132_len:
+  .quad 23
+.LC_str_1133:
+  .ascii "1. \340\244\252\340\244\246_\340\244\265\340\244\277\340\244\232\340\245\215\340\244\233\340\245\207\340\244\246\340\244\250...\0"
+.LC_str_1133_len:
+  .quad 37
+.LC_str_1134:
+  .ascii "   \340\244\252\340\244\246\340\245\213\340\244\202 \340\244\225\340\245\200 \340\244\270\340\244\202\340\244\226\340\245\215\340\244\257\340\244\276: \0"
+.LC_str_1134_len:
   .quad 43
+.LC_str_1135:
+  .ascii "2. \340\244\265\340\244\277\340\244\266\340\245\215\340\244\262\340\245\207\340\244\267\340\244\243...\0"
+.LC_str_1135_len:
+  .quad 30
+.LC_str_1136:
+  .ascii "   \340\244\265\340\244\277\340\244\266\340\245\215\340\244\262\340\245\207\340\244\267\340\244\243 \340\244\270\340\244\202\340\244\252\340\244\250\340\245\215\340\244\250\340\244\256\340\245\215\340\245\244\0"
+.LC_str_1136_len:
+  .quad 55
+.LC_str_1137:
+  .ascii "2.5 \340\244\270\340\244\276\340\244\260\340\245\215\340\244\245\340\244\225_\340\244\265\340\244\277\340\244\266\340\245\215\340\244\262\340\245\207\340\244\267\340\244\243...\0"
+.LC_str_1137_len:
+  .quad 50
+.LC_str_1138:
+  .ascii "    \340\244\270\340\244\276\340\244\260\340\245\215\340\244\245\340\244\225_\340\244\265\340\244\277\340\244\266\340\245\215\340\244\262\340\245\207\340\244\267\340\244\243 \340\244\270\340\244\202\340\244\252\340\244\250\340\245\215\340\244\250\340\244\256\340\245\215\340\245\244\0"
+.LC_str_1138_len:
+  .quad 75
 .LC_str_1139:
-  .ascii "7. \340\244\205\340\244\202\340\244\244\340\244\277\340\244\256: \0"
+  .ascii "3. IR \340\244\211\340\244\244\340\245\215\340\244\252\340\244\250\340\245\215\340\244\250 (--release \342\206\222 LLVM backend)...\0"
 .LC_str_1139_len:
-  .quad 20
+  .quad 59
 .LC_str_1140:
-  .ascii "=== \340\244\256\340\245\202\340\244\262 \340\244\270\340\244\202\340\244\225\340\244\262\340\244\250 \340\244\270\340\244\253\340\244\262! ===\0"
+  .ascii "3. IR \340\244\211\340\244\244\340\245\215\340\244\252\340\244\250\340\245\215\340\244\250 (\340\244\250\340\244\277\340\244\256\340\245\215\340\244\250\340\244\225 \342\206\222 \340\244\205\340\244\250\340\245\201\340\244\225\340\245\202\340\244\262\340\244\225 \342\206\222 \340\244\260\340\244\234\340\244\277_\340\244\250\340\244\277\340\244\257\340\244\244\340\244\225 \342\206\222 \340\244\211\340\244\244\340\245\215\340\244\270\340\244\260\340\245\215\340\244\234\340\244\225)...\0"
 .LC_str_1140_len:
+  .quad 136
+.LC_str_1141:
+  .ascii "4. runtime \340\244\256\340\245\211\340\244\241\340\245\215\340\244\257\340\245\202\340\244\262 \342\206\222 LLVM IR...\0"
+.LC_str_1141_len:
+  .quad 47
+.LC_str_1142:
+  .ascii "\340\244\256\340\245\202\340\244\262_\340\244\260\340\244\250\340\244\237\340\244\276\340\244\207\340\244\256.\340\244\270\340\245\202\340\244\244\340\245\215\340\244\260\0"
+.LC_str_1142_len:
+  .quad 44
+.LC_str_1143:
+  .ascii "\340\244\256\340\245\202\340\244\262_\340\244\206\340\244\265\340\244\202\340\244\237\340\244\225.\340\244\270\340\245\202\340\244\244\340\245\215\340\244\260\0"
+.LC_str_1143_len:
+  .quad 41
+.LC_str_1144:
+  .ascii "5. llvm-link + clang -O2...\0"
+.LC_str_1144_len:
+  .quad 27
+.LC_str_1145:
+  .ascii "\340\244\244\340\245\215\340\244\260\340\245\201\340\244\237\340\244\277\340\244\203 \342\200\224 llvm-link \340\244\265\340\244\277\340\244\253\340\244\262\340\245\244\0"
+.LC_str_1145_len:
+  .quad 51
+.LC_str_1146:
+  .ascii "5b. PGO \340\244\246\340\245\213-\340\244\232\340\244\260\340\244\243 build...\0"
+.LC_str_1146_len:
+  .quad 33
+.LC_str_1147:
+  .ascii "\340\244\244\340\245\215\340\244\260\340\245\201\340\244\237\340\244\277\340\244\203 \342\200\224 clang \340\244\270\340\244\202\340\244\257\340\245\213\340\244\234\340\244\250 \340\244\265\340\244\277\340\244\253\340\244\262\340\245\244\0"
+.LC_str_1147_len:
+  .quad 66
+.LC_str_1148:
+  .ascii "4. \340\244\270\340\244\236\340\245\215\340\244\232\340\244\277\340\244\225\340\244\276: \0"
+.LC_str_1148_len:
+  .quad 26
+.LC_str_1149:
+  .ascii "5. \340\244\270\340\244\202\340\244\257\340\245\213\340\244\234\340\244\250...\0"
+.LC_str_1149_len:
+  .quad 24
+.LC_str_1150:
+  .ascii "\340\244\244\340\245\215\340\244\260\340\245\201\340\244\237\340\244\277\340\244\203 \342\200\224 \340\244\270\340\244\202\340\244\257\340\245\213\340\244\234\340\244\250 \340\244\265\340\244\277\340\244\253\340\244\262\340\245\244\0"
+.LC_str_1150_len:
+  .quad 60
+.LC_str_1151:
+  .ascii "   \340\244\270\340\244\202\340\244\257\340\245\213\340\244\234\340\244\250 \340\244\270\340\244\202\340\244\252\340\244\250\340\245\215\340\244\250\340\244\256\340\245\215\340\245\244\0"
+.LC_str_1151_len:
+  .quad 49
+.LC_str_1152:
+  .ascii "\340\244\244\340\245\215\340\244\260\340\245\201\340\244\237\340\244\277\340\244\203 \342\200\224 \340\244\244\340\244\262.s \340\244\270\340\244\202\340\244\257\340\245\213\340\244\234\340\244\250 \340\244\265\340\244\277\340\244\253\340\244\262\340\245\244\0"
+.LC_str_1152_len:
+  .quad 69
+.LC_str_1153:
+  .ascii "\340\244\270\340\245\215\340\244\265\340\244\270\340\244\202\340\244\225\340\244\262\340\244\225/\340\244\250\340\244\277\340\244\260\340\245\215\340\244\256\340\244\276\340\244\243/\340\244\256\340\245\202\340\244\262_\340\244\260\340\244\250\340\244\237\340\244\276\340\244\207\340\244\256.s\0"
+.LC_str_1153_len:
+  .quad 77
+.LC_str_1154:
+  .ascii "\340\244\250\340\244\277\340\244\260\340\245\215\340\244\256\340\244\276\340\244\243/\340\244\256\340\245\202\340\244\262_\340\244\260\340\244\250\340\244\237\340\244\276\340\244\207\340\244\256.s\0"
+.LC_str_1154_len:
+  .quad 52
+.LC_str_1155:
+  .ascii "\340\244\244\340\245\215\340\244\260\340\245\201\340\244\237\340\244\277\340\244\203 \342\200\224 \340\244\256\340\245\202\340\244\262_\340\244\260\340\244\250\340\244\237\340\244\276\340\244\207\340\244\256.s \340\244\270\340\244\202\340\244\257\340\245\213\340\244\234\340\244\250 \340\244\265\340\244\277\340\244\253\340\244\262\340\245\244\0"
+.LC_str_1155_len:
+  .quad 91
+.LC_str_1156:
+  .ascii "\340\244\270\340\245\215\340\244\265\340\244\270\340\244\202\340\244\225\340\244\262\340\244\225/\340\244\250\340\244\277\340\244\260\340\245\215\340\244\256\340\244\276\340\244\243/\340\244\256\340\245\202\340\244\262_\340\244\206\340\244\265\340\244\202\340\244\237\340\244\225.s\0"
+.LC_str_1156_len:
+  .quad 74
+.LC_str_1157:
+  .ascii "\340\244\250\340\244\277\340\244\260\340\245\215\340\244\256\340\244\276\340\244\243/\340\244\256\340\245\202\340\244\262_\340\244\206\340\244\265\340\244\202\340\244\237\340\244\225.s\0"
+.LC_str_1157_len:
+  .quad 49
+.LC_str_1158:
+  .ascii "\340\244\244\340\245\215\340\244\260\340\245\201\340\244\237\340\244\277\340\244\203 \342\200\224 \340\244\256\340\245\202\340\244\262_\340\244\206\340\244\265\340\244\202\340\244\237\340\244\225.s \340\244\270\340\244\202\340\244\257\340\245\213\340\244\234\340\244\250 \340\244\265\340\244\277\340\244\253\340\244\262\340\245\244\0"
+.LC_str_1158_len:
+  .quad 88
+.LC_str_1159:
+  .ascii "6. \340\244\262\340\244\277\340\244\202\340\244\225...\0"
+.LC_str_1159_len:
+  .quad 18
+.LC_str_1160:
+  .ascii "sutra_floor.o\0"
+.LC_str_1160_len:
+  .quad 13
+.LC_str_1161:
+  .ascii "sutra_srt.o\0"
+.LC_str_1161_len:
+  .quad 11
+.LC_str_1162:
+  .ascii "sutra_alloc.o\0"
+.LC_str_1162_len:
+  .quad 13
+.LC_str_1163:
+  .ascii "\340\244\244\340\245\215\340\244\260\340\245\201\340\244\237\340\244\277\340\244\203 \342\200\224 \340\244\262\340\244\277\340\244\202\340\244\225 \340\244\265\340\244\277\340\244\253\340\244\262 (linker exit != 0)\340\245\244\0"
+.LC_str_1163_len:
+  .quad 73
+.LC_str_1164:
+  .ascii "\340\244\244\340\245\215\340\244\260\340\245\201\340\244\237\340\244\277\340\244\203 \342\200\224 \340\244\262\340\244\277\340\244\202\340\244\225 \340\244\265\340\244\277\340\244\253\340\244\262 (\340\244\225\340\245\213\340\244\210 .exe \340\244\250\340\244\271\340\245\200\340\244\202)\340\245\244\0"
+.LC_str_1164_len:
+  .quad 84
+.LC_str_1165:
+  .ascii "   \340\244\262\340\244\277\340\244\202\340\244\225 \340\244\270\340\244\202\340\244\252\340\244\250\340\245\215\340\244\250\340\244\256\340\245\215\340\245\244\0"
+.LC_str_1165_len:
+  .quad 43
+.LC_str_1166:
+  .ascii "7. \340\244\205\340\244\202\340\244\244\340\244\277\340\244\256: \0"
+.LC_str_1166_len:
+  .quad 20
+.LC_str_1167:
+  .ascii "=== \340\244\256\340\245\202\340\244\262 \340\244\270\340\244\202\340\244\225\340\244\262\340\244\250 \340\244\270\340\244\253\340\244\262! ===\0"
+.LC_str_1167_len:
   .quad 44
 
   .bss
   .align 8
 .LC_strtab:
-  .space 9128
+  .space 9344
 

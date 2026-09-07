@@ -1546,10 +1546,44 @@ pure-सूत्र backend `sutra build` का default रहता है।
   शून्य कोड बदलाव**। केवल `""` init handle (सामान्य केस); non-empty prefix
   पाठ_जोड़ रखता। seed 179001→179255→**182213**।
 
+- **✅ #5a — `--release` SSA emitter fix + `___chkstk_ms`** (`8ce00a4`,
+  2026-09-07)। #5 PGO-the-compiler का prereq: `sutrac --release
+  स्वसंकलक/मूल_संकलन.सूत्र` **टूटा हुआ था** (`verify_release.sh` केवल छोटे
+  `tests/compiler/*` संकलित करता, पूरा self-compile कभी नहीं)। दो latent bugs:
+  **(1) मृत अन्योन्याश्रित phi चक्र** — mem2reg हर slot के लिए हर multi-pred
+  खंड पर phi बनाता; `मृत_कोड_हटाओ` का phi-DCE **use-गणना आधारित** था, तो दो
+  मृत phi एक-दूसरे को reference करें (`रिक्त_टिप्पणी_छोड़ो` के भीतरी `/* */`
+  scan का `मान च`, लूप के बाहर मृत merge पर पढ़ा) → दोनों की गिनती > 0 →
+  कोई नहीं हटता → अमान्य SSA (`%a=phi[%b,pre]; %b=phi[%a,hdr]`, `%b` `pre`
+  को dominate नहीं करता)। x86 backend सहता (मृत parallel-copy); `llvm-link`
+  reject: *"Instruction does not dominate all uses"*। ठीक: नया
+  `अनु_फाई_जीवित` — असली (non-phi) निर्देश/टर्मिनेटर operands से **mark-sweep**
+  phi-जीवितता, phi→phi कड़ियाँ traverse। इस तरह न पहुँचने वाला phi मृत, भले
+  दूसरा मृत phi उसे reference करे। seed 182213 → 180456 (compiler-wide मृत
+  कोड हटा)। **(2) undefined `___chkstk_ms`** — clang `-O3` merged compiler
+  bitcode पर ≥4 KiB frame वाले फलनों में stack-probe call उत्पन्न करता;
+  `-nostdlib` लिंक में libgcc नहीं। `तल.s` में libgcc-समरूप `___chkstk_ms`
+  (केवल probe, `rsp` छूता नहीं → `--release` binary अब भी KERNEL32+SHELL32
+  ही)। regression test `tests/compiler/61_nested_loop_dead_var.सूत्र`।
+- **✅ #5 (Part A) — opt-in `--pgo` दो-चरण build** (2026-09-07)। `sutrac
+  --release --pgo [--pgo-run "<तर्क>"] prog.सूत्र` → (1) `clang -O3
+  -fprofile-generate=pgo_prof` से instrumented `.o`, clang-driver लिंक
+  (CRT + libc + `libclang_rt.profile`; `तल.s` का `mainCRTStartup`/`mem*`
+  CRT से टकराता → `-Wl,--allow-multiple-definition`) → throwaway
+  `pgo_inst.exe`; (2) `.\pgo_inst.exe <--pgo-run तर्क>` चलाओ →
+  `pgo_prof/default_<hash>.profraw`; (3) `llvm-profdata merge`; (4) `clang
+  -O3 -fprofile-use=pgo.profdata -c` से अंतिम `.o`। **अंतिम `.o` सामान्य
+  `-nostdlib` लिंक से जुड़ता** — profile runtime केवल throwaway exe में,
+  अंतिम binary अब भी सिर्फ़ KERNEL32+SHELL32। मापा (branchy 40M×3-शाखा fn,
+  15-run min): plain `--release` 0.123s → `--pgo` 0.109s (**~11%**); tight
+  loop / fib / dict-loop पर ~0 (LICM पहले ही सब collapse कर देता — जैसा
+  gcc PGO भी उन पर ~0)। compiler-rt पैकेज install किया (profile runtime)।
+  seed →181535; fixed point + Gen1==Gen2; verify 55/55 ×3 backends।
 - **बचा हुआ**: कुछ बड़ा नहीं — scalar/list/dict/string-build सब C++ tier
   पर या पास। बचे adversarial केस (hand-tuned SIMD, escape-defeating) —
-  #5 PGO / #6 gen GC / SIMD-autovec (Phase 6) से आगे।
-- **आगे**: #5 PGO by default; #6 generational GC / Perceus।
+  #5 Part B (compiler PGO) / #6 gen GC / SIMD-autovec (Phase 6) से आगे।
+- **आगे**: #5 Part B — `स्वसंकलक/निर्माण/pgo_सूत्रक.ps1` (compiler को
+  self-compile प्रशिक्षण से PGO); #6 generational GC / Perceus।
   विधि_बुलाओ/परिवर्तन/नव_पाठ(byte-form) — निम्नक आज भी emit नहीं करता।
 
 ### Phase 6 — domain performance। ongoing
