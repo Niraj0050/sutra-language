@@ -222,6 +222,32 @@ strlen:
   subq %rcx, %rax
   ret
 
+/* ___chkstk_ms — stack-probe (libgcc-समरूप)। clang -O3 बड़े stack-frame
+ * (≥4 KiB) वाले फलनों में `call ___chkstk_ms` उत्पन्न करता ताकि Windows
+ * guard-page क्रम से छुआ जाए। यह rsp बदलता नहीं — बस rax बाइट नीचे तक हर
+ * पृष्ठ probe करता; caller बाद में `sub %rax,%rsp` करता। rcx/rax संरक्षित।
+ * (libc-मुक्त — --release binary अब भी सिर्फ़ kernel32+shell32।) */
+  .globl ___chkstk_ms
+  .def ___chkstk_ms; .scl 2; .type 32; .endef
+___chkstk_ms:
+  pushq %rcx
+  pushq %rax
+  cmpq $0x1000, %rax
+  leaq 24(%rsp), %rcx
+  jb .Lchkstk_ms_2
+.Lchkstk_ms_1:
+  subq $0x1000, %rcx
+  orq $0x0, (%rcx)
+  subq $0x1000, %rax
+  cmpq $0x1000, %rax
+  ja .Lchkstk_ms_1
+.Lchkstk_ms_2:
+  subq %rax, %rcx
+  orq $0x0, (%rcx)
+  popq %rax
+  popq %rcx
+  ret
+
 /* ============================================================
  * _setjmp / सूत्र_दीर्घकूद — न्यूनतम (कोई SEH unwind)। jmp_buf विन्यास:
  *   0  ret-addr   8  rsp(post-ret)
