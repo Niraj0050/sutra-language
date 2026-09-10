@@ -1947,7 +1947,7 @@
 सूत्र_संग्रह:
   pushq %rbp
   movq %rsp, %rbp
-  subq $448, %rsp
+  subq $224, %rsp
   movq %rbx, -8(%rbp)
   movq %rsi, -16(%rbp)
   movq %rdi, -24(%rbp)
@@ -2019,57 +2019,50 @@
   movq %r10, sutra_glob_गण_सक्रिय(%rip)
   movq sutra_glob_अखंड_प्रथम(%rip), %r10
   movq %r10, %r13
-  movq -328(%rbp), %r11
-  movq %r11, -152(%rbp)
-  movq -312(%rbp), %r11
-  movq %r11, -168(%rbp)
-  movq -296(%rbp), %rsi
-  movq -280(%rbp), %r15
-  movq -264(%rbp), %r14
-  movq %r13, -136(%rbp)
+  movq %r13, -152(%rbp)
   jmp .L_सूत्र_संग्रह__wh_शर्त_10
 .L_सूत्र_संग्रह__wh_शर्त_10:
-  movq $0, %r12
-  movq -136(%rbp), %r10
-  cmpq %r12, %r10
+  movq $0, %r14
+  movq -152(%rbp), %r10
+  cmpq %r14, %r10
   setne %al
   movzbq %al, %r10
-  movq %r10, %r13
-  movq %r13, %r10
+  movq %r10, %r15
+  movq %r15, %r10
   cmpq $0, %r10
   je .L_सूत्र_संग्रह__wh_अंत_12
   jmp .L_सूत्र_संग्रह__wh_देह_11
 .L_सूत्र_संग्रह__wh_अंत_12:
   movq sutra_glob_गण_पुनःप्राप्त(%rip), %r10
-  movq %r10, %r12
-  movq %r12, %r10
+  movq %r10, %r14
+  movq %r14, %r10
   subq -88(%rbp), %r10
-  movq %r10, %r13
+  movq %r10, %r15
   movq sutra_glob_जीसी_सीमा(%rip), %r10
-  movq %r10, %r12
-  movq $4, %rdi
-  movq %r12, %rax
-  movq %rdi, %r10
+  movq %r10, %r14
+  movq $4, %rsi
+  movq %r14, %rax
+  movq %rsi, %r10
   cqto
   idivq %r10
   movq %rax, %rbx
-  movq %r13, %r10
+  movq %r15, %r10
   cmpq %rbx, %r10
   setl %al
   movzbq %al, %r10
-  movq %r10, %rdi
-  movq %rdi, %r10
+  movq %r10, %rsi
+  movq %rsi, %r10
   cmpq $0, %r10
   je .L_सूत्र_संग्रह__if_अंत_22
   jmp .L_सूत्र_संग्रह__if_सत्य_21
 .L_सूत्र_संग्रह__if_सत्य_21:
   movq sutra_glob_जीसी_सीमा(%rip), %r10
   movq %r10, %rbx
-  movq $2, %rdi
+  movq $2, %rsi
   movq %rbx, %r10
-  imulq %rdi, %r10
-  movq %r10, %r12
-  movq %r12, %r10
+  imulq %rsi, %r10
+  movq %r10, %r14
+  movq %r14, %r10
   movq %r10, sutra_glob_जीसी_सीमा(%rip)
   jmp .L_सूत्र_संग्रह__if_अंत_22
 .L_सूत्र_संग्रह__if_अंत_22:
@@ -2078,178 +2071,157 @@
   jmp .L_epilogue_सूत्र_संग्रह
 .L_सूत्र_संग्रह__wh_देह_11:
   movq $8, %rbx
-  movq -136(%rbp), %r10
+  movq -152(%rbp), %r10
   movq %rbx, %r11
   movq (%r10,%r11), %r10
-  movq %r10, -184(%rbp)
+  movq %r10, -136(%rbp)
   movq $0, %rbx
-  movq %rsi, %r13
-  movq %r15, %r12
-  movq -152(%rbp), %r15
-  movq %r14, %rsi
-  movq -168(%rbp), %r14
-  movq %rbx, -200(%rbp)
+  movq %rbx, -184(%rbp)
   jmp .L_सूत्र_संग्रह__wh_शर्त_13
 .L_सूत्र_संग्रह__wh_शर्त_13:
-  movq -200(%rbp), %r10
-  cmpq -184(%rbp), %r10
+  movq -184(%rbp), %r10
+  cmpq -136(%rbp), %r10
   setl %al
   movzbq %al, %r10
-  movq %r10, %rdi
-  movq %rdi, %r10
+  movq %r10, %r14
+  movq %r14, %r10
   cmpq $0, %r10
   je .L_सूत्र_संग्रह__wh_अंत_15
   jmp .L_सूत्र_संग्रह__wh_देह_14
 .L_सूत्र_संग्रह__wh_अंत_15:
-  movq $0, %rdi
-  movq -136(%rbp), %r10
-  movq %rdi, %r11
+  movq $0, %r14
+  movq -152(%rbp), %r10
+  movq %r14, %r11
   movq (%r10,%r11), %r10
-  movq %r10, %rbx
+  movq %r10, %r15
   movq %r15, -152(%rbp)
-  movq %r14, -168(%rbp)
-  movq %r12, %r15
-  movq %rsi, %r14
-  movq %r13, %rsi
-  movq %rbx, -136(%rbp)
   jmp .L_सूत्र_संग्रह__wh_शर्त_10
 .L_सूत्र_संग्रह__wh_देह_14:
-  movq $32, %rbx
-  movq -136(%rbp), %r10
-  addq %rbx, %r10
-  movq %r10, %rsi
-  movq %rsi, %r10
-  addq -200(%rbp), %r10
-  movq %r10, %rbx
-  movq $0, %rsi
-  movq %rbx, %r10
-  movq %rsi, %r11
+  movq $32, %r14
+  movq -152(%rbp), %r10
+  addq %r14, %r10
+  movq %r10, %r15
+  movq %r15, %r10
+  addq -184(%rbp), %r10
+  movq %r10, %r14
+  movq $0, %r15
+  movq %r14, %r10
+  movq %r15, %r11
   movq (%r10,%r11), %r10
-  movq %r10, -248(%rbp)
-  movq $8, %rsi
-  movq %rbx, %r10
-  movq %rsi, %r11
+  movq %r10, %rdi
+  movq $8, %r15
+  movq %r14, %r10
+  movq %r15, %r11
   movq (%r10,%r11), %r10
-  movq %r10, -232(%rbp)
-  movq $256, %rsi
-  movq -248(%rbp), %rax
-  movq %rsi, %r10
+  movq %r10, -168(%rbp)
+  movq $256, %r15
+  movq %rdi, %rax
+  movq %r15, %r10
   cqto
   idivq %r10
-  movq %rdx, -216(%rbp)
-  movq $0, %rsi
-  movq -216(%rbp), %r10
-  cmpq %rsi, %r10
+  movq %rdx, %rsi
+  movq $0, %r15
+  movq %rsi, %r10
+  cmpq %r15, %r10
   setne %al
   movzbq %al, %r10
-  movq %r10, %r14
-  movq %r14, %r10
+  movq %r10, %r13
+  movq %r13, %r10
   cmpq $0, %r10
-  je .L_किनारा_सूत्र_संग्रह_0
+  je .L_सूत्र_संग्रह__if_अंत_17
   jmp .L_सूत्र_संग्रह__if_सत्य_16
-.L_किनारा_सूत्र_संग्रह_0:
-  movq %r15, %rsi
-  jmp .L_सूत्र_संग्रह__if_अंत_17
 .L_सूत्र_संग्रह__if_सत्य_16:
-  movq $256, %rsi
-  movq -248(%rbp), %r10
-  cmpq %rsi, %r10
+  movq $256, %r13
+  movq %rdi, %r10
+  cmpq %r13, %r10
   setge %al
   movzbq %al, %r10
-  movq %r10, %r14
-  movq %r14, %r10
+  movq %r10, %r15
+  movq %r15, %r10
   cmpq $0, %r10
   je .L_सूत्र_संग्रह__if_असत्य_20
   jmp .L_सूत्र_संग्रह__if_सत्य_18
 .L_सूत्र_संग्रह__if_असत्य_20:
-  movq -232(%rbp), %rcx
+  movq -168(%rbp), %rcx
   subq $32, %rsp
   call श्रेणी_का
   addq $32, %rsp
-  movq %rax, %rsi
-  movq $0, %r14
+  movq %rax, %rdi
   movq $0, %r13
-  movq %rbx, %r10
-  movq %r14, %r11
-  movq %r13, %r8
+  movq $0, %r15
+  movq %r14, %r10
+  movq %r13, %r11
+  movq %r15, %r8
   movq %r8, (%r10,%r11)
-  movq %r13, %r12
+  movq %r15, %r12
   movq $16, %r12
   movq sutra_glob_मुक्त_तालिका(%rip), %r10
   movq %r10, %r13
-  movq $8, %r14
-  movq %rsi, %r10
-  imulq %r14, %r10
-  movq %r10, %rdi
+  movq $8, %r15
+  movq %rdi, %r10
+  imulq %r15, %r10
+  movq %r10, %rbx
   movq %r13, %r10
-  movq %rdi, %r11
+  movq %rbx, %r11
   movq (%r10,%r11), %r10
-  movq %r10, %r14
-  movq %rbx, %r10
+  movq %r10, %r15
+  movq %r14, %r10
   movq %r12, %r11
+  movq %r15, %r8
+  movq %r8, (%r10,%r11)
+  movq %r15, %rbx
+  movq sutra_glob_मुक्त_तालिका(%rip), %r10
+  movq %r10, %rbx
+  movq $8, %r12
+  movq %rdi, %r10
+  imulq %r12, %r10
+  movq %r10, %r13
+  movq %rbx, %r10
+  movq %r13, %r11
   movq %r14, %r8
   movq %r8, (%r10,%r11)
   movq %r14, %rdi
-  movq sutra_glob_मुक्त_तालिका(%rip), %r10
-  movq %r10, %rdi
-  movq $8, %r12
-  movq %rsi, %r10
-  imulq %r12, %r10
-  movq %r10, %r13
-  movq %rdi, %r10
-  movq %r13, %r11
-  movq %rbx, %r8
-  movq %r8, (%r10,%r11)
-  movq %rbx, %r12
   movq sutra_glob_गण_संग्रहित(%rip), %r10
-  movq %r10, %rdi
-  movq $1, %r12
-  movq %rdi, %r10
-  addq %r12, %r10
-  movq %r10, %r13
-  movq %r13, %r10
+  movq %r10, %rbx
+  movq $1, %rdi
+  movq %rbx, %r10
+  addq %rdi, %r10
+  movq %r10, %r12
+  movq %r12, %r10
   movq %r10, sutra_glob_गण_संग्रहित(%rip)
   movq sutra_glob_गण_पुनःप्राप्त(%rip), %r10
+  movq %r10, %rbx
+  movq %rbx, %r10
+  addq -168(%rbp), %r10
   movq %r10, %rdi
   movq %rdi, %r10
-  addq -232(%rbp), %r10
-  movq %r10, %r12
-  movq %r12, %r10
   movq %r10, sutra_glob_गण_पुनःप्राप्त(%rip)
-  jmp .L_सूत्र_संग्रह__if_अंत_19
+  jmp .L_सूत्र_संग्रह__if_अंत_17
 .L_सूत्र_संग्रह__if_सत्य_18:
-  movq $0, %rsi
-  movq %rbx, %r10
-  movq %rsi, %r11
-  movq -216(%rbp), %r8
+  movq $0, %rbx
+  movq %r14, %r10
+  movq %rbx, %r11
+  movq %rsi, %r8
   movq %r8, (%r10,%r11)
-  movq -216(%rbp), %rdi
+  movq %rsi, %rdi
   movq sutra_glob_गण_सक्रिय(%rip), %r10
-  movq %r10, %rsi
-  movq $1, %rdi
-  movq %rsi, %r10
-  addq %rdi, %r10
-  movq %r10, %r12
-  movq %r12, %r10
+  movq %r10, %rbx
+  movq $1, %rsi
+  movq %rbx, %r10
+  addq %rsi, %r10
+  movq %r10, %rdi
+  movq %rdi, %r10
   movq %r10, sutra_glob_गण_सक्रिय(%rip)
-  movq %r15, %rsi
-  jmp .L_सूत्र_संग्रह__if_अंत_19
-.L_सूत्र_संग्रह__if_अंत_19:
   jmp .L_सूत्र_संग्रह__if_अंत_17
 .L_सूत्र_संग्रह__if_अंत_17:
-  movq $16, %rdi
-  movq -200(%rbp), %r10
-  addq %rdi, %r10
-  movq %r10, %r12
-  movq %r12, %r10
-  addq -232(%rbp), %r10
-  movq %r10, %rdi
-  movq %rsi, %r15
-  movq -216(%rbp), %r14
-  movq -232(%rbp), %r13
-  movq -248(%rbp), %r12
-  movq %rbx, %rsi
-  movq %rdi, -200(%rbp)
+  movq $16, %rbx
+  movq -184(%rbp), %r10
+  addq %rbx, %r10
+  movq %r10, %rsi
+  movq %rsi, %r10
+  addq -168(%rbp), %r10
+  movq %r10, %rbx
+  movq %rbx, -184(%rbp)
   jmp .L_सूत्र_संग्रह__wh_शर्त_13
 .L_सूत्र_संग्रह__wh_देह_8:
   movq -120(%rbp), %rcx
@@ -2273,63 +2245,63 @@
   movq -72(%rbp), %r10
   movq %rbx, %r11
   movq (%r10,%r11), %r10
-  movq %r10, -424(%rbp)
+  movq %r10, -200(%rbp)
   movq $0, %rbx
   jmp .L_सूत्र_संग्रह__wh_शर्त_4
 .L_सूत्र_संग्रह__wh_शर्त_4:
   movq %rbx, %r10
-  cmpq -424(%rbp), %r10
+  cmpq -200(%rbp), %r10
   setl %al
   movzbq %al, %r10
-  movq %r10, %r15
-  movq %r15, %r10
+  movq %r10, %rdi
+  movq %rdi, %r10
   cmpq $0, %r10
   je .L_सूत्र_संग्रह__wh_अंत_6
   jmp .L_सूत्र_संग्रह__wh_देह_5
 .L_सूत्र_संग्रह__wh_अंत_6:
-  movq $0, %r15
+  movq $0, %rdi
   movq -72(%rbp), %r10
-  movq %r15, %r11
-  movq (%r10,%r11), %r10
-  movq %r10, %r14
-  movq %r14, -72(%rbp)
-  jmp .L_सूत्र_संग्रह__wh_शर्त_1
-.L_सूत्र_संग्रह__wh_देह_5:
-  movq $32, %r14
-  movq -72(%rbp), %r10
-  addq %r14, %r10
-  movq %r10, %r15
-  movq %r15, %r10
-  addq %rbx, %r10
-  movq %r10, %r14
-  movq $0, %r15
-  movq %r14, %r10
-  movq %r15, %r11
-  movq (%r10,%r11), %r10
-  movq %r10, %r13
-  movq $8, %r15
-  movq %r14, %r10
-  movq %r15, %r11
+  movq %rdi, %r11
   movq (%r10,%r11), %r10
   movq %r10, %r12
-  movq $0, %r15
-  movq $256, %rdi
-  movq %r13, %rax
+  movq %r12, -72(%rbp)
+  jmp .L_सूत्र_संग्रह__wh_शर्त_1
+.L_सूत्र_संग्रह__wh_देह_5:
+  movq $32, %rdi
+  movq -72(%rbp), %r10
+  addq %rdi, %r10
+  movq %r10, %r12
+  movq %r12, %r10
+  addq %rbx, %r10
+  movq %r10, %rdi
+  movq $0, %r12
   movq %rdi, %r10
+  movq %r12, %r11
+  movq (%r10,%r11), %r10
+  movq %r10, %r13
+  movq $8, %r12
+  movq %rdi, %r10
+  movq %r12, %r11
+  movq (%r10,%r11), %r10
+  movq %r10, %r14
+  movq $0, %r12
+  movq $256, %r15
+  movq %r13, %rax
+  movq %r15, %r10
   cqto
   idivq %r10
   movq %rdx, %rsi
-  movq %r14, %r10
-  movq %r15, %r11
+  movq %rdi, %r10
+  movq %r12, %r11
   movq %rsi, %r8
   movq %r8, (%r10,%r11)
-  movq %rsi, %rdi
+  movq %rsi, %r13
   movq $16, %rsi
   movq %rbx, %r10
   addq %rsi, %r10
   movq %r10, %rdi
   movq %rdi, %r10
-  addq %r12, %r10
+  addq %r14, %r10
   movq %r10, %rbx
   jmp .L_सूत्र_संग्रह__wh_शर्त_4
 .L_epilogue_सूत्र_संग्रह:

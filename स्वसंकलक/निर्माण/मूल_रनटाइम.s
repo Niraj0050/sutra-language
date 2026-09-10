@@ -11568,13 +11568,6 @@
   movq %r15, -56(%rbp)
   movq %rcx, %rbx
   movq %rdx, -72(%rbp)
-  movq $0, -168(%rbp)
-  movl gc_roots_count(%rip), %eax
-  leaq gc_roots(%rip), %r10
-  leaq -168(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  movl %eax, gc_roots_count(%rip)
 
 .L_दशमलव_प्रारूप__प्रवेश_0:
   movq $0, %rdi
@@ -11625,8 +11618,6 @@
   movq %rdi, -88(%rbp)
   jmp .L_दशमलव_प्रारूप__if_अंत_4
 .L_दशमलव_प्रारूप__if_अंत_4:
-  movq -104(%rbp), %r11
-  movq %r11, -168(%rbp)
   movq -104(%rbp), %rcx
   movq -104(%rbp), %rdx
   subq $32, %rsp
@@ -12036,7 +12027,6 @@
   call sutra_math_round_f
   addq $32, %rsp
   movq %rax, %rbx
-  movq $0, -168(%rbp)
   movq %rbx, %rcx
   subq $32, %rsp
   call अंक_गणना
@@ -12175,7 +12165,6 @@
   movq %rbx, %rax
   jmp .L_epilogue_दशमलव_प्रारूप
 .L_epilogue_दशमलव_प्रारूप:
-  subl $1, gc_roots_count(%rip)
   movq -8(%rbp), %rbx
   movq -16(%rbp), %rsi
   movq -24(%rbp), %rdi
@@ -13710,6 +13699,166 @@
   movq -32(%rbp), %r12
   movq -40(%rbp), %r13
   movq -48(%rbp), %r14
+  movq %rbp, %rsp
+  popq %rbp
+  ret
+
+  .text
+  .globl सूची_तत्व_अनि
+  .def सूची_तत्व_अनि; .scl 2; .type 32; .endef
+सूची_तत्व_अनि:
+  pushq %rbp
+  movq %rsp, %rbp
+  subq $64, %rsp
+  movq %rbx, -8(%rbp)
+  movq %rsi, -16(%rbp)
+  movq %rdi, -24(%rbp)
+  movq %r12, -32(%rbp)
+  movq %r13, -40(%rbp)
+  movq %rcx, %rbx
+  movq %rdx, %rsi
+
+.L_सूची_तत्व_अनि__प्रवेश_0:
+  movq $16, %rdi
+  movq $8, %r12
+  movq %rsi, %r10
+  imulq %r12, %r10
+  movq %r10, %r13
+  movq %rdi, %r10
+  addq %r13, %r10
+  movq %r10, %rsi
+  movq %rbx, %r10
+  movq %rsi, %r11
+  movq (%r10,%r11), %r10
+  movq %r10, %rdi
+  movq %rdi, %rax
+  jmp .L_epilogue_सूची_तत्व_अनि
+.L_epilogue_सूची_तत्व_अनि:
+  movq -8(%rbp), %rbx
+  movq -16(%rbp), %rsi
+  movq -24(%rbp), %rdi
+  movq -32(%rbp), %r12
+  movq -40(%rbp), %r13
+  movq %rbp, %rsp
+  popq %rbp
+  ret
+
+  .text
+  .globl सूची_तत्व_सेट_अनि
+  .def सूची_तत्व_सेट_अनि; .scl 2; .type 32; .endef
+सूची_तत्व_सेट_अनि:
+  pushq %rbp
+  movq %rsp, %rbp
+  subq $64, %rsp
+  movq %rbx, -8(%rbp)
+  movq %rsi, -16(%rbp)
+  movq %rdi, -24(%rbp)
+  movq %r12, -32(%rbp)
+  movq %r13, -40(%rbp)
+  movq %r14, -48(%rbp)
+  movq %rcx, %rbx
+  movq %rdx, %rsi
+  movq %r8, %rdi
+
+.L_सूची_तत्व_सेट_अनि__प्रवेश_0:
+  movq $16, %r12
+  movq $8, %r13
+  movq %rsi, %r10
+  imulq %r13, %r10
+  movq %r10, %r14
+  movq %r12, %r10
+  addq %r14, %r10
+  movq %r10, %rsi
+  movq %rbx, %r10
+  movq %rsi, %r11
+  movq %rdi, %r8
+  movq %r8, (%r10,%r11)
+  movq %rdi, %r12
+  movq $0, %rbx
+  movq %rbx, %rax
+  jmp .L_epilogue_सूची_तत्व_सेट_अनि
+.L_epilogue_सूची_तत्व_सेट_अनि:
+  movq -8(%rbp), %rbx
+  movq -16(%rbp), %rsi
+  movq -24(%rbp), %rdi
+  movq -32(%rbp), %r12
+  movq -40(%rbp), %r13
+  movq -48(%rbp), %r14
+  movq %rbp, %rsp
+  popq %rbp
+  ret
+
+  .text
+  .globl सीमा_दावा_ऊपर
+  .def सीमा_दावा_ऊपर; .scl 2; .type 32; .endef
+सीमा_दावा_ऊपर:
+  pushq %rbp
+  movq %rsp, %rbp
+  subq $48, %rsp
+  movq %rbx, -8(%rbp)
+  movq %rsi, -16(%rbp)
+  movq %rdi, -24(%rbp)
+  movq %r12, -32(%rbp)
+  movq %rcx, %rbx
+  movq %rdx, %rsi
+
+.L_सीमा_दावा_ऊपर__प्रवेश_0:
+  movq $0, %rdi
+  movq %rbx, %r10
+  cmpq %rdi, %r10
+  sete %al
+  movzbq %al, %r10
+  movq %r10, %r12
+  movq %r12, %r10
+  cmpq $0, %r10
+  je .L_सीमा_दावा_ऊपर__if_अंत_2
+  jmp .L_सीमा_दावा_ऊपर__if_सत्य_1
+.L_सीमा_दावा_ऊपर__if_अंत_2:
+  movq $8, %rdi
+  movq %rbx, %r10
+  movq %rdi, %r11
+  movq (%r10,%r11), %r10
+  movq %r10, %r12
+  movq %rsi, %r10
+  cmpq %r12, %r10
+  setg %al
+  movzbq %al, %r10
+  movq %r10, %rbx
+  movq %rbx, %r10
+  cmpq $0, %r10
+  je .L_सीमा_दावा_ऊपर__if_अंत_4
+  jmp .L_सीमा_दावा_ऊपर__if_सत्य_3
+.L_सीमा_दावा_ऊपर__if_अंत_4:
+  movq $0, %rbx
+  movq %rbx, %rax
+  jmp .L_epilogue_सीमा_दावा_ऊपर
+.L_सीमा_दावा_ऊपर__if_सत्य_3:
+  leaq .LC_str_28(%rip), %rcx
+  movq .LC_str_28_len(%rip), %rdx
+  subq $32, %rsp
+  call पाठ_रचना
+  addq $32, %rsp
+  movq %rax, %rbx
+  movq %rbx, %rcx
+  subq $32, %rsp
+  call फेंको
+  addq $32, %rsp
+.L_सीमा_दावा_ऊपर__if_सत्य_1:
+  leaq .LC_str_27(%rip), %rcx
+  movq .LC_str_27_len(%rip), %rdx
+  subq $32, %rsp
+  call पाठ_रचना
+  addq $32, %rsp
+  movq %rax, %rbx
+  movq %rbx, %rcx
+  subq $32, %rsp
+  call फेंको
+  addq $32, %rsp
+.L_epilogue_सीमा_दावा_ऊपर:
+  movq -8(%rbp), %rbx
+  movq -16(%rbp), %rsi
+  movq -24(%rbp), %rdi
+  movq -32(%rbp), %r12
   movq %rbp, %rsp
   popq %rbp
   ret
@@ -15761,13 +15910,6 @@
   movq %r14, -48(%rbp)
   movq %r15, -56(%rbp)
   movq %rcx, %rbx
-  movq $0, -104(%rbp)
-  movl gc_roots_count(%rip), %eax
-  leaq gc_roots(%rip), %r10
-  leaq -104(%rbp), %r11
-  movq %r11, (%r10,%rax,8)
-  incl %eax
-  movl %eax, gc_roots_count(%rip)
 
 .L_लघुगणक_रन__प्रवेश_0:
   movq .LC_dbl_0(%rip), %r10
@@ -15880,7 +16022,6 @@
   movq $1, %r13
   jmp .L_लघुगणक_रन__wh_शर्त_5
 .L_लघुगणक_रन__wh_शर्त_5:
-  movq %rsi, -104(%rbp)
   movq $40, %r14
   movq %r13, %r10
   cmpq %r14, %r10
@@ -15945,7 +16086,6 @@
   call sutra_float_mul
   addq $32, %rsp
   movq %rax, %rdi
-  movq $0, -104(%rbp)
   movq $2, %rsi
   movq %r13, %r10
   addq %rsi, %r10
@@ -15960,7 +16100,6 @@
   movq %rbx, %rax
   jmp .L_epilogue_लघुगणक_रन
 .L_epilogue_लघुगणक_रन:
-  subl $1, gc_roots_count(%rip)
   movq -8(%rbp), %rbx
   movq -16(%rbp), %rsi
   movq -24(%rbp), %rdi
