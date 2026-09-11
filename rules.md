@@ -147,6 +147,58 @@ internal dev tooling) round-trips the library list but does not itself run a
 link step, so `विदेशी_पुस्तकालय` is consumed only by the normal
 `sutrac.exe [--release]` build path.
 
+## 2b. Function Addresses (`फलन_पता`) — for callbacks & thread start routines
+
+Windows APIs that call back into your code (`CreateThread`, a custom window
+procedure, `qsort`-style comparator callbacks) expect a raw function-pointer
+*value*, not a call. Sutra has no first-class functions as a general
+language feature, but a Sutra function's own machine code already matches
+the calling convention such callbacks need — so `फलन_पता` exposes just the
+address, as an expression:
+
+```sutra
+संख्या पता = फलन_पता(कोई_भी_सूत्र_फलन);   // या किसी विदेशी-घोषित नाम पर
+```
+
+* The argument is a **bare function name** — parsed specially (like
+  `नवीन वर्ग(...)`'s class name), not evaluated as an expression. It must
+  name either a `कार्य` defined in this program (`मुख्य` included) or a name
+  declared via `विदेशी`.
+* Result: `संख्या` — the function's address, exactly as `leaq
+  नाम(%rip), %reg` (x86 backend) / `ptrtoint ptr @"नाम" to i64` (`--release`)
+  would give a C program taking `&नाम`. No new runtime representation, no
+  emitter work beyond this one opcode — resolution reuses the exact same
+  name lookup calls already use (`विदेशी_नक्शा` first, then the builtin/
+  `मुख्य`→`sutra_main` remap table).
+* **You cannot call through the resulting address from Sutra code** — there
+  is no "call this raw pointer" expression. It exists only to *hand out* —
+  to `CreateThread`, `RegisterClass*`'s `lpfnWndProc`, or any other API
+  expecting `LPTHREAD_START_ROUTINE`/`WNDPROC`/similar. The callee (Windows)
+  invokes it directly using the platform ABI, which is exactly the ABI every
+  Sutra function already compiles to.
+
+```sutra
+विदेशी "kernel32" "CreateThread" थ्रेड_बनाओ(संख्या, संख्या, संख्या, संख्या, संख्या, संख्या);
+
+कार्य थ्रेड_कार्य(संख्या पैरामीटर) {   // signature must match what the API calls with
+    परत् 0;
+}
+कार्य मुख्य() {
+    थ्रेड_बनाओ(0, 0, फलन_पता(थ्रेड_कार्य), 0, 0, 0);
+}
+```
+
+⚠️ **GC hazard — read before spawning a thread.** Sutra's garbage collector
+(mark-sweep) is **not thread-safe**. A function run via `फलन_पता`+
+`CreateThread` on a second OS thread must not allocate or touch Sutra heap
+objects — no `सूची`/`शब्दकोश`/`पाठ` construction, no implicit allocation from
+string concatenation, nothing that can trigger `सूत्र_संग्रह`. Stick to
+`संख्या`-only locals/params, `अंतर्_पढ़*`/`अंतर्_लिख*` on pre-allocated raw
+buffers, and `विदेशी` calls — see `पुस्तकालय/थ्रेड.सूत्र` and
+`examples/thread_test.सूत्र` (4 real OS threads, mutex-protected shared
+counter, exact result verified — no full runtime thread-safety yet, just a
+documented-safe usage pattern).
+
 ---
 
 ## 3. Formatter Rules (`sutra_formatter.exe`)
