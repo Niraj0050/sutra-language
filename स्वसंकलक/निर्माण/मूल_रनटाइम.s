@@ -13864,6 +13864,171 @@
   ret
 
   .text
+  .globl विदेशी_पता
+  .def विदेशी_पता; .scl 2; .type 32; .endef
+विदेशी_पता:
+  pushq %rbp
+  movq %rsp, %rbp
+  subq $48, %rsp
+  movq %rbx, -8(%rbp)
+  movq %rsi, -16(%rbp)
+  movq %rdi, -24(%rbp)
+  movq %rcx, %rbx
+
+.L_विदेशी_पता__प्रवेश_0:
+  movq $0, %rsi
+  movq %rbx, %r10
+  cmpq %rsi, %r10
+  sete %al
+  movzbq %al, %r10
+  movq %r10, %rdi
+  movq %rdi, %r10
+  cmpq $0, %r10
+  je .L_विदेशी_पता__if_अंत_2
+  jmp .L_विदेशी_पता__if_सत्य_1
+.L_विदेशी_पता__if_अंत_2:
+  movq $16, %rsi
+  movq %rbx, %r10
+  addq %rsi, %r10
+  movq %r10, %rdi
+  movq %rdi, %rax
+  jmp .L_epilogue_विदेशी_पता
+.L_विदेशी_पता__if_सत्य_1:
+  movq $0, %rbx
+  movq %rbx, %rax
+  jmp .L_epilogue_विदेशी_पता
+.L_epilogue_विदेशी_पता:
+  movq -8(%rbp), %rbx
+  movq -16(%rbp), %rsi
+  movq -24(%rbp), %rdi
+  movq %rbp, %rsp
+  popq %rbp
+  ret
+
+  .text
+  .globl विदेशी_से_पाठ
+  .def विदेशी_से_पाठ; .scl 2; .type 32; .endef
+विदेशी_से_पाठ:
+  pushq %rbp
+  movq %rsp, %rbp
+  subq $80, %rsp
+  movq %rbx, -8(%rbp)
+  movq %rsi, -16(%rbp)
+  movq %rdi, -24(%rbp)
+  movq %r12, -32(%rbp)
+  movq %r13, -40(%rbp)
+  movq %r14, -48(%rbp)
+  movq %rcx, %rbx
+  movq $0, -72(%rbp)
+  movl gc_roots_count(%rip), %eax
+  leaq gc_roots(%rip), %r10
+  leaq -72(%rbp), %r11
+  movq %r11, (%r10,%rax,8)
+  incl %eax
+  movl %eax, gc_roots_count(%rip)
+
+.L_विदेशी_से_पाठ__प्रवेश_0:
+  movq $0, %rsi
+  movq %rbx, %r10
+  cmpq %rsi, %r10
+  sete %al
+  movzbq %al, %r10
+  movq %r10, %rdi
+  movq %rdi, %r10
+  cmpq $0, %r10
+  je .L_विदेशी_से_पाठ__if_अंत_2
+  jmp .L_विदेशी_से_पाठ__if_सत्य_1
+.L_विदेशी_से_पाठ__if_अंत_2:
+  movq $0, %rsi
+  jmp .L_विदेशी_से_पाठ__wh_शर्त_3
+.L_विदेशी_से_पाठ__wh_शर्त_3:
+  movq %rbx, %r10
+  movq %rsi, %r11
+  movzbq (%r10,%r11), %r10
+  movq %r10, %rdi
+  movq $0, %r12
+  movq %rdi, %r10
+  cmpq %r12, %r10
+  setne %al
+  movzbq %al, %r10
+  movq %r10, %r13
+  movq %r13, %r10
+  cmpq $0, %r10
+  je .L_विदेशी_से_पाठ__wh_अंत_5
+  jmp .L_विदेशी_से_पाठ__wh_देह_4
+.L_विदेशी_से_पाठ__wh_अंत_5:
+  movq %rsi, %rcx
+  subq $32, %rsp
+  call पाठ_आवंटित
+  addq $32, %rsp
+  movq %rax, %rdi
+  movq %rdi, -72(%rbp)
+  movq $16, %r12
+  movq $0, %r13
+  subq $8, %rsp
+  movq %rsi, %r11
+  pushq %r11
+  movq %rdi, %rcx
+  movq %r12, %rdx
+  movq %rbx, %r8
+  movq %r13, %r9
+  subq $32, %rsp
+  call खंड_प्रतिलिपि
+  addq $48, %rsp
+  movq %rax, %r14
+  movq %rdi, %rax
+  jmp .L_epilogue_विदेशी_से_पाठ
+.L_विदेशी_से_पाठ__wh_देह_4:
+  movq $1, %rdi
+  movq %rsi, %r10
+  addq %rdi, %r10
+  movq %r10, %r12
+  movq $1048576, %rsi
+  movq %r12, %r10
+  cmpq %rsi, %r10
+  setg %al
+  movzbq %al, %r10
+  movq %r10, %rdi
+  movq %rdi, %r10
+  cmpq $0, %r10
+  je .L_विदेशी_से_पाठ__if_अंत_7
+  jmp .L_विदेशी_से_पाठ__if_सत्य_6
+.L_विदेशी_से_पाठ__if_अंत_7:
+  movq %r12, %rsi
+  jmp .L_विदेशी_से_पाठ__wh_शर्त_3
+.L_विदेशी_से_पाठ__if_सत्य_6:
+  leaq .LC_str_29(%rip), %rcx
+  movq .LC_str_29_len(%rip), %rdx
+  subq $32, %rsp
+  call पाठ_रचना
+  addq $32, %rsp
+  movq %rax, %rbx
+  movq %rbx, %rcx
+  subq $32, %rsp
+  call फेंको
+  addq $32, %rsp
+.L_विदेशी_से_पाठ__if_सत्य_1:
+  movq $0, %rbx
+  movq %rbx, %rcx
+  subq $32, %rsp
+  call पाठ_आवंटित
+  addq $32, %rsp
+  movq %rax, %rsi
+  movq %rsi, %rax
+  jmp .L_epilogue_विदेशी_से_पाठ
+.L_epilogue_विदेशी_से_पाठ:
+  subl $1, gc_roots_count(%rip)
+  movq -8(%rbp), %rbx
+  movq -16(%rbp), %rsi
+  movq -24(%rbp), %rdi
+  movq -32(%rbp), %r12
+  movq -40(%rbp), %r13
+  movq -48(%rbp), %r14
+  movq %rbp, %rsp
+  popq %rbp
+  ret
+
+  .text
   .globl वस्तु_रचना
   .def वस्तु_रचना; .scl 2; .type 32; .endef
 वस्तु_रचना:
@@ -14554,8 +14719,8 @@
   movq %rbx, -8(%rbp)
 
 .L_भाजन_शून्य_फेंको__प्रवेश_0:
-  leaq .LC_str_29(%rip), %rcx
-  movq .LC_str_29_len(%rip), %rdx
+  leaq .LC_str_30(%rip), %rcx
+  movq .LC_str_30_len(%rip), %rdx
   subq $32, %rsp
   call पाठ_रचना
   addq $32, %rsp
@@ -14580,8 +14745,8 @@
   movq %rbx, -8(%rbp)
 
 .L_निकास_उपसर्ग__प्रवेश_0:
-  leaq .LC_str_30(%rip), %rcx
-  movq .LC_str_30_len(%rip), %rdx
+  leaq .LC_str_31(%rip), %rcx
+  movq .LC_str_31_len(%rip), %rdx
   subq $32, %rsp
   call पाठ_रचना
   addq $32, %rsp
@@ -14604,8 +14769,8 @@
   movq %rbx, -8(%rbp)
 
 .L_निकास_अनियंत्रित__प्रवेश_0:
-  leaq .LC_str_31(%rip), %rcx
-  movq .LC_str_31_len(%rip), %rdx
+  leaq .LC_str_32(%rip), %rcx
+  movq .LC_str_32_len(%rip), %rdx
   subq $32, %rsp
   call पाठ_रचना
   addq $32, %rsp
@@ -14628,8 +14793,8 @@
   movq %rbx, -8(%rbp)
 
 .L_निकास_न्यूलाइन__प्रवेश_0:
-  leaq .LC_str_32(%rip), %rcx
-  movq .LC_str_32_len(%rip), %rdx
+  leaq .LC_str_33(%rip), %rcx
+  movq .LC_str_33_len(%rip), %rdx
   subq $32, %rsp
   call पाठ_रचना
   addq $32, %rsp
@@ -14693,8 +14858,8 @@
   je .L_सूत्र_अपवाद_निकास__if_असत्य_6
   jmp .L_सूत्र_अपवाद_निकास__if_सत्य_4
 .L_सूत्र_अपवाद_निकास__if_असत्य_6:
-  leaq .LC_str_30(%rip), %rcx
-  movq .LC_str_30_len(%rip), %rdx
+  leaq .LC_str_31(%rip), %rcx
+  movq .LC_str_31_len(%rip), %rdx
   subq $32, %rsp
   call पाठ_रचना
   addq $32, %rsp
@@ -14715,8 +14880,8 @@
   movq %r12, %rbx
   jmp .L_सूत्र_अपवाद_निकास__if_अंत_5
 .L_सूत्र_अपवाद_निकास__if_सत्य_4:
-  leaq .LC_str_30(%rip), %rcx
-  movq .LC_str_30_len(%rip), %rdx
+  leaq .LC_str_31(%rip), %rcx
+  movq .LC_str_31_len(%rip), %rdx
   subq $32, %rsp
   call पाठ_रचना
   addq $32, %rsp
@@ -14734,8 +14899,8 @@
 .L_सूत्र_अपवाद_निकास__if_अंत_5:
   jmp .L_सूत्र_अपवाद_निकास__if_अंत_2
 .L_सूत्र_अपवाद_निकास__if_सत्य_1:
-  leaq .LC_str_31(%rip), %rcx
-  movq .LC_str_31_len(%rip), %rdx
+  leaq .LC_str_32(%rip), %rcx
+  movq .LC_str_32_len(%rip), %rdx
   subq $32, %rsp
   call पाठ_रचना
   addq $32, %rsp
@@ -14743,8 +14908,8 @@
   jmp .L_सूत्र_अपवाद_निकास__if_अंत_2
 .L_सूत्र_अपवाद_निकास__if_अंत_2:
   movq %rbx, -64(%rbp)
-  leaq .LC_str_32(%rip), %rcx
-  movq .LC_str_32_len(%rip), %rdx
+  leaq .LC_str_33(%rip), %rcx
+  movq .LC_str_33_len(%rip), %rdx
   subq $32, %rsp
   call पाठ_रचना
   addq $32, %rsp
@@ -16700,19 +16865,23 @@ sutra_glob_घा_बावन:
 .LC_str_28_len:
   .quad 122
 .LC_str_29:
-  .ascii "\340\244\205\340\244\250\340\245\201\340\244\267\340\245\215\340\244\240\340\244\276\340\244\250-\340\244\244\340\245\215\340\244\260\340\245\201\340\244\237\340\244\277\340\244\203 \342\200\224 \340\244\266\340\245\202\340\244\250\340\245\215\340\244\257\340\245\207\340\244\250 \340\244\265\340\244\277\340\244\255\340\244\276\340\244\234\340\244\250\340\244\256\340\245\215 \340\244\250 \340\244\270\340\244\256\340\245\215\340\244\255\340\244\265\340\244\244\340\244\277 (Division by zero)\0"
+  .ascii "\340\244\244\340\245\215\340\244\260\340\245\201\340\244\237\340\244\277\340\244\203 \342\200\224 \340\244\265\340\244\277\340\244\246\340\245\207\340\244\266\340\245\200_\340\244\270\340\245\207_\340\244\252\340\244\276\340\244\240: 1MB \340\244\244\340\244\225 NUL-\340\244\205\340\244\202\340\244\244 \340\244\250\340\244\271\340\245\200\340\244\202 \340\244\256\340\244\277\340\244\262\340\244\276 (\340\244\227\340\244\262\340\244\244 \340\244\270\340\245\202\340\244\232\340\244\225?)\0"
 .LC_str_29_len:
-  .quad 142
+  .quad 139
 .LC_str_30:
-  .ascii "\340\244\244\340\245\215\340\244\260\340\245\201\340\244\237\340\244\277\340\244\203: \0"
+  .ascii "\340\244\205\340\244\250\340\245\201\340\244\267\340\245\215\340\244\240\340\244\276\340\244\250-\340\244\244\340\245\215\340\244\260\340\245\201\340\244\237\340\244\277\340\244\203 \342\200\224 \340\244\266\340\245\202\340\244\250\340\245\215\340\244\257\340\245\207\340\244\250 \340\244\265\340\244\277\340\244\255\340\244\276\340\244\234\340\244\250\340\244\256\340\245\215 \340\244\250 \340\244\270\340\244\256\340\245\215\340\244\255\340\244\265\340\244\244\340\244\277 (Division by zero)\0"
 .LC_str_30_len:
-  .quad 23
+  .quad 142
 .LC_str_31:
-  .ascii "\340\244\244\340\245\215\340\244\260\340\245\201\340\244\237\340\244\277\340\244\203 \342\200\224 \340\244\205\340\244\250\340\244\277\340\244\257\340\244\202\340\244\244\340\245\215\340\244\260\340\244\277\340\244\244 \340\244\205\340\244\252\340\244\265\340\244\276\340\244\246 (Uncaught exception)\0"
+  .ascii "\340\244\244\340\245\215\340\244\260\340\245\201\340\244\237\340\244\277\340\244\203: \0"
 .LC_str_31_len:
-  .quad 93
+  .quad 23
 .LC_str_32:
-  .ascii "\n\0"
+  .ascii "\340\244\244\340\245\215\340\244\260\340\245\201\340\244\237\340\244\277\340\244\203 \342\200\224 \340\244\205\340\244\250\340\244\277\340\244\257\340\244\202\340\244\244\340\245\215\340\244\260\340\244\277\340\244\244 \340\244\205\340\244\252\340\244\265\340\244\276\340\244\246 (Uncaught exception)\0"
 .LC_str_32_len:
+  .quad 93
+.LC_str_33:
+  .ascii "\n\0"
+.LC_str_33_len:
   .quad 1
 

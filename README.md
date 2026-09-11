@@ -24,7 +24,8 @@ Every feature listed below is fully implemented and verified against the referen
 * **Exception Handling**: Safe exception propagation using `प्रयत्न` (try), `पकड़ो` (catch), and `फेको` (throw), with automatic stack unwinding.
 * **Memory Management & GC**: Automatic heap management backed by a Mark-and-Sweep garbage collector tracking active roots.
 * **Modules & Imports**: Compiling multi-file codebases recursively using the `आयात` statement.
-* **Standard Library**: Reference implementations for Math (`वर्गमूल`, `घात`, etc.), String helpers (`उच्च`, `निम्न`, `बदलें`, etc.), File I/O (`सञ्चिका_पठतु`, `सञ्चिका_लिखतु`), and Console I/O.
+* **Standard Library**: Reference implementations for Math (`वर्गमूल`, `घात`, etc.), String helpers (`उच्च`, `निम्न`, `बदलें`, etc.), File I/O (`सञ्चिका_पठतु`, `सञ्चिका_लिखतु`), Console I/O, and pure-Sutra modules in `पुस्तकालय/` (UI model, date/time, CSV, JSON, collections, …).
+* **Foreign Function Interface**: `विदेशी` declares a DLL-exported function (MS x64 ABI, both backends) so Sutra code can call Win32 APIs directly — see `rules.md` §2a.
 * **Self-Hosting Compiler**: A compiler backend written in Sutra that translates Sutra source code to C++ outputs.
 
 ---

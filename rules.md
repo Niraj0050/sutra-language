@@ -33,7 +33,7 @@ Sutra enforces native Devanagari script integration directly in its scanner/lexe
 
 ## 2. Syntax Grammar & Keyword Catalog
 
-Sutra statements are terminated by a semicolon `;`. The syntax grammar incorporates 26 keywords:
+Sutra statements are terminated by a semicolon `;`. The syntax grammar incorporates 27 keywords:
 
 | Keyword | Purpose | Equivalent |
 |---|---|---|
@@ -68,6 +68,84 @@ Sutra statements are terminated by a semicolon `;`. The syntax grammar incorpora
 | `पकड़ो` | Catch exception declaration block | `catch` |
 | `प्रक्षेपः` / `फेको` | Throw/Raise exception value | `throw` |
 | `आयात` | Import external module source files | `import` |
+| `विदेशी` | Declare a foreign (DLL) function | `extern`/`FFI` |
+
+---
+
+## 2a. Foreign Function Interface (`विदेशी`)
+
+Sutra programs can call functions exported by a Windows DLL — the same
+mechanism that gives every Sutra binary its `KERNEL32.dll`/`SHELL32.dll`
+imports is exposed to user code. This makes Sutra's language surface usable
+beyond console/compute programs (GUI, networking, OS services) without
+translating any code to another language.
+
+**Declaration** (top level, outside any function):
+
+```sutra
+विदेशी "पुस्तकालय" "AsliProtiik" सूत्र_नाम(संख्या, संख्या, ...);
+```
+
+* `"पुस्तकालय"` — the DLL to link against, without extension (e.g. `"user32"`
+  → `-luser32`; resolved at link time by the existing `gcc`/`ld` step, so any
+  import library `ld` can find works). `विदेशी` may be Latin (`GetTickCount`)
+  because it is a string literal, not an identifier — Sutra identifiers still
+  cannot start with or contain Latin letters, so the foreign symbol's real
+  name never has to be typed as a Sutra name.
+* `सूत्र_नाम` — the Devanagari name your code calls it by; must follow normal
+  identifier rules.
+* Argument list — v1 supports only `संख्या` (i64) parameters, and the return
+  value is always `संख्या`. Everything is passed/returned in general-purpose
+  registers, matching the **Microsoft x64 calling convention**, which is what
+  both Sutra backends already emit for every call (x86 backend: `उत्_कॉल` puts
+  the first four args in `rcx`/`rdx`/`r8`/`r9` with a 32-byte shadow space
+  before every `call`; `--release`: `clang` targets the platform ABI
+  directly) — so a `विदेशी` call needed **no emitter changes**, only a
+  declaration → symbol-table entry → raw `call`/`declare` of the real name.
+
+**Calling it** — like any other function:
+
+```sutra
+विदेशी "kernel32" "GetTickCount" घड़ी_टिक();
+विदेशी "kernel32" "Sleep" सोओ(संख्या);
+विदेशी "user32" "GetSystemMetrics" स्क्रीन_माप(संख्या);
+
+कार्य मुख्य() {
+    लिखतु(घड़ी_टिक());        // ms since boot
+    सोओ(500);                  // real Sleep(), pauses 500ms
+    लिखतु(स्क्रीन_माप(0));    // SM_CXSCREEN — screen width in px
+}
+```
+
+**Strings.** A Sutra `पाठ` is already NUL-terminated in memory (every
+allocator path appends a trailing `\0` after the UTF-8 bytes — see
+`पाठ_आवंटित` in `मूल_रनटाइम.सूत्र`), so passing one to a foreign `char*`
+parameter needs no conversion step, only its raw data pointer:
+
+```sutra
+विदेशी "user32" "MessageBoxA" संदेश_दिखाओ(संख्या, संख्या, संख्या, संख्या);
+कार्य मुख्य() {
+    पाठ संदेश = "नमस्ते!";
+    संदेश_दिखाओ(0, विदेशी_पता(संदेश), विदेशी_पता("शीर्षक"), 0);
+}
+```
+
+* `विदेशी_पता(वस्तु)` — raw i64 address of a `पाठ`'s (or `सूची`'s) data
+  region; `0` (the empty/null Sutra handle) maps to a real `NULL` pointer.
+  The GC is mark-sweep (non-moving), so the address stays valid for as long
+  as the caller keeps the source object reachable (e.g. in a local variable)
+  across the call.
+* `विदेशी_से_पाठ(सूचक)` — the inverse: reads NUL-terminated bytes at a raw
+  address (e.g. one a foreign function returned) into a new Sutra `पाठ`.
+
+**Limits (v1):** arguments/return are `संख्या` only — no `दशमलव` (XMM
+registers), no passing a `सूची` element-for-element (only its raw pointer,
+via `विदेशी_पता`, for treating it as a byte buffer). A `पाठ` with an embedded
+NUL byte will read short through `विदेशी_पता` (a C-string limitation, not a
+Sutra one). The split IR-serialization path (`अग्र_चालक`/`पश्च_चालक`,
+internal dev tooling) round-trips the library list but does not itself run a
+link step, so `विदेशी_पुस्तकालय` is consumed only by the normal
+`sutrac.exe [--release]` build path.
 
 ---
 
