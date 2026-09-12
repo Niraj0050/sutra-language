@@ -243,6 +243,16 @@ sutrac.exe --freestanding kernel_test.सूत्र
   exactly that range out via `dd`. A post-extraction sanity check confirms
   byte 0 is `0x55` (`push %rbp` — every Sutra function starts this way);
   a wrong offset/size computation fails loudly instead of shipping garbage.
+* **`sutra_main` is always the FIRST function in the extracted blob**,
+  regardless of where `मुख्य` is declared in the source, or how many other
+  functions it calls (`मूल_उत्सर्जक.सूत्र` reorders the function-emission
+  list under `--freestanding`, before regular codegen runs). This is a hard
+  guarantee, not a convention — anyone `call`ing into the `.bin` from offset
+  0 (a boot stub, `कर्नेल/boot.asm`) always lands on the real entry point.
+  (Found the hard way: a multi-function test with a helper declared *before*
+  `मुख्य` landed the helper at offset 0 instead — the boot stub called it
+  with garbage register args and triple-faulted. Fixed by reordering at
+  emission time, not by requiring `मुख्य` to be declared first in source.)
 * **`--release` (LLVM) is not supported** — `--freestanding` only works with
   the default x86 backend; combining the two warns and drops `--release`.
 * **Not a kernel** — this is the ground-floor primitive an actual kernel
@@ -251,7 +261,11 @@ sutrac.exe --freestanding kernel_test.सूत्र
   needs a hand-written boot-sector stub (the CPU's own mandatory real-mode →
   protected-mode → long-mode handshake — the same category as calling
   `kernel32` via FFI: using the hardware's required interface, not copying
-  anyone's OS) to actually load and jump into the extracted `.bin`.
+  anyone's OS) to actually load and jump into the extracted `.bin`. A
+  reusable one lives at `कर्नेल/boot.asm` + `कर्नेल/निर्माण.ps1` — see
+  `examples/कर्नेल_नमस्ते.सूत्र` for a full working example (multi-function,
+  verified booting in QEMU with the write independently confirmed via the
+  QEMU monitor's `xp` physical-memory-dump command, not just trusted).
 
 ---
 
