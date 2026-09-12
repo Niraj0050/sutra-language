@@ -201,6 +201,60 @@ documented-safe usage pattern).
 
 ---
 
+## 2c. `--freestanding` — zero-OS compilation (kernel/bare-metal groundwork)
+
+`sutrac.exe --freestanding <file.सूत्र>` compiles `मुख्य` (and everything it
+calls) into a **raw, position-independent flat binary** with **no OS
+dependency at all** — no `kernel32`/`shell32` import, no CRT, no Sutra
+runtime/GC, no `main:` wrapper. The output (`<name>_freestanding.bin`) is
+just machine-code bytes starting at `sutra_main`, callable from anywhere —
+a hand-written boot sector, a hypervisor, another freestanding binary — via
+a plain `call <address-you-loaded-it-at>`.
+
+```sutra
+कार्य मुख्य() {
+    संख्या तल = 753664;              // कोई भी raw भौतिक/mapped पता
+    अंतर्_लिख1(तल, 0, 83);           // सीधा memory-write — VGA टेक्स्ट-बफर आदि
+    परत् 0;
+}
+```
+```
+sutrac.exe --freestanding kernel_test.सूत्र
+→ kernel_test.सूत्र_freestanding.bin   (raw bytes, sutra_main से शुरू)
+```
+
+* **Why this is possible at all**: a Sutra function that touches nothing
+  beyond `संख्या` math + `अंतर्_पढ़*`/`अंतर्_लिख*` (raw memory) compiles to a
+  fully self-contained instruction sequence — plain prologue/epilogue +
+  inline loads/stores, zero calls to the runtime. GC-init (`सूत्र_स्वजीसी_आरंभ`)
+  lives in the separate `main:` wrapper, not inside `sutra_main` itself — so
+  skip the wrapper and the function needs nothing from an OS to run.
+* **Compile-time safety gate** (`स्वसंकलक/फ्रीस्टैंडिंग.सूत्र`): before codegen,
+  every function reachable from `मुख्य` is checked — any `सूची`/`शब्दकोश`/`पाठ`
+  parameter, local, or literal, any `नवीन`/method-call/field-access, or any
+  call to something outside a small safe-builtin list (`अंतर्_पढ़8/पढ़1/
+  लिख8/लिख1`, `बिट_*`) and the reachable user-function set → **compile error**,
+  not a silent miscompile. Same discipline as `थ्रेड.सूत्र`'s GC-hazard rule
+  (§2b), just enforced by the compiler instead of by hand.
+* **How the extraction works**: links with `gcc -nostdlib -Wl,--entry=sutra_main`
+  (zero imports — any leftover unsafe reference becomes a hard link error,
+  a second safety net beyond the semantic gate), reads the linked `.text`
+  section's real file-offset/size from `objdump -h` output, and byte-slices
+  exactly that range out via `dd`. A post-extraction sanity check confirms
+  byte 0 is `0x55` (`push %rbp` — every Sutra function starts this way);
+  a wrong offset/size computation fails loudly instead of shipping garbage.
+* **`--release` (LLVM) is not supported** — `--freestanding` only works with
+  the default x86 backend; combining the two warns and drops `--release`.
+* **Not a kernel** — this is the ground-floor primitive an actual kernel
+  needs (compiled code with zero OS underneath), not a kernel itself. No
+  interrupt/paging/hardware-I/O builtins exist yet; a real boot chain still
+  needs a hand-written boot-sector stub (the CPU's own mandatory real-mode →
+  protected-mode → long-mode handshake — the same category as calling
+  `kernel32` via FFI: using the hardware's required interface, not copying
+  anyone's OS) to actually load and jump into the extracted `.bin`.
+
+---
+
 ## 3. Formatter Rules (`sutra_formatter.exe`)
 
 The formatter implements a deterministic style to ensure code is clean and readable:
