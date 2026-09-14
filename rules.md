@@ -112,8 +112,8 @@ translating any code to another language.
 
 कार्य मुख्य() {
     लिखतु(घड़ी_टिक());        // ms since boot
-    सोओ(500);                  // real Sleep(), pauses 500ms
-    लिखतु(स्क्रीन_माप(0));    // SM_CXSCREEN — screen width in px
+    सोओ(५००);                  // real Sleep(), pauses 500ms
+    लिखतु(स्क्रीन_माप(०));    // SM_CXSCREEN — screen width in px
 }
 ```
 
@@ -126,7 +126,7 @@ parameter needs no conversion step, only its raw data pointer:
 विदेशी "user32" "MessageBoxA" संदेश_दिखाओ(संख्या, संख्या, संख्या, संख्या);
 कार्य मुख्य() {
     पाठ संदेश = "नमस्ते!";
-    संदेश_दिखाओ(0, विदेशी_पता(संदेश), विदेशी_पता("शीर्षक"), 0);
+    संदेश_दिखाओ(०, विदेशी_पता(संदेश), विदेशी_पता("शीर्षक"), ०);
 }
 ```
 
@@ -181,10 +181,10 @@ address, as an expression:
 विदेशी "kernel32" "CreateThread" थ्रेड_बनाओ(संख्या, संख्या, संख्या, संख्या, संख्या, संख्या);
 
 कार्य थ्रेड_कार्य(संख्या पैरामीटर) {   // signature must match what the API calls with
-    परत् 0;
+    परत् ०;
 }
 कार्य मुख्य() {
-    थ्रेड_बनाओ(0, 0, फलन_पता(थ्रेड_कार्य), 0, 0, 0);
+    थ्रेड_बनाओ(०, ०, फलन_पता(थ्रेड_कार्य), ०, ०, ०);
 }
 ```
 
@@ -213,9 +213,9 @@ a plain `call <address-you-loaded-it-at>`.
 
 ```sutra
 कार्य मुख्य() {
-    संख्या तल = 753664;              // कोई भी raw भौतिक/mapped पता
-    अंतर्_लिख1(तल, 0, 83);           // सीधा memory-write — VGA टेक्स्ट-बफर आदि
-    परत् 0;
+    संख्या तल = ७५३६६४;              // कोई भी raw भौतिक/mapped पता
+    अंतर्_लिख1(तल, ०, ८३);           // सीधा memory-write — VGA टेक्स्ट-बफर आदि
+    परत् ०;
 }
 ```
 ```

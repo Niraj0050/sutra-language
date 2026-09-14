@@ -8,33 +8,52 @@
 # tracks string/comment state exactly like a real lexer would, to avoid
 # corrupting anything outside genuine numeric-literal tokens.
 #
-# -IncludeComments also converts digits INSIDE // comments, with two
-# protections so external/standard references stay untouched:
-#   1. Digits inside a "..." span within the comment (illustrating string
-#      content — IPs, hex hashes, JSON text) are left alone, matching how
-#      real string literals are always left alone.
+# -IncludeComments also converts digits INSIDE // comments, with protections
+# so external/standard references stay untouched:
+#   1. Digits inside a "..." or `...` span within the comment (illustrating
+#      string/code content — IPs, hex hashes, JSON text, regex \N/$N escape
+#      syntax) are left alone, matching how real string literals are always
+#      left alone.
 #   2. A digit-run is left alone if it's part of a Latin-letter-containing
-#      "cluster" (maximal run of [0-9A-Za-z-:./§_]) — this catches
+#      "cluster" (maximal run of [0-9A-Za-z-:./_], where '-' only bridges
+#      digit<->digit so a hyphenated internal term like "Milestone-1"
+#      doesn't inherit protection from the word in front of it) — catches
 #      RFC 4648, FIPS 180-4 §4.2.2, UTF-8, HTTP/1.1, IPv4, SHA-256,
 #      0xFFFFFFFF, git hashes like 4cc1ef3, ISO timestamps like
-#      2026-09-10T14:30:00Z, and bare §3a-style section tags — all of
-#      which are external/fixed notations, not prose quantities.
+#      2026-09-10T14:30:00Z, and bare §3a-style section tags.
+#   3. A digit-run preceded by a space/hyphen then an ALL-CAPS word (UTF,
+#      SHA, RFC, FIPS, ISO, IEEE, TLS, ...) is protected the same way —
+#      a Title-Case or lowercase word there is never an external citation
+#      in this codebase's writing style.
 # Everything else (descriptive counts, example Sutra code shown in a
 # comment, dates without letter markers) converts, matching how the
 # already-converted real source code looks.
 #
+# -MarkdownSutraFences treats a .md file differently: everything is left
+# completely untouched EXCEPT the content of ```sutra fenced code blocks,
+# which gets the exact same treatment as a real .सूत्र file (incl. comments)
+# — since a सूत्र fence shows real syntax that should match the already-
+# converted source. Prose, headings, tables, other-language fences (bash/
+# powershell/text/...), and markdown's own ordered-list-marker digits are
+# never touched — converting those would misrepresent the language's own
+# spec text (English prose contrasting "0-9" vs "०-९") or break rendering
+# (CommonMark only recognizes ASCII-digit list markers). Decided with the
+# user 2026-09-14: only सूत्र code-fences convert in docs.
+#
 # Used (2026-09-14) to convert सब पुस्तकालय/ + tests/stdlib/ + स्वसंकलक/
-# NUMBER-LITERAL tokens (no -IncludeComments). Comments + markdown docs
-# are a separate, later pass — see project_sutra_language memory.
+# NUMBER-LITERAL tokens, then (separately) their // comments — see
+# project_sutra_language memory for the commit history.
 #
 # उपयोग: .\convert_devanagari_digits.ps1 -Path "पुस्तकालय\गणित.सूत्र"
 #        .\convert_devanagari_digits.ps1 -Path "..." -WhatIf   # सिर्फ़ गिनती, लिखे नहीं
 #        .\convert_devanagari_digits.ps1 -Path "..." -IncludeComments
+#        .\convert_devanagari_digits.ps1 -Path "README.md" -MarkdownSutraFences
 
 param(
     [Parameter(Mandatory=$true)][string]$Path,
     [switch]$WhatIf,
-    [switch]$IncludeComments
+    [switch]$IncludeComments,
+    [switch]$MarkdownSutraFences
 )
 
 $devMap = @{
@@ -55,9 +74,9 @@ function IsIdentChar([int]$cp) {
     return $false
 }
 
-# $chars = full file char array; $runStart/$runEnd = digit-run bounds (end exclusive)
-# within that array. Protects three patterns, all "this is an external/fixed
-# notation, not a prose quantity":
+# $chars = full text char array; $runStart/$runEnd = digit-run bounds (end
+# exclusive) within that array. Protects three patterns, all "this is an
+# external/fixed notation, not a prose quantity":
 #   1. Tight cluster (letters/digits/-:./_  touching, no space) contains a
 #      Latin letter — catches HTTP/1.1, 0xFFFFFFFF, git hashes, ISO timestamps.
 #   2. Cluster is preceded by exactly one space, then a run of pure Latin
@@ -129,175 +148,243 @@ function IsClusterProtected($chars, [int]$n, [int]$runStart, [int]$runEnd) {
     return $false
 }
 
-$raw = Get-Content -Raw -Encoding UTF8 -Path $Path
-$chars = $raw.ToCharArray()
-$n = $chars.Length
-$out = New-Object System.Text.StringBuilder($n)
+# Core lexer-like scanner — converts a block of real सूत्र source text
+# (a whole file, or one ```sutra fence's inner content). Returns
+# @{ Result = <converted text>; Count = <digits converted> }.
+function ConvertSutraText([string]$raw, [bool]$includeComments) {
+    $chars = $raw.ToCharArray()
+    $n = $chars.Length
+    $out = New-Object System.Text.StringBuilder($n)
 
-$i = 0
-$inString = $false
-$prevIsIdent = $false
-$convertedCount = 0
+    $i = 0
+    $inString = $false
+    $prevIsIdent = $false
+    $convertedCount = 0
 
-while ($i -lt $n) {
-    $c = $chars[$i]
+    while ($i -lt $n) {
+        $c = $chars[$i]
 
-    if ($inString) {
-        [void]$out.Append($c)
-        if ($c -eq '\' -and ($i + 1) -lt $n) {
-            [void]$out.Append($chars[$i + 1])
-            $i += 2
+        if ($inString) {
+            [void]$out.Append($c)
+            if ($c -eq '\' -and ($i + 1) -lt $n) {
+                [void]$out.Append($chars[$i + 1])
+                $i += 2
+                continue
+            }
+            if ($c -eq '"') { $inString = $false }
+            $prevIsIdent = $false
+            $i += 1
             continue
         }
-        if ($c -eq '"') { $inString = $false }
-        $prevIsIdent = $false
-        $i += 1
-        continue
-    }
 
-    if ($c -eq '"') {
-        $inString = $true
-        [void]$out.Append($c)
-        $prevIsIdent = $false
-        $i += 1
-        continue
-    }
+        if ($c -eq '"') {
+            $inString = $true
+            [void]$out.Append($c)
+            $prevIsIdent = $false
+            $i += 1
+            continue
+        }
 
-    if ($c -eq '/' -and ($i + 1) -lt $n -and $chars[$i + 1] -eq '/') {
-        if (-not $IncludeComments) {
-            # line comment — copy verbatim to end of line (original behaviour)
+        if ($c -eq '/' -and ($i + 1) -lt $n -and $chars[$i + 1] -eq '/') {
+            if (-not $includeComments) {
+                # line comment — copy verbatim to end of line (original behaviour)
+                while ($i -lt $n -and $chars[$i] -ne "`n") {
+                    [void]$out.Append($chars[$i])
+                    $i += 1
+                }
+                $prevIsIdent = $false
+                continue
+            }
+
+            # includeComments: scan the comment applying the same digit-run
+            # conversion as code, protected by: (1) quote-tracking — digits
+            # inside "..." (illustrating string content) stay untouched, same
+            # as real string literals; (1b) backtick-tracking — digits inside
+            # `...` (markdown-style code-span used in prose, e.g. `\1`-`\9` for
+            # regex backreference syntax) stay untouched, since the backtick is
+            # marking "literal syntax", same intent as a real string literal —
+            # matters most for \N/\d escape-sequence docs, where the digit IS
+            # the exact ASCII char the regex engine parses at runtime; (2)
+            # identifier-continuation — a digit glued right after a Devanagari
+            # letter (सं2, विन32.सूत्र, ज_पढ़4) is naming a REAL identifier/
+            # filename that was never renamed, so it must stay exactly as-is,
+            # same रूल as real code; (3) cluster check — a Latin-letter-
+            # containing run (RFC 4648, HTTP/1.1, 0xFFFFFFFF, git hashes, ISO
+            # timestamps) is an external/fixed notation, stays untouched.
+            [void]$out.Append($chars[$i]); [void]$out.Append($chars[$i+1])
+            $i += 2
+            $cInString = $false
+            $cInBacktick = $false
+            $cPrevIsIdent = $false
             while ($i -lt $n -and $chars[$i] -ne "`n") {
-                [void]$out.Append($chars[$i])
+                $cc = $chars[$i]
+
+                if ($cInString) {
+                    [void]$out.Append($cc)
+                    if ($cc -eq '\' -and ($i + 1) -lt $n -and $chars[$i+1] -ne "`n") {
+                        [void]$out.Append($chars[$i + 1])
+                        $i += 2
+                        continue
+                    }
+                    if ($cc -eq '"') { $cInString = $false }
+                    $cPrevIsIdent = $false
+                    $i += 1
+                    continue
+                }
+
+                if ($cInBacktick) {
+                    [void]$out.Append($cc)
+                    if ($cc -eq '`') { $cInBacktick = $false }
+                    $cPrevIsIdent = $false
+                    $i += 1
+                    continue
+                }
+
+                if ($cc -eq '"') {
+                    $cInString = $true
+                    [void]$out.Append($cc)
+                    $cPrevIsIdent = $false
+                    $i += 1
+                    continue
+                }
+
+                if ($cc -eq '`') {
+                    $cInBacktick = $true
+                    [void]$out.Append($cc)
+                    $cPrevIsIdent = $false
+                    $i += 1
+                    continue
+                }
+
+                if ($cc -ge '0' -and $cc -le '9') {
+                    $j = $i
+                    while ($j -lt $n -and $chars[$j] -ge '0' -and $chars[$j] -le '9') { $j += 1 }
+                    if ($j -lt $n -and $chars[$j] -eq '.' -and ($j + 1) -lt $n -and $chars[$j+1] -ge '0' -and $chars[$j+1] -le '9') {
+                        $j += 1
+                        while ($j -lt $n -and $chars[$j] -ge '0' -and $chars[$j] -le '9') { $j += 1 }
+                    }
+                    if ($cPrevIsIdent -or (IsClusterProtected $chars $n $i $j)) {
+                        for ($k = $i; $k -lt $j; $k++) { [void]$out.Append($chars[$k]) }
+                    } else {
+                        for ($k = $i; $k -lt $j; $k++) {
+                            if ($devMap.ContainsKey($chars[$k])) {
+                                [void]$out.Append($devMap[$chars[$k]])
+                                $convertedCount += 1
+                            } else {
+                                [void]$out.Append($chars[$k])
+                            }
+                        }
+                    }
+                    $i = $j
+                    $cPrevIsIdent = $true
+                    continue
+                }
+
+                [void]$out.Append($cc)
+                $cPrevIsIdent = IsIdentChar([int][char]$cc)
                 $i += 1
             }
             $prevIsIdent = $false
             continue
         }
 
-        # -IncludeComments: scan the comment applying the same digit-run
-        # conversion as code, protected by: (1) quote-tracking — digits
-        # inside "..." (illustrating string content) stay untouched, same
-        # as real string literals; (1b) backtick-tracking — digits inside
-        # `...` (markdown-style code-span used in prose, e.g. `\1`-`\9` for
-        # regex backreference syntax) stay untouched, since the backtick is
-        # marking "literal syntax", same intent as a real string literal —
-        # matters most for \N/\d escape-sequence docs, where the digit IS
-        # the exact ASCII char the regex engine parses at runtime; (2)
-        # identifier-continuation — a digit glued right after a Devanagari
-        # letter (सं2, विन32.सूत्र, ज_पढ़4) is naming a REAL identifier/
-        # filename that was never renamed, so it must stay exactly as-is,
-        # same रूल as real code; (3) cluster check — a Latin-letter-
-        # containing run (RFC 4648, HTTP/1.1, 0xFFFFFFFF, git hashes, ISO
-        # timestamps) is an external/fixed notation, stays untouched.
-        [void]$out.Append($chars[$i]); [void]$out.Append($chars[$i+1])
-        $i += 2
-        $cInString = $false
-        $cInBacktick = $false
-        $cPrevIsIdent = $false
-        while ($i -lt $n -and $chars[$i] -ne "`n") {
-            $cc = $chars[$i]
-
-            if ($cInString) {
-                [void]$out.Append($cc)
-                if ($cc -eq '\' -and ($i + 1) -lt $n -and $chars[$i+1] -ne "`n") {
-                    [void]$out.Append($chars[$i + 1])
-                    $i += 2
-                    continue
-                }
-                if ($cc -eq '"') { $cInString = $false }
-                $cPrevIsIdent = $false
-                $i += 1
-                continue
-            }
-
-            if ($cInBacktick) {
-                [void]$out.Append($cc)
-                if ($cc -eq '`') { $cInBacktick = $false }
-                $cPrevIsIdent = $false
-                $i += 1
-                continue
-            }
-
-            if ($cc -eq '"') {
-                $cInString = $true
-                [void]$out.Append($cc)
-                $cPrevIsIdent = $false
-                $i += 1
-                continue
-            }
-
-            if ($cc -eq '`') {
-                $cInBacktick = $true
-                [void]$out.Append($cc)
-                $cPrevIsIdent = $false
-                $i += 1
-                continue
-            }
-
-            if ($cc -ge '0' -and $cc -le '9') {
-                $j = $i
-                while ($j -lt $n -and $chars[$j] -ge '0' -and $chars[$j] -le '9') { $j += 1 }
-                if ($j -lt $n -and $chars[$j] -eq '.' -and ($j + 1) -lt $n -and $chars[$j+1] -ge '0' -and $chars[$j+1] -le '9') {
-                    $j += 1
-                    while ($j -lt $n -and $chars[$j] -ge '0' -and $chars[$j] -le '9') { $j += 1 }
-                }
-                if ($cPrevIsIdent -or (IsClusterProtected $chars $n $i $j)) {
-                    for ($k = $i; $k -lt $j; $k++) { [void]$out.Append($chars[$k]) }
-                } else {
-                    for ($k = $i; $k -lt $j; $k++) {
-                        if ($devMap.ContainsKey($chars[$k])) {
-                            [void]$out.Append($devMap[$chars[$k]])
-                            $convertedCount += 1
-                        } else {
-                            [void]$out.Append($chars[$k])
-                        }
-                    }
-                }
-                $i = $j
-                $cPrevIsIdent = $true
-                continue
-            }
-
-            [void]$out.Append($cc)
-            $cPrevIsIdent = IsIdentChar([int][char]$cc)
-            $i += 1
-        }
-        $prevIsIdent = $false
-        continue
-    }
-
-    if ($c -ge '0' -and $c -le '9' -and -not $prevIsIdent) {
-        # start of a fresh ASCII digit-run (not preceded by an ident char) —
-        # convert the whole run (incl. a single embedded '.' for decimals)
-        $j = $i
-        while ($j -lt $n -and $chars[$j] -ge '0' -and $chars[$j] -le '9') { $j += 1 }
-        if ($j -lt $n -and $chars[$j] -eq '.' -and ($j + 1) -lt $n -and $chars[$j+1] -ge '0' -and $chars[$j+1] -le '9') {
-            $j += 1
+        if ($c -ge '0' -and $c -le '9' -and -not $prevIsIdent) {
+            # start of a fresh ASCII digit-run (not preceded by an ident char) —
+            # convert the whole run (incl. a single embedded '.' for decimals)
+            $j = $i
             while ($j -lt $n -and $chars[$j] -ge '0' -and $chars[$j] -le '9') { $j += 1 }
-        }
-        for ($k = $i; $k -lt $j; $k++) {
-            if ($devMap.ContainsKey($chars[$k])) {
-                [void]$out.Append($devMap[$chars[$k]])
-                $convertedCount += 1
-            } else {
-                [void]$out.Append($chars[$k])
+            if ($j -lt $n -and $chars[$j] -eq '.' -and ($j + 1) -lt $n -and $chars[$j+1] -ge '0' -and $chars[$j+1] -le '9') {
+                $j += 1
+                while ($j -lt $n -and $chars[$j] -ge '0' -and $chars[$j] -le '9') { $j += 1 }
             }
+            for ($k = $i; $k -lt $j; $k++) {
+                if ($devMap.ContainsKey($chars[$k])) {
+                    [void]$out.Append($devMap[$chars[$k]])
+                    $convertedCount += 1
+                } else {
+                    [void]$out.Append($chars[$k])
+                }
+            }
+            $i = $j
+            $prevIsIdent = $true   # a number token's end also blocks the NEXT char from starting fresh only if it's a digit run directly glued on (rare/invalid anyway); harmless either way
+            continue
         }
-        $i = $j
-        $prevIsIdent = $true   # a number token's end also blocks the NEXT char from starting fresh only if it's a digit run directly glued on (rare/invalid anyway); harmless either way
-        continue
+
+        [void]$out.Append($c)
+        $prevIsIdent = IsIdentChar([int][char]$c)
+        $i += 1
     }
 
-    [void]$out.Append($c)
-    $prevIsIdent = IsIdentChar([int][char]$c)
-    $i += 1
+    return @{ Result = $out.ToString(); Count = $convertedCount }
 }
 
-$result = $out.ToString()
-Write-Output "बदले गए अंक: $convertedCount"
+# Splits a markdown file into ```sutra fence content vs. everything else,
+# runs ConvertSutraText only on the fence content, and reassembles. Fence
+# detection is line-based (a line whose trimmed start is ``` toggles fence
+# state; the opening line's trailing text is the language tag) — matches
+# CommonMark fenced-code-block syntax closely enough for this repo's docs.
+function ConvertMarkdownSutraFences([string]$raw) {
+    $lines = $raw -split "`n", -1
+    $outLines = New-Object System.Collections.Generic.List[string]
+    $totalCount = 0
+    $inFence = $false
+    $fenceIsSutra = $false
+    $fenceBuf = New-Object System.Collections.Generic.List[string]
+
+    foreach ($line in $lines) {
+        $trimmed = $line.TrimEnd("`r")
+        $trimStart = $trimmed.TrimStart()
+
+        if (-not $inFence -and $trimStart.StartsWith('```')) {
+            $tag = $trimStart.Substring(3).Trim()
+            $inFence = $true
+            $fenceIsSutra = ($tag -eq 'sutra')
+            $fenceBuf.Clear()
+            $outLines.Add($line)
+            continue
+        }
+
+        if ($inFence -and $trimStart.StartsWith('```')) {
+            if ($fenceIsSutra) {
+                $fenceText = [string]::Join("`n", $fenceBuf)
+                $converted = ConvertSutraText $fenceText $true
+                $totalCount += $converted.Count
+                if ($fenceBuf.Count -gt 0) {
+                    $outLines.AddRange([string[]]($converted.Result -split "`n", -1))
+                }
+            } else {
+                $outLines.AddRange($fenceBuf)
+            }
+            $inFence = $false
+            $outLines.Add($line)
+            continue
+        }
+
+        if ($inFence) {
+            $fenceBuf.Add($line)
+        } else {
+            $outLines.Add($line)
+        }
+    }
+
+    # unterminated fence (shouldn't happen in valid markdown) — flush verbatim
+    if ($inFence) { $outLines.AddRange($fenceBuf) }
+
+    return @{ Result = [string]::Join("`n", $outLines); Count = $totalCount }
+}
+
+$rawInput = Get-Content -Raw -Encoding UTF8 -Path $Path
+
+if ($MarkdownSutraFences) {
+    $conv = ConvertMarkdownSutraFences $rawInput
+} else {
+    $conv = ConvertSutraText $rawInput $IncludeComments.IsPresent
+}
+
+Write-Output "बदले गए अंक: $($conv.Count)"
 if ($WhatIf) {
     Write-Output "--- WhatIf: फ़ाइल नहीं लिखी ---"
 } else {
-    [System.IO.File]::WriteAllText($Path, $result, (New-Object System.Text.UTF8Encoding($false)))
+    [System.IO.File]::WriteAllText($Path, $conv.Result, (New-Object System.Text.UTF8Encoding($false)))
     Write-Output "लिखा: $Path"
 }
