@@ -1,7 +1,7 @@
 ﻿param([string]$Compiler = "")
 # verify_intrinsics.ps1 - compile & run the low-level intrinsic tests
 # ============================================================
-# tests/intrinsics/*.सूत्र use raw-memory intrinsics (अंतर्_पढ़8 etc.)
+# भाषा_परीक्षण/intrinsics/*.सूत्र use raw-memory intrinsics (अंतर्_पढ़8 etc.)
 # that only the native-asm self-hosted compiler understands, so they
 # are NOT part of the interpreter-parity suite. Each test self-checks
 # and prints "सर्वे उत्तीर्णाः" on success.
@@ -17,7 +17,7 @@ if (-not $Compiler) {
 }
 if (-not (Test-Path $Compiler)) { throw "compiler not found: $Compiler  (build it first, e.g. bootstrap.ps1)" }
 
-$dir = Join-Path $PSScriptRoot "tests\intrinsics"
+$dir = Join-Path $PSScriptRoot "भाषा_परीक्षण\intrinsics"
 $pass = 0; $fail = 0
 Get-ChildItem $dir -Recurse -Include "*_native.exe", "*.s", "*.o" | Remove-Item -Force -ErrorAction SilentlyContinue
 

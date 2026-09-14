@@ -10,7 +10,7 @@ This repository implements a **Pure Sutra Source Representation** policy. Versio
 
 ### 1.1 Git-Tracked Components
 * **[`स्वसंकलक/`](स्वसंकलक/)**: The canonical self-hosted compiler parser, lexer, and code generator backend written directly in Sutra.
-* **[`tests/`](tests/)**: Automated stability and compiler validation tests.
+* **[`भाषा_परीक्षण/`](भाषा_परीक्षण/)**: Automated stability and compiler validation tests.
 * **[`दस्तावेजाः/`](दस्तावेजाः/) & [`प्रलेख/`](प्रलेख/)**: Specifications and developer documentation manuals.
 * **`build.ps1` / `run_tests.ps1` / `verify_compiler_self.ps1`**: Build and verification scripts.
 

@@ -63,7 +63,7 @@ Output follows standard Sanskrit/Devanagari project conventions:
 ```text
 सूत्र प्रदर्शन-मापन (Sutra Benchmark)
 =====================================
-लक्ष्य (Target): tests/benchmark/22_loop_benchmark.सूत्र
+लक्ष्य (Target): भाषा_परीक्षण/benchmark/22_loop_benchmark.सूत्र
 पुनरावृत्तिः (Repeat): 5
 
 [कालः - Time (ms)]

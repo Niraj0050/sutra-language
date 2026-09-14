@@ -51,9 +51,9 @@ else
 fi
 
 echo
-echo "== tests/compiler through Gen2 =="
+echo "== भाषा_परीक्षण/compiler through Gen2 =="
 pass=0; fail=0
-for f in $(ls tests/compiler/*.सूत्र | sort); do
+for f in $(ls भाषा_परीक्षण/compiler/*.सूत्र | sort); do
   n="$(basename "$f")"
   exp="$(./sutra.exe run "$f" 2>/dev/null | sed 's/\x0d//g')"
   "$W/gen2.exe" "$f" >/dev/null 2>&1 || { fail=$((fail+1)); echo "  [FAIL c] $n"; continue; }
@@ -63,4 +63,4 @@ for f in $(ls tests/compiler/*.सूत्र | sort); do
   if [ "$got" = "$exp" ]; then pass=$((pass+1)); else fail=$((fail+1)); echo "  [FAIL o] $n"; fi
   rm -f "$ex"
 done
-echo "   tests/compiler: PASS $pass  FAIL $fail"
+echo "   भाषा_परीक्षण/compiler: PASS $pass  FAIL $fail"

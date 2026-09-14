@@ -62,7 +62,7 @@ no stable syscall ABI below it:
 
 `मूल_संकलन.सूत्र` reads `स्वसंकलक/निर्माण/तल.s`, assembles it to `sutra_floor.o`
 (best-effort) and links it when present; `bootstrap.ps1` assembles it up front.
-`tests/intrinsics/02_os_floor.सूत्र` allocates, fills, writes to stdout, and frees
+`भाषा_परीक्षण/intrinsics/02_os_floor.सूत्र` allocates, fills, writes to stdout, and frees
 with zero libc on that path.
 
 Linux port later: `सूत्र_तल_*` become raw `syscall` (mmap/write/exit) and the

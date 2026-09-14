@@ -151,7 +151,7 @@ optimiser के बिना runtime port regression है — इसलिए
    IR-पाठ dumps) + `पश्च_चालक` (IR-पाठ→regalloc→.s)। बीच में
    `मध्यम_क्रम.सूत्र` — compact line IR serialize/deserialize।
    `उत्_कॉल` में `मुख्य`→`sutra_main` rename भी fix।
-   **tests/compiler through the IR path: 44 / 51** (`verify_emit.sh` 16/16,
+   **भाषा_परीक्षण/compiler through the IR path: 44 / 51** (`verify_emit.sh` 16/16,
    `verify_emit_full.sh` full-suite harness)।
 
 **1f. GC roots — ✅ DONE** (commit के बाद) — emitter-only shadow slots:
@@ -163,7 +163,7 @@ optimiser के बिना runtime port regression है — इसलिए
    `gc_roots[]` पंजीकरण (कोई call नहीं — `movl gc_roots_count`/`leaq`/
    `movq`/`incl`), def के बाद store, मृत्यु पर `movq $0` clear, phi
    block-आरंभ पर, epilogue `subl $N, gc_roots_count` (rax अछूता)।
-   **tests/compiler: 46 / 51** — 45, 47 अब pass (था freed-memory read)।
+   **भाषा_परीक्षण/compiler: 46 / 51** — 45, 47 अब pass (था freed-memory read)।
    बाकी 5 (सब पूर्व-मौजूद, कोई regression नहीं):
    - **37** null-in-list ops (native path errors, interpreter allows)
    - **38** dynamic `"str" + सत्य/शून्यम्` → `1`/`0` (tagged dynamic word चाहिए)
@@ -178,7 +178,7 @@ optimiser के बिना runtime port regression है — इसलिए
 **1g. IR backend SELF-HOSTS — ✅ FIXED POINT** (commit `59fdcb8`, 2026-08-31)।
    `स्वसंकलक/मूल_संकलन_ir.सूत्र` = IR-path compiler driver। Gen1 = split
    (`अग्र_चालक`→`पश्च_चालक`)। Gen1 → Gen2 → Gen3, **Gen2 .s == Gen3 .s
-   byte-identical (128289 lines)**। तीनों 46/51 tests/compiler।
+   byte-identical (128289 lines)**। तीनों 46/51 भाषा_परीक्षण/compiler।
    रास्ते के bug fixes: अनुकूलक O(N²)→O(N) (`ac8d6ea`); `उत्_कॉल`
    odd-stack-args pad placement (`f503725`+`0eca2d2` — pad पुश से पहले,
    वरना callee के `16+i*8(%rbp)` offset 8 खिसकते); `निम्नक_लघुपथ`
@@ -228,7 +228,7 @@ optimiser के बिना runtime port regression है — इसलिए
    (129483 lines, पहले ~256K)। `bootstrap.ps1` end-to-end verified:
    seed → seed_sutrac.exe → 5500-line source compile → fresh
    `sutrac.exe` → **[OK] Fixed point, byte-identical, C++ host अछूता**।
-   verify_ir 4/4 (अब IR sutrac.exe से — मज़बूत जाँच)। tests/compiler
+   verify_ir 4/4 (अब IR sutrac.exe से — मज़बूत जाँच)। भाषा_परीक्षण/compiler
    46/51. `मूल_सर्जक`/`निर्माता` रखे पर off critical path।
 
 **1k. कठन_प्रयत्न (try/catch) lowering — ✅ DONE** (2026-08-31)।
@@ -248,9 +248,9 @@ optimiser के बिना runtime port regression है — इसलिए
    `त्रुटिः [पङ्क्तिः N, स्तम्भः M]: …` संदेश छपता है।
    Gen2 .s == Gen3 .s (132158 lines), `bootstrap.ps1` [OK] fixed point।
    split (अग्र→पश्च) == unified byte-identical। verify_ir 4/4,
-   verify_emit 16/16, **tests/compiler 47/51** (37 null-in-list अब pass;
+   verify_emit 16/16, **भाषा_परीक्षण/compiler 47/51** (37 null-in-list अब pass;
    40 का exception-भाग अब pass, बचा float-builtin-return type)।
-   नया regression test: `tests/compiler/49_exceptions.सूत्र`।
+   नया regression test: `भाषा_परीक्षण/compiler/49_exceptions.सूत्र`।
    सीमा (पुराने codegen जैसी): try-देह के अंदर सीधा `परत्` exception frame
    pop नहीं करता। Driver को `प्रयत्न`/`पकड़ो` में लपेटना अभी बाकी है
    (throw-fix से errors पहले ही साफ़ छपते हैं — कम प्राथमिकता)।
@@ -270,7 +270,7 @@ optimiser के बिना runtime port regression है — इसलिए
    - रास्ते में मिला third bug: **float unary `-`** — emitter `ऋणात्मक`
      हमेशा `negq` (integer two's-complement) करता था → `-5.5` = bits of
      `-0.8125`। Fix: `प्रकार=="दशमलव"` पर `btcq $63` (चिह्न-बिट पलटो)।
-   `bootstrap.ps1` [OK] fixed point, split==unified, **tests/compiler
+   `bootstrap.ps1` [OK] fixed point, split==unified, **भाषा_परीक्षण/compiler
    50/52** — बचे सिर्फ़ 41, 44 (GC-accounting: program output सही, बस
    `स्मृति_स्थिति()` गिनती interpreter-conservative बनाम IR-precise;
    optimiser/GC-model बदले बिना unwinnable)।
@@ -592,8 +592,8 @@ fileIO — हर एक designed, अब बिना regression।
    सब 29 `.cpp` compile होते; `build.ps1` `[SUCCESS]`। **rebuilt `sutra.exe`
    64/64 मौजूदा tests पर Aug-26 binary से byte-identical** (oracle shift नहीं)।
    फिर bitwise 6 बिल्टिन `interpreter.cpp` + `semantic.cpp` में जोड़े →
-   `tests/compiler/52_bitwise.सूत्र` (नया, interp==native)। `verify_bitwise.sh`
-   हटा (52_bitwise ने replace किया)। **tests/compiler अब 52/53।**
+   `भाषा_परीक्षण/compiler/52_bitwise.सूत्र` (नया, interp==native)। `verify_bitwise.sh`
+   हटा (52_bitwise ने replace किया)। **भाषा_परीक्षण/compiler अब 52/53।**
    ⚠ fresh clone में `संकलक/src` नहीं (gitignored) → वहाँ C++ host + `verify_*`
    oracle नहीं; `bootstrap.ps1` (शून्य C++) फिर भी चलता।
 
@@ -631,10 +631,10 @@ fileIO — हर एक designed, अब बिना regression।
      (संकलन-काल मूल्यांकन §3a/§3b के `बिट_*` बिल्टिन से) + एकल `ऋणात्मक` /
      `नकार` स्थिर पर। साझा `स्थिर_में_बदलो` helper।
    `अनुकूलक_परीक्षण` +3 केस (bitwise fold · unary fold · >2³¹ fold);
-   नया `tests/compiler/53_const_fold.सूत्र` (execute होता; interp==native;
+   नया `भाषा_परीक्षण/compiler/53_const_fold.सूत्र` (execute होता; interp==native;
    folded मान 2⁵² तक — movabsq पथ exercise करता)।
    seed **138433→140090**। fixed point + Gen1(split)==Gen2==Gen3;
-   tests/compiler **53/2**, stdlib 10/1 (41/44/18_stdlib known, शून्य regression)।
+   भाषा_परीक्षण/compiler **53/2**, stdlib 10/1 (41/44/18_stdlib known, शून्य regression)।
 
 **§4b — prologue GC-root पंजीकरण लूप** (commit `597d3e4`, 2026-09-04)।
    `उत्_कार्य` का prologue हर GC-जड़ के लिए **4 सीधी निर्देश** देता था —
@@ -654,7 +654,7 @@ fileIO — हर एक designed, अब बिना regression।
    39301 → 30774 (−22%)। pointer/string/object-heavy कोड सब तेज़ +
    छोटा; शुद्ध-numeric कोड अछूता (उसमें GC-जड़ नहीं)।
    seed **140090→112481**। fixed point + Gen1(split)==Gen2==Gen3;
-   tests/compiler 53/2, stdlib 10/1; GC tests (circular/repeated/realloc)
+   भाषा_परीक्षण/compiler 53/2, stdlib 10/1; GC tests (circular/repeated/realloc)
    पास (जड़-scan सही)।
    **⚠ स्थानीय-CSE आज़माया + छोड़ा:** local scalar-CSE सही था पर compiler
    में शून्य hit (redundancy `पढ़_क्षेत्र`/कॉल में, शुद्ध-अंकगणित में नहीं)
@@ -678,7 +678,7 @@ fileIO — हर एक designed, अब बिना regression।
    साहित्य एक बार); **self-compile ~22s → ~8.5s (2.5×)** — compiler अपना
    अधिकांश समय अपने ही `==` तुलनों के साहित्य alloc + GC में खर्च करता था।
    seed **112481→102628**। fixed point + Gen1(split)==Gen2==Gen3;
-   tests/compiler 53/2, stdlib 10/1; GC + string tests पास; bootstrap
+   भाषा_परीक्षण/compiler 53/2, stdlib 10/1; GC + string tests पास; bootstrap
    `[OK]`। 41/44 के diagnostic अंक थोड़ा shifted (स्थायी string-जड़ें GC
    accounting बदलती) — फिर भी known-श्रेणी, program output सही (लाइन 1-45
    मैच, सिर्फ़ `स्मृति_स्थिति()` लाइनें भिन्न)।
@@ -696,7 +696,7 @@ fileIO — हर एक designed, अब बिना regression।
    नतीजा: `"x" + 0` → योग(x, 0) विधि="मान" (गतिशील, एक ओर पाठ) → `बीज_सरल`
    का b==0 नियम माचता, पूरा instruction सिर्फ़ `x` में बदल देता — string-concat
    कॉल **पूरी तरह गायब**! (`"" + 0` empty-string print करता, "0" नहीं)।
-   **मिला कैसे:** `tests/intrinsics/04_string_ops.सूत्र` इसे पकड़ता — पर वह
+   **मिला कैसे:** `भाषा_परीक्षण/intrinsics/04_string_ops.सूत्र` इसे पकड़ता — पर वह
    suite हफ़्तों से नहीं चली थी क्योंकि `verify_intrinsics.ps1` एक बासी
    compiler-binary-नाम (`मूल_संकलन_native.exe`, कभी नहीं बना) खोजता था।
    उसी दौरान 2 और बासी scripts मिले+ठीक किए — `verify_compiler.ps1`
@@ -709,7 +709,7 @@ fileIO — हर एक designed, अब बिना regression।
    — पाठ/दशमलव literals कभी `स्थिरांक` नक्शे में नहीं आते, तो वह सिर्फ़
    तभी चलता जब दोनों ओर सचमुच पूर्ण हों (जो पहले से विधि="पूर्ण" implies करता)।
    seed **102628→102682**। fixed point + Gen1(split)==Gen2==Gen3;
-   tests/compiler 53/2, stdlib 10/1 (अपरिवर्तित); `verify_intrinsics.ps1`
+   भाषा_परीक्षण/compiler 53/2, stdlib 10/1 (अपरिवर्तित); `verify_intrinsics.ps1`
    अब **4/4**; `verify_compiler.ps1`/`verify_compiler_self.ps1` अब **55/57**
    (सिर्फ़ known 41/44)।
 
@@ -721,14 +721,14 @@ scope-rooting, native precise SSA-liveness — §4b ने इसे और त�
    - `41_dynamic_list_stress.सूत्र`: सिर्फ़ खंड M का इकलौता incidental
      `स्मृति_स्थिति()` call हटाया (`संग्रह_करो()` रखा — असली जाँच खंड N है:
      GC के बाद सूची-क्रियाएँ सही चलें)। बाकी 129 लाइन/13 खंड अछूते।
-   - `44_gc_status.सूत्र` → `tests/diagnostics/` (नया) — इसका पूरा उद्देश्य
+   - `44_gc_status.सूत्र` → `भाषा_परीक्षण/diagnostics/` (नया) — इसका पूरा उद्देश्य
      ही GC-अकाउंटिंग दिखाना है, parity-जाँच असंभव बिना native की precise
      rooting को interp जैसा conservative बनाए (असली regression) या
      interpreter में precise liveness (गिटइग्नोर्ड test-oracle पर बड़ा
-     खर्च, बिना असली फ़ायदे के)। `tests/intrinsics/` को पहले से यही
+     खर्च, बिना असली फ़ायदे के)। `भाषा_परीक्षण/intrinsics/` को पहले से यही
      treatment मिला हुआ (वही कारण — interpreter इसे model नहीं करता)।
      अब भी compile+run होता, बस automated parity-count से बाहर।
-   **tests/compiler: genuinely 54/54, ZERO known-failures बचे।** fixed
+   **भाषा_परीक्षण/compiler: genuinely 54/54, ZERO known-failures बचे।** fixed
    point 102682 अपरिवर्तित; stdlib अब सिर्फ़ `18_stdlib` (tagged-value/
    `मान`-सीमा भाषा-सीमा, अलग मुद्दा — §देखें भाषा-अंतराल)।
 
@@ -755,7 +755,7 @@ scope-rooting, native precise SSA-liveness — §4b ने इसे और त�
      पुराना किनारा-पथ बरकरार (वहाँ अब भी सही चाहिए)।
    **असर:** विश्लेषक.सूत्र `.s` 30774 → 30086; compiler का अपना self-compiled
    `.s` 102682 → 101110। seed **102682→101110**। fixed point +
-   Gen1(split)==Gen2==Gen3; tests/compiler 54/54, stdlib 10/1 (अपरिवर्तित);
+   Gen1(split)==Gen2==Gen3; भाषा_परीक्षण/compiler 54/54, stdlib 10/1 (अपरिवर्तित);
    `verify_ir.ps1` 4/4 (अनुकूलक_परीक्षण अब 15 checks)।
 
 **§4g — LICM आज़माया + पूरी तरह छोड़ा (कोई commit नहीं — साफ़ revert)।**
@@ -982,8 +982,8 @@ GVN/LICM/cross-call CSE — सब के लिए नींव बनेगी
   में ज़्यादा वक़्त, पर हर बना हुआ प्रोग्राम हमेशा के लिए तेज़।
   **पूर्ण सत्यापन**: `verify_ir.ps1` 7/7; पूरा self-host fixed point
   **134245 lines** पर पहुँचा (101110 से — inlining हर call-site पर कोड
-  duplicate करता, यह वृद्धि अपेक्षित); `tests/compiler` 54/54 (कोई
-  regression नहीं — correctness बरक़रार); `tests/stdlib` 10/11
+  duplicate करता, यह वृद्धि अपेक्षित); `भाषा_परीक्षण/compiler` 54/54 (कोई
+  regression नहीं — correctness बरक़रार); `भाषा_परीक्षण/stdlib` 10/11
   (पूर्व-मौजूद `18_stdlib` सीमा, असंबंधित); bitwise interp==native कायम।
   **seed ताज़ा किया** (`स्वसंकलक/निर्माण/मूल_संकलन.s`, 101110→**134245**)
   और दोबारा `bootstrap.ps1` से पुष्टि — नई जमी हुई seed से भी fixed point
@@ -1040,8 +1040,8 @@ GVN/LICM/cross-call CSE — सब के लिए नींव बनेगी
   **निर्णय: wire किया** (inlining जैसा ही standard — फ़ायदा सीधे मापा,
   लागत से कहीं बड़ा)। पूर्ण सत्यापन: `verify_ir.ps1` 8/8; self-host
   fixed point **140113 lines** (134245 से — TCO के phi/loop-header
-  overhead वाले फलनों से अपेक्षित वृद्धि); `tests/compiler` 54/54 (कोई
-  regression नहीं); `tests/stdlib` 10/11 (असंबंधित पूर्व-सीमा); bitwise
+  overhead वाले फलनों से अपेक्षित वृद्धि); `भाषा_परीक्षण/compiler` 54/54 (कोई
+  regression नहीं); `भाषा_परीक्षण/stdlib` 10/11 (असंबंधित पूर्व-सीमा); bitwise
   interp==native कायम। **seed ताज़ा किया** (134245→**140113**), दोबारा
   `bootstrap.ps1` से पुष्टि — `[OK]`।
 
@@ -1060,7 +1060,7 @@ GVN/LICM/cross-call CSE — सब के लिए नींव बनेगी
   दिखने वाला "inlining data-corruption bug" मिला, गहराई से जाँचा तो पता
   चला यह मेरे अपने टेस्ट की ग़लती थी: `सूची_जोड़` सूची बढ़ने पर पता बदल
   सकता (`सूत्र_पुनः_आवंटन`), तो हमेशा `स = जोड़ें(स, x);` से इस्तेमाल
-  होना ज़रूरी (bare `जोड़ें(स, x);` कभी नहीं) — ठीक जैसे `tests/compiler`
+  होना ज़रूरी (bare `जोड़ें(स, x);` कभी नहीं) — ठीक जैसे `भाषा_परीक्षण/compiler`
   और `पुस्तकालय` में हर जगह पहले से होता है। सही किया तो कोई compiler
   bug निकला ही नहीं। इसके बाद असली GC-stress test (self-recursive फलन
   जो integer भी लौटाता और हर कॉल पर GC-managed सूची भी बनाता, पूरी
@@ -1073,7 +1073,7 @@ GVN/LICM/cross-call CSE — सब के लिए नींव बनेगी
   ~13.77s→~13.68s, noise के अंदर, क्योंकि pass सिर्फ़ पहले से बने IR
   टैग पढ़ता, कोई महंगा allocation/re-analysis नहीं)। **निर्णय: wire
   किया।** पूर्ण सत्यापन: `verify_ir.ps1` 9/9; fixed point **140721
-  lines** (140113 से); `tests/compiler` 54/54; `tests/stdlib` 10/11;
+  lines** (140113 से); `भाषा_परीक्षण/compiler` 54/54; `भाषा_परीक्षण/stdlib` 10/11;
   bitwise कायम; seed ताज़ा (140113→**140721**), दोबारा bootstrap `[OK]`।
 
 - **⏸️ Bounded self-recursive inlining (गहन_अंतर्वेशन) — बनी, मापी, wire
@@ -1117,13 +1117,13 @@ GVN/LICM/cross-call CSE — सब के लिए नींव बनेगी
   committed, तैयार, अगर calling-convention कभी और महंगा हुआ (जैसे कोई
   बड़ा safepoint/GC-root overhead जुड़े) तो दोबारा मापा जा सकता है।
   पूर्ण सत्यापन (wire करके, फिर revert से पहले): `verify_ir.ps1` 10/10;
-  self-host fixed point (Gen1==Gen2==Gen3, 144581 lines); `tests/compiler`
-  54/54; `tests/stdlib` 10/11 (असंबंधित पूर्व-सीमा)। Revert के बाद seed
+  self-host fixed point (Gen1==Gen2==Gen3, 144581 lines); `भाषा_परीक्षण/compiler`
+  54/54; `भाषा_परीक्षण/stdlib` 10/11 (असंबंधित पूर्व-सीमा)। Revert के बाद seed
   byte-अपरिवर्तित (कभी छुआ ही नहीं गया)।
 
 **2b. मानक पुस्तकालय (`पुस्तकालय/`) — सूत्र में** (commits `07205ac` + `c07ba45`, 2026-09-01)।
    Phase 2 रोककर पहले लाइब्रेरी (Niraj का निर्णय)। **12 मॉड्यूल**, कोई C
-   नहीं, interp/native समान (`tests/stdlib/` 8 फ़ाइलें):
+   नहीं, interp/native समान (`भाषा_परीक्षण/stdlib/` 8 फ़ाइलें):
    - बैच 1: `सूची` (30 ops + merge-sort + binary-search) · `शब्दकोश` ·
      `पाठ` · `समुच्चय` (Set) · `ढेर` (Stack) · `कतार` (Queue)
    - बैच 2: `गणित` (number-theory + stats + seedable MINSTD PRNG — सूत्र में
@@ -1136,14 +1136,14 @@ GVN/LICM/cross-call CSE — सब के लिए नींव बनेगी
      / bool-return display / `हटाएं` on dict / कुंजियाँ order / **कोई tagged
      मान → native में बूल/दशमलव `मान`-सीमा पार करते ही संख्या बन जाते** /
      `स्व.field[i]=v` / int literal ≥ 2³¹)। बैच 2 में **कोई compiler बदलाव
-     नहीं** चाहिए (tests/compiler 51/52 बरकरार)।
+     नहीं** चाहिए (भाषा_परीक्षण/compiler 51/52 बरकरार)।
    **बैच 1 में रास्ते के 2 पूर्व-मौजूद IR bugs मिले+fix** (commit `b99a12a`):
    (1) बहु-प्रविष्टि शब्दकोश-साहित्य `{"अ":1,"ब":2}` — निम्नक `युगल[0/1]`
    पढ़ता था पर parser `{कुंजी, मानः}` देता → हर key+value `$0` बनता था
    (कोई test literal से value नहीं पढ़ता था तो पकड़ा नहीं गया)।
    (2) `सूची[i] < सूची[j]` — `मान`-operands पर raw `cmpq` → पाठ-सूचकों की
    पूर्णांक-तुलना। `सामान्य_*` helpers (पाठ→कोडबिंदु, वरना पूर्णांक)।
-   नया regression test `tests/compiler/50_dict_literal.सूत्र` (51/52)।
+   नया regression test `भाषा_परीक्षण/compiler/50_dict_literal.सूत्र` (51/52)।
 
 ### Phase 3 — अपना assembler + linker। **स्थगित** (deferred)
 अभी `as` / `ld` (GNU) इस्तेमाल होते रहेंगे। बाद में: x86-64 encoder +
@@ -1167,7 +1167,7 @@ pure-सूत्र backend `sutra build` का default रहता है।
 - **नई फ़ाइलें**: `स्वसंकलक/एलएलवीएम_उत्सर्जक.सूत्र` (मध्यम IR एकक →
   `.ll` पाठ; `उत्सर्जक_एकक` जैसा ही input-contract), `स्वसंकलक/
   एलएलवीएम_चालक.सूत्र` (पश्च_चालक जैसा driver — अग्र_चालक की IR-पाठ पढ़ता),
-  `verify_ir_llvm.sh` (verify_ir_selfhost.sh का tests/compiler-loop —
+  `verify_ir_llvm.sh` (verify_ir_selfhost.sh का भाषा_परीक्षण/compiler-loop —
   अग्र_चालक → एलएलवीएम_चालक → `llc -filetype=obj` → वही `gcc -nostdlib`
   link जो मूल_संकलन.सूत्र करता → चला → `sutra.exe run` से diff)।
 - **GC**: `रजि_नियतक_कार्य` black-box reuse — सिर्फ़ उसका GC-root-चयन
@@ -1187,8 +1187,8 @@ pure-सूत्र backend `sutra build` का default रहता है।
 - **Toolchain**: `pacman -S mingw-w64-ucrt-x86_64-clang` + `-llvm`
   (llc/clang, MSYS2 ucrt64 — वही provider जो as/gcc)। Triple
   `x86_64-w64-windows-gnu`।
-- **सत्यापन**: `tests/compiler` **54/54** LLVM path से (interpreter-
-  byte-match, GC-stress/exception/bitwise समेत); `tests/stdlib` 10/11
+- **सत्यापन**: `भाषा_परीक्षण/compiler` **54/54** LLVM path से (interpreter-
+  byte-match, GC-stress/exception/bitwise समेत); `भाषा_परीक्षण/stdlib` 10/11
   (सिर्फ़ `18_stdlib` — वही पूर्व-मौजूद tagged-value सीमा जो x86 भी fail
   करता, backend bug नहीं)। कोई मौजूदा फ़ाइल नहीं छुई — मूल_संकलन.सूत्र/
   अग्र_चालक.सूत्र/frozen seed byte-identical, तो x86 self-host fixed
@@ -1211,7 +1211,7 @@ pure-सूत्र backend `sutra build` का default रहता है।
   पर वहाँ कोई downstream optimizer नहीं जो block हो)। छोटा emitter
   refinement (commit `deb0922`): दोनों operand सिद्ध रूप से पूर्ण/बूल हों
   तो "मान"-विधि पर भी native `add`/`icmp` — इससे fib **0.575s→0.054s**
-  (clang -O2 अब pure recursion के आर-पार देख पाता)। tests/compiler 54/54
+  (clang -O2 अब pure recursion के आर-पार देख पाता)। भाषा_परीक्षण/compiler 54/54
   कायम।
 
 - **✅ `--release` WIRED** (commit `da301d8`, 2026-09-05, Niraj का निर्णय)।
@@ -1219,7 +1219,7 @@ pure-सूत्र backend `sutra build` का default रहता है।
   `एलएलवीएम_उत्सर्जक_एकक` → `.ll` → `clang -O2 -c` → वही `gcc -nostdlib`
   link। ध्वज-स्कैन minimal (argparse lib नहीं)।
   **पुष्टि पहले**: `clang -O2` (सिर्फ़ `llc` नहीं) GC सुरक्षित रखता —
-  पूरी tests/compiler **54/54** `clang -O2 -c` से (GC-stress/circular/
+  पूरी भाषा_परीक्षण/compiler **54/54** `clang -O2 -c` से (GC-stress/circular/
   realloc समेत); `gc_roots[]`+count `external global` + root-स्लॉट
   alloca address-taken तो clang shadow-stack bookkeeping DCE नहीं कर
   पाता। Self-host fixed point wired driver से कायम (Gen2==Gen3
@@ -1249,7 +1249,7 @@ pure-सूत्र backend `sutra build` का default रहता है।
     0.137s (~3.4x)** vs `gcc -O2` 0.072s — ~1.9x, बाकी gcc का बेहतर
     per-iteration `sitofp` strength-reduction (clang -O3/-march=native/
     -ffast-math से नहीं बंद होता)।
-  Verification: tests/compiler 54/54 LLVM path; stdlib + float-heavy
+  Verification: भाषा_परीक्षण/compiler 54/54 LLVM path; stdlib + float-heavy
   12/13 (सिर्फ़ 18_stdlib); self-host fixed point Gen2==Gen3
   **176128 lines** (174447 से), Gen1(split)==Gen2, verify_ir.ps1 10/10;
   seed ताज़ा, re-bootstrap `[OK]`।
@@ -1275,7 +1275,7 @@ pure-सूत्र backend `sutra build` का default रहता है।
   का `स[इ]` अब भी उसे कॉल करता। benchmark में दिखने वाला barrier-हटाव
   emitter-side container-access specialization चाहता (ज्ञात सूची/पाठ
   base के लिए header-read/element-load inline) — अगला कदम **#2c**।
-  regression नहीं: `fib(35)` --release अब भी 0.054s। tests/compiler
+  regression नहीं: `fib(35)` --release अब भी 0.054s। भाषा_परीक्षण/compiler
   **54/54 via `sutrac.exe --release`** (नया `verify_release.sh`) + 54/54
   default; self-host fixed point 176128→**179796 lines**, Gen1==Gen2;
   verify_ir.ps1 10/10; stdlib 10/11।
@@ -1300,7 +1300,7 @@ pure-सूत्र backend `sutra build` का default रहता है।
   पहले इसका --release build ~24s था — x86 backend से बमुश्किल बेहतर।
   gcc से अब भी दूर यहाँ (gcc का stack-array + loop-invariant sum
   hoisting), पर यही list/string barrier-हटाव है जो #2a/#2b ने setup
-  किया पर अकेले नहीं दे सके। tests/compiler 54/54 via --release +
+  किया पर अकेले नहीं दे सके। भाषा_परीक्षण/compiler 54/54 via --release +
   54/54 default; self-host fixed point 179796→**181747 lines**;
   verify_ir.ps1 10/10; stdlib 10/11।
 
@@ -1326,7 +1326,7 @@ pure-सूत्र backend `sutra build` का default रहता है।
   0.013s — near parity (clang पूरा comparison hoist करता); varied
   `str==` (list[i%6] == literal, non-hoistable) x86 2.378s →
   **--release 0.084s** vs gcc 0.042s (~2x — ज़्यादातर #2c का list
-  access + tighter loop)। tests/compiler 54/54 via --release + 54/54
+  access + tighter loop)। भाषा_परीक्षण/compiler 54/54 via --release + 54/54
   default; self-host 181747→**182319**।
 
 - **✅ Front #3 — lexer byte-cursor + byte-decode** (commit `c15ca1e`,
@@ -1367,7 +1367,7 @@ pure-सूत्र backend `sutra build` का default रहता है।
   छूता। byte-slice अकेले (byte-decode बिना) हल्का lexer regression है
   (प्रति-char `बाइट_अनु` bookkeeping छोटे-token O(L²) से महँगा) — दोनों
   साथ land हुए।
-  tests/compiler 54/54 via --release + 54/54 default + 54/54 LLVM;
+  भाषा_परीक्षण/compiler 54/54 via --release + 54/54 default + 54/54 LLVM;
   self-host fixed point 182319→**183538**; verify_ir 10/10;
   verify_compiler 56/56 (+negatives); verify_emit 16/16।
   StringBuilder consolidation (`पाठ_संचायक.सूत्र`) — plan का commit 3,
@@ -1524,7 +1524,7 @@ pure-सूत्र backend `sutra build` का default रहता है।
   pointer; वरना 2x realloc via `सूत्र_पुनः_आवंटन` — amortized O(1)),
   `निर्माता_अक्षर`/`निर्माता_लंबाई`/`निर्माता_पाठ` (zero-copy finalize)।
   builder एक सामान्य spare-cap पाठ-ब्लॉक ही है (हर पाठ-op `len` पढ़ता, `cap`
-  नहीं) → हर जगह वैध पाठ। नया `tests/stdlib/निर्माता_परीक्षण.सूत्र` (12 checks:
+  नहीं) → हर जगह वैध पाठ। नया `भाषा_परीक्षण/stdlib/निर्माता_परीक्षण.सूत्र` (12 checks:
   realloc-crossing, देवनागरी, GC-through-build)। मापा: `स = स + "x"` ×20000
   0.47s → `निर्माता_जोड़` 0.011s (**44x**)।
   **(b) IR pass `पाठ_संचायक`** (`6483b2b`): mem2reg के बाद `P = phi[INIT, R];
@@ -1549,7 +1549,7 @@ pure-सूत्र backend `sutra build` का default रहता है।
 - **✅ #5a — `--release` SSA emitter fix + `___chkstk_ms`** (`8ce00a4`,
   2026-09-07)। #5 PGO-the-compiler का prereq: `sutrac --release
   स्वसंकलक/मूल_संकलन.सूत्र` **टूटा हुआ था** (`verify_release.sh` केवल छोटे
-  `tests/compiler/*` संकलित करता, पूरा self-compile कभी नहीं)। दो latent bugs:
+  `भाषा_परीक्षण/compiler/*` संकलित करता, पूरा self-compile कभी नहीं)। दो latent bugs:
   **(1) मृत अन्योन्याश्रित phi चक्र** — mem2reg हर slot के लिए हर multi-pred
   खंड पर phi बनाता; `मृत_कोड_हटाओ` का phi-DCE **use-गणना आधारित** था, तो दो
   मृत phi एक-दूसरे को reference करें (`रिक्त_टिप्पणी_छोड़ो` के भीतरी `/* */`
@@ -1564,7 +1564,7 @@ pure-सूत्र backend `sutra build` का default रहता है।
   bitcode पर ≥4 KiB frame वाले फलनों में stack-probe call उत्पन्न करता;
   `-nostdlib` लिंक में libgcc नहीं। `तल.s` में libgcc-समरूप `___chkstk_ms`
   (केवल probe, `rsp` छूता नहीं → `--release` binary अब भी KERNEL32+SHELL32
-  ही)। regression test `tests/compiler/61_nested_loop_dead_var.सूत्र`।
+  ही)। regression test `भाषा_परीक्षण/compiler/61_nested_loop_dead_var.सूत्र`।
 - **✅ #5 (Part A) — opt-in `--pgo` दो-चरण build** (2026-09-07)। `sutrac
   --release --pgo [--pgo-run "<तर्क>"] prog.सूत्र` → (1) `clang -O3
   -fprofile-generate=pgo_prof` से instrumented `.o`, clang-driver लिंक

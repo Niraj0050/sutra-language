@@ -118,7 +118,7 @@
     संग्रह_करो();
     // स्मृति_स्थिति() जानबूझकर नहीं — उसके सक्रिय/संग्रहित अंक interp
     // (conservative scope-rooting) बनाम native (precise liveness-rooting)
-    // में collector-कार्यान्वयन के अनुसार अलग होते; देखें tests/diagnostics/।
+    // में collector-कार्यान्वयन के अनुसार अलग होते; देखें भाषा_परीक्षण/diagnostics/।
     // असली जाँच यही है: GC के बाद आगे की सूची-क्रियाएँ सही चलें (खंड N)।
 
     लिखतु("=== N. large list stress test ===");

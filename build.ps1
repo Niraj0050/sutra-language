@@ -1,4 +1,4 @@
-[Console]::OutputEncoding = [System.Text.Encoding]::UTF8
+﻿[Console]::OutputEncoding = [System.Text.Encoding]::UTF8
 
 $env:PATH = "C:\msys64\ucrt64\bin;$env:PATH"
 $gpp = "C:\msys64\ucrt64\bin\g++.exe"
@@ -154,7 +154,7 @@ Compile-Target "sutra_lsp" $objects_toolchain @("$toolsDir/sutra_lsp.cpp", "$too
 
 Compile-Target "test_sutra" $objects_core "$testsDir/test_sutra.cpp"
 Compile-Target "test_toolchain" $objects_toolchain "$testsDir/test_toolchain.cpp" -libs @("-lshell32")
-Compile-Target "test_lsp_integration" $objects_toolchain "tests/lsp/test_lsp_integration.cpp" -libs @("-lshell32")
+Compile-Target "test_lsp_integration" $objects_toolchain "$testsDir/lsp/test_lsp_integration.cpp" -libs @("-lshell32")
 
 # Make directory and copy sutra.exe to build directory (preserving legacy build.ps1 contract)
 if (-not (Test-Path build)) { New-Item -ItemType Directory -Path build | Out-Null }

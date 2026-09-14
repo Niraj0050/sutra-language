@@ -1,4 +1,4 @@
-[Console]::OutputEncoding = [System.Text.Encoding]::UTF8
+﻿[Console]::OutputEncoding = [System.Text.Encoding]::UTF8
 $OutputEncoding = [System.Text.Encoding]::UTF8
 
 Write-Host "========================================================" -ForegroundColor Cyan
@@ -9,7 +9,7 @@ $sutraExe = Resolve-Path ".\sutra.exe"        # interpreter (reference output)
 $nativeCompiler = Resolve-Path ".\sutrac.exe" # self-hosted native compiler (`sutra.exe build`
                                                # is retired — its C++ codegen predates the
                                                # freestanding तल.s runtime and now conflicts with it)
-$compilerDir = "tests\compiler"
+$compilerDir = "भाषा_परीक्षण\compiler"
 $total = 0
 $passed = 0
 $failed = 0

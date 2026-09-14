@@ -118,7 +118,7 @@ Sutra compiler development is designed around a multi-stage bootstrap pipeline:
 ## Pure Sutra Source Repository
 
 This repository adheres to a **Pure Sutra Source Representation** policy. To keep the repository clean and language-focused:
-- **Tracked in Git**: Canonical compiler code written in Sutra (`स्वसंकलक/`), the bootstrap seed (`स्वसंकलक/निर्माण/` — a frozen assembly image of the compiler plus the C runtime, so a fresh clone can build **without the C++ host**), specification documentation, verification scripts, and compiler tests (`tests/`).
+- **Tracked in Git**: Canonical compiler code written in Sutra (`स्वसंकलक/`), the bootstrap seed (`स्वसंकलक/निर्माण/` — a frozen assembly image of the compiler plus the C runtime, so a fresh clone can build **without the C++ host**), specification documentation, verification scripts, and compiler tests (`भाषा_परीक्षण/`).
 - **Local-Only (Not in Git)**: The native C++ host implementation (`संकलक/`), toolchain C++ sources (`उपकरणानि/`), testing binaries (`*.exe`), and downloaded libraries (`external/`). The C++ host is now **bootstrap-optional** — it produces the same compiler the seed does, and is kept only as an alternate/recovery path.
 
 ---
@@ -128,7 +128,7 @@ This repository adheres to a **Pure Sutra Source Representation** policy. To kee
 The current Git-tracked layout of the codebase is structured as follows:
 
 * **[`स्वसंकलक/`](स्वसंकलक/)**: Zero-English Sutra sources for the self-hosted compiler.
-* **[`tests/`](tests/)**: Automated stability and compiler parity test suites.
+* **[`भाषा_परीक्षण/`](भाषा_परीक्षण/)**: Automated stability and compiler parity test suites.
 * **[`दस्तावेजाः/`](दस्तावेजाः/)**: Devanagari specifications documentation.
 * **[`प्रलेख/`](प्रलेख/)**: Deep-dive system documentation.
 * **`build.ps1` / `run_tests.ps1`**: Local building and testing runner scripts.

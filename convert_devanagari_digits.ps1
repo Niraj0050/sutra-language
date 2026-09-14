@@ -40,7 +40,7 @@
 # (CommonMark only recognizes ASCII-digit list markers). Decided with the
 # user 2026-09-14: only सूत्र code-fences convert in docs.
 #
-# Used (2026-09-14) to convert सब पुस्तकालय/ + tests/stdlib/ + स्वसंकलक/
+# Used (2026-09-14) to convert सब पुस्तकालय/ + भाषा_परीक्षण/stdlib/ + स्वसंकलक/
 # NUMBER-LITERAL tokens, then (separately) their // comments — see
 # project_sutra_language memory for the commit history.
 #

@@ -1,4 +1,4 @@
-// native-only GC-accounting diagnostic — जानबूझकर tests/compiler/ में नहीं
+// native-only GC-accounting diagnostic — जानबूझकर भाषा_परीक्षण/compiler/ में नहीं
 // (और इसीलिए interp==native parity suite में नहीं)।
 //
 // स्मृति_स्थिति() के सक्रिय/संग्रहित अंक GC-कार्यान्वयन-विशिष्ट हैं:
@@ -6,9 +6,9 @@
 // में दिखे, alive मानो); native precise liveness-rooting करता (SSA-आधारित,
 // सिर्फ़ अगली उपयोग तक जड़)। दोनों के counts असल में अलग-अलग सच होते —
 // यह parity-असफलता नहीं, दो collectors का जान-बूझकर अलग design है।
-// (देखें tests/intrinsics/ — वही कारण से interp-parity से बाहर।)
+// (देखें भाषा_परीक्षण/intrinsics/ — वही कारण से interp-parity से बाहर।)
 //
-// चलाओ:  sutrac.exe tests\diagnostics\44_gc_status.सूत्र
+// चलाओ:  sutrac.exe भाषा_परीक्षण\diagnostics\44_gc_status.सूत्र
 //        .\44_gc_status.सूत्र_native.exe
 // आँखों से जाँचो — हर स्मृति_स्थिति() के बाद अंक sensible दिशा में बदलने चाहिए
 // (allocate के बाद सक्रिय ऊपर, संग्रह_करो() के बाद संग्रहित ऊपर)।

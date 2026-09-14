@@ -1,4 +1,4 @@
-[Console]::OutputEncoding = [System.Text.Encoding]::UTF8
+﻿[Console]::OutputEncoding = [System.Text.Encoding]::UTF8
 $OutputEncoding = [System.Text.Encoding]::UTF8
 
 Write-Host "========================================================" -ForegroundColor Cyan
@@ -6,7 +6,7 @@ Write-Host "       Sutra Self-Hosted Compiler Verification Tool" -ForegroundColo
 Write-Host "========================================================" -ForegroundColor Cyan
 
 $sutraExe = Resolve-Path ".\sutrac.exe"
-$compilerDir = "tests\compiler"
+$compilerDir = "भाषा_परीक्षण\compiler"
 $total = 0
 $passed = 0
 $failed = 0

@@ -52,8 +52,8 @@ $runtimeErrors = 0
 
 # Collect test files
 $testFiles = @()
-if (Test-Path "tests") {
-    foreach ($f in (Get-ChildItem -Path "tests" -Recurse -File)) {
+if (Test-Path "भाषा_परीक्षण") {
+    foreach ($f in (Get-ChildItem -Path "भाषा_परीक्षण" -Recurse -File)) {
         if ($f.Extension -ne ".exe" -and $f.Extension -ne ".s" -and $f.Extension -ne ".txt" -and $f.Extension -ne ".md" -and $f.Extension -ne ".o" -and $f.Extension -ne ".obj" -and $f.Extension -ne ".cpp" -and $f.Extension -ne ".h") {
             if ($f.Name -notlike "*circular_*" -and $f.Name -notlike "*सहायक*") {
                 $testFiles += $f.FullName.Substring($PWD.Path.Length + 1)
@@ -61,8 +61,6 @@ if (Test-Path "tests") {
         }
     }
 }
-if (Test-Path "परीक्षण.सूत्र") { $testFiles += "परीक्षण.सूत्र" }
-if (Test-Path "परीक्षण_इनपुट.सूत्र") { $testFiles += "परीक्षण_इनपुट.सूत्र" }
 
 $testFiles = $testFiles | Select-Object -Unique
 

@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 # verify_ir_llvm.sh — LLVM backend correctness net
-#   हर tests/compiler/*.सूत्र : sutra.exe run (interpreter, ground truth) बनाम
+#   हर भाषा_परीक्षण/compiler/*.सूत्र : sutra.exe run (interpreter, ground truth) बनाम
 #   अग्र_चालक → एलएलवीएम_चालक → llc → gcc(-nostdlib) → चला → stdout तुलना
-# verify_ir_selfhost.sh का tests/compiler-loop पैटर्न (वही .o सेट, वही report)
+# verify_ir_selfhost.sh का भाषा_परीक्षण/compiler-loop पैटर्न (वही .o सेट, वही report)
 set -u
 export PATH="/c/msys64/ucrt64/bin:$PATH"
 cd "$(dirname "$0")"
@@ -27,10 +27,10 @@ if [ ! -f sutra_alloc.o ] || [ ! -f sutra_srt.o ] || [ ! -f sutra_floor.o ]; the
   as -o sutra_alloc.o "$W/_alloc.s" || { echo "as मूल_आवंटक.s विफल"; exit 1; }
 fi
 
-echo "== tests/compiler through LLVM backend =="
+echo "== भाषा_परीक्षण/compiler through LLVM backend =="
 pass=0; fail=0
 i=0
-for f in $(ls tests/compiler/*.सूत्र | sort); do
+for f in $(ls भाषा_परीक्षण/compiler/*.सूत्र | sort); do
   n="$(basename "$f")"
   i=$((i+1)); a="$W/t$i"       # ASCII-only working prefix (as/gcc Devanagari path नहीं खोलते)
   exp="$(./sutra.exe run "$f" 2>/dev/null | sed 's/\x0d//g')"
@@ -43,4 +43,4 @@ for f in $(ls tests/compiler/*.सूत्र | sort); do
   rm -f "$a.exe"
 done
 echo
-echo "   tests/compiler (LLVM): PASS $pass  FAIL $fail"
+echo "   भाषा_परीक्षण/compiler (LLVM): PASS $pass  FAIL $fail"

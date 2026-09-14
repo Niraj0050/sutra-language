@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# verify_emit_full.sh — split IR pipeline बनाम interpreter, पूरे tests/compiler सुइट पर
+# verify_emit_full.sh — split IR pipeline बनाम interpreter, पूरे भाषा_परीक्षण/compiler सुइट पर
 #   अग्र_चालक (.सूत्र → IR-पाठ)  →  पश्च_चालक (IR-पाठ → .s)  →  as → gcc → run
 # हर टेस्ट का अपेक्षित परिणाम = ./sutra.exe run <file>
 set -u
@@ -21,7 +21,7 @@ fi
 
 pass=0; fail=0; skip=0
 declare -a FAILED
-for f in $(ls tests/compiler/*.सूत्र | sort); do
+for f in $(ls भाषा_परीक्षण/compiler/*.सूत्र | sort); do
   name="$(basename "$f")"
   ./sutra.exe run "$f" > "$W/iout" 2>"$W/ierr"; irc=$?
   exp="$(sed 's/\x0d//g' "$W/iout")"

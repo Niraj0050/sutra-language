@@ -15,7 +15,7 @@ This script executes in the local development environment using MSYS2/MinGW to v
 - Toolchain CLI testing (checking linter, formatter, and LSP communication logs).
 
 ### 1.2 Canonical Compiler Parity Runner (`verify_compiler_self.ps1`)
-This script uses the natively compiled self-hosted compiler (`sutra_self.exe`) to compile the test suite under the `tests/compiler` directory.
+This script uses the natively compiled self-hosted compiler (`sutra_self.exe`) to compile the test suite under the `भाषा_परीक्षण/compiler` directory.
 - Runs target scripts through both the interpreter and compiled native binaries.
 - Compares console stdout outputs and exit code results.
 - **Current verification result**: 48/48 compiler verification tests passed.
@@ -30,8 +30,7 @@ This script uses the natively compiled self-hosted compiler (`sutra_self.exe`) t
 
 ### 2.2 Stability Integration Suite (106 Files)
 Scans for `.सूत्र` files in:
-* `tests/`
-* `परीक्षण_इनपुट.सूत्र`
+* `भाषा_परीक्षण/`
 Runs each program in:
 1. **Interpreter mode** (`sutra.exe <file>`).
 2. **Compiler mode** (generates native executable and runs it).
