@@ -11,7 +11,7 @@ The canonical repository follows a **Pure Sutra Source Representation** policy. 
 ### 1.1 Git-Tracked Canonical Sources
 * **[`स्वसंकलक/`](स्वसंकलक/)**: The self-hosted compiler source code implemented entirely in Sutra (Lexer, Parser, AST representation, Code Generator).
 * **[`tests/`](tests/)**: Automated stability and regression test cases written in Sutra.
-* **[`दस्तावेजाः/`](दस्तावेजाः/) & [`docs/`](docs/)**: System manuals, specifications, and roadmap documentations.
+* **[`दस्तावेजाः/`](दस्तावेजाः/) & [`प्रलेख/`](प्रलेख/)**: System manuals, specifications, and roadmap documentations.
 
 ### 1.2 Local Bootstrap & Development Environment (Excluded from Git)
 * **[`संकलक/`](संकलक/)**: C++ host implementation files (lexer, parser, compiler IR, and C++ heap manager) used to bootstrap the self-hosted compiler.

@@ -40,7 +40,7 @@ Sutra's developer utilities are built around simplification and separation of co
 ### 2.1 Zero-Configuration Philosophy (Native Manifests)
 Modern toolchains often require developers to learn multiple secondary markup formats (JSON, YAML, XML, TOML) to manage package dependencies and build systems.
 
-Sutra avoids secondary configuration formats entirely. The project manifest file ([`पैकेज.सूत्र`](file:///d:/my%20project/सूत्र/docs/TOOLCHAIN.md#L142-L154)) is written directly in standard Sutra dictionary syntax:
+Sutra avoids secondary configuration formats entirely. The project manifest file ([`पैकेज.सूत्र`](file:///d:/my%20project/सूत्र/प्रलेख/TOOLCHAIN.md#L142-L154)) is written directly in standard Sutra dictionary syntax:
 ```sutra
 मान पैकेज = {
     "नाम": "नूतन_संकुलम्",
@@ -55,5 +55,5 @@ Sutra avoids secondary configuration formats entirely. The project manifest file
 ### 2.2 Decoupled Performance Regression Tracking
 Performance testing and functional testing have different validation goals. Hardware variance, background CPU loads, and operating system scheduling can cause execution timings to fluctuate.
 * **Correctness Validation**: The stability suite [`run_tests.ps1`](file:///d:/my%20project/सूत्र/run_tests.ps1) verifies program outputs and exit codes, ensuring absolute interpreter/compiler execution parity. It does not check execution duration.
-* **Performance Telemetry**: Timings and GC counts are handled by the benchmark utility [`sutra_benchmark.exe`](file:///d:/my%20project/सूत्र/docs/BENCHMARKING.md), which runs target scripts multiple times to calculate median averages and standard deviation baselines.
+* **Performance Telemetry**: Timings and GC counts are handled by the benchmark utility [`sutra_benchmark.exe`](file:///d:/my%20project/सूत्र/प्रलेख/BENCHMARKING.md), which runs target scripts multiple times to calculate median averages and standard deviation baselines.
 * **Benefit**: Functional test pipelines remain fast, stable, and deterministic, while performance statistics are tracked separately without triggering false test failures under loaded test hardware.

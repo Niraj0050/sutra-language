@@ -130,7 +130,7 @@ The current Git-tracked layout of the codebase is structured as follows:
 * **[`स्वसंकलक/`](स्वसंकलक/)**: Zero-English Sutra sources for the self-hosted compiler.
 * **[`tests/`](tests/)**: Automated stability and compiler parity test suites.
 * **[`दस्तावेजाः/`](दस्तावेजाः/)**: Devanagari specifications documentation.
-* **[`docs/`](docs/)**: Deep-dive system documentation.
+* **[`प्रलेख/`](प्रलेख/)**: Deep-dive system documentation.
 * **`build.ps1` / `run_tests.ps1`**: Local building and testing runner scripts.
 * **`verify_compiler_self.ps1`**: Self-hosted compiler regression verifier.
 
@@ -140,16 +140,16 @@ The current Git-tracked layout of the codebase is structured as follows:
 
 Refer to the following files for compiler and language design details:
 
-* **[Language Specification](docs/SUTRA_LANGUAGE_SPEC.md)**: Language syntax, grammar, operators, classes, and types.
+* **[Language Specification](प्रलेख/SUTRA_LANGUAGE_SPEC.md)**: Language syntax, grammar, operators, classes, and types.
 * **[System Architecture](architecture.md)**: Repository layout and pipeline architecture.
-* **[Compiler Pipeline Spec](docs/COMPILER.md)**: Compiler phases, code emission, and transpiler patterns.
-* **[Runtime Environment Spec](docs/RUNTIME.md)**: Memory manager, garbage collector (GC), and structures layouts.
-* **[Standard Library reference](docs/STANDARD_LIBRARY.md)**: Reference manual for built-in Math, String, List, and I/O APIs.
-* **[Self-Hosting Roadmap](docs/SELF_HOSTING.md)**: Bootstrapping stages, milestones, and development roadmap.
-* **[Testing Framework Specs](docs/TESTING.md)**: Parity checks, test runners, and test suites structure.
-* **[Developer contribution Guide](docs/DEVELOPMENT.md)**: Local build environment setup and developer guidelines.
-* **[Language Server Spec (LSP)](docs/LANGUAGE_SERVER.md)**: LSP integration endpoints and formatting features.
-* **[Developer Toolchain](docs/TOOLCHAIN.md)**: Formatter, linter, debugger, and package manager specifications.
+* **[Compiler Pipeline Spec](प्रलेख/COMPILER.md)**: Compiler phases, code emission, and transpiler patterns.
+* **[Runtime Environment Spec](प्रलेख/RUNTIME.md)**: Memory manager, garbage collector (GC), and structures layouts.
+* **[Standard Library reference](प्रलेख/STANDARD_LIBRARY.md)**: Reference manual for built-in Math, String, List, and I/O APIs.
+* **[Self-Hosting Roadmap](प्रलेख/SELF_HOSTING.md)**: Bootstrapping stages, milestones, and development roadmap.
+* **[Testing Framework Specs](प्रलेख/TESTING.md)**: Parity checks, test runners, and test suites structure.
+* **[Developer contribution Guide](प्रलेख/DEVELOPMENT.md)**: Local build environment setup and developer guidelines.
+* **[Language Server Spec (LSP)](प्रलेख/LANGUAGE_SERVER.md)**: LSP integration endpoints and formatting features.
+* **[Developer Toolchain](प्रलेख/TOOLCHAIN.md)**: Formatter, linter, debugger, and package manager specifications.
 * **[Internals Design](design.md)**: High-level compiler design models.
 
 ---

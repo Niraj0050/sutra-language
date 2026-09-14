@@ -243,5 +243,5 @@ sutra_build <निर्देशः (command)> [options]
 
 The Sutra language server (`sutra_lsp.exe`) implements the Language Server Protocol (LSP) over standard I/O streams. It provides real-time document diagnostics, autocomplete suggestions, hover scope lookups, and go-to-definition mappings to integrated developer environments (IDEs).
 
-Refer to the complete [Sutra Language Server (LSP) Specification](file:///d:/my%20project/सूत्र/docs/LANGUAGE_SERVER.md) for transportation framing formats and detailed editor configurations.
+Refer to the complete [Sutra Language Server (LSP) Specification](file:///d:/my%20project/सूत्र/प्रलेख/LANGUAGE_SERVER.md) for transportation framing formats and detailed editor configurations.
 

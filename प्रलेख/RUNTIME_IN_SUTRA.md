@@ -145,7 +145,7 @@ Pure Devanagari names — no `sutra_` prefix.
    no cache) regressed self-compile ~40×. `पाठ_उपखंड` stays defined and
    tested (`04_string_ops`); codegen routes `x[i]` on a string to C
    `sutra_str_get` (sequential cache) for now. Re-wire to Sutra once the
-   optimiser lands. See `docs/PERFORMANCE_ROADMAP.md`.
+   optimiser lands. See `प्रलेख/PERFORMANCE_ROADMAP.md`.
 5. **Array / dict ops**: `sutra_list_append` (+ realloc), `sutra_dict_set`/`_get`.
 6. **Print**: `sutra_print_dynamic` and friends → format into a buffer,
    `अंतर्_मुद्रण(buf, 0, n)`.

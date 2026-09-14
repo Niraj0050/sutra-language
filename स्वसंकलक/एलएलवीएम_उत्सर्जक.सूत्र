@@ -14,7 +14,7 @@
 // LLVM का अपना phi elimination यह काम करता।
 //
 // दायरा: बिल्कुल वही opcode-सेट जो मूल_उत्सर्जक.सूत्र आज संभालता (देखें
-// docs/PERFORMANCE_ROADMAP.md — "LLVM release backend"). विधि_बुलाओ/
+// प्रलेख/PERFORMANCE_ROADMAP.md — "LLVM release backend"). विधि_बुलाओ/
 // परिवर्तन/नव_पाठ(byte-form)/पकड़_आरंभ/पकड़_अंत/अगम्य — निम्नक कभी emit
 // नहीं करता, इसलिए यहाँ भी नहीं संभाले (dead code वहाँ भी)।
 //
