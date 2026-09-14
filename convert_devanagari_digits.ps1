@@ -1,26 +1,40 @@
-# Converts Arabic-digit NUMBER LITERALS in a .सूत्र source file to Devanagari
-# digits, WITHOUT touching: string literals, // comments, or digits that are
-# part of an identifier (e.g. "ग1" stays "ग1" — a digit immediately after a
-# Devanagari letter/digit/underscore is an identifier-continuation char per
+﻿# Converts Arabic-digit NUMBER LITERALS in a .सूत्र source file to Devanagari
+# digits, WITHOUT touching: string literals, or digits that are part of an
+# identifier (e.g. "ग1" stays "ग1" — a digit immediately after a Devanagari
+# letter/digit/underscore is an identifier-continuation char per
 # स्वसंकलक/लेखक.सूत्र's नाम_अनुवृत्ति_है, not a fresh number token).
 #
 # Character-by-character state machine (NOT a naive regex substitution) —
 # tracks string/comment state exactly like a real lexer would, to avoid
 # corrupting anything outside genuine numeric-literal tokens.
 #
-# Used (2026-09-14) to convert सब पुस्तकालय/ + tests/stdlib/ — deliberately
-# NOT yet run on स्वसंकलक/ (the compiler's own ~189K-line self-hosting
-# source): that needs its own staged, carefully-verified pass (small
-# batches, full verify + seed refresh after each), not a one-shot sweep —
-# see project_sutra_language memory for the reasoning. The script itself
-# is Sutra-syntax-generic and needs no changes to run on स्वसंकलक/ files.
+# -IncludeComments also converts digits INSIDE // comments, with two
+# protections so external/standard references stay untouched:
+#   1. Digits inside a "..." span within the comment (illustrating string
+#      content — IPs, hex hashes, JSON text) are left alone, matching how
+#      real string literals are always left alone.
+#   2. A digit-run is left alone if it's part of a Latin-letter-containing
+#      "cluster" (maximal run of [0-9A-Za-z-:./§_]) — this catches
+#      RFC 4648, FIPS 180-4 §4.2.2, UTF-8, HTTP/1.1, IPv4, SHA-256,
+#      0xFFFFFFFF, git hashes like 4cc1ef3, ISO timestamps like
+#      2026-09-10T14:30:00Z, and bare §3a-style section tags — all of
+#      which are external/fixed notations, not prose quantities.
+# Everything else (descriptive counts, example Sutra code shown in a
+# comment, dates without letter markers) converts, matching how the
+# already-converted real source code looks.
+#
+# Used (2026-09-14) to convert सब पुस्तकालय/ + tests/stdlib/ + स्वसंकलक/
+# NUMBER-LITERAL tokens (no -IncludeComments). Comments + markdown docs
+# are a separate, later pass — see project_sutra_language memory.
 #
 # उपयोग: .\convert_devanagari_digits.ps1 -Path "पुस्तकालय\गणित.सूत्र"
 #        .\convert_devanagari_digits.ps1 -Path "..." -WhatIf   # सिर्फ़ गिनती, लिखे नहीं
+#        .\convert_devanagari_digits.ps1 -Path "..." -IncludeComments
 
 param(
     [Parameter(Mandatory=$true)][string]$Path,
-    [switch]$WhatIf
+    [switch]$WhatIf,
+    [switch]$IncludeComments
 )
 
 $devMap = @{
@@ -38,6 +52,51 @@ function IsIdentChar([int]$cp) {
     # digits (ASCII or Devanagari) — both valid ident-continuation chars
     if (($cp -ge 48 -and $cp -le 57) -or ($cp -ge 2406 -and $cp -le 2415)) { return $true }
     if ($cp -eq 95) { return $true }  # '_'
+    return $false
+}
+
+# $chars = full file char array; $runStart/$runEnd = digit-run bounds (end exclusive)
+# within that array. Protects three patterns, all "this is an external/fixed
+# notation, not a prose quantity":
+#   1. Tight cluster (letters/digits/-:./_  touching, no space) contains a
+#      Latin letter — catches HTTP/1.1, 0xFFFFFFFF, git hashes, ISO timestamps.
+#   2. Cluster is preceded by exactly one space, then a run of pure Latin
+#      letters (a "word") — catches "FIPS 180-4", "RFC 4648".
+#   3. Cluster is preceded (possibly through a dot-joined digit chain, so a
+#      LATER segment of "§4.2.2" still protects) by '§' — section refs.
+function IsClusterProtected($chars, [int]$n, [int]$runStart, [int]$runEnd) {
+    $section = [char]0x00A7
+    $isTightClusterChar = {
+        param($ch)
+        ($ch -ge '0' -and $ch -le '9') -or ($ch -ge 'A' -and $ch -le 'Z') -or ($ch -ge 'a' -and $ch -le 'z') -or
+        $ch -eq '-' -or $ch -eq ':' -or $ch -eq '.' -or $ch -eq '/' -or $ch -eq '_'
+    }
+    $isLatinLetter = { param($ch) ($ch -ge 'A' -and $ch -le 'Z') -or ($ch -ge 'a' -and $ch -le 'z') }
+
+    $l = $runStart
+    while ($l -gt 0 -and (& $isTightClusterChar $chars[$l-1])) { $l -= 1 }
+    $r = $runEnd
+    while ($r -lt $n -and (& $isTightClusterChar $chars[$r])) { $r += 1 }
+    for ($k = $l; $k -lt $r; $k++) {
+        if (& $isLatinLetter $chars[$k]) { return $true }
+    }
+
+    if ($l -gt 0 -and $chars[$l-1] -eq ' ') {
+        $w = $l - 1
+        while ($w -gt 0 -and (& $isLatinLetter $chars[$w-1])) { $w -= 1 }
+        if ($w -lt ($l - 1)) {
+            # a bare Latin word before the space is NOT enough on its own —
+            # common English filler words ("of", "is") get mixed into
+            # Hinglish prose too and would over-protect real counts (e.g.
+            # "सूची of 8"). Only known standard-name acronyms count.
+            $word = -join $chars[$w..($l-2)]
+            if (@('RFC','FIPS','ISO','IEEE','TLS','SSL','W3C','USB') -contains $word) { return $true }
+        }
+    }
+
+    $p = $l
+    while ($p -gt 0 -and ((($chars[$p-1] -ge '0' -and $chars[$p-1] -le '9')) -or $chars[$p-1] -eq '.')) { $p -= 1 }
+    if ($p -gt 0 -and $chars[$p-1] -eq $section) { return $true }
     return $false
 }
 
@@ -76,9 +135,102 @@ while ($i -lt $n) {
     }
 
     if ($c -eq '/' -and ($i + 1) -lt $n -and $chars[$i + 1] -eq '/') {
-        # line comment — copy verbatim to end of line
+        if (-not $IncludeComments) {
+            # line comment — copy verbatim to end of line (original behaviour)
+            while ($i -lt $n -and $chars[$i] -ne "`n") {
+                [void]$out.Append($chars[$i])
+                $i += 1
+            }
+            $prevIsIdent = $false
+            continue
+        }
+
+        # -IncludeComments: scan the comment applying the same digit-run
+        # conversion as code, protected by: (1) quote-tracking — digits
+        # inside "..." (illustrating string content) stay untouched, same
+        # as real string literals; (1b) backtick-tracking — digits inside
+        # `...` (markdown-style code-span used in prose, e.g. `\1`-`\9` for
+        # regex backreference syntax) stay untouched, since the backtick is
+        # marking "literal syntax", same intent as a real string literal —
+        # matters most for \N/\d escape-sequence docs, where the digit IS
+        # the exact ASCII char the regex engine parses at runtime; (2)
+        # identifier-continuation — a digit glued right after a Devanagari
+        # letter (सं2, विन32.सूत्र, ज_पढ़4) is naming a REAL identifier/
+        # filename that was never renamed, so it must stay exactly as-is,
+        # same रूल as real code; (3) cluster check — a Latin-letter-
+        # containing run (RFC 4648, HTTP/1.1, 0xFFFFFFFF, git hashes, ISO
+        # timestamps) is an external/fixed notation, stays untouched.
+        [void]$out.Append($chars[$i]); [void]$out.Append($chars[$i+1])
+        $i += 2
+        $cInString = $false
+        $cInBacktick = $false
+        $cPrevIsIdent = $false
         while ($i -lt $n -and $chars[$i] -ne "`n") {
-            [void]$out.Append($chars[$i])
+            $cc = $chars[$i]
+
+            if ($cInString) {
+                [void]$out.Append($cc)
+                if ($cc -eq '\' -and ($i + 1) -lt $n -and $chars[$i+1] -ne "`n") {
+                    [void]$out.Append($chars[$i + 1])
+                    $i += 2
+                    continue
+                }
+                if ($cc -eq '"') { $cInString = $false }
+                $cPrevIsIdent = $false
+                $i += 1
+                continue
+            }
+
+            if ($cInBacktick) {
+                [void]$out.Append($cc)
+                if ($cc -eq '`') { $cInBacktick = $false }
+                $cPrevIsIdent = $false
+                $i += 1
+                continue
+            }
+
+            if ($cc -eq '"') {
+                $cInString = $true
+                [void]$out.Append($cc)
+                $cPrevIsIdent = $false
+                $i += 1
+                continue
+            }
+
+            if ($cc -eq '`') {
+                $cInBacktick = $true
+                [void]$out.Append($cc)
+                $cPrevIsIdent = $false
+                $i += 1
+                continue
+            }
+
+            if ($cc -ge '0' -and $cc -le '9') {
+                $j = $i
+                while ($j -lt $n -and $chars[$j] -ge '0' -and $chars[$j] -le '9') { $j += 1 }
+                if ($j -lt $n -and $chars[$j] -eq '.' -and ($j + 1) -lt $n -and $chars[$j+1] -ge '0' -and $chars[$j+1] -le '9') {
+                    $j += 1
+                    while ($j -lt $n -and $chars[$j] -ge '0' -and $chars[$j] -le '9') { $j += 1 }
+                }
+                if ($cPrevIsIdent -or (IsClusterProtected $chars $n $i $j)) {
+                    for ($k = $i; $k -lt $j; $k++) { [void]$out.Append($chars[$k]) }
+                } else {
+                    for ($k = $i; $k -lt $j; $k++) {
+                        if ($devMap.ContainsKey($chars[$k])) {
+                            [void]$out.Append($devMap[$chars[$k]])
+                            $convertedCount += 1
+                        } else {
+                            [void]$out.Append($chars[$k])
+                        }
+                    }
+                }
+                $i = $j
+                $cPrevIsIdent = $true
+                continue
+            }
+
+            [void]$out.Append($cc)
+            $cPrevIsIdent = IsIdentChar([int][char]$cc)
             $i += 1
         }
         $prevIsIdent = $false
