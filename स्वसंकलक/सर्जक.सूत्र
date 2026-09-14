@@ -1027,7 +1027,7 @@
                 ल_प्रकार_सूचक = ल_प्रकार_सूचक + १;
             }
             
-            // Declare local variables and initialize to 0
+            // Declare local variables and initialize to ०
             संख्या ल_सूचक = ०;
             यावत् (ल_सूचक < लंबाई(चालू_स्थानीय_चर)) {
                 परिणाम = परिणाम + "    void* " + चालू_स्थानीय_चर[ल_सूचक] + " = (void*)0;\n";

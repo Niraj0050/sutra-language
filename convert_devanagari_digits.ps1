@@ -66,31 +66,60 @@ function IsIdentChar([int]$cp) {
 #      LATER segment of "§4.2.2" still protects) by '§' — section refs.
 function IsClusterProtected($chars, [int]$n, [int]$runStart, [int]$runEnd) {
     $section = [char]0x00A7
-    $isTightClusterChar = {
+    $isAlnum = {
         param($ch)
-        ($ch -ge '0' -and $ch -le '9') -or ($ch -ge 'A' -and $ch -le 'Z') -or ($ch -ge 'a' -and $ch -le 'z') -or
-        $ch -eq '-' -or $ch -eq ':' -or $ch -eq '.' -or $ch -eq '/' -or $ch -eq '_'
+        ($ch -ge '0' -and $ch -le '9') -or ($ch -ge 'A' -and $ch -le 'Z') -or ($ch -ge 'a' -and $ch -le 'z')
     }
+    $isDigit = { param($ch) $ch -ge '0' -and $ch -le '9' }
+    $isPlainConnector = { param($ch) $ch -eq ':' -or $ch -eq '.' -or $ch -eq '/' -or $ch -eq '_' }
     $isLatinLetter = { param($ch) ($ch -ge 'A' -and $ch -le 'Z') -or ($ch -ge 'a' -and $ch -le 'z') }
 
+    # Tight-cluster expansion. '-' only bridges digit<->digit (so "180-4"
+    # stays one cluster) — NOT letter<->digit, so "Milestone-1"/"Increment-1"
+    # (a word joined to a number by a stylistic hyphen, meaning "word space
+    # number") don't accidentally inherit the word's letters and get
+    # protected just because the author used '-' instead of ' '. A direct
+    # letter<->digit touch with no separator at all (align16, v0, r8) still
+    # bridges normally via isAlnum — only the '-' case needs this guard.
     $l = $runStart
-    while ($l -gt 0 -and (& $isTightClusterChar $chars[$l-1])) { $l -= 1 }
+    while ($l -gt 0) {
+        $prev = $chars[$l-1]
+        if ((& $isAlnum $prev) -or (& $isPlainConnector $prev)) { $l -= 1; continue }
+        if ($prev -eq '-' -and $l -ge 2 -and (& $isDigit $chars[$l-2])) { $l -= 1; continue }
+        break
+    }
     $r = $runEnd
-    while ($r -lt $n -and (& $isTightClusterChar $chars[$r])) { $r += 1 }
+    while ($r -lt $n) {
+        $cur = $chars[$r]
+        if ((& $isAlnum $cur) -or (& $isPlainConnector $cur)) { $r += 1; continue }
+        if ($cur -eq '-' -and ($r + 1) -lt $n -and (& $isDigit $chars[$r+1])) { $r += 1; continue }
+        break
+    }
     for ($k = $l; $k -lt $r; $k++) {
         if (& $isLatinLetter $chars[$k]) { return $true }
     }
 
-    if ($l -gt 0 -and $chars[$l-1] -eq ' ') {
+    if ($l -gt 0 -and ($chars[$l-1] -eq ' ' -or $chars[$l-1] -eq '-')) {
         $w = $l - 1
         while ($w -gt 0 -and (& $isLatinLetter $chars[$w-1])) { $w -= 1 }
         if ($w -lt ($l - 1)) {
-            # a bare Latin word before the space is NOT enough on its own —
-            # common English filler words ("of", "is") get mixed into
+            # a bare Latin word before the space/hyphen is NOT enough on its
+            # own — common English filler words ("of", "is") get mixed into
             # Hinglish prose too and would over-protect real counts (e.g.
-            # "सूची of 8"). Only known standard-name acronyms count.
+            # "सूची of 8"), and internal terms ("Milestone-1", "Phase 2",
+            # "signed-32-bit") are our own numbering/prose, not an external
+            # citation. A Title-Case or lowercase word is never one of
+            # those in this codebase's writing style — but an ALL-CAPS
+            # acronym (UTF, SHA, RFC, FIPS, ISO, IEEE, TLS, HTTP, …) always
+            # names something external/fixed, so treat that as the signal
+            # instead of an arbitrary fixed list (which missed UTF/SHA and
+            # broke "UTF-8"/"SHA-256" on the first pass).
             $word = -join $chars[$w..($l-2)]
-            if (@('RFC','FIPS','ISO','IEEE','TLS','SSL','W3C','USB') -contains $word) { return $true }
+            $isAllCapsWord = $true
+            foreach ($wc in $chars[$w..($l-2)]) {
+                if (-not ($wc -ge 'A' -and $wc -le 'Z')) { $isAllCapsWord = $false; break }
+            }
+            if ($isAllCapsWord -or (@('IPv','IPv4','IPv6') -contains $word)) { return $true }
         }
     }
 
