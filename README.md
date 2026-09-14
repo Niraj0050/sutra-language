@@ -133,7 +133,6 @@ The current Git-tracked layout of the codebase is structured as follows:
 * **[`docs/`](docs/)**: Deep-dive system documentation.
 * **`build.ps1` / `run_tests.ps1`**: Local building and testing runner scripts.
 * **`verify_compiler_self.ps1`**: Self-hosted compiler regression verifier.
-* **`CMakeLists.txt`**: C++ project build configurations.
 
 ---
 

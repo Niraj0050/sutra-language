@@ -71,7 +71,7 @@ The developer toolchain utilities are categorized and implemented under Mileston
 
 ### M4-1: Toolchain Library Foundation & Unit Testing
 * **Status**: **Completed**
-* **Details**: Compiles the shared `sutra_toolchain` static library in [`CMakeLists.txt`](file:///d:/my%20project/सूत्र/CMakeLists.txt#L58-L70). Integrates unit tests runner [`test_toolchain.cpp`](file:///d:/my%20project/सूत्र/परीक्षणानि/test_toolchain.cpp).
+* **Details**: Compiles the shared `sutra_toolchain` object set via `build.ps1`. Integrates unit tests runner [`test_toolchain.cpp`](file:///d:/my%20project/सूत्र/परीक्षणानि/test_toolchain.cpp).
 
 ### M4-2: Sutra Formatter
 * **Status**: **Completed**

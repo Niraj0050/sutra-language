@@ -12,11 +12,10 @@ The Sutra Language Server provides IDE integration capabilities for the Sutra pr
 
 ## 2. Compilation and Build
 
-The LSP server is compiled as part of the unified CMake build target configuration.
+The LSP server is compiled as part of the unified `build.ps1` build target configuration.
 
 ### Prerequisites:
 * MSYS2 / MinGW-w64 (GCC 9+ environment)
-* CMake 3.16+
 * `nlohmann/json.hpp` (automatically downloaded to `external/nlohmann` during build)
 
 ### Build Command:

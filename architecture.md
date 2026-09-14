@@ -139,5 +139,5 @@ All developer utilities (formatter, linter, debugger, package manager, build, be
 ```
 
 ### Shared Toolchain Components:
-* **Static Library (`sutra_toolchain` - Local)**: Static library target in `CMakeLists.txt` compiling the formatter (`formatter.cpp`), linter (`linter.cpp`), debugger interface (`debugger.cpp`), package manager (`package_manager.cpp`), build backend (`build_system.cpp`), and benchmark engine (`benchmark.cpp`).
+* **Static Library (`sutra_toolchain` - Local)**: Shared toolchain object set compiled once by `build.ps1` and linked into each tool binary — the formatter (`formatter.cpp`), linter (`linter.cpp`), debugger interface (`debugger.cpp`), package manager (`package_manager.cpp`), build backend (`build_system.cpp`), and benchmark engine (`benchmark.cpp`).
 * **LSP Language Server (`sutra_lsp` - Local)**: Located at `उपकरणानि/sutra_lsp.cpp`. Handles JSON-RPC packets received from IDE clients (like VS Code or Neovim) over stdin/stdout. Uses `उपकरणानि/src/lsp_handlers.cpp` and `उपकरणानि/src/lsp_adapter.cpp` to call toolchain formatting, linting, and compile-diagnostics.

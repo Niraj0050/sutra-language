@@ -12,7 +12,7 @@ Sutra (Sutra) is a Sanskrit/Hindi-first, Devanagari-native general-purpose progr
 ---
 
 ## 2. Installation & Compilation
-Sutra can be built from source using CMake or MinGW C++ compiler on Windows, Linux, or macOS.
+Sutra can be built from source using a C++17 compiler (g++ / MinGW) via the provided PowerShell build script, on Windows, Linux, or macOS.
 
 ### Building on Windows (PowerShell):
 ```powershell
