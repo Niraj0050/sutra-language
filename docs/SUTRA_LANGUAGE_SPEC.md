@@ -237,7 +237,7 @@ Error messages follow a standardized Hindi/Sanskrit format including line and co
 ---
 
 ## 22. Complete Examples
-Refer to the [`examples/`](file:///d:/my%20project/%E0%A4%B8%E0%A5%82%E0%A4%A4%E0%A5%8D%E0%A4%B0/examples/) directory containing 11 runnable applications.
+Refer to the [`उदाहरणानि/`](file:///d:/my%20project/%E0%A4%B8%E0%A5%82%E0%A4%A4%E0%A5%8D%E0%A4%B0/%E0%A4%89%E0%A4%A6%E0%A4%BE%E0%A4%B9%E0%A4%B0%E0%A4%A3%E0%A4%BE%E0%A4%A8%E0%A4%BF/) directory containing runnable applications.
 
 ---
 

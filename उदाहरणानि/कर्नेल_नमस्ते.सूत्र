@@ -1,9 +1,9 @@
-// examples/कर्नेल_नमस्ते.सूत्र — पहला Sutra "कर्नेल": VGA टेक्स्ट-बफर पर सीधे
+// उदाहरणानि/कर्नेल_नमस्ते.सूत्र — पहला Sutra "कर्नेल": VGA टेक्स्ट-बफर पर सीधे
 // लिखता, कोई OS नहीं। `sutrac.exe --freestanding` से compile करो, फिर
 // कर्नेल/निर्माण.ps1 से असली (emulated) bare-metal hardware पर बूट करो:
 //
-//   sutrac.exe --freestanding examples\कर्नेल_नमस्ते.सूत्र
-//   .\कर्नेल\निर्माण.ps1 -KernelBin examples\कर्नेल_नमस्ते.सूत्र_freestanding.bin -Run
+//   sutrac.exe --freestanding उदाहरणानि\कर्नेल_नमस्ते.सूत्र
+//   .\कर्नेल\निर्माण.ps1 -KernelBin उदाहरणानि\कर्नेल_नमस्ते.सूत्र_freestanding.bin -Run
 //
 // ⚠️ freestanding अनुशासन (rules.md §2c): सिर्फ़ संख्या-गणित + अंतर्_पढ़*/
 // लिख* + अन्य freestanding-सुरक्षित फलन — कोई सूची/शब्दकोश/पाठ/वर्ग नहीं

@@ -1,4 +1,4 @@
-// Sutra Console Input Example
+// सूत्र निवेश (console input) उदाहरण
 
 लिखतु("तव नाम किम्? (Enter your name):");
 मान नाम = पठतु();

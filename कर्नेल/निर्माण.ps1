@@ -1,7 +1,7 @@
 ﻿# कर्नेल/निर्माण.ps1 — Sutra freestanding kernel: बूट-इमेज बनाओ + (वैकल्पिक) QEMU में चलाओ
 #
 # प्रयोग:
-#   .\कर्नेल\निर्माण.ps1 -KernelBin "examples\कर्नेल_नमस्ते.सूत्र_freestanding.bin"
+#   .\कर्नेल\निर्माण.ps1 -KernelBin "उदाहरणानि\कर्नेल_नमस्ते.सूत्र_freestanding.bin"
 #   .\कर्नेल\निर्माण.ps1 -KernelBin "..." -Run          # QEMU में headless boot + serial दिखाओ
 #   .\कर्नेल\निर्माण.ps1 -KernelBin "..." -Run -Seconds 5
 #

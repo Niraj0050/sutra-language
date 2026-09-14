@@ -195,7 +195,7 @@ objects — no `सूची`/`शब्दकोश`/`पाठ` construction, 
 string concatenation, nothing that can trigger `सूत्र_संग्रह`. Stick to
 `संख्या`-only locals/params, `अंतर्_पढ़*`/`अंतर्_लिख*` on pre-allocated raw
 buffers, and `विदेशी` calls — see `पुस्तकालय/थ्रेड.सूत्र` and
-`examples/thread_test.सूत्र` (4 real OS threads, mutex-protected shared
+`उदाहरणानि/थ्रेड_परीक्षण.सूत्र` (4 real OS threads, mutex-protected shared
 counter, exact result verified — no full runtime thread-safety yet, just a
 documented-safe usage pattern).
 
@@ -263,7 +263,7 @@ sutrac.exe --freestanding kernel_test.सूत्र
   `kernel32` via FFI: using the hardware's required interface, not copying
   anyone's OS) to actually load and jump into the extracted `.bin`. A
   reusable one lives at `कर्नेल/boot.asm` + `कर्नेल/निर्माण.ps1` — see
-  `examples/कर्नेल_नमस्ते.सूत्र` for a full working example (multi-function,
+  `उदाहरणानि/कर्नेल_नमस्ते.सूत्र` for a full working example (multi-function,
   verified booting in QEMU with the write independently confirmed via the
   QEMU monitor's `xp` physical-memory-dump command, not just trusted).
 

@@ -1,4 +1,4 @@
-// Sutra Modules Example
+// सूत्र मापांक (modules) उदाहरण
 
 आयात "../tests/modules/गणित_सहायक.सूत्र";
 
