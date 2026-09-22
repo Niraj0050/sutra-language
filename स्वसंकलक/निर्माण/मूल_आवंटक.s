@@ -464,82 +464,99 @@
   imulq %rbx, %r10
   movq %r10, %r12
   movq $16, %rbx
-  movq %rbx, %r10
-  addq %r12, %r10
+  movq %r12, %r10
+  cmpq %rbx, %r10
+  setl %al
+  movzbq %al, %r10
+  movq %r10, %rdi
+  movq %rdi, %r10
+  cmpq $0, %r10
+  je .L_किनारा_सूत्र_आवंटन_0
+  jmp .L_सूत्र_आवंटन__if_सत्य_1
+.L_किनारा_सूत्र_आवंटन_0:
+  movq %r12, %rbx
+  jmp .L_सूत्र_आवंटन__if_अंत_2
+.L_सूत्र_आवंटन__if_सत्य_1:
+  movq $16, %rbx
+  jmp .L_सूत्र_आवंटन__if_अंत_2
+.L_सूत्र_आवंटन__if_अंत_2:
+  movq $16, %rdi
+  movq %rdi, %r10
+  addq %rbx, %r10
   movq %r10, -104(%rbp)
   subq $32, %rsp
   call मुक्त_तालिका_तैयार
   addq $32, %rsp
-  movq %rax, %rbx
+  movq %rax, %rdi
   movq sutra_glob_ऑटो_सक्षम(%rip), %r10
-  movq %r10, %rbx
+  movq %r10, %rdi
   movq $1, %r13
-  movq %rbx, %r10
+  movq %rdi, %r10
   cmpq %r13, %r10
   sete %al
   movzbq %al, %r10
   movq %r10, %r14
   movq %r14, %r10
   cmpq $0, %r10
-  je .L_सूत्र_आवंटन__if_अंत_2
-  jmp .L_सूत्र_आवंटन__if_सत्य_1
-.L_सूत्र_आवंटन__if_सत्य_1:
-  movq sutra_glob_जीसी_चालू(%rip), %r10
-  movq %r10, %rbx
-  movq $0, %r13
-  movq %rbx, %r10
-  cmpq %r13, %r10
-  sete %al
-  movzbq %al, %r10
-  movq %r10, %r14
-  movq %r14, %r10
-  cmpq $0, %r10
-  je .L_सूत्र_आवंटन__if_अंत_2
+  je .L_सूत्र_आवंटन__if_अंत_4
   jmp .L_सूत्र_आवंटन__if_सत्य_3
 .L_सूत्र_आवंटन__if_सत्य_3:
-  movq sutra_glob_जीसी_दबाव(%rip), %r10
-  movq %r10, %rbx
+  movq sutra_glob_जीसी_चालू(%rip), %r10
+  movq %r10, %rdi
   movq $0, %r13
-  movq %rbx, %r10
+  movq %rdi, %r10
   cmpq %r13, %r10
   sete %al
   movzbq %al, %r10
   movq %r10, %r14
   movq %r14, %r10
   cmpq $0, %r10
-  je .L_सूत्र_आवंटन__if_अंत_2
+  je .L_सूत्र_आवंटन__if_अंत_4
   jmp .L_सूत्र_आवंटन__if_सत्य_5
 .L_सूत्र_आवंटन__if_सत्य_5:
+  movq sutra_glob_जीसी_दबाव(%rip), %r10
+  movq %r10, %rdi
+  movq $0, %r13
+  movq %rdi, %r10
+  cmpq %r13, %r10
+  sete %al
+  movzbq %al, %r10
+  movq %r10, %r14
+  movq %r14, %r10
+  cmpq $0, %r10
+  je .L_सूत्र_आवंटन__if_अंत_4
+  jmp .L_सूत्र_आवंटन__if_सत्य_7
+.L_सूत्र_आवंटन__if_सत्य_7:
   movq sutra_glob_आवंटित_बाइट्स(%rip), %r10
-  movq %r10, %rbx
+  movq %r10, %rdi
   movq sutra_glob_जीसी_सीमा(%rip), %r10
   movq %r10, %r13
-  movq %rbx, %r10
+  movq %rdi, %r10
   cmpq %r13, %r10
   setge %al
   movzbq %al, %r10
   movq %r10, %r14
   movq %r14, %r10
   cmpq $0, %r10
-  je .L_सूत्र_आवंटन__if_अंत_2
-  jmp .L_सूत्र_आवंटन__if_सत्य_7
-.L_सूत्र_आवंटन__if_सत्य_7:
-  movq $1, %rbx
-  movq %rbx, %r10
+  je .L_सूत्र_आवंटन__if_अंत_4
+  jmp .L_सूत्र_आवंटन__if_सत्य_9
+.L_सूत्र_आवंटन__if_सत्य_9:
+  movq $1, %rdi
+  movq %rdi, %r10
   movq %r10, sutra_glob_जीसी_चालू(%rip)
   subq $32, %rsp
   call सूत्र_संग्रह
   addq $32, %rsp
-  movq %rax, %rbx
-  movq $0, %rbx
-  movq %rbx, %r10
+  movq %rax, %rdi
+  movq $0, %rdi
+  movq %rdi, %r10
   movq %r10, sutra_glob_आवंटित_बाइट्स(%rip)
-  movq $0, %rbx
-  movq %rbx, %r10
+  movq $0, %rdi
+  movq %rdi, %r10
   movq %r10, sutra_glob_जीसी_चालू(%rip)
-  jmp .L_सूत्र_आवंटन__if_अंत_2
-.L_सूत्र_आवंटन__if_अंत_2:
-  movq %r12, %rcx
+  jmp .L_सूत्र_आवंटन__if_अंत_4
+.L_सूत्र_आवंटन__if_अंत_4:
+  movq %rbx, %rcx
   subq $32, %rsp
   call श्रेणी_का
   addq $32, %rsp
@@ -552,9 +569,9 @@
   movq %r10, %r14
   movq %r14, %r10
   cmpq $0, %r10
-  je .L_सूत्र_आवंटन__if_असत्य_11
-  jmp .L_सूत्र_आवंटन__if_सत्य_9
-.L_सूत्र_आवंटन__if_असत्य_11:
+  je .L_सूत्र_आवंटन__if_असत्य_13
+  jmp .L_सूत्र_आवंटन__if_सत्य_11
+.L_सूत्र_आवंटन__if_असत्य_13:
   movq $0, %r13
   movq sutra_glob_मुक्त_तालिका(%rip), %r10
   movq %r10, %r14
@@ -566,8 +583,8 @@
   movq %rsi, %r11
   movq %r13, %rsi
   movq %r11, %r13
-  jmp .L_सूत्र_आवंटन__wh_शर्त_14
-.L_सूत्र_आवंटन__wh_शर्त_14:
+  jmp .L_सूत्र_आवंटन__wh_शर्त_16
+.L_सूत्र_आवंटन__wh_शर्त_16:
   movq $0, %r14
   movq %r13, %r10
   cmpq %r14, %r10
@@ -576,9 +593,9 @@
   movq %r10, %r15
   movq %r15, %r10
   cmpq $0, %r10
-  je .L_सूत्र_आवंटन__if_अंत_10
-  jmp .L_सूत्र_आवंटन__wh_देह_15
-.L_सूत्र_आवंटन__wh_देह_15:
+  je .L_सूत्र_आवंटन__if_अंत_12
+  jmp .L_सूत्र_आवंटन__wh_देह_17
+.L_सूत्र_आवंटन__wh_देह_17:
   movq $8, %r14
   movq %r13, %r10
   movq %r14, %r11
@@ -588,236 +605,236 @@
   movq %r13, %r10
   movq %r14, %r11
   movq (%r10,%r11), %r10
-  movq %r10, %rbx
+  movq %r10, %rdi
   movq %r15, %r10
-  cmpq %r12, %r10
+  cmpq %rbx, %r10
   setge %al
   movzbq %al, %r10
   movq %r10, %r14
   movq %r14, %r10
   cmpq $0, %r10
-  je .L_सूत्र_आवंटन__if_अंत_18
-  jmp .L_सूत्र_आवंटन__if_सत्य_17
-.L_सूत्र_आवंटन__if_अंत_18:
+  je .L_सूत्र_आवंटन__if_अंत_20
+  jmp .L_सूत्र_आवंटन__if_सत्य_19
+.L_सूत्र_आवंटन__if_अंत_20:
   movq %r13, %rsi
-  movq %rbx, %r13
-  jmp .L_सूत्र_आवंटन__wh_शर्त_14
-.L_सूत्र_आवंटन__if_सत्य_17:
+  movq %rdi, %r13
+  jmp .L_सूत्र_आवंटन__wh_शर्त_16
+.L_सूत्र_आवंटन__if_सत्य_19:
   movq $0, %r14
   movq %rsi, %r10
   cmpq %r14, %r10
   sete %al
   movzbq %al, %r10
-  movq %r10, %rdi
-  movq %rdi, %r10
+  movq %r10, %r12
+  movq %r12, %r10
   cmpq $0, %r10
-  je .L_सूत्र_आवंटन__if_असत्य_21
-  jmp .L_सूत्र_आवंटन__if_सत्य_19
-.L_सूत्र_आवंटन__if_असत्य_21:
-  movq $16, %rdi
+  je .L_सूत्र_आवंटन__if_असत्य_23
+  jmp .L_सूत्र_आवंटन__if_सत्य_21
+.L_सूत्र_आवंटन__if_असत्य_23:
+  movq $16, %r12
   movq %rsi, %r10
-  movq %rdi, %r11
-  movq %rbx, %r8
+  movq %r12, %r11
+  movq %rdi, %r8
   movq %r8, (%r10,%r11)
-  movq %rbx, %r14
-  jmp .L_सूत्र_आवंटन__if_अंत_20
-.L_सूत्र_आवंटन__if_सत्य_19:
+  movq %rdi, %r14
+  jmp .L_सूत्र_आवंटन__if_अंत_22
+.L_सूत्र_आवंटन__if_सत्य_21:
   movq sutra_glob_मुक्त_तालिका(%rip), %r10
   movq %r10, %rsi
-  movq $0, %rdi
+  movq $0, %r12
   movq %rsi, %r10
-  movq %rdi, %r11
-  movq %rbx, %r8
+  movq %r12, %r11
+  movq %rdi, %r8
   movq %r8, (%r10,%r11)
-  movq %rbx, %r14
-  jmp .L_सूत्र_आवंटन__if_अंत_20
-.L_सूत्र_आवंटन__if_अंत_20:
-  movq $0, %rbx
+  movq %rdi, %r14
+  jmp .L_सूत्र_आवंटन__if_अंत_22
+.L_सूत्र_आवंटन__if_अंत_22:
+  movq $0, %rsi
   movq %r13, %r10
-  movq %rbx, %r11
+  movq %rsi, %r11
   movq -72(%rbp), %r8
   movq %r8, (%r10,%r11)
-  movq -72(%rbp), %rsi
-  movq $16, %rbx
+  movq -72(%rbp), %rdi
+  movq $16, %rsi
   movq %r13, %r10
-  addq %rbx, %r10
-  movq %r10, %rsi
-  movq %rsi, %rcx
+  addq %rsi, %r10
+  movq %r10, %rdi
+  movq %rdi, %rcx
   movq %r15, %rdx
   subq $32, %rsp
   call शून्य_भरो
   addq $32, %rsp
-  movq %rax, %rbx
-  movq $16, %rbx
+  movq %rax, %rsi
+  movq $16, %rsi
   movq %r13, %r10
-  addq %rbx, %r10
-  movq %r10, %rsi
-  movq %rsi, %rax
-  jmp .L_epilogue_सूत्र_आवंटन
-.L_सूत्र_आवंटन__if_सत्य_9:
-  movq sutra_glob_मुक्त_तालिका(%rip), %r10
-  movq %r10, %rbx
-  movq $8, %rsi
-  movq -88(%rbp), %r10
-  imulq %rsi, %r10
+  addq %rsi, %r10
   movq %r10, %rdi
-  movq %rbx, %r10
-  movq %rdi, %r11
-  movq (%r10,%r11), %r10
+  movq %rdi, %rax
+  jmp .L_epilogue_सूत्र_आवंटन
+.L_सूत्र_आवंटन__if_सत्य_11:
+  movq sutra_glob_मुक्त_तालिका(%rip), %r10
   movq %r10, %rsi
-  movq $0, %rbx
+  movq $8, %rdi
+  movq -88(%rbp), %r10
+  imulq %rdi, %r10
+  movq %r10, %r12
   movq %rsi, %r10
-  cmpq %rbx, %r10
+  movq %r12, %r11
+  movq (%r10,%r11), %r10
+  movq %r10, %rdi
+  movq $0, %rsi
+  movq %rdi, %r10
+  cmpq %rsi, %r10
   setne %al
   movzbq %al, %r10
-  movq %r10, %rdi
-  movq %rdi, %r10
+  movq %r10, %r12
+  movq %r12, %r10
   cmpq $0, %r10
-  je .L_सूत्र_आवंटन__if_अंत_10
-  jmp .L_सूत्र_आवंटन__if_सत्य_12
-.L_सूत्र_आवंटन__if_अंत_10:
+  je .L_सूत्र_आवंटन__if_अंत_12
+  jmp .L_सूत्र_आवंटन__if_सत्य_14
+.L_सूत्र_आवंटन__if_अंत_12:
   movq sutra_glob_अखंड_वर्तमान(%rip), %r10
-  movq %r10, %rbx
-  movq $0, %rdi
-  movq %rbx, %r10
-  cmpq %rdi, %r10
+  movq %r10, %rsi
+  movq $0, %r12
+  movq %rsi, %r10
+  cmpq %r12, %r10
   sete %al
   movzbq %al, %r10
   movq %r10, %r13
   movq %r13, %r10
   cmpq $0, %r10
-  je .L_सूत्र_आवंटन__if_अंत_23
-  jmp .L_सूत्र_आवंटन__if_सत्य_22
-.L_सूत्र_आवंटन__if_सत्य_22:
+  je .L_सूत्र_आवंटन__if_अंत_25
+  jmp .L_सूत्र_आवंटन__if_सत्य_24
+.L_सूत्र_आवंटन__if_सत्य_24:
   movq -104(%rbp), %rcx
   subq $32, %rsp
   call नया_अखंड
   addq $32, %rsp
-  movq %rax, %rbx
-  jmp .L_सूत्र_आवंटन__if_अंत_23
-.L_सूत्र_आवंटन__if_अंत_23:
+  movq %rax, %rsi
+  jmp .L_सूत्र_आवंटन__if_अंत_25
+.L_सूत्र_आवंटन__if_अंत_25:
   movq sutra_glob_अखंड_वर्तमान(%rip), %r10
-  movq %r10, %rbx
-  movq $8, %rdi
-  movq %rbx, %r10
-  movq %rdi, %r11
+  movq %r10, %rsi
+  movq $8, %r12
+  movq %rsi, %r10
+  movq %r12, %r11
   movq (%r10,%r11), %r10
   movq %r10, %r13
-  movq $16, %rdi
-  movq %rbx, %r10
-  movq %rdi, %r11
+  movq $16, %r12
+  movq %rsi, %r10
+  movq %r12, %r11
   movq (%r10,%r11), %r10
   movq %r10, %r14
   movq %r13, %r10
   addq -104(%rbp), %r10
-  movq %r10, %rdi
-  movq %rdi, %r10
+  movq %r10, %r12
+  movq %r12, %r10
   cmpq %r14, %r10
   setg %al
   movzbq %al, %r10
   movq %r10, %r15
   movq %r15, %r10
   cmpq $0, %r10
-  je .L_किनारा_सूत्र_आवंटन_0
-  jmp .L_सूत्र_आवंटन__if_सत्य_24
-.L_किनारा_सूत्र_आवंटन_0:
-  movq %r13, %rdi
-  jmp .L_सूत्र_आवंटन__if_अंत_25
-.L_सूत्र_आवंटन__if_सत्य_24:
+  je .L_किनारा_सूत्र_आवंटन_1
+  jmp .L_सूत्र_आवंटन__if_सत्य_26
+.L_किनारा_सूत्र_आवंटन_1:
+  movq %r13, %r12
+  jmp .L_सूत्र_आवंटन__if_अंत_27
+.L_सूत्र_आवंटन__if_सत्य_26:
   movq -104(%rbp), %rcx
   subq $32, %rsp
   call नया_अखंड
   addq $32, %rsp
-  movq %rax, %rbx
+  movq %rax, %rsi
   movq sutra_glob_अखंड_वर्तमान(%rip), %r10
-  movq %r10, %rbx
-  movq $0, %rdi
-  jmp .L_सूत्र_आवंटन__if_अंत_25
-.L_सूत्र_आवंटन__if_अंत_25:
+  movq %r10, %rsi
+  movq $0, %r12
+  jmp .L_सूत्र_आवंटन__if_अंत_27
+.L_सूत्र_आवंटन__if_अंत_27:
   movq $32, %r13
-  movq %rbx, %r10
+  movq %rsi, %r10
   addq %r13, %r10
   movq %r10, %r14
   movq %r14, %r10
-  addq %rdi, %r10
+  addq %r12, %r10
   movq %r10, %r13
   movq $8, %r14
-  movq %rdi, %r10
+  movq %r12, %r10
   addq -104(%rbp), %r10
   movq %r10, %r15
-  movq %rbx, %r10
+  movq %rsi, %r10
   movq %r14, %r11
   movq %r15, %r8
   movq %r8, (%r10,%r11)
-  movq %r15, %rdi
-  movq $0, %rbx
+  movq %r15, %r12
+  movq $0, %rsi
   movq %r13, %r10
-  movq %rbx, %r11
+  movq %rsi, %r11
   movq -72(%rbp), %r8
   movq %r8, (%r10,%r11)
-  movq -72(%rbp), %rdi
-  movq $8, %rbx
+  movq -72(%rbp), %r12
+  movq $8, %rsi
   movq %r13, %r10
-  movq %rbx, %r11
-  movq %r12, %r8
+  movq %rsi, %r11
+  movq %rbx, %r8
   movq %r8, (%r10,%r11)
-  movq %r12, %rdi
+  movq %rbx, %r12
   movq sutra_glob_आवंटित_बाइट्स(%rip), %r10
   movq %r10, %rbx
   movq %rbx, %r10
   addq -104(%rbp), %r10
-  movq %r10, %rdi
-  movq %rdi, %r10
+  movq %r10, %rsi
+  movq %rsi, %r10
   movq %r10, sutra_glob_आवंटित_बाइट्स(%rip)
   movq $16, %rbx
   movq %r13, %r10
   addq %rbx, %r10
-  movq %r10, %rdi
-  movq %rdi, %rax
+  movq %r10, %rsi
+  movq %rsi, %rax
   jmp .L_epilogue_सूत्र_आवंटन
-.L_सूत्र_आवंटन__if_सत्य_12:
+.L_सूत्र_आवंटन__if_सत्य_14:
   movq sutra_glob_मुक्त_तालिका(%rip), %r10
   movq %r10, %rbx
-  movq $8, %rdi
+  movq $8, %rsi
   movq -88(%rbp), %r10
-  imulq %rdi, %r10
+  imulq %rsi, %r10
   movq %r10, %r12
-  movq $16, %rdi
-  movq %rsi, %r10
-  movq %rdi, %r11
+  movq $16, %rsi
+  movq %rdi, %r10
+  movq %rsi, %r11
   movq (%r10,%r11), %r10
   movq %r10, %r13
   movq %rbx, %r10
   movq %r12, %r11
   movq %r13, %r8
   movq %r8, (%r10,%r11)
-  movq %r13, %rdi
+  movq %r13, %rsi
   movq $0, %rbx
-  movq %rsi, %r10
+  movq %rdi, %r10
   movq %rbx, %r11
   movq -72(%rbp), %r8
   movq %r8, (%r10,%r11)
-  movq -72(%rbp), %rdi
+  movq -72(%rbp), %rsi
   movq $16, %rbx
-  movq %rsi, %r10
+  movq %rdi, %r10
   addq %rbx, %r10
-  movq %r10, %rdi
+  movq %r10, %rsi
   movq $8, %rbx
-  movq %rsi, %r10
+  movq %rdi, %r10
   movq %rbx, %r11
   movq (%r10,%r11), %r10
   movq %r10, %r12
-  movq %rdi, %rcx
+  movq %rsi, %rcx
   movq %r12, %rdx
   subq $32, %rsp
   call शून्य_भरो
   addq $32, %rsp
   movq %rax, %rbx
   movq $16, %rbx
-  movq %rsi, %r10
+  movq %rdi, %r10
   addq %rbx, %r10
-  movq %r10, %rdi
-  movq %rdi, %rax
+  movq %r10, %rsi
+  movq %rsi, %rax
   jmp .L_epilogue_सूत्र_आवंटन
 .L_epilogue_सूत्र_आवंटन:
   movq -8(%rbp), %rbx
@@ -1738,26 +1755,20 @@
   movq %r10, %rdi
   movq %rdi, %r10
   cmpq $0, %r10
-  je .L_चिह्नित__sc_दायाँ_12
-  jmp .L_चिह्नित__sc_लघु_13
-.L_चिह्नित__sc_दायाँ_12:
+  je .L_चिह्नित__if_असत्य_14
+  jmp .L_चिह्नित__if_सत्य_12
+.L_चिह्नित__if_असत्य_14:
   movq $3, %rsi
   movq %r13, %r10
   cmpq %rsi, %r10
   sete %al
   movzbq %al, %r10
   movq %r10, %rdi
-  movq %rdi, %rsi
-  jmp .L_चिह्नित__sc_अंत_14
-.L_चिह्नित__sc_लघु_13:
-  movq $1, %rsi
-  jmp .L_चिह्नित__sc_अंत_14
-.L_चिह्नित__sc_अंत_14:
-  movq %rsi, %r10
+  movq %rdi, %r10
   cmpq $0, %r10
-  je .L_चिह्नित__if_असत्य_17
-  jmp .L_चिह्नित__if_सत्य_15
-.L_चिह्नित__if_असत्य_17:
+  je .L_चिह्नित__if_असत्य_22
+  jmp .L_चिह्नित__if_सत्य_20
+.L_चिह्नित__if_असत्य_22:
   movq $4, %rsi
   movq %r13, %r10
   cmpq %rsi, %r10
@@ -1766,9 +1777,9 @@
   movq %r10, %rdi
   movq %rdi, %r10
   cmpq $0, %r10
-  je .L_चिह्नित__if_अंत_16
-  jmp .L_चिह्नित__if_सत्य_21
-.L_चिह्नित__if_सत्य_21:
+  je .L_चिह्नित__if_अंत_13
+  jmp .L_चिह्नित__if_सत्य_26
+.L_चिह्नित__if_सत्य_26:
   movq $0, %rsi
   movq %rbx, %r10
   movq %rsi, %r11
@@ -1787,17 +1798,17 @@
   movq %r10, %r13
   movq %r13, %r10
   cmpq $0, %r10
-  je .L_चिह्नित__if_अंत_24
-  jmp .L_चिह्नित__if_सत्य_23
-.L_चिह्नित__if_सत्य_23:
+  je .L_चिह्नित__if_अंत_29
+  jmp .L_चिह्नित__if_सत्य_28
+.L_चिह्नित__if_सत्य_28:
   movq %r12, %rcx
   subq $32, %rsp
   call चिह्नित_कच्चा
   addq $32, %rsp
   movq %rax, %rsi
   movq $0, %rsi
-  jmp .L_चिह्नित__wh_शर्त_25
-.L_चिह्नित__wh_शर्त_25:
+  jmp .L_चिह्नित__wh_शर्त_30
+.L_चिह्नित__wh_शर्त_30:
   movq %rsi, %r10
   cmpq %rdi, %r10
   setl %al
@@ -1805,9 +1816,9 @@
   movq %r10, %r13
   movq %r13, %r10
   cmpq $0, %r10
-  je .L_चिह्नित__if_अंत_24
-  jmp .L_चिह्नित__wh_देह_26
-.L_चिह्नित__if_अंत_24:
+  je .L_चिह्नित__if_अंत_29
+  jmp .L_चिह्नित__wh_देह_31
+.L_चिह्नित__if_अंत_29:
   movq $24, %r13
   movq %rbx, %r10
   movq %r13, %r11
@@ -1821,16 +1832,16 @@
   movq %r10, %r15
   movq %r15, %r10
   cmpq $0, %r10
-  je .L_चिह्नित__if_अंत_16
-  jmp .L_चिह्नित__if_सत्य_28
-.L_चिह्नित__if_सत्य_28:
+  je .L_चिह्नित__if_अंत_13
+  jmp .L_चिह्नित__if_सत्य_33
+.L_चिह्नित__if_सत्य_33:
   movq %r14, %rcx
   subq $32, %rsp
   call चिह्नित_कच्चा
   addq $32, %rsp
   movq %rax, %r13
-  jmp .L_चिह्नित__if_अंत_16
-.L_चिह्नित__wh_देह_26:
+  jmp .L_चिह्नित__if_अंत_13
+.L_चिह्नित__wh_देह_31:
   movq $16, %r13
   movq %rsi, %r10
   imulq %r13, %r10
@@ -1866,16 +1877,16 @@
   addq %r13, %r10
   movq %r10, %r14
   movq %r14, %rsi
-  jmp .L_चिह्नित__wh_शर्त_25
-.L_चिह्नित__if_सत्य_15:
+  jmp .L_चिह्नित__wh_शर्त_30
+.L_चिह्नित__if_सत्य_20:
   movq $8, %rsi
   movq %rbx, %r10
   movq %rsi, %r11
   movq (%r10,%r11), %r10
   movq %r10, %rdi
   movq $0, %rsi
-  jmp .L_चिह्नित__wh_शर्त_18
-.L_चिह्नित__wh_शर्त_18:
+  jmp .L_चिह्नित__wh_शर्त_23
+.L_चिह्नित__wh_शर्त_23:
   movq %rsi, %r10
   cmpq %rdi, %r10
   setl %al
@@ -1883,13 +1894,9 @@
   movq %r10, %r12
   movq %r12, %r10
   cmpq $0, %r10
-  je .L_चिह्नित__if_अंत_16
-  jmp .L_चिह्नित__wh_देह_19
-.L_चिह्नित__if_अंत_16:
-  movq $0, %r12
-  movq %r12, %rax
-  jmp .L_epilogue_चिह्नित
-.L_चिह्नित__wh_देह_19:
+  je .L_चिह्नित__if_अंत_13
+  jmp .L_चिह्नित__wh_देह_24
+.L_चिह्नित__wh_देह_24:
   movq $16, %r12
   movq $8, %r13
   movq %rsi, %r10
@@ -1912,7 +1919,70 @@
   addq %r12, %r10
   movq %r10, %r13
   movq %r13, %rsi
-  jmp .L_चिह्नित__wh_शर्त_18
+  jmp .L_चिह्नित__wh_शर्त_23
+.L_चिह्नित__if_सत्य_12:
+  movq $8, %rsi
+  movq %rbx, %r10
+  movq %rsi, %r11
+  movq (%r10,%r11), %r10
+  movq %r10, %rdi
+  movq $16, %rsi
+  movq %rbx, %r10
+  movq %rsi, %r11
+  movq (%r10,%r11), %r10
+  movq %r10, %r12
+  movq $0, %rbx
+  movq %r12, %r10
+  cmpq %rbx, %r10
+  setne %al
+  movzbq %al, %r10
+  movq %r10, %rsi
+  movq %rsi, %r10
+  cmpq $0, %r10
+  je .L_चिह्नित__if_अंत_13
+  jmp .L_चिह्नित__if_सत्य_15
+.L_चिह्नित__if_सत्य_15:
+  movq %r12, %rcx
+  subq $32, %rsp
+  call चिह्नित_कच्चा
+  addq $32, %rsp
+  movq %rax, %rbx
+  movq $0, %rbx
+  jmp .L_चिह्नित__wh_शर्त_17
+.L_चिह्नित__wh_शर्त_17:
+  movq %rbx, %r10
+  cmpq %rdi, %r10
+  setl %al
+  movzbq %al, %r10
+  movq %r10, %rsi
+  movq %rsi, %r10
+  cmpq $0, %r10
+  je .L_चिह्नित__if_अंत_13
+  jmp .L_चिह्नित__wh_देह_18
+.L_चिह्नित__if_अंत_13:
+  movq $0, %rsi
+  movq %rsi, %rax
+  jmp .L_epilogue_चिह्नित
+.L_चिह्नित__wh_देह_18:
+  movq $8, %rsi
+  movq %rbx, %r10
+  imulq %rsi, %r10
+  movq %r10, %r13
+  movq %r12, %r10
+  movq %r13, %r11
+  movq (%r10,%r11), %r10
+  movq %r10, %rsi
+  movq %rsi, %rcx
+  subq $32, %rsp
+  call चिह्नित
+  addq $32, %rsp
+  movq %rax, %r13
+  movq $1, %rsi
+  movq %rbx, %r10
+  addq %rsi, %r10
+  movq %r10, %r13
+  movq %r13, %rbx
+  jmp .L_चिह्नित__wh_शर्त_17
 .L_चिह्नित__if_सत्य_10:
   movq $0, %rbx
   movq %rbx, %rax
@@ -2053,9 +2123,28 @@
   movq %r10, %rsi
   movq %rsi, %r10
   cmpq $0, %r10
-  je .L_सूत्र_संग्रह__if_अंत_22
-  jmp .L_सूत्र_संग्रह__if_सत्य_21
-.L_सूत्र_संग्रह__if_सत्य_21:
+  je .L_सूत्र_संग्रह__sc_लघु_22
+  jmp .L_सूत्र_संग्रह__sc_दायाँ_21
+.L_सूत्र_संग्रह__sc_लघु_22:
+  movq $0, %rbx
+  jmp .L_सूत्र_संग्रह__sc_अंत_23
+.L_सूत्र_संग्रह__sc_दायाँ_21:
+  movq sutra_glob_जीसी_सीमा(%rip), %r10
+  movq %r10, %rbx
+  movq $17179869184, %rsi
+  movq %rbx, %r10
+  cmpq %rsi, %r10
+  setl %al
+  movzbq %al, %r10
+  movq %r10, %r14
+  movq %r14, %rbx
+  jmp .L_सूत्र_संग्रह__sc_अंत_23
+.L_सूत्र_संग्रह__sc_अंत_23:
+  movq %rbx, %r10
+  cmpq $0, %r10
+  je .L_सूत्र_संग्रह__if_अंत_25
+  jmp .L_सूत्र_संग्रह__if_सत्य_24
+.L_सूत्र_संग्रह__if_सत्य_24:
   movq sutra_glob_जीसी_सीमा(%rip), %r10
   movq %r10, %rbx
   movq $2, %rsi
@@ -2064,8 +2153,8 @@
   movq %r10, %r14
   movq %r14, %r10
   movq %r10, sutra_glob_जीसी_सीमा(%rip)
-  jmp .L_सूत्र_संग्रह__if_अंत_22
-.L_सूत्र_संग्रह__if_अंत_22:
+  jmp .L_सूत्र_संग्रह__if_अंत_25
+.L_सूत्र_संग्रह__if_अंत_25:
   movq $0, %rbx
   movq %rbx, %rax
   jmp .L_epilogue_सूत्र_संग्रह
