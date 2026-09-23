@@ -1535,6 +1535,23 @@
   jmp .L_चिह्नित_कच्चा__if_सत्य_1
 .L_चिह्नित_कच्चा__if_अंत_2:
   movq $16, %rsi
+  movq %rbx, %rax
+  movq %rsi, %r10
+  cqto
+  idivq %r10
+  movq %rdx, %rdi
+  movq $0, %rsi
+  movq %rdi, %r10
+  cmpq %rsi, %r10
+  setne %al
+  movzbq %al, %r10
+  movq %r10, %r12
+  movq %r12, %r10
+  cmpq $0, %r10
+  je .L_चिह्नित_कच्चा__if_अंत_4
+  jmp .L_चिह्नित_कच्चा__if_सत्य_3
+.L_चिह्नित_कच्चा__if_अंत_4:
+  movq $16, %rsi
   movq %rbx, %r10
   subq %rsi, %r10
   movq %r10, %rdi
@@ -1550,9 +1567,9 @@
   movq %r10, %rsi
   movq %rsi, %r10
   cmpq $0, %r10
-  je .L_चिह्नित_कच्चा__if_अंत_4
-  jmp .L_चिह्नित_कच्चा__if_सत्य_3
-.L_चिह्नित_कच्चा__if_अंत_4:
+  je .L_चिह्नित_कच्चा__if_अंत_6
+  jmp .L_चिह्नित_कच्चा__if_सत्य_5
+.L_चिह्नित_कच्चा__if_अंत_6:
   movq $0, %rbx
   movq %rdi, %r10
   movq %rbx, %r11
@@ -1572,9 +1589,9 @@
   movq %r10, %r13
   movq %r13, %r10
   cmpq $0, %r10
-  je .L_चिह्नित_कच्चा__sc_दायाँ_5
-  jmp .L_चिह्नित_कच्चा__sc_लघु_6
-.L_चिह्नित_कच्चा__sc_दायाँ_5:
+  je .L_चिह्नित_कच्चा__sc_दायाँ_7
+  jmp .L_चिह्नित_कच्चा__sc_लघु_8
+.L_चिह्नित_कच्चा__sc_दायाँ_7:
   movq $4, %rbx
   movq %r12, %r10
   cmpq %rbx, %r10
@@ -1582,16 +1599,16 @@
   movzbq %al, %r10
   movq %r10, %r13
   movq %r13, %rbx
-  jmp .L_चिह्नित_कच्चा__sc_अंत_7
-.L_चिह्नित_कच्चा__sc_लघु_6:
+  jmp .L_चिह्नित_कच्चा__sc_अंत_9
+.L_चिह्नित_कच्चा__sc_लघु_8:
   movq $1, %rbx
-  jmp .L_चिह्नित_कच्चा__sc_अंत_7
-.L_चिह्नित_कच्चा__sc_अंत_7:
+  jmp .L_चिह्नित_कच्चा__sc_अंत_9
+.L_चिह्नित_कच्चा__sc_अंत_9:
   movq %rbx, %r10
   cmpq $0, %r10
-  je .L_चिह्नित_कच्चा__if_अंत_9
-  jmp .L_चिह्नित_कच्चा__if_सत्य_8
-.L_चिह्नित_कच्चा__if_अंत_9:
+  je .L_चिह्नित_कच्चा__if_अंत_11
+  jmp .L_चिह्नित_कच्चा__if_सत्य_10
+.L_चिह्नित_कच्चा__if_अंत_11:
   movq $256, %rbx
   movq %rsi, %r10
   cmpq %rbx, %r10
@@ -1600,9 +1617,9 @@
   movq %r10, %r13
   movq %r13, %r10
   cmpq $0, %r10
-  je .L_चिह्नित_कच्चा__if_अंत_11
-  jmp .L_चिह्नित_कच्चा__if_सत्य_10
-.L_चिह्नित_कच्चा__if_सत्य_10:
+  je .L_चिह्नित_कच्चा__if_अंत_13
+  jmp .L_चिह्नित_कच्चा__if_सत्य_12
+.L_चिह्नित_कच्चा__if_सत्य_12:
   movq $0, %rbx
   movq $256, %rsi
   movq %r12, %r10
@@ -1613,12 +1630,16 @@
   movq %r13, %r8
   movq %r8, (%r10,%r11)
   movq %r13, %rsi
-  jmp .L_चिह्नित_कच्चा__if_अंत_11
-.L_चिह्नित_कच्चा__if_अंत_11:
+  jmp .L_चिह्नित_कच्चा__if_अंत_13
+.L_चिह्नित_कच्चा__if_अंत_13:
   movq $0, %rbx
   movq %rbx, %rax
   jmp .L_epilogue_चिह्नित_कच्चा
-.L_चिह्नित_कच्चा__if_सत्य_8:
+.L_चिह्नित_कच्चा__if_सत्य_10:
+  movq $0, %rbx
+  movq %rbx, %rax
+  jmp .L_epilogue_चिह्नित_कच्चा
+.L_चिह्नित_कच्चा__if_सत्य_5:
   movq $0, %rbx
   movq %rbx, %rax
   jmp .L_epilogue_चिह्नित_कच्चा
@@ -1669,6 +1690,23 @@
   jmp .L_चिह्नित__if_सत्य_1
 .L_चिह्नित__if_अंत_2:
   movq $16, %rsi
+  movq %rbx, %rax
+  movq %rsi, %r10
+  cqto
+  idivq %r10
+  movq %rdx, %rdi
+  movq $0, %rsi
+  movq %rdi, %r10
+  cmpq %rsi, %r10
+  setne %al
+  movzbq %al, %r10
+  movq %r10, %r12
+  movq %r12, %r10
+  cmpq $0, %r10
+  je .L_चिह्नित__if_अंत_4
+  jmp .L_चिह्नित__if_सत्य_3
+.L_चिह्नित__if_अंत_4:
+  movq $16, %rsi
   movq %rbx, %r10
   subq %rsi, %r10
   movq %r10, %rdi
@@ -1684,9 +1722,9 @@
   movq %r10, %r12
   movq %r12, %r10
   cmpq $0, %r10
-  je .L_चिह्नित__if_अंत_4
-  jmp .L_चिह्नित__if_सत्य_3
-.L_चिह्नित__if_अंत_4:
+  je .L_चिह्नित__if_अंत_6
+  jmp .L_चिह्नित__if_सत्य_5
+.L_चिह्नित__if_अंत_6:
   movq $0, %rsi
   movq %rdi, %r10
   movq %rsi, %r11
@@ -1706,9 +1744,9 @@
   movq %r10, %r14
   movq %r14, %r10
   cmpq $0, %r10
-  je .L_चिह्नित__sc_दायाँ_5
-  jmp .L_चिह्नित__sc_लघु_6
-.L_चिह्नित__sc_दायाँ_5:
+  je .L_चिह्नित__sc_दायाँ_7
+  jmp .L_चिह्नित__sc_लघु_8
+.L_चिह्नित__sc_दायाँ_7:
   movq $4, %rsi
   movq %r13, %r10
   cmpq %rsi, %r10
@@ -1716,16 +1754,16 @@
   movzbq %al, %r10
   movq %r10, %r14
   movq %r14, %rsi
-  jmp .L_चिह्नित__sc_अंत_7
-.L_चिह्नित__sc_लघु_6:
+  jmp .L_चिह्नित__sc_अंत_9
+.L_चिह्नित__sc_लघु_8:
   movq $1, %rsi
-  jmp .L_चिह्नित__sc_अंत_7
-.L_चिह्नित__sc_अंत_7:
+  jmp .L_चिह्नित__sc_अंत_9
+.L_चिह्नित__sc_अंत_9:
   movq %rsi, %r10
   cmpq $0, %r10
-  je .L_चिह्नित__if_अंत_9
-  jmp .L_चिह्नित__if_सत्य_8
-.L_चिह्नित__if_अंत_9:
+  je .L_चिह्नित__if_अंत_11
+  jmp .L_चिह्नित__if_सत्य_10
+.L_चिह्नित__if_अंत_11:
   movq $256, %rsi
   movq %r12, %r10
   cmpq %rsi, %r10
@@ -1734,9 +1772,9 @@
   movq %r10, %r14
   movq %r14, %r10
   cmpq $0, %r10
-  je .L_चिह्नित__if_अंत_11
-  jmp .L_चिह्नित__if_सत्य_10
-.L_चिह्नित__if_अंत_11:
+  je .L_चिह्नित__if_अंत_13
+  jmp .L_चिह्नित__if_सत्य_12
+.L_चिह्नित__if_अंत_13:
   movq $0, %rsi
   movq $256, %r12
   movq %r13, %r10
@@ -1755,9 +1793,9 @@
   movq %r10, %rdi
   movq %rdi, %r10
   cmpq $0, %r10
-  je .L_चिह्नित__if_असत्य_14
-  jmp .L_चिह्नित__if_सत्य_12
-.L_चिह्नित__if_असत्य_14:
+  je .L_चिह्नित__if_असत्य_16
+  jmp .L_चिह्नित__if_सत्य_14
+.L_चिह्नित__if_असत्य_16:
   movq $3, %rsi
   movq %r13, %r10
   cmpq %rsi, %r10
@@ -1766,9 +1804,9 @@
   movq %r10, %rdi
   movq %rdi, %r10
   cmpq $0, %r10
-  je .L_चिह्नित__if_असत्य_22
-  jmp .L_चिह्नित__if_सत्य_20
-.L_चिह्नित__if_असत्य_22:
+  je .L_चिह्नित__if_असत्य_24
+  jmp .L_चिह्नित__if_सत्य_22
+.L_चिह्नित__if_असत्य_24:
   movq $4, %rsi
   movq %r13, %r10
   cmpq %rsi, %r10
@@ -1777,9 +1815,9 @@
   movq %r10, %rdi
   movq %rdi, %r10
   cmpq $0, %r10
-  je .L_चिह्नित__if_अंत_13
-  jmp .L_चिह्नित__if_सत्य_26
-.L_चिह्नित__if_सत्य_26:
+  je .L_चिह्नित__if_अंत_15
+  jmp .L_चिह्नित__if_सत्य_28
+.L_चिह्नित__if_सत्य_28:
   movq $0, %rsi
   movq %rbx, %r10
   movq %rsi, %r11
@@ -1798,17 +1836,17 @@
   movq %r10, %r13
   movq %r13, %r10
   cmpq $0, %r10
-  je .L_चिह्नित__if_अंत_29
-  jmp .L_चिह्नित__if_सत्य_28
-.L_चिह्नित__if_सत्य_28:
+  je .L_चिह्नित__if_अंत_31
+  jmp .L_चिह्नित__if_सत्य_30
+.L_चिह्नित__if_सत्य_30:
   movq %r12, %rcx
   subq $32, %rsp
   call चिह्नित_कच्चा
   addq $32, %rsp
   movq %rax, %rsi
   movq $0, %rsi
-  jmp .L_चिह्नित__wh_शर्त_30
-.L_चिह्नित__wh_शर्त_30:
+  jmp .L_चिह्नित__wh_शर्त_32
+.L_चिह्नित__wh_शर्त_32:
   movq %rsi, %r10
   cmpq %rdi, %r10
   setl %al
@@ -1816,9 +1854,9 @@
   movq %r10, %r13
   movq %r13, %r10
   cmpq $0, %r10
-  je .L_चिह्नित__if_अंत_29
-  jmp .L_चिह्नित__wh_देह_31
-.L_चिह्नित__if_अंत_29:
+  je .L_चिह्नित__if_अंत_31
+  jmp .L_चिह्नित__wh_देह_33
+.L_चिह्नित__if_अंत_31:
   movq $24, %r13
   movq %rbx, %r10
   movq %r13, %r11
@@ -1832,16 +1870,16 @@
   movq %r10, %r15
   movq %r15, %r10
   cmpq $0, %r10
-  je .L_चिह्नित__if_अंत_13
-  jmp .L_चिह्नित__if_सत्य_33
-.L_चिह्नित__if_सत्य_33:
+  je .L_चिह्नित__if_अंत_15
+  jmp .L_चिह्नित__if_सत्य_35
+.L_चिह्नित__if_सत्य_35:
   movq %r14, %rcx
   subq $32, %rsp
   call चिह्नित_कच्चा
   addq $32, %rsp
   movq %rax, %r13
-  jmp .L_चिह्नित__if_अंत_13
-.L_चिह्नित__wh_देह_31:
+  jmp .L_चिह्नित__if_अंत_15
+.L_चिह्नित__wh_देह_33:
   movq $16, %r13
   movq %rsi, %r10
   imulq %r13, %r10
@@ -1877,16 +1915,16 @@
   addq %r13, %r10
   movq %r10, %r14
   movq %r14, %rsi
-  jmp .L_चिह्नित__wh_शर्त_30
-.L_चिह्नित__if_सत्य_20:
+  jmp .L_चिह्नित__wh_शर्त_32
+.L_चिह्नित__if_सत्य_22:
   movq $8, %rsi
   movq %rbx, %r10
   movq %rsi, %r11
   movq (%r10,%r11), %r10
   movq %r10, %rdi
   movq $0, %rsi
-  jmp .L_चिह्नित__wh_शर्त_23
-.L_चिह्नित__wh_शर्त_23:
+  jmp .L_चिह्नित__wh_शर्त_25
+.L_चिह्नित__wh_शर्त_25:
   movq %rsi, %r10
   cmpq %rdi, %r10
   setl %al
@@ -1894,9 +1932,9 @@
   movq %r10, %r12
   movq %r12, %r10
   cmpq $0, %r10
-  je .L_चिह्नित__if_अंत_13
-  jmp .L_चिह्नित__wh_देह_24
-.L_चिह्नित__wh_देह_24:
+  je .L_चिह्नित__if_अंत_15
+  jmp .L_चिह्नित__wh_देह_26
+.L_चिह्नित__wh_देह_26:
   movq $16, %r12
   movq $8, %r13
   movq %rsi, %r10
@@ -1919,8 +1957,8 @@
   addq %r12, %r10
   movq %r10, %r13
   movq %r13, %rsi
-  jmp .L_चिह्नित__wh_शर्त_23
-.L_चिह्नित__if_सत्य_12:
+  jmp .L_चिह्नित__wh_शर्त_25
+.L_चिह्नित__if_सत्य_14:
   movq $8, %rsi
   movq %rbx, %r10
   movq %rsi, %r11
@@ -1939,17 +1977,17 @@
   movq %r10, %rsi
   movq %rsi, %r10
   cmpq $0, %r10
-  je .L_चिह्नित__if_अंत_13
-  jmp .L_चिह्नित__if_सत्य_15
-.L_चिह्नित__if_सत्य_15:
+  je .L_चिह्नित__if_अंत_15
+  jmp .L_चिह्नित__if_सत्य_17
+.L_चिह्नित__if_सत्य_17:
   movq %r12, %rcx
   subq $32, %rsp
   call चिह्नित_कच्चा
   addq $32, %rsp
   movq %rax, %rbx
   movq $0, %rbx
-  jmp .L_चिह्नित__wh_शर्त_17
-.L_चिह्नित__wh_शर्त_17:
+  jmp .L_चिह्नित__wh_शर्त_19
+.L_चिह्नित__wh_शर्त_19:
   movq %rbx, %r10
   cmpq %rdi, %r10
   setl %al
@@ -1957,13 +1995,13 @@
   movq %r10, %rsi
   movq %rsi, %r10
   cmpq $0, %r10
-  je .L_चिह्नित__if_अंत_13
-  jmp .L_चिह्नित__wh_देह_18
-.L_चिह्नित__if_अंत_13:
+  je .L_चिह्नित__if_अंत_15
+  jmp .L_चिह्नित__wh_देह_20
+.L_चिह्नित__if_अंत_15:
   movq $0, %rsi
   movq %rsi, %rax
   jmp .L_epilogue_चिह्नित
-.L_चिह्नित__wh_देह_18:
+.L_चिह्नित__wh_देह_20:
   movq $8, %rsi
   movq %rbx, %r10
   imulq %rsi, %r10
@@ -1982,12 +2020,16 @@
   addq %rsi, %r10
   movq %r10, %r13
   movq %r13, %rbx
-  jmp .L_चिह्नित__wh_शर्त_17
+  jmp .L_चिह्नित__wh_शर्त_19
+.L_चिह्नित__if_सत्य_12:
+  movq $0, %rbx
+  movq %rbx, %rax
+  jmp .L_epilogue_चिह्नित
 .L_चिह्नित__if_सत्य_10:
   movq $0, %rbx
   movq %rbx, %rax
   jmp .L_epilogue_चिह्नित
-.L_चिह्नित__if_सत्य_8:
+.L_चिह्नित__if_सत्य_5:
   movq $0, %rbx
   movq %rbx, %rax
   jmp .L_epilogue_चिह्नित
