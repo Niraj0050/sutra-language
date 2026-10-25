@@ -12,12 +12,12 @@ $passed = 0
 $failed = 0
 
 # 1. Clean up old binaries
-Get-ChildItem -Path $compilerDir -Recurse -Include "*_native.exe", "*.s", "*.o" | Remove-Item -Force
+Get-ChildItem -Path $compilerDir -Recurse -Include "*_native.exe", "*.s", "*.o", "*.सूत्रक" | Remove-Item -Force
 
 # 2. Find positive tests
 $positiveTests = @()
 foreach ($f in (Get-ChildItem -Path $compilerDir -File)) {
-    if ($f.Extension -ne ".exe" -and $f.Extension -ne ".s" -and $f.Extension -ne ".o" -and $f.Extension -ne ".txt" -and $f.Extension -ne ".md") {
+    if ($f.Extension -eq ".सूत्र") {
         $positiveTests += $f
     }
 }

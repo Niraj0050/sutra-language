@@ -27,7 +27,7 @@
 
 KERNEL_LOAD_SEG  equ 0x0000
 KERNEL_LOAD_OFF  equ 0x7E00
-KERNEL_SECTORS   equ 32          ; 16KB हेडरूम — ज़रूरत बढ़े तो बढ़ाओ
+KERNEL_SECTORS   equ 48          ; 24KB हेडरूम — ज़रूरत बढ़े तो बढ़ाओ
 
 start:
     cli
@@ -83,7 +83,15 @@ protected_mode_start:
 
     mov dword [0x1000], 0x2003   ; PML4[0] -> 0x2000, present+write
     mov dword [0x2000], 0x3003   ; PDPT[0] -> 0x3000, present+write
-    mov dword [0x3000], 0x83     ; PD[0]   -> 0x0,    present+write+PS(2MB)
+    mov edi, 0x3000
+    mov eax, 0x83
+    mov ecx, 8
+.map16m:
+    mov [edi], eax
+    add edi, 8
+    add eax, 0x200000
+    dec ecx
+    jnz .map16m
 
     mov eax, 0x1000
     mov cr3, eax
@@ -144,6 +152,27 @@ long_mode_start:
     ; अटके नहीं
     lea rsi, [msg_returned]
     call print_serial
+
+    mov rsi, 0xB8000
+    mov ebx, 12
+.r_loop:
+    mov ecx, 80
+.c_loop:
+    mov al, [rsi]
+    cmp al, 0
+    jne .vok
+    mov al, 32
+.vok:
+    mov dx, 0x3F8
+    out dx, al
+    add rsi, 2
+    dec ecx
+    jnz .c_loop
+
+    mov al, 10
+    out dx, al
+    dec ebx
+    jnz .r_loop
 
 .hang:
     hlt

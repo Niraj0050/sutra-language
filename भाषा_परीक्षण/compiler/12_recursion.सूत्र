@@ -1,35 +1,35 @@
 // Functions (कार्य) Test — Typed, Untyped, Mixed, and Recursive
 
-// 1. Recursive function with typed parameter
+// १. Recursive function with typed parameter
 कार्य क्रमगुणित(संख्या अ) {
-    अगर (अ <= 1) {
-        परत् 1;
+    अगर (अ <= १) {
+        परत् १;
     }
-    परत् अ * क्रमगुणित(अ - 1);
+    परत् अ * क्रमगुणित(अ - १);
 }
 
-// 2. Recursive function with untyped parameter
+// २. Recursive function with untyped parameter
 कार्य फिबोनाची(अ) {
-    अगर (अ <= 0) {
-        परत् 0;
+    अगर (अ <= ०) {
+        परत् ०;
     }
-    अगर (अ == 1) {
-        परत् 1;
+    अगर (अ == १) {
+        परत् १;
     }
-    परत् फिबोनाची(अ - 1) + फिबोनाची(अ - 2);
+    परत् फिबोनाची(अ - १) + फिबोनाची(अ - २);
 }
 
-// 3. Mixed parameter types (typed and untyped)
+// ३. Mixed parameter types (typed and untyped)
 कार्य मिश्रित(संख्या अ, ब) {
     परत् अ + ब;
 }
 
-// 4. Multiple untyped parameters
+// ४. Multiple untyped parameters
 कार्य बहु_अमानक(अ, ब, स) {
     परत् अ * ब * स;
 }
 
-// 5. Multiple typed parameters
+// ५. Multiple typed parameters
 कार्य बहु_मानक(संख्या अ, संख्या ब, संख्या स) {
     परत् अ + ब + स;
 }
@@ -37,41 +37,41 @@
 कार्य मुख्य() {
     लिखतु("=== कार्य एवं पुनरावर्तन (Functions & Recursion) परीक्षण ===");
 
-    // Test 1: Recursive typed
-    मान फ5 = क्रमगुणित(5);
-    अगर (फ5 == 120) {
+    // Test १: Recursive typed
+    मान फ५ = क्रमगुणित(५);
+    अगर (फ५ == १२०) {
         लिखतु("1. क्रमगुणित(5) = 120 (Typed Recursion): सफल (PASS)");
     } अन्यथा {
         लिखतु("1. क्रमगुणित(5): विफल (FAIL)");
     }
 
-    // Test 2: Recursive untyped
-    मान फिब6 = फिबोनाची(6);
-    अगर (फिब6 == 8) {
+    // Test २: Recursive untyped
+    मान फिब६ = फिबोनाची(६);
+    अगर (फिब६ == ८) {
         लिखतु("2. फिबोनाची(6) = 8 (Untyped Recursion): सफल (PASS)");
     } अन्यथा {
         लिखतु("2. फिबोनाची(6): विफल (FAIL)");
     }
 
-    // Test 3: Mixed parameters
-    मान योग = मिश्रित(10, 20);
-    अगर (योग == 30) {
+    // Test ३: Mixed parameters
+    मान योग = मिश्रित(१०, २०);
+    अगर (योग == ३०) {
         लिखतु("3. मिश्रित(10, 20) (Mixed Typed/Untyped): सफल (PASS)");
     } अन्यथा {
         लिखतु("3. मिश्रित(10, 20): विफल (FAIL)");
     }
 
-    // Test 4: Multiple untyped parameters
-    मान गुणन = बहु_अमानक(2, 3, 4);
-    अगर (गुणन == 24) {
+    // Test ४: Multiple untyped parameters
+    मान गुणन = बहु_अमानक(२, ३, ४);
+    अगर (गुणन == २४) {
         लिखतु("4. बहु_अमानक(2, 3, 4) (Multiple Untyped): सफल (PASS)");
     } अन्यथा {
         लिखतु("4. बहु_अमानक(2, 3, 4): विफल (FAIL)");
     }
 
-    // Test 5: Multiple typed parameters
-    मान योग3 = बहु_मानक(10, 20, 30);
-    अगर (योग3 == 60) {
+    // Test ५: Multiple typed parameters
+    मान योग३ = बहु_मानक(१०, २०, ३०);
+    अगर (योग३ == ६०) {
         लिखतु("5. बहु_मानक(10, 20, 30) (Multiple Typed): सफल (PASS)");
     } अन्यथा {
         लिखतु("5. बहु_मानक(10, 20, 30): विफल (FAIL)");

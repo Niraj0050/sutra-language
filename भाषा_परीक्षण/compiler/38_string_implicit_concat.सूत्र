@@ -1,6 +1,6 @@
 ﻿कार्य मुख्य() {
     // Implicit conversion of integer to string
-    पाठ क = "आयु: " + 25;
+    पाठ क = "आयु: " + २५;
     लिखतु(क);
 
     // Implicit conversion of boolean to string

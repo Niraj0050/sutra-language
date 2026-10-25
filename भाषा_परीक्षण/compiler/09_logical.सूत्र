@@ -1,4 +1,4 @@
-// Native Compiler Test 09: Logical Operators (&&, ||, !, तथा, अथवा, न)
+// Native Compiler Test ०९: Logical Operators (&&, ||, !, तथा, अथवा, न)
 कार्य मुख्य() {
     मान अ = सत्य;
     मान ब = असत्य;

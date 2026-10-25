@@ -1,9 +1,9 @@
-﻿// Native Compiler Test 04: Function Declaration & Calls
+﻿// Native Compiler Test ०४: Function Declaration & Calls
 कार्य दुगुना(संख्या क्ष) {
-    परत् क्ष * 2;
+    परत् क्ष * २;
 }
 
 कार्य मुख्य() {
-    मान मान_अंक = दुगुना(21);
+    मान मान_अंक = दुगुना(२१);
     लिखतु(मान_अंक);
 }

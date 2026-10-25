@@ -1,4 +1,4 @@
-// 65_list_reference_semantics.सूत्र — सूची का reference-semantics: growth/shrink के बाद हर alias को
+// ६५_list_reference_semantics.सूत्र — सूची का reference-semantics: growth/shrink के बाद हर alias को
 // अद्यतन दिखे। पहले native पर growth handle को ही move कर देता था, इसलिए
 // `सूची ब = अ; ब = जोड़ें(ब, x);` के बाद `अ` पुराने, dangling पते पर रह जाता था (और GC उसे free
 // कर सकता था); interpreter में हमेशा सही था। interpreter और compiled आउटपुट का एक-सा होना ही कसौटी।

@@ -1,4 +1,4 @@
-// Native Compiler Test 06: Boolean Values
+// Native Compiler Test ०६: Boolean Values
 कार्य मुख्य() {
     मान सक्रिय = सत्य;
     लिखतु(सक्रिय);

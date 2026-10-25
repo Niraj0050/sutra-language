@@ -1,5 +1,5 @@
-// Native Compiler Test 02: Arithmetic
+// Native Compiler Test ०२: Arithmetic
 कार्य मुख्य() {
-    मान परिणाम = 10 + 20 * 2;
+    मान परिणाम = १० + २० * २;
     लिखतु(परिणाम);
 }

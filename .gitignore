@@ -15,6 +15,9 @@ build*/
 out.txt
 err.txt
 scratch/
+scratch*/
+*.सूत्रक
+*.सूत्रकस
 legacy_audit.txt
 test_sutra_file.txt
 sutra/

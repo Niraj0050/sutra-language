@@ -38,7 +38,7 @@ try {
     if ($bootBytes.Length -ne 512) { throw "बूट सेक्टर 512 बाइट्स का नहीं है (मिला: $($bootBytes.Length)) — boot.asm जाँचो" }
 
     $kernelBytes = [System.IO.File]::ReadAllBytes($kernelBinFull)
-    $kernelSectors = 32   # boot.asm का KERNEL_SECTORS — यहाँ भी बदलना अगर वहाँ बदला
+    $kernelSectors = 48   # boot.asm का KERNEL_SECTORS — यहाँ भी बदलना अगर वहाँ बदला
     $maxBytes = $kernelSectors * 512
     if ($kernelBytes.Length -gt $maxBytes) {
         throw "कर्नेल $($kernelBytes.Length) बाइट्स का है, boot.asm सिर्फ़ $maxBytes तक लोड करता — boot.asm में KERNEL_SECTORS बढ़ाओ।"
@@ -61,6 +61,12 @@ try {
         $qemu = "C:\msys64\mingw64\bin\qemu-system-x86_64.exe"
         if (-not (Test-Path $qemu)) { $qemu = (Get-Command qemu-system-x86_64 -ErrorAction SilentlyContinue).Source }
         if (-not $qemu) { throw "qemu-system-x86_64 नहीं मिला — 'pacman -S mingw-w64-x86_64-qemu' से install करो।" }
+
+        # MSYS2 dll निर्भरता सुनिश्चित करो
+        $qemuDir = Split-Path -Parent $qemu
+        if ($env:PATH -notlike "*$qemuDir*") {
+            $env:PATH = "$qemuDir;$env:PATH"
+        }
 
         Remove-Item "serial_out.txt" -ErrorAction SilentlyContinue
         Write-Output "3. QEMU में boot (headless, $Seconds सेकंड)..."

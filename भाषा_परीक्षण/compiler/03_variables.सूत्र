@@ -1,7 +1,7 @@
-// Native Compiler Test 03: Variables & Assignment
+// Native Compiler Test ०३: Variables & Assignment
 कार्य मुख्य() {
-    मान क = 15;
-    मान ख = 25;
+    मान क = १५;
+    मान ख = २५;
     क = क + ख;
     लिखतु(क);
 }

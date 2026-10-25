@@ -1,0 +1,12 @@
+SUTRA-BOOT: long mode ready, entering kernel... KERNEL RETURNED (unexpected) - halting.========================================================================        
+* SUTRA-OS v1.0 (64-BIT LONG MODE) *                                            
+========================================================================        
+[MEM] PAGE POOL: 512 FRAMES [OK]                                                
+[TASK] SCHEDULER READY [OK]                                                     
+[IPC] MAILBOX READY [OK]                                                        
+[SYS] SPAWNED 3 TASKS [OK]                                                      
+------------------------------------------------------------------------        
+------------------------------------------------------------------------        
+[KERNEL] ROUNDS: 10 | SYSCALLS: 33 | MSGS: 10                                   
+[KERNEL] ALL TASKS DONE | FREE PAGES: 512 [OK]                                  
+========================================================================        

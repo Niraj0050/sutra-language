@@ -1,9 +1,9 @@
-// Native Compiler Test 05: Function Returns & Arithmetic
+// Native Compiler Test ०५: Function Returns & Arithmetic
 कार्य योग(संख्या अ, संख्या ब) {
     परत् अ + ब;
 }
 
 कार्य मुख्य() {
-    मान परिणाम = योग(10, 20);
+    मान परिणाम = योग(१०, २०);
     लिखतु(परिणाम);
 }
