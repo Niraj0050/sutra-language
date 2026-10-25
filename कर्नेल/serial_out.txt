@@ -1,5 +1,4 @@
-SUTRA-BOOT: long mode ready, entering kernel... KERNEL RETURNED (unexpected) - halting.========================================================================        
-* SUTRA-OS v1.0 (64-BIT LONG MODE) *                                            
+SUTRA-BOOT: long mode ready, entering kernel... KERNEL RETURNED (unexpected) - halting.* SUTRA-OS v1.0 (64-BIT LONG MODE) *                                            
 ========================================================================        
 [JIV] SEED G1 PROBE [OK]                                                        
 [MEM] PAGE POOL: 512 FRAMES [OK]                                                
@@ -13,10 +12,11 @@ SUTRA-BOOT: long mode ready, entering kernel... KERNEL RETURNED (unexpected) - h
 [KERNEL] ROUNDS: 10 | SYSCALLS: 33 | MSGS: 10                                   
 [KERNEL] ALL TASKS DONE | FREE PAGES: 512 [OK]                                  
 [JIV] G2 HANDOVER [OK]                                                          
-========================================================================        
-                                                                                
-                                                                                
-                                                                                
-                                                                                
-                                                                                
-                                                                                
+------------------------------------------------------------------------        
+[JIV] SHELL DAEMON READY [OK]                                                   
+JIV-OS> HELP                                                                    
+  * CMDS: SENSE, MEM, DISK, TUNE                                                
+JIV-OS> DISK                                                                    
+  * BOOT: 0x85170 [VALID] | TOTAL: 1024                                         
+JIV-OS> TUNE                                                                    
+  * POOL: 512->768 FRAMES | NYAYA [OK]                                          
