@@ -18,6 +18,9 @@ scratch/
 scratch*/
 *.सूत्रक
 *.सूत्रकस
+*सत्यापन*.सूत्र
+*अस्थायी*.सूत्र
+sutra_fs_sections.txt
 legacy_audit.txt
 test_sutra_file.txt
 sutra/

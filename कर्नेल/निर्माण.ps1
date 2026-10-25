@@ -38,7 +38,7 @@ try {
     if ($bootBytes.Length -ne 512) { throw "बूट सेक्टर 512 बाइट्स का नहीं है (मिला: $($bootBytes.Length)) — boot.asm जाँचो" }
 
     $kernelBytes = [System.IO.File]::ReadAllBytes($kernelBinFull)
-    $kernelSectors = 48   # boot.asm का KERNEL_SECTORS — यहाँ भी बदलना अगर वहाँ बदला
+    $kernelSectors = 64   # boot.asm का KERNEL_SECTORS — यहाँ भी बदलना अगर वहाँ बदला
     $maxBytes = $kernelSectors * 512
     if ($kernelBytes.Length -gt $maxBytes) {
         throw "कर्नेल $($kernelBytes.Length) बाइट्स का है, boot.asm सिर्फ़ $maxBytes तक लोड करता — boot.asm में KERNEL_SECTORS बढ़ाओ।"
@@ -87,3 +87,4 @@ try {
 finally {
     Pop-Location
 }
+

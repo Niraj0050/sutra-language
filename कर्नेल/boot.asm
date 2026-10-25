@@ -27,7 +27,7 @@
 
 KERNEL_LOAD_SEG  equ 0x0000
 KERNEL_LOAD_OFF  equ 0x7E00
-KERNEL_SECTORS   equ 48          ; 24KB हेडरूम — ज़रूरत बढ़े तो बढ़ाओ
+KERNEL_SECTORS   equ 64          ; 32KB हेडरूम — ज़रूरत बढ़े तो बढ़ाओ
 
 start:
     cli
@@ -154,7 +154,7 @@ long_mode_start:
     call print_serial
 
     mov rsi, 0xB8000
-    mov ebx, 12
+    mov ebx, 22
 .r_loop:
     mov ecx, 80
 .c_loop:
